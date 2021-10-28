@@ -1,0 +1,143 @@
+;Exported by: A
+;Date:        Fri Oct 18 11:10:51 2019
+;File:        D:\Cold War\Models\SPG-9\spg9.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.6}}
+	}
+	{bone revolute "basis"
+		{parameters "Wheelradius=0.4;"}
+		{speed 0.004}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.284183	-0.012622	13.4976}
+			{VolumeView "body.ply"}
+			{bone "stan2"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-4.4633	0	-1.05162
+				}
+				{VolumeView "stan2.ply"}
+			}
+			{bone "stan1"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					4.74571	0	0.360842
+				}
+				{VolumeView "stan1.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{Position 1.62198	0	1.81683}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-5.24464	0	1.24613
+					}
+					{VolumeView "gun.ply"}
+					{bone "foresight1"
+						{Matrix34
+							1	0	0
+							0	1	0
+							0	0	1
+							35.1421	1.49051	-0.0182369
+						}
+					}
+					{bone "breech"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							-10.5377	1.61068	1.20357
+						}
+						{VolumeView "breech.ply"}
+					}
+				}
+			}
+		}
+		{bone "handle2"
+			{Position 15.9588	-0.125889	18.058}
+		}
+		{bone "driver2"
+			{Position 15.9588	-6.15743	0}
+		}
+		{bone "driver1"
+			{Position -4.11575	6.33115	0}
+		}
+		{bone "gunner"
+			{Position -15.7088	11.7344	0}
+		}
+		{bone "emit1"
+			{Position -15.7088	13.4382	0}
+		}
+		{bone "commander"
+			{Position -11.4856	-14.2697	0}
+		}
+		{bone "emit2"
+			{Position -11.4856	-15.3643	0}
+		}
+		{bone "handle3"
+			{Position -4.11575	-1.65793	18.2009}
+		}
+		{bone "visor"
+			{Matrix34
+				0	-1	0
+				0	0	1
+				-1	0	0
+				-3.80763	-8.89007	18.5161
+			}
+		}
+	}
+}
+{Obstacle "body"
+	{Obb2
+		{Center 0.4947 0.00947416}
+		{Extent 5.29765 2.72991}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "gun"
+	{Obb2
+		{Center 6.50779 0.00929785}
+		{Extent 24.862 1.95772}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Volume "body"
+	{Box 5.45983 3.80296 10.5953}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		0.210517	0.00314781	0.403228
+	}
+}
+{Volume "gun"
+	{Cylinder 1.95772 49.7239}
+	{Bone "gun"}
+	{Matrix34
+		0	0	1
+		0	1	0
+		-1	0	0
+		9.84628	1.4073	-0.00332512
+	}
+}

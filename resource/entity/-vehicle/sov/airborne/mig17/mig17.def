@@ -1,0 +1,99 @@
+{Entity
+        (include "/properties/airborne2.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+
+	{Extension "mig17.mdl"}
+
+        ("armor_light" args 1.0)
+	{Volume "body1"
+                {tags "part"}
+		{thickness 10}
+		{able {visible 0}}
+	}
+	{Volume "body_back"
+                {tags "part"}
+		{thickness 5}
+		{able {visible 0}}
+	}
+	{Volume "body"
+                {tags "part"}
+		{thickness 10}
+		{able {visible 0}}
+	}
+	{Volume "engine"
+                {tags "part"}
+		{thickness 5}
+		{able {visible 0}}
+	}
+	{Volume "retract_wheel2"
+                {tags "part"}
+		{thickness 5}
+		{able {visible 0}}
+	}
+	{Volume "retract_wheell"
+                {tags "part"}
+		{thickness 5}
+		{able {visible 0}}
+	}
+	{Volume "wingl1"
+                {tags "part"}
+		{thickness 5}
+		{able {visible 0}}
+	}
+	{Volume "wingr1"
+                {tags "part"}
+		{thickness 5}
+		{able {visible 0}}
+	}
+
+        {boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open1"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open1" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+        {Chassis
+		{Locomotion ("locomotion")
+			{Maxspeed 90}
+			{TurnTime  	 2}
+			{turnRadius 12}
+		}
+
+		{maxSideSlope 45} ;degree
+		{sideSlopeSpeed 60}
+		{maxElevationSpeed 35}
+		{elevationAcceleration 7}
+    		{speed
+        			{Slow   	0.1}   ; km/h
+        			{Normal 	0.1}
+        			{Fast   	40}
+    		}
+	}
+        	{extender "inventory"
+		{box
+			{item "bullet23 zenite" 1000}
+		}
+	}
+        {Weaponry
+		{place "gun"
+			{weapon "23mm_Nr23" filled}
+			{barrels 3}
+			{gunner "driver"}
+			{charger "driver"}
+		}
+	}
+
+	{Sensor
+		{Visor "main"
+			{bone "visor1"}
+		}
+	}
+}

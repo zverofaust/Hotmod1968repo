@@ -1,0 +1,69 @@
+;Exported by: Martin
+;Date:        Fri Feb 16 11:40:50 2018
+;File:        F:\Work\Digitalmindsoft\Work\Modeling\Weapons\RPG-7\RPG-7_rocket.max
+{Skeleton
+	{bone "rpg7_rocket"
+		{parameters "ID=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{LODView
+			{VolumeView "rpg7_rocket.ply"}
+			{VolumeView "rpg7_rocket_lod1.ply"}
+		}
+		{bone "tail"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-8.39949	0.00488814	-0.000959635
+			}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 0.572861 16.8874}
+	{Bone "rpg7_rocket"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		0.366049	0.00458267	0.0354879
+	}
+}
+{Volume "select"
+	{Box 21.3173 8.32201 5.99992}
+	{Bone "rpg7_rocket"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0.0485313	-0.104952	0.237152
+	}
+}
+{Extender "preview"
+	{"Stuff"
+		{camera
+			{origin 0.0451153	139.222	0.224459}
+			{lookat -0.0181315	-0.00867462	0.00744021}
+			{fov 7.35648}
+			{horizon 0.0197823}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.232022	-0.353995	-0.266182}
+			}
+			{"1"
+				{type directional}
+				{direction 0.453301	0.0208016	-0.209965}
+			}
+			{"2"
+				{type directional}
+				{direction -0.0998385	0.131562	0.471937}
+			}
+		}
+	}
+}

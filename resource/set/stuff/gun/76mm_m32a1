@@ -1,0 +1,26 @@
+;_________________________________________
+; USA Light AT gun
+;=========================================
+
+
+{from "pattern gun"			; L/42 "M32A1"
+	{filling "bulletusa_76"}
+	{fireSound "gun/gun_75_105"}
+	{fireSoundclose "gun/gun_interior/size3"}
+	{reloadSound "interior/large/medium_reload_interior"}
+	("range_200")
+	{calibre 76}
+
+	("reload time" seconds(7.5))
+
+	("velocity m/s" ap(975) apcr(1234) he(732) heat(0))
+	("armor health" damage(200))
+
+	; M339 Shot
+	("shell_data_165" shell(ap) range(200) a(177) b(159) c(143) d(129) e(116))  ;RHA
+
+	; M331A2 Shot 
+	("shell_data_165" shell(apcr) range(200) a(232) b(212) c(193) d(163) e(137))	;
+
+	("accuracy_direct_200m" r1(0.88) range_ap(200) range_he(200) range_heat(180))
+}

@@ -1,0 +1,43 @@
+{from "pattern reactive_ammo"
+	{tag "big mortar fg itemin2hands"}
+	{inventory
+		{size 6 1}
+		{weight 100}
+	}
+	{entity "9m22u_ammo"}
+	{mass 42}
+
+	{view "9m22u_ammo"
+		{tail "rocket_smoke_bm13" "tail"}
+	}
+	
+	{damage blastwave
+		{energy 10}
+		{area 1 2}
+		{ground_interaction_radius 0.4}
+	}
+	
+	{damage add blastwave
+		{energy 3}
+		{area 6 12}
+		{ground_interaction_radius 0}
+	}
+
+	{damage add blastwave
+		{energy 1.5}
+		{area 10 16}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+
+	{possibleDamageRadius 30}
+}
+
+
+;		{energy 14}
+;		{area 1.12 2.24}
+
+;		{energy 4.9}
+;		{area 7 11.9}
+
+;		{energy 1.5}
+;		{area 11.9 21}

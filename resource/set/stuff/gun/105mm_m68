@@ -1,0 +1,26 @@
+;_________________________________________
+; USSR heavy long-barreled AT Gun
+;=========================================
+
+
+{from "pattern gun"			; L/52 "M60"
+	{filling "bulletusa_105"}
+	{fireSound "gun/gun_75_105"}
+	{fireSoundclose "interior/large/big_reload_interior"}
+	{reloadSound "tank/reload_big"}
+	("range_300")
+	{calibre 100}
+
+	("reload time" seconds(12))
+
+	("velocity m/s" ap(1) apcr(1478) he(732) heat(1173))
+	("armor health" damage(300))
+
+	; M392A2 APDS
+	("shell_data_215" shell(apds) range(300) a(303) b(296) c(277) d(257) e(252))  ;RHA
+
+	; M456 HEATFS
+	("shell_data_215" shell(heat) range(280) a(400) b(400) c(400) d(400) e(400))  ;RHA
+
+	("accuracy_direct_200m" r1(0.50) range_ap(300) range_he(300) range_heat(280))
+}

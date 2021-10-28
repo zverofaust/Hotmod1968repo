@@ -1,0 +1,131 @@
+;Exported by: Art
+;Date:        Tue Apr 24 11:08:10 2018
+;File:        E:\Autodesk\Low poly\freelance\DMS 2.0\Weapon 2.0\AKM\Export\AKM.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.8}}
+	}
+	{bone "akm"
+		{parameters "ID=mgun;"}
+		{Matrix34
+			1	0	0
+			0	-1	0
+			0	0	1
+			-0.8	0	0
+		}
+		{LODView
+			{VolumeView "akm.ply"}
+			{VolumeView "akm_lod1.ply"}
+			{VolumeView "akm_lod2.ply"}
+			{VolumeView "akm_lod3.ply"}
+		}
+		{bone "magazine"
+			{Position 3.71924	-1.22242	-0.00377379}
+			{LODView
+				{VolumeView "magazine.ply"}
+				{VolumeView "magazine_lod1.ply"}
+				{VolumeView "magazine_lod2.ply"}
+				{VolumeView "magazine_lod3.ply"}
+			}
+		}
+		{bone "shutter"
+			{Position 4.7592	1.42739	0.251337}
+			{LODView
+				{VolumeView "shutter.ply"}
+				{VolumeView "shutter_lod1.ply"}
+				{VolumeView "shutter_lod2.ply"}
+				{VolumeView "shutter_lod3.ply"}
+			}
+		}
+		{bone "foresight12"
+			{Position 12.2023	1.08152	0.00179619}
+		}
+		{bone "handle"
+			{Matrix34
+				1	0	0
+				0	0	-1
+				0	1	0
+				1.52683	1.80026	-0.00340317
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	-0.978148	0.207908
+				-1	0	0
+				0	-0.207908	-0.978148
+				3.77824	1.33194	0.209147
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 16.9274 4.9782 1.18138}
+	{Bone "akm"}
+	{Matrix34
+		0.999657	0.0261769	0
+		-0.0261769	0.999657	0
+		0	0	1
+		3.70682	-0.0707787	0.0704778
+	}
+}
+{Volume "magazine"
+	{Polyhedron "magazine.vol"}
+	{Bone "magazine"}
+	{Matrix34
+		0.906308	0.422618	0
+		-0.422618	0.906308	0
+		0	0	1
+		-0.0922538	0.159744	-0.313686
+	}
+}
+{Volume "select"
+	{Box 23.1833 9.11718 2.39379}
+	{Bone "akm"}
+	{Position 4.12674	0.389304	0.0020256}
+}
+{Extender "preview"
+	{"Stuff"
+		{camera
+			{origin 3.69228	-2.1263	42.4531}
+			{lookat 3.69229	-0.126395	0.0161336}
+			{fov 23.9132}
+			{horizon -172.326}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 13.7916	-10.4029	18.2801}
+			}
+			{"1"
+				{type directional}
+				{direction -0.00294095	0.418475	-0.273625}
+			}
+			{"2"
+				{type point}
+				{position 2.82093	2.99877	1.85589}
+			}
+		}
+	}
+	{"Stuff_primary"
+		{camera
+			{origin 3.8707	-1.0429	44.2105}
+			{lookat 3.87071	-0.0777106	0.0182546}
+			{fov 23.9132}
+			{horizon -174.326}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 2.82093	9.50824	2.74103}
+			}
+			{"1"
+				{type point}
+				{position 11.95	-7.88728	20.2469}
+			}
+			{"2"
+				{type directional}
+				{direction 0.000725076	0.410639	-0.285263}
+			}
+		}
+	}
+}

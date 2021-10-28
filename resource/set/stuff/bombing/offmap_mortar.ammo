@@ -1,0 +1,18 @@
+{from "air_bomb"
+	{tag "shell size2 fg he -bomb"}
+	{inventory
+		{noView}
+	}
+	{damage blastwave
+		{energy 6}
+		{area 1 2.5}
+		{ground_interaction_radius 0.2}
+	}
+	{damage add blastwave
+		{energy 2}
+		{area 5 11}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+
+	{entity "offmap_mortar"}
+}

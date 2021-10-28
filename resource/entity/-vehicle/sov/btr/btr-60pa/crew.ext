@@ -1,0 +1,58 @@
+{boarder
+	{anm "driver_l"
+		{forward	{begin	"board_tank_right"} {end "seat_driver_car"} {base "open_l1"}}
+		{reverse	{end	"emit_tank_2_hold"} {base "open_l1" -1}}
+	}
+	{anm "driver_r"
+		{forward	{begin	"board_tank_left"} {end "seat_driver_car"} {base "open_r1"}}
+		{reverse	{end	"emit_tank_2_hold"} {base "open_r1" -1}}
+	}
+	{anm "commander_l"
+		{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"} {base "open_l1"}}
+		{reverse	{end	"emit_tank_2_hold"} {base "open_f" -1}}
+	}
+	{anm "commander_r"
+		{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"} {base "open_r1"}}
+		{reverse	{end	"emit_tank_2_hold"} {base "open_f" -1}}
+	}
+	{anm "passenger_left"
+		{forward	{begin	"board_tank_right"} {end "seat_passenger"} {base "open_l1"}}
+		{reverse	{end	"emit_tank_2_hold"} {base "open_l1" -1}}
+	}
+	{anm "passenger_right"
+		{forward	{begin	"board_tank_left"} {end "seat_passenger"} {base "open_r1"}}
+		{reverse	{end	"emit_tank_2_hold"} {base "open_r1" -1}}
+	}
+	{anm "passenger_left1"
+		{forward	{begin	"board_tank_right"} {end "seat_passenger"} {base "open_r2"}}
+		{reverse	{end	"emit_tank_2_hold"} {base "open_r2" -1}}
+	}
+	{anm "passenger_right1"
+		{forward	{begin	"board_tank_left"} {end "seat_passenger"} {base "open_l2"}}
+		{reverse	{end	"emit_tank_2_hold"} {base "open_l2" -1}}
+	}
+}
+
+(define "passenger_invis"
+	{placer
+		{place "%place" {group "passenger"}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew"		place(driver)	bone(driver)	door(emit1)					animation(driver_l) 		visor(driver)	off({sensor}))
+("crew"		place(gunner2) bone(gunner2)  	door(emit1) door2(emit2)    animation(commander_l) animation2(commander_r)   visor(mgun)		off())
+
+("passenger_invis"		place(passenger1)	door(emit1)			animation(passenger_left)							)
+("passenger_invis"		place(passenger2)	door(emit2)			animation(passenger_right)							)
+("passenger_invis"		place(passenger3)	door(emit1)			animation(passenger_left)							)
+("passenger_invis"		place(passenger4)	door(emit2)			animation(passenger_right)							)
+("passenger_invis"		place(passenger5)	door(emit1)			animation(passenger_left)							)
+("passenger_invis"		place(passenger6)	door(emit2)			animation(passenger_right)							)
+("passenger_invis"		place(passenger7)	door(emit3)			animation(passenger_left1)							)
+("passenger_invis"		place(passenger8)	door(emit4)			animation(passenger_right1)							)
+("passenger_invis"		place(passenger9)	door(emit3)			animation(passenger_left1)							)
+("passenger_invis"		place(passenger10)	door(emit4)			animation(passenger_right1)							)

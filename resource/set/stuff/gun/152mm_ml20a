@@ -1,0 +1,31 @@
+;_________________________________________
+; Russian heavy SPG gun
+;=========================================
+
+
+{from "pattern gun"			; L/29 "su152" "isu152"
+	{tag "agf howitzer"}
+	{filling "bulletrus_152"}
+	{fireSound "gun/gun_122_152"}
+	{fireSoundclose "gun/gun_interior/size4"}
+	{reloadSound "interior/large/howitzer_reload_interior"}
+	("range_210_howitzer")
+	{calibre 152}
+
+	("reload time" seconds(25))
+
+	("velocity m/s" ap(600) apcr(1) he(600) heat(1))
+	("armor health" damage(450))
+	("armor health custom_400" shell(aphe) damage(450) filler(660))
+	("armor health custom_400" shell(aphebc) damage(450) filler(480))
+
+	; BR-540
+	("shell_data_165" shell(aphe) range(210) a(165) b(152) c(137) d(124) e(111))  ;RHA
+ ;//("shell_data_165" shell(aphe) range(210) a(146) b(135) c(122) d(109) e(99))   ;FHA
+
+	; BR-540B ;issued July. 1944 or possible earlier
+	("shell_data_165" shell(aphebc) range(210) a(135) b(128) c(119) d(114) e(110))  ;RHA
+ ;//("shell_data_165" shell(aphebc) range(210) a(148) b(142) c(135) d(128) e(122))  ;FHA
+
+	("accuracy_direct_200m_how" r1(0.95) range_ap(210) range_he(210) range_heat(210))
+}

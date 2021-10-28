@@ -1,0 +1,28 @@
+;_________________________________________
+; USSR heavy long-barreled AT Gun
+;=========================================
+
+
+{from "pattern gun"			; L/52 "T-55"
+	{filling "bulletrus_100"}
+	{fireSound "gun/gun_75_105"}
+	{fireSoundclose "interior/large/big_reload_interior"}
+	{reloadSound "tank/reload_big"}
+	("range_270")
+	{calibre 100}
+
+	("reload time" seconds(10))
+
+	("velocity m/s" ap(887) apcr(1415) he(880) heat(1085))
+	("armor health" damage(300))
+	("armor health custom" shell(aphe) damage(300) filler(93))
+	("armor health custom" shell(apds) damage(300) filler(0))
+
+	; 3BM-8
+	("shell_data_215" shell(apds) range(270) a(299) b(291) c(272) d(253) e(249))  ;RHA
+ 
+	; 3BK17M
+	("shell_data_215" shell(heat) range(270) a(390) b(390) c(390) d(390) e(390))
+
+	("accuracy_direct_200m" r1(0.55) range_ap(270) range_he(250) range_heat(250))
+}

@@ -1,0 +1,85 @@
+;Exported by:	 Carlos
+;Date:			 07.02.2021 17:38:01
+;File:			 T:\GoH_3D_human_export\3d_ammunition\ordnance\sprengbombe_cylindrisch_250\sc250_export.max
+{skeleton
+	{animation
+		{sequence "start" {speed 1}}
+	}
+	{bone "bomb"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{LODView
+			{VolumeView "bomb.ply"}
+			{VolumeView "bomb_lod1.ply"}
+		}
+	}
+}
+{volume "body"
+	{cylinder 3.69902 33.8976}
+	{bone "bomb"}
+	{matrix34
+		0 	 -1 	 0
+		0 	 0 	 1
+		-1 	 0 	 0
+		-1.823 	 -0.0579 	 -0.0445
+	}
+}
+{volume "select"
+	{cylinder 5.43755 34.4485}
+	{bone "bomb"}
+	{matrix34
+		0 	 -1 	 0
+		0 	 0 	 1
+		-1 	 0 	 0
+		-2.9212 	 -0.0579 	 -0.0445
+	}
+}
+{extender "preview"
+	{"stuff"
+		{camera
+			{origin -3.4867 	 -41.5305 	 5.8697}
+			{lookat -3.7218 	 -0.76 	 -1.1352}
+			{fov 45}
+			{horizon 0.470638}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 6.1588 	 -3.3594 	 50.899}
+			}
+			{"1"
+				{type directional}
+				{direction -0.01 	 0.4999 	 0.0036}
+			}
+			{"2"
+				{type point}
+				{position 13.7674 	 -72.1885 	 -1.416}
+			}
+		}
+	}
+	{"stuff_primary"
+		{camera
+			{origin -3.1957 	 -41.5704 	 5.6274}
+			{lookat -3.4308 	 -0.8 	 -1.3776}
+			{fov 45}
+			{horizon -0.528971}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 6.1588 	 -3.3594 	 50.899}
+			}
+			{"1"
+				{type directional}
+				{direction -0.01 	 0.4999 	 0.0036}
+			}
+			{"2"
+				{type point}
+				{position 13.7674 	 -72.1885 	 -1.416}
+			}
+		}
+	}
+}

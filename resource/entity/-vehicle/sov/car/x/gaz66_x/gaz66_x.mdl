@@ -1,0 +1,205 @@
+;Exported by: Pheonix
+;Date:        Fri Apr 03 21:48:06 2009
+;File:        D:\Documents and Settings\Pheonix\Мои документы\3dsmax\scenes\MyWorks\Vehicle\ГАЗ66\ГАЗ 66_no tent_x.max
+{Skeleton
+	{bone revolute "basis" {limits -0 0}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.6}}
+			}
+			{Matrix34
+				0	-1	0
+				0	0	1
+				-1	0	0
+				-1.17928	0.283296	19.2654
+			}
+			{VolumeView "body.ply"}
+			{bone "cabin"
+				{parameters "ID=cabin;"}
+				{animation
+					{sequence "break" {file "cabin_b.anm"}}
+				}
+				{Position 0.169626	16.8965	-37.3447}
+				{VolumeView "cabin.ply"}
+				{bone "doorl"
+					{parameters "ID=cabin;"}
+					{animation
+						{sequence "break" {file "cabin_b.anm"}}
+					}
+					{Matrix34
+						-1	0	0
+						0	1	0
+						0	0	1
+						-21.6438	-0.741512	-5.88165
+					}
+					{VolumeView "doorl.ply"}
+					{bone "glass1"
+						{Matrix34
+							-0.999759	0	0.0219475
+							0	1	0
+							0.0219475	0	0.999759
+							-2.15685	11.8356	7.79757
+						}
+						{VolumeView "glass1.ply"}
+					}
+				}
+				{bone "doorr"
+					{parameters "ID=cabin;"}
+					{animation
+						{sequence "break" {file "cabin_b.anm"}}
+					}
+					{Position 21.1926	-0.741192	-5.88006}
+					{VolumeView "doorr.ply"}
+					{bone "glass2"
+						{Matrix34
+							0.999759	0	0.0219471
+							0	1	0
+							-0.0219471	0	0.999759
+							-1.82843	11.8354	7.71647
+						}
+						{VolumeView "glass2.ply"}
+					}
+				}
+				{bone "glass"
+					{Position -0.234316	11.2114	3.04746}
+					{VolumeView "glass.ply"}
+				}
+				{bone "fxfire1"
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						-0.233682	0.293022	-13.8876
+					}
+				}
+				{bone "engine"
+					{parameters "ID=engine;"}
+					{animation
+						{sequence "break" {file "engine_b.anm"}}
+					}
+					{Position -0.24788	-4.79017	-16.8098}
+					{VolumeView "engine.ply"}
+				}
+			}
+			{bone "fuel1"
+				{Position -15.509	0.564875	2.04559}
+				{VolumeView "fuel1.ply"}
+			}
+			{bone "fuel2"
+				{Matrix34
+					-1	0	0
+					0	1	0
+					0	0	1
+					15.5657	0.564875	2.04559
+				}
+				{VolumeView "fuel2.ply"}
+			}
+			{bone "detail1"
+				{Matrix34
+					0	0	1
+					0.965926	-0.258819	0
+					0.258819	0.965926	0
+					8.77391	15.7403	-15.7245
+				}
+				{VolumeView "detail1.ply"}
+			}
+			{bone "bodyback"
+				{parameters "ID=bodyback;"}
+				{Position 0.0837458	8.18665	24.6008}
+				{VolumeView "bodyback.ply"}
+			}
+		}
+		{bone "pivot_front"
+			{Position 35.4046	0.619942	13.3821}
+			{bone revolute "wheell1"
+				{parameters "ID=wheelleft1;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-0.025322	18.1323	-0.284113
+				}
+				{VolumeView "wheell1.ply"}
+			}
+			{bone revolute "wheelr1"
+				{parameters "ID=wheelright1;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-0.0253181	-18.8263	-0.218847
+				}
+				{VolumeView "wheelr1.ply"}
+			}
+		}
+		{bone "pivot_back"
+			{Position -36.31	-4.05486	17.4747}
+			{bone revolute "wheelr2"
+				{parameters "ID=wheelright2;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					1.2562	-14.1515	-4.4852
+				}
+				{VolumeView "wheelr2.ply"}
+			}
+			{bone revolute "wheell2"
+				{parameters "ID=wheelleft2;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					1.25621	22.8071	-4.62416
+				}
+				{VolumeView "wheell2.ply"}
+			}
+		}
+	}
+}
+{Volume "wheelleft1"
+	{Polyhedron "wheelleft1.vol"}
+	{Bone "wheell1"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		-0.0134773	-0.366369	-0.347355
+	}
+}
+{Volume "wheelleft2"
+	{Polyhedron "wheelleft2.vol"}
+	{Bone "wheell2"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0.119995	-0.613854	-0.347544
+	}
+}
+{Volume "wheelright1"
+	{Polyhedron "wheelright1.vol"}
+	{Bone "wheelr1"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		-0.0137367	0.166244	0.23325
+	}
+}
+{Volume "wheelright2"
+	{Polyhedron "wheelright2.vol"}
+	{Bone "wheelr2"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		0.120014	0.166228	0.233189
+	}
+}

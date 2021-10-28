@@ -1,0 +1,183 @@
+
+;/*=========== Blast Damage Begin ===========*/
+
+
+(define "ap_blast"							;// standard cannon AP shells
+	{damage blastwave
+		{energy 1.2}
+		{area (* %0 1.5) (* %0 3)}
+		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "apcr_blast"						;// Sub-Caliber/High Velocity shells
+	{damage blastwave
+		{energy 1.2}
+		{area (* %0 1) (* %0 2)}
+		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "he_auto_blast"						;// 20-40mm Autocannon HE shells
+	{damage blastwave
+		{energy (* %0 0.84)}
+		{area 0.2 0.5}
+		{ground_interaction_radius 0.2}
+	}
+	{damage add blastwave
+		{energy (* %0 0.6)}
+		{area (* 0.25 (* %0 5)) (* 1.2 (* %0 5))}
+		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "he_small_blast"					;// less than 74mm cannon HE shells
+	{damage blastwave
+		{energy (+ (/ %weight 10) (* 5 (+ %filler 0.25)))}
+		{area (* 0.5 (+ (/ %weight 10) (* 5 (+ %filler 0.25))))			(+ (/ %weight 10) (* 5 (+ %filler 0.25)))}
+		{ground_interaction_radius 0.25}
+	}
+	{damage add blastwave
+		{energy (+ 0.3 (- 1 (/ %filler %weight)))}
+		{area (+ (* %weight 0.25) (+ 1 (* 5 %filler))) 		(+ (* %weight 0.35) (+ 3.5 (* 2 %filler))) }
+		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "he_medium_blast"					;// 75-99mm cannon HE shells
+	{damage blastwave
+		{energy (+ (/ %weight 5) (* 3 (+ %filler 0.25)))}
+		{area 0.4 0.5}
+		{ground_interaction_radius 0.5}
+	}
+	{damage add blastwave
+		{energy (+ 0.6 (- 1 (/ %filler %weight)))}
+		{area (+ (* %weight 0.25) (+ 2 (* 3 %filler)))		(+ (* %weight 0.6) (+ 3 (* 1.25 %filler)))}
+		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "he_large_blast"					;// 105-149mm cannon HE shells
+	{damage blastwave
+		{energy (+ (/ %weight 10) (+ 6 (* %filler 1)))}
+		{area 0.4 0.5}
+		{ground_interaction_radius 0.5}
+	}
+	{damage add blastwave
+		{energy (+ 2 (+ (/ %weight 20) (* 1 (- 1 (/ %filler %weight)))))}
+		{area (+ (* %weight 0.1) (+ 0 (* 0.1 %filler)))	(+ (* %weight 0.2) (+ 0 (* 0.1 %filler)))}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+	{damage add blastwave
+		{energy (+ 0.65 (- 1 (/ %filler %weight)))}
+		{area (+ (* %weight 0.15) (+ 4 (* 1 %filler)))		(+ (* %weight 0.25) (+ 8 (* 0.5 %filler)))}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "he_super_blast"					;// 150-199mm cannon HE shells
+	{damage blastwave
+		{energy (+ (/ %weight 10) (+ 8 (* %filler 0.5)))}
+		{area 1.1 2.2}
+		{ground_interaction_radius 0.6}
+	}
+	{damage add blastwave
+		{energy (+ 2 (+ (/ %weight 20) (* 1 (- 1 (/ %filler %weight)))))}
+		{area (+ (* %weight 0.1) (+ 0 (* 0.1 %filler)))	(+ (* %weight 0.2) (+ 0 (* 0.1 %filler)))}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+	{damage add blastwave
+		{energy (+ 0.7 (- 1 (/ %filler %weight)))}
+		{area (+ (* %weight 0.15) (+ 8 (* 0.25 %filler)))		(+ (* %weight 0.25) (+ 8 (* 0.5 %filler)))}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "he_mega_blast"					;// 200mm+ cannon HE shells
+	{damage blastwave
+		{energy (+ (/ %weight 10) (+ 8 (* %filler 0.5)))}
+		{area 1.5 2.5}
+		{ground_interaction_radius 0.8}
+	}
+	{damage add blastwave
+		{energy (+ 2.75 (+ (/ %weight 20) (* 1.5 (- 1 (/ %filler %weight)))))}
+		{area (+ (* %weight 0.07) (+ 2 (* 0.1 %filler)))	(+ (* %weight 0.08) (+ 8 (* 0.1 %filler)))}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+	{damage add blastwave
+		{energy (+ 0.7 (- 1 (/ %filler %weight)))}
+		{area (+ (* %weight 0.1) (+ 5 (* 0.25 %filler)))		(+ (* %weight 0.15) (+ 13 (* 0.5 %filler)))}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "heat_medium_blast"					;// 75-99mm cannon HEAT shells
+	{damage blastwave
+		{energy (* %0 1.05)}
+		{area 0.4 0.5}
+		{ground_interaction_radius 0.5}
+	}
+	{damage add blastwave
+		{energy 1.2}
+		{area (* 0.5 (+ %0 5)) (* 0.8 (+ %0 5))}
+		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "heat_large_blast"					;// 105-149mm cannon HEAT shells
+	{damage blastwave
+		{energy (* %0 1.4)}
+		{area 0.4 0.5}
+		{ground_interaction_radius 0.5}
+	}
+	{damage add blastwave
+		{energy (* %0 0.7)}
+		{area (* %0 0.5) (* %0 0.75)}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+	{damage add blastwave
+		{energy 1.2}
+		{area (* 0.5 (+ %0 5)) (* 0.9 (+ %0 5))}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "heat_blast"						;// All cannon HEAT Shells
+	{damage blastwave
+		{energy 3}
+		{area 2 3}
+		{ground_interaction_radius 0.2}
+	}
+	{damage add blastwave
+		{energy 1}
+		{area 1 6}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "smoke_blast"						;// All cannon Smoke Shells
+	{damage blastwave
+		{energy 1.5}
+		{area 2 5}
+		{ground_interaction_radius 0.2}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+
+(define "wp"								;// All cannon White Phosphorus Shells
+	{damage fire
+		{radius (* %0 8)}
+		{heating 0.5}
+		{time 0.5}
+	}
+)
+
+(define "ic"								;// All cannon Incendiary Shells
+	{##damage fire
+		{radius (* %0 3)}
+		{heating 0.5}
+		{time 1}
+	}
+)
+
+;/*=========== Blast Damage End ===========*/

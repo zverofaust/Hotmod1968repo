@@ -1,0 +1,148 @@
+{game_entity		;M48
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc"  scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{props "medium" "diesel" "vision_lev04" "muzzle_85mm_93mm_sides"}
+	{targetclass "tank_medium"}
+	{targetSelector "tank_medium"}
+	{PatherId "t34"}
+	
+	{extender "enumerator"
+		{digit_folder "nato"}
+	}
+	
+	;volume, component/tag
+	{volume "body"			; Upper Hull
+		{thickness 76
+			{front 152}		; Glacis
+			{top 35}
+			{rear 57}
+			{bottom 20}
+		}
+		{HighHardness}
+	}
+
+	{volume "turret"		; Turret
+		{thickness 76
+			{front 254}
+			{top 25}
+			{rear 51}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	
+	{volume "mantlet"		; Turret
+		{thickness 254}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	
+	{volume "engine"		; Engine
+		{thickness 51
+			{front 61}
+			{top 25}
+			{rear 38}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	
+	("crew_4_human")
+	("gunner_visible")
+
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "gunner"		{visor "main"}}
+		{place "commander"	{visor "mgun"}{sealable}}
+	}
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kv"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+
+	{extender "inventory"
+		{box
+			{item "ammo bulletusa_90 apcbche" 25} ;60 total
+			{item "ammo bulletusa_90 apcr" 10}
+			{item "ammo bulletusa_90 he" 10}
+			{item "ammo bulletusa_90 heat" 10}
+			{item "ammo bulletusa_90 sm" 5}
+			{item "ammo hmgun_usa" 1200}
+			{item "ammo mgun_usa belt" 2000}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon			"90mm_m41" filling "ammo bulletusa_90 apcbche" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic"
+				zeroing(3.0)
+				dispersion(0.20)
+			)
+		}
+		{place "mgun"	;aa
+			{weapon "browning_m2" filled}
+			{gunner "commander"}
+			{charger "commander"}
+			{LinkBone "mgun04"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun2"		;coax
+			{weapon			"browning_m19a4" filled}
+			{foresight		"foresight5"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+
+	{mass 41500}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
+		("mobility_tank"
+			speed(50)  ;---------Max speed when fully accelerated on road, km/h.
+			reverse(9.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(46.0) ;-------Weight in Tonnes.
+			power(750) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(1100) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(463) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "m48a5.mdl"}
+
+}

@@ -1,0 +1,48 @@
+{from "pattern bullet"
+	{tag "weapon rifle rifle_slap_melee bullet to_hand bolt_action rifle_shell grenadelauncher"}
+	{inventory
+		{size 7 2}
+		{link_bone "gun_back"}
+		{weight 100}
+	}
+
+	{preloaded}
+	{DisableRicochet}
+
+	{cursor "ironsights/bazooka"}
+	{cursorReloading "gun_heat"}
+
+	{foresight "foresight3"}
+
+	{speed 50}
+	{gravity 2}
+	{reloadAnimBonus 2}
+	("reload time" seconds(10))
+	{curve "gun_std"}
+
+	("human health" damage(350))
+
+	{RelaxationTime 0.5}
+	{SpreadTolerance 0.25}	;// Zeroing up to 25% needed before fire
+	{aimingTolerance 3}
+
+	{spreading 2.3
+		{SpreadXYRatio 0.75}
+	}
+	{ZeroingAccuracy 0.9 0.8 0.7}
+
+	{overmatchSlope
+		{0 1}
+		{90 1}
+	}
+
+	{states
+		{reload		"reload"}
+		{unload		"unload"}
+		{fire		"fire-rgrenade"}
+		{aim 		"aim-rgrenade"}
+		{can_aim	"can-aim-rgrenade"}
+	}
+	{AccuracyByMotionK 0.5}
+	{SyncedProjectiles 1} 			;// visually syncs decal/crater spawn in multiplayer
+}

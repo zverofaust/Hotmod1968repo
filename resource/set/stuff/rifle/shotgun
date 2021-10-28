@@ -1,0 +1,48 @@
+{from "pattern bullet" ;IZH-43?
+	{tag "weapon rifle shotgun bullet to_hand shoot_walking shoot_walking_ai"}
+	{filling "ammo shotgun" 2}
+	{entity "shotgun"}
+	{reloadSound "shotgun"}
+	{fireSound "rifle/shotgun/"}
+	{fireSoundclose "rifle/shotgun/3p/"}
+
+	{inventory
+		{size 6 2}
+		{link_bone "gun_back"}
+		{weight 100}
+	}
+
+	{cursor "ironsights/rifle"}
+	{cursorReloading "carbine_reload"}
+
+	{curve "shotgun"}
+	("accuracy_shotgun")
+
+	{special ;{throw_off_always}
+	}
+
+	{mass 5}
+
+	{traceFreq 0}
+
+	{range 40 50}
+
+	{RelaxationTime 0.25}
+	{SpreadTolerance 0.15}
+	{aimingTolerance 0.8}
+
+	("fire rate" rpm(300))
+	("reload time" seconds(3.5))
+	("velocity" mps(300))
+
+
+	{burst
+		{short 1 0.1}		; burst shots on long distance, rand (+-)shots
+		{long 1 0.75}		; burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.25}	; rangeKoef * aimRange = max long burst distance
+	}
+
+	("human health" damage(100))
+
+	{calibre 8}
+}

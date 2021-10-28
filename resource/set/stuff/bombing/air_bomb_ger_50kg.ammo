@@ -1,0 +1,17 @@
+{from "pattern air_bomb"
+	{entity "sc_50"}
+	{tag "size1"}
+	{mass 50}
+
+	{damage blastwave
+		{energy 11}
+		{area 3 7}
+		{ground_interaction_radius 0.2}
+	}
+
+	{damage add blastwave
+		{energy 1}
+		{area 7 12}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+}

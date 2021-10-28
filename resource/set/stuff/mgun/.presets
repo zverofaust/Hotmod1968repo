@@ -1,0 +1,136 @@
+(include "\set\small_firearms_accuracy.inc")
+
+;/*=========================*/
+
+(define "burst_short"
+	{burst
+		{short 3 1}			;// short burst shots on long distance, rand (+-)shots
+		{long 8 2}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.5}			;// rangeKoef * aimRange = max long burst distance
+	}
+)
+
+(define "burst_medium"
+	{burst
+		{short 4 1}
+		{long 10 3}
+		{rangeKoef 0.5}
+	}
+)
+
+(define "burst_long"
+	{burst
+		{short 5 1}
+		{long 12 3}
+		{rangeKoef 0.5}
+	}
+)
+
+(define "burst_stand"
+	{burst
+		{short 10 3}
+		{long 20 3}
+		{rangeKoef 0.75}
+	}
+)
+
+(define "burst_aa"
+	{burst
+		{short 8 0}
+		{long 18 3}
+		{rangeKoef 0.5}
+	}
+)
+
+;/*=========================*/
+
+(define "spreading_mounted_low"
+	{spreading
+		{BurstAccuracy 100 98 95 93 90 88 85 83 80}
+	}
+)
+
+(define "spreading_mounted"
+	{spreading
+		{BurstAccuracy 100 98 94 88 83 76 72 67}
+	}
+)
+
+(define "spreading_low"
+	{spreading
+		{BurstAccuracy 100 98 94 88 83 76 72 67 61 56 50}
+	}
+)
+
+(define "spreading_medium"
+	{spreading 
+		{BurstAccuracy 100 95 90 84 78 70 64 60 55 50 45 40}
+	}
+)
+
+(define "spreading_high"
+	{spreading 
+		{BurstAccuracy 100 90 80 70 60 55 50 45 40 35 30}
+	}
+)
+
+;/*=========================*/
+
+(define "recoil_low"
+	{recoil
+		{shoot {0.45 0.25} {0 0.50}}		; pitch / +- random and yaw / +- random, per shot, degree
+		{maxAngle 8 8}						; max recoil angle (pitch/yaw), degree
+		{restoreTime 0.25 0.005}			; recoil restore time, first -> minimum time, second -> additional time per shot, sec
+		{restoreDelay 0.2}					; delay before restore, sec
+	}
+)
+
+(define "recoil_medium"
+	{recoil
+		{shoot {0.475 0.25} {0 0.535}}
+		{maxAngle 8 8}
+		{restoreTime 0.25 0.005}
+		{restoreDelay 0.2}
+	}
+)
+
+(define "recoil_high"
+	{recoil
+		{shoot {0.50 0.25} {0 0.55}}
+		{maxAngle 8 8}
+		{restoreTime 0.25 0.005}
+		{restoreDelay 0.2}
+	}
+)
+
+;/*=========================*/
+
+(define "reload_belt"
+	("reload time" seconds(8.5))
+)
+
+(define "penetration"
+	{projectileDamageTable 	{30 %0} {110 %1} {200 %1} {400 %2}}
+)
+
+(define "armor health"
+	{minimumDamageModifier (* 1.0 %damage)}
+)
+
+(define "airborne_mg"
+	{range 300 500}
+	
+	{spreading
+		{SpreadPower 1.5}
+		{BurstRecoveryTime 0.5}
+		{BurstAccuracy 100 95 90 85 80}
+		{SpreadXYRatio	1}
+	}
+	{AimingTolerance 20}
+
+	("accuracy_mg_plane")
+)
+
+(define "anti-aircratft"
+	{tag "aa"}
+)

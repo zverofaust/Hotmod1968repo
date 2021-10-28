@@ -1,0 +1,37 @@
+;SDL
+
+(define "crew"
+	{placer
+		{place "%place" {LinkBone "%bone"} {group "%group"} {visor "%visor"}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+(define "crew_tank"
+	{placer
+		{place "%place" {LinkBone "%bone"} {group "%group"} {visor "%visor"}}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{link "%door" "%place" {anm "%anm_left"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "%anm_right"} {forward putoff} {reverse puton}}
+	}
+)
+
+(define "crew_driver"
+	{placer
+		{place "%place" {LinkBone "%bone"} {group "%group"} {visor "%visor"}}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{door "%door3"}
+		{link "%door" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+		{link "%door2" "driver" {anm "left"} {forward putoff} {reverse puton}}
+		{link "%door3" "driver" {anm "right"} {forward putoff} {reverse puton}}
+	}
+)

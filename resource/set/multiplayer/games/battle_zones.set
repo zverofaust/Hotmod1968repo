@@ -1,0 +1,43 @@
+{game
+	{order 0}
+	{parameters	"flag_count=3:3,5:5,7:7,9:9,11:11,13:13,15:15,17:16;points_table=0/0.000,0.05/0.75,0.50/1.00,0.68/1.25,0.81/1.50,1.00/3;flag_capture_time=60;flag_release_time=20;flag_capture_factor=0.9;invertedUnitScores=true;scoreStart=250"}
+	{settings
+		{options			enableSpectators preparationTime enableManualControlMode enableHardcore}
+		{optionsAdvanced	friendlyFire loseOnZeroPoints randomSpawnPoints scoreFinal fogOfWar showPiercing showDamageReports}
+		{optionsRanked		}
+		{fogOfWar			fog_realistic}
+		{difficulty			multiplayer}
+		{scoreMin			500}
+		{scoreMax			5000}
+		{scoreFinal			1000}
+		{preparationTimeMin	0}
+		{preparationTimeMax	60}
+		{preparationTime	15}
+		{impregnableTimeout	10}	; sec
+		{floraRespawn		0}
+		{friendlyFire}
+		{showPiercing}
+		{showDamageReports}
+		{useUnitLevelRestrictions 0}
+		{enableBots}
+		{randomSpawnPoints}
+		{loseOnZeroPoints}
+		{useManualCharge none}
+		{enableManualControlMode dc_mode}
+	}
+	{teamSettings
+		{teamsMode normal}
+		{armySelectionMode team}
+		{teams
+			{"a"}
+			{"b"}
+		}
+		{alliances
+			(include "presets/alliances_generic.inc")
+		}
+	}
+	{ranked
+		{enabled}
+	}
+	(include "presets/presets_battlezones.inc")
+}

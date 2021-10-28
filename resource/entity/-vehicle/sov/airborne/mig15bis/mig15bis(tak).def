@@ -1,0 +1,107 @@
+{game_entity
+	(include "/properties/airborne.ext")
+      	(include "/properties/selection/airborne.inc" scale(2.0))
+       	(include "/properties/car_crew.ext")
+	{targetSelector "cannon_rocket"}
+	{props "airborne2" "no_explosion"}
+	{collider "airborne"}
+        {extension "crew.ext"}
+
+	("armor_light" args 1.0)
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 34
+			{front	34}
+		}
+	}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open1"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open1" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	{extender "inventory"
+		{box
+                        {item "bullet23" 2000}
+		}
+	}
+	{Weaponry
+                {place "gun"
+			{weapon "23mm_Nr23" filled}
+			{barrels 2}
+			{charger "driver"}
+			{gunner "driver"}
+                        {basic}
+		}
+		{place "Nur1"
+			{weapon "Nurs_x60" filled}
+			{barrels 4}
+			{shooter "shooter_n"}
+			{foresight "foresight1"}
+			{charger "driver"}
+			{gunner "driver"}
+			{basic}
+                 }
+                 {place "Nur2"
+			{weapon "Nurs_x60" filled}
+			{barrels 4}
+			{shooter "shooter_n"}
+			{foresight "foresight2"}
+			{charger "driver"}
+			{gunner "driver"}
+			{basic}
+                 }
+
+}
+
+	{mass 5000}
+
+
+	{sensor
+		{visor "driver"
+			{bone "driver"}
+			{vision "tank_around-h"}
+		}
+		{visor "crew"
+			{vision "moto_crew"}
+			{bone "driver"}
+		}
+	}
+
+	{Chassis
+		{Locomotion ("locomotion")
+			{Maxspeed 90}
+			{TurnTime  	 2}
+			{turnRadius 12}
+		}
+
+		{maxSideSlope 45} ;degree
+		{sideSlopeSpeed 60}
+		{maxElevationSpeed 35}
+		{elevationAcceleration 7}
+    		{speed
+        			{Slow   	0.1}   ; km/h
+        			{Normal 	0.1}
+        			{Fast   	40}
+    		}
+	}
+	{Extension "mig15bis.mdl"}
+        {texmod "tak"}
+
+        (mod "mp"
+		{Chassis "airborne"
+			{Altitude 25}
+		}
+		{ChassisManager
+			{Current "airborne"}
+		}
+	)
+}

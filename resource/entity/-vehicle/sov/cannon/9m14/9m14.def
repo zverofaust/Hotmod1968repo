@@ -1,0 +1,81 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(0.6))
+	{props "-mg_stan" "with_gun" "vision_lev00_can" "detect_cannon_aa" "no_sandbags"}
+	{targetclass "cannon_small"}
+	{targetSelector "cannon_big"}
+
+	(include "crew.ext")
+	("crew_mortar")
+	
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 50}
+		{able {visible 1}}
+	}
+	
+	
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "mortar_driver_l" "mortar_driver_l"}
+			{aim "" ""}
+			{fire  "" ""}
+			{reload  "" ""}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+		{rotate_ik_Limit 0}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet125 atgm" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon			"125mm_9m14" filled}
+			{gunner "gunner"}
+            {charger "commander"}
+			{RestoreIKAfterAim}
+			{Rotate}
+			{basic}
+			("abm_dymamic_gun"
+				zeroing(2.0)
+				dispersion(0.2)
+			)
+		}
+	} 	
+	
+{sensor
+	{visor "gunner"
+		{vision "tank_main-l"}
+		{bone "gun_rot"}
+	}
+	{visor "commander"
+		{vision "human"}
+		{bone "visor2"}
+	}
+}
+	
+	{mass 2000}
+
+	{Extension "9m14.mdl"}
+	
+	{Chassis
+		("mobility_cannon"
+			speed(12) ;----------------------------------Max speed.
+			weight(36) ;---------------------------------Weight in Kilograms. 
+		)
+	}
+	
+    {bone "turret"
+		{limits -30 30}
+		{speed 0.01}
+	}
+        {bone "gun_rot"
+		{limits -5 15}
+		{speed 0.003}
+	}
+}

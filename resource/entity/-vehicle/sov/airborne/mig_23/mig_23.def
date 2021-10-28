@@ -1,0 +1,165 @@
+{actor
+	(include "/properties/airborne.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+
+	{props "heavy" "no_explosion" "vision_lev01_pla" "armored_car"}
+
+	{lodclass "vehicle_large"}
+        {collider "tank.heavy"}
+        {extension "crew.ext"}
+
+        ("armor_light" args 2.0)
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open1"}}
+
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+
+	}
+
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder1")
+	("part" args "rudder2")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheelback")
+	("part" args "body_back")
+	("part" args "body_back1")
+	("part" args "body")
+	("part" args "NOS")
+
+
+{volume "body"
+	{tags "body"}
+	{thickness hollow 22}
+	{able {visible 0}}
+}
+
+{volume "engine"
+	{tags "body"}
+	{thickness hollow 22}
+	{able {visible 0}}
+}
+
+{volume "body_back"
+	{tags "body"}
+	{thickness hollow 22}
+	{able {visible 0}}
+	{density 0.01}
+}
+{volume "cabine"
+	{tags "part"}
+	{thickness hollow 11.1}
+	{able {visible 0}}
+}
+{volume "wingr1"
+	{tags "inflammable" "part"}
+	{component "wingright"}
+	{thickness hollow 42}
+	{able {visible 0}}
+}
+{volume "wingl1"
+	{tags "inflammable" "part"}
+	{component "wingright"}
+	{thickness hollow 42}
+	{able {visible 0}}
+}
+
+
+
+
+	{Chassis "airborne"
+		{Locomotion ("locomotion")
+			{Maxspeed 170}
+			{turnRadius 40}
+		}
+		{maxSideSlope 70} ;degree
+		{speed
+			{Slow 30} ; km/h
+			{Normal 90}
+			{Fast 150}
+		}
+	}
+
+
+
+	{extender "inventory"
+		{box
+			{item "bullet23 zenite" 2000}
+		}
+	}		
+	{Weaponry
+                {place "zenite"
+			{weapon "23mm_gsh23" filled}
+			{barrels 1}
+			{gunner "driver"}
+			{charger "driver"}
+{basic}
+
+		}
+		{place "TRptur"
+			{weapon "P60_mig23" filled}
+			{foresight "shooter_r00"}
+			{charger "driver"}
+			{gunner "driver"}
+			{basic}
+		}  
+                {place "TLptur"
+			{weapon "P60_mig23" filled}
+			{foresight "shooter_r01"}
+			{charger "driver"}
+			{gunner "driver"}
+			{basic}
+		}  
+                {place "VRptur"
+			{weapon "P60_mig23" filled}
+			{foresight "shooter_r02"}
+			{charger "driver"}
+			{gunner "driver"}
+			{basic}
+		}  
+                {place "VLptur"
+			{weapon "P60_mig23" filled}
+			{foresight "shooter_r03"}
+			{charger "driver"}
+			{gunner "driver"}
+			{basic}
+		}  
+		
+
+
+		
+	}
+
+	{extender "enumerator"
+	}
+        (mod "mp"
+		{Chassis "airborne"
+			{Altitude 30}
+		}
+		{ChassisManager
+			{Current "airborne"}
+		}
+	)
+
+	{Sensor
+		{Visor "main"
+			{bone "pivot_back"}
+		}
+	}
+	{Extension "mig_23.mdl"}
+
+}
+

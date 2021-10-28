@@ -1,0 +1,69 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc" scale(0.6))
+	{props "vision_lev00_can" "cannon_sandbag_standard" "muzzle_hmg" "detect_cannon_aa" "maxim"}
+	{targetclass "cannon_zenite"}
+	{targetSelector "cannon_zenite"}
+	
+	{extender "shield" {on}}
+	("shield" args "shield" 5)
+
+	("gun" repair(30) thickness(20))
+	
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_usa" 750}
+			{item "sandbag_vehicle" 2}
+		}
+	}
+	
+	{Weaponry
+		{place "mgun1"
+			{type "main"}
+			{charger "gunner"}
+			{weapon "browning_m2" filled}
+			("abm_mgun")
+			{Rotate}
+			{basic}
+		}
+	}
+
+
+	{mass 145}
+	{Extension "mk26_browning.mdl"}
+	{bone "gun_rot"
+		{limits 10 -45}
+		{speed2 52}
+	}
+	{bone "turret"
+	      {limits}
+	      {speed2 42}
+	}
+	{extender "shield"
+		{off}
+	}
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_dshk_aa_gunner"}}
+		}
+		{anm "commander"
+			{forward {end "pose_dshk_aa_commander"}}
+		}
+		{anm "driver1"
+			{forward {end "mgun_browning_driver_r"}}
+		}
+		{anm "driver2"
+			{forward {end "mgun_browning_driver_l"}}
+		}
+	}
+	{extender "cannon"
+		{animation
+		;// "gunner" "commander"
+			{switch "close"}
+			{move "mgun_browning_driver_r" "mortar_driver_l"}
+			;{fire "mg_maxim_gunner_fire" "mg_maxim_commander_fire"}
+			{aim "mg_dshk_aa_gunner_aim" "mg_dshk_aa_commander_aim"}
+			{reload "mg_dshk_aa_gunner_reload" "mg_dshk_aa_commander_reload"}
+		}
+	}
+}

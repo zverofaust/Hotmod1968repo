@@ -1,0 +1,31 @@
+;_________________________________________
+; Soviet 'Katusha' Medium Rocket Artillery
+;=========================================
+
+
+{from "pattern reactive"		; "BM-21"
+	{filling "ammo 122mm_2b5" 40}
+	{fireSound "reactive/katy_burst/"}
+	{calibre 122}
+
+	("rocket_artillery")
+	{spreading
+		{radiusTable
+			{0 0}
+			{100 15}
+			{200 35}
+			{329.99 45}
+			{330 100}
+		}
+	}
+	{range 330 330}
+	{burst 
+		{min 10}
+		{noaiming}
+	}
+
+	("fire rate" rpm(120))
+	("velocity" mps(340))
+	("reload time" seconds(170))
+	{gravity 3}
+}

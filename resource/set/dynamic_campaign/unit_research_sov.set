@@ -1,0 +1,214 @@
+
+; ---SQUADS---
+
+	{"single_tankman(sov)"				requires	""									costs 1 }
+	{"single_engineer(sov)"				requires	"single_tankman(sov)"				costs 1 }
+	{"single_medic(sov)"				requires	"single_engineer(sov)"				costs 1 }
+
+	{"single_mg(sov)"					requires	""									costs 1 }
+	{"single_marksman(sov)"				requires	"single_mg(sov)"					costs 1 }
+	{"single_sniper(sov)"				requires	"single_marksman(sov)"				costs 1 }
+	
+	{"single_flamer(sov)"				requires	"single_mg(sov)"					costs 1 }
+	{"single_at(sov)"					requires	"single_flamer(sov)"				costs 1 }
+	
+	{"squad_conscript_moto_con"			requires	""									costs 1 }
+	{"squad_rifle_moto_con"				requires	"squad_conscript_moto_con btr-60pa"	costs 1 }
+	{"squad_guards_con(sov)"			requires	""									costs 2 }
+	{"squad_guards_moto_con"			requires	"squad_guards_con(sov) squad_rifle_moto_con btr-60pb"			costs 3 }
+	{"squad_guards_mech_con"			requires	"squad_guards_moto_con bmp-1"			costs 5 }
+
+	{"squad_vdv_con(sov)"				requires	""									costs 2 }
+	{"squad_spz_recon_con(sov)"			requires	"squad_vdv_con(sov)"				costs 3 }
+	{"squad_spz_sabo_con(sov)"			requires	"squad_spz_recon_con(sov)"			costs 3 }
+	{"squad_spetsnaz_con(sov)"			requires	"squad_spz_sabo_con(sov)"			costs 5 }
+	
+;---MG---
+	{"dshk_aa_sov"		requires	""	costs 1}
+
+;---Mortar---
+	{"120mm_pm38_sov"	requires	""		costs 3}
+
+;---AA---
+;//	{"zu-2"			requires	"dshk_aa_sov"		costs 1}
+	{"zpu-4"		requires	"dshk_aa_sov"		costs 3}	
+	{"zu-23-2"		requires	"zpu-4"				costs 4}
+
+;---AT Guns---
+	{"t-12"			requires	""					costs 1}
+	{"9m14"			requires	"t-12"				costs 2}
+
+;---Field Guns---
+
+;---Artillery---
+	{"120mm_pm38_sov"	requires	""					costs 1}
+	{"d30a"				requires	"120mm_pm38_sov"	costs 2}
+	{"152mm_ml20_sov"	requires	"d30a"				costs 2}
+	{"203mm_b4_sov"		requires	"152mm_ml20_sov"	costs 2}
+
+;---Trucks---
+	{"gaz-69a"			requires	""				costs 2}
+	{"zil157"			requires	""				costs 1}
+	{"zil157_ammo"		requires	"zil157"		costs 1}
+	{"zil157_eng"		requires	"zil157_ammo"	costs 1}
+	{"zil157_fuel"		requires	"zil157_eng"	costs 1}
+	{"ural375"			requires	"zil157"		costs 1}
+	{"ural375_ammo"		requires	"ural375"		costs 1}
+	{"bm-21_grad"		requires	"ural375_ammo d30a"	costs 4}
+	
+;---BTRs---
+	{"brdm-1"			requires	""				costs 1}
+	{"brdm-2"			requires	"brdm-1"		costs 2}
+	{"brdm-1u"			requires	"brdm-1"		costs 1}
+	{"9p110"			requires	"brdm-1 9m14"	costs 3}
+	
+	{"btr-60pa"			requires	""				costs 1}
+	{"btr-60pb"			requires	"btr-60pa"		costs 2}
+
+;---Tanks---
+	{"asu-85"			requires	""				costs 2}
+	{"t-54"				requires	""				costs 3}
+	{"zsu-57-2"			requires	"t-54"			costs 4}
+	{"su-122-54"		requires	"t-54 asu-85"	costs 4}
+	{"t-55"		 		requires	"t-54"			costs 4}
+	
+	{"t-62a"		 	requires	"t-55"				costs 4}
+	{"shilka"		 	requires	"zsu-57-2 zu-23-2"	costs 5}
+	{"it-1"		 		requires	"t-62a 9p110"		costs 5}
+	{"t-10"		 		requires	"t-62a"				costs 5}
+	{"bmp-1"		 	requires	"btr-60pb"			costs 6}
+	{"t-64"		 		requires	"t-10"				costs 6}
+	{"2s3"		 		requires	"bm-21_grad t-62a"	costs 5}
+
+; ---TECH UPGRADES---
+{ tech "defense_level_1"		requires ""											costs 1 }
+{ tech "defense_level_2"		requires "defense_level_1 reinforcement_stage_3"	costs 5 }
+{ tech "defense_level_3"		requires "defense_level_2 reinforcement_stage_4"	costs 7 }
+
+{ tech "reinforcement_stage_1"	requires ""									costs 0 }
+{ tech "reinforcement_stage_2"	requires ""									costs 0 }
+{ tech "reinforcement_stage_3"	requires "reinforcement_stage_2"			costs 3 }
+{ tech "reinforcement_stage_4"	requires "reinforcement_stage_3"			costs 6 }
+{ tech "reinforcement_stage_5"	requires "reinforcement_stage_4"			costs 9 }
+
+
+{GridWidth 10} ;total with 0-#
+{Positions
+;// {"Squad name" column, row}
+	{"defense_level_1"			2 1}
+	{"defense_level_2"			3 1}
+	{"defense_level_3"			4 1}
+
+	{"reinforcement_stage_1"	0 0}
+	{"reinforcement_stage_2"	1 0}
+	{"reinforcement_stage_3"	2 0}
+	{"reinforcement_stage_4"	3 0}
+	{"reinforcement_stage_5"	4 0}
+
+;---SQUADS---
+
+	{"single_tankman(sov)"				0 3}
+	{"single_engineer(sov)"				0 4}
+	{"single_medic(sov)"				0 5}
+	
+	{"single_mg(sov)"					2 3}
+	{"single_marksman(sov)"				2 4}
+	{"single_sniper(sov)"				2 5}
+	
+	{"single_flamer(sov)"				3 3}
+	{"single_at(sov)"					4 3}
+	
+	{"squad_conscript_moto_con"				2 7}
+	{"squad_rifle_moto_con"					2 8}
+	
+	{"squad_guards_con(sov)"				1 8}
+	{"squad_guards_moto_con"				1 9}
+	{"squad_guards_mech_con"				1 10}
+	
+	{"squad_vdv_con(sov)"					0 9}
+	{"squad_spz_recon_con(sov)"				0 10}
+	{"squad_spz_sabo_con(sov)"				0 11}
+	{"squad_spetsnaz_con(sov)"				0 12}
+
+	
+;---MG---
+	
+	{"dshk_aa_sov"						3 10}
+
+;---Mortars---
+	
+	{"120mm_pm38_sov"					4 14}
+
+;---AA---
+	
+	{"zpu-4"							3 11}
+	{"zu-23-2"							3 12}
+
+;---AT Guns---
+	
+	{"t-12"								2 13}
+	{"9m14"								2 14}
+
+;---Field Guns---
+	
+
+
+;---Artillery---
+	
+	{"120mm_pm38_sov"					4 14}
+	{"d30a"								4 15}
+	{"152mm_ml20_sov"					4 16}
+	{"203mm_b4_sov"						4 17}
+
+;---Trucks---
+	
+	{"gaz-69a"							8 11}
+	{"zil157"							5 4}
+	{"zil157_ammo"						5 5}
+	{"zil157_eng"						5 6}
+	{"zil157_fuel"						5 7}
+	{"ural375"							4 7}
+	{"ural375_ammo"						4 8}
+
+;---Armored Cars---
+	
+	{"btr-60pa"							5 11}
+	{"btr-60pb"							5 12}
+	
+	{"brdm-1"							7 11}
+	{"brdm-2"							7 12}
+	
+	{"brdm-1u"							8 12}
+	
+	{"9p110"							6 14}
+
+;---Light Tanks---
+	
+	{"bmp-1"							5 14}
+
+;---Medium Tanks---
+	
+	{"asu-85"							1 13}
+	{"su-122-54"						1 17}
+	{"t-54"								2 17}
+	{"t-55"								2 18}
+	{"t-62a"							2 19}
+	{"t-64"								2 21}
+	
+	{"it-1"								6 15}
+
+;---Heavy Tanks---
+	
+	{"t-10"								2 20}
+
+;---Self Propelled Guns---
+		
+	{"zsu-57-2"							1 18}
+	{"shilka"							1 19}	
+		
+	{"bm-21_grad"						4 18}
+	{"2s3"								4 19}
+
+;---Aircraft---
+	
+}

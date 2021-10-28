@@ -1,0 +1,138 @@
+{weapon_bullet										;// Example / Default Settings
+
+	;/*=========== Generic Settings Begin ===========*/
+
+	{tag "weapon build_in gun bullet tank_gun"}
+	{inventory
+		{size 4 2}
+		{weight 1000}
+	}
+	{mass 1000}										;//
+	{foresight "Foresight1"}						;// bone for muzzleflash fx
+	{aimRange 15}									;// Maximum fire range for AI. Expressed as {range 15 25} equals the same thing.
+	{maxRange 25}									;//	Maximum fire range for player in direct control.
+	{spreading 1 {SpreadPower 2}}
+	("reload time" seconds(5))								;// Shell reload or full magazine reload in autoloaders 
+	("velocity m/s" ap(100) apcr(100) he(100) heat(100))	;// Muzzle velocity in m/s
+	{aimingTolerance 0.5}								;// Measure in degrees of IK error when AI is allowed to shoot
+	{projectileDamageThreshold 1}					;// Damages lower than armor * threshold are ignored
+	("human health" damage(2500))					;// Damage to human health
+	{LockFireDistanceTime 0}						;// Time that AIM is allowed to be out of range for before firing is disabled
+
+	{cursor "ironsights/tank2"}						;// rts cursor
+	{cursorReloading "carbine_reload"}				;// rts reload cursor
+
+	{crosshair "crosshair_tank"}					;// third person crosshair
+	{crosshairReloading "crosshair_tank_reload"}	;// third person reload crosshair. 
+
+	{SyncedProjectiles 1} 							;// visually syncs decal/crater spawn in multiplayer
+
+	{toplayerVignette ""}
+
+	{RicochetEnergyDamping	;// penetration reduction after ricochet (angle - damping multiplier)	
+		{0 	1}
+		{10	0.9}
+		{25	0.7}
+		{45 0.3}
+		{60 0}
+	}
+
+	{FiringTimeout 0.35 0.15}					; delay between bursts
+	{preloaded}
+
+	;/*=========== Generic Settings End ===========*/
+
+	;/*=========== Ammo Types Begin ===========*/
+
+	{parameters "ap"
+		{cursorReloading "gun_ap"}
+		("ap_slope_multiplier")
+	}
+	{parameters "apc"
+		{cursorReloading "gun_apc"}
+		("apc_slope_multiplier")
+	}
+	{parameters "apche"
+		{cursorReloading "gun_apc"}
+		("apc_slope_multiplier")
+	}
+	{parameters "apbc"
+		{cursorReloading "gun_apbc"}
+		("apbc_slope_multiplier")
+	}
+	{parameters "aphe"
+		{cursorReloading "gun_aphe"}
+		("ap_slope_multiplier")
+	}
+	{parameters "apcbc"
+		{cursorReloading "gun_apcbc"}
+		("apc_slope_multiplier")
+	}
+	{parameters "apcbche"
+		{cursorReloading "gun_apcbc"}
+		("apc_slope_multiplier")
+	}
+	{parameters "aphebc"
+		{cursorReloading "gun_aphebc"}
+		("apbc_slope_multiplier")
+	}
+	{parameters "aphebc2"
+		{cursorReloading "gun_aphebc"}
+		("apbc_slope_multiplier")
+	}
+	{parameters "apcr"
+		{cursorReloading "gun_apcr"}
+		("apcr_slope_multiplier")
+	}
+	{parameters "hvap"
+		{cursorReloading "gun_hvap"}
+		("apcr_slope_multiplier")
+	}
+	{parameters "apds"
+		{cursorReloading "gun_apds"}
+		("apds_slope_multiplier")
+	}
+	{parameters "he"
+		{cursorReloading "gun_he"}
+	}
+	{parameters "sm"
+		{cursorReloading "gun_sm"}
+	}
+	{parameters "wp"
+		{cursorReloading "gun_sm"}
+	}
+	{parameters "heat"
+		{cursorReloading "gun_heat"}
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		{cursorReloading "gun_heat"}
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		{cursorReloading "gun_heat"}
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		{cursorReloading "gun_heat"}
+		("heat_slope_multiplier")
+	}
+	{parameters "ic"
+		{cursorReloading "gun_ic"}
+	}
+	{parameters "atgm"
+		{cursorReloading "gun_heat"}
+		("heat_slope_multiplier")
+	}
+
+	{OvermatchDamping							; [??] (angle - damping)
+		{0 1}
+		{30 1.1}
+		{55	1.15}
+		{60	1.45}
+		{70	4}
+		{90	6}
+	}
+
+	;/*=========== Ammo Types End ===========*/
+}

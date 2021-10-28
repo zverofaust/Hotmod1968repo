@@ -1,0 +1,138 @@
+{actor		;Mi-4AV
+	(include "/properties/helicopter.ext")
+	(include "/properties/shadow/airborn.inc" scale(2.2))
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/helicopter_crew.ext")
+	
+	;{props "wheeled"}
+	
+	{Extender "detail"
+		{random 0}
+	}
+
+	("crew_2_visible_mid")
+	("board_plane_high")
+	("passenger_14_visible_back")
+	
+	;add extra boarding door for passengers
+	{boarder
+		{anm "passenger_extra"
+			{forward	{begin	"board_sdkfz251-1"} {end "seat_passenger"} {base "doorleft1"}}
+			{reverse	{end	"emit_tank_1"} {base "doorleft1" -1}}
+		}
+		{door "emit5"}
+		{link "emit5" "seat01" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat02" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat03" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat04" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat05" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat06" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat07" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat08" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat09" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat10" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat11" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat12" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat13" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+		{link "emit5" "seat14" {anm "passenger_extra"} {forward putoff} {reverse puton}}
+	}
+
+	;volume, component/tag, thickness
+	{volume "body6"}
+	
+	{Obstacle "in_air"
+		{Obb2
+			{Center -20 0}
+			{Extent 200 160}
+			{Axis -1 0}
+		}
+		{rotate}
+	}
+	{ObstacleId "helicopter" "in_air"}
+
+	;volume/component, thickness
+	("glass" args "window1" 10)
+	("glass" args "window2" 10)
+	("glass" args "window3" 10)
+	("glass" args "window4" 10)
+	("glass" args "window5" 10)
+	("glass" args "window6" 10)
+	("glass" args "window7" 10)
+	("glass" args "window8" 10)
+	("glass" args "window9" 10)
+	("glass" args "window10" 10)
+	("glass" args "window11" 10)
+	("glass" args "window12" 10)
+	("glass" args "window13" 10)
+	("glass" args "window14" 10)
+	("glass" args "window15" 10)
+	("glass" args "window16" 10)
+	("glass" args "window17" 10)
+
+	;{Weaponry
+	;	{place "mgun"
+	;		{rotate}
+	;		{gunner			"driver"}
+	;		{charger		"driver"}
+	;		{LinkBone		"mgun_hlp"}
+	;		{LinkAnimation	"off"}
+	;		{weapon			"a-12_7" filled}
+	;		{basic}
+	;	}
+	;	{place "gun2"
+	;		{rotate}
+	;		{weapon			"57mm_s-5m_x64" filled}
+	;		{barrels		64}
+	;		{gunner			"driver"}
+	;		{charger		"driver"}
+	;		{shooter		"shooter_a"}
+	;		{foresight		"foresight2"}
+	;		{basic}
+	;	}
+	;}
+
+	{mass 5100}
+	{Chassis "helicopter"
+		{FuelBag
+			{volume 960}		;liters
+			{remain 960}
+		}
+	}
+
+	;main rotor + blades
+	("part" args "rotor")
+	("part" args "propeller1")
+	("part" args "propeller2")
+	("part" args "propeller3")
+	("part" args "propeller4")
+
+	;back rotor + blades
+	("part" args "rotor_b")
+	("part" args "propeller_b")
+	("part" args "propeller_b1")
+	("part" args "propeller_b2")
+
+	("wheel" args "wheell1")
+	("wheel" args "wheelr1")
+	("wheel" args "wheell2")
+	("wheel" args "wheelr2")
+
+	{Extension "mil_mi4.mdl"}
+	
+	{bone "mgun_rot_h"		;mgun: right/left
+		{speed 0.025}
+		{limits -45 45}
+	}
+	{bone "mgun_rot_v"			;mgun: up/down
+		{speed 0.025}
+		{limits -15 45}
+	}
+	{bone "gun_rot_h"			;rockets: right/left
+		{speed 0.01}
+		{limits -10 10}
+	}
+	{bone "gun_rot_v"			;rockets: up/down
+		{speed 0.01}
+		{limits -15 15}
+	}
+}

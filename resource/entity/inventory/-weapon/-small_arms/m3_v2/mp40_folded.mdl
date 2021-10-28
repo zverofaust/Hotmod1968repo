@@ -1,0 +1,95 @@
+;Exported by:	 Carlos
+;Date:			 05.03.2021 02:08:45
+;File:			 T:\GoH_3D_human_export\3d_weapons\mp40\mp40_folded.max
+{skeleton
+	{animation
+		{sequence "recoil" {speed 3}}
+	}
+	{bone "mp40"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{LODView
+			{VolumeView "mp40.ply"}
+			{VolumeView "mp40_lod1.ply"}
+			{VolumeView "mp40_lod2.ply"}
+			{VolumeView "mp40_lod3.ply"}
+		}
+		{bone "foresight11"
+			{Position 11.2711 	 1.815 	 -0.0161}
+		}
+		{bone "handle"
+			{matrix34
+				0.9482 	 -0.1843 	 -0.2588
+				-0.2541 	 0.0494 	 -0.9659
+				0.1908 	 0.9816 	 0
+				3.7198 	 2.6403 	 0.0294
+			}
+		}
+		{bone "fxshell"
+			{matrix34
+				0 	 0.9397 	 0.342
+				0 	 0.342 	 -0.9397
+				-1 	 0 	 0
+				5.3898 	 2.2352 	 0.1792
+			}
+		}
+		{bone "magazine"
+			{Position 5.5714 	 -0.7431 	 0}
+			{LODView
+				{VolumeView "magazine.ply"}
+				{VolumeView "magazine_lod1.ply"}
+				{VolumeView "magazine_lod2.ply"}
+				{VolumeView "magazine_lod3.ply"}
+			}
+		}
+		{bone "bolt"
+			{Position 2.6422 	 1.8406 	 -0.2932}
+			{LODView
+				{VolumeView "bolt.ply"}
+				{VolumeView "bolt_lod1.ply"}
+				{VolumeView "bolt_lod2.ply"}
+			}
+		}
+	}
+}
+{volume "body"
+	{box 12.23 2.56256 1.2939}
+	{bone "mp40"}
+	{Position 4.926 	 1.1086 	 -0.0204}
+}
+{volume "magazine"
+	{box 0.667905 4.48104 0.408733}
+	{bone "magazine"}
+}
+{volume "select"
+	{box 13.658 5.74161 1.90013}
+	{bone "mp40"}
+	{Position 4.8051 	 -0.2075 	 0.0002}
+}
+{extender "preview"
+	{"stuff"
+		{camera
+			{origin 6.4196 	 -0.2546 	 -20.5353}
+			{lookat 6.4125 	 -0.2539 	 -20.4606}
+			{fov 38.9151}
+			{horizon 83.7991}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 10.8911 	 -6.0223 	 -1.3759}
+			}
+			{"1"
+				{type directional}
+				{direction -0.0937 	 0.0114 	 0.491}
+			}
+			{"2"
+				{type point}
+				{position -2.8408 	 2.7698 	 -0.0379}
+			}
+		}
+	}
+}

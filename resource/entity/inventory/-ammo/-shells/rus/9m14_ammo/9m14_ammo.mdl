@@ -1,0 +1,88 @@
+;Exported by: Caspar
+;Date:        Wed Nov 14 09:52:11 2018
+;File:        I:\!_Work\!_Shells\9m14_maljutka\3D\9m14_2.max
+{Skeleton
+	{bone "rocket"
+		{parameters "ID=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "rocket.ply"}
+		{bone "tail"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-7.86782	0.0048871	-0.000959873
+			}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 1.22965 15.0337}
+	{Bone "rocket"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		0.0175152	-0.0758797	0
+	}
+}
+{Volume "select"
+	{Box 14.1431 3.99456 3.65995}
+	{Bone "rocket"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0.0485314	-0.104952	0.0658717
+	}
+}
+{Extender "preview"
+	{"Stuff"
+		{camera
+			{origin 0.269905	129.857	0.48595}
+			{lookat 0.156058	-0.00876617	0.0953586}
+			{fov 7.35648}
+			{horizon -0.199792}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.232022	-0.353995	-0.266182}
+			}
+			{"1"
+				{type directional}
+				{direction 0.453301	0.0208015	-0.209965}
+			}
+			{"2"
+				{type directional}
+				{direction -0.0998383	0.131562	0.471937}
+			}
+		}
+	}
+	{"Stuff_primary"
+		{camera
+			{origin 3.89559	96.1111	0.253483}
+			{lookat 3.81245	-0.0110319	-0.0317799}
+			{fov 7.35648}
+			{horizon -0.199792}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.0998383	0.131562	0.471937}
+			}
+			{"1"
+				{type directional}
+				{direction -0.232022	-0.353995	-0.266182}
+			}
+			{"2"
+				{type directional}
+				{direction 0.453301	0.0208015	-0.209965}
+			}
+		}
+	}
+}

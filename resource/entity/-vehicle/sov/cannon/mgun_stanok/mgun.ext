@@ -1,0 +1,51 @@
+
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(0.6))
+
+	{props "wheeled" "vision_cannon_minimum"  "cannon_small"}
+	{collider "cannon_small"}
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	
+	{extender "cannon"
+		{animation
+			{move "mgun_browning_driver_r" ""}
+            {reload "" "cannon_kpvt_charger"}
+		}
+		{move {workers "driver"} {obstacle "close"}}
+		{attack {workers "gunner"} {obstacle "open"}}
+		{rotate_ik_Limit 0}
+
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_maxim_gunlaeyr" 10}}
+		}
+		{anm "driver"
+			{forward {end "mgun_browning_driver_r"}}
+		}
+		{link "driver" "gunner"}
+	}
+
+	{Volume "body"
+		{tags "body"}
+		{able{obstacle 0}}
+		{thickness 1}
+		{component "body"}
+	}
+	{Volume "body1"
+		{tags "body"}
+		{able{obstacle 0}}
+		{thickness 1}
+		{component "body"}
+	}
+	{volume "turret"
+		{thickness 3}
+	}
+	{component "turret"
+		{RepairTime 15}
+	}
+

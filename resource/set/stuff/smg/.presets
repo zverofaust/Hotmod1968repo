@@ -1,0 +1,44 @@
+(include "\set\small_firearms_accuracy.inc")
+
+(define "burst_short"
+	{burst
+		{short 4 1}
+		{long 7 2}
+		{rangeKoef 0.5}
+	}
+)
+
+(define "burst_long"
+	{burst
+		{short 5 1}
+		{long 9 2}
+		{rangeKoef 0.5}
+	}
+)
+
+(define "low_recoil"
+	{spreading
+		;//{BurstAccuracy 100 98 94 90 85 80 75 70}
+		{BurstAccuracy 100 95 90 85 80 75 70 65 60 55 54 53 52 51 50}
+	}
+)
+(define "medium_recoil"
+	{spreading 
+		;//{BurstAccuracy 100 95 90 85 80 75 70 65 60}
+		{BurstAccuracy  100 93 88 82 77 70 63 57 50 48 46 45}
+	}
+)
+(define "high_recoil"
+	{spreading 
+		{BurstAccuracy 100 92 84 76 68 60 52 44}
+		;//{BurstAccuracy 100 90 80 70 60 50 45 43 42 41 40}
+	}
+)
+
+(define "penetration"
+	{projectileDamageTable 	{25 %0} {100 0}}
+)
+
+(define "armor health"
+	{minimumDamageModifier (* 1.0 %damage)}
+)

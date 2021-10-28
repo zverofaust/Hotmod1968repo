@@ -1,0 +1,123 @@
+;Exported by: Alexey
+;Date:        Mon Oct 08 00:06:19 2012
+;File:        H:\VTV_models\Models_For_WiW\cannon\m63_AA_browning\mk26_browning.max
+{Skeleton
+	{animation
+		{sequence "fire"}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "emit1"
+			{parameters "Group=crew;"}
+			{Position -22.1588	0.0699434	0}
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -0.0795455	-0.000818722	13.2197}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{Position -0.249704	0	9.318}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=body;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.80124	0.000817391	2.64144
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=body;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							0.091804	-0.175119	0
+						}
+						{VolumeView "gun.ply"}
+						{bone "foresight14"
+							{Position 22.6514	0	0.355915}
+						}
+						{bone "shooter00"
+							{Position 23.0669	0	0.355915}
+						}
+					}
+					{bone "visor"
+						{parameters "vis;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							4.91146	-3.8037	0
+						}
+					}
+					{bone "fxshell"
+						{Matrix34
+							0	0.573577	-0.819152
+							1	0	0
+							0	-0.819152	-0.573577
+							-0.0619566	-1.19706	-1.24622
+						}
+					}
+				}
+				{bone "shield"
+					{parameters "ID=shield;"}
+					{Position 3.80889	0	1.95176}
+					{VolumeView "shield.ply"}
+				}
+				{bone "gunner"
+					{Position -16.1932	0.000817697	-22.5376}
+				}
+			}
+		}
+	}
+}
+{Obstacle "body"
+	{Obb2
+		{Center -1.58658 0.115989}
+		{Extent 5.09686 5.60424}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 14.3509 4.50096 3.1311}
+	{Bone "gun_rot"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		-4.35911	-0.143381	0
+	}
+}
+{Volume "body2"
+	{Cylinder 0.908292 20.0033}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	0	-1
+		0	-1	0
+		-1	0	0
+		12.3893	-0.523808	-0.0193438
+	}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+	{Position -1.50703	-0.11517	-0.946682}
+}
+{Volume "shield"
+	{Box 0.706824 15.2893 15.5272}
+	{Bone "shield"}
+	{Matrix34
+		0.984474	0	0.175529
+		-0.175529	0	0.984474
+		0	-1	0
+		0.262618	0.00308942	0.341795
+	}
+}

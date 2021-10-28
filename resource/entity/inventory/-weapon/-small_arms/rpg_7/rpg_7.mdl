@@ -1,0 +1,119 @@
+;Exported by: Martin
+;Date:        Wed Feb 14 16:10:03 2018
+;File:        I:\Work\Digitalmindsoft\Work\Modeling\Weapons\RPG-7\RPG-7_06.max
+{Skeleton
+	{bone "rpg_7"
+		{parameters "ID=mgun;"}
+		{Matrix34
+			1	0	0
+			0	-1	0
+			0	0	1
+			-1	0	-0.8
+		}
+		{LODView
+			{VolumeView "rpg_7.ply"}
+			{VolumeView "rpg_7_lod1.ply"}
+		}
+		{bone "handle"
+			{parameters "Voxels=0;"}
+			{Position 2.16406	0.00182474	1.73615}
+		}
+		{bone "foresight3"
+			{parameters "Voxels=0;"}
+			{Matrix34
+				1	0	0
+				0	0	1
+				0	-1	0
+				11.9343	-0.00337436	1.02529
+			}
+		}
+		{bone "fxshot"
+			{parameters "Voxels=0;"}
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				-8.11755	-0.00337436	0.953812
+			}
+		}
+		{bone "rpg_rocket"
+			{parameters "ID=mgun;"}
+			{Matrix34
+				1	0	0
+				0	0	1
+				0	-1	0
+				11.9163	0	0.957614
+			}
+			{LODView
+				{VolumeView "rpg_rocket.ply"}
+				{VolumeView "rpg_rocket_lod1.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 0.972967 26.0448}
+	{Bone "rpg_7"}
+	{Matrix34
+		0	0	1
+		0	-1	0
+		1	0	0
+		4.82173	-0.019866	0.980437
+	}
+}
+{Volume "select"
+	{Box 35.7022 12.5817 2.39379}
+	{Bone "rpg_7"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		5.86814	-0.00360441	0.511532
+	}
+}
+{Extender "preview"
+	{"Stuff"
+		{camera
+			{origin 5.26701	66.7956	1.96208}
+			{lookat 5.26702	0.0123101	0.5035}
+			{fov 23.9132}
+			{horizon 0.973576}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 4.72421	19.5164	-2.94314}
+			}
+			{"1"
+				{type directional}
+				{direction 0.000714637	-0.316622	-0.386975}
+			}
+			{"2"
+				{type point}
+				{position 4.56435	-15.9255	-24.7945}
+			}
+		}
+	}
+	{"Stuff_primary"
+		{camera
+			{origin 0.906137	48.9832	1.80347}
+			{lookat 0.906145	0.00729564	0.733789}
+			{fov 23.9132}
+			{horizon 6.87352}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 4.72421	19.5164	-2.94314}
+			}
+			{"1"
+				{type directional}
+				{direction 0.000714637	-0.316622	-0.386975}
+			}
+			{"2"
+				{type point}
+				{position 4.56435	-15.9255	-24.7945}
+			}
+		}
+	}
+}

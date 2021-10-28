@@ -1,0 +1,27 @@
+{boarder
+	{anm "left"
+		{forward {begin "board_tank_right"} {end "seat_gunner_stand"}{base "open"}}
+		{reverse {end "emit_tank_2_hold"}{base "open" -1}}
+	}
+	{anm "right"
+		{forward {begin "board_tank_right"} {end "seat_gunner_stand"}{base "open"}}
+		{reverse {end "emit_tank_2_hold"}{base "open" -1}}
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {LinkBone "%bone"} {group "crew"} {visor "%visor"} {turnoff {sensor}}}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "%place" {anm "left"} {forward putoff} {reverse puton}}
+		{link "emit2" "%place" {anm "right"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(driver) bone()  visor(driver) off({sensor}))
+("crew_human" place(commander) bone()  visor(around) off())
+("crew_human" place(seat1) bone()  visor(none) off())
+("crew_human" place(seat2) bone()  visor(none) off())

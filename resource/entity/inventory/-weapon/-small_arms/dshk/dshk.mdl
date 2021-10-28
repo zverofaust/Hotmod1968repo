@@ -1,0 +1,155 @@
+;Exported by: ART
+;Date:        Fri Feb 26 14:12:03 2021
+;File:        E:\Autodesk\Low poly\freelance\Carlos\Weapons\Dshk\Export\DSHK.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 2.5}}
+	}
+	{bone "dshk"
+		{parameters "ID=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{LODView
+			{VolumeView "dshk.ply"}
+			{VolumeView "dshk_lod1.ply"}
+			{VolumeView "dshk_lod2.ply"}
+			{VolumeView "dshk_lod3.ply"}
+		}
+		{bone "magazine"
+			{parameters "ID=gun;"}
+			{Position 7.92343	-2.29346	-2.79264}
+			{LODView
+				{VolumeView "magazine.ply"}
+				{VolumeView "magazine_lod1.ply"}
+				{VolumeView "magazine_lod2.ply"}
+				{VolumeView "magazine_lod3.ply"}
+			}
+			{bone "magazine_cover"
+				{parameters "ID=gun;"}
+				{Position -0.000499725	2.26636	0.343462}
+				{LODView
+					{VolumeView "magazine_cover.ply"}
+					{VolumeView "magazine_cover_lod1.ply"}
+					{VolumeView "magazine_cover_lod2.ply"}
+					{VolumeView "magazine_cover_lod3.ply"}
+				}
+			}
+		}
+		{bone "ammo"
+			{parameters "ID=gun;"}
+			{Position 7.94648	-1.02863	-0.516217}
+			{LODView
+				{VolumeView "ammo.ply"}
+				{VolumeView "ammo_lod1.ply"}
+				{VolumeView "ammo_lod2.ply"}
+				{VolumeView "ammo_lod3.ply"}
+			}
+		}
+		{bone "foresight14"
+			{Matrix34
+				1	0	0
+				0	0	-1
+				0	1	0
+				33.4312	-0.0273032	0.0017066
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.25882	0.965926
+				1	0	0
+				0	0.965926	-0.25882
+				7.4482	0.720504	1.22752
+			}
+		}
+		{bone "handle"
+			{parameters "LastPose = undefined;"}
+			{Matrix34
+				1	0	0
+				0	0	-1
+				0	1	0
+				-0.641778	-0.248398	0.00170661
+			}
+		}
+		{bone "shutter_detail"
+			{parameters "ID=gun;"}
+			{Position 6.04192	1.37828	0.843973}
+			{LODView
+				{VolumeView "shutter_detail.ply"}
+				{VolumeView "shutter_detail_lod1.ply"}
+				{VolumeView "shutter_detail_lod2.ply"}
+				{VolumeView "shutter_detail_lod3.ply"}
+			}
+		}
+		{bone "shutter"
+			{parameters "ID=gun;"}
+			{Position 11.4479	-0.955219	0.0088973}
+			{LODView
+				{VolumeView "shutter.ply"}
+				{VolumeView "shutter_lod1.ply"}
+				{VolumeView "shutter_lod2.ply"}
+				{VolumeView "shutter_lod3.ply"}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Cylinder 1.07028 18.9417}
+	{Bone "dshk"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		23.7011	-0.237221	0.0220842
+	}
+}
+{Volume "body"
+	{Box 14.9301 3.83477 3.98943}
+	{Bone "dshk"}
+	{Position 6.90714	0.135349	-0.0321178}
+}
+{Volume "magazine"
+	{Box 6.28999 4.56502 3.74968}
+	{Bone "magazine"}
+	{Matrix34
+		0	0.422618	-0.906308
+		0	0.906308	0.422618
+		1	0	0
+		-0.00745559	1.23645	-2.50221
+	}
+}
+{Volume "select"
+	{Box 35.1848 10.2758 8.91165}
+	{Bone "dshk"}
+	{Matrix34
+		1	0	0
+		0	0	-1
+		0	1	0
+		16.4362	0.0542345	0.0380404
+	}
+}
+{Extender "preview"
+	{"Stuff"
+		{camera
+			{origin 16.2391	-12.0435	-82.936}
+			{lookat 16.2391	0.804519	0.131368}
+			{fov 23.9132}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.00296339	0.436935	0.243063}
+			}
+			{"1"
+				{type point}
+				{position 15.2903	26.9994	-4.09557}
+			}
+			{"2"
+				{type point}
+				{position 24.7171	-9.53324	-19.9005}
+			}
+		}
+	}
+}

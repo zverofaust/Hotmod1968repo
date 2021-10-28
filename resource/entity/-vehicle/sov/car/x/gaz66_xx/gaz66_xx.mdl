@@ -1,0 +1,218 @@
+;Exported by: Pheonix
+;Date:        Mon Apr 06 20:01:20 2009
+;File:        D:\Documents and Settings\Pheonix\Мои документы\3dsmax\scenes\MyWorks\Vehicle\ГАЗ66\ГАЗ 66_no tent_xx.max
+{Skeleton
+	{bone revolute "basis" {limits -0 0}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.0957641	-0.99531	0.0137082
+				0.0258748	0.0162559	0.999533
+				-0.995068	-0.0953647	0.0273102
+				-1.17928	0.283296	15.6995
+			}
+			{VolumeView "body.ply"}
+			{bone "cabin"
+				{parameters "ID=cabin;"}
+				{Matrix34
+					0.992609	0.121361	0
+					-0.121159	0.990962	-0.0575757
+					-0.00698838	0.05715	0.998341
+					0.169627	15.6021	-37.3461
+				}
+				{VolumeView "cabin.ply"}
+				{bone "doorl"
+					{parameters "ID=cabin;"}
+					{Matrix34
+						-0.988508	0.0514849	-0.142129
+						-0.00649707	0.924875	0.380215
+						-0.151027	-0.376769	0.913912
+						-21.6438	-0.741512	-5.88164
+					}
+					{VolumeView "doorl.ply"}
+				}
+				{bone "part"
+					{parameters "ID=cabin;"}
+					{Matrix34
+						0.955308	0.0165749	-0.295149
+						-0.0295677	0.998778	-0.0396126
+						0.294132	0.0465692	0.95463
+						22.7459	5.40645	1.50308
+					}
+					{VolumeView "part.ply"}
+				}
+				{bone "fxfire1"
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						-0.233681	0.293022	-13.8876
+					}
+				}
+				{bone "engine"
+					{parameters "ID=engine;"}
+					{Position -0.24788	-4.79017	-16.8098}
+					{VolumeView "engine.ply"}
+				}
+			}
+			{bone "fuel1"
+				{Position -15.509	0.564877	2.04559}
+				{VolumeView "fuel1.ply"}
+			}
+			{bone "part2"
+				{Matrix34
+					-1	0	0
+					0	1	0
+					0	0	1
+					15.5657	0.564877	2.04559
+				}
+				{VolumeView "part2.ply"}
+			}
+			{bone "detail1"
+				{Matrix34
+					0	0	1
+					0.965926	-0.258819	0
+					0.258819	0.965926	0
+					8.77391	15.7403	-15.7245
+				}
+				{VolumeView "detail1.ply"}
+			}
+			{bone "bodyback"
+				{parameters "ID=bodyback;"}
+				{Position 0.0837457	8.18666	24.6008}
+				{VolumeView "bodyback.ply"}
+			}
+		}
+		{bone "pivot_front"
+			{Position 35.4046	0.619942	13.3821}
+			{bone revolute "wheell1"
+				{parameters "ID=wheelleft1;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-0.025322	18.1323	-0.284113
+				}
+				{VolumeView "wheell1.ply"}
+			}
+			{bone revolute "wheelr1"
+				{parameters "ID=wheelright1;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-0.0253181	-18.8263	-0.218847
+				}
+				{VolumeView "wheelr1.ply"}
+			}
+		}
+		{bone "pivot_back"
+			{Position -36.31	-4.05486	17.4747}
+			{bone revolute "wheelr2"
+				{parameters "ID=wheelright2;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					1.2562	-14.1515	-4.4852
+				}
+				{VolumeView "wheelr2.ply"}
+			}
+			{bone revolute "wheell2"
+				{parameters "ID=wheelleft2;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					1.25621	22.8071	-4.62416
+				}
+				{VolumeView "wheell2.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+	{Matrix34
+		0	0	-1
+		-1	0	0
+		0	1	0
+		-0.0481828	-1.53121	-6.7551
+	}
+}
+{Volume "bodyback"
+	{Polyhedron "bodyback.vol"}
+	{Bone "bodyback"}
+	{Matrix34
+		0	0	-1
+		-1	0	0
+		0	1	0
+		2.09239	0.555172	-4.31164
+	}
+}
+{Volume "cabin"
+	{Polyhedron "cabin.vol"}
+	{Bone "cabin"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		-0.714374	1.93761	3.57
+	}
+}
+{Volume "engine"
+	{Polyhedron "engine.vol"}
+	{Bone "engine"}
+	{Matrix34
+		0	0	-1
+		-1	0	0
+		0	1	0
+		1.87011	-7.51547	6.99349
+	}
+}
+{Volume "wheelleft1"
+	{Polyhedron "wheelleft1.vol"}
+	{Bone "wheell1"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		-0.0134773	-0.366369	-0.347355
+	}
+}
+{Volume "wheelleft2"
+	{Polyhedron "wheelleft2.vol"}
+	{Bone "wheell2"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0.119995	-0.613854	-0.347544
+	}
+}
+{Volume "wheelright1"
+	{Polyhedron "wheelright1.vol"}
+	{Bone "wheelr1"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		-0.0137367	0.166244	0.23325
+	}
+}
+{Volume "wheelright2"
+	{Polyhedron "wheelright2.vol"}
+	{Bone "wheelr2"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		0.120014	0.166228	0.233189
+	}
+}

@@ -1,0 +1,164 @@
+;Exported by:	 carlos
+;Date:			 20.08.2021 01:33:14
+;File:			 E:\GoH_3D_vehicles_rus\vehicles\cannon\maxim MG\sg43_mounted_x.max
+{skeleton
+	{bone revolute "basis"
+		{parameters "wheelradius=0.18;"}
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}{speed 1}}
+			}
+			{Position -0.0025 	 0.0081 	 3.6365}
+			{VolumeView "body.ply"}
+			{bone "body_angular"
+				{parameters "id=body;"}
+				{Position -2.3074 	 0 	 -5.5859}
+				{VolumeView "body_angular.ply"}
+				{bone revolute "turret"
+					{parameters "id=body;"}
+					{Position -1.5165 	 0 	 8.3952}
+					{VolumeView "turret.ply"}
+					{bone revolute "gun_rot"
+						{matrix34
+							1 	 0 	 0
+							0 	 0 	 1
+							0 	 -1 	 0
+							-0.489 	 -0.0001 	 1.2908
+						}
+						{bone "gun"
+							{parameters "id=body;"}
+							{matrix34
+								1 	 0 	 0
+								0 	 0.9925 	 0.1219
+								0 	 -0.1219 	 0.9925
+								-8.6623 	 0.4164 	 -0.1182
+							}
+							{LODView
+								{VolumeView "gun.ply"}
+								{VolumeView "gun_lod1.ply"}
+								{VolumeView "gun_lod2.ply"}
+							}
+							{bone "sg-43_cover"
+								{parameters "id=body;"}
+								{Position 7.9602 	 1.3913 	 0}
+								{LODView
+									{VolumeView "sg-43_cover.ply"}
+									{VolumeView "sg-43_cover_lod1.ply"}
+									{VolumeView "sg-43_cover_lod2.ply"}
+								}
+							}
+							{bone "sg-43_trigger"
+								{parameters "id=body;"}
+								{Position 0.8556 	 -0.2646 	 0}
+								{LODView
+									{VolumeView "sg-43_trigger.ply"}
+									{VolumeView "sg-43_trigger_lod1.ply"}
+									{VolumeView "sg-43_trigger_lod2.ply"}
+								}
+							}
+							{bone "belt2"
+								{parameters "commonmesh;id=body;"}
+								{matrix34
+									0 	 0 	 -1
+									0 	 1 	 0
+									-1 	 0 	 0
+									7.0075 	 -0.8509 	 2.1198
+								}
+								{VolumeView "belt2.ply"}
+							}
+						}
+					}
+					{bone "pole"
+						{parameters "id=body;"}
+						{matrix34
+							1 	 0 	 0
+							0 	 0 	 1
+							0 	 -1 	 0
+							-0.4746 	 0 	 1.2551
+						}
+						{VolumeView "pole.ply"}
+					}
+					{bone "shield"
+						{parameters "id=shield;"}
+						{Position 0.3678 	 0.062 	 4.1199}
+						{VolumeView "shield.ply"}
+					}
+				}
+			}
+			{bone "handle"
+				{parameters "id=body;"}
+				{Position -7.0035 	 0 	 -1.3724}
+				{VolumeView "handle.ply"}
+			}
+		}
+		{bone "pivot_front"
+			{Position 0.0013 	 0.0081 	 3.6941}
+			{bone revolute "wheelr1"
+				{parameters "id=wheelright;"}
+				{matrix34
+					1 	 0 	 0
+					0 	 0 	 1
+					0 	 -1 	 0
+					-0.0013 	 -5.377 	 0.0017
+				}
+				{VolumeView "wheelr1.ply"}
+			}
+			{bone revolute "wheell1"
+				{parameters "id=wheelleft;"}
+				{matrix34
+					1 	 0 	 0
+					0 	 0 	 1
+					0 	 -1 	 0
+					-0.0013 	 5.374 	 0.0017
+				}
+				{VolumeView "wheell1.ply"}
+			}
+		}
+		{bone "box"
+			{parameters "id=body;"}
+			{matrix34
+				0.9563 	 -0.2924 	 0
+				0.2924 	 0.9563 	 0
+				0 	 0 	 1
+				-6.7825 	 -7.6215 	 2.7351
+			}
+			{VolumeView "box.ply"}
+			{bone "lid"
+				{parameters "id=body;"}
+				{matrix34
+					1 	 0 	 0
+					0 	 -0.866 	 -0.5
+					0 	 0.5 	 -0.866
+					0 	 -2.8075 	 2.0549
+				}
+				{VolumeView "lid.ply"}
+				{bone "flap"
+					{parameters "id=body;"}
+					{matrix34
+						1 	 0 	 0
+						0 	 -0.891 	 0.454
+						0 	 -0.454 	 -0.891
+						0 	 5.4225 	 0.0039
+					}
+					{VolumeView "flap.ply"}
+				}
+			}
+			{bone "belt"
+				{parameters "commonmesh;id=body;"}
+				{matrix34
+					-0.2924 	 0.9563 	 0
+					0 	 0 	 1
+					-0.9563 	 -0.2924 	 0
+					-0.853 	 5.5379 	 4.4962
+				}
+				{VolumeView "belt.ply"}
+			}
+		}
+	}
+}

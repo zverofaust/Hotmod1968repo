@@ -1,0 +1,86 @@
+{game
+	; specify base game mode to inherit implementation from. not used for built-in game modes
+	{class gamemodeBaseType}
+	; specify order in game mode list
+	{order 100}
+	; game mode parameters string
+		;flag_count=1:3,2:5,3:8																				available flags : max amount players
+		;points_table=0/0.000,0.05/0.0834,0.25/0.0916,0.45/0.1084,0.65/0.1334,0.85/0.1666,1.00/0.4166		percent holding flags / points to add
+		;flag_capture_time=25																				time to capture a neutral flag
+		;flag_release_time=5																				time to release an enemy flag
+		;flag_capture_factor=0.5																			influence of distance to flag inside capture zone on capture speed (0 = no influence, 1 = high influence)
+		;maximum_ammo_payback																				(ammunition) maximum granted mp from still pending payback on conquering an ammo crate
+		;enable_time																						(ammunition) defines how fast the ammo crates will become available
+	{parameters	""}
+	{settings
+		{options			scoreFinal randomSpawnPoints enableSpectators}
+		{optionsAdvanced	preparationTime friendlyFire fogOfWar showPiercing showDamageReports}
+		{optionsRanked		}
+		{fogOfWar			fog_realistic}
+		{difficulty			multiplayer}
+		{scoreMin			10}
+		{scoreMax			1000}
+		{scoreFinal			100}
+		{preparationTimeMin	0}
+		{preparationTimeMax	60}
+		{preparationTime	15}
+		{impregnableTimeout	10}
+		{floraRespawn		0}
+		{friendlyFire}
+		{showPiercing}
+		{showDamageReports}
+		{useUnitLevelRestrictions}
+		{enableBots}
+	}
+	; team settings
+	{teamSettings
+		; deathmatch - enables ffa mode. ignores other team settings 
+		; normal - normal team mode
+		{teamsMode normal}
+		; list of teams 
+		{teams
+			; Team "A" definition
+			{"a" 
+				; team display name (or localization key)
+				{title "key/to/localizable"} 
+				; reserved player slots. default is 0. 
+				{minTeamSlots 0}
+				; max amount of player slots. default is 0.
+				{maxTeamSlots 0}
+				; minimum amount of players in team to start game (TBI)
+				{minTeamPlayers 0}
+				; maximum amount of players in team to start game (TBI)
+				{maxTeamPlayers 0}
+				; amount of bots in team. (not affected by maxTeamSlots or maxTeamPlayers)
+				{aiTeamPlayers 0}  
+				; hides team from selection
+				{hidden 0}		   
+				; list of allowed armies for TEAM army selection. skip this block to allow all available armies
+				{armies "usa grm"}
+			}
+			; Team "B" basic definition. Use all defaults.
+			{"b"}
+		}
+		; list of alliances. Unlocks "Alliances" option.
+		{alliances
+			; Full alliance definition
+			{"nato" 
+				; alliance display name (or localization key)
+				{title "mp/alliance/nato"}
+				; list of allowed armies for ALLIANCE army selection selection. skip section to allow all armies
+				{armies "usa eng"}
+			}
+			{"opfor"
+				{title "mp/alliance/opfor"}
+				{armies "grm"}
+			}
+		}
+	}
+	; ranked game settings
+	{ranked
+		{enabled 0}
+		{minPlayers 0}
+		{maxPlayers 0}
+	}
+	(include "presets/presets_basic.inc")
+}

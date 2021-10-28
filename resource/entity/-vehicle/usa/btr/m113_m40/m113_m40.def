@@ -1,0 +1,147 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "light" "multi_board" "vision_lev04" "amphibia" "diesel" "muzzle_75mm_76mm"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "tank_light"}
+	
+	{patherId "amphibia"}
+	
+	{volume "body"			; Hull
+		{thickness 13		; 
+			{front 13}
+			{top 8}		; 
+			{rear 13}
+			{bottom 8}
+		}
+	}
+	
+	{volume "shield"
+		{component "shield"}
+		{tags "shield"}
+	}
+	
+	{component "shield"}
+
+	{extender "shield"
+		{on}	
+	}
+	
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "gunner"		{visor "main"}{sealable}}
+		{place "commander"	{visor "mgun"}{sealable}}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "left"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "doorleft"}}
+			{reverse	{end	"board_body" -1} {base "doorleft"}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_body"} {end "seat_passenger"} {base "doorleft"}}
+			{reverse	{end	"board_body" -1} {base "doorleft"}}
+		}
+	}
+	("seat_human" 	place(driver)  		bone()			door(emit0)  animation(driver) 		group(crew))
+	("seat_human" 	place(commander)  	bone(gunner2)	door(emit3)  animation(gunner) 		group(crew))
+	("seat_human" 	place(gunner)  		bone(gunner)	door(emit3)  animation(gunner)		group(crew))
+	("seat_human" 	place(seat1)  		bone(seat01)	door(emit3)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat2)  		bone(seat02)	door(emit3)  animation(passenger) 	group(passenger))
+	
+	
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_usa" 1250}
+			{item "ammo m60_box" 	2000}
+			{item "ammo bullet_106 he" 25}
+			{item "ammo bullet_106 heat" 30}
+		}
+	}
+	
+	{Weaponry
+		{place "gun"
+			{weapon			"106mm_m40" filling "ammo bullet_106 he" 1}
+			{gunner "gunner"}
+            {charger "gunner"}
+			{foresight "foresight1"}
+			{RestoreIKAfterAim}
+			{Rotate}
+			("abm_dymamic"
+				zeroing(5.0)
+				dispersion(0.40)
+			)
+		}
+		{place "mgun"
+			{weapon			"browning_m2" filled}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{LinkBone		"mgun"}
+			{LinkAnimation	"off"}
+			{basic}
+			{ai_in_manual}
+			("abm_mgun")
+		}
+	}
+	
+	{mass 10400}		
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(60) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(12);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(10.4) ;-------Weight in Tonnes.
+			power(212) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(250) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(480) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}
+	
+	{Extension "m113_m40.mdl"}
+     
+	{bone "turret"
+		{limits -60 20}
+		{speed2 24}
+	}
+	{bone "gun_rot"
+		{limits 5 -15}
+		{speed2 24}
+	}
+	{bone "mgun_rot"
+		{limits -7 7}
+		{speed2 64}
+	}
+	{bone "turret_mgun"
+		{limits -45 179}
+		{speed2 64}
+	}
+}

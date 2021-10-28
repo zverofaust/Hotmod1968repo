@@ -1,0 +1,24 @@
+{from "pattern mortar_ammo"
+	{tag "mortar pierce he fg 75to76"}
+	{inventory
+		{size 3 1}
+	}
+	{entity "80mm_ger_mortar_he"}
+	{view "80mm_ger_mortar_he"
+		{tail "shell_tail" "tail"}
+	}
+	{mass 3.5}
+
+	("he_medium")
+
+	{damage blastwave
+		{energy 2.31}
+		{area 0.2  0.5}
+		{ground_interaction_radius 0.6}
+	}
+	{damage add blastwave
+		{energy 1.456}
+		{area 4.85 8.91}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+}

@@ -1,0 +1,217 @@
+;Exported by: pk
+;Date:        Thu Mar 28 12:29:50 2019
+;File:        E:\Chris models\m35\m35_xx_export.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone revolute "pivot_back"
+			{Position -36.3687	0.0148638	11.6022}
+			{bone revolute "wheell2"
+				{parameters "ID=wheelleft2;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					13.3325	19.3651	-0.797436
+				}
+				{VolumeView "wheell2.ply"}
+			}
+			{bone revolute "wheell3"
+				{parameters "ID=wheelleft3;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-12.8662	19.3651	-0.797436
+				}
+				{VolumeView "wheell3.ply"}
+			}
+			{bone revolute "wheelr2"
+				{parameters "ID=wheelright2;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					13.3325	-19.3949	-0.797436
+				}
+				{VolumeView "wheelr2.ply"}
+			}
+			{bone revolute "wheelr3"
+				{parameters "ID=wheelright3;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-12.8662	-19.3949	-0.797436
+				}
+				{VolumeView "wheelr3.ply"}
+			}
+		}
+		{bone "pivot_front"
+			{Position 49.6863	0.000766686	12.0777}
+			{bone revolute "steer_r1"
+				{Matrix34
+					-1	0	0
+					0	1	0
+					0	0	-1
+					0	-19.7185	-1.84121
+				}
+				{bone revolute "wheelr1"
+					{parameters "ID=wheelright1;"}
+					{Matrix34
+						-1	0	0
+						0	0	1
+						0	1	0
+						0	0	0
+					}
+					{VolumeView "wheelr1.ply"}
+				}
+			}
+			{bone revolute "steer_l1"
+				{Matrix34
+					-1	0	0
+					0	1	0
+					0	0	-1
+					0	19.7169	-1.84121
+				}
+				{bone revolute "wheell1"
+					{parameters "ID=wheelleft1;"}
+					{Matrix34
+						-1	0	0
+						0	0	1
+						0	1	0
+						0	0	0
+					}
+					{VolumeView "wheell1.ply"}
+				}
+			}
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.999048	-0.00114142	-0.0435985
+				0.00342193	0.998627	0.0522683
+				0.043479	-0.0523678	0.997681
+				-3.11518	0.354326	30.8089
+			}
+			{VolumeView "body.ply"}
+			{bone "engine"
+				{parameters "ID=engine;"}
+				{Matrix34
+					-0.935139	0	-0.354281
+					0	-1	0
+					-0.354281	0	0.935139
+					42.9716	-0.354326	8.7051
+				}
+				{VolumeView "engine.ply"}
+			}
+			{bone "doorleft"
+				{Matrix34
+					-0.270821	0.96263	0
+					-0.96263	-0.270821	0
+					0	0	1
+					35.869	17.8454	5.46902
+				}
+				{VolumeView "doorleft.ply"}
+			}
+			{bone "doorright"
+				{Matrix34
+					-0.259657	-0.964858	0.0403457
+					0.965094	-0.260748	-0.0245828
+					0.0342389	0.0325543	0.998883
+					35.8689	-18.5541	4.86885
+				}
+				{VolumeView "doorright.ply"}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Position 43.6222	-0.354295	-17.6115}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		0.594409	-5.20501	-1.69106
+	}
+}
+{Volume "body3"
+	{Polyhedron "body3.vol"}
+	{Bone "body"}
+	{Position 54.6154	-0.354297	-9.77207}
+}
+{Volume "body4"
+	{Polyhedron "body4.vol"}
+	{Bone "body"}
+	{Position 43.6222	-0.354295	-27.0382}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+	{Position 30.9829	-0.354291	-19.0738}
+}
+{Volume "wheelleft1"
+	{Cylinder 10.2362 7.08661}
+	{Bone "wheell1"}
+	{Matrix34
+		0.991445	0.130525	0
+		-0.130525	0.991445	0
+		0	0	1
+		0	0	-0.841477
+	}
+}
+{Volume "wheelleft2"
+	{Cylinder 10.2362 12.0079}
+	{Bone "wheell2"}
+	{Matrix34
+		0.0971367	-0.995271	-1.43051e-005
+		0.995271	0.0971367	-1.09673e-005
+		1.23049e-005	-1.31721e-005	1
+		3.19163e-005	-3.33084e-005	-0.0150933
+	}
+}
+{Volume "wheelleft3"
+	{Cylinder 10.2362 12.0079}
+	{Bone "wheell3"}
+	{Matrix34
+		0.867091	-0.49815	0
+		0.49815	0.867091	0
+		0	0	1
+		0	0	-0.0150952
+	}
+}
+{Volume "wheelright1"
+	{Cylinder 10.2362 7.07642}
+	{Bone "wheelr1"}
+	{Matrix34
+		-0.793353	-0.608761	0
+		0.608761	-0.793353	0
+		0	0	1
+		0	0	0.748637
+	}
+}
+{Volume "wheelright2"
+	{Cylinder 10.2362 12.0079}
+	{Bone "wheelr2"}
+	{Position 0	0	-0.0534606}
+}
+{Volume "wheelright3"
+	{Cylinder 10.2362 12.0079}
+	{Bone "wheelr3"}
+	{Matrix34
+		1	0	0
+		0	1	0
+		0	0	1
+		0	0	-0.0534606
+	}
+}

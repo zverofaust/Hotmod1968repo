@@ -1,0 +1,121 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	(include "/properties/shadow/tank.inc" scale(0.6))
+	(include "/properties/selection/cannon.inc" scale(0.7))
+	{props "cannon_small" "wheeled" "automatic" "vision_lev02_can" "muzzle_37mm_40mm_auto" "cannon_sandbag_standard" "trailer" "trailer_light" "detect_cannon_aa" "flak"}
+	{collider "cannon_small"}
+	{targetclass "cannon_zenite"}
+	{targetSelector "cannon_zenite"}
+
+	{Volume "gun1"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun2"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun_rot"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun_rot1"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun_rot2"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun_rot3"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun_rot4"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun_rot5"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret3"
+		{tags "turret"}
+		{component "turret"}
+	}
+	("armor_light_cannon")
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	(include "cannon_crew.ext")
+	("crew_wheeled_gun")
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_flak38-1_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak38-1_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bulletrus_25_auto apbc" 250}		;
+			{item "bulletrus_25_auto he" 250}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{Barrels 2}
+			{type "main"}
+			{weapon "23mm_zu-23-2" filled}
+			("abm_dymamic_aa"
+				zeroing(1.2)
+				dispersion(0.15)
+			)
+		}
+	}  		
+	{mass 950}
+	{Extension "zu-23-2.mdl"}
+
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "" ""}
+			{reload "" ""}
+		}
+		{move {workers "driver1" "driver2" minWorkers 2} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+		{rotate_ik_Limit 0}
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel02a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility_cannon"
+			speed(8.0) ;---------------------------------Max speed.
+			weight(950) ;-------------------------------Weight in Kilograms.
+		)
+	}
+	{bone "gun_rot"
+	      {limits -65 10}
+	}
+}

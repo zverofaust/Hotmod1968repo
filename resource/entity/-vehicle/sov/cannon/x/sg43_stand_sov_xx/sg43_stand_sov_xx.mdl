@@ -1,0 +1,127 @@
+;Exported by:	 carlos
+;Date:			 20.08.2021 01:37:46
+;File:			 E:\GoH_3D_vehicles_rus\vehicles\cannon\maxim MG\sg43_mounted_xx.max
+{skeleton
+	{bone revolute "basis"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{bone "part5"
+			{parameters "id=body;"}
+			{Position -0.0025 	 0.0081 	 3.6365}
+			{VolumeView "part5.ply"}
+			{bone "handle"
+				{parameters "id=body;"}
+				{matrix34
+					0.9703 	 -0.2419 	 0
+					0.2419 	 0.9703 	 0
+					0 	 0 	 1
+					-7.8766 	 -0.4362 	 -1.3724
+				}
+				{VolumeView "handle.ply"}
+			}
+		}
+		{bone "part1"
+			{parameters "id=body;"}
+			{matrix34
+				0.9563 	 -0.2924 	 0
+				0.2924 	 0.9563 	 0
+				0 	 0 	 1
+				-6.7825 	 -7.6215 	 2.7351
+			}
+			{VolumeView "part1.ply"}
+		}
+		{bone "part4"
+			{parameters "id=shield;"}
+			{Position -3.4585 	 0.0701 	 10.5657}
+			{VolumeView "part4.ply"}
+		}
+		{bone "part2"
+			{parameters "id=body;"}
+			{Position -2.3099 	 0.0082 	 -1.9494}
+			{VolumeView "part2.ply"}
+		}
+		{bone revolute "part6"
+			{parameters "id=wheelleft;"}
+			{matrix34
+				1 	 0 	 0
+				0 	 0 	 1
+				0 	 -1 	 0
+				0 	 5.3821 	 3.6958
+			}
+			{VolumeView "part6.ply"}
+		}
+		{bone revolute "part7"
+			{parameters "id=wheelright;"}
+			{matrix34
+				1 	 0 	 0
+				0 	 0 	 1
+				0 	 -1 	 0
+				0 	 -5.3688 	 3.6958
+			}
+			{VolumeView "part7.ply"}
+		}
+		{bone "part3"
+			{parameters "id=body;"}
+			{Position -2.4711 	 0.0351 	 9.5168}
+			{VolumeView "part3.ply"}
+		}
+	}
+}
+{volume "part1"
+	{box 1.82011 5.48067 6.51843}
+	{bone "part1"}
+	{Position -0.0152 	 -0.0933 	 0.5407}
+}
+{volume "part2"
+	{box 7.31467 6.26202 2.97068}
+	{bone "part2"}
+	{matrix34
+		0.9925 	 0 	 0.1219
+		0 	 1 	 0
+		-0.1219 	 0 	 0.9925
+		-2.6081 	 -0.005 	 7.4569
+	}
+}
+{volume "part3"
+	{box 23.3052 1.29962 1.76388}
+	{bone "part3"}
+	{matrix34
+		0.9994 	 0 	 0.0349
+		0 	 1 	 0
+		-0.0349 	 0 	 0.9994
+		-0.2508 	 -0.1003 	 -0.6075
+	}
+}
+{volume "part4"
+	{polyhedron "part4.vol"}
+	{bone "part4"}
+	{matrix34
+		0.9999 	 0 	 -0.0156
+		0.0156 	 0 	 0.9999
+		0 	 -1 	 0
+		-0.4462 	 4.9793 	 0.0894
+	}
+}
+{volume "part5"
+	{box 22.2265 6.72178 2.57998}
+	{bone "part5"}
+	{matrix34
+		0.9877 	 0 	 0.1564
+		0 	 1 	 0
+		-0.1564 	 0 	 0.9877
+		-9.4135 	 0.0096 	 -0.615
+	}
+}
+{volume "part6"
+	{cylinder 3.63661 0.925197}
+	{bone "part6"}
+	{Position -0.0119 	 0.011 	 -0.3658}
+}
+{volume "part7"
+	{cylinder 3.63661 0.925197}
+	{bone "part7"}
+	{Position -0.0119 	 0.011 	 0.426}
+}

@@ -1,0 +1,113 @@
+;Exported by: Richtofen
+;Date:        Mon Jun 12 21:42:25 2017
+;File:        C:\Users\Richtofen\Desktop\btr152_idf\plugin_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "CommonMesh;ID=body;"}
+			{Matrix34
+				0.999469	-0.00386893	-0.0323657
+				0.00151098	0.997363	-0.0725628
+				0.0325611	0.0724753	0.996839
+				-0.963025	-0.0338297	5.93555
+			}
+			{VolumeView "body.ply"}
+			{bone "anten"
+				{parameters "ID=body;"}
+				{Position 28.7393	-17.1659	17.8111}
+				{VolumeView "anten.ply"}
+			}
+		}
+		{bone "pivot_front"
+			{parameters "ID=body;"}
+			{Position 45.4344	-0.00458347	4.93957}
+			{VolumeView "pivot_front.ply"}
+			{bone revolute "steer_r1"
+				{Matrix34
+					1	0	0
+					0	-1	0
+					0	0	-1
+					0.220776	-12.8682	0.371525
+				}
+				{bone revolute "wheelr1"
+					{parameters "ID=wheelright1;"}
+					{Matrix34
+						-1	0	0
+						0	0	-1
+						0	-1	0
+						-0.265228	4.51141	-0.189096
+					}
+					{VolumeView "wheelr1.ply"}
+				}
+			}
+			{bone revolute "steer_l1"
+				{Matrix34
+					1	0	0
+					0	-1	0
+					0	0	-1
+					0.220776	12.8097	0.371525
+				}
+				{bone revolute "wheell1"
+					{parameters "ID=wheelleft1;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.0163536	-4.57923	0.0259295
+					}
+					{VolumeView "wheell1.ply"}
+				}
+			}
+		}
+		{bone "pivot_back"
+			{parameters "ID=body;"}
+			{Position -19.6389	-0.0338297	5.28958}
+			{VolumeView "pivot_back.ply"}
+			{bone revolute "wheelr2"
+				{parameters "ID=wheelright2;"}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					-0.0466309	-17.349	-0.0234375
+				}
+				{VolumeView "wheelr2.ply"}
+			}
+			{bone revolute "wheell2"
+				{parameters "ID=wheelleft2;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-0.101679	17.4168	0.00648499
+				}
+				{VolumeView "wheell2.ply"}
+			}
+			{bone revolute "wheelr3"
+				{parameters "ID=wheelright3;"}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					-22.1986	-17.349	0.00831127
+				}
+				{VolumeView "wheelr3.ply"}
+			}
+			{bone revolute "wheell3"
+				{parameters "ID=wheelleft3;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-22.1901	17.4168	0.00739288
+				}
+				{VolumeView "wheell3.ply"}
+			}
+		}
+	}
+}

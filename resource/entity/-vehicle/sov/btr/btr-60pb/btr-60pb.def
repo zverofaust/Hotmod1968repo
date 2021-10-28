@@ -1,0 +1,152 @@
+{game_entity			;BTR-60PA
+	(include "/properties/armoredcar.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "tank" "turret" "wheeled" "multi_board" "vision_lev02" "amphibia" "tractor" "tractor_medium" "muzzle_kpvt"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "tank_zenite"}
+	
+	(include "/properties/resupply.inc")
+	("apc_ammo")
+	
+	{patherId "amphibia"}
+	
+	("armoredcar_tier1")
+	
+    {volume "body"
+		{thickness 7
+			{front	11}
+		}
+	}
+	{volume "body1"
+		{thickness 7
+			{front	11}
+		}
+	}
+	{volume "body2"
+		{thickness 7
+			{front	11}
+		}
+	}
+	{volume "body3"
+		{thickness 7
+			{front	11}
+		}
+	}
+	{volume "body4"
+		{thickness 7
+			{front	11}
+		}
+	}
+	{volume "body5"
+		{thickness 7
+		}
+	}
+	
+	("turret" repair(50))
+	("gun" repair(30) thickness(20))
+	
+	("fuel" args "fuel")
+	("transmission" args "transmission")
+	
+	{volume "turret"
+		{thickness 8
+			{front 14.5}
+			{top 5.5}
+		}
+	}
+	
+	{volume "engine"		; Hull
+		{thickness 10
+			{front 5.5}
+			{top 5.5}
+			{bottom 5.5}
+		}
+	}
+	
+ 	;Crew: driver, commander, 8 passengers
+	(include "crew.ext")
+
+	{placer
+		{place "driver"	{visor "driver"}}
+		{place "gunner"	{visor "main"}}
+		{place "passenger1"	{visor "around"}{group "passenger"}}
+	}
+
+
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_rus_kpvt" 500}
+			{item "pk_box" 3000}		;4 boxes
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon			"kpvt" filled}
+			{foresight 		"foresight1"}
+			{gunner			"gunner"}
+			{charger		"gunner"}
+			{LinkBone		"mgun_hlp"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+		}
+		{place "mgun2"
+			{type "coaxial"}
+			{weapon "pkt" filled}
+			{foresight "foresight5"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	
+	("wheel" args "wheelr1")
+	("wheel" args "wheell1")
+	("wheel" args "wheelr2")
+	("wheel" args "wheell2")
+	("wheel" args "wheelr3")
+	("wheel" args "wheell3")
+	("wheel" args "wheelr4")
+	("wheel" args "wheell4")
+
+	{mass 10200}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility_car"
+			speed(70) ;----------------------------------Max speed.
+			speedatmaxturn(17) ;-------------------------Max speed at max turn.
+			reverse(22) ;--------------------------------Max speed in Reverse.
+			weight(10.2) ;-------------------------------Weight in Tonnes.
+			power(180) ;---------------------------------Horse Power.
+			fuel(290) ;----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(500) ;---------------------------------Range in Kilometers.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}	
+	
+	{Extension "btr-60pb.mdl"}
+}
+
+
+
+

@@ -1,0 +1,137 @@
+{game_entity		;PT-76 base
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{props "td" "medium" "turret_rotator" "vision_lev06" "muzzle_150mm_155mm_sides" "diesel" "detect_spg"}
+	{targetclass "tank_light"}
+	{targetSelector "tank_spg"}
+	{PatherId "t34"}
+
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+
+	
+	;volume, component/tag, thickness, front, rear
+	{volume "body1"			; Hull
+		{thickness 15}
+	}
+	{volume "body2"			; 
+		{thickness 15}
+	}
+	{volume "engine"
+		{thickness 15}
+	}
+	{volume "turret"		; Main Turret 
+		{thickness 15}
+	}
+	{volume "mantlet"
+		{thickness 10}
+	}
+		
+	{component "turret"
+		{RepairTime 20}
+	}
+
+	("crew_4_human")
+	("gunner_visible")
+
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "gunner"		{visor "main"}}
+		{place "commander"	{visor "mgun"}{sealable}}
+	}
+	
+	{sensor
+		{visor "mgun"
+			{vision "human"}
+		}
+	}
+	
+	{boarder
+		{anm "commander"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open"}}
+			{reverse {end "emit_tank_1_hold"} {base "open"}}
+		}
+		{anm "gunner"
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open2"}}
+			{reverse {end "emit_tank_1_hold"} {base "open2"}}
+		}
+		{anm "armor"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_body"}}
+		}
+	}
+	
+	("seat_human" 	place(gunner) 		bone() 				door(emit1)  				animation(gunner))
+	("seat_human" 	place(charger) 		bone() 				door(emit1)  				animation(gunner))
+	("seat_human" 	place(commander) 	bone(gunner2) 		door(emit2)  				animation(commander))
+	
+	{extender "inventory"
+		{box
+			{item "bulletrus_152 aphe" 10}	;46 rounds	 
+			{item "bulletrus_152 he" 36}	
+			{item "pk_box" 1250}				;a total of 1500 rounds (250 already loaded)
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "152mm_d22" filling "bulletrus_152 he" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic"
+				zeroing(5.0)
+				dispersion(0.25)
+			)
+		}
+		{place "mgun"
+			{weapon			"pkt" filled}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 27500}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(63) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(11);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(27.5) ;-------Weight in Tonnes.
+			power(520) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(830) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(480) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "2s3.mdl"}
+
+	{bone "turret"			;gun horizontal
+		{speed2 16}			;degree per second
+	}
+	{bone "gun_rot"			;gun vertical
+		{speed2 7}			;degree per second
+		{limits -3 75}		;min down to max up
+	}
+	{bone "turret_mgun"		;mgun horizontal
+		{speed2 36}
+	}
+	{bone "mgun_rot"		;mgun vertical
+		{speed 0.03}
+		{limits -6 15}		;min down to max up
+	}
+}

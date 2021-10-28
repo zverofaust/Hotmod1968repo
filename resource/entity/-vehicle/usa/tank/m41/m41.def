@@ -1,0 +1,171 @@
+{game_entity		;T-62 base
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc"  scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{props "light" "diesel" "vision_lev04" "muzzle_75mm_76mm_sides"}
+	{targetclass "tank_light"}
+	{targetSelector "tank_light"}
+	{PatherId "t34"}
+
+	{extender "enumerator"
+		{digit_folder "nato"}
+	}
+
+	;volume, component/tag
+	{volume "body"			; Upper Hull
+		{thickness 25
+			{front 32}		; Glacis
+			{top 9}
+			{rear 19}
+			{bottom 9}
+		}
+		{HighHardness}
+	}
+	{volume "body2"			; Lower Hull
+		{thickness 25
+			{front 32}		; Glacis
+			{top 9}
+			{rear 19}
+			{bottom 9}
+		}
+		{HighHardness}
+	}
+	{volume "turret"			; Turret
+		{thickness 25
+			{front 25}		
+			{top 13}
+			{rear 25}
+			{bottom 9}
+		}
+		{HighHardness}
+	}
+	{volume "mantlet"	
+		{thickness 32}
+		{HighHardness}
+	}
+	
+	;Crew: driver, commander, gunner, loader
+	("crew_4_human_extended")
+	("gunner_visible")
+
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "gunner"		{visor "main"}}
+		{place "commander"	{visor "mgun"}{sealable}}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open2"}}
+			{reverse {end "emit_t34_hold"} {base "open2"}}
+		}
+		{anm "commander"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open"}}
+			{reverse {end "emit_tank_1_hold"} {base "open"}}
+		}
+		{anm "gunner"
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open2"}}
+			{reverse {end "emit_tank_1_hold"} {base "open2"}}
+		}
+		{anm "armor"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_body"}}
+		}
+	}
+	
+	("seat_human" 	place(gunner) 		bone() 				door(emit1)  				animation(gunner))
+	("seat_human" 	place(charger) 		bone() 				door(emit1)  				animation(gunner))
+	("seat_human" 	place(commander) 	bone(gunner2) 		door(emit2)  				animation(commander))
+	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+	
+	{sensor
+		{visor "mgun"
+			{vision "human"}
+			{bone "mgun_rot_turret"}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bulletusa_76 ap" 30}
+			{item "ammo bulletusa_76 apcr" 10}
+			{item "ammo bulletusa_76 he" 19}
+			{item "ammo bulletusa_76 sm" 6}
+			{item "ammo hmgun_usa" 1200}
+			{item "ammo mgun_usa belt" 2500}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon 		"76mm_m32a1" filling "ammo bulletusa_76 ap" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic"
+				zeroing(3.0)
+				dispersion(0.20)
+			)
+		}
+		{place "mgun2"		;coax
+			{weapon			"browning_m19a4" filled}
+			{foresight		"foresight5"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun"		;aa
+			{type 			"aa"}
+			{weapon 		"browning_m2" filled}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 23490}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(73) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8.9);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(23.5) ;-------Weight in Tonnes.
+			power(240) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(150) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(180) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "m41.mdl"}
+
+	{bone "turret"			;gun horizontal
+		{speed2 36}			;degree per second
+	}
+	{bone "gun_rot"			;gun vertical
+		{speed2 4}			;degree per second
+		{limits -10 20}		;min down to max up
+	}	
+	{bone "mgun_rot_turret"	;top mgun horizontal
+		{speed2 46}
+		{limits -45 45}
+	}
+	{bone "mgun_rot"		;top mgun vertical
+		{speed2 46}
+	}
+}

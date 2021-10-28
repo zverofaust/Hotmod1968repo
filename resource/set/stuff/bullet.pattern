@@ -1,0 +1,54 @@
+;If a small arms weapon file is missing any values, it will use these general defines. 
+
+{weapon_bullet
+	{inventory
+		{fsm "smg"}
+	}
+	{states
+		{reload		"reload"}
+		{unload		"unload"}
+		{fire		"fire"	}
+		{aim 		"aim"	}
+		{can_aim	"can-aim"}
+	}
+	{Spreading
+		{BurstRecoveryTime 0.5} ; time in seconds for weapon accuracy to return to normal after firing.
+		{BurstAccuracy 100} 	; default value 100. Accuracy for 1st shot of burst is 100%. Lower values mean less accurate.
+		{SpreadRadius 5} 		; radius of weapon accuracy in meters. Most weapon spread radius is defined in small.firearms.accuracy
+		{SpreadPower 2} 		; default value 1. Higher values increase chance of bullet to go into the center of spread radius.
+	}
+	{reloadSound "reload.smg"} 		; sound for weapon reload
+	{foresight "foresight3"}		; bone in weapon entity to define origin of fx and bullet
+	{speed 60}						; velocity of bullet in meters per second
+	{calibre 7.62} 					; caliber of gun in millimeters
+	{AimingTolerance 1}				; value is ° degrees. Limit AI will fire weapon when aim is off target by this many degrees.
+
+	{cursor "ironsights/rifle"}			; mouse cursor for weapon when aiming in direct control
+	{cursorReloading "carbine_reload"}	; mouse cursor for weapon when reloading in direct control
+	{curve "bullet"}					; profile for weapon damage over distance. Defined in ballistics.set
+	{gravity 2}
+
+	{clickSound "trigger_click_01"}
+	{reloadAnimBonus 0}
+
+	{crosshair "crosshair_mgun"}
+	{crosshairReloading "crosshair_mgun_reload"}
+
+	{RicochetEnergyDamping	; penetration energy damping after ricochet (angle - damping)
+		{0	1}
+		{20	1}
+		{30	0.8}
+		{45	0.4}
+		{60	0}
+	}
+
+	{unlimitedRangeTPC 1}
+	{FiringTimeout 0.4 0.2}	; delay between bursts
+	{preloaded}
+
+	{minimumDamageModifier 3}
+	(mod "hardcore"
+		{autoreload 1}
+		{minimumDamageModifier 5}
+	)
+}

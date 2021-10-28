@@ -1,0 +1,80 @@
+;Exported by: Администратор
+;Date:        Sat Jan 04 17:02:29 2014
+;File:        C:\Documents and Settings\Администратор\Мои документы\3dsMax\scenes\UAHM\-vehicle\enemy\cannon\zu23_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -13.4019	0.541215	7.07071}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{Position 7.21782	0.694054	1.93022}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -55 15}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						7.442	0.886638	10.828
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							21.8342	0.747143	0.203733
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "pivot_back"
+				{Position -10.4776	-0.0777269	-3.50465}
+			}
+			{bone "pivot_front"
+				{Position 17.2034	-0.0777272	1.29857}
+				{bone "soikar"
+					{parameters "ID=body;"}
+					{Position -9.58704	-11.9932	-2.23449}
+					{VolumeView "soikar.ply"}
+					{bone revolute "wheelr"
+						{parameters "ID=wheelright;Support=1;Radius=0.4;"}
+						{Matrix34
+							0.999858	0.0168627	0
+							-0.0168627	0.999858	0
+							0	0	1
+							11.9647	-6.67845	-0.6193
+						}
+						{VolumeView "wheelr.ply"}
+					}
+				}
+				{bone "soikal"
+					{parameters "ID=body;"}
+					{Position -10.3602	12.5032	-2.0574}
+					{VolumeView "soikal.ply"}
+					{bone revolute "wheell"
+						{parameters "ID=wheelleft;Support=1;Radius=0.4;"}
+						{Matrix34
+							0.999988	0.000706151	0.00482891
+							-0.000706603	1	9.20285e-005
+							-0.00482885	-9.54395e-005	0.999988
+							12.3888	7.04446	-0.592635
+						}
+						{VolumeView "wheell.ply"}
+					}
+				}
+			}
+		}
+	}
+}

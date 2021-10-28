@@ -1,0 +1,28 @@
+{bullet
+	{tag "size_medium big shell fg"}
+	{inventory
+		{size 6 1}
+		{weight 100}
+	}	
+	{entity "9m22u_ammo"}
+	{mass 30.00}
+	{view "9m22u_ammo"
+		{tail "rocket_smoke" "tail"}
+	}
+	{detonationThickness 1}
+	{applyProjectile}
+	{damage blastwave
+		{energy 15}
+		{area 1 2}
+	}	
+	{damage add blastwave
+		{energy 3.0}
+		{area 10 20}
+		{ground_interaction_radius 0.0}
+	}
+	{damage fire
+		{radius 10}
+		{heating 1.0}
+		{time 5}
+	}		
+}

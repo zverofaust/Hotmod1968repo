@@ -1,0 +1,94 @@
+{Entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "light" "multi_board" "vision_lev04" "amphibia" "diesel" "radio_usa" "radio_usa_artillery"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "tank_bullet"}
+	{patherId "amphibia"}
+	
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+	
+	{volume "body"			; Hull
+		{thickness 13		; 
+			{front 13}
+			{top 8}		; 
+			{rear 13}
+			{bottom 8}
+		}
+	}
+	
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "commander"	{visor "around"}}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "left"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "doorleft"}}
+			{reverse	{end	"board_body" -1} {base "doorleft"}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_body"} {end "seat_passenger"} {base "doorleft"}}
+			{reverse	{end	"board_body" -1} {base "doorleft"}}
+		}
+	}
+	("seat_human" 	place(driver)  		bone()			door(emit1)  animation(driver) 		group(crew))
+	("seat_human" 	place(commander)  	bone()			door(emit5)  animation(passenger) 	group(crew))
+	("seat_human" 	place(seat1)  		bone()			door(emit5)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat2)  		bone()			door(emit5)  animation(passenger) 	group(passenger))
+	
+	{extender "inventory"
+		{box
+			{item "m72_law" filled}
+			{item "m72_law" filled}
+			{item "m72_law" filled}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+	{mass 11100}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(60) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(12);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(11.1) ;-------Weight in Tonnes.
+			power(212) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(250) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(480) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}
+	
+	{Extension "m577.mdl"}
+}

@@ -1,0 +1,31 @@
+;_________________________________________
+; German medium AA gun
+;=========================================
+
+
+{from "pattern gun"			; L/87 "flak37"
+	{filling "bulleteng_40" 4}
+	{fireSound "gun/gun_auto"}
+	{fireSoundclose "gun/gun_auto"}
+	{reloadSound "tank/reload_small"}
+	("range_autocannon_37-40")
+	{cursor "ironsights/aa"}
+	{calibre 40}
+	("medium_aa")
+
+	("fire rate" rpm(120))
+	("reload time" seconds(2))
+
+	("velocity" mps(770))
+	("armor health" damage(55))
+	("armor health custom" shell(ap) damage(55) filler(22)) ;pzgr.18 has filler
+
+	; M81A1   ;
+	("shell_data_165" shell(ap) range(170) a(69) b(58) c(47) d(38) e(30))
+
+	{parameters "he"
+		{range 190 190}
+	}
+
+	("accuracy_aa_150m" r1(0.55) range_ap(170) range_he(170) range_heat(170))
+}

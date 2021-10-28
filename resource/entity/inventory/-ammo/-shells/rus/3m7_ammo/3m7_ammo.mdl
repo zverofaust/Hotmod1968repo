@@ -1,0 +1,78 @@
+;Exported by: Richtofen
+;Date:        Sun Jul 31 11:31:57 2016
+;File:        C:\Users\Richtofen\Desktop\bmd1\rocket.max
+{Skeleton
+	{bone "rocket"
+		{parameters "CommonMesh;ID=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "rocket.ply"}
+		{bone "tail"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-12.2566	-0.0426898	1.0043
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 23.1538 3.36158 1.17113}
+	{Bone "rocket"}
+	{Position 0.417988	0.0536459	0.903056}
+}
+{Volume "select"
+	{Box 27.7845 9.72703 4.3449}
+	{Bone "rocket"}
+	{Position 0.223208	0.01193	1.25683}
+}
+{Extender "preview"
+	{"Stuff_primary"
+		{camera
+			{origin 1.71234	-4.9278	31.6069}
+			{lookat 1.02075	-2.10686	14.4164}
+			{fov 45}
+			{horizon -177.044}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 9.4944	-2.31541	6.5289}
+			}
+			{"1"
+				{type directional}
+				{direction -0.0792752	0.197722	-0.452351}
+			}
+			{"2"
+				{type point}
+				{position -8.71924	-1.70916	4.95956}
+			}
+		}
+	}
+	{"Stuff"
+		{camera
+			{origin 5.12691	-5.63983	30.6727}
+			{lookat 4.46192	-2.92739	14.1433}
+			{fov 45}
+			{horizon -177.044}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 9.4944	-2.31541	6.5289}
+			}
+			{"1"
+				{type directional}
+				{direction -0.0792752	0.197722	-0.452351}
+			}
+			{"2"
+				{type point}
+				{position -8.71924	-1.70916	4.95956}
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+;_________________________________________
+; USSR Medium AT gun
+;=========================================
+
+
+{from "pattern gun"			; L/42 "D-56T"
+	{filling "bulletrus_76"}
+	{fireSound "gun/gun_75_105"}
+	{fireSoundclose "gun/gun_interior/size3"}
+	{reloadSound "interior/large/medium_reload_interior"}
+	("range_200")
+	{calibre 76.2}
+
+	("reload time" seconds(7.5))
+
+	("velocity m/s" ap(662) apcr(950) he(680) heat(700))
+	("armor health" damage(200))
+	("armor health custom" shell(aphebc) damage(200) filler(49))
+
+	; BM-354P
+	("shell_data_165" shell(aphebc) range(200) a(96) b(88) c(79) d(71) e(63))  ;RHA
+
+	; BK-350M HEAT FS  ; only issued to ZiS-3,5 & F-34 guns
+	("shell_data_165" shell(heat) range(180) a(280) b(280) c(280) d(280) e(280))	;
+
+	("accuracy_direct_200m" r1(0.88) range_ap(200) range_he(200) range_heat(180))
+}

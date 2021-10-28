@@ -1,0 +1,88 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(0.6))
+	{props "with_gun" "vision_lev00_can" "muzzle_20mm_25mm_auto" "detect_cannon_aa" "cannon_sandbag_small"}
+	{targetclass "cannon" "ap fg"}
+	{targetclass "cannon_small"}
+	{targetSelector "cannon_small"}
+	
+	(include "crew.ext")
+	("crew_mortar")
+
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 50}
+		{able {visible 1}}
+	}
+	{Volume "gun"
+		{Tags  "gun"}
+		{Thickness 50}
+		{able {visible 1}}
+	}
+	
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "mgun_browning_driver_r" "mortar_driver_r"}
+			{aim "cannon_small_gunner_aim" "cannon_small_charger_aim"}
+			{fire  "cannon_small_gunner_fire" "cannon_small_charger_fire"}
+			{reload  "cannon_small_gunner_reload" "cannon_small_charger_reload"}
+		}
+		{move {workers "driver1" "driver2" minWorkers 2}{obstacle "close"}}
+		{attack {workers "gunner" "commander"}{obstacle "open"}}
+		;{rotate_ik_Limit 0}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bulletrus_73 he" 5}
+			{item "bulletrus_73 heat" 10}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon	"73mm_2a28" filling "ammo bulletrus_73 heat" 1}
+			{gunner "gunner"}
+            {charger "commander"}
+			{RestoreIKAfterAim}
+			{Rotate}
+			{basic}
+			("abm_dymamic_gun"
+				zeroing(1.50)
+				dispersion(0.35)
+			)
+		
+		}
+	} 	
+	
+	{sensor
+		{visor "gunner"
+			{vision "tank_main-l"}
+			{bone "foresight1"}
+		}
+		{visor "commander"
+			{vision "human"}
+			{bone "visor"}
+		}
+	}
+	
+	{mass 60}
+
+	{Extension "spg9.mdl"}
+	
+	{Chassis
+		("mobility_cannon"
+			speed(10) ;----------------------------------Max speed.
+			weight(60) ;---------------------------------Weight in Kilograms. 
+		)
+	}
+	
+    {bone "turret"
+		{limits -15 15}
+		{speed2 25}
+	}
+        {bone "gun"
+		{limits -5 15}
+		{speed2 25}
+	}
+}
