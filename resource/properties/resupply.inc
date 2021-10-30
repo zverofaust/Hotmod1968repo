@@ -318,6 +318,9 @@
 	{item "bulletusa_105"		"heat"		"ammo" 1 {value 10}}
 	{item "bulletusa_105"		"he"		"ammo" 1 {value 5}}
 	{item "bulletusa_105"		"apds"		"ammo" 1 {value 10}}
+	
+	{item "bullet_106"			"he"		"ammo" 1 {value 5}}
+	{item "bullet_106"			"heat"		"ammo" 1 {value 10}}
 )
 
 (define "items_heavy_eng"
