@@ -1,0 +1,117 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props 	"tank" "wheeled" "vision_lev02" "tractor" "tractor_light"}
+	{targetclass "armoredcar"}
+	{targetSelector "car_bullet"}
+	{PatherId "ba64"}
+	{collider "truck"}
+	
+	("armoredcar_tier1")
+	
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 8}   
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 8}   
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 8}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 8}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 8}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 8}
+	}
+	{volume "engine"
+		{thickness 8}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	
+	;Crew: driver, commander, 4 passengers
+
+	(include "crew.ext")
+
+
+	
+	{sensor
+		{visor "mgun"
+			{bone "turret_mgun"}
+		}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "pk_box" 2000}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+ 	{Weaponry
+		("restore_ik_time")
+		{place "mgun"
+			{type 			"aa"}
+			{weapon			"pkmt" filled}
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			{LinkBone		"mgun"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+			{ai_in_manual}
+			{basic}
+		}
+	}
+
+	{mass 5000}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlf") wheelr("wrf") bonel("fxtracel1") boner("fxtracer1"))
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlm") wheelr("wrm") bonel("fxtracel2") boner("fxtracer2"))
+		("mobility_car"
+			speed(80) ;----------------------------------Max speed.
+			speedatmaxturn(18) ;-------------------------Max speed at max turn.
+			reverse(26) ;--------------------------------Max speed in Reverse.
+			weight(5) ;----------------------------------Weight in Tonnes.
+			power(80) ;----------------------------------Horse Power.
+			fuel(122) ;-----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(430) ;---------------------------------Range in Kilometers.
+		)
+	}
+	
+	{Extension "btr-40.mdl"}
+	
+	{bone "turret_mgun"
+        {limits -45 45}
+		{speed2 120}
+	}
+	{bone "mgun_rot"
+		{limits -40 30}
+		{speed2 80}
+	}
+}
