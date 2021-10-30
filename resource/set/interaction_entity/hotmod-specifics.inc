@@ -239,6 +239,10 @@
 	("sdkfz222_sound")
 }
 
+{"btr-40"
+	("sdkfz222_sound")
+}
+
 {"brdm-1"
 	("sdkfz222_sound")
 }
