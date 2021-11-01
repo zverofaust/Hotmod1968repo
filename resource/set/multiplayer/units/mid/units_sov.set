@@ -27,17 +27,17 @@
 
 
 {"mortar_barrage_smoke_sov"
-	("squad_vehicle" side(sov) cd(60) ci(0) period(mid) cw(0) cp(5) b(strat) vehicle(d30a) crew(sup_supporter:0))
+	("squad_vehicle" side(sov) cd(60) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_supporter:0))
 	{cost 5}{conditions "radio_sov"}{action "airstrike:flare_mortar_smoke"}
 }
 
-{"mortar_barrage_80_sov"
-	("squad_vehicle" side(sov) cd(120) ci(60) period(mid) cw(0) cp(5) b(strat) vehicle(d30a) crew(sup_supporter:0))
+{"mortar_barrage_light_sov"
+	("squad_vehicle" side(sov) cd(120) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_supporter:0))
 	{cost 5}{conditions "radio_sov"}{action "airstrike:flare_mortar_80"}
 }
 
-{"mortar_barrage_120_sov"
-	("squad_vehicle" side(sov) cd(180) ci(120) period(mid) cw(0) cp(5) b(strat) vehicle(d30a) crew(sup_supporter:0))
+{"mortar_barrage_medium_sov"
+	("squad_vehicle" side(sov) cd(180) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_supporter:0))
 	{cost 10}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
 }
 
@@ -226,14 +226,14 @@
 }
 
 ; // 15DP 122mm Artillery Barrage
-{"artillery_barrage_105_sov"
+{"artillery_barrage_light_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_supporter:0) cw(0) cp(0))
 	("doctrine_strat" cool(200) d(mid_sov_artillery) cost(15))
 	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_105"} 
 }
 
 ; // 20DP 152mm Artillery Barrage
-{"artillery_barrage_150_sov"
+{"artillery_barrage_medium_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_supporter:0) cw(0) cp(0))
 	("doctrine_strat" cool(300) d(mid_sov_artillery) cost(20))
 	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_150"} 

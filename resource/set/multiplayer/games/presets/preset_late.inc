@@ -29,7 +29,7 @@
 				{resource 
 					{start 	100}
 				} 
-				{buttons "doctrine strat"}
+				{buttons "doctrine strategic"}
 				{tag "special"}
 			}
 		}

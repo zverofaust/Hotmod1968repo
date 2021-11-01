@@ -27,17 +27,17 @@
 
 
 {"mortar_barrage_smoke_usa"
-	("squad_vehicle" side(usa) cd(0) ci(0) period(mid) cw(0) cp(5) b(strat) vehicle(d30a) crew(sup_supporter:0))
+	("squad_vehicle" side(usa) cd(0) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_supporter:0))
 	{cost 5}{conditions "radio_usa"}{action "airstrike:flare_mortar_smoke"}
 }
 
-{"mortar_barrage_80_usa"
-	("squad_vehicle" side(usa) cd(0) ci(60) period(mid) cw(0) cp(5) b(strat) vehicle(d30a) crew(sup_supporter:0))
+{"mortar_barrage_light_usa"
+	("squad_vehicle" side(usa) cd(0) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_supporter:0))
 	{cost 5}{conditions "radio_usa"}{action "airstrike:flare_mortar_80"}
 }
 
-{"mortar_barrage_120_usa"
-	("squad_vehicle" side(usa) cd(0) ci(120) period(mid) cw(0) cp(5) b(strat) vehicle(d30a) crew(sup_supporter:0))
+{"mortar_barrage_medium_usa"
+	("squad_vehicle" side(usa) cd(0) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_supporter:0))
 	{cost 10}{conditions "radio_usa"}{action "airstrike:flare_mortar_120"}
 }
 
@@ -49,8 +49,8 @@
 
 
 ;===================================
-;       DOCTRINE 1
-;        ARTILLERY
+;          DOCTRINE 1
+;        ARMORED CAVALRY
 ;===================================
 
 ; ======Tier1======
@@ -98,7 +98,7 @@
 
 ;===================================
 ;       	DOCTRINE 3
-;
+;		ARTILLERY BRIGADE
 ;===================================
 
 ; ======Tier1======
@@ -118,14 +118,14 @@
 }
 
 ; // 15DP 105-122mm Artillery Barrage
-{"artillery_barrage_105_usa"
+{"artillery_barrage_light_usa"
 	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_supporter:0) cw(0) cp(0))
 	("doctrine_strat" cool(200) d(mid_usa_artillery) cost(15))
 	{conditions "radio_usa_artillery"}{action "airstrike:flare_artillery_105"} 
 }
 
 ; // 20DP 152-155mm Artillery Barrage
-{"artillery_barrage_150_usa"
+{"artillery_barrage_light_usa"
 	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_supporter:0) cw(0) cp(0))
 	("doctrine_strat" cool(300) d(mid_usa_artillery) cost(20))
 	{conditions "radio_usa_artillery"}{action "airstrike:flare_artillery_150"} 
