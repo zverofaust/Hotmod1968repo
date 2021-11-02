@@ -300,8 +300,8 @@
 	{item "300mm_bm30"						"ammo" 1 {value 30}}
 	{item "122mm_2b5"						"ammo" 1 {value 30}}
 	
-	{item "bullet_125"		"atgm"			"ammo" 1 {value 15}}
-	{item "bullet_180"		"atgm"			"ammo" 1 {value 15}}
+	{item "bullet125"		"atgm"			"ammo" 1 {value 15}}
+	{item "bullet180"		"atgm"			"ammo" 1 {value 15}}
 )
 
 (define "items_heavy_usa"
