@@ -2,7 +2,7 @@
 (include "/properties/cannon.ext")
 	(include "/properties/shadow/tank.inc" scale(0.5))
 	(include "/properties/selection/cannon.inc" scale(0.7))
-	{props "wheeled"  "vision_lev04_can"  "muzzle_85mm_93mm_sides" "cannon_sandbag_standard" "trailer" "trailer_medium" "detect_atgun"}
+	{props "vehicle" "cannon" "wheeled"  "vision_lev04_can"  "muzzle_85mm_93mm_sides" "cannon_sandbag_standard" "trailer" "trailer_medium" "detect_atgun"}
 	{PatherID "cannon.large"}
 	{targetclass "cannon_big"}
 	{targetSelector "cannon_big"}
@@ -117,5 +117,16 @@
 			speed(5.0) ;-----------------------------------Max speed.
 			weight(3000) ;---------------------------------Weight in Kilograms.
 		)
+	}
+	
+	{bone "basis"
+		{speed2 6}
+	}
+	{bone "gun_rot"
+		{speed2 8}
+	}
+	{bone "turret"
+		{limits -25 25}
+		{speed2 8}
 	}
 }

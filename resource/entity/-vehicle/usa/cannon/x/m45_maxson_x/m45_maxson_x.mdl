@@ -1,0 +1,94 @@
+;Exported by: ubrashaev
+;Date:        Thu Oct 19 16:36:30 2006
+;File:        \\Ubrashaev\d$\-Projects1_5-\-work-\3d\-Model-\-Пушки\Maxson\maxson_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.5}}
+			}
+			{Position -0.0248017	-0.0608882	5.31681}
+			{VolumeView "body.ply"}
+			{bone "stand"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.95	0	0
+					0	0.95	0
+					0	0	0.75
+					0.33693	0	1.8
+				}
+				{VolumeView "stand.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_r.anm"} {speed -1}}
+				}
+				{speed 0.03}
+				{Position 0.33693	0	4.53492}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"}}
+					}
+					{limits -7 70}
+					{speed 0.02}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.0846024	0.061751	13.1111
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun4"
+						{parameters "ID=mgun;"}
+						{Matrix34
+							1	0	0
+							0	1	0
+							0	0	-1
+							2.4007	-2.4824	-13.2954
+						}
+						{VolumeView "gun4.ply"}
+					}
+					{bone "gun2"
+						{parameters "ID=mgun;"}
+						{Matrix34
+							1	0	0
+							0	1	0
+							0	0	-1
+							7.74702	2.40604	-10.4552
+						}
+						{VolumeView "gun2.ply"}
+					}
+					{bone "gun1"
+						{parameters "ID=mgun;"}
+						{Matrix34
+							1	0	0
+							0	1	0
+							0	0	-1
+							7.74703	2.40604	10.4787
+						}
+						{VolumeView "gun1.ply"}
+					}
+					{bone "gun3"
+						{parameters "ID=mgun;"}
+						{Matrix34
+							1	0	0
+							0	1	0
+							0	0	-1
+							2.40069	-2.48238	13.3189
+						}
+						{VolumeView "gun3.ply"}
+					}
+				}
+			}
+		}
+	}
+}

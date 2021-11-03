@@ -21,13 +21,6 @@
 			{view pause "flashbarrel1"}
 		}
 	}
-	{on fire "mgun1"
-		{view start "flashbarrel1"}
-		{play_sound "bkg_hmg"}
-		{delay 0.2
-			{view pause "flashbarrel1"}
-		}
-	}
 }
 
 {"muzzle_hmg"
@@ -45,12 +38,12 @@
 
 {"muzzle_kpvt" ;// muzzle_kpvt
 	{on spawn
-		{add_view "tank_canon_fire_20_25_auto"		"flashbarrelzenite"		"foresight1"}
+		{add_view "flash_gun_hmg_dshk"		"flashbarrelzenite"		"foresight1"}
 		{link_sound "bkg_auto" "weapon/shot/bkg/auto/"}
 	}
 	{on fire "gun"
 		{view start "flashbarrelzenite"}
-		{play_sound "bkg_auto"}
+		{play_sound "bkg_hmg"}
 		{delay 5
 			{view pause "zenite_smoke"}
 		}

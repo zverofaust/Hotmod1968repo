@@ -1,0 +1,128 @@
+;Exported by: ubrashaev
+;Date:        Thu Oct 19 16:39:32 2006
+;File:        \\Ubrashaev\d$\-Projects1_5-\-work-\3d\-Model-\-Пушки\Maxson\maxson_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				-0.987296	0.00818578	-0.158684
+				0	-0.998672	-0.051516
+				-0.158895	-0.0508615	0.985985
+				-0.0248018	-0.0608877	4.7555
+			}
+			{VolumeView "body.ply"}
+			{bone "stand"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.95	0	0
+					0	0.95	0
+					0	0	0.75
+					0.33693	0	1.8
+				}
+				{VolumeView "stand.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{Matrix34
+					-0.949639	0.0163496	-0.312919
+					0.0163494	-0.994692	-0.101588
+					-0.312919	-0.101588	0.944331
+					10.0493	-6.28071	5.76988
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -7 70}
+					{speed 0.02}
+					{Matrix34
+						0.999848	0	-0.0174524
+						0.0174524	0	0.999848
+						0	-1	0
+						0.0846024	0.0617504	13.1111
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun4"
+						{parameters "ID=mgun;"}
+						{Matrix34
+							1	0	0
+							0	1	0
+							0	0	-1
+							2.4007	-2.48241	-13.2954
+						}
+						{VolumeView "gun4.ply"}
+					}
+					{bone "gun3"
+						{parameters "ID=mgun;"}
+						{Matrix34
+							0.99257	-0.0850023	0.0870558
+							0.07567	0.991546	0.105402
+							0.0952793	0.0980316	-0.990612
+							2.43163	-2.2396	13.7544
+						}
+						{VolumeView "gun3.ply"}
+					}
+					{bone "part3"
+						{parameters "ID=gun;"}
+						{Position -1.98063	-0.970699	-17.5049}
+						{VolumeView "part3.ply"}
+					}
+				}
+			}
+			{bone "part2"
+				{Matrix34
+					-0.949639	0.0163496	-0.312919
+					0.0163494	-0.994692	-0.101588
+					-0.312919	-0.101588	0.944331
+					2.87742	13.2555	2.0507
+				}
+				{VolumeView "part2.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 39.0169 28.6792 3.13266}
+	{Bone "body"}
+	{Position 4.15837	0	-0.0877088}
+}
+{Volume "gun"
+	{Box 41.4447 15.0288 9.79014}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		0.918271	1.33569	-0.0789528
+	}
+}
+{Volume "part2"
+	{Cylinder 5.54926 3.7735}
+	{Bone "part2"}
+	{Matrix34
+		1	0	0
+		0	0	-1
+		0	1	0
+		0	0.166746	0
+	}
+}
+{Volume "part3"
+	{Box 3.8997 9.83685 6.65104}
+	{Bone "part3"}
+	{Matrix34
+		0.954465	0.270404	0.126015
+		-0.27137	0.962426	-0.00976423
+		-0.12392	-0.0248769	0.991981
+		-0.303298	0.014199	0.0381086
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Position 3.72676	0.418481	0.894135}
+}

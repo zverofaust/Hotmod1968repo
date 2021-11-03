@@ -820,43 +820,6 @@
 		{play_sound "bkg_mgun"}
 	}
 }
-
-{"zpu-4"				
-	{on "init_gun" overload
-		{add_view "flash_gun_hmg"			"flashbarrel00"	"shooter00"}
-		{add_view "flash_gun_hmg"			"flashbarrel01"	"shooter01"}
-		{add_view "flash_gun_hmg"			"flashbarrel02"	"shooter02"}
-		{add_view "flash_gun_hmg"			"flashbarrel03"	"shooter03"}
-		{call "update_gun"}
-	}
-	{on fire "mgun" overload
-		{play_sound "bkg_mg"}
-		{if  name "00"
-			{view start "flashbarrel00"}
-			{delay 0.2
-				{view pause "flashbarrel00"}
-			}
-		}
-		{if  name "01"
-			{view start "flashbarrel01"}
-			{delay 0.2
-				{view pause "flashbarrel01"}
-			}
-		}
-		{if  name "02"
-			{view start "flashbarrel02"}
-			{delay 0.2
-				{view pause "flashbarrel02"}
-			}
-		}
-		{if  name "03"
-			{view start "flashbarrel03"}
-			{delay 0.2
-				{view pause "flashbarrel03"}
-			}
-		}
-	}
-}
 	
 {"zu-23-2"				
 	{on "init_gun" overload

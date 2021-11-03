@@ -1,0 +1,73 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc" scale(0.6))
+	{Extension "m45_maxson.mdl"}
+	{props "wheeled" "vision_lev01_can" "muzzle_hmg" "trailer" "trailer_light" "detect_cannon_aa"}
+	{targetclass "cannon_zenite"}
+	{targetSelector "cannon_zenite"}
+	
+	("crew_wheeled_cannon_5")
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_maxson" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_vicers_commander" 10}}
+		}
+		{anm "driver1"	;// gunner
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"	;// charger
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"	;// gunner
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"	;// charger
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{link "seat1" "driver1"}
+		{link "seat2" "driver2"}
+	}
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			;// "gunner" "commander"
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "" ""}
+			{reload  "Cannon_maxson_charger" ""}
+		}
+		{move {workers "driver1" "driver2" minWorkers 2} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+		{rotate_ik_Limit 0}
+	}
+
+	{mass 500}
+	{Chassis "track"
+		("car_trace" fx("tracewheel05a") step(0.14) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility_cannon"
+			speed(9.8) ;----------------------------------Max speed.
+			weight(500) ;---------------------------------Weight in Kilograms.
+		)
+	}
+
+	{extender "inventory"
+		{box
+			{clear}
+			{item "ammo hmgun_usa" 1600}
+		}
+	}
+	{Weaponry
+		{place "mgun1"
+			{type "aa"}
+			{weapon "browning_m2x4" filled}
+			{foresight "foresight4"}
+			{charger "gunner"}
+			{Barrels 4}
+			("abm_mgun")
+			{basic}
+		}
+	}
+}
