@@ -110,6 +110,12 @@
 	("doctrine_t1" cool(200) d(mid_usa_artillery) cost(20))
 }
 
+; // 10DP M101A1 105mm Howitzer
+{"doctrine_vehicle_m101a1(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m101a1) crew(artilleryman:4) cw(0) cp(0))
+	("doctrine_t1" cool(180) d(mid_usa_artillery) cost(10))
+}
+
 ; // 10DP 105-122mm Smoke Barrage
 {"artillery_barrage_smoke_usa"
 	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(artilleryman:0) cw(0) cp(0))
@@ -138,7 +144,7 @@
 ;|________________________________________________|
 
 
-("squad_with3types" side(usa) name(squad_reservist)			period(mid) cd(0) ci(0) g(squad_1) c1(reservist_nco:1) c2(reservist_rifle2:2) c3(reservist_rifle:8)																			b(inf1) t())
+("squad_with3types" side(usa) name(squad_reservist)			period(mid) cd(0) ci(0) g(squad_1) c1(reservist_nco:1) c2(reservist_rifle2:2) c3(reservist_rifle:7)																			b(inf1) t())
 
 ("squad_with4types" side(usa) name(squad_fireteamAP)		period(mid) cd(0) ci(0) g(squad_3) c1(teamlead:1) c2(rifleman_3:1) c3(grenadier_1:1) c4(rifleman_2:2)																							b(inf1) t())
 ("squad_with4types" side(usa) name(squad_fireteamAT)		period(mid) cd(0) ci(0) g(squad_3) c1(teamlead:1) c2(antitank_1:1) c3(rifleman_2:2) c4(antitank_2:1)															b(inf1) t())
@@ -173,6 +179,35 @@
 ;_________________________________________________
 ;|                  Emplacements                  |
 ;|________________________________________________|
+
+;AUTOMATIC WEAPONRY
+{"m45_maxson"
+	("vehicle" period(mid) cd(60) ci(60) t(cannon) side(usa) crew(mg_crew:2)  g(empl1) b(empl) cw(0) cp(8))
+	{cost 200}
+}
+
+; AT WEAPONRY
+{"m40"
+	("vehicle" period(mid) cd(0) ci(30) t(cannon) side(usa) crew(artilleryman:4)  g(empl2) b(empl) cw(4) cp(4))
+	{cost 250}
+}
+
+{"entac"
+	("vehicle" period(mid) cd(60) ci(120) t(cannon) side(usa) crew(artilleryman:2)  g(empl3) b(empl) cw(4) cp(6))
+	{cost 300}
+}
+
+;HOWITZERS
+{"m29_mortar"
+	("vehicle" period(mid) cd(0) ci(60) t(cannon) side(usa) crew(artilleryman:2) g(empl6) b(empl) cw(0) cp(6))
+	{cost 225}
+}
+
+{"m116_packhow"
+	("vehicle" period(mid) cd(60) ci(60) t(cannon) side(sov) crew(artilleryman:4) g(empl6) b(empl) cw(0) cp(6))
+	{cost 325}
+}
+
 
 
 ;_________________________________________________

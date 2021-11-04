@@ -17,6 +17,20 @@
 )
 {"mp/sov/mid/sup_radioman"			("sov_radioman" side(sov)) {cost 200.0}}
 
+(define "sov_tankman"
+	{tags "mid %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/sov/mid/mg_crew"				("sov_tankman" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/mid/artilleryman"			("sov_tankman" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/mid/supporter"				("sov_tankman" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/mid/tankman"				("sov_tankman" side(sov)) {cost 4.0}} ; Pistol
+{"mp/sov/mid/vehicleman"			("sov_tankman" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
+
 (define "sov_basic"
 	{tags "mid %side infantry man lvl1"}
 	{cp 1}
@@ -25,11 +39,6 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/sov/mid/mg_crew"				("sov_basic" side(sov)) {cost 5.0}} ; SKS
-{"mp/sov/mid/artilleryman"			("sov_basic" side(sov)) {cost 5.0}} ; SKS
-{"mp/sov/mid/supporter"				("sov_basic" side(sov)) {cost 5.0}} ; SKS
-{"mp/sov/mid/tankman"				("sov_basic" side(sov)) {cost 4.0}} ; Pistol
-{"mp/sov/mid/vehicleman"			("sov_basic" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
 {"mp/sov/mid/conscript_rifle"		("sov_basic" side(sov)) {cost 5.0}} ; SKS
 {"mp/sov/mid/conscript_mgun"		("sov_basic" side(sov)) {cost 30.0}} ; RPD
 {"mp/sov/mid/conscript_at"			("sov_basic" side(sov)) {cost 20.0}} ; SKS & RPG-43
@@ -37,7 +46,7 @@
 
 
 (define "sov_regular"
-	{tags "mid %side infantry man lvl2"}
+	{tags "mid %side infantry man lvl1 lvl2"}
 	{cp 2}
 	{basic}
 	{breed}
@@ -70,7 +79,7 @@
 {"mp/sov/mid/engineer_1"			("sov_regular" side(sov)) {cost 12.0}} ; SKS
 
 (define "sov_vdv"
-	{tags "mid %side infantry man lvl3"}
+	{tags "mid %side infantry man lvl2 lvl3"}
 	{cp 3}
 	{basic}
 	{breed}
@@ -88,7 +97,7 @@
 {"mp/sov/mid/vdv_vehicleman"		("sov_vdv" side(sov)) {cost 15.0}} ; AKMS
 
 (define "sov_guards"
-	{tags "mid %side infantry man lvl3"}
+	{tags "mid %side infantry man lvl2 lvl3"}
 	{cp 3}
 	{basic}
 	{breed}
@@ -105,17 +114,17 @@
 {"mp/sov/mid/grd_squadlead"			("sov_guards" side(sov)) {cost 30.0}} ; AKM
 {"mp/sov/mid/grd_vehicleman"		("sov_guards" side(sov)) {cost 15.0}} ; AKMS
 
-(define "sov_vmf"
-	{tags "mid %side infantry man lvl3"}
-	{cp 3}
-	{basic}
-	{breed}
-	{cw 4.0}
-	{score_factor 0.05}
-)
+;(define "sov_vmf"
+;	{tags "mid %side infantry man"}
+;	{cp 3}
+;	{basic}
+;	{breed}
+;	{cw 4.0}
+;	{score_factor 0.05}
+;)
 
-(define "sov_spetsnaz lvl4"
-	{tags "mid %side infantry man"}
+(define "sov_spetsnaz"
+	{tags "mid %side infantry man lvl3"}
 	{cp 3}
 	{basic}
 	{breed}
@@ -153,7 +162,7 @@
 
 
 (define "sov_sniper"
-	{tags "mid %side infantry man sniper lvl4"}
+	{tags "mid %side infantry man sniper lvl3"}
 	{cp 8}
 	{basic}
 	{breed}
