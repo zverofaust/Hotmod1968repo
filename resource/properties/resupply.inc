@@ -305,6 +305,9 @@
 )
 
 (define "items_heavy_usa"
+	{item "bullet75_usa"		"he"		"ammo" 1 {value 5}}
+	{item "bullet75_usa"		"heat"		"ammo" 1 {value 5}}
+	
 	{item "bulletusa_76"		"apcr"		"ammo" 1 {value 5}}
 	{item "bulletusa_76"		"ap"		"ammo" 1 {value 5}}
 	{item "bulletusa_76"		"he"		"ammo" 1 {value 5}}
@@ -321,6 +324,8 @@
 	
 	{item "bullet_106"			"he"		"ammo" 1 {value 5}}
 	{item "bullet_106"			"heat"		"ammo" 1 {value 10}}
+	{item "bullet_106"			"he"		"ammo" 1 {value 5}}
+	
 )
 
 (define "items_heavy_eng"
