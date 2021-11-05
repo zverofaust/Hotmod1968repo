@@ -1,0 +1,20 @@
+{from "pattern gun"			; "M101A1"
+	{filling "bullet105_m1"}
+	{fireSound "gun/gun_75_105"}
+	{fireSoundclose "gun/gun_75_105"}
+	{reloadSound "tank/reload_big"}
+	("medium_artillery")
+	{calibre 105}
+	{range 360 360} ;10.7km
+
+	("reload time" seconds(12))
+
+	("velocity m/s" ap(390) apcr(1) he(200) heat(381))
+	("armor health" damage(325))
+	("armor health custom" shell(aphe) damage(325) filler(2180))
+
+	; 	M67 HEAT
+	("shell_data_165" shell(heat) range(190) a(115) b(115) c(115) d(115) e(115))
+
+	("accuracy_indirect_200m" r1(1.05) r2(8) range_ap(190) range_heat(190) range_he(360))
+}

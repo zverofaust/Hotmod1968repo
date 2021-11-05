@@ -25,6 +25,42 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
+{"m29_mortar_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
+;{"m30_mortar_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
+{"m101a1_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
+{"m114_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
+{"m115_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
+
+{"mortar_barrage_smoke_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(m29_mortar_dummy) crew(artilleryman:0))
+	{cost 1}{action "airstrike:flare_mortar_smoke"}
+}
+
+{"mortar_barrage_light_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(m29_mortar_dummy) crew(artilleryman:0))
+	{cost 4}{action "airstrike:flare_mortar_80"}
+}
+
+{"mortar_barrage_medium_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(m29_mortar_dummy) crew(artilleryman:0))
+	{cost 8}{action "airstrike:flare_mortar_120"}
+}
+
+{"artillery_barrage_smoke_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(m101a1_dummy) crew(artilleryman:0))
+	{cost 3}{action "airstrike:flare_artillery_smoke"}
+}
+
+{"artillery_barrage_light_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(m101a1_dummy) crew(artilleryman:0))
+	{cost 10}{action "airstrike:flare_artillery_105"}
+}
+
+{"artillery_barrage_medium_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(m114_dummy) crew(artilleryman:0))
+	{cost 20}{action "airstrike:flare_artillery_150"}
+}
+
 ;_________________________________________________
 ;|             inf1                               |
 ;|________________________________________________|
