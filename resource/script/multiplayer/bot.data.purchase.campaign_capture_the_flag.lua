@@ -310,6 +310,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m113_m40"},
 				{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid", unit = "m125"},
 				{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid", unit = "m106"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m132_zippo"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m41"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m42"},
 			--Tanks_medium
