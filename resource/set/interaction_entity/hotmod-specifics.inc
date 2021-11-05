@@ -455,6 +455,19 @@
 	}
 }
 
+{"m132_zippo"
+	("pz38_sound")
+	{on spawn
+		{add_view "flamer_fire_tank" "flame" "foresight1"}
+	}
+	{on "_explosion"
+		{spawn "fuel_die"}
+		{blastwave c4 5 r0 4 r1 15}
+		{fire radius 5 time 15 heating 10}
+	}
+	("flame_weapon" args gun 60 1 40)
+}
+
 {"m45_maxson"				
 	{on "init_gun"
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
