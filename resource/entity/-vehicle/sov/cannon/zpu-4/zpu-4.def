@@ -8,16 +8,13 @@
 	{targetSelector "cannon_zenite"}
 
 	{Volume "gun"
-		{tags "gun"}
-		{component "gun"}
+		{thickness 8}
 	}
 	{Volume "turret"
-		{tags "turret"}
-		{component "turret"}
+		{thickness 20}
 	}
 	{Volume "body"
-		{tags "body"}
-		{component "body"}
+		{thickness 20}
 	}
 
 	("armor_light_cannon")
@@ -27,15 +24,14 @@
 	("wheel" args "wheelright2")
 	("wheel" args "wheelleft2")
 
-	(include "cannon_crew.ext")
-	("crew_wheeled_gun")
+	("crew_wheeled_cannon")
 	
 	{boarder
 		{anm "gunner"
-			{forward	{end "pose_flak38-1_gunlayer" 10}}
+			{forward	{end "pose_flak30_gunner" 10}}
 		}
 		{anm "commander"
-			{forward	{end "pose_pak40_gunlayer" 10}}
+			{forward	{end "pose_flak30_loader" 10}}
 		}
 		{anm "driver1"
 			{forward {end "cannon_pak40_pusher_left" 10}}
@@ -82,8 +78,8 @@
 		{animation
 			{switch "close"}
 			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
-			{aim "" ""}
-			{reload "" ""}
+			{aim "flak30_gunner" ""}
+			{reload "" "mg_dshk_aa_commander_reload"}
 		}
 		{move {workers "driver1" "driver2" minWorkers 2} {obstacle "close"}}
 		{attack {workers "gunner" "commander"} {obstacle "open"}}
