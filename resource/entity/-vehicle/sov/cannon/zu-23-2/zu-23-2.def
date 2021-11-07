@@ -2,58 +2,48 @@
 	(include "/properties/cannon.ext")
 	(include "/properties/shadow/tank.inc" scale(0.6))
 	(include "/properties/selection/cannon.inc" scale(0.7))
-	{props "cannon_small" "wheeled" "automatic" "vision_lev02_can" "muzzle_37mm_40mm_auto" "cannon_sandbag_standard" "trailer" "trailer_light" "detect_cannon_aa" "flak"}
-	{collider "cannon_small"}
+	{props "wheeled" "automatic" "vision_lev02_can" "muzzle_20mm_25mm_auto" "cannon_sandbag_small" "trailer" "trailer_light" "detect_cannon_aa" "flak"}
+	{PatherID "cannon.medium"}
 	{targetclass "cannon_zenite"}
 	{targetSelector "cannon_zenite"}
 
 	{Volume "gun1"
-		{tags "gun"}
-		{component "gun"}
+		{thickness 8}
 	}
 	{Volume "gun2"
-		{tags "gun"}
-		{component "gun"}
+		{thickness 8}
 	}
 	{Volume "gun_rot"
-		{tags "gun"}
-		{component "gun"}
+		{thickness 8}
 	}
 	{Volume "gun_rot1"
-		{tags "gun"}
-		{component "gun"}
+		{thickness 8}
 	}
 	{Volume "gun_rot2"
-		{tags "gun"}
-		{component "gun"}
+		{thickness 8}
 	}
 	{Volume "gun_rot3"
-		{tags "gun"}
-		{component "gun"}
+		{thickness 8}
 	}
 	{Volume "gun_rot4"
-		{tags "gun"}
-		{component "gun"}
+		{thickness 8}
 	}
 	{Volume "gun_rot5"
-		{tags "gun"}
-		{component "gun"}
+		{thickness 8}
 	}
 	{Volume "turret"
-		{tags "turret"}
-		{component "turret"}
+		{thickness 8}
 	}
 	{Volume "turret3"
-		{tags "turret"}
-		{component "turret"}
+		{thickness 8}
 	}
+	
 	("armor_light_cannon")
 
 	("wheel" args "wheelright")
 	("wheel" args "wheelleft")
 
-	(include "cannon_crew.ext")
-	("crew_wheeled_gun")
+	("crew_wheeled_cannon")
 	
 	{boarder
 		{anm "gunner"
@@ -84,13 +74,16 @@
 	}
 	{Weaponry
 		{place "gun"
+			{type "aa"}
 			{Barrels 2}
-			{type "main"}
 			{weapon "23mm_zu-23-2" filled}
+			{gunner "gunner"}
+			{charger "commander"}
 			("abm_dymamic_aa"
 				zeroing(1.2)
 				dispersion(0.15)
 			)
+			{basic}
 		}
 	}  		
 	{mass 950}
@@ -101,13 +94,15 @@
 		{animation
 			{switch "close"}
 			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
-			{aim "" ""}
-			{reload "" ""}
+			{aim "AAgun_flak37_gunner_aim" "AAgun_flak37_charger_aim"}
+			;{fire "AAgun_flak37_gunner_fire" "AAgun_flak37_charger_fire"}
+			{reload "AAgun_flak37_gunner_reload" "AAgun_flak37_charger_reload"}
 		}
 		{move {workers "driver1" "driver2" minWorkers 2} {obstacle "close"}}
 		{attack {workers "gunner" "commander"} {obstacle "open"}}
 		{rotate_ik_Limit 0}
 	}
+	
 	{Chassis "track"
 		("car_trace" fx("tracewheel02a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
 		("mobility_cannon"
@@ -115,6 +110,7 @@
 			weight(950) ;-------------------------------Weight in Kilograms.
 		)
 	}
+	
 	{bone "gun_rot"
 	      {limits -65 10}
 	}
