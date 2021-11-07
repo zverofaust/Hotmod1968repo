@@ -334,7 +334,7 @@
 	
 	{item "bullet203_m1"		"he"		"ammo" 1 {value 20}}
 	
-	{item "x279mm_m388"						"ammo" 1 {value 500}}
+	;{item "x279mm_m388"						"ammo" 1 {value 500}}
 	
 )
 
