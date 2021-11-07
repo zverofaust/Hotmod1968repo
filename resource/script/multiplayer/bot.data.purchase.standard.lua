@@ -81,7 +81,6 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_fireteamAT(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_lrrp(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_reservist_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_weapon_moto(usa)"}
 			--Automatic_weaponry
@@ -205,7 +204,6 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_fireteamAT(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_lrrp(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_reservist_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_weapon_moto(usa)"},
 				
@@ -398,7 +396,6 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_fireteamAT(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_lrrp(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_reservist_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_weapon_moto(usa)"},
 				
@@ -756,7 +753,6 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_fireteamAT(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_lrrp(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_reservist_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_weapon_moto(usa)"},
 				
@@ -897,8 +893,8 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_fireteamAT(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_lrrp(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_reservist_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_weapon_moto(usa)"},
 				
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid", unit = "single_at(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "single_mg(usa)"},
@@ -1125,7 +1121,6 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_fireteamAT(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_lrrp(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_reservist_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_weapon_moto(usa)"},
 				
@@ -1273,7 +1268,6 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_fireteamAT(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_lrrp(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_reservist_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_weapon_moto(usa)"},
 				
@@ -1524,7 +1518,6 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_fireteamAT(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_lrrp(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_reservist_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_weapon_moto(usa)"},
 				
