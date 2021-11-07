@@ -1,0 +1,122 @@
+{entity ; M-28 Davy Crockett Nuclear Gun
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(0.6))
+	{props "with_gun" "vision_lev01_can" "muzzle_37mm_47mm" "detect_atgun_small" "cannon_sandbag_small" "nuke"}
+	{collider "cannon_small"}
+	{targetclass "cannon_small"}
+	{targetSelector "supergun"}
+	
+	("armor_medium_cannon")
+	("crew_wheeled_cannon_4")
+	
+	{Extension "m-28.mdl"}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 50}
+		{able {visible 1}}
+	}
+	{Volume "gun"
+		{Tags  "gun"}
+		{Thickness 50}
+		{able {visible 1}}
+	}
+	{component "turret"
+		{RepairTime 15}
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_m5_gunlayer" 10}}
+		}
+		{anm "charger"
+			{forward {end "cannon_small_charger" 10}}
+		}
+		{anm "charger2"
+			{forward {end "cannon_small_charger2" 10}}
+		}
+		{anm "commander"
+			{forward {end "cannon_small_commander" 10}}
+		}
+		{anm "driver1"	;// gunner
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"	;// charger
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "driver3"	;// charger2
+			{forward {end "mgun_browning_driver_l" 10}}
+		}
+		{anm "driver4"	;// commander
+			{forward {end "mgun_browning_driver_r" 10}}
+		}
+		{anm "seat1"	;// commander
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"	;// charger
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{anm "seat3"	;// charger2
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{anm "seat4"	;// commander
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		
+	}
+
+	
+
+	{extender "inventory"
+		{box
+			;{item "bullet279_m388 he" 5}
+			;{item "ammo x279mm_m388" 3}
+		}
+	}
+	{Weaponry
+		{place "gun"
+		        ;{weapon "279mm_m388" filling "bullet279_m388 he" 1}
+				{weapon "weapon x279mm_m388" filled}
+                {foresight "foresight1"}			
+                {barrels 1}
+                {gunner "gunner"}
+				{charger "charger"}
+                {linkbone "rocket00"}
+                {basic}
+		}
+	}
+      
+	{mass 1000}
+	
+    {extender "cannon"
+		{animation
+			{switch "close"}
+			{move "mgun_browning_driver_r" "mgun_browning_driver_r" "mortar_driver_l" "mortar_driver_r"}
+			{aim "Cannon_m5_gunlayer" ""}
+			{fire "new_cannon_gunner_fire" "new_cannon_charger_fire" "new_cannon_charger2_fire" "new_cannon_commander_fire"}
+			{reload "new_cannon_gunner_reload" "new_cannon_charger_reload" "new_cannon_charger2_reload" "new_cannon_commander_reload"}
+		}
+		{move {workers "driver1" "driver2" "driver3" "driver4" minWorkers 2} {obstacle "close"}}
+		{attack {workers "gunner" "charger" "charger2" "commander"} {obstacle "open"}}		;// fire/attack state: cannon aim, fire, and reload events
+    }
+    
+		{Chassis
+		("mobility_cannon"
+			speed(6) ;----------------------------------Max speed.
+			weight(1000) ;---------------------------------Weight in Kilograms. 
+		)
+	}
+	
+	;{bone "basis"
+		;{speed 0.001}
+	;}
+	
+    {bone "turret"
+        {limits -15 15}
+		{speed 0.002}
+	}
+    {bone "gun_rot"
+		{limits -25 25}
+		{speed 0.002}
+	}
+		
+}

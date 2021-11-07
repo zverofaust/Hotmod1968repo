@@ -1,0 +1,44 @@
+{weapon_bullet
+	{tag "weapon special_weapon_view flame_thrower fx_thrower bullet to_hand shoot_walking shoot_walking_ai"}
+
+	{fireSound ""}
+	{clickSound "empty_gun_shot"}
+
+	{inventory
+		{size 5 3}
+		{link_bone "backpacks"}
+		{handle_bone "tank_back"}	;// when weapon is shouldered (not equipped) this bone on the weapon is linked to the {link_bone} defined above
+		{weight 100}
+		{fsm "smg"}
+	}
+
+	{states
+		{reload		"reload"}
+		{unload		"unload"}
+		{fire		"fire"}
+		{aim		"aim"}
+		{can_aim	"can-aim"}
+	}
+
+	{burst
+		{short 10 1}		; burst shots on long distance, rand (+-)shots
+		{long 5 1}			; burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.5}		; rangeKoef * aimRange = max long burst distance
+	}
+
+	{FiringTimeout 0.8 0.2}
+
+	{foresight "foresight3"}
+	{minRange 3}
+
+	{recoveryTime 0.1}
+	{rechargeTime 1}
+	{gravity 0.65}
+	{speed 30}
+	{AimingTolerance 3}
+	{cursor "ironsights/tank"}				;// rts cursor
+	{cursorReloading "gun_ic"}				;// rts reload cursor
+
+	{Automatic}
+	{preloaded}
+}

@@ -71,8 +71,8 @@
 			{switch "close"}
 			{move "mortar_driver_l" "mortar_driver_r" "mgun_browning_driver_l" "mgun_browning_driver_r"}
 			{aim "cannon_zis3_gunlayer" ""}
-			{fire  "Cannon_gunlayer_fire-alert" "cannon_zis3_charger_fire 0.1"}
-			{reload  "" "Cannon_zis3_charger"}
+			{fire  "Cannon_gunlayer_fire-alert" "cannon_zis3_charger_fire 0.1" "new_cannon_charger2_fire" "new_cannon_commander_fire"}
+			{reload  "" "Cannon_zis3_charger" "" "new_cannon_commander_reload"}
 		}
 		{move {workers "driver1" "driver2" "driver3" "driver4" minWorkers 2} {obstacle "close"}}			;// move state: cannon being pushed and which positions play animations
 		{attack {workers "gunner" "charger" "charger2" "commander"} {obstacle "open"}}		;// fire/attack state: cannon aim, fire, and reload events

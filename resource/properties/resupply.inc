@@ -312,9 +312,9 @@
 	{item "bulletusa_76"		"ap"		"ammo" 1 {value 5}}
 	{item "bulletusa_76"		"he"		"ammo" 1 {value 5}}
 	{item "bulletusa_76"		"sm"		"ammo" 1 {value 5}}
-	{item "bulletusa_90"		"apcbche"	"ammo" 1 {value 10}}
-	{item "bulletusa_90"		"apcr"		"ammo" 1 {value 10}}
-	{item "bulletusa_90"		"heat"		"ammo" 1 {value 10}}
+	{item "bulletusa_90"		"apcbche"	"ammo" 1 {value 5}}
+	{item "bulletusa_90"		"apcr"		"ammo" 1 {value 5}}
+	{item "bulletusa_90"		"heat"		"ammo" 1 {value 5}}
 	{item "bulletusa_90"		"he"		"ammo" 1 {value 5}}
 	{item "bulletusa_90"		"sm"		"ammo" 1 {value 5}}
 	
@@ -325,6 +325,16 @@
 	{item "bullet_106"			"he"		"ammo" 1 {value 5}}
 	{item "bullet_106"			"heat"		"ammo" 1 {value 10}}
 	{item "bullet_106"			"he"		"ammo" 1 {value 5}}
+	
+	{item "bullet105_m1"		"he"		"ammo" 1 {value 5}}
+	{item "bullet105_m1"		"heat"		"ammo" 1 {value 5}}
+	{item "bullet105_m1"		"sm"		"ammo" 1 {value 5}}
+	
+	{item "bullet155_m1"		"he"		"ammo" 1 {value 10}}
+	
+	{item "bullet203_m1"		"he"		"ammo" 1 {value 20}}
+	
+	{item "x279mm_m388"						"ammo" 1 {value 500}}
 	
 )
 
