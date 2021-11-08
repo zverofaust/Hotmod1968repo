@@ -70,9 +70,9 @@
 		{animation
 			{switch "close"}
 			{move "mortar_driver_l" "mortar_driver_r" "mgun_browning_driver_l" "mgun_browning_driver_r"}
-			{aim "cannon_zis3_gunlayer" ""}
-			{fire  "Cannon_gunlayer_fire-alert" "cannon_zis3_charger_fire 0.1" "new_cannon_charger2_fire" "new_cannon_commander_fire"}
-			{reload  "" "Cannon_zis3_charger" "" "new_cannon_commander_reload"}
+			{aim "new_cannon_gunner_traverse" "cannon_small_charger_aim" "cannon_small_charger2_aim"}
+			{fire  "new_cannon_gunner_fire" "cannon_small_charger_fire" "cannon_small_charger2_fire" "new_cannon_commander_fire"}
+			{reload  "new_cannon_gunner_reload" "cannon_small_charger_reload" "" "new_cannon_commander_reload"}
 		}
 		{move {workers "driver1" "driver2" "driver3" "driver4" minWorkers 2} {obstacle "close"}}			;// move state: cannon being pushed and which positions play animations
 		{attack {workers "gunner" "charger" "charger2" "commander"} {obstacle "open"}}		;// fire/attack state: cannon aim, fire, and reload events
@@ -114,11 +114,11 @@
 		{speed2 12}
 	}
     {bone "turret"
-		{limits -25 25}
+		{limits -15 15}
 		{speed2 14}
 	}
     {bone "gun_rot"
-		{limits -10 20}
+		{limits -5 15}
 		{speed2 16}
 	}
 }

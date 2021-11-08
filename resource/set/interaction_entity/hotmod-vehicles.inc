@@ -1,5 +1,8 @@
 ;/*=========== Hotmod Specifics Begin  ===========*/
 
+
+;/*=========== SOVIET Vehicles  ===========*/
+
 {"pt-76 tank"
 	("t70_sound")
 }
@@ -25,6 +28,10 @@
 		{add_view "flash_gun_big"			"flashbarrel01"	"shooter01"}
 		{add_view "flash_gun_big"			"flashbarrel02"	"shooter02"}
 		{add_view "flash_gun_big"			"flashbarrel03"	"shooter03"}
+		{add_view "zenit_gilz"			"shell"			"FXshell1"}
+		{add_view "zenit_gilz"			"shell"			"FXshell2"}
+		{add_view "zenit_gilz"			"shell"			"FXshell3"}
+		{add_view "zenit_gilz"			"shell"			"FXshell4"}
 		{call "update_gun"}
 	}
 	{on fire "mgun" overload
@@ -146,6 +153,9 @@
 
 {"t-64 tank"
 	("is_sound")
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 3 0.25)
+	}
 }
 		
 {"t-55 tank"
@@ -175,6 +185,26 @@
 		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"flashbarrel00"	"shooter00"}
+		{add_view "tank_canon_fire_50_57"			"flashbarrel01"	"shooter01"}
+		{call "update_gun"}
+	}
+	{on fire "gun" overload
+		(define "fire_barrel"
+			name "%0"
+				{call "fire_barrel%0"}
+				{view start "flashbarrel%0"}
+				{ani_play "fire%0"}
+				{delay 0.2
+					{view pause "flashbarrel%0"}
+				}
+		)
+		{if	("fire_barrel" args 00)
+		else ("fire_barrel" args 01)
+		}
+		{call "spawn_shell"}
 	}
 }
 
@@ -263,44 +293,11 @@
 	("gaz_sound")
 }
 
-{"zpu-4"				
-	{on "init_gun" overload
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel02"	"shooter02"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel03"	"shooter03"}
-		{call "update_gun"}
-	}
-	{on fire "mgun" overload
-		{play_sound "bkg_mg"}
-		{if  name "00"
-			{view start "flashbarrel00"}
-			{delay 0.2
-				{view pause "flashbarrel00"}
-			}
-		}
-		{if  name "01"
-			{view start "flashbarrel01"}
-			{delay 0.2
-				{view pause "flashbarrel01"}
-			}
-		}
-		{if  name "02"
-			{view start "flashbarrel02"}
-			{delay 0.2
-				{view pause "flashbarrel02"}
-			}
-		}
-		{if  name "03"
-			{view start "flashbarrel03"}
-			{delay 0.2
-				{view pause "flashbarrel03"}
-			}
-		}
-	}
-}
 
 
+
+
+;/*=========== AMERICAN Vehicles  ===========*/
 
 
 {"m151"
@@ -345,6 +342,26 @@
 
 {"m42"
 	("pz3_sound")
+	{on "init_gun"
+		{add_view "tank_canon_fire_37_47"			"flashbarrel00"	"shooter00"}
+		{add_view "tank_canon_fire_37_47"			"flashbarrel01"	"shooter01"}
+		{call "update_gun"}
+	}
+	{on fire "gun" overload
+		(define "fire_barrel"
+			name "%0"
+				{call "fire_barrel%0"}
+				{view start "flashbarrel%0"}
+				{ani_play "fire%0"}
+				{delay 0.2
+					{view pause "flashbarrel%0"}
+				}
+		)
+		{if	("fire_barrel" args 00)
+		else ("fire_barrel" args 01)
+		}
+		{call "spawn_shell"}
+	}	
 }
 
 {"m48_patton"
@@ -481,42 +498,6 @@
 	("flame_weapon" args gun 60 1 40)
 }
 
-{"m45_maxson"				
-	{on "init_gun"
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel02"	"shooter02"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel03"	"shooter03"}
-		{add_view "zenit_gilz"			"shell"			"FXshell1"}
-		{add_view "zenit_gilz"			"shell"			"FXshell2"}
-		{add_view "zenit_gilz"			"shell"			"FXshell3"}
-		{add_view "zenit_gilz"			"shell"			"FXshell4"}
-		{call "update_gun"}
-	}
-	{on "add_movement_sound"
-		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
-		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
-	}
-	{on fire "mgun1" overload
-		(define "fire_barrel"
-			name "%0"
-				{call "fire_barrel%0"}
-				{view start "flashbarrel%0"}
-				{ani_play "fire%0"}
-				{delay 0.2
-					{view pause "flashbarrel%0"}
-				}
-		)
-		{if	("fire_barrel" args 00)
-		else ("fire_barrel" args 01)
-		else ("fire_barrel" args 02)
-		else ("fire_barrel" args 03)
-		}
-		{ani_play "recoil"}
-		{call "spawn_shell"}
-	}
-}
-
 {"m50"
 	("pz2_sound")
 	{on "commander_hatch_open" overload
@@ -532,12 +513,6 @@
 		{add_view "tank_canon_fire_50_57"			"flashbarrel03"	"shooter03"}
 		{add_view "tank_canon_fire_50_57"			"flashbarrel04"	"shooter04"}
 		{add_view "tank_canon_fire_50_57"			"flashbarrel05"	"shooter05"}
-		{add_view "zenit_gilz"			"shell"			"FXshell1"}
-		{add_view "zenit_gilz"			"shell"			"FXshell2"}
-		{add_view "zenit_gilz"			"shell"			"FXshell3"}
-		{add_view "zenit_gilz"			"shell"			"FXshell4"}
-		{add_view "zenit_gilz"			"shell"			"FXshell5"}
-		{add_view "zenit_gilz"			"shell"			"FXshell6"}
 		{call "update_gun"}
 	}
 	{on fire "gun" overload
