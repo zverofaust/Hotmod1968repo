@@ -468,6 +468,19 @@
 	("flame_weapon" args gun 60 1 40)
 }
 
+{"m67_zippo"
+	("pz6_sound")
+	{on spawn
+		{add_view "flamer_fire_tank" "flame" "foresight1"}
+	}
+	{on "_explosion"
+		{spawn "fuel_die"}
+		{blastwave c4 5 r0 4 r1 15}
+		{fire radius 5 time 15 heating 10}
+	}
+	("flame_weapon" args gun 60 1 40)
+}
+
 {"m45_maxson"				
 	{on "init_gun"
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
@@ -500,6 +513,50 @@
 		else ("fire_barrel" args 03)
 		}
 		{ani_play "recoil"}
+		{call "spawn_shell"}
+	}
+}
+
+{"m50"
+	("pz2_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"flashbarrel00"	"shooter00"}
+		{add_view "tank_canon_fire_50_57"			"flashbarrel01"	"shooter01"}
+		{add_view "tank_canon_fire_50_57"			"flashbarrel02"	"shooter02"}
+		{add_view "tank_canon_fire_50_57"			"flashbarrel03"	"shooter03"}
+		{add_view "tank_canon_fire_50_57"			"flashbarrel04"	"shooter04"}
+		{add_view "tank_canon_fire_50_57"			"flashbarrel05"	"shooter05"}
+		{add_view "zenit_gilz"			"shell"			"FXshell1"}
+		{add_view "zenit_gilz"			"shell"			"FXshell2"}
+		{add_view "zenit_gilz"			"shell"			"FXshell3"}
+		{add_view "zenit_gilz"			"shell"			"FXshell4"}
+		{add_view "zenit_gilz"			"shell"			"FXshell5"}
+		{add_view "zenit_gilz"			"shell"			"FXshell6"}
+		{call "update_gun"}
+	}
+	{on fire "gun" overload
+		(define "fire_barrel"
+			name "%0"
+				{call "fire_barrel%0"}
+				{view start "flashbarrel%0"}
+				{ani_play "fire%0"}
+				{delay 0.2
+					{view pause "flashbarrel%0"}
+				}
+		)
+		{if	("fire_barrel" args 00)
+		else ("fire_barrel" args 01)
+		else ("fire_barrel" args 02)
+		else ("fire_barrel" args 03)
+		else ("fire_barrel" args 04)
+		else ("fire_barrel" args 05)
+		}
 		{call "spawn_shell"}
 	}
 }

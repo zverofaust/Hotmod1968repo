@@ -53,7 +53,6 @@
 ;        ARMORED CAVALRY
 ;===================================
 
-; ======Tier1======
 
 ; // 15DP Armored Cavalry Assault Squad in M113 ACAV
 {"doctrine_squad_acav_moto(usa)"
@@ -73,42 +72,36 @@
 	("doctrine_t1" cool(120) d(mid_usa_acav) cost(20))
 }
 
-; ======Tier2======
 
-
-; ======Tier3======
 
 ;===================================
-;         DOCTRINE
+;         AIR CAV
 ;			
 ;===================================
 
-; ======Tier1======
 
-
-; ======Tier2======
-
-; ======Tier3======
 
 ;===================================
-;       DOCTRINE	   
+;          USMC
 ;            
 ;===================================
 
-; ======Tier1======
+; // 6DP Machinegun Squad
+{"doctrine_squad_mg(usa)"
+	("squad_with3types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(usmc_squadlead:1) c2(usmc_mg:3) c3(usmc_mgassist:6))
+	("doctrine_t1" cool(90) d(mid_usa_usmc) cost(6))
+}
 
-
-; ======Tier2======
-
-; ======Tier3======
+; // 15DP M50 Ontos
+{"doctrine_vehicle_m50(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m50) crew(tankman:3) cw(2) cp(0))
+	("doctrine_t1" cool(180) d(mid_usa_usmc) cost(15))
+}
 
 ;===================================
 ;       	DOCTRINE 3
 ;		ARTILLERY BRIGADE
 ;===================================
-
-; ======Tier1======
-
 
 ; // 20DP Command Car
 {"doctrine_vehicle_command(usa)"
@@ -166,8 +159,6 @@
 	("doctrine_strat" cool(300) d(mid_usa_artillery) cost(20))
 	{conditions "radio_usa_artillery"}{action "airstrike:flare_artillery_150"} 
 }
-
-; ======Tier3======
 
 ;_________________________________________________
 ;|             inf1                               |
