@@ -15,7 +15,7 @@
 	("t70_sound")
 }
 
-{"shilka tank"
+{"  tank"
 	("t70_sound")
 	{on "event_no_crew"
 		{ani_stop "radar"}
