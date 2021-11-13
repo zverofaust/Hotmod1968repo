@@ -38,14 +38,14 @@
 
 {"muzzle_kpvt" ;// muzzle_kpvt
 	{on spawn
-		{add_view "flash_gun_hmg_dshk"		"flashbarrelzenite"		"foresight1"}
+		{add_view "flash_gun_hmg_m2hb"		"flashbarrel1"		"foresight1"}
 		{link_sound "bkg_auto" "weapon/shot/bkg/auto/"}
 	}
 	{on fire "gun"
-		{view start "flashbarrelzenite"}
+		{view start "flashbarrel1"}
 		{play_sound "bkg_hmg"}
-		{delay 5
-			{view pause "zenite_smoke"}
+		{delay 0.2
+			{view pause "flashbarrel1"}
 		}
 	}
 }

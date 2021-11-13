@@ -24,10 +24,10 @@
 		{ani_play "radar" loop resume}
 	}
 	{on "init_gun" overload
-		{add_view "flash_gun_big"			"flashbarrel00"	"shooter00"}
-		{add_view "flash_gun_big"			"flashbarrel01"	"shooter01"}
-		{add_view "flash_gun_big"			"flashbarrel02"	"shooter02"}
-		{add_view "flash_gun_big"			"flashbarrel03"	"shooter03"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel02"	"shooter02"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel03"	"shooter03"}
 		{add_view "zenit_gilz"			"shell"			"FXshell1"}
 		{add_view "zenit_gilz"			"shell"			"FXshell2"}
 		{add_view "zenit_gilz"			"shell"			"FXshell3"}
