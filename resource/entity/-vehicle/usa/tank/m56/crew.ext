@@ -1,0 +1,23 @@
+{boarder
+
+	
+	{anm "driver"
+		{forward	{begin	"board_tank_right"} {end "seat_driver_car"} {base "open" 0.65}}
+		{reverse	{end	"emit_tank_2_hold"}}
+	}
+	{anm "commander"
+		{forward	{begin	"board_tank_left"} {end "seat_driver_car"} {base "open" 0.65}}
+		{reverse	{end	"emit_tank_2_hold"}}
+	}
+	{anm "gunner"
+		{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"} {base "open" 0.65}}
+		{reverse	{end	"emit_tank_2_hold"} {base "open" -1}}
+	}
+		
+		
+		
+}
+	
+("crew_open"		place(driver)	bone(driver)			door(emit0)		animation(driver) 		 	group(crew))
+("crew_open"		place(commander) 	bone(commander)		door(emit1)		animation(commander) 	 	group(crew))
+("crew_open"		place(gunner)	bone(gunner)			door(emit2)		animation(gunner)			group(crew))
