@@ -1,0 +1,31 @@
+{from "pattern reactive_ammo"
+	{tag "shell size2 he fg itemin2hands"}
+	{inventory
+		{size 6 1}
+		{weight 100}
+	}
+	{entity "s-5_ammo"}
+	{mass 6.8}
+
+	{view "s-5_ammo"
+		{tail "rocket_smoke" "tail"}
+	}
+
+	{damage blastwave
+		{energy 5.0}
+		{area 0.3 0.4}
+		{ground_interaction_radius 0.075}
+	}
+
+	{damage add blastwave
+		{energy 2.0}
+		{area 2.5 5.5}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+
+	{damage add blastwave
+		{energy 1.5}
+		{area 4 6}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+}

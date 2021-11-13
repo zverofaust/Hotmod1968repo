@@ -1,0 +1,30 @@
+;_________________________________________
+; Soviet Light Aerial Rocket Launcher
+;=========================================
+
+
+{from "pattern reactive"		; "Lots"
+	{tag "-gun"}
+	{filling "ammo 57mm_s-5" 16}
+	{fillingVisible "rocket"}
+	{fireSound "reactive/rocket_burst/"}
+	{inventory {noView}}
+	{calibre 57}
+
+	{spreading
+		{SpreadRadius 4}
+		{SpreadXYRatio 1.5}
+		{SpreadYadjust 0.1}
+		{radiusFunction
+			1		0.1
+			300		1
+			400		2
+		}
+	}
+
+	{range 1 300}
+	("fire rate" rpm(1200))
+	("reload time" seconds(15))
+	("velocity" mps(586))
+	("aerial gravity")
+}
