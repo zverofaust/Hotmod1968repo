@@ -2,42 +2,36 @@
 actor
 
 (include "vehicle.ext")
-(include "armor.ext")
-(include "armor_helicopter.ext")
+{lodclass "vehicle_big"}
 
-{collider "helicopter"}
-;{patherID "helicopter"}
+{Collider "helicopter"}
+{PatherID "helicopter"}
 
-{targetClass "airborne"}
-{targetSelector "airborne_bullet"}
+{TargetClass "helicopter"}
+{TargetSelector "helicopter"}
 
-{Props "airborne" "helicopter" "vision_lev01_air"}
+{Props "helicopter muzzle_zenite"}
 
-{brain "vehicle" {state "airborne"}}
+{Brain "vehicle" {state "airborne"}}
 
-{simulatorId "airborne"}
+{SimulatorId "airborne"}
+
+{Sensor
+	{Visor "main"
+		{vision "helicopter_pilot"}
+		{bone	"basis"}
+	}
+}
 
 {placer
-	{place "driver"			{visor "main"}}
-	{place "commander"		{visor "around"}}
+	{place "driver"		{visor "main"}}
+	{place "commander"	{visor "main"}}
 }
 
 {Extender "inventory"
 	{box
-		{Size 9 10}
+		{Size 8 6}
 		{weight 20000}
-	}
-}
-
-{hearingBias 250.0}				;// reduces units ability to hear sound signals. value = meters
-{sensor
-	{Visor "main"
-		{vision "airborne_main"}
-		{bone "visor"}
-	}
-	{visor "around"
-		{vision "airborne_around"}
-		{bone "basis"}
 	}
 }
 
@@ -59,34 +53,43 @@ actor
 
 {Component "body"
 	{RepairTime 25}
-	{RepairOrder 0}
 }
 {Component "engine"
 	{RepairTime 25}
-	{RepairOrder 3}
 }
 
 ;main rotor components
 {Component "rotor"
 	{RepairTime 10}
-	{RepairOrder 4}
 }
 
 ;back rotor components
 {Component "rotor_b"
 	{RepairTime 10}
-	{RepairOrder 4}
 }
 
-("helicopter_durability" body(100) engine(50) rotor(50) rotor_b(50) glass(50))
-
 {perks
-	{blastwave_modifier 20.0}
+	{component "body"
+		{category "tank_light"}
+	}
+	{component "engine"
+		{category "engine_medium"}
+	}
+	{component tag "rotor"
+		{category "wheel_medium"}
+	}
+	{component tag "rotor_b"
+		{category "wheel_medium"}
+	}
+	{component tag "glass"
+		{category "glass_light"}
+	}
 }
 
 {Chassis "wheel"
+	("chassis_defaults")
 	{Locomotion
-		{MaxSpeed		90	}	; max speed, km/h
+		("Speed" s(10))			; max speed, km/h
 		{StartTime		9	}	; acceleration time from 0 to max. speed, seconds
 		{BrakeTime		5	}	; deceleration time from max. speed to 0, seconds
 		{StopTime		3	}	; stop time after turning off the engine, seconds
@@ -98,17 +101,17 @@ actor
 	{MaxFrontSlope			15	} ; degree
 	{SideSlopeSpeed			15	} ; degree/s
 	{MaxSideSlope			15	} ; degree
-	{MaxElevationSpeed		10	} ; m/s
-	{ElevationAcceleration	5	} ; m/s^2
+	{MaxElevationSpeed		6	} ; m/s
+	{ElevationAcceleration	2	} ; m/s^2
 	{MaxAltitude			50	} ; m
-	{TravelAltitude			22	} ; m minimum altitude above ground, moving is dynamic
+	{TravelAltitude			15	} ; m start altitude, moving is dynamic
 	{EngineStartupTime		3.6 } ; seconds
 	{DontUseSlope}
 	{Airborne}
 	{IgnorePatherBoundsAI}		; AI ignores pather bounds, USER is constrained by pather bounds
 	{FuelBag
 		{volume 1000}
-		{rate   10 	}		; * 20 liter/km
+		("rate" r(1))		; * 20 liter/km
 		{remain 1000}
 		{fuel "fuel"}
 	}
@@ -119,8 +122,8 @@ actor
 
 (define "locomotion_transport"
 	{StartTime		3	}	; acceleration time from 0 to max. speed, seconds
-	{BrakeTime		0.8	}	; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
-	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds but less
+	{BrakeTime		3	}	; deceleration time from max. speed, seconds
+	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds
 	{SplineRadius	5	}	; limit turning radius on the splines, meters
 	{Slow			30	}	; km/h
 	{Normal			60	}
@@ -131,8 +134,8 @@ actor
 
 (define "locomotion_attack"
 	{StartTime		2	} ; acceleration time from 0 to max. speed, seconds
-	{BrakeTime		0.8	} ; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
-	{StopTime		3	} ; stop time after turning off the engine from max. speed to 0, seconds but less
+	{BrakeTime		2	} ; deceleration time from max. speed, seconds
+	{StopTime		3	} ; stop time after turning off the engine from max. speed to 0, seconds
 	{SplineRadius	5	} ; limit turning radius on the splines, meters
 	{Slow			50	} ; km/h
 	{Normal			70	}
@@ -142,13 +145,13 @@ actor
 )
 
 (define "part"
-	{volume %0					;adress volume named %0
-		{tags %0 "part"}		;give it a tag of its name and "part"
-		{component %0}			;assign component of name %0 (in case it existed)
+	{volume %0
+		{tags %0 "part"}
+		{component %0}
 		{thickness 0.5}
 		{able {visible 0}}
 	}
-	{component %0}				;create component with name %0
+	{component %0}
 )
 
 (define "armor_helicopter"

@@ -15,7 +15,7 @@
 	("t70_sound")
 }
 
-{"  tank"
+{"shilka tank"
 	("t70_sound")
 	{on "event_no_crew"
 		{ani_stop "radar"}
@@ -297,6 +297,16 @@
 
 
 
+
+{"mil_mi4 helicopter"
+	{on "add_movement_sound" overload
+		{link_sound "fly"			"vehicle/airborne/helicopter/helicopter_work2" 	}
+		{link_sound "engine_start"	"vehicle/airborne/helicopter/helicopter_start" 	}
+		{link_sound "engine_work"	"vehicle/airborne/helicopter/helicopter_work2" 	}
+		{link_sound "engine_stop"	"vehicle/airborne/helicopter/helicopter_stop" 	}
+	}
+}
+
 ;/*=========== AMERICAN Vehicles  ===========*/
 
 
@@ -375,6 +385,34 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+}
+
+{"m103"
+	("pz6_sound")
+		{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on spawn
+		{add_view	"flash_gun_big"	"flashbarrel00"	"shooter00"}
+		{add_view	"flash_gun_big"	"flashbarrel01"	"shooter01"}
+	}
+	{on fire "mgun2" overload
+		{play_sound "bkg_mg"}
+		{if  name "00"
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		else name "01"
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
 	}
 }
 
@@ -533,6 +571,20 @@
 		else ("fire_barrel" args 05)
 		}
 		{call "spawn_shell"}
+	}
+}
+
+{"m56"
+	("pz2_sound")
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2)
+	}
+}
+
+{"m56_para"
+	("pz2_sound")
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2)
 	}
 }
 

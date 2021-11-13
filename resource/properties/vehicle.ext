@@ -1,0 +1,529 @@
+;SDL
+{PatherID  "vehicle.large"}
+{obstacleID "tank"}
+{Simulation {able 1}}
+{props "steel" "vehicle" "obstacle_ignore_height" "emit_on_sink"}
+{able "emit_passangers_on_enemy" "repaired" "minimap" "ally_crew"}
+{lodclass "vehicle"}
+{collider "vehicle"}
+{NoGroupMesh 1}
+{sensor
+	{##Visor "main"
+		{vision "vehicle_main"}
+		{bone "visor"}
+	}
+	{RecognizeTime 0.01}
+	{InformRange 50 75}		;// first = AI , second = USER
+}
+
+{Weaponry
+	{ManualAccuracy 1.00}
+	{ManualAccuracyZoom 1.5}
+}
+
+{RimLight}
+
+{extender "inventory"
+	{weapon "mgun"
+		{mask "mountable"}
+	}
+	{box
+		{Size 9 15}
+	}
+}
+{boarder}
+{placer {crew}}
+
+(define "brain_vehicle"
+	{brain "vehicle"
+		{state "vehicle"}
+		{const "crush/min_danger_zone_time" 	1}
+		{const "crush/min_danger_zone_length"	1}
+	}
+)
+
+{## extender "detail"
+	{random}
+}
+
+(define "chassis_defaults"
+	{FuelBag
+		{volume 200 }	;// liters
+		{rate	40 }	;// liters per kilometer
+		{remain 200 }	;// amount of fuel at spawn
+		{fuel "fuel"}
+	}
+	{speed
+		{Slow	10	}	;// km/h
+		{Normal	17	}
+		{Fast	30	}
+	}
+)
+
+
+(define "car_trace"
+	{Track %wheell
+		{Tracer
+			{View %fx}
+			{Bone %bonel}
+			{Step %step}
+		}
+	}
+	{Track %wheelr
+		{Tracer 
+			{View %fx}
+			{Bone %boner}
+			{Step %step}
+		}
+	}
+)
+
+(define "tank_trace_ex"
+	{Track "left"
+		{Tracer
+			{View %fx} ; "tracks"
+			{Bone %boneleft}
+			{Step %step}			; 0.7 meters
+		}
+		{TextureScroller
+			{Bone "TrackL"}
+			{Length %len}			; 0.6 meters per animation
+		}
+	}
+	{Track "right"
+		{Tracer 
+			{View %fx}
+			{Bone %boneright}
+			{Step %step}			; in meters
+		}
+		{TextureScroller
+			{Bone "TrackR"}
+			{Length %len}			; meters per animation
+		}
+	}
+)
+
+(define "tank_trace"
+	("tank_trace_ex" fx(%fx) step(%step) len(%len) boneleft("FXtraceL1") boneright("FXtraceR1"))
+)
+
+{volume "select"
+	{able clear {select} {touch}}
+	{density 0}
+}
+
+
+{volume "ram"
+	{able clear}
+	{density 0}
+}
+
+
+;/*========================================*/
+;/*========================================*/
+
+
+(define "main_weapon"
+	{volume %0
+		{component "gun"}
+		{tags "no_target" "gun"}
+		{thickness %1}
+		{able {Contact 0} {Visible 0} {Obstacle 0} {nolook 1}}
+	}
+)
+
+(define "gun"
+	("main_weapon" args "gun" %thickness)
+	("main_weapon" args "gun1" %thickness)
+	("main_weapon" args "gun2" %thickness)
+	("main_weapon" args "gun3" %thickness)
+	("main_weapon" args "gun4" %thickness)
+	("main_weapon" args "gun5" %thickness)
+
+	("main_weapon" args "barrel" %thickness)
+	("main_weapon" args "barrel1" %thickness)
+	("main_weapon" args "barrel2" %thickness)
+	("main_weapon" args "barrel3" %thickness)
+	("main_weapon" args "barrel4" %thickness)
+	("main_weapon" args "barrel5" %thickness)
+	("main_weapon" args "barrel6" %thickness)
+	("main_weapon" args "barrel7" %thickness)
+
+	("main_weapon" args "breach" 2)
+	("main_weapon" args "breech" 2)
+
+	{component "gun"
+		{RepairTime %repair}
+		{RepairOrder 1}
+	}
+)
+
+
+(define "make_component"
+	{volume %0
+		{component %1}
+		{tags %1}
+	}
+)
+
+(define "body"
+	("make_component" args "body" "body")
+	("make_component" args "body1" "body")
+	("make_component" args "body2" "body")
+	("make_component" args "body3" "body")
+	("make_component" args "body4" "body")
+	("make_component" args "body5" "body")
+	("make_component" args "body6" "body")
+	("make_component" args "body7" "body")
+	("make_component" args "body8" "body")
+	("make_component" args "body9" "body")
+	("make_component" args "body10" "body")
+
+	("make_component" args "standc" "body")
+	("make_component" args "standl" "body")
+	("make_component" args "standr" "body")
+
+	{component "body"
+		{RepairTime %repair}
+		{RepairOrder 0}
+	}
+)
+
+(define "engine"
+	("make_component" args "engine" "engine")
+	("make_component" args "engine1" "engine")
+	("make_component" args "engine2" "engine")
+	("make_component" args "engine3" "engine")
+	("make_component" args "engine4" "engine")
+	("make_component" args "engine5" "engine")
+
+	{component "engine"
+		{RepairTime %repair}
+		{RepairOrder 3}
+	}
+)
+
+(define "turret"
+	("make_component" args "turret" "turret")
+	("make_component" args "turret1" "turret")
+	("make_component" args "turret2" "turret")
+	("make_component" args "turret3" "turret")
+	("make_component" args "turret4" "turret")
+	("make_component" args "turret5" "turret")
+
+	{component "turret"
+		{RepairTime %repair} ;45
+		{RepairOrder 2}
+	}
+)
+
+(define "mantlet"
+	("make_component" args "mantlet" "mantlet")
+	("make_component" args "mantlet1" "mantlet")
+	("make_component" args "mantlet2" "mantlet")
+	("make_component" args "mantlet3" "mantlet")
+	("make_component" args "mantlet4" "mantlet")
+	("make_component" args "mantlet5" "mantlet")
+
+	{component "mantlet"
+		{RepairTime %repair} ;30
+		{RepairOrder 3}
+	}
+)
+
+(define "aux_turret"
+	("make_component" args "aux_turret1" "aux_turret1")
+	("make_component" args "aux_turret2" "aux_turret2")
+
+	{component "aux_turret1"
+		{RepairTime %repair} ;45
+		{RepairOrder 6}
+	}
+	{component "aux_turret2"
+		{RepairTime %repair} ;45
+		{RepairOrder 6}
+	}
+)
+
+(define "cabin"
+	("make_component" args "cabin" "cabin")
+	("make_component" args "cabin1" "cabin")
+	("make_component" args "cabin2" "cabin")
+	("make_component" args "cabin3" "cabin")
+	("make_component" args "cabin4" "cabin")
+	("make_component" args "cabin5" "cabin")
+	("make_component" args "cabin6" "cabin")
+	("make_component" args "cabin7" "cabin")
+	("make_component" args "cabin8" "cabin")
+	("make_component" args "cabin9" "cabin")
+	("make_component" args "cabin10" "cabin")
+
+	{component "cabin"
+		{RepairTime %repair} ;30
+		{RepairOrder 2}
+	}
+)
+
+(define "bodyback"
+	("make_component" args "bodyback" "bodyback")
+	("make_component" args "bodyback1" "bodyback")
+	("make_component" args "bodyback2" "bodyback")
+	("make_component" args "bodyback3" "bodyback")
+	("make_component" args "bodyback4" "bodyback")
+	("make_component" args "bodyback5" "bodyback")
+	("make_component" args "bodyback6" "bodyback")
+	("make_component" args "bodyback7" "bodyback")
+	("make_component" args "bodyback8" "bodyback")
+	("make_component" args "bodyback9" "bodyback")
+	("make_component" args "bodyback10" "bodyback")
+	("make_component" args "bodyback11" "bodyback")
+	("make_component" args "bodyback12" "bodyback")
+	("make_component" args "bodyback13" "bodyback")
+	("make_component" args "bodyback14" "bodyback")
+	("make_component" args "bodyback15" "bodyback")
+
+	{component "bodyback"
+		{RepairTime %repair} ;30
+		{RepairOrder 6}
+	}
+)
+
+(define "wood_shield"
+	{volume "shieldw%number"
+		{material "wood"}
+		{tags "wood"}
+	}
+)
+
+("wood_shield" number())
+("wood_shield" number(1))
+("wood_shield" number(2))
+("wood_shield" number(3))
+("wood_shield" number(4))
+("wood_shield" number(5))
+("wood_shield" number(6))
+
+
+(define "internals"
+	{volume %0
+		{tags "%1" "no_target"}
+		{able {Contact 0} {NoWoundDecal}}
+		{thickness 2}
+		{component %0}
+	}
+	{component %0
+		{RepairTime %2}
+		{tags "%1"}
+		{RepairOrder 5}
+	}
+)
+
+(define "ammo"
+	("internals" args %0 ammo 1)
+)
+
+(define "fuel"
+	("internals" args %0 fuel 1)
+)
+
+(define "transmission"
+	("internals" args %0 transmission 20)
+)
+
+
+(define "holes"
+	{volume "%volume%number"
+		{able clear {hole}}
+	}
+)
+
+("holes" volume(hole) number())
+("holes" volume(hole) number(1))
+("holes" volume(hole) number(2))
+("holes" volume(hole) number(3))
+("holes" volume(hole) number(4))
+("holes" volume(hole) number(5))
+("holes" volume(hole) number(6))
+("holes" volume(hole) number(7))
+("holes" volume(hole) number(8))
+("holes" volume(hole) number(9))
+
+
+(define "glass"
+	{volume %0
+		{thickness 0.1}
+		{material "glass"}
+		{tags "glass"}
+		{component %0}
+		{able {visible 0}{obstacle 0}}
+	}
+	{component %0
+		{tags "glass"}
+		{RepairOrder 13}
+	}
+)
+
+(define "sandbags"
+	{volume "%volume%number"
+		{thickness 10}
+		{material "sand"}
+		{able {NoWoundDecal}}
+	}
+)
+
+("sandbags" volume(sandbag) number())
+("sandbags" volume(sandbag) number(1))
+("sandbags" volume(sandbag) number(2))
+("sandbags" volume(sandbag) number(3))
+("sandbags" volume(sandbag) number(4))
+("sandbags" volume(sandbag) number(5))
+
+
+(define "wheel"
+	{volume %0
+		{thickness 0.5}
+		{tags "wheel"}
+		{component %0}
+		{able {NoWoundDecal}}
+	}
+	{component %0
+		{RepairTime 10}
+		{tags "wheel"}
+		{RepairOrder 10}
+	}
+)
+
+(define "solid_wheel"
+	{volume %0
+		{thickness 10}
+		{tags "wheel"}
+		{component %0}
+		{able {NoWoundDecal}}
+	}
+	{component %0
+		{RepairTime 10}
+		{tags "wheel"}
+		{RepairOrder 10}
+	}
+)
+
+(define "track_wheels"
+	{volume "track%0%1"
+		{tags "mover" "track"}
+		{able {NoWoundDecal}}
+		{thickness %2}
+		{component "track%0"}
+	}
+)
+
+(define "tracks"
+	{volume "trackleft"
+		{thickness %thickness}
+		{tags "mover" "track"}
+		{able {NoWoundDecal} {holed}}
+	}
+	{volume "trackright"
+		{thickness %thickness}
+		{tags "mover" "track"}
+		{able {NoWoundDecal} {holed}}
+	}
+
+	("track_wheels" args left 1 %thickness)
+	("track_wheels" args left 2 %thickness)
+	("track_wheels" args left 3 %thickness)
+	("track_wheels" args left 4 %thickness)
+	("track_wheels" args left 5 %thickness)
+	("track_wheels" args left 6 %thickness)
+	("track_wheels" args left 7 %thickness)
+	("track_wheels" args left 8 %thickness)
+	("track_wheels" args left 9 %thickness)
+	("track_wheels" args left 10 %thickness)
+	("track_wheels" args left 11 %thickness)
+	("track_wheels" args left 12 %thickness)
+	("track_wheels" args left 13 %thickness)
+	("track_wheels" args left 14 %thickness)
+	("track_wheels" args left 15 %thickness)
+
+	("track_wheels" args right 1 %thickness)
+	("track_wheels" args right 2 %thickness)
+	("track_wheels" args right 3 %thickness)
+	("track_wheels" args right 4 %thickness)
+	("track_wheels" args right 5 %thickness)
+	("track_wheels" args right 6 %thickness)
+	("track_wheels" args right 7 %thickness)
+	("track_wheels" args right 8 %thickness)
+	("track_wheels" args right 9 %thickness)
+	("track_wheels" args right 10 %thickness)
+	("track_wheels" args right 11 %thickness)
+	("track_wheels" args right 12 %thickness)
+	("track_wheels" args right 13 %thickness)
+	("track_wheels" args right 14 %thickness)
+	("track_wheels" args right 15 %thickness)
+
+	{component "trackleft"
+		{RepairTime %repair}
+		{tags "mover" "track"}
+		{RepairOrder 4}
+	}
+	{component "trackright"
+		{RepairTime %repair}
+		{tags "mover" "track"}
+		{RepairOrder 4}
+	}
+)
+
+(define "shield"
+	{volume %0
+		{thickness %1}
+		{tags "shield"}
+		{component %0}
+	}
+	{component %0
+		{RepairTime 10}
+		{tags "shield"}
+		{RepairOrder 11}
+	}
+)
+
+(define "shield_group"
+	{volume %0
+		{thickness %1}
+		{tags "shield"}
+		{component %2}
+	}
+	{component %2
+		{RepairTime 10}
+		{tags "shield"}
+		{RepairOrder 11}
+	}
+)
+
+(define "shield_cover"		;// for canvas covers on cars and trucks. Setup as "shields" so they can be toggled on/off
+	{volume "shield_cover"
+		{thickness 0.01}
+		{material "fabric"}
+		{able {NoWoundDecal}}
+		{component "shield_cover"}
+	}
+	{component "shield_cover"
+		{RepairTime 10}
+		{RepairOrder 12}
+	}
+)
+
+(define "shield_tear"
+	{volume %0
+		{thickness %1}
+		{tags "cut_part" "shield"}
+		{component %0}
+	}
+	{component %0
+		{RepairTime 1}
+		{tags "cut_part" "shield"}
+		{RepairOrder 11}
+	}
+)
+
+
+;/*========================================*/
+;/*========================================*/

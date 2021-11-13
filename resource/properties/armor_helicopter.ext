@@ -1,0 +1,46 @@
+(define "helicopter_durability"
+	{perks
+		{component "body"
+			{health
+				{hp %body}
+				{hp_broken (* %body 0.5)}
+			}
+			{armor_damage_modifier 0.1}
+		}
+		{component "engine1"
+			{health
+				{hp %engine}
+				{hp_broken (* %engine 1.33)}
+			}
+			{armor_damage_modifier 0.1}
+		}
+		{component "engine2"
+			{health
+				{hp %engine}
+				{hp_broken (* %engine 1.33)}
+			}
+			{armor_damage_modifier 0.1}
+		}
+		{component tag "rotor"
+			{health
+				{hp %rotor}
+				{hp_broken (* %rotor 1.0)}
+			}
+			{armor_damage_modifier 0.1}
+		}
+		{component tag "rotor_b"
+			{health
+				{hp %rotor_b}
+				{hp_broken (* %rotor_b 0.66)}
+			}
+			{armor_damage_modifier 0.1}
+		}
+		{component tag "glass"
+			{health
+				{hp %glass}
+				{hp_broken 1}
+			}
+			{armor_damage_modifier 0.1}
+		}
+	}
+)

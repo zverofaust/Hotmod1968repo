@@ -11,6 +11,16 @@
 	)
 }
 
+{"m56_para"			;// apply these params to m56
+	{on spawn
+		{impulse up -5 forward 5 rnd_dir 1 com}
+		;{spawn "paratrooper_attach"}
+	}
+	{on ground_hit
+		{spawn "paratrooper_attach"}
+	}
+}
+
 {"asu57_para"			;// apply these params to asu57
 	{on spawn
 		{impulse up -5 forward 5 rnd_dir 1 com}
@@ -45,9 +55,26 @@
 	}
 }
 
+{"paradrop_m56"			;// Seems redunant
+	{on spawn
+		{spawn "paradrop_m56_dummy" random_position 1000}
+	}
+}
+
 {"paradrop_asu-85"			;// Seems redunant
 	{on spawn
 		{spawn "paradrop_asu-85_dummy" random_position 1000}
+	}
+}
+
+{"paradrop_m56_dummy"			;// The real deal
+	{on spawn
+		{start_sound "vehicle/airborne/cargo_plane_flyby" ambient}
+		{delay 7
+			{start_sound "vehicle/deploy/tent"}
+			{spawn "m56_para" offset -250 0 1000}
+			{hide 1}
+		}
 	}
 }
 

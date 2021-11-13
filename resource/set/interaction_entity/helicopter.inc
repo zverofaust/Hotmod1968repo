@@ -8,6 +8,13 @@
 		{call "init_gun"}
 	}
 	
+	{on "add_movement_sound"
+		{link_sound "fly"			"vehicle/airborne/helicopter/helicopter_work2" 	}
+		{link_sound "engine_start"	"vehicle/airborne/helicopter/helicopter_start" 	}
+		{link_sound "engine_work"	"vehicle/airborne/helicopter/helicopter_work2" 	}
+		{link_sound "engine_stop"	"vehicle/airborne/helicopter/helicopter_stop" 	}
+	}
+	
 	{on engine on overload
 		{call "engine_on"}
 	}
@@ -172,16 +179,34 @@
 
 	{on contact overload sync
 		{if not impregnable
-			{if effector "vehicle"
-				{call "collide"}
-			else effector "small"			;do not crash on small entities
-				{if effector "no_slices"	;but crash on x/xx entities
+			{if effector "small"				;do not crash on small entities
+				{if effector "no_slices"		;but crash on x/xx entities
 					{call "collide"}
 				}
 			else effector "construction"
-				{call "collide"}
+				{if not effector "straw"
+					{call "collide"}
+				}
 			else effector "tree"
-				{if not effector "bush"		;do not crash on bush-like trees with prop "bush"
+				{if not effector "bush"			;do not crash on bush-like trees with prop "bush"
+					{call "collide"}
+				}
+			else velocity 50					;if moving fast itself, crash on every vehicle
+				{if effector "vehicle"
+					{call "collide"}
+				}
+			else effector "armored_car"			;crash on fast moving armored cars
+				{if effector_velocity 20
+					{call "collide"}
+				}
+			else effector "car"					;do not crash on cars
+				;do nothing
+			else effector "tank"				;crash on moving tanks
+				{if effector_velocity 10
+					{call "collide"}
+				}
+			else effector "vehicle"				;(failsafe) crash on fast moving vehicles
+				{if effector_velocity 20
 					{call "collide"}
 				}
 			}
@@ -189,7 +214,7 @@
 	}
 	
 	{on "collide"
-		{if volume "body"
+		{if  volume "body"
 			{call "explosion"}
 		else volume "part"
 			{call "tear_part"}
@@ -356,4 +381,29 @@
 			{spawn "spheredust_big_short"}
 		}
 	}
+}
+
+(define "helicopter2_sound"
+	{on "add_movement_sound"
+		{link_sound "fly"			"vehicle/airborne/helicopter/helicopter_work1" 	}
+		{link_sound "engine_start"	"vehicle/airborne/helicopter/helicopter_start" 	}
+		{link_sound "engine_work"	"vehicle/airborne/helicopter/helicopter_work1" 	}
+		{link_sound "engine_stop"	"vehicle/airborne/helicopter/helicopter_stop" 	}
+	}
+)
+
+{"mil_mi4"
+	("helicopter2_sound")
+}
+
+{"mil_mi4_airborne"
+	("helicopter2_sound")
+}
+
+{"mil_mi4_heavy"
+	("helicopter2_sound")
+}
+
+{"mil_mi4_heavy_airborne"
+	("helicopter2_sound")
 }

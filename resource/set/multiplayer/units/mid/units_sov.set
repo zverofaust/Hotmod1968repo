@@ -41,7 +41,15 @@
 	{cost 10}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
 }
 
+{"air_rocket_sov"
+	("squad_vehicle" side(sov) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(tankman:1))
+	{cost 10} {action "airstrike:s-5_ammo"} 
+}
 
+{"air_bomb_sov"
+	("squad_vehicle" side(sov) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(su-7) crew(tankman:1))
+	{cost 10} {action "airstrike:sc_250_mp"} 
+}
 
 ;_________________________________________________
 ;|            Doctrines                           |
@@ -141,28 +149,33 @@
 ; // 20DP 250kg bomb strike by Su-7
 {"airstrike_250"
 	("strategic_doctrine" side(sov) period(mid) vehicle(su-7) crew(vehicleman:1) cw(0) cp(0))
-	("doctrine_t3" cool(240) d(mid_sov_vdv) cost(20))
+	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(20))
 	{conditions "radio_sov_vdv"}{action "airstrike:sc_250"}
 }
 
 ; // 10DP Air-Dropped ASU-57
 {"doctrine_paradrop_asu57(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(d30a) crew(vehicleman:3) cw(0) cp(0))
-	("doctrine_t3" cool(240) d(mid_sov_vdv) cost(10))
+	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(10))
 	{action "airstrike:paradrop_asu57"} 
 }
 
 ; // 15DP Air-Dropped ASU-85
 {"doctrine_paradrop_asu-85(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(d30a) crew(vehicleman:4) cw(0) cp(0))
-	("doctrine_t3" cool(240) d(mid_sov_vdv) cost(15))
+	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(15))
 	{action "airstrike:paradrop_asu-85"}
 }
 
 ; // 15DP VDV Rifle Squad
+;{"doctrine_squad_vdv(sov)"
+;	("squad_with7types_doctrine" side(sov) period(mid) g(doctrine_lvl1) c1(vdv_squadlead:1) c2(vdv_marksman:2) c3(vdv_antitank:1) c4(vdv_atassist:1) c4(vdv_lightmg:1) c5(vdv_lightmgassist:1) c6(vdv_senior:1) c7(vdv_rifleman:2))
+;	("doctrine_t1" cool(120) d(mid_sov_vdv) cost(15))
+;}
+
 {"doctrine_squad_vdv(sov)"
-	("squad_with7types_doctrine" side(sov) period(mid) g(doctrine_lvl1) c1(vdv_squadlead:1) c2(vdv_marksman:2) c3(vdv_antitank:1) c4(vdv_atassist:1) c4(vdv_lightmg:1) c5(vdv_lightmgassist:1) c6(vdv_senior:1) c7(vdv_rifleman:2))
-	("doctrine_t1" cool(120) d(mid_sov_vdv) cost(15))
+	("squad_vehicle8_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(mil_mi4) crew1(vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(0))
+	("doctrine_t1" cool(90) d(mid_sov_vdv) cost(15))
 }
 
 ; // 30DP Squad of VDV riding two ASU-57s
@@ -285,45 +298,40 @@
 ;AUTOMATIC WEAPONRY
 {"dshk_aa_sov"
 	("vehicle" period(mid) cd(0) ci(30) t(cannon) side(sov) crew(mg_crew:2)  g(empl1) b(empl) cw(4) cp(5))
-	{cost 150}
+	{cost 100}
 }
 
 {"zpu-4"
-	("vehicle" period(mid) cd(60) ci(60) t(cannon) side(sov) crew(mg_crew:2)  g(empl2) b(empl) cw(0) cp(8))
-	{cost 250}
+	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(sov) crew(mg_crew:2)  g(empl2) b(empl) cw(0) cp(8))
+	{cost 200}
 }
 
 
 ; AT WEAPONRY
 {"spg9"
 	("vehicle" period(mid) cd(0) ci(30) t(cannon) side(sov) crew(artilleryman:2)  g(empl3) b(empl) cw(4) cp(4))
-	{cost 200}
+	{cost 150}
 }
 
 {"t-12"
 	("vehicle" period(mid) cd(60) ci(60) t(cannon mediumcan) side(sov) crew(artilleryman:4)  g(empl5) b(empl) cw(4) cp(6))
-	{cost 300}
+	{cost 175}
 }
 
 {"9m14"
 	("vehicle" period(mid) cd(60) ci(120) t(cannon) side(sov) crew(artilleryman:2)  g(empl4) b(empl) cw(4) cp(6))
-	{cost 300}
+	{cost 200}
 }
 
 ;HOWITZERS
 {"82mm_bm37_sov"
-	("vehicle" period(mid) cd(0) ci(60) t(cannon) side(sov) crew(artilleryman:2) g(empl6) b(empl) cw(0) cp(6))
+	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(sov) crew(artilleryman:2) g(empl6) b(empl) cw(0) cp(6))
 	{cost 225}
 }
 {"120mm_pm38_sov"
-	("vehicle" period(mid) cd(180) ci(60) t(cannon) side(sov) crew(artilleryman:2) g(empl7) b(empl) cw(0) cp(12))
-	{cost 450}
+	("vehicle" period(mid) cd(180) ci(60) t(cannon mortar) side(sov) crew(artilleryman:2) g(empl7) b(empl) cw(0) cp(12))
+	{cost 400}
 }
-
-;{"d30a"
-;	("vehicle" period(mid) cd(900) ci(180) t(doctrineonly cannon artillery heavyart) side(sov) crew(artilleryman:4) g(empl12) b(empl) cw(0) cp(16))
-;	{cost 800}
-;}
 
 ;_________________________________________________
 ;|               Support vehicles                 |
@@ -335,7 +343,7 @@
 ;}
 
 {"gaz-704"
-	("vehicle"  period(mid) cd(0) ci(5) g(wheel1) side(sov) t(vehicle) crew(rifleman_1:0) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) cd(0) ci(5) g(wheel1) side(sov) t(vehicle supply) crew(rifleman_1:0) b(vehicles) cw(0) cp(2))
 	{cost 75}
 }
 
@@ -361,22 +369,22 @@
 
 
 {"zil157_fuel"
-	("vehicle"  period(mid) cd(120) ci(60) g(wheel5) side(sov) t(vehicle supply) crew(rifleman_1:1) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) cd(120) ci(60) g(wheel5) side(sov) t(vehicle supply fuel) crew(rifleman_1:1) b(vehicles) cw(0) cp(2))
 	{cost 250}
 }
 
 {"btr-152"
-	("vehicle"  period(mid) cd(0) ci(15) g(wheel6) side(sov) t(vehicle) crew(vehicleman:2) b(vehicles) cw(0) cp(6))
+	("vehicle"  period(mid) cd(0) ci(15) g(wheel6) side(sov) t(vehicle apc) crew(vehicleman:2) b(vehicles) cw(0) cp(6))
 	{cost 90}
 }
 
 {"btr-60pa"
-	("vehicle"  period(mid) cd(30) ci(30) g(wheel6) side(sov) t(vehicle) crew(vehicleman:2) b(vehicles) cw(0) cp(6))
+	("vehicle"  period(mid) cd(30) ci(30) g(wheel6) side(sov) t(vehicle apc) crew(vehicleman:2) b(vehicles) cw(0) cp(6))
 	{cost 100}
 }
 
 {"gaz-69a"
-	("vehicle2"  period(mid) cd(60) ci(280) g(wheel1) side(sov) t(vehicle) crew1(rifleman_1:1) crew2(officer:1) b(vehicles) cw(0) cp(2))
+	("vehicle2"  period(mid) cd(60) ci(280) g(wheel1) side(sov) t(vehicle command) crew1(rifleman_1:1) crew2(officer:1) b(vehicles) cw(0) cp(2))
 	{cost 250}
 }
 
@@ -387,12 +395,12 @@
 ;LIGHT
 
 {"brdm-1"
-	("vehicle" period(mid) cd(0) ci(15) side(sov) crew(vehicleman:3) g(light1) b(tanks) cw(0) cp(5))
+	("vehicle" period(mid) cd(0) ci(15) t(vehicle) side(sov) crew(vehicleman:3) g(light1) b(tanks) cw(0) cp(5))
 	{cost 75}
 }
 
 {"brdm-2"
-	("vehicle" period(mid) cd(0) ci(15) side(sov) crew(vehicleman:3) g(light1) b(tanks) cw(0) cp(5))
+	("vehicle" period(mid) cd(0) ci(15) t(vehicle) side(sov) crew(vehicleman:3) g(light1) b(tanks) cw(0) cp(5))
 	{cost 100}
 }
 
@@ -402,7 +410,7 @@
 }
 
 {"9p110"
-	("vehicle" period(mid) cd(180) ci(60) side(sov) crew(vehicleman:3) g(light2) b(tanks) cw(0) cp(10))
+	("vehicle" period(mid) cd(180) ci(60) t(vehicle) side(sov) crew(vehicleman:3) g(light2) b(tanks) cw(0) cp(10))
 	{cost 275}
 }
 
@@ -424,11 +432,50 @@
 }
 
 {"zsu-57-2"
-	("vehicle" period(mid) cd(380) ci(240) t(medium) side(sov) crew(tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	("vehicle" period(mid) cd(380) ci(240) t(medium antiair) side(sov) crew(tankman:4) g(medium1) b(tanks) cw(0) cp(15))
 	{cost 600}
 }
 
 {"t-62a"
 	("vehicle" period(mid) cd(300) ci(240) t(medium) side(sov) crew(tankman:4) g(medium4) b(tanks) cw(0) cp(20))
 	{cost 650}
+}
+
+;_________________________________________________
+;|        		 AI ONLY for purchase             |
+;|________________________________________________|
+
+{"asu57"
+	("vehicle" period(mid) cd(30) ci(30) t(light) side(sov) crew(tankman:3) cw(0) cp(20))
+	{cost 300}{not_for_player_sale 1}
+}
+
+{"asu-85"
+	("vehicle" period(mid) cd(300) ci(240) t(light) side(sov) crew(tankman:4) cw(0) cp(20))
+	{cost 400}{not_for_player_sale 1}
+}
+
+{"it-1"
+	("vehicle" period(mid) cd(300) ci(240) t(medium) side(sov) crew(tankman:4) cw(0) cp(20))
+	{cost 600}{not_for_player_sale 1}
+}
+
+{"2s3"
+	("vehicle" period(mid) cd(300) ci(240) t(medium heavyart artillery) side(sov) crew(tankman:4) cw(0) cp(20))
+	{cost 600}{not_for_player_sale 1}
+}
+
+{"t-10"
+	("vehicle" period(mid) cd(300) ci(240) t(heavy) side(sov) crew(tankman:4) cw(0) cp(20))
+	{cost 700}{not_for_player_sale 1}
+}
+
+{"shilka"
+	("vehicle" period(mid) cd(380) ci(240) t(medium antiair) side(sov) crew(tankman:4) cw(0) cp(15))
+	{cost 700}{not_for_player_sale 1}
+}
+
+{"t-64"
+	("vehicle" period(mid) cd(300) ci(240) t(mbt heavy) side(sov) crew(tankman:3) cw(0) cp(20))
+	{cost 1000}{not_for_player_sale 1}
 }

@@ -79,6 +79,12 @@
 ;			
 ;===================================
 
+; // 10DP Air-Dropped M56 Scorpion
+;{"doctrine_paradrop_m56(usa)"
+;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(d30a) crew(tankman:3) cw(0) cp(0))
+;	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
+;	{action "airstrike:paradrop_m56"} 
+;}
 
 
 ;===================================
@@ -86,9 +92,21 @@
 ;            
 ;===================================
 
+; // 6DP Marine Squad
+{"doctrine_squad_usmc(usa)"
+	("squad_with6types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(usmc_squadlead:1) c2(usmc_teamlead:3) c3(usmc_autorifle:3) c4(usmc_grenadier:1) c5(usmc_lat:3) c6(usmc_rifleman:3))
+	("doctrine_t1" cool(60) d(mid_usa_usmc) cost(6))
+}
+
 ; // 6DP Machinegun Squad
-{"doctrine_squad_mg(usa)"
+{"doctrine_squad_usmc_mg(usa)"
 	("squad_with3types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(usmc_squadlead:1) c2(usmc_mg:3) c3(usmc_mgassist:6))
+	("doctrine_t1" cool(90) d(mid_usa_usmc) cost(6))
+}
+
+; // 15DP SEAL Detachment
+{"doctrine_squad_seal(usa)"
+	("squad_with3types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(spec_squadlead:1) c2(spec_antitank:1) c3(spec_demo:1) c4(spec_grenadier:1) c5(spec_marksman:1) c6(spec_mg:1) c7(spec_rifleman:4))
 	("doctrine_t1" cool(90) d(mid_usa_usmc) cost(6))
 }
 
@@ -96,6 +114,18 @@
 {"doctrine_vehicle_m50(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m50) crew(tankman:3) cw(2) cp(0))
 	("doctrine_t1" cool(180) d(mid_usa_usmc) cost(15))
+}
+
+; // 15DP M67 Zippo Flame Tank
+{"doctrine_vehicle_m67_zippo(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m67_zippo) crew(tankman:4) cw(2) cp(0))
+	("doctrine_t1" cool(220) d(mid_usa_usmc) cost(15))
+}
+
+; // 25DP M103 Heavy Tank
+{"doctrine_vehicle_m103(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m103) crew(tankman:5) cw(2) cp(0))
+	("doctrine_t1" cool(300) d(mid_usa_usmc) cost(25))
 }
 
 ;===================================
@@ -133,7 +163,7 @@
 	("doctrine_t1" cool(600) d(mid_usa_artillery) cost(100))
 }
 
-; // 40DP M416 Ammunition Trailer carrying a single M388 nuclear round
+; // 40DP M416 Ammunition Trailer carrying a single M388 nuclear round for the Davy Crockett
 {"doctrine_vehicle_m416_m388(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m416_m388) crew(artilleryman:0) cw(0) cp(0))
 	("doctrine_t1" cool(300) d(mid_usa_artillery) cost(40))
@@ -203,24 +233,24 @@
 
 ;AUTOMATIC WEAPONRY
 {"m45_maxson"
-	("vehicle" period(mid) cd(60) ci(60) t(cannon) side(usa) crew(mg_crew:2)  g(empl1) b(empl) cw(0) cp(8))
-	{cost 200}
+	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(usa) crew(mg_crew:2)  g(empl1) b(empl) cw(0) cp(8))
+	{cost 150}
 }
 
 ; AT WEAPONRY
 {"m40"
 	("vehicle" period(mid) cd(0) ci(30) t(cannon) side(usa) crew(artilleryman:4)  g(empl2) b(empl) cw(4) cp(4))
-	{cost 250}
+	{cost 150}
 }
 
 {"entac"
 	("vehicle" period(mid) cd(60) ci(120) t(cannon) side(usa) crew(artilleryman:2)  g(empl3) b(empl) cw(4) cp(6))
-	{cost 300}
+	{cost 200}
 }
 
 ;HOWITZERS
 {"m29_mortar"
-	("vehicle" period(mid) cd(0) ci(60) t(cannon) side(usa) crew(artilleryman:2) g(empl6) b(empl) cw(0) cp(6))
+	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(usa) crew(artilleryman:2) g(empl6) b(empl) cw(0) cp(6))
 	{cost 225}
 }
 
@@ -236,7 +266,7 @@
 ;|________________________________________________|
 
 {"m416"
-	("vehicle"  period(mid) cd(0) ci(5) g(wheel1) side(usa) t(vehicle) crew(rifleman_1:0) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) cd(0) ci(5) g(wheel1) side(usa) t(vehicle supply) crew(rifleman_1:0) b(vehicles) cw(0) cp(2))
 	{cost 75}
 }
 
@@ -246,7 +276,7 @@
 }
 
 {"m35"
-	("vehicle"  period(mid) cd(0) ci(15) g(wheel2) side(usa) t(vehicle) crew(rifleman_1:1) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) cd(0) ci(15) g(wheel2) side(usa) t(vehicle apc) crew(rifleman_1:1) b(vehicles) cw(0) cp(2))
 	{cost 40}
 }
 
@@ -261,12 +291,12 @@
 }
 
 {"m113a1"
-	("vehicle"  period(mid) cd(60) ci(30) g(wheel6) side(usa) t(vehicle) crew(vehicleman:2) b(vehicles) cw(0) cp(6))
+	("vehicle"  period(mid) cd(60) ci(30) g(wheel6) side(usa) t(vehicle apc) crew(vehicleman:2) b(vehicles) cw(0) cp(6))
 	{cost 100}
 }
 
 {"m151_prc77"
-	("vehicle2"  period(mid) cd(60) ci(280) g(wheel1) side(usa) t(vehicle) crew1(rifleman_1:1) crew2(officer:1) b(vehicles) cw(0) cp(2))
+	("vehicle2"  period(mid) cd(60) ci(280) g(wheel1) side(usa) t(vehicle command) crew1(rifleman_1:1) crew2(officer:1) b(vehicles) cw(0) cp(2))
 	{cost 250}
 }
 
@@ -297,12 +327,12 @@
 }
 
 {"m125"
-	("vehicle"  period(mid) cd(60) ci(60) g(wheel1) side(usa) t(vehicle) crew(vehicleman:4) b(tanks) cw(0) cp(7))
+	("vehicle"  period(mid) cd(60) ci(60) g(wheel1) side(usa) t(vehicle mortar) crew(vehicleman:4) b(tanks) cw(0) cp(7))
 	{cost 350}
 }
 
 {"m106"
-	("vehicle"  period(mid) cd(120) ci(60) g(wheel1) side(usa) t(vehicle) crew(vehicleman:4) b(tanks) cw(0) cp(7))
+	("vehicle"  period(mid) cd(120) ci(60) g(wheel1) side(usa) t(vehicle mortar) crew(vehicleman:4) b(tanks) cw(0) cp(7))
 	{cost 450}
 }
 
@@ -313,17 +343,52 @@
 
 ;Medium
 
+{"m42"
+	("vehicle" period(mid) cd(240) ci(120) t(light antiair) side(usa) crew(tankman:4) g(light1) b(tanks) cw(0) cp(15))
+	{cost 400}
+}
+
 {"m48_patton"
 	("vehicle" period(mid) cd(200) ci(90) t(medium) side(usa) crew(tankman:4) g(medium1) b(tanks) cw(0) cp(15))
 	{cost 400}
 }
 
-{"m42"
-	("vehicle" period(mid) cd(240) ci(120) t(light) side(usa) crew(tankman:4) g(light1) b(tanks) cw(0) cp(15))
-	{cost 500}
+{"m60a1"
+	("vehicle" period(mid) cd(300) ci(180) t(light) side(usa) crew(tankman:4) g(medium2) b(tanks) cw(0) cp(20))
+	{cost 650}
 }
 
-{"m60a1"
-	("vehicle" period(mid) cd(300) ci(120) t(light) side(usa) crew(tankman:4) g(medium2) b(tanks) cw(0) cp(20))
-	{cost 650}
+
+;_________________________________________________
+;|        		 AI ONLY for purchase             |
+;|________________________________________________|
+
+{"m56"
+	("vehicle"  period(mid) cd(30) ci(30) side(usa) t(light) crew(tankman:3) cw(0) cp(7))
+	{cost 250}{not_for_player_sale 1}
+}
+
+{"m132_zippo"
+	("vehicle"  period(mid) cd(30) ci(45) side(usa) t(vehicle light) crew(vehicleman:3) cw(0) cp(7))
+	{cost 300}{not_for_player_sale 1}
+}
+
+{"m50"
+	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(light) crew(tankman:3) cw(0) cp(7))
+	{cost 400}{not_for_player_sale 1}
+}
+
+{"m67_zippo"
+	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(medium) crew(tankman:4) cw(0) cp(7))
+	{cost 400}{not_for_player_sale 1}
+}
+
+{"m113_acav_m40"
+	("vehicle"  period(mid) cd(30) ci(45) side(usa) t(vehicle) crew(vehicleman:4) cw(0) cp(7))
+	{cost 300}{not_for_player_sale 1}
+}
+
+{"m103"
+	("vehicle"  period(mid) cd(120) ci(120) side(usa) t(vehicle) crew(tankman:5) cw(0) cp(7))
+	{cost 900}{not_for_player_sale 1}
 }
