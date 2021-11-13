@@ -1,15 +1,14 @@
 {game_entity		;Mi-4AV
 	(include "/properties/helicopter.ext")
 	(include "/properties/shadow/airborn.inc" scale(2.2))
-	(include "/properties/selection/airborne.inc" scale(3.0))
-	{props "helicopter"} ;"wheeled" 
+	(include "/properties/selection/airborne.inc" scale(1.5))
+	;{props "helicopter"} ;"wheeled" 
 	{PatherID "bf110"}
 	
 	{Extender "detail"
 		{random 0}
 	}
 
-	
 	(include "/properties/car_crew.ext")
 	{boarder
 		{anm "left"
@@ -45,31 +44,7 @@
 	("crew_human"		place(seat14)	bone(seat14)	door(emit4) animation(passenger)	group(passenger))
 
 	;volume, component/tag, thickness
-	{Volume "body"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body1"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body2"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body3"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body4"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
+	{volume "body6"}
 	
 	{Obstacle "in_air"
 		{Obb2
@@ -111,16 +86,6 @@
 			{basic}
 			{ai_in_manual}
 		}
-	;	{place "gun2"
-	;		{rotate}
-	;		{weapon			"57mm_s-5m_x64" filled}
-	;		{barrels		64}
-	;		{gunner			"driver"}
-	;		{charger		"driver"}
-	;		{shooter		"shooter_a"}
-	;		{foresight		"foresight"}
-	;		{basic}
-	;	}
 		{place "gun"
 			{weapon "weapon 57mm_ub-16_x4" filled}
 			{barrels 64}
@@ -130,6 +95,17 @@
 			{charger "driver"}
 			{basic}
 			{rotate}
+			{ai_in_manual}
+		}
+		{place "gun2"
+			{weapon			"atgm_3m11_x4" filled}
+			{barrels		4}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter_b"}
+			{foresight		"foresight3"}
+			{rotate}
+			{basic}
 			{ai_in_manual}
 		}
 	}
@@ -142,7 +118,7 @@
 	{Chassis "helicopter"
 		{Locomotion ("locomotion_attack")}
 	}
-	
+
 	;main rotor + blades
 	("part" args "rotor")
 	("part" args "propeller1")
@@ -161,7 +137,7 @@
 	("wheel" args "wheell2")
 	("wheel" args "wheelr2")
 
-	{Extension "mil_mi4.mdl"}
+	{Extension "mil_mi4_heavy.mdl"}
 	
 	{bone "mgun_rot_h"		;mgun: right/left
 		{speed 0.025}

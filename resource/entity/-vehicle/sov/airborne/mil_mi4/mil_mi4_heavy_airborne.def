@@ -1,14 +1,18 @@
 {game_entity		;Mi-4AV
-	(include "/properties/helicopter.ext")
+	(include "/properties/airborne.ext")
+	;{props "wheeled"}
+	{PatherID "bf110"}
 	(include "/properties/shadow/airborn.inc" scale(2.2))
 	(include "/properties/selection/airborne.inc" scale(3.0))
-	{props "helicopter"} ;"wheeled" 
-	{PatherID "bf110"}
+	(include "/properties/car_crew.ext")
 	
 	{Extender "detail"
 		{random 0}
 	}
 
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
 	
 	(include "/properties/car_crew.ext")
 	{boarder
@@ -43,43 +47,15 @@
 	("crew_human" 		place(seat12)	bone(seat12)	door(emit4) animation(passenger)	group(passenger))
 	("crew_human" 		place(seat13)	bone(seat13)	door(emit3) animation(passenger)	group(passenger))
 	("crew_human"		place(seat14)	bone(seat14)	door(emit4) animation(passenger)	group(passenger))
+	
+	
+	
+	
+	;add extra boarding door for passengers
 
 	;volume, component/tag, thickness
-	{Volume "body"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body1"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body2"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body3"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body4"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
+	{volume "body6"}
 	
-	{Obstacle "in_air"
-		{Obb2
-			{Center -20 0}
-			{Extent 200 160}
-			{Axis -1 0}
-		}
-		{rotate}
-	}
-	{ObstacleId "helicopter" "in_air"}
 
 	;volume/component, thickness
 	("glass" args "window1" 10)
@@ -111,16 +87,6 @@
 			{basic}
 			{ai_in_manual}
 		}
-	;	{place "gun2"
-	;		{rotate}
-	;		{weapon			"57mm_s-5m_x64" filled}
-	;		{barrels		64}
-	;		{gunner			"driver"}
-	;		{charger		"driver"}
-	;		{shooter		"shooter_a"}
-	;		{foresight		"foresight"}
-	;		{basic}
-	;	}
 		{place "gun"
 			{weapon "weapon 57mm_ub-16_x4" filled}
 			{barrels 64}
@@ -132,36 +98,57 @@
 			{rotate}
 			{ai_in_manual}
 		}
+		{place "gun2"
+			{weapon			"atgm_3m11_x4" filled}
+			{barrels		4}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter_b"}
+			{foresight		"foresight3"}
+			{rotate}
+			{basic}
+		}
 	}
 
 	{mass 5100}
 	
 	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
 	}
-	
-	{Chassis "helicopter"
-		{Locomotion ("locomotion_attack")}
+	{Chassis "airborne"
+		("heli_model"
+			speed(185)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(10) ;//-----Climb rate at sea level, in m/s
+			turn(120) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			aerodynamics(1.2) ;//---Aerodynamic efficiency rating (0-3)
+			weight(5100) ;//--------Weight in kg.
+			power(1680) ;//---------Horse Power.
+			fuel(650) ;//-----------Fuel capacity in Liters.
+			range(755) ;//----------Distance can travel with full fuel tank, in km.
+			roll_rate(50) ;//-------Roll rate, in degrees per second.
+			roll_angle(60) ;//------Maximum roll angle, in degrees.
+		)
 	}
-	
-	;main rotor + blades
-	("part" args "rotor")
-	("part" args "propeller1")
-	("part" args "propeller2")
-	("part" args "propeller3")
-	("part" args "propeller4")
 
+	;main rotor + blades
+	;("part" args "rotor")
+	;("part" args "propeller1")
+	;("part" args "propeller2")
+	;("part" args "propeller3")
+	;("part" args "propeller4")
+;
 	;back rotor + blades
-	("part" args "rotor_b")
-	("part" args "propeller_b")
-	("part" args "propeller_b1")
-	("part" args "propeller_b2")
+	;("part" args "rotor_b")
+	;("part" args "propeller_b")
+	;("part" args "propeller_b1")
+	;("part" args "propeller_b2")
 
 	("wheel" args "wheell1")
 	("wheel" args "wheelr1")
 	("wheel" args "wheell2")
 	("wheel" args "wheelr2")
 
-	{Extension "mil_mi4.mdl"}
+	{Extension "mil_mi4_heavy.mdl"}
 	
 	{bone "mgun_rot_h"		;mgun: right/left
 		{speed 0.025}
