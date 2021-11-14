@@ -95,31 +95,31 @@
 ; // 6DP Marine Squad
 {"doctrine_squad_usmc(usa)"
 	("squad_with6types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(usmc_squadlead:1) c2(usmc_teamlead:3) c3(usmc_autorifle:3) c4(usmc_grenadier:1) c5(usmc_lat:3) c6(usmc_rifleman:3))
-	("doctrine_t1" cool(60) d(mid_usa_usmc) cost(6))
+	("doctrine_t1" cool(15) d(mid_usa_usmc) cost(6))
 }
 
 ; // 6DP Machinegun Squad
 {"doctrine_squad_usmc_mg(usa)"
 	("squad_with3types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(usmc_squadlead:1) c2(usmc_mg:3) c3(usmc_mgassist:6))
-	("doctrine_t1" cool(90) d(mid_usa_usmc) cost(6))
+	("doctrine_t1" cool(60) d(mid_usa_usmc) cost(6))
 }
 
 ; // 15DP SEAL Detachment
 {"doctrine_squad_seal(usa)"
-	("squad_with3types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(spec_squadlead:1) c2(spec_antitank:1) c3(spec_demo:1) c4(spec_grenadier:1) c5(spec_marksman:1) c6(spec_mg:1) c7(spec_rifleman:4))
-	("doctrine_t1" cool(90) d(mid_usa_usmc) cost(6))
+	("squad_with7types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(spec_squadlead:1) c2(spec_antitank:1) c3(spec_demo:1) c4(spec_grenadier:1) c5(spec_marksman:1) c6(spec_mg:1) c7(spec_rifleman:4))
+	("doctrine_t1" cool(90) d(mid_usa_usmc) cost(15))
 }
 
 ; // 15DP M50 Ontos
 {"doctrine_vehicle_m50(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m50) crew(tankman:3) cw(2) cp(0))
-	("doctrine_t1" cool(180) d(mid_usa_usmc) cost(15))
+	("doctrine_t1" cool(120) d(mid_usa_usmc) cost(15))
 }
 
 ; // 15DP M67 Zippo Flame Tank
 {"doctrine_vehicle_m67_zippo(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m67_zippo) crew(tankman:4) cw(2) cp(0))
-	("doctrine_t1" cool(220) d(mid_usa_usmc) cost(15))
+	("doctrine_t1" cool(180) d(mid_usa_usmc) cost(15))
 }
 
 ; // 25DP M103 Heavy Tank
@@ -190,6 +190,13 @@
 	{conditions "radio_usa_artillery"}{action "airstrike:flare_artillery_150"} 
 }
 
+; // 30DP 152-155mm Artillery Barrage
+{"artillery_barrage_heavy_usa"
+	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(artilleryman:0) cw(0) cp(0))
+	("doctrine_strat" cool(300) d(mid_usa_artillery) cost(30))
+	{conditions "radio_usa_artillery"}{action "airstrike:flare_artillery_203"} 
+}
+
 ;_________________________________________________
 ;|             inf1                               |
 ;|________________________________________________|
@@ -255,7 +262,7 @@
 }
 
 {"m116_packhow"
-	("vehicle" period(mid) cd(60) ci(60) t(cannon) side(sov) crew(artilleryman:4) g(empl6) b(empl) cw(0) cp(6))
+	("vehicle" period(mid) cd(60) ci(60) t(cannon) side(usa) crew(artilleryman:4) g(empl6) b(empl) cw(0) cp(6))
 	{cost 325}
 }
 

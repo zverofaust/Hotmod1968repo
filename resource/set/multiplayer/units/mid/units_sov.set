@@ -41,15 +41,15 @@
 	{cost 10}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
 }
 
-{"air_rocket_sov"
-	("squad_vehicle" side(sov) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(tankman:1))
-	{cost 10} {action "airstrike:s-5_ammo"} 
-}
+;{"air_rocket_sov"
+;	("squad_vehicle" side(sov) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(tankman:1))
+;	{cost 10}{conditions "radio_sov"}{action "airstrike:s-5_ammo"} 
+;}
 
-{"air_bomb_sov"
-	("squad_vehicle" side(sov) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(su-7) crew(tankman:1))
-	{cost 10} {action "airstrike:sc_250_mp"} 
-}
+;{"air_bomb_sov"
+;	("squad_vehicle" side(sov) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(su-7) crew(tankman:1))
+;	{cost 10}{conditions "radio_sov"}{action "airstrike:sc_250_mp"} 
+;}
 
 ;_________________________________________________
 ;|            Doctrines                           |
@@ -147,11 +147,11 @@
 ; ======Tier1======
 
 ; // 20DP 250kg bomb strike by Su-7
-{"airstrike_250"
-	("strategic_doctrine" side(sov) period(mid) vehicle(su-7) crew(vehicleman:1) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(20))
-	{conditions "radio_sov_vdv"}{action "airstrike:sc_250"}
-}
+;{"airstrike_250"
+;	("strategic_doctrine" side(sov) period(mid) vehicle(su-7) crew(vehicleman:1) cw(0) cp(0))
+;	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(20))
+;	{conditions "radio_sov_vdv"}{action "airstrike:sc_250"}
+;}
 
 ; // 10DP Air-Dropped ASU-57
 {"doctrine_paradrop_asu57(sov)"
@@ -207,6 +207,18 @@
 	("doctrine_t1" cool(200) d(mid_sov_artillery) cost(20))
 }
 
+; // 5DP Ural 375 Heavy Truck
+{"doctrine_vehicle_ural(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(ural-375) crew(rifleman_1:1) cw(2) cp(0))
+	("doctrine_t1" cool(0) d(mid_sov_artillery) cost(5))
+}
+
+; // 10DP Ural 375 Ammo
+{"doctrine_vehicle_ural_ammo(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(ural-375) crew(rifleman_1:1) cw(2) cp(0))
+	("doctrine_t1" cool(30) d(mid_sov_artillery) cost(10))
+}
+
 ; // 10DP D-30 122mm Howitzer
 {"doctrine_vehicle_d-30a(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(d30a) crew(artilleryman:4) cw(0) cp(0))
@@ -246,12 +258,28 @@
 	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_150"} 
 }
 
-; // 30DP Rocket Artillery Barrage
+; // 30DP 152mm Artillery Barrage
+{"artillery_barrage_heavy_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(artilleryman:0) cw(0) cp(0))
+	("doctrine_strat" cool(300) d(mid_sov_artillery) cost(30))
+	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_203"} 
+}
+
+; // 25DP Rocket Artillery Barrage
 {"artillery_barrage_rocket_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(artilleryman:0) cw(0) cp(0))
-	("doctrine_strat" cool(360) d(mid_sov_artillery) cost(30))
+	("doctrine_strat" cool(360) d(mid_sov_artillery) cost(25))
 	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_rocket"} 
 }
+
+; // 35DP Rocket Artillery Barrage
+{"artillery_barrage_rocket_heavy_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(artilleryman:0) cw(0) cp(0))
+	("doctrine_strat" cool(360) d(mid_sov_artillery) cost(35))
+	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_rocket_heavy"} 
+}
+
+
 
 ; ======Tier3======
 

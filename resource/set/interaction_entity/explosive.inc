@@ -202,6 +202,10 @@
 	("offmap" args "artillery_single_150")
 }
 
+{"offmap_dummy 203"
+	("offmap" args "artillery_single_203")
+}
+
 {"offmap_dummy smoke"
 	("offmap" args "artillery_single_smoke")
 }
@@ -340,6 +344,36 @@
 	}
 }
 
+{"artillery_barrage_203"
+	{on spawn
+		{if not tagged "fired"
+			{tags add "fired"}
+			(define "rnd_art_bomb"
+				{delay %delay 0.5
+					{spawn "artillery_single_203_dummy" random_position 900}
+				}
+			)
+			("rnd_art_bomb" delay(0.5))
+			("rnd_art_bomb" delay(1))
+			("rnd_art_bomb" delay(1.5))
+			("rnd_art_bomb" delay(2))
+			("rnd_art_bomb" delay(7.5))
+			("rnd_art_bomb" delay(8))
+			("rnd_art_bomb" delay(8.5))
+			("rnd_art_bomb" delay(9))
+			("rnd_art_bomb" delay(14.5))
+			("rnd_art_bomb" delay(115))
+			("rnd_art_bomb" delay(15.5))
+			("rnd_art_bomb" delay(16))
+			("rnd_art_bomb" delay(21.5))
+			("rnd_art_bomb" delay(22))
+			("rnd_art_bomb" delay(22.5))
+			("rnd_art_bomb" delay(23))
+			{hide 24}
+		}
+	}
+}
+
 {"artillery_barrage_smoke"
 	{on spawn
 		{if not tagged "fired"
@@ -395,6 +429,17 @@
 	}
 }
 
+{"flare_artillery_203"			;// Flare that spawns shells that fall to ground. Off-map artillery
+	{on spawn
+		{add_view "smoke_flare_red" "smoke" "root"}
+		{view start "smoke"}
+		{impulse up 35 forward 3 rnd_dir 3 com}
+		{delay 20 {spawn "artillery_barrage_203"}}
+		{delay 41 {view stop "smoke"}}
+		{delay 41 {delete}}
+	}
+}
+
 {"flare_artillery_smoke"			;// Flare that spawns shells that fall to ground. Off-map artillery
 	{on spawn
 		{add_view "smoke_flare_red" "smoke" "root"}
@@ -412,6 +457,17 @@
 		{view start "smoke"}
 		{impulse up 35 forward 3 rnd_dir 3 com}
 		{delay 30 {spawn "artillery_barrage_rocket"}}
+		{delay 51 {view stop "smoke"}}
+		{delay 51 {delete}}
+	}
+}
+
+{"flare_artillery_rocket_heavy"			;// Flare that spawns shells that fall to ground. Off-map artillery
+	{on spawn
+		{add_view "smoke_flare_red" "smoke" "root"}
+		{view start "smoke"}
+		{impulse up 35 forward 3 rnd_dir 3 com}
+		{delay 30 {spawn "artillery_barrage_rocket_heavy"}}
 		{delay 51 {view stop "smoke"}}
 		{delay 51 {delete}}
 	}
@@ -585,6 +641,17 @@
 	}
 }
 
+{"artillery_single_rocket_heavy_dummy"			;// Shells that fall to ground. Source Off-map artillery
+	{on spawn
+		{start_sound "weapon/shot/ambient_rocket" ambient}
+		{delay 7
+			{start_sound "weapon/shot/reactive/rocket_far_incoming"}
+			{spawn "artillery_single_rocket_heavy" offset -250 0 1000}
+			{hide 1}
+		}
+	}
+}
+
 {"artillery_barrage_rocket"			;// Flare that spawns timed explosions randomized in area
 	{on spawn
 		{if not tagged "fired"
@@ -635,6 +702,32 @@
 			("rnd_art_bomb" delay(19.5))
 			("rnd_art_bomb" delay(20))
 			{hide 21}
+		}
+	}
+}
+
+{"artillery_barrage_rocket_heavy"			;// Flare that spawns timed explosions randomized in area
+	{on spawn
+		{if not tagged "fired"
+			{tags add "fired"}
+			(define "rnd_art_bomb"
+				{delay %delay 0.25
+					{spawn "artillery_single_rocket_heavy_dummy" random_position 1000}
+				}
+			)
+			("rnd_art_bomb" delay(0.5))
+			("rnd_art_bomb" delay(1))
+			("rnd_art_bomb" delay(1.5))
+			("rnd_art_bomb" delay(2))
+			("rnd_art_bomb" delay(2.5))
+			("rnd_art_bomb" delay(3))
+			("rnd_art_bomb" delay(3.5))
+			("rnd_art_bomb" delay(4))
+			("rnd_art_bomb" delay(4.5))
+			("rnd_art_bomb" delay(5))
+			("rnd_art_bomb" delay(5.5))
+			("rnd_art_bomb" delay(6))
+			{hide 8}
 		}
 	}
 }
