@@ -54,6 +54,12 @@
 ;===================================
 
 
+; // 10DP US Army Ranger Long-Range Recon Patrol
+{"doctrine_squad_lrrp(usa)"
+	("squad_with5types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1) c5(rng_grenadier:1))
+	("doctrine_t1" cool(5) d(mid_usa_usmc) cost(10))
+}
+
 ; // 15DP Armored Cavalry Assault Squad in M113 ACAV
 {"doctrine_squad_acav_moto(usa)"
 	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(m113_acav) crew1(acav_vehicleman:2) crew2(acav_rifleman:2) crew3(acav_squadlead:1) crew4(acav_mg:1) crew5(acav_antitank:1) crew6(acav_mgassist:1) crew7(acav_atassist:1) crew8(acav_grenadier:1) cw(2) cp(0))
@@ -92,9 +98,15 @@
 ;            
 ;===================================
 
+; // 2DP Marine Fireteam
+{"doctrine_squad_usmc_fireteam(usa)"
+	("squad_with4types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(usmc_teamlead:1) c2(usmc_mg:1) c3(usmc_antitank:1) c4(usmc_ammo:1))
+	("doctrine_t1" cool(5) d(mid_usa_usmc) cost(3))
+}
+
 ; // 6DP Marine Squad
 {"doctrine_squad_usmc(usa)"
-	("squad_with6types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(usmc_squadlead:1) c2(usmc_teamlead:3) c3(usmc_autorifle:3) c4(usmc_grenadier:1) c5(usmc_lat:3) c6(usmc_rifleman:3))
+	("squad_with7types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(usmc_squadlead:1) c2(usmc_teamlead:3) c3(usmc_autorifle:3) c4(usmc_grenadier:1) c5(usmc_lat:3) c6(usmc_rifleman:2) c7(usmc_corpsman))
 	("doctrine_t1" cool(15) d(mid_usa_usmc) cost(6))
 }
 
@@ -163,7 +175,7 @@
 	("doctrine_t1" cool(600) d(mid_usa_artillery) cost(100))
 }
 
-; // 40DP M416 Ammunition Trailer carrying a single M388 nuclear round for the Davy Crockett
+; // 40DP M416 Ammunition Trailer carrying a single M388 nuclear round
 {"doctrine_vehicle_m416_m388(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m416_m388) crew(artilleryman:0) cw(0) cp(0))
 	("doctrine_t1" cool(300) d(mid_usa_artillery) cost(40))
@@ -208,7 +220,7 @@
 ("squad_with4types" side(usa) name(squad_fireteamAT)		period(mid) cd(0) ci(0) g(squad_3) c1(teamlead:1) c2(antitank_1:1) c3(rifleman_2:2) c4(antitank_2:1)																b(inf1) t())
 ("squad_with6types" side(usa) name(squad_rifle)				period(mid) cd(0) ci(0) g(squad_4) c1(nco:1) c2(rifleman_3:2) c3(grenadier_1:2) c4(antitank_3:2) c5(rifleman_2:2) c6(teamlead:1)									b(inf1) t())
 ("squad_with6types" side(usa) name(squad_weapon)			period(mid) cd(0) ci(15) g(squad_5) c1(nco:1) c2(mgun_1:2) c3(mgun_2:2) c4(antitank_1:2) c5(antitank_2:2) c6(teamlead:1)											b(inf1) t())
-("squad_with4types" side(usa) name(squad_lrrp)				period(mid) cd(0) ci(60) g(squad_6) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1)															b(inf1) t())
+;("squad_with4types" side(usa) name(squad_lrrp)				period(mid) cd(0) ci(60) g(squad_6) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1)															b(inf1) t())
 
 {"squad_reservist_moto(usa)"
 	("squad_vehicle5" period(mid) cd(0) ci(15) side(usa) t(vehicle) vehicle(m35) crew1(rifleman_1:1) crew2(reservist_nco:1) crew3(reservist_rifle2:2) crew4(reservist_rifle:7) b(inf1) cw(2) cp(4)){squad_cost_factor 1}
