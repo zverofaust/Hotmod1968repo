@@ -1,0 +1,89 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 15mm
+	; gun 20mm
+
+	("tank_heavy_tier2")
+	
+	;volume, component/tag
+
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("ammo" args "ammo5")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+
+	{volume "body_armor"			; Upper Hull
+		{thickness 120}
+		{HighHardness}
+	}
+	{volume "body_armor2"			; Upper Hull
+		{thickness 120}
+		{HighHardness}
+	}
+	{volume "body_armor3"			; Upper Hull
+		{thickness 120}
+		{HighHardness}
+	}
+	
+	{volume "body1"			; Upper Hull
+		{thickness 80
+			{front 0}		
+			{top 30}
+			{rear 60}
+			{bottom 0}
+		}
+		{HighHardness}
+	}
+	{volume "body2"			; Lower Hull
+		{thickness 80
+			{front 120}		
+			{top 0}
+			{rear 60}
+			{bottom 30}
+		}
+		{HighHardness}
+	}
+	{volume "body3"			; Upper Hull
+		{thickness 80
+			{front 120}		
+			{top 30}
+			{rear 60}
+			{bottom 30}
+		}
+		{HighHardness}
+	}
+	{volume "body4"			
+		{thickness 80
+			{front 80}		
+			{top 30}
+			{rear 60}
+			{bottom 30}
+		}
+		{HighHardness}
+	}
+	
+	{volume "turret"		; Turret
+		{thickness 148
+			{front 120}
+			{top 40}
+			{rear 50}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	
+	{volume "mantlet"		; Turret
+		{thickness 252}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	
+	{volume "engine"
+		{thickness 10}
+	}

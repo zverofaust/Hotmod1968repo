@@ -3,6 +3,7 @@
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm"}
+	(include "t-54.ext")
 	{targetclass "tank_medium"}
 	{targetSelector "tank_medium"}
 	{PatherId "t34"}
@@ -12,48 +13,10 @@
 		{digit_folder "cw"}
 	}
 
-	("tank_medium_tier3")
-	("crew_4_human")
-	
-	;volume, component/tag
-
-	{volume "body1"			; Hull
-		{thickness 80
-			{front 100}		; Glacis & Lower Hull
-			{rear 20}
-			{bottom 20}
-		}
-		{HighHardness}
-	}
-	{volume "body2"			; Superstructure
-		{thickness 80
-			{front 100}		; Glacis
-			{top 15}
-			{rear 45}
-			{bottom 20}
-		}
-		{HighHardness}
-	}
-	
-	{volume "turret"		; Turret
-		{thickness 130
-			{front 205}
-			{top 30}
-			{rear 60}
-		}
-		{HighHardness}
-		{CastSteel 0.8063}
-	}
-	
-	{volume "engine"		; Hull
-		{thickness 80
-			{front 80}
-			{bottom 20}
-		}
-		{HighHardness}
-	}
-
 	;Crew 4: driver, commander, gunner, loader
+	
+	("crew_4_human")
+
 	{boarder
 		{anm "driver"
 			{forward {begin "board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}

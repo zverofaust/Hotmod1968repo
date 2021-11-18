@@ -6,20 +6,15 @@
 
 	("tank_light_tier1")
 
-	("shield" args "shieldl1" 5)
-	("shield" args "shieldr1" 5)
-
 	("fuel" args "fuel1")
 	("fuel" args "fuel2")
 	("fuel" args "fuel3")
 	("ammo" args "ammo1")
 	("ammo" args "ammo2")
-	("ammo" args "ammo3")
-	("ammo" args "ammo4")
 	("transmission" args "transmission")
 	("tracks" repair(30) thickness(15))
 
-	{volume "body1"			; Hull
+	{volume "body1"			; Upper Hull
 		{thickness 13		; 
 			{front 13}
 			{top 13}		; 
@@ -28,21 +23,26 @@
 		}
 	}
 	{volume "body2"			; 
-		{thickness 13		; 15 + 4
+		{thickness 13		; Lower Hull
 			{front 13}
 			{top 13}
 			{rear 7}
 			{bottom 5}
 		}
 	}
+	{volume "body3"
+		{thickness 13		; Engine Compartment
+			{front 13}
+			{top 13}
+			{rear 7}
+			{bottom 5}
+		}
+	}
+	
 	{volume "engine"
-		{thickness 13		; 15 + 4
-			{front 13}
-			{top 13}
-			{rear 7}
-			{bottom 5}
-		}
+		{thickness 10}
 	}
+	
 	{volume "turret"		; Main Turret 
 		{thickness 20
 			{front 16}
