@@ -1,9 +1,9 @@
 {game_entity
 	(include "/properties/tank_assaultgun.ext")
-	(include "/properties/shadow/tank.inc" scale(1.2))
-	(include "/properties/selection/vehicle.inc" scale(1.2))
-	{props "td" "medium" "-turret" "mantlet" "vision_lev03" "muzzle_85mm_93mm_sides" "diesel"}
-	{targetclass "tank" "ap fg bullet"}
+	(include "/properties/shadow/tank.inc"  scale(1.2))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{props "td" "light" "-turret" "mantlet" "vision_lev03" "muzzle_85mm_93mm_sides" "diesel"}
+	(include "asu-85.ext")
 	{targetclass "tank_light"}
 	{targetSelector "tank_light"}
 	{PatherId "t34"}
@@ -12,9 +12,7 @@
 		{digit_folder "cw"}
 	}
 	
-	("tank_medium_tier1")
 	("crew_4_human")
-	;("commander_visible")
 	
 	{boarder
 		{anm "left"
@@ -39,42 +37,14 @@
 	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
 	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
 	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
-	
-	;volume, component/tag
-	
-	{volume "body1"			
-		{thickness 45}
-	}
-	{volume "body2"			
-		{thickness 45}
-	}
-	{volume "body3"			
-		{thickness 45}
-	}
-	{volume "body4"			
-		{thickness 45}
-	}
-	
-	{volume "mantlet"		; Front mantlet
-		{thickness 50}
-		{HighHardness}
-		{CastSteel 0.8063}
-	}
-	
-	{Volume "shield"
-		{tags "gun"}
-		{component "gun"}
-		{thickness 45}
-    }
-	
-	{extender "shield"
-		{on}
-	}
 
-	{placer
-		{place "driver"		{visor "driver"}}
-		{place "gunner"		{visor "main"}}
-		{place "commander"	{visor "main"}{sealable}}
+	{sensor
+		{visor "main"
+			{bone "visor1"}
+		}
+		{visor "around"
+			{bone "visor"}
+		}
 	}
 	
 	{extender "inventory"
@@ -125,11 +95,12 @@
 
 	{Extension "asu-85.mdl"}
 
-	{bone "gun_rot"
+	{bone "mantlet"
 		{limits -15 4}
 		{speed2 5}
 	}
-	{bone "gun_rot1"
+	
+	{bone "turret"
 		{limits -15 15}
 		{speed2 6}
 	}

@@ -132,12 +132,12 @@
 				}
 				{VolumeView "wheelr8.ply"}
 			}
-			{bone revolute "gun_rot1"
+			{bone revolute "turret"
 				{limits -15 15}
 				{speed 0.001}
 				{Position 24.6061	3.13255	9.4625}
-				{bone revolute "gun_rot"
-					{parameters "ID=gun_rot;"}
+				{bone revolute "mantlet"
+					{parameters "ID=mantlet;"}
 					{limits -5 15}
 					{speed 0.01}
 					{Matrix34
@@ -146,7 +146,7 @@
 						0	1	0
 						2.43975	0.202889	-0.738209
 					}
-					{VolumeView "gun_rot1.ply"}
+					{VolumeView "mantlet.ply"}
 					{bone "gun"
 						{parameters "ID=gun;"}
 						{Matrix34
@@ -173,7 +173,7 @@
 							7.95092	-0.86426	-5.93958
 						}
 					}
-					{bone "visor2"
+					{bone "visor1"
 						{Matrix34
 							1	0	0
 							0	0	1
@@ -192,7 +192,7 @@
 				}
 				{VolumeView "enumerator.ply"}
 			}
-			{bone "visor1"
+			{bone "visor"
 				{Position 31.4405	-12.2779	7.66751}
 			}
 			{bone "fxsmoke2"
@@ -460,6 +460,11 @@
 		}
 	}
 }
+{Volume "ram"
+	{Polyhedron "ram.vol"}
+	{Bone "body"}
+	{Position 5.80116	0.841323	-12.90768}
+}
 {Volume "body1"
 	{Polyhedron "body1.vol"}
 	{Bone "body"}
@@ -475,11 +480,6 @@
 	{Bone "body"}
 	{Position 0.470809	-0.127149	-4.17391}
 }
-{Volume "engine"
-	{Box 18.2138 30.4884 13.8583}
-	{Bone "body"}
-	{Position -34.69	1.74493	6.58889}
-}
 {Volume "gun"
 	{Cylinder 1.50138 81.0062}
 	{Bone "gun"}
@@ -490,9 +490,9 @@
 		24.0889	0.0123766	-0.0149687
 	}
 }
-{Volume "shield"
+{Volume "mantlet"
 	{Polyhedron "mantlet.vol"}
-	{Bone "gun_rot"}
+	{Bone "mantlet"}
 	{Position 0	0	0}
 }
 {Volume "trackleft"
@@ -504,4 +504,59 @@
 	{Polyhedron "trackright.vol"}
 	{Bone "wheelsr"}
 	{Position -2.77097	-2.13748	0.526787}
+}
+{Volume "ammo1"
+	{Box 4.06321 16.2754 12.3228}
+	{Bone "body"}
+	{Position -17.8538	-0.752224	-2.1614}
+}
+{Volume "ammo2"
+	{Box 15.4808 4.06885 12.3228}
+	{Bone "body"}
+	{Position -7.7045	16.878	-2.1614}
+}
+{Volume "ammo3"
+	{Box 12.8668 6.77201 11.9639}
+	{Bone "body"}
+	{Position -9.64837	-14.4091	-2.98194}
+}
+{Volume "ammo4"
+	{Polyhedron "ammo4.vol"}
+	{Bone "body"}
+	{Position -7.73311	-20.5861	2.4916}
+}
+{Volume "ammo5"
+	{Polyhedron "ammo5.vol"}
+	{Bone "body"}
+	{Position -7.73311	21.3718	2.4916}
+}
+{Volume "engine"
+	{Box 13.3183 27.991 13.3183}
+	{Bone "body"}
+	{Matrix34
+		0.79288	0	0
+		0	0.79288	0
+		0	0	0.79288
+		-27.2608	0	0
+	}
+}
+{Volume "fuel1"
+	{Polyhedron "fuel1.vol"}
+	{Bone "body"}
+	{Position 28.9668	-0.0216032	-4.00655}
+}
+{Volume "fuel2"
+	{Polyhedron "fuel2.vol"}
+	{Bone "body"}
+	{Position -38.2627	-11.08938	9.0011}
+}
+{Volume "transmission"
+	{cylinder 5.59661 33.1079}
+	{Bone "body"}
+	{Matrix34
+		-1 	 0 	 0
+		0 	 0 	 1
+		0 	 1 	 0
+		-41	-0.333058	-5.0
+	}
 }

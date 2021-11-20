@@ -4,6 +4,7 @@
 	(include "/properties/selection/vehicle.inc" scale(1.0))
 	{props "tank" "turret" "wheeled" "multi_board" "vision_lev02" "amphibia" "tractor" "tractor_medium" "muzzle_kpvt"}
 	{able "emit_passengers_on_enemy"}
+	(include "btr-60pb.ext")
 	{targetclass "armoredcar"}
 	{targetSelector "tank_zenite"}
 	
@@ -11,59 +12,6 @@
 	("apc_ammo")
 	
 	{patherId "amphibia"}
-	
-	("armoredcar_tier2")
-	
-    {volume "body"
-		{thickness 7
-			{front	11}
-		}
-	}
-	{volume "body1"
-		{thickness 7
-			{front	11}
-		}
-	}
-	{volume "body2"
-		{thickness 7
-			{front	11}
-		}
-	}
-	{volume "body3"
-		{thickness 7
-			{front	11}
-		}
-	}
-	{volume "body4"
-		{thickness 7
-			{front	11}
-		}
-	}
-	{volume "body5"
-		{thickness 7
-		}
-	}
-	
-	("turret" repair(50))
-	("gun" repair(30) thickness(20))
-	
-	("fuel" args "fuel")
-	("transmission" args "transmission")
-	
-	{volume "turret"
-		{thickness 8
-			{front 14.5}
-			{top 5.5}
-		}
-	}
-	
-	{volume "engine"		; Hull
-		{thickness 10
-			{front 5.5}
-			{top 5.5}
-			{bottom 5.5}
-		}
-	}
 	
  	;Crew: driver, gunner, 8 passengers
 	(include "crew.ext")
@@ -106,15 +54,6 @@
 			{basic}
 		}
 	}
-	
-	("wheel" args "wheelr1")
-	("wheel" args "wheell1")
-	("wheel" args "wheelr2")
-	("wheel" args "wheell2")
-	("wheel" args "wheelr3")
-	("wheel" args "wheell3")
-	("wheel" args "wheelr4")
-	("wheel" args "wheell4")
 
 	{mass 10200}
 	{Chassis "wheel"
