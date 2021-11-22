@@ -3,6 +3,7 @@
 	(include "/properties/shadow/tank.inc" scale(1.2))
 	(include "/properties/selection/vehicle.inc" scale(1.2))
 	{props "td" "medium" "-turret" "mantlet" "vision_lev03" "muzzle_122mm_128mm_sides" "diesel"}
+	(include "su-122-54.ext")
 	{targetclass "tank" "ap fg bullet"}
 	{targetclass "tank_medium"}
 	{targetSelector "tank_heavy"}
@@ -12,42 +13,10 @@
 		{digit_folder "cw"}
 	}
 
+	{extender "shield"{on}}
+	
 	;volume, component/tag
-	
-	{volume "body1"			
-		{thickness 80
-			{front 100}	
-			{top 15}			
-			{rear 45}
-			{bottom 20}
-		}
-		{HighHardness}
-	}
-	{volume "body2"			
-		{thickness 80
-			{front 100}		
-			{top 15}
-			{rear 45}
-			{bottom 20}
-		}
-		{HighHardness}
-	}
-	
-	{extender "shield"
-			{on}
-	}
-	
-	{Volume "shield"
-		{tags "gun"}
-		{component "gun"}
-		{thickness 15}
-    }
-	
-	{Volume "mantlet"
-		{tags "gun"}
-		{component "gun"}
-		{thickness 100}
-    }
+
 	
 	("crew_5_human")
 	
@@ -156,7 +125,7 @@
 
 	{Extension "su-122-54.mdl"}
 
-	{bone "turret_mgun"
+	{bone "aux_turret1"
 		;{limits -30 180}
 		{speed2 25}
 		{terminator}

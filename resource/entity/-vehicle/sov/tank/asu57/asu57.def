@@ -2,22 +2,12 @@
 	(include "/properties/tank_assaultgun.ext")
 	(include "/properties/shadow/tank.inc" scale(1.3))
 	(include "/properties/selection/vehicle.inc" scale(0.9))
-	{props "td" "light" "-turret" "mantlet" "vision_lev02" "muzzle_50mm_57mm_sides" "shell_eject" "shield" "open_top" "detect_tank_light"}
+	{props "td" "light" "-turret" "mantlet" "vision_lev02" "muzzle_50mm_57mm_sides" "shell_eject" "shield" "open_top" "detect_tank_td"}
+	(include "asu57.ext")
 	{targetclass "tank_light"}
 	{targetSelector "tank_light"}
 	{PatherID "t70"}
 	{collider "tank.light"}
-	
-	("tank_light_tier1")
-	
-	{volume "body"			
-		{thickness 6}
-		{able {holed}}
-	}
-	
-	{volume "engine"		
-		{thickness 6}
-	}
 	
 	{boarder
 		{anm "driver"

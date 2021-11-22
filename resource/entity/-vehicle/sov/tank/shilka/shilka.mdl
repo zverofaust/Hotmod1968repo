@@ -385,7 +385,7 @@
 					}
 					{VolumeView "anten.ply"}
 				}
-				{bone "radar"
+				{bone "shield1"
 					{parameters "ID=Turret;"}
 					{Matrix34
 						0	1	0
@@ -605,30 +605,15 @@
 		}
 	}
 }
-{Volume "additional_triplex"
-	{Box 7.87402 7.87402 2.95276}
-	{Bone "turret_systems"}
-	{Position 8.99685	12.0799	6.78908}
-}
-{Volume "ammo_storage_autocannon1"
+{Volume "ammo1"
 	{Box 17.7165 11.811 5.90551}
 	{Bone "turret_systems"}
 	{Position 33.5383	-12.4347	1.52369}
 }
-{Volume "ammo_storage_autocannon"
+{Volume "ammo2"
 	{Box 17.7165 11.811 5.90551}
 	{Bone "turret_systems"}
 	{Position 33.3051	13.6338	1.29806}
-}
-{Volume "apu"
-	{Box 19.685 11.811 9.84252}
-	{Bone "body_systems"}
-	{Matrix34
-		0.986167	0	0
-		0	0.986167	0
-		0	0	0.986166
-		-66.6998	-22.2202	14.0816
-	}
 }
 {Volume "body1"
 	{Polyhedron "body1.vol"}
@@ -650,59 +635,14 @@
 		29.9858	5.83043	7.82728
 	}
 }
-{Volume "charger_place"
-	{Box 9.84252 11.811 25.5906}
-	{Bone "turret_systems"}
-	{Position 16.1763	-14.3507	-10.1085}
-}
-{Volume "commander_place"
-	{Box 11.811 9.84252 25.5906}
-	{Bone "turret_systems"}
-	{Position 16.4957	13.3142	-10.0574}
-}
-{Volume "commander_triplex1"
-	{Box 9.84252 19.685 9.84252}
-	{Bone "turret_systems"}
-	{Position -6.46438	1.86863	-0.54506}
-}
-{Volume "commander_triplex"
+{Volume "shield1"
 	{Cylinder 9.84252 3.93701}
-	{Bone "radar"}
+	{Bone "shield1"}
 	{Matrix34
 		0.00108102	-0.19539	-0.980726
 		0.999985	0.00553255	0
 		0.00542591	-0.98071	0.195393
 		-0.137657	-4.8881	16.8354
-	}
-}
-{Volume "driver_panel"
-	{Box 1.5748 15.748 5.90551}
-	{Bone "body_systems"}
-	{Matrix34
-		0.889151	0	-0.426538
-		0	0.986167	0
-		0.426538	0	0.889151
-		4.76222	7.60516	3.95692
-	}
-}
-{Volume "driver_place"
-	{Box 19.685 11.811 17.7165}
-	{Bone "body_systems"}
-	{Matrix34
-		0.986167	0	0
-		0	0.986167	0
-		0	0	0.986166
-		-9.84043	6.83948	7.07486
-	}
-}
-{Volume "driver_triplex"
-	{Box 0.408701 5.57573 1.9685}
-	{Bone "body_systems"}
-	{Matrix34
-		0.985866	0	0.0243461
-		0	0.986167	0
-		-0.0243461	0	0.985866
-		1.577	8.47847	19.9373
 	}
 }
 {Volume "engine"
@@ -715,37 +655,7 @@
 		-7.70383	-3.14652	-17.1102
 	}
 }
-{Volume "front_wheels"
-	{Box 5.90551 35.4331 5.90551}
-	{Bone "body_systems"}
-	{Matrix34
-		0.986167	0	0
-		0	0.986167	0
-		0	0	0.986166
-		10.335	-1.72335	3.08441
-	}
-}
-{Volume "fuel_tank_internal_b1"
-	{Box 29.5276 19.685 13.7795}
-	{Bone "body_systems"}
-	{Matrix34
-		0.986167	0	0
-		0	0.986167	0
-		0	0	0.986166
-		-10.7421	-10.1108	5.36614
-	}
-}
-{Volume "fuel_tank_internal_b"
-	{Box 23.622 23.622 9.84252}
-	{Bone "body_systems"}
-	{Matrix34
-		0.986167	0	0
-		0	0.986167	0
-		0	0	0.986166
-		-15.8022	-15.6697	13.2703
-	}
-}
-{Volume "fuel_tank_internal_d"
+{Volume "fuel2"
 	{Box 9.84252 26.5748 17.7165}
 	{Bone "body_systems"}
 	{Matrix34
@@ -765,32 +675,7 @@
 		24.7697	-1.02727	4.77794
 	}
 }
-{Volume "gunner_place"
-	{Box 9.84252 11.811 25.5906}
-	{Bone "turret_systems"}
-	{Position 9.29967	0.187662	-9.91498}
-}
-{Volume "panel_engine_connectors"
-	{Box 78.7402 5.90551 1.37795}
-	{Bone "body_systems"}
-	{Matrix34
-		0.986138	0	0.00748287
-		0	0.986167	0
-		-0.00748287	0	0.986138
-		-35.4243	-1.54982	-0.643985
-	}
-}
-{Volume "ppu"
-	{Box 9.84252 9.84252 9.84252}
-	{Bone "body_systems"}
-	{Matrix34
-		0.986167	0	0
-		0	0.986167	0
-		0	0	0.986166
-		-82.3928	-23.7126	14.6302
-	}
-}
-{Volume "stabilizer"
+{Volume "breech"
 	{Box 13.7795 7.87402 7.87402}
 	{Bone "gun_rot"}
 	{Matrix34
@@ -823,21 +708,6 @@
 		0	0.986167	0
 		0	0	0.986166
 		-91.7158	-2.01488	8.42691
-	}
-}
-{Volume "turret_move_engine"
-	{Box 7.87402 7.87402 3.93701}
-	{Bone "turret_systems"}
-	{Position 37.487	-9.18761	-3.68402}
-}
-{Volume "turret_ring"
-	{Cylinder 25.5906 3.74016}
-	{Bone "turret_systems"}
-	{Matrix34
-		0.999971	0	0.00758784
-		0	1	0
-		-0.00758783	0	0.999971
-		21.3165	0.43924	-6.61309
 	}
 }
 {Volume "turret"

@@ -3,30 +3,18 @@
 	(include "/properties/shadow/tank.inc" scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	{collider "tank.light"}
+	(include "shilka.ext")
 	{props "light" "turret_rotator" "vision_lev04" "muzzle_20mm_25mm_auto" "diesel" "flak"}
 	{targetclass "tank_light"}
 	{targetSelector "cannon_aa"}
 	{patherId "t34"}
 	
-	("tank_medium_tier1")
-
+	{extender "shield" {on}}
+	
 	{extender "enumerator"
 		{digit_folder "cw"}
 	}
 
-	{volume "body1"			
-		{thickness 15}
-	}
-	{volume "body2"			
-		{thickness 15}
-	}
-	{volume "turret"			
-		{thickness 9}
-	}
-	{volume "engine"			
-		{thickness 15}
-	}
-	
 	("crew_4_human_extended")
 	
 	{boarder

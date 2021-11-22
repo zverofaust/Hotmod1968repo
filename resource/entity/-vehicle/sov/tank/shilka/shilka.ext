@@ -1,0 +1,34 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 15mm
+	; gun 20mm
+
+	("tank_medium_tier1")
+
+	("shield" args "shield1" 10)	; Radar
+	
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+
+	{volume "body1"			; Upper Hull
+		{thickness 10}
+	}
+	{volume "body2"			; 
+		{thickness 10}
+	}
+	
+	{volume "engine"
+		{thickness 10}
+	}
+	
+	{volume "turret"		; Main Turret 
+		{thickness 9}
+	}
+	
+	{component "shield1" {tags "cut_part"}}
