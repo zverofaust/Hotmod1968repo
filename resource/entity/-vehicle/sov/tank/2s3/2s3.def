@@ -1,44 +1,15 @@
 {game_entity		;PT-76 base
-	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	{props "spg" "medium" "turret_rotator" "vision_lev06" "muzzle_150mm_155mm_sides" "diesel" "detect_spg"}
+	(include "2s3.ext")
 	{targetclass "tank_light"}
 	{targetSelector "tank_spg"}
 	{PatherId "t34"}
 
-	("tank_light_tier1")
-
 	{extender "enumerator"
 		{digit_folder "cw"}
-	}
-
-	
-	;volume, component/tag, thickness, front, rear
-	{volume "body1"			
-		{thickness 15
-			{front 30}	
-		}
-	}
-	{volume "body2"			
-		{thickness 15
-			{front 30}	
-		}
-	}
-	{volume "engine"
-		{thickness 15}
-	}
-	{volume "turret"			
-		{thickness 15
-			{front 30}	
-		}
-	}
-	{volume "mantlet"
-		{thickness 10}
-	}
-		
-	{component "turret"
-		{RepairTime 20}
 	}
 
 	("crew_4_human")

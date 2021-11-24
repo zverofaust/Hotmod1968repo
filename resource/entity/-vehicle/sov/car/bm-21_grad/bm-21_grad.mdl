@@ -710,21 +710,6 @@
 	{Bone "body"}
 	{Position 30.9829	-0.354291	-19.0738}
 }
-{Volume "crew"
-	{Box 15.196 33.539 17.4004}
-	{Bone "body"}
-	{Position 28.0056	-0.354326	9.58957}
-}
-{Volume "engine"
-	{Polyhedron "engine.vol"}
-	{Bone "engine"}
-	{Matrix34
-		1	0	0
-		0	0	1
-		0	-1	0
-		-13.6997	0.134014	-1.16026
-	}
-}
 {Volume "glass_doorl1"
 	{Box 1.76995 10.1749 12.245}
 	{Bone "glass_doorl1"}
@@ -765,10 +750,25 @@
 		18.3848	16.8984	0.291644
 	}
 }
-{Volume "inventory"
-	{Box 22.0926 18.1557 6.59338}
+{Volume "engine"
+	{Box 22.0926 18.1557 15} ; front-back;side-side;up-down
 	{Bone "body"}
-	{Position 51.4932	-0.354324	3.51934}
+	{Position 54.4932	-0.354324	-2}
+}
+{Volume "fuel"
+	{Box 22.0926 13 10} ; front-back;side-side;up-down
+	{Bone "body"}
+	{Position 6.5	17.5	-14}
+}
+{volume "transmission"
+	{cylinder 4.21682 29.1711}
+	{bone "body"}
+	{matrix34
+		0 	 1 	 0
+		0 	 0 	 1
+		1 	 0 	 0
+		15	 0 	 -14
+	}
 }
 {Volume "ram"
 	{Polyhedron "ram.vol"}

@@ -823,8 +823,10 @@
 	
 {"zu-23-2"				
 	{on "init_gun" overload
-		{add_view "flash_gun_big"			"flashbarrel00"	"shooter00"}
-		{add_view "flash_gun_big"			"flashbarrel01"	"shooter01"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
+		{add_view "zenit_gilz"			"shell"			"FXshell1"}
+		{add_view "zenit_gilz"			"shell"			"FXshell2"}
 		{call "update_gun"}
 	}
 	{on fire "mgun" overload

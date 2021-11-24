@@ -5,6 +5,7 @@
 	{props "with_gun" "katusha" "truck" "vision_lev06" "detect_spg"}
 	{able "emit_on_attack"}
 	{targetSelector "rocket"}
+	{targetclass "howitzer"}
 	{collider "truck"}
 
 	;Crew 3: driver, commander, gunner
@@ -25,15 +26,17 @@
 		base(doorright)
 	)
 	
-	{volume "body3"}
-	{volume "gun"}
-
-	{volume "turret" {thickness 2}}
-	
 	;volume/component, thickness
+	("gun" repair(30) thickness(2))
+	
+	{volume "body3"}
+	{volume "gun" {thickness 10}{able {visible 0} {obstacle 0}}}
+	{volume "turret" {thickness 2}}
+
 	("glass" args "glass_doorl1" 1)
 	("glass" args "glass_doorr1" 1)
 	("glass" args "glass_front" 1)
+	("fuel" args "fuel")
 
 	{extender "inventory"
 		{box
