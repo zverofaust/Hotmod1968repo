@@ -1,0 +1,28 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 15mm
+	; gun 20mm
+	; track guards 5mm
+
+	;durability from properties/armor.ext
+	("tank_light_tier1")
+	
+	;volume, component/tag
+	
+	("fuel" args "fuel")
+	("ammo" args "ammo")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+	
+	{volume "body" {thickness 5}} ;// literally unarmored
+	{volume "body2" {thickness 5}} ;// literally unarmored
+	{volume "body3" {thickness 5}} ;// literally unarmored
+	
+	{volume "engine" {thickness 10}}
+	
+	("shield_tear" args "shieldl1" 5)	; Mud Guard
+	("shield_tear" args "shieldl2" 5)	; Mud Guard
+	("shield_tear" args "shieldr1" 5)	; Mud Guard
+	("shield_tear" args "shieldr2" 5)	; Mud Guard
+	

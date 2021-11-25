@@ -3,47 +3,13 @@
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	{props "light" "diesel" "vision_lev04" "muzzle_75mm_76mm_sides"}
+	(include "m41.ext")
 	{targetclass "tank_light"}
 	{targetSelector "tank_light"}
 	{PatherId "t34"}
 
-	("tank_light_tier2")
-
 	{extender "enumerator"
 		{digit_folder "nato"}
-	}
-
-	;volume, component/tag
-	{volume "body"			; Upper Hull
-		{thickness 25
-			{front 32}		; Glacis
-			{top 9}
-			{rear 19}
-			{bottom 9}
-		}
-		{HighHardness}
-	}
-	{volume "body2"			; Lower Hull
-		{thickness 25
-			{front 32}		; Glacis
-			{top 9}
-			{rear 19}
-			{bottom 9}
-		}
-		{HighHardness}
-	}
-	{volume "turret"			; Turret
-		{thickness 25
-			{front 25}		
-			{top 13}
-			{rear 25}
-			{bottom 9}
-		}
-		{HighHardness}
-	}
-	{volume "mantlet"	
-		{thickness 32}
-		{HighHardness}
 	}
 	
 	;Crew: driver, commander, gunner, loader

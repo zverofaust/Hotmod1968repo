@@ -139,6 +139,7 @@
 	("main_weapon" args "gun3" %thickness)
 	("main_weapon" args "gun4" %thickness)
 	("main_weapon" args "gun5" %thickness)
+	("main_weapon" args "gun6" %thickness)
 
 	("main_weapon" args "barrel" %thickness)
 	("main_weapon" args "barrel1" %thickness)
@@ -240,6 +241,25 @@
 		{RepairOrder 6}
 	}
 	{component "aux_turret2"
+		{RepairTime %repair} ;45
+		{RepairOrder 6}
+	}
+)
+
+(define "turret_mg"
+	("make_component" args "turret_mg" "turret_mg")
+	("make_component" args "turret_mg1" "turret_mg1")
+	("make_component" args "turret_mg2" "turret_mg2")
+	
+	{component "turret_mg"
+		{RepairTime %repair} ;45
+		{RepairOrder 6}
+	}
+	{component "turret_mg1"
+		{RepairTime %repair} ;45
+		{RepairOrder 6}
+	}
+	{component "turret_mg2"
 		{RepairTime %repair} ;45
 		{RepairOrder 6}
 	}

@@ -16,21 +16,18 @@
 	
 	(include "crew.ext")
 
-	{volume "body"			; Hull Front
-		{thickness 15
-			{top 6}			; Glacis
-			{front 15}
-			{rear 15}
-			{bottom 6}
-		}
+	("armoredcar_tier1")
+	
+	("fuel" args "fuel")
+	("transmission" args "transmission")
+	
+	{volume "body"
+		{thickness 10}
 	}
-	{volume "body1"			; Hull Driver Cabin
-		{thickness 15
-			{top 6}
-			{front 15}
-			{rear 15}
-			{bottom 6}
-		}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
 	}
 	
 	{volume "engine"

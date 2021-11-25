@@ -390,20 +390,50 @@
 	{Bone "body"}
 	{Position 0	0	0}
 }
-{Volume "crew"
-	{Box 25.4637 16.0649 50.792}
-	{Bone "body"}
-	{Matrix34
-		0	-1	0
-		0	0	1
-		-1	0	0
-		2.07244	0.392941	2.87678
-	}
-}
-{Volume "engine"
+{Volume "engine1"
 	{Polyhedron "engine.vol"}
 	{Bone "engine"}
 	{Position 0	0	0}
+}
+{Volume "engine2"
+	{Box 24.9177 21.0038 13.13237}
+	{Bone "engine"}
+	{Matrix34
+		1	0	-0
+		0	1	0
+		0	0	1
+		0	-0.303763	-8
+	}
+}
+{volume "fuel1"
+	{box 12 8 8}
+	{bone "body"}
+	{matrix34
+		1 	 0 	 0
+		0 	 1 	 0
+		0 	 0 	 1
+		-44.9238 	 -17	 0
+	}
+}
+{volume "fuel2"
+	{box 12 8 8}
+	{bone "body"}
+	{matrix34
+		1 	 0 	 0
+		0 	 1 	 0
+		0 	 0 	 1
+		-44.9238 	 17	 0
+	}
+}
+{volume "transmission"
+	{cylinder 4.21682 49.1711}
+	{bone "body"}
+	{matrix34
+		0 	 1 	 0
+		0 	 0 	 1
+		1 	 0 	 0
+		0	 0 	 -11
+	}
 }
 {Volume "gun"
 	{Cylinder 0.783477 25.7434}
@@ -413,16 +443,6 @@
 		0	0	1
 		1	0	0
 		20.4768	-2.0906e-005	0.134504
-	}
-}
-{Volume "inventory"
-	{Box 6.70315 7.87746 24.0683}
-	{Bone "body"}
-	{Matrix34
-		0	-0.968148	-0.25038
-		0	-0.250379	0.968148
-		-1	0	0
-		9.90948	-7.78317	2.0288
 	}
 }
 {Volume "ram"

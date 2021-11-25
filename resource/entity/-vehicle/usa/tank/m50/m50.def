@@ -3,42 +3,13 @@
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	{props "td" "light" "vision_lev04" "muzzle_75mm_76mm"}
+	(include "m50.ext")
 	{targetclass "tank_light"}
 	{targetSelector "tank_heavy"}
 	{patherId "zis30"}
 
 	("crew_3_human_2_extended")
-
-	("tank_light_tier1")
-
 	("gunner_visible")
-	
-	{volume "body"			; Upper Hull
-		{thickness 8
-			{front 10}		; Glacis
-			{top 4}
-		}
-	}
-	{volume "body1"			; Upper Hull
-		{thickness 8
-			{front 10}		; Glacis
-			{top 4}
-		}
-	}
-	
-	{volume "turret" {thickness 12}}
-	{volume "mantlet" {thickness 10}}
-	{volume "engine" {thickness 4}}
-	
-	{volume "gun1" {thickness 10}}
-	{volume "gun2" {thickness 10}}
-	{volume "gun3" {thickness 10}}
-	{volume "gun4" {thickness 10}}
-	{volume "gun5" {thickness 10}}
-	{volume "gun6" {thickness 10}}
-	
-	("tracks" repair(30) thickness(15))
-	("gun" repair(30) thickness(15))
 	
 	("shield" args "shield" 6)
 	{extender "shield" {on}}

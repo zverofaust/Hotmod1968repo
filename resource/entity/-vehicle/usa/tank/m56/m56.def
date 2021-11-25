@@ -3,25 +3,11 @@
 	(include "/properties/shadow/tank.inc" scale(1.3))
 	(include "/properties/selection/vehicle.inc" scale(0.9))
 	{props "td" "light" "-turret" "mantlet" "vision_lev02" "muzzle_85mm_93mm_sides" "shell_eject" "shield" "open_top" "detect_tank_light"}
+	(include "m56.ext")
 	{targetclass "tank_light"}
 	{targetSelector "tank_medium"}
 	{PatherID "t70"}
 	{collider "tank.light"}
-	
-	("tank_light_tier1")
-	
-	{volume "body" {thickness 5}} ;// literally unarmored
-	{volume "body2" {thickness 5}} ;// literally unarmored
-	{volume "body3" {thickness 5}} ;// literally unarmored
-	
-	("gun" repair(30) thickness(30))
-	
-	{volume "engine" {thickness 10}}
-	
-	("shield_tear" args "shieldl1" 5)	; Mud Guard
-	("shield_tear" args "shieldl2" 5)	; Mud Guard
-	("shield_tear" args "shieldr1" 5)	; Mud Guard
-	("shield_tear" args "shieldr2" 5)	; Mud Guard
 
 	{extender "shield"
 		{on}

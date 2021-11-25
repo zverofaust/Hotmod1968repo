@@ -10,6 +10,9 @@
 	
 	;volume, component/tag
 	
+	("make_component" args "turret_mg" "turret_mg")
+	("make_component" args "mgun" "turret_mg")
+	
 	("fuel" args "fuel1")
 	("fuel" args "fuel2")
 	("fuel" args "fuel3")
@@ -23,6 +26,7 @@
 	
 	("tracks" repair(30) thickness(20))
 	("transmission" args "transmission")
+	("turret_mg" repair(30))
 	
 	{volume "body1"			
 		{thickness 80
@@ -42,9 +46,9 @@
 		}
 		{HighHardness}
 	}
-	{volume "body3"			
-		{thickness 80}
-		{HighHardness}
+	
+	{volume "turret_mg"			
+		{thickness 60}
 	}
 	
 	{volume "engine"		

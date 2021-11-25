@@ -1,5 +1,30 @@
 ;/*=========== Hotmod Specifics Begin  ===========*/
 
+{"mg_turret"
+	{on spawn
+		{call "update_mg_turret"}
+	}
+	{on break
+		{if not tagged "exploded"
+			{call "update_mg_turret"}
+			{damage_report "turret" "component/turret_broken"}
+		}
+	}
+	{on "update_mg_turret"
+		{if work "turret_mg"
+			{if work "body"
+				{ik_enable "turret_mg" 1}
+			 else
+				{ik_enable "turret_mg" 0}
+			}
+		else
+			{ik_enable "turret_mg" 0}
+		}
+	}
+	{on repair
+		{call "update_mg_turret"}
+	}
+}
 
 ;/*=========== SOVIET Vehicles  ===========*/
 

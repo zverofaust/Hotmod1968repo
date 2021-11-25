@@ -20,10 +20,11 @@
 			{front	14}
 		}
 	}
-	("turret" repair(50))
-	("gun" repair(30) thickness(20))
+	("turret" repair(30))
+	("gun" repair(30) thickness(10))
 	
-	("fuel" args "fuel")
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
 	("transmission" args "transmission")
 	
 	{volume "turret"
@@ -33,10 +34,18 @@
 		}
 	}
 	
-	{volume "engine"
+	{volume "engine1"
 		{thickness 10}
 	}
-
+	{volume "engine2"
+		{thickness 10}
+	}
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	
 	{boarder
 		{anm "driver"
 			{forward	{begin	"board_tank_right"} {end "seat_driver_car"} {base "doorleft" 0.65}}
@@ -85,11 +94,6 @@
 			{basic}
 		}
 	}
-
-	("wheel" args "wheelright1")
-	("wheel" args "wheelleft1")
-	("wheel" args "wheelright2")
-	("wheel" args "wheelleft2")
 
 	{mass 7000}
 	{Chassis "wheel"

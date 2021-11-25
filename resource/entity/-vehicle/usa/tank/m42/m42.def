@@ -2,40 +2,15 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.3))
 	(include "/properties/selection/vehicle.inc" scale(0.9))
-	{props "light" "mantlet" "turret_rotator" "vision_lev02" "muzzle_37mm_47mm" "open_top" "detect_tank_medium" "flak"} ; "shell_eject"
+	{props "light" "diesel" "turret_rotator" "vision_lev02" "muzzle_37mm_47mm" "detect_tank_medium" "flak"} ; "shell_eject"
+	(include "m42.ext")
 	{targetclass "tank_light"}
 	{targetSelector "cannon_aa"}
 	{patherId "t34"}
 	{collider "tank.light"}
-	
-	("tank_light_tier1")
 
 	{extender "enumerator"
 		{digit_folder "cw"}
-	}
-	
-	{volume "body"			; Hull
-		{thickness 15
-			{front 25}		; Glacis & Lower Hull
-			{rear 10}
-			{bottom 10}
-		}
-	}
-	{volume "turret"	
-		{thickness 10}
-	}
-	
-	{Volume "hole1"
-		{able clear {hole}{touch 1}}
-	}
-	{volume "armor"
-		{thickness 10}
-	}
-	{volume "armor1"
-		{thickness 10}
-	}
-	{volume "armor2"
-		{thickness 10}
 	}
 	
 	("crew_4_human")
@@ -81,8 +56,11 @@
 			{item "ammo bulleteng_40 he" 120}
         }
     }
+	
     {Weaponry
+		("restore_ik_time")
         {place "gun"
+			{RestoreIKAfterAim}
 			{weapon "40mm_bofors_x2" filling "ammo bulleteng_40 ap" 8} 
 			{gunner "gunner"}
 			{charger "charger"}
@@ -120,5 +98,6 @@
 	}
 	{bone "gun_rot"
 		{limits -35 10}
+		{speed2 22}
 	}
 }

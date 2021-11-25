@@ -413,9 +413,29 @@
 	{Position 22.997	1.33511	-2.28908}
 }
 {Volume "engine"
-	{Polyhedron "engine.vol"}
-	{Bone "engine"}
-	{Position 13.9845	0.568266	-3.7493}
+	{Box 17 14 15}
+	{Bone "body"}
+	{Position 17	0	-3.5}
+}
+{Volume "fuel"
+	{Box 45 25 3}
+	{Bone "body"}
+	{Position -17	0	-9}
+}
+{Volume "ammo"
+	{Box 15 25 8}
+	{Bone "body"}
+	{Position -23	0	-3.5}
+}
+{Volume "transmission"
+	{Cylinder 3.9467 28.1526}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		34	0	-4.10484
+	}
 }
 {Volume "gun1"
 	{Polyhedron "gun1.vol"}

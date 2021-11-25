@@ -179,12 +179,12 @@
 			{bone "visor2"
 				{Position 29.126	-11.7196	23.0751}
 			}
-			{bone revolute "aux_turret1"
-				{parameters "ID=body;"}
+			{bone revolute "turret_mg"
+				{parameters "id=turret_mg;"}
 				{Position -2.34695	9.58157	23.9472}
 				{VolumeView "turret_mgun.ply"}
 				{bone revolute "mgun"
-					{parameters "ID=body;"}
+					{parameters "id=turret_mg;"}
 					{Matrix34
 						1	0	0
 						0	0	-1
@@ -193,7 +193,7 @@
 					}
 					{VolumeView "mgun.ply"}
 					{bone "mgun_barrel"
-						{parameters "ID=body;"}
+						{parameters "id=turret_mg;"}
 						{Position 12.6702	0.0453339	0.336149}
 						{VolumeView "mgun_barrel.ply"}
 						{bone "foresight3"
@@ -207,7 +207,7 @@
 					}
 				}
 				{bone "cover1"
-					{parameters "ID=body;"}
+					{parameters "id=turret_mg;"}
 					{Position -7.69543	-0.130568	2.96949}
 					{VolumeView "cover1.ply"}
 				}
@@ -461,9 +461,9 @@
 		-1.60253	-0.0797072	4.60496
 	}
 }
-{Volume "body3"
+{Volume "turret_mg"
 	{Cylinder 10 3}
-	{Bone "aux_turret1"}
+	{Bone "turret_mg"}
 	{position  0	0	2}
 }
 {Volume "mgun"

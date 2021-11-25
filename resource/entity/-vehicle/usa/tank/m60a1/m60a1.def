@@ -2,64 +2,15 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm"}
+	{props "medium" "diesel" "mg_turret" "vision_lev04" "muzzle_100mm_105mm"}
+	(include "m60a1.ext")
 	{targetclass "tank_heavy"}
 	{targetSelector "tank_heavy"}
 	{PatherId "t34"}
-	
-	("tank_medium_tier3")
+
 
 	{extender "enumerator"
 		{digit_folder "nato"}
-	}
-
-	;volume, component/tag
-	("make_component" args "body1" "body")
-	
-	{volume "body"			; Upper Hull
-		{thickness 74
-			{front 137}		; Glacis
-			{top 36}
-			{rear 40}
-			{bottom 20}
-		}
-		{HighHardness}
-	}
-
-	{volume "turret"		; Turret
-		{thickness 140
-			{front 254}
-			{top 25}
-			{rear 57}
-		}
-		{HighHardness}
-		{CastSteel 0.8063}
-	}
-	
-	{volume "mantlet"		; Turret
-		{thickness 130}
-		{HighHardness}
-		{CastSteel 0.8063}
-	}
-	
-	{volume "turret_mgun"		; Turret
-		{thickness 50
-			{front 50}
-			{top 25}
-			{rear 25}
-		}
-		{HighHardness}
-		{CastSteel 0.8063}
-	}
-	
-	{volume "engine"		; Engine
-		{thickness 51
-			{front 61}
-			{top 25}
-			{rear 38}
-		}
-		{HighHardness}
-		{CastSteel 0.8063}
 	}
 	
 	;Crew 4: Commander, Gunner, Loader, Driver
@@ -127,6 +78,7 @@
 			)
 		}
 		{place "mgun2"		;coax
+			{type "coaxial"}
 			{weapon			"browning_m19a4" filled}
 			{foresight		"foresight5"}
 			{gunner "gunner"}
@@ -135,6 +87,7 @@
 			{basic}
 		}
 		{place "mgun"		;aa
+			{type "aa"}
 			{weapon			"browning_m2" filled}
 			{foresight		"foresight3"}
 			{gunner			"commander"}
@@ -170,7 +123,7 @@
 		{speed2 4}			;degree per second
 		{limits -10 20}	
 	}
-	{bone "aux_turret1"		;mgun horizontal
+	{bone "turret_mg"		;mgun horizontal
 		{speed2 32}
 		{terminator}
 	}

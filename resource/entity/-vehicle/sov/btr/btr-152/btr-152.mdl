@@ -6,9 +6,9 @@
 		{sequence "start"}
 		{sequence "stop"}
 		{sequence "fire"}
-		{sequence "open_left" {resume} {events {1 "truck_open"} {62 "truck_close"}}}
-		{sequence "open_right" {resume} {events {1 "truck_open"} {62 "truck_close"}}}
-		{sequence "open_back" {resume} {events {2 "hatch_light"} {28 "hatch_light"}}}
+		{sequence "open_left" {resume} {events {2 "hatch_light"}}}
+		{sequence "open_right" {resume} {events {2 "hatch_light"}}}
+		{sequence "open_back" {resume} {events {2 "hatch_light"}}}
 		{sequence "hit"}
 	}
 	{bone "basis"
@@ -373,30 +373,30 @@
 	{Bone "body"}
 	{Position 0.909836	0.0259485	8.34753}
 }
-{Volume "crew"
-	{Box 11.6162 21.6746 29.8726}
-	{Bone "body"}
-	{Matrix34
-		0	0	1
-		0	1	0
-		-1	0	0
-		3.43611	-0.187343	17.0932
-	}
-}
 {Volume "engine"
-	{Box 18.2138 30.4884 13.8583}
+	{Box 22.0926 14.1557 13} ; front-back;side-side;up-down
 	{Bone "body"}
-	{Matrix34
-		0	-1	0
-		1	0	0
-		0	0	1
-		21.5892	-0.985604	6.79718
-	}
+	{Position 44.4932	-0.354324	8}
 }
-{Volume "inventory"
-	{Box 14.6266 28.3106 15.6401}
+{Volume "fuel1"
+	{Box 13 10 10} ; front-back;side-side;up-down
 	{Bone "body"}
-	{Position -17.4009	-0.882149	18.3085}
+	{Position 1.5	15	6}
+}
+{Volume "fuel2"
+	{Box 13 10 10} ; front-back;side-side;up-down
+	{Bone "body"}
+	{Position 1.5	-15	6}
+}
+{volume "transmission"
+	{cylinder 4.21682 49.1711}
+	{bone "body"}
+	{matrix34
+		0 	 1 	 0
+		0 	 0 	 1
+		1 	 0 	 0
+		4	 0 	 0
+	}
 }
 {Volume "wheelleft1"
 	{Cylinder 10.8164 7.3693}

@@ -218,6 +218,14 @@
 						{VolumeView "shield.ply"}
 					}
 				}
+				{bone "fxfire3"
+					{Matrix34
+						0	0	1
+						0	1	0
+						-1	0	0
+						-5.61137	-0	0
+					}
+				}
 			}
 			{bone revolute "door1"
 				{parameters "ID=body;"}
@@ -253,6 +261,14 @@
 				{parameters "ID=engine;"}
 				{Position 22.5843	-7.85822	5.49274}
 				{VolumeView "engine.ply"}
+				{bone "fxfire1"
+					{Matrix34
+						0	0	1
+						0	1	0
+						-1	0	0
+						0   0   0
+					}
+				}
 			}
 			{bone "detail4"
 				{parameters "ID=body;"}
@@ -497,14 +513,29 @@
 	{Bone "body"}
 	{Position 2.70915	-0.0290476	5.57156}
 }
+{Volume "ammo"
+	{Box 17.9748 24.8082 7.15128}
+	{Bone "body"}
+	{Position -25.726	-0.161314	-6.32763}
+}
 {Volume "engine"
-	{Polyhedron "engine.vol"}
+	{Box 15.8579 13.2211 14.6965}
+	{Bone "body"}
+	{Position 8.54457	-7.96355	-2.15594}
+}
+{Volume "fuel"
+	{Polyhedron "fuel.vol"}
+	{Bone "body"}
+	{Position 33.9329	6.44924	-4.16825}
+}
+{Volume "transmission"
+	{Cylinder 3.9467 28.1526}
 	{Bone "body"}
 	{Matrix34
 		1	0	0
 		0	0	1
 		0	-1	0
-		17.9403	-0.0290473	-0.273724
+		32.7125	0	-3.10484
 	}
 }
 {Volume "gun1"
@@ -567,18 +598,8 @@
 		15.3371	-0.0475348	-1.20741
 	}
 }
-{Volume "inventory"
-	{Box 17.6777 13.0802 26.7764}
-	{Bone "body"}
-	{Matrix34
-		1	0	0
-		0	0	1
-		0	-1	0
-		-8.67727	-0.074151	1.34811
-	}
-}
 {Volume "mantlet"
-	{Box 5.81081 8.06081 56.0201}
+	{Box 5 5 56.0201}
 	{Bone "turret"}
 	{Matrix34
 		1	0	0
