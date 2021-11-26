@@ -3,53 +3,13 @@
 	(include "/properties/shadow/tank.inc" scale(1.2))
 	(include "/properties/selection/vehicle.inc" scale(1.2))
 	{props "heavy" "vision_lev05" "muzzle_122mm_128mm" "diesel" "detect_tank_heavy"}
+	(include "m103.ext")
 	{targetclass "tank_heavy"}
 	{targetSelector "tank_heavy"}
 	{collider "tank.heavy"}
 	
 	{extender "enumerator"
 		{digit_folder "usmc"}
-	}
-
-	("tank_heavy_tier2")
-
-	;volume, component/tag
-
-	{volume "body"			
-		{thickness 51
-			{front 127}		
-			{top 25}
-			{rear 38}
-			{bottom 25}
-		}
-		{HighHardness}
-	}
-	
-	{volume "turret"			
-		{thickness 137
-			{front 127}		
-			{top 38}
-			{rear 51}
-			{bottom 38}
-		}
-		{HighHardness}
-	}
-	
-	{volume "mantlet"		; Turret
-		{thickness 250}
-		{HighHardness}
-		{CastSteel 0.8063}
-	}
-	
-	{volume "engine"		; Turret
-		{thickness 80
-			{front 80}		
-			{top 38}
-			{rear 25}
-			{bottom 38}
-		}
-		{HighHardness}
-		{CastSteel 0.8063}
 	}
 	
 	;Crew: Driver, Commander, gunner, 2 loaders
