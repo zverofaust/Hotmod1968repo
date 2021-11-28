@@ -244,6 +244,76 @@
 					{VolumeView "winch.ply"}
 				}
 			}
+			{bone "dozer_attach"
+				{parameters "id=body;"}
+				{Matrix34
+					0.866025	0	-0.5
+					0	1	0
+					0.5	0	0.866025
+					62.3806	-17.4138	-5.18337
+				}
+				{VolumeView "dozer_attach.ply"}
+				{bone "dozer_l_jig_main"
+					{parameters "id=body;"}
+					{Position 3.86958	33.1573	2.87298}
+					{VolumeView "dozer_l_jig_main.ply"}
+					{bone "dozer_blade"
+						{parameters "id=body;"}
+						{Matrix34
+							0.707107	0	0.707107
+							0	1	0
+							-0.707107	0	0.707107
+							18.798	-16.6081	0.0516472
+						}
+						{VolumeView "dozer_blade.ply"}
+					}
+				}
+				{bone "dozer_r_jig_main"
+					{parameters "id=body;"}
+					{Position 3.86958	-0.0649643	2.87298}
+					{VolumeView "dozer_r_jig_main.ply"}
+				}
+				{bone "dozer_l_jig_2"
+					{parameters "id=body;"}
+					{Matrix34
+						0.866026	0	0.5
+						0	1	0
+						-0.5	0	0.866026
+						5.86699	38.8868	12.5246
+					}
+					{VolumeView "dozer_l_jig_2.ply"}
+				}
+				{bone "dozer_l_jig_1"
+					{parameters "id=body;"}
+					{Matrix34
+						0.866026	0	0.5
+						0	1	0
+						-0.5	0	0.866026
+						5.80427	27.3169	12.4949
+					}
+					{VolumeView "dozer_l_jig_1.ply"}
+				}
+				{bone "dozer_r_jig_1"
+					{parameters "id=body;"}
+					{Matrix34
+						0.866026	0	0.5
+						0	1	0
+						-0.5	0	0.866026
+						5.80427	5.77843	12.4949
+					}
+					{VolumeView "dozer_r_jig_1.ply"}
+				}
+				{bone "dozer_r_jig_2"
+					{parameters "id=body;"}
+					{Matrix34
+						0.866026	0	0.5
+						0	1	0
+						-0.5	0	0.866026
+						5.86699	-5.79331	12.5246
+					}
+					{VolumeView "dozer_r_jig_2.ply"}
+				}
+			}
 			{bone "headlightr"
 				{parameters "Voxels=0;"}
 				{Matrix34
@@ -825,4 +895,29 @@
 {Volume "turret"
 	{Polyhedron "turret.vol"}
 	{Bone "turret"}
+}
+{Volume "dozer_blade"
+	{Box 7.05811 75.0605 26.5172}
+	{Bone "dozer_blade"}
+	{Position 5.96375	-0.0132714	11.238}
+}
+{Volume "shieldl1"
+	{Polyhedron "l_jig.vol"}
+	{Bone "dozer_attach"}
+	{Matrix34
+		0.866026	0	0.5
+		0	1	0
+		-0.5	0	0.866026
+		10.5765	33.1844	1.68239
+	}
+}
+{Volume "shieldr1"
+	{Polyhedron "r_jig.vol"}
+	{Bone "dozer_attach"}
+	{Matrix34
+		0.866026	0	0.5
+		0	1	0
+		-0.5	0	0.866026
+		10.5765	-0.0751724	1.68239
+	}
 }

@@ -391,6 +391,18 @@
 	("opel_sound")
 }
 
+{"dodge_m37"
+	("kubel_sound")
+}
+
+{"dodge_m37_ammo"
+	("kubel_sound")
+}
+
+{"dodge_m37_engi"
+	("kubel_sound")
+}
+
 {"m41"
 	("pz3_sound")
 	{on "commander_hatch_open" overload

@@ -10,6 +10,7 @@
 	{patherId "amphibia"}
 	
 	{volume "body"			; Hull
+		{able {holed}}
 		{thickness 13		; 
 			{front 13}
 			{top 8}		; 
@@ -17,6 +18,15 @@
 			{bottom 8}
 		}
 	}
+	
+	("fuel" args "fuel")
+	("ammo" args "ammo")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+	{volume "engine" {thickness 10}}
+	{volume "hole1" {able clear {hole}{touch 1}}}
+	{volume "turret" {thickness 10}}
+	{volume "gun" {thickness 15}}
 	
 	{volume "shield"
 		{component "shield"}
