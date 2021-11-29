@@ -2,7 +2,7 @@
 
 	; armor notes
 	; tracks and wheels 15mm
-	; gun 20mm
+	; gun 15mm
 	; track guards 5mm
 
 	;durability from properties/armor.ext
@@ -15,6 +15,15 @@
 	("transmission" args "transmission")
 	("tracks" repair(30) thickness(15))
 	
+	("main_weapon" args "gun" 15)
+	("main_weapon" args "gun1" 15)
+	
+	{Volume "mantlet"
+		{tags "mantlet"}
+		{component "mantlet"}
+		{thickness 10}
+    }
+
 	{volume "body" {thickness 5}} ;// literally unarmored
 	{volume "body2" {thickness 5}} ;// literally unarmored
 	{volume "body3" {thickness 5}} ;// literally unarmored
@@ -24,5 +33,4 @@
 	("shield_tear" args "shieldl1" 5)	; Mud Guard
 	("shield_tear" args "shieldl2" 5)	; Mud Guard
 	("shield_tear" args "shieldr1" 5)	; Mud Guard
-	("shield_tear" args "shieldr2" 5)	; Mud Guard
 	
