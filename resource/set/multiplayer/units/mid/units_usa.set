@@ -60,6 +60,12 @@
 	("doctrine_t1" cool(5) d(mid_usa_acav) cost(10))
 }
 
+; // 10DP M35 Gun Truck
+{"doctrine_vehicle_guntruck(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m35_guntruck) crew(acav_rifleman:3) cw(0) cp(0))
+	("doctrine_t1" cool(60) d(mid_usa_acav) cost(10))
+}
+
 ; // 15DP Armored Cavalry Assault Squad in M113 ACAV
 {"doctrine_squad_acav_moto(usa)"
 	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(m113_acav) crew1(acav_vehicleman:2) crew2(acav_rifleman:2) crew3(acav_squadlead:1) crew4(acav_mg:1) crew5(acav_antitank:1) crew6(acav_mgassist:1) crew7(acav_atassist:1) crew8(acav_grenadier:1) cw(2) cp(0))
@@ -136,7 +142,7 @@
 
 ; // 15DP M67 Zippo Flame Tank
 {"doctrine_vehicle_m67_zippo(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m67_zippo) crew(tankman:4) cw(2) cp(0))
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m67_zippo) crew(tankman:3) cw(2) cp(0))
 	("doctrine_t1" cool(180) d(mid_usa_usmc) cost(15))
 }
 
@@ -228,8 +234,10 @@
 ("squad_with6types" side(usa) name(squad_weapon)			period(mid) cd(0) ci(15) g(squad_5) c1(nco:1) c2(mgun_1:2) c3(mgun_2:2) c4(antitank_1:2) c5(antitank_2:2) c6(teamlead:1)											b(inf1) t())
 ;("squad_with4types" side(usa) name(squad_lrrp)				period(mid) cd(0) ci(60) g(squad_6) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1)															b(inf1) t())
 
-{"squad_reservist_moto(usa)"
-	("squad_vehicle5" period(mid) cd(0) ci(15) side(usa) t(vehicle) vehicle(m35) crew1(rifleman_1:1) crew2(reservist_nco:1) crew3(reservist_rifle2:2) crew4(reservist_rifle:7) b(inf1) cw(2) cp(4)){squad_cost_factor 1}
+; Remove this; no military in their right mind would allow troops to enter combat zones in unarmored trucks
+;{"squad_reservist_moto(usa)"
+;	("squad_vehicle5" period(mid) cd(0) ci(15) side(usa) t(vehicle) vehicle(m35) crew1(rifleman_1:1) crew2(reservist_nco:1) crew3(reservist_rifle2:2) crew4(reservist_rifle:7) b(inf1) cw(2) cp(4)){squad_cost_factor 1}
+;
 }
 {"squad_rifle_moto(usa)"
 	("squad_vehicle7" period(mid) cd(0) ci(0) side(usa) t(vehicle) vehicle(m113a1) crew1(vehicleman:2) crew2(nco:1) crew3(rifleman_3:2) crew4(grenadier_1:2) crew5(teamlead:1) crew6(rifleman_2:2) crew7(antitank_3:2)		b(inf1) cw(2) cp(8)){squad_cost_factor 1}
