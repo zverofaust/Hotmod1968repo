@@ -26,7 +26,7 @@
 ;|________________________________________________|
 
 {"m29_mortar_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
-;{"m30_mortar_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
+{"m30_mortar_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"m101a1_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"m114_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"m115_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
@@ -42,7 +42,7 @@
 }
 
 {"mortar_barrage_medium_usa"
-	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(m29_mortar_dummy) crew(artilleryman:0))
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(m30_mortar_dummy) crew(artilleryman:0))
 	{cost 8}{action "airstrike:flare_mortar_120"}
 }
 
@@ -73,15 +73,14 @@
 
 ("squad_with3types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_reservist_con) 		c1(reservist_nco:1) c2(reservist_rifle2:2) c3(reservist_rifle:7))
 
-("squad_with4types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_fireteamAP_con)		c1(teamlead:1) c2(rifleman_3:1) c3(grenadier_1:1) c4(rifleman_2:2))
-("squad_with4types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_fireteamAT_con)		c1(teamlead:1) c2(antitank_1:1) c3(rifleman_2:2) c4(antitank_2:1))
+("squad_with4types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_fireteamap_con)		c1(teamlead:1) c2(rifleman_3:1) c3(grenadier_1:1) c4(rifleman_2:2))
+("squad_with4types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_fireteamat_con)		c1(teamlead:1) c2(antitank_1:1) c3(rifleman_2:2) c4(antitank_2:1))
 
 ("squad_with6types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_rifle_con)				c1(nco:1) c2(rifleman_3:2) c3(grenadier_1:2) c4(antitank_3:2) c5(rifleman_2:2) c6(teamlead:1))
 ("squad_with6types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_weapon_con)			c1(nco:1) c2(mgun_1:2) c3(mgun_2:2) c4(antitank_1:2) c5(antitank_2:2) c6(teamlead:1))
 
-;{"squad_reservist_moto_con(usa)"
-;	("squad_vehicle4" period(mid) min_stage(1) max_stage(99) side(usa) vehicle(m35) cw(0) cp(4) crew1(vehicleman:1) crew2(reservist_nco:1) crew3(reservist_rifle2:2) crew4(reservist_rifle:7))
-;}
+("squad_with3types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_aircav_recon_con)		c1(aircav_teamlead:1) c2(aircav_rifleman:2) c3(aircav_lat:1))
+("squad_with7types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_aircav_con)			c1(aircav_squadlead:1) c2(aircav_teamlead:1) c3(aircav_mg:1) c4(aircav_mgassist:1) c5(aircav_lat:2) c6(aircav_grenadier:2) c7(aircav_rifleman:2))
 
 {"squad_rifle_moto_con(usa)"
 	("squad_vehicle7" period(mid) min_stage(2) max_stage(99) side(usa) vehicle(m113a1) cw(0) cp(4) crew1(vehicleman:2) crew2(nco:1) crew3(rifleman_3:2) crew4(grenadier_1:2) crew5(teamlead:1) crew6(rifleman_2:2) crew7(antitank_3:2))
@@ -97,6 +96,11 @@
 
 ("squad_with7types_conquest" side(usa) name(squad_ranger_con)			period(mid) min_stage(5) max_stage(99) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1) c5(rng_grenadier:1) c6(rng_demo:1) c7(rng_rifleman:4))
 
+("squad_with4types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_usmc_fireteam_con)		c1(usmc_teamlead:1) c2(usmc_autorifle:1) c3(usmc_lat:1) c4(usmc_rifleman:2))
+("squad_with6types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_usmc_con)				c1(usmc_squadlead:1) c2(usmc_teamlead:3) c3(usmc_autorifle:3) c4(usmc_grenadier:1) c5(usmc_lat:2) c6(usmc_rifleman:2))
+("squad_with4types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_usmc_mg_con)			c1(usmc_squadlead:1) c2(usmc_teamlead:1) c3(usmc_mg:3) c4(usmc_mgassist:7))
+("squad_with2types_conquest" side(usa) period(mid) min_stage(0) max_stage(99) name(squad_usmc_flame_con)		c1(usmc_squadlead:1) c2(usmc_flamer:3) c3(usmc_grenadier:2) c4(usmc_autorifle:3) c5(usmc_corpsman:1) c6(usmc_lat:2))
+
 ;_________________________________________________
 ;|             inf2                               |
 ;|________________________________________________|
@@ -106,11 +110,14 @@
 ("squad_with1types_conquest" 	side(usa) name(single_supporter)		period(mid) min_stage(1) max_stage(99) c1(rifleman_1:2)							)
 ("squad_with2types_conquest"	side(usa) name(single_mg)				period(mid) min_stage(1) max_stage(99) c1(mgun_1:1) c2(mgun_2:1)				)
 ("squad_with2types_conquest" 	side(usa) name(single_at)				period(mid) min_stage(1) max_stage(99) c1(antitank_1:1) c2(antitank_2:1)		)
+("squad_with2types_conquest" 	side(usa) name(single_at2)				period(mid) min_stage(1) max_stage(99) c1(antitank_4:1) c2(antitank_5:1)		)
+("squad_with1types_conquest" 	side(usa) name(single_lat)				period(mid) min_stage(1) max_stage(99) c1(antitank_3:1) 						)
 ("squad_with1types_conquest" 	side(usa) name(single_marksman)			period(mid) min_stage(1) max_stage(99) c1(rifleman_4:1)							)
-("squad_with2types_conquest" 	side(usa) name(single_sniper)			period(mid) min_stage(1) max_stage(99) c1(spec_sniper:1) c2(spec_spotter:1)		)
+("squad_with2types_conquest" 	side(usa) name(single_sniper)			period(mid) min_stage(1) max_stage(99) c1(rng_sniper:1) c2(rng_spotter:1)		)
 ("squad_with1types_conquest" 	side(usa) name(single_flamer)			period(mid) min_stage(2) max_stage(99) c1(flamer:1)								)
 ("squad_with1types_conquest" 	side(usa) name(single_medic)			period(mid) min_stage(1) max_stage(99) c1(medic:1)								)
 ("squad_with1types_conquest" 	side(usa) name(single_engineer)			period(mid) min_stage(1) max_stage(99) c1(engineer_1:2)							)
+("squad_with1types_conquest" 	side(usa) name(single_corpsman)			period(mid) min_stage(1) max_stage(99) c1(usmc_corpsman:1)						)
 
 ;_________________________________________________
 ;|                  Emplacements                  |
@@ -140,6 +147,11 @@
 {"m29_mortar"
 	("vehicle"  period(mid) min_stage(0) max_stage(99) side(usa) crew(rifleman_1:2) cw(0) cp(2))
 	{cost 225}
+}
+
+{"m30_mortar"
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(usa) crew(rifleman_1:2) cw(0) cp(2))
+	{cost 300}
 }
 
 {"m116_packhow"
@@ -187,6 +199,21 @@
 	{cost 5}
 }
 
+{"dodge_m37"
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(usa) crew(rifleman_1:1) cw(0) cp(2))
+	{cost 10}
+}
+
+{"dodge_m37_ammo"
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(usa) crew(rifleman_1:1) cw(0) cp(2))
+	{cost 125}
+}
+
+{"dodge_m37_eng"
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(usa) crew(rifleman_1:1) cw(0) cp(2))
+	{cost 150}
+}
+
 {"m35"
 	("vehicle"  period(mid) min_stage(0) max_stage(99) side(usa) crew(rifleman_1:1) cw(0) cp(2))
 	{cost 40}
@@ -200,11 +227,6 @@
 {"m113a1"
 	("vehicle"  period(mid) min_stage(0) max_stage(99) side(usa) crew(vehicleman:2) cw(0) cp(6))
 	{cost 100}
-}
-
-{"m113_acav"
-	("vehicle"  period(mid) min_stage(0) max_stage(99) side(usa) crew(acav_vehicleman:4) cw(0) cp(6))
-	{cost 150}
 }
 
 ;_________________________________________________
@@ -228,19 +250,34 @@
 	{cost 150}
 }
 
+{"m113_acav"
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(usa) crew(acav_vehicleman:4) cw(0) cp(6))
+	{cost 150}
+}
+
+{"m35_guntruck"
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(usa) crew(rifleman_1:3) cw(0) cp(7))
+	{cost 200}
+}
+
 {"m113_m40"
 	("vehicle"  period(mid) min_stage(5) max_stage(99) side(usa) crew(vehicleman:3) cw(0) cp(7))
 	{cost 200}
 }
 
+{"m113_acav_m40"
+	("vehicle"  period(mid) min_stage(5) max_stage(99) side(usa) crew(vehicleman:3) cw(0) cp(7))
+	{cost 250}
+}
+
 {"m125"
 	("vehicle"  period(mid) min_stage(5) max_stage(99) side(usa) crew(vehicleman:4) cw(0) cp(7))
-	{cost 200}
+	{cost 250}
 }
 
 {"m106"
 	("vehicle"  period(mid) min_stage(6) max_stage(99) side(usa) crew(vehicleman:4) cw(0) cp(7))
-	{cost 250}
+	{cost 350}
 }
 
 {"m132_zippo"

@@ -1,31 +1,115 @@
 
 ; ---SQUADS---
 
+	{"single_tankman(usa)"				requires	""									costs 1 }
+	{"single_engineer(usa)"				requires	"single_tankman(usa)"				costs 1 }
+	{"single_medic(usa)"				requires	"single_engineer(usa)"				costs 1 }
+	{"single_corpsman(usa)"				requires	"single_medic(usa)"					costs 2 }
+
+	{"single_mg(usa)"					requires	""									costs 1 }
+	{"single_marksman(usa)"				requires	""									costs 1 }
+	{"single_sniper(usa)"				requires	"single_marksman(usa)"				costs 1 }
+	
+	{"single_flamer(usa)"				requires	""									costs 1 }
+	{"single_at2(usa)"					requires	"single_flamer(usa)"				costs 1 }
+	{"single_at(usa)"					requires	"single_at2(usa)"					costs 1 }
+	{"single_lat(usa)"					requires	"single_at(usa)"					costs 1 }
+	
+	{"squad_fireteamat_con(usa)"		requires	"single_lat(usa)"					costs 1 }
+	{"squad_weapon_con(usa)"			requires	"squad_fireteamat_con(usa)"			costs 1 }
+	{"squad_lrrp_con(usa)"				requires	"squad_fireteamat_con(usa)"			costs 3 }
+	{"squad_ranger_con(usa)"			requires	"squad_lrrp_con(usa)"				costs 5 }
+	
+	{"squad_rifle_moto_con(usa)"		requires	"m113a1"									costs 2 }
+	{"squad_weapon_moto_con(usa)"		requires	"squad_rifle_moto_con(usa)"			costs 2 }
+	
+	{"squad_aircav_recon_con(usa)"		requires	""									costs 1 }
+	{"squad_aircav_con(usa)"			requires	"squad_aircav_recon_con(usa)"		costs 2 }
+	
+	{"squad_usmc_fireteam_con(usa)"		requires	""									costs 1 }
+	{"squad_usmc_con(usa)"				requires	"squad_usmc_fireteam_con(usa)"		costs 1 }
+	{"squad_usmc_mg_con(usa)"			requires	"squad_usmc_con(usa)"				costs 2 }
+	{"squad_usmc_flame_con(usa)"		requires	"squad_usmc_mg_con(usa)"			costs 3 }
+	
+	{"squad_acav_moto_con(usa)"			requires	"squad_rifle_moto_con(usa) squad_weapon_moto_con(usa) m113_acav"	costs 3 }
+	
 ;---MG---
 
 ;---Mortar---
 
+	{"m30_mortar"		requires	""					costs 2}
+	
 ;---AA---
 
-;---AT Guns---
+	{"m45_maxson"		requires	"single_mg(usa)"	costs 2}
 
+;---AT Guns---
+	
+	{"m40"				requires	""					costs 2}
+	{"entac"			requires	"m40"				costs 4}
+	
 ;---Artillery---
 
-;TOTAL: 56
+	{"m116_packhow"		requires	"m30_mortar"		costs 2}
+	{"m101a1"			requires	"m116_packhow"		costs 2}
+	{"m114"				requires	"m101a1"			costs 3}
+	{"m115"				requires	"m114"				costs 4}
+	{"m-28"				requires	"m115"				costs 20}
+	{"m416_m388"		requires	"m-28"				costs 10}
+	
+;TOTAL: 21
 
 
 ;---Trucks---
 	
-;TOTAL: 14
+	{"m151_m2"			requires	"single_mg(usa)"	costs 1}
+	{"m151_m40"			requires	"m151_m2 m40"		costs 1}
+	{"m35"				requires	""					costs 1}
+	{"m35_ammo"			requires	"m35"				costs 1}
+	{"m35_guntruck"		requires	"m45_maxson m151_m2 m35"	costs 2}
+	
+	
+;TOTAL: 4
 
+
+;---BTRs (aka M113s)---
+
+	{"m113a1"				requires	""					costs 1}
+	{"m113_m40"				requires	"m113a1 m40"		costs 2}
+	{"m113_acav"			requires	"m113a1"			costs 2}
+	{"m113_acav_m40"		requires	"m113_acav m40"		costs 2}
+	
+	{"m125"					requires	"m113a1"			costs 3}
+	{"m106"					requires	"m125 m30_mortar"	costs 3}
+	
+	{"m132_zippo"			requires	"m113_acav"			costs 2}
+	
+	
+;TOTAL: 15
 
 ;---Light Tanks---
 	
-;TOTAL: 24
+	{"m56"					requires	"squad_aircav_con(usa)"		costs 1}
+	{"m41"					requires	""					costs 1}
+	{"m42"					requires	"m41"				costs 2}
+	{"m50"					requires	"squad_usmc_flame_con(usa)"	costs 2}
+	
+;TOTAL: 6
 
 ;---Medium Tanks---
 
+	{"m48_patton"			requires	"m41"				costs 3}
+	{"m67_zippo"			requires	"m50 m48_patton"	costs 3}
+	{"m60a1"				requires	"m48_patton"		costs 4}
+	{"m728"					requires	"m60a1"				costs 5}
+
+;TOTAL: 15
+
 ;---Heavy Tanks---
+
+	{"m103"					requires	"m48_patton m67_zippo"	costs 4}
+	
+;TOTAL: 4
 
 ; ---TECH UPGRADES---
 { tech "defense_level_1"		requires ""											costs 1 }
@@ -43,9 +127,9 @@
 {GridWidth 10} ;total with 0-#
 {Positions
 ;// {"Squad name" column, row}
-	{"defense_level_1"			6 0}
-	{"defense_level_2"			7 0}
-	{"defense_level_3"			8 0}
+	{"defense_level_1"			5 0}
+	{"defense_level_2"			6 0}
+	{"defense_level_3"			7 0}
 
 	{"reinforcement_stage_1"	0 0}
 	{"reinforcement_stage_2"	1 0}
@@ -57,27 +141,98 @@
 ;---SQUADS---
 
 	{"single_tankman(usa)"				0 2}
+	{"single_engineer(usa)"				0 3}
+	{"single_medic(usa)"				0 4}
+	{"single_corpsman(usa)"				0 7}
+	
+	{"single_mg(usa)"					1 2}
+	
+	{"single_marksman(usa)"				3 2}
+	{"single_sniper(usa)"				3 3}
+	
+	{"single_flamer(usa)"				2 2}
+	{"single_at2(usa)"					2 3}
+	{"single_at(usa)"					2 4}
+	{"single_lat(usa)"					2 5}
+	
+	{"squad_fireteamat_con(usa)"		3 5}
+	{"squad_weapon_con(usa)"			2 6}
+	
+	{"squad_rifle_moto_con(usa)"		1 7}
+	{"squad_weapon_moto_con(usa)"		2 7}
+	
+	{"squad_usmc_fireteam_con(usa)"		0 8}
+	{"squad_usmc_con(usa)"				0 9}
+	{"squad_usmc_flame_con(usa)"		0 11}
+	{"squad_usmc_mg_con(usa)"			0 10}
+	
+	{"squad_aircav_recon_con(usa)"		1 9}
+	{"squad_aircav_con(usa)"			1 10}
+	
+	{"squad_acav_moto_con(usa)"			2 9}
+	
+	{"squad_lrrp_con(usa)"				4 8}
+	{"squad_ranger_con(usa)"			4 9}
 	
 ;---Trucks---
 	
+	{"m151_m2"							4 4}
+	{"m151_m40"							4 15}
+	{"m35"								5 3}
+	{"m35_ammo"							6 3}
+	{"m35_guntruck"						4 5}
+	
 ;---MG---
-
+	
 ;---Mortars---
 
+	{"m30_mortar"						6 14}
+	
 ;---AA---
+	
+	{"m45_maxson"						1 5}
 	
 ;---Cannons---
 	
+	{"m40"								3 15}
+	{"entac"							3 16}
+	
 ;---Artillery---
+	
+	{"m116_packhow"						6 15}
+	{"m101a1"							6 16}
+	{"m114"								6 17}
+	{"m115"								6 18}
+	{"m-28"								6 25}
+	{"m416_m388"						6 26}
 	
 ;---Armored Cars---
 	
+	{"m113a1"							3 7}
+	{"m113_acav"						3 9}
+	{"m125"								5 13}
+	{"m106"								5 14}
+	{"m113_m40"							5 15}
+	{"m113_acav_m40"					5 16}
+	
 ; ---Light Tanks---
 	
+	{"m56"								1 14}
+	{"m50"								0 19}
+	{"m41"								2 19}
+	{"m42"								3 20}
+	
 ;---Medium Tanks---
-
+	
+	{"m48_patton"						2 20}
+	{"m60a1"							2 21}
+	{"m67_zippo"						0 20}
+	{"m728"								7 21}
+	
 ;---Heavy Tanks---
-
+	
+	{"m103"								0 21}
+	
 ;---Aircraft---
 	
 }

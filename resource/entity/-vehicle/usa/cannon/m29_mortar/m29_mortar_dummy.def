@@ -13,17 +13,16 @@
 		}
 	}
 
-
 	{placer
 		{place "gunner" {visor "main"}}
 	}
 
 	{boarder
 		{anm "gunner"
-			{forward {end "pose_mortar_82bm37_commander" 10}}
+			{forward {end "pose_mortar_gunner" 10}}
 		}
 		{anm "commander"
-			{forward {end "pose_mortar_82bm37_gunner" 10}}
+			{forward {end "pose_mortar_commander" 10}}
 		}
 		{anm "driver1"
 			{forward {end "mortar_driver_r" 10}}
@@ -37,27 +36,29 @@
 		{box
 			{item "ammo mortarusa_81 he" 15}
 			{item "ammo mortarusa_81 sm" 5}
+			{item "sandbag_vehicle" 2}
 		}
 	}
 
 	{Weaponry
+		("restore_ik_time")
 		{place "gun"
 			{weapon "weapon 81mm_m29" filling "ammo mortarusa_81 he" 1}
 			{RestoreIKAfterAim}
 			{gunner "gunner"}
-			{charger "gunner"}
+			{charger "commander"}
 			{basic}
 		}
 	}
 
 	{extender "cannon"
 		{animation
-			{switch ""}
+			{switch "close"}
 			;// "gunner" "commander"
 			{move "mortar_driver_r" "mortar_driver_l"}
-			{aim "mortar_82bm37_commander_aim" "mortar_82bm37_gunner_aim"}
-			{fire "mortar_82bm37_commander_fire" "mortar_82bm37_gunner_fire"}
-			{reload "mortar_82bm37_commander_reload" ""}
+			{aim "mortar_gunner_aim" "mortar_commander_aim"}
+			{fire "mortar_gunner_fire" "mortar_commander_fire"}
+			{reload "" "mortar_commander_reload"}
 		}
 		{move {obstacle "close"}}
 		{attack {obstacle "open"}}

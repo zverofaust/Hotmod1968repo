@@ -238,7 +238,7 @@
 ;{"squad_reservist_moto(usa)"
 ;	("squad_vehicle5" period(mid) cd(0) ci(15) side(usa) t(vehicle) vehicle(m35) crew1(rifleman_1:1) crew2(reservist_nco:1) crew3(reservist_rifle2:2) crew4(reservist_rifle:7) b(inf1) cw(2) cp(4)){squad_cost_factor 1}
 ;
-}
+;}
 {"squad_rifle_moto(usa)"
 	("squad_vehicle7" period(mid) cd(0) ci(0) side(usa) t(vehicle) vehicle(m113a1) crew1(vehicleman:2) crew2(nco:1) crew3(rifleman_3:2) crew4(grenadier_1:2) crew5(teamlead:1) crew6(rifleman_2:2) crew7(antitank_3:2)		b(inf1) cw(2) cp(8)){squad_cost_factor 1}
 }
@@ -285,6 +285,11 @@
 {"m29_mortar"
 	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(usa) crew(artilleryman:2) g(empl6) b(empl) cw(0) cp(6))
 	{cost 225}
+}
+
+{"m30_mortar"
+	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(usa) crew(artilleryman:2) g(empl6) b(empl) cw(0) cp(8))
+	{cost 325}
 }
 
 {"m116_packhow"
@@ -395,6 +400,11 @@
 ;_________________________________________________
 ;|        		 AI ONLY for purchase             |
 ;|________________________________________________|
+
+{"m35_guntruck"
+	("vehicle"  period(mid) cd(30) ci(30) side(usa) t(vehicle light) crew(rifleman_1:3) cw(0) cp(6))
+	{cost 200}{not_for_player_sale 1}
+}
 
 {"m56"
 	("vehicle"  period(mid) cd(30) ci(30) side(usa) t(light) crew(tankman:3) cw(0) cp(4))

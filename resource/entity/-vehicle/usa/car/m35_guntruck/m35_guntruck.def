@@ -2,7 +2,7 @@
 	(include "/properties/car.ext")
 	(include "/properties/shadow/tank.inc" scale(1.0))
 	(include "/properties/selection/vehicle.inc" scale(1.1))
-	{props "multi_board" "truck" "vision_lev02" "muzzle_hmg" "shield"}
+	{props "multi_board" "truck" "turret" "with_gun" "vision_lev02" "muzzle_hmg" "shield"}
 	{able "emit_on_attack"}
 	{collider "truck"}
 	{patherId "gazaaa"}
@@ -32,6 +32,11 @@
 	{Volume "engine"
 		{thickness 15}
 	}
+	
+	{volume "turret" {thickness 8}}
+	
+	("gun" repair(30) thickness(10))
+	("turret" repair(30))
 	
 	{volume "hole1" {able clear {hole}{touch 1}}}
 	

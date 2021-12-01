@@ -1,0 +1,126 @@
+;Exported by: misan
+;Date:        Tue Nov 30 11:12:46 2021
+;File:        D:\Cold War\Models\M30 Mortar\m30mortar.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.7}}
+		;{sequence "recoil" {speed 0.6}}
+	}
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -0.00932103	0	-0.711282}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{Position 0	0	1.23885}
+				{VolumeView "turret.ply"}
+				{bone "commander"
+					{Position -6.14469	-12.0387	1.8514}
+				}
+				{bone "gunner"
+					{Position 11.9816	15.0199	-0.527563}
+				}
+				{bone revolute "foresight"
+					{Matrix34
+						0.53685	0	0.843678
+						0.843678	0	-0.53685
+						0	1	0
+						18.7688	-0.0413314	28.7395
+					}
+				}
+			}
+			{bone "stan"
+				{parameters "ID=body;"}
+				{Position -1.34767	0	2.50161}
+				{VolumeView "stan.ply"}
+				{bone "gun"
+					{parameters "ID=gun;"}
+					{Position 3.30091	0	0.232453}
+					{VolumeView "gun.ply"}
+					{bone "stan2"
+						{parameters "ID=body;"}
+						{Position 13.214	-0.0044586	17.0676}
+						{VolumeView "stan2.ply"}
+						{bone "stan1"
+							{parameters "ID=body;"}
+							{Position 3.21226	0	-16.7354}
+							{VolumeView "stan1.ply"}
+						}
+					}
+				}
+			}
+			{bone "handle2"
+				{Position 13.8406	-3.42562	0.711282}
+			}
+			{bone "handle1"
+				{Position 13.9859	4.11081	0.711282}
+			}
+		}
+		{bone "driver1"
+			{Position 10.9483	-5.06054	0}
+		}
+		{bone "driver2"
+			{Position -14.9641	0.0588913	0}
+		}
+		{bone "visor"
+			{Position 12.0423	-13.2972	23.3414}
+		}
+		{bone "emit2"
+			{Position -5.63631	10.62	2.02628}
+		}
+		{bone "emit1"
+			{Position -6.14469	-12.0387	1.8514}
+		}
+	}
+}
+{obstacle "close"
+	{obb2
+		{center 11.1426 -0.123855}
+		{extent 13.5409 3.92167}
+		{axis 1 0}
+	}
+	{rotate}
+	{Tags "close"}
+}
+{obstacle "open"
+	{polygon2
+		{radius 0}
+		{vertex 22.1737 -7.02942}
+		{vertex 22.1737 7.56678}
+		{vertex -2.46316 3.19722}
+		{vertex -2.37019 -2.65986}
+	}
+	{rotate}
+	{Tags "open"}
+}
+{Volume "body"
+	{Cylinder 9.62706 4.97104}
+	{Bone "body"}
+	{Position 0	0	0.569798}
+}
+{Volume "gun"
+	{Cylinder 1.62877 31.6931}
+	{Bone "gun"}
+	{Matrix34
+		0.853678	0	-0.520802
+		0	1	0
+		0.520802	0	0.853678
+		8.09583	0.0466396	13.2746
+	}
+}
+{Volume "select"
+	{Box 35.3143 30.0245 30.6807}
+	{Bone "basis"}
+	{Position -0.00932103	0	15.3404}
+}
+{Volume "stan"
+	{Box 17.7537 8.72469 3.6522}
+	{Bone "stan"}
+	{Position 13.7157	0.0355075	0.0357697}
+}
