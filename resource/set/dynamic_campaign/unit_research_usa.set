@@ -20,8 +20,8 @@
 	{"squad_lrrp_con(usa)"				requires	"squad_fireteamat_con(usa)"			costs 3 }
 	{"squad_ranger_con(usa)"			requires	"squad_lrrp_con(usa)"				costs 5 }
 	
-	{"squad_rifle_moto_con(usa)"		requires	"m113a1"									costs 2 }
-	{"squad_weapon_moto_con(usa)"		requires	"squad_rifle_moto_con(usa)"			costs 2 }
+	{"squad_rifle_moto_con(usa)"		requires	"m113a1"							costs 2 }
+	{"squad_weapon_moto_con(usa)"		requires	"squad_rifle_moto_con(usa) squad_weapon_con(usa)"	costs 2 }
 	
 	{"squad_aircav_recon_con(usa)"		requires	""									costs 1 }
 	{"squad_aircav_con(usa)"			requires	"squad_aircav_recon_con(usa)"		costs 2 }
@@ -31,9 +31,11 @@
 	{"squad_usmc_mg_con(usa)"			requires	"squad_usmc_con(usa)"				costs 2 }
 	{"squad_usmc_flame_con(usa)"		requires	"squad_usmc_mg_con(usa)"			costs 3 }
 	
-	{"squad_acav_moto_con(usa)"			requires	"squad_rifle_moto_con(usa) squad_weapon_moto_con(usa) m113_acav"	costs 3 }
+	{"squad_acav_moto_con(usa)"			requires	"squad_weapon_moto_con(usa) m113_acav"	costs 3 }
 	
 ;---MG---
+
+	{"m63_browning"		requires	"single_mg(usa)"	costs 1}
 
 ;---Mortar---
 
@@ -41,7 +43,7 @@
 	
 ;---AA---
 
-	{"m45_maxson"		requires	"single_mg(usa)"	costs 2}
+	{"m45_maxson"		requires	"m151_m2"			costs 2}
 
 ;---AT Guns---
 	
@@ -62,11 +64,11 @@
 
 ;---Trucks---
 	
-	{"m151_m2"			requires	"single_mg(usa)"	costs 1}
-	{"m151_m40"			requires	"m151_m2 m40"		costs 1}
+	{"m151_m2"			requires	"m63_browning"		costs 1}
+	{"m151_m40"			requires	"m40"				costs 2}
 	{"m35"				requires	""					costs 1}
 	{"m35_ammo"			requires	"m35"				costs 1}
-	{"m35_guntruck"		requires	"m45_maxson m151_m2 m35"	costs 2}
+	{"m35_guntruck"		requires	"m45_maxson m35"	costs 2}
 	
 	
 ;TOTAL: 4
@@ -82,17 +84,17 @@
 	{"m125"					requires	"m113a1"			costs 3}
 	{"m106"					requires	"m125 m30_mortar"	costs 3}
 	
-	{"m132_zippo"			requires	"m113_acav"			costs 2}
+	{"m132_zippo"			requires	"m113_acav squad_usmc_flame_con(usa)"			costs 2}
 	
 	
 ;TOTAL: 15
 
 ;---Light Tanks---
 	
-	{"m56"					requires	"squad_aircav_con(usa)"		costs 1}
+	{"m56"					requires	"squad_aircav_con(usa) m41"		costs 1}
 	{"m41"					requires	""					costs 1}
 	{"m42"					requires	"m41"				costs 2}
-	{"m50"					requires	"squad_usmc_flame_con(usa)"	costs 2}
+	{"m50"					requires	"squad_usmc_flame_con(usa) m56"	costs 2}
 	
 ;TOTAL: 6
 
@@ -145,7 +147,7 @@
 	{"single_medic(usa)"				0 4}
 	{"single_corpsman(usa)"				0 7}
 	
-	{"single_mg(usa)"					1 2}
+	{"single_mg(usa)"					4 2}
 	
 	{"single_marksman(usa)"				3 2}
 	{"single_sniper(usa)"				3 3}
@@ -158,21 +160,21 @@
 	{"squad_fireteamat_con(usa)"		3 5}
 	{"squad_weapon_con(usa)"			2 6}
 	
-	{"squad_rifle_moto_con(usa)"		1 7}
-	{"squad_weapon_moto_con(usa)"		2 7}
+	{"squad_rifle_moto_con(usa)"		1 8}
+	{"squad_weapon_moto_con(usa)"		2 8}
 	
 	{"squad_usmc_fireteam_con(usa)"		0 8}
 	{"squad_usmc_con(usa)"				0 9}
-	{"squad_usmc_flame_con(usa)"		0 11}
 	{"squad_usmc_mg_con(usa)"			0 10}
+	{"squad_usmc_flame_con(usa)"		0 11}
 	
 	{"squad_aircav_recon_con(usa)"		1 9}
 	{"squad_aircav_con(usa)"			1 10}
 	
 	{"squad_acav_moto_con(usa)"			2 9}
 	
-	{"squad_lrrp_con(usa)"				4 8}
-	{"squad_ranger_con(usa)"			4 9}
+	{"squad_lrrp_con(usa)"				5 8}
+	{"squad_ranger_con(usa)"			5 9}
 	
 ;---Trucks---
 	
@@ -180,9 +182,11 @@
 	{"m151_m40"							4 15}
 	{"m35"								5 3}
 	{"m35_ammo"							6 3}
-	{"m35_guntruck"						4 5}
+	{"m35_guntruck"						5 5}
 	
 ;---MG---
+	
+	{"m63_browning"						4 3}
 	
 ;---Mortars---
 
@@ -190,7 +194,7 @@
 	
 ;---AA---
 	
-	{"m45_maxson"						1 5}
+	{"m45_maxson"						4 5}
 	
 ;---Cannons---
 	
@@ -210,14 +214,15 @@
 	
 	{"m113a1"							3 7}
 	{"m113_acav"						3 9}
-	{"m125"								5 13}
-	{"m106"								5 14}
+	{"m132_zippo"						0 12}
+	{"m125"								7 13}
+	{"m106"								7 14}
 	{"m113_m40"							5 15}
 	{"m113_acav_m40"					5 16}
 	
 ; ---Light Tanks---
 	
-	{"m56"								1 14}
+	{"m56"								1 19}
 	{"m50"								0 19}
 	{"m41"								2 19}
 	{"m42"								3 20}
@@ -227,7 +232,7 @@
 	{"m48_patton"						2 20}
 	{"m60a1"							2 21}
 	{"m67_zippo"						0 20}
-	{"m728"								7 21}
+	{"m728"								5 21}
 	
 ;---Heavy Tanks---
 	

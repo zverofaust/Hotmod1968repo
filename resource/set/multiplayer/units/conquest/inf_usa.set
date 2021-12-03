@@ -25,11 +25,10 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/usa/mid/mg_crew"				("usa_tankman" side(usa)) {cost 5.0}} ; M1
-{"mp/usa/mid/supporter"				("usa_tankman" side(usa)) {cost 5.0}} ; M1
-{"mp/usa/mid/artilleryman"			("usa_tankman" side(usa)) {cost 5.0}} ; M1
-{"mp/usa/mid/tankman"				("usa_tankman" side(usa)) {cost 4.0}} ; M3
-{"mp/usa/mid/vehicleman"			("usa_tankman" side(usa)) {cost 4.0}} ; M3 -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
+{"mp/usa/mid/sup_guncrew"			("usa_tankman" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/mid/sup_supporter"			("usa_tankman" side(usa)) {cost 5.0}} ; M1
+{"mp/usa/mid/sup_tankman"			("usa_tankman" side(usa)) {cost 4.0}} ; M3
+{"mp/usa/mid/sup_vehicleman"		("usa_tankman" side(usa)) {cost 4.0}} ; M3 -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
 
 (define "usa_basic"
 	{tags "mid %side infantry man lvl1"}
@@ -52,16 +51,16 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/usa/mid/antitank_2"			("usa_regular" side(usa)) {cost 13.0}} ; M14 & M67 Ammo
-{"mp/usa/mid/antitank_5"			("usa_regular" side(usa)) {cost 13.0}} ; M14 & M20 Ammo
-{"mp/usa/mid/rifleman_3"			("usa_regular" side(usa)) {cost 20.0}} ; M14A1
-{"mp/usa/mid/grenadier_1"			("usa_regular" side(usa)) {cost 50.0}} ; M79
-{"mp/usa/mid/antitank_3"			("usa_regular" side(usa)) {cost 20.0}} ; M14 + M72 LAW
-{"mp/usa/mid/mgun_1"				("usa_regular" side(usa)) {cost 45.0}} ; M60
-{"mp/usa/mid/mgun_2"				("usa_regular" side(usa)) {cost 13.0}} ; M14
-{"mp/usa/mid/rifleman_2"			("usa_regular" side(usa)) {cost 10.0}} ; M14
-{"mp/usa/mid/teamlead"				("usa_regular" side(usa)) {cost 14.0}} ; M14
-{"mp/usa/mid/nco"					("usa_regular" side(usa)) {cost 25.0}} ; M14
+{"mp/usa/mid/reg_atassist"			("usa_regular" side(usa)) {cost 13.0}} ; M14 & M67 Ammo
+{"mp/usa/mid/reg_atassist2"			("usa_regular" side(usa)) {cost 13.0}} ; M14 & M20 Ammo
+{"mp/usa/mid/reg_autorifle"			("usa_regular" side(usa)) {cost 20.0}} ; M14A1
+{"mp/usa/mid/reg_grenadier"			("usa_regular" side(usa)) {cost 50.0}} ; M79
+{"mp/usa/mid/reg_lat"				("usa_regular" side(usa)) {cost 20.0}} ; M14 + M72 LAW
+{"mp/usa/mid/reg_mg"				("usa_regular" side(usa)) {cost 45.0}} ; M60
+{"mp/usa/mid/reg_mgassist"			("usa_regular" side(usa)) {cost 13.0}} ; M14
+{"mp/usa/mid/reg_rifleman"			("usa_regular" side(usa)) {cost 10.0}} ; M14
+{"mp/usa/mid/reg_teamlead"			("usa_regular" side(usa)) {cost 14.0}} ; M14
+{"mp/usa/mid/reg_squadlead"			("usa_regular" side(usa)) {cost 25.0}} ; M14
 
 (define "usa_regular_advanced"
 	{tags "mid %side infantry man lvl2"}
@@ -72,11 +71,11 @@
 	{score_factor 0.05}
 )
 
-{"mp/usa/mid/antitank_1"			("usa_regular" side(usa)) {cost 50.0}} ; M3 + M67
-{"mp/usa/mid/antitank_4"			("usa_regular" side(usa)) {cost 45.0}} ; M3 + M20 Super Bazooka
-{"mp/usa/mid/rifleman_4"			("usa_regular" side(usa)) {cost 50.0}} ; M1C
-{"mp/usa/mid/flamer"				("usa_regular" side(usa)) {cost 50.0}} ; ?
-{"mp/usa/mid/engineer_1"			("usa_regular" side(usa)) {cost 35.0}} ; M2
+{"mp/usa/mid/reg_antitank"			("usa_regular" side(usa)) {cost 50.0}} ; M3 + M67
+{"mp/usa/mid/reg_antitank2"			("usa_regular" side(usa)) {cost 45.0}} ; M3 + M20 Super Bazooka
+{"mp/usa/mid/reg_marksman"			("usa_regular" side(usa)) {cost 50.0}} ; M1C
+{"mp/usa/mid/reg_flamer"			("usa_regular" side(usa)) {cost 50.0}} ; ?
+{"mp/usa/mid/reg_engineer"			("usa_regular" side(usa)) {cost 35.0}} ; M2
 
 (define "usa_aircav"
 	{tags "mid %side infantry man lvl2 lvl3"}
@@ -153,7 +152,7 @@
 {"mp/usa/mid/spec_rifleman"		("usa_specops" side(usa)) {cost 35.0}} ; XM177
 {"mp/usa/mid/spec_mg"			("usa_specops" side(usa)) {cost 80.0}} ; M60, to be replaced by Stoner 63
 {"mp/usa/mid/spec_antitank"		("usa_specops" side(usa)) {cost 90.0}} ; M67
-{"mp/usa/mid/spec_grenadier" 	("usa_specops" side(usa)) {cost 45.0}} ; M67
+{"mp/usa/mid/spec_grenadier" 	("usa_specops" side(usa)) {cost 45.0}} ; China Lake Grenade Launcher
 {"mp/usa/mid/spec_marksman"		("usa_specops" side(usa)) {cost 100.0}} ; XM21
 {"mp/usa/mid/spec_demo"			("usa_specops" side(usa)) {cost 80.0}} ; Satchel Charges
 {"mp/usa/mid/spec_spotter"		("usa_specops" side(usa)) {cost 45.0}} ; M16, Binos
@@ -166,8 +165,8 @@
 	{cw 0.5}
 	{score_factor -0.2}
 )
-{"mp/usa/mid/medic"			("usa_medic" side(usa)) {cost 40.0}}
-{"mp/usa/mid/usmc_corpsman"	("usa_medic" side(usa)) {cost 55.0}}
+{"mp/usa/mid/reg_medic"			("usa_medic" side(usa)) {cost 40.0}}
+{"mp/usa/mid/usmc_corpsman"		("usa_medic" side(usa)) {cost 55.0}}
 
 
 (define "usa_officer"
@@ -178,7 +177,7 @@
 	{cw 5}
 	{score_factor 0.2}
 )
-{"mp/usa/mid/officer"		("usa_officer" side(usa)) {cost 65.0}} ; Pistol; High-value officer target.
+{"mp/usa/mid/reg_officer"		("usa_officer" side(usa)) {cost 65.0}} ; Pistol; High-value officer target.
 
 
 (define "usa_sniper"

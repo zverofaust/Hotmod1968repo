@@ -1,0 +1,100 @@
+;SDL
+actor
+
+(include "vehicle.ext")
+(include "armor.ext")
+(include "cannon_crew.ext")
+(include "cannon_armor.ext")
+(include "abm.inc")
+(include "mobility.inc")
+(include "selection/cannon.inc" scale(0.4))
+
+("brain_vehicle")
+
+{PatherID "cannon.carried"}
+{collider "cannon_small"}
+
+{targetClass "cannon_bullet"}
+{targetSelector "cannon_bullet"}
+
+{props "mg_stan" "carried" "cannon" "cannon_small" "no_exp_blast"}
+{able "emit_crew_on_injure" "talk"}
+{lodclass "cannon"}
+
+{constrain ground}
+{simulation {able 1} {disableLinked 1}}
+
+{extender "inventory"
+	{Box
+		{Size 8 8}
+		{weight 1000}
+		{item "repair_kit" 1}
+	}
+}
+
+{Weaponry
+	{place "mgun"
+		{type "main"}
+		{gunner "gunner"}
+		{charger "gunner"}
+		{LinkBone "mgun"}
+		{LinkAnimation "off"}
+		("abm_mgun")
+		{Rotate}
+	}
+}
+
+{extender "talk"
+	{talker "cannon"}
+}
+
+(define "restore_ik_time"
+	{RestoreIKTime 10}
+)
+
+("armor_carried_cannon")
+("crew_carried_cannon")
+
+("body" repair(20))
+
+{perks
+	{blastwave_modifier 20.0}
+}
+
+{boarder
+	{anm "gunner"
+		{forward {end "pose_mgun_stan"}}
+	}
+	{anm "commander"
+		{forward {end "pose_mg_stan_charger"}}
+	}
+	{anm "driver1"
+		{forward {end "mgun_browning_driver_r"}}
+	}
+	{anm "driver2"
+		{forward {end "mgun_browning_driver_l"}}
+	}
+	{link "driver1" "gunner"}
+	{link "driver2" "commander"}
+}
+
+{extender "cannon"
+	{animation
+		{switch "close"}
+		{move "mgun_browning_driver_r" "mgun_browning_driver_l"}
+		{aim "" ""}
+		{fire "" ""}
+		{reload "mgun_stan_charger" ""}
+	}
+	{move {obstacle "close"}}
+	{attack {obstacle "open"}}
+}
+
+{Chassis "human_carrier"
+	;{carrierPlace "driver1" "driver2"}
+	;{carrierBone  "handle1" "handle2"}
+	("mobility_cannon"
+		speed(12) ;//----------------------------------Max speed.
+		weight(32) ;//---------------------------------Weight in Kilograms.
+	)
+}

@@ -1,0 +1,32 @@
+(define "crew_human"
+		{placer
+			{place "%place"
+				{group "%group"}
+				{linkbone "%bone"}
+				{turnoff {sensor} {targetable}}
+			}
+		}
+		{boarder
+			{door "%door"}
+			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		}
+	)
+	
+	{boarder
+		{anm "gunner"
+			{forward {begin "board_body"} {end "pose_maxson"}}
+			{reverse {end "emit_body" 1} }
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar"} {end "seat_gunner_stand"} {base "doorright"}}
+			{reverse	{end	"board_big-midcar" -1} {base "doorright" -1}}
+		}
+		{anm "driver"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse	{end	"board_big-midcar_driver" -1} {base "doorright" -1}}
+		}
+	}
+
+	("crew_human"		place(driver)		bone(driver)					door(emit1) 					animation(driver) 		 		group(crew))
+	("crew_human"		place(commander)	bone(commander)					door(emit2)						animation(commander) 		 	group(crew))
+	("crew_human"		place(gunner)		bone(gunner)					door(emit3) door2(emit4)		animation(gunner) 		 		group(crew))

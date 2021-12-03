@@ -9,6 +9,7 @@
 	{targetclass "cannon_zenite"}
 	{targetSelector "cannon_zenite"}
 
+	(include "crew.ext")
 
 	;volume, component/tag, thickness
 	
@@ -55,22 +56,6 @@
 
 	("fuel" args "fuel")
 	("transmission" args "transmission")
-	
-	("crew_2_human")
-	
-	{boarder
-		{anm "gunner"
-			{forward {begin "board_body"} {end "pose_maxson"}}
-			{reverse {end "emit_body" 1} {base "board"}}
-		}
-		{anm "commander"
-			{forward	{begin	"board_big-midcar"} {end "seat_gunner_stand"} {base "doorright"}}
-			{reverse	{end	"board_big-midcar" -1} {base "doorright" -1}}
-		}
-	}
-
-("crew_human"		place(gunner)	bone(gunner)					door(emit3) door2(emit4)		animation(gunner) 		 		group(crew))
-("crew_human"		place(commander)	bone(commander)				door(emit2)						animation(commander) 		 	group(crew))
 
 	{extender "inventory"
 		{box
