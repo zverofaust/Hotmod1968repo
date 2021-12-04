@@ -1,88 +1,107 @@
-;Exported by: Basement
-;Date:        Thu Aug 16 15:18:02 2018
-;File:        C:\Users\Basement\Documents\3dsMax\saves\m16a1.max
+;Exported by: misan
+;Date:        Fri Dec  3 23:47:44 2021
+;File:        D:\Cold War\Models\Sketchfab\M16 by austincford on Sketchfab\m16.max
 {Skeleton
-	{bone "m16"
-		{parameters "ID=smg;"}
-		{Matrix34
+	{animation
+		{sequence "recoil" {speed 0.6}}
+	}
+	{bone "basis"
+		{Orientation
 			1	0	0
 			0	-1	0
 			0	0	1
-			0   0   0
 		}
-		{VolumeView "m16.ply"}
-		{bone "handle"
+		{bone "m16"
 			{Matrix34
-				1	0	0
-				0	0	-1
+				0	0	1
 				0	1	0
-				3.41646	1.41888	0.307525
+				-1	0	0
+				0	0	-0.0029211
 			}
-		}
-		{bone "foresight12"
-			{Matrix34
-				1	0	0
-				0	0	-1
-				0	1	0
-				14.3854	1.44415	0
+			{LODView
+				{VolumeView "m16.ply"}
+				{VolumeView "m16_lod1.ply"}
 			}
-		}
-		{bone "fxshell"
-			{Matrix34
-				0	0.00411123	0.999992
-				-0.00869001	0.999954	-0.00411108
-				-0.999962	-0.00868994	3.5874e-05
-				1.96923	1.45181	0.629002
+			{bone "magazine"
+				{Position 0.0039456	-0.906264	-2.5158}
+				{VolumeView "magazine.ply"}
+			}
+			{bone "bolt"
+				{Position 0.00394588	0.835689	-1.20923}
+				{VolumeView "bolt.ply"}
+			}
+			{bone "fxshell"
+				{Matrix34
+					0.965926	0.25882	0
+					-0.25882	0.965926	0
+					0	0	1
+					0.439352	1.45082	-2.12883
+				}
+			}
+			{bone "handle"
+				{Matrix34
+					0	0	-1
+					0	1	0
+					1	0	0
+					0.00292129	2.70292	-1.73899
+				}
+			}
+			{bone "foresight12"
+				{Position 0.00292144	1.37331	-15.1653}
 			}
 		}
 	}
 }
 {Volume "body"
-	{Box 21.0452 2.24541 6.25192}
+	{Box 17.8537 3.51783 0.502547}
 	{Bone "m16"}
 	{Matrix34
-		1	0	0
 		0	0	-1
 		0	1	0
-		3.84056	0.937531	0.322215
+		1	0	0
+		0.00292086	0.859786	-2.07805
+	}
+}
+{Volume "magazine"
+	{Box 1.3397 2.25502 0.432698}
+	{Bone "magazine"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		0.012935	0.676579	0.210686
 	}
 }
 {Volume "select"
-	{Box 21.0452 2.24541 6.25192}
+	{Box 23.0312 6.96531 1.36693}
 	{Bone "m16"}
 	{Matrix34
-		1.1625	0	0
-		0	0	-1.60544
-		0	1.26231	0
-		3.84056	0.936386	0.322215
+		0	0	-1
+		0	1	0
+		1	0	0
+		0.00292144	0.859786	-3.59905
 	}
 }
-{Extender "preview"
-	{"Stuff_primary"
+{extender "preview"
+	{"stuff"
 		{camera
-			{origin 6.01285	-1.72004	24.3941}
-			{lookat 4.60797	-0.897728	5.83981}
+			{origin 3.9115 	 -0.7172 	 -28.6064}
+			{lookat 3.9044 	 -0.7166 	 -20.5316}
 			{fov 45}
-			{horizon 120.246}
+			{horizon 83.7991}
 		}
 		{lights
 			{"0"
-				{type directional}
-				{direction 0.0140999	0	-0.499801}
+				{type point}
+				{position 10.1706 	 -6.0223 	 -2.9427}
 			}
-		}
-	}
-	{"Stuff"
-		{camera
-			{origin 6.01285	-1.72005	24.3941}
-			{lookat 4.60797	-0.897719	5.83982}
-			{fov 45}
-			{horizon 120.047}
-		}
-		{lights
-			{"0"
+			{"1"
 				{type directional}
-				{direction 0.0140999	0	-0.499801}
+				{direction -0.0937 	 0.0114 	 0.491}
+			}
+			{"2"
+				{type point}
+				{position -3.5612 	 2.7698 	 -0.0379}
 			}
 		}
 	}
