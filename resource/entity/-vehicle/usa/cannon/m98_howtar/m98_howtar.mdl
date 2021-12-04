@@ -13,11 +13,14 @@
 			0	-1	0
 			0	0	1
 		}
+		{bone "gunner"
+			{Position -4.40918	-16.442	0}
+		}
+		{bone "commander"
+			{Position 5.50264	15.0199	0}
+		}
 		{bone "charger"
 			{Position -21.5004	-10.5303	-0.022056}
-		}
-		{bone "gunner"
-			{Position -18.8657	10.7087	0}
 		}
 		{bone "driver1"
 			{Position -12.9023	11.2078	0}
@@ -54,9 +57,6 @@
 		}
 		{bone "driver4"
 			{Position -39.5319	7.62002	0}
-		}
-		{bone "commander"
-			{Position -2.87846	-27.1642	0}
 		}
 		{bone "charger2"
 			{Matrix34
@@ -130,49 +130,35 @@
 			{bone revolute "turret"
 				{limits -12 12}
 				{Position 21.6381	0	5.44711}
-				{bone revolute "gun_rot"
+				{bone "gun_rot"
 					{parameters "ID=gun;"}
 					{animation
 						{sequence "repair" {file "gunrot_r.anm"} {speed 0.6}}
 					}
-					{limits -7 40}
-					{speed2 30}
 					{Matrix34
-						1	0	0
-						0	0	1
+						0.5	0	0.866026
+						-0.866026	0	0.5
 						0	-1	0
 						0.144052	0.109496	0.0302935
 					}
 					{VolumeView "gun_rot.ply"}
-					{bone "gun"
-						{parameters "ID=gun;"}
-						{animation
-							{sequence "repair" {file "gun_r.anm"} {speed 0.6}}
-						}
+					{bone "barrel"
+					{parameters "ID=gun;"}
 						{Matrix34
 							1	0	0
 							0	0	-1
 							0	1	0
-							12.8548	2.82672	0.0897888
+							12.1514	2.50975	0
 						}
-						{VolumeView "gun.ply"}
-						{bone "foresight1"
-							{parameters "Vis;"}
-							{Matrix34
-								0.999994	-0.00354962	0
-								0.00354962	0.999994	0
-								0	0	1
-								15.2026	-0.0197103	-0.663478
-							}
-						}
-						{bone "fx_invers"
-							{Matrix34
-								-1	0	0
-								0	0	1
-								0	1	0
-								-15.6668	-0.0197103	-0.909787
-							}
-						}
+						{VolumeView "barrel.ply"}
+					}
+				}
+				{bone revolute "foresight"
+					{Matrix34
+						0.53685	0	0.843678
+						0.843678	0	-0.53685
+						0	1	0
+						14.9799	-0.010137	29.3076
 					}
 				}
 			}
@@ -261,7 +247,7 @@
 }
 {Volume "gun"
 	{Box 29.4761 3.08989 3.35182}
-	{Bone "gun"}
+	{Bone "barrel"}
 	{Position 0	0	-0.695496}
 }
 {Volume "wheelleft"
