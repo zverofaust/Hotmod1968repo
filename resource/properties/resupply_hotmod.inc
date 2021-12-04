@@ -78,7 +78,7 @@
 ;// Light weaponry
 	
 ;// Grenade
-	{item "40mm_grenade"   "he"		"ammo" 1  {value 5}}
+	{item "40mm_grenade" "he"		 "ammo" 1  {value 5}}
 )
 
 (define "items_light_generic"
@@ -311,7 +311,7 @@
 		{radius 			5}		;// resupply radius in meter
 		{resupplyPeriod 	5}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				100}	;// max number of resupplies (0 = unlimited)
+		{limit 				50}	;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"
