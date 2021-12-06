@@ -1,0 +1,91 @@
+{game_entity		;M48
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc"  scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{props "medium""vision_lev04" "muzzle_85mm_93mm_sides"}
+	(include "m47g.ext")
+	{targetclass "tank_medium"}
+	{targetSelector "tank_medium"}
+	{PatherId "t34"}
+
+	{extender "enumerator"
+		{digit_folder "nato"}
+	}
+
+;	Crew 4: Commander, Gunner, Loader, Driver
+	("crew_5_human")
+
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "gunner"		{visor "main"}}
+		{place "gunner2"	{visor "driver"}}
+	}
+	
+
+	{extender "inventory"
+		{box
+			{item "ammo bulletusa_90 apcbche" 25} ;60 total
+			{item "ammo bulletusa_90 apcr" 10}
+			{item "ammo bulletusa_90 he" 10}
+			{item "ammo mgun_usa belt" 2000}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon			"90mm_m41" filling "ammo bulletusa_90 apcbche" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic"
+				zeroing(3.0)
+				dispersion(0.20)
+			)
+		}
+		{place "mgun2"		;coax
+			{type "coaxial"}
+			{weapon			"browning_m19a4" filled}
+			{foresight		"foresight5"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun1"		;hull
+			{weapon			"browning_m19a4" filled}
+			{foresight		"foresight3"}
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 48.6}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
+		("mobility_tank"
+			speed(50)  ;---------Max speed when fully accelerated on road, km/h.
+			reverse(9.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(46.0) ;-------Weight in Tonnes.
+			power(810) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(880) ;----------Fuel capacity in Litres.
+			type(fuel) ;-------Fuel type. (diesel OR fuel)
+			range(160) ;---------Range in km, off-road.
+		)
+	}
+	
+	{Extension "m47g.mdl"}
+
+	{bone "turret"			;gun horizontal
+		{speed2 18}			;degree per second
+	}
+	{bone "gun_rot"			;gun vertical
+		{speed2 5}			;degree per second
+		{limits -12 25}		;min down to max up
+	}
+}

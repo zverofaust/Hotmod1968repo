@@ -1,0 +1,61 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 15mm
+	; gun 20mm
+	; track guards 5mm
+	
+	;("armor_medium" turret(180 76 51 25) body(110 76 35 57))
+	;("armor_mantlet" t(110))
+	;("armor_engine"  t(61 51 25 38))
+
+	;durability from properties/armor.ext
+	("tank_medium_tier2")
+	
+	;volume, component/tag
+	
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+	("turret_mg" repair(30))
+	
+	{volume "body"			; Upper Hull
+		{thickness 76
+			{front 152}		; Glacis
+			{top 35}
+			{rear 57}
+			{bottom 20}
+		}
+		{HighHardness}
+	}
+
+	{volume "turret"		; Turret
+		{thickness 76
+			{front 254}
+			{top 25}
+			{rear 51}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	
+	{volume "mantlet"		; Turret
+		{thickness 254}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+
+	{volume "engine"		; Engine
+		{thickness 51
+			{front 61}
+			{top 25}
+			{rear 38}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}

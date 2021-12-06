@@ -1,0 +1,105 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc" scale(0.9))
+	{props "light" "diesel" "turret_rotator" "vision_lev02" "muzzle_37mm_47mm" "detect_tank_medium" "flak"} ; "shell_eject"
+	(include "m42g.ext")
+	{targetclass "tank_light"}
+	{targetSelector "cannon_aa"}
+	{patherId "t34"}
+	{collider "tank.light"}
+
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+	
+	{extender "shield" {on}}
+	
+	("crew_4_human")
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"emit_tank_2_hold"} {base "open_driver"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_tank_right"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_passenger"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_tank_right"} {end "seat_passenger"} {base "open"}}
+			{reverse 	{end	"emit_tank_2_hold"} {base "open"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_tank_right"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_tank_right"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_tank_right"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	("crew_inside"		place(driver) 		bone()			door(emit0)						animation(driver) 				group(crew))
+	("crew_inside"		place(commander) 	bone()			door(emit3) 					animation(commander) 	 		group(crew))
+	("crew_open"		place(gunner) 	bone(gunner)		door1(emit1) door2(emit2)		animation1(left) 	animation2(right) 			group(crew))
+	("crew_open"		place(charger) 	bone(charger)		door1(emit2) door2(emit1)		animation1(left) 	animation2(right) 			group(crew))
+	
+	{extender "inventory"
+		{box
+            {item "ammo bulleteng_40 ap" 200}
+			{item "ammo bulleteng_40 he" 120}
+        }
+    }
+	
+    {Weaponry
+		("restore_ik_time")
+        {place "gun"
+			{RestoreIKAfterAim}
+			{weapon "40mm_bofors_x2" filling "ammo bulleteng_40 ap" 8} 
+			{gunner "gunner"}
+			{charger "charger"}
+			{foresight "foresight"}
+			{Barrels 2}
+			("abm_dymamic"
+				zeroing(3.0)
+				dispersion(0.20)
+			)
+        }
+    }
+
+
+	
+	{mass 23490}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(73) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8.9);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(23.5) ;-------Weight in Tonnes.
+			power(240) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(150) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(180) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "m42g.mdl"}
+
+	{bone "turret"
+		{speed2 48}
+	}
+	{bone "gun_rot"
+		{limits -35 10}
+		{speed2 22}
+	}
+}
