@@ -466,7 +466,7 @@
 	("pz6_sound")
 }
 
-{"m48a5"
+{"m48a3"
 	("pz6_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
@@ -510,6 +510,9 @@
 
 {"m728"
 	("pz5_sound")
+	{on spawn 
+		{link_sound "dozer" "vehicle/misc/dozer"}
+	}
 }
 
 {"m577"
@@ -674,10 +677,100 @@
 }
 
 {"m56_para"
-	("pz2_sound")
+	("pz3_sound")
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
 }
+
+{"m110"
+	("pz2_sound")
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 5)
+	}
+}
+
+{"m109"
+	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
+{"m108"
+	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
+;/*=========== FRG Vehicles BEGIN  ===========*/
+
+{"m113g tank"
+	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on "driver_hatch_open"
+		{delay 3
+			{ani_play "open_driver" -1.0}
+		}	
+	}
+}
+
+{"m47g"
+	("pz6_sound")
+}
+
+{"m48g"
+	("pz6_sound")
+}
+
+{"m41g"
+	("pz3_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
+{"m42g"
+	("pz3_sound")
+	{on "init_gun"
+		{add_view "tank_canon_fire_37_47"			"flashbarrel00"	"shooter00"}
+		{add_view "tank_canon_fire_37_47"			"flashbarrel01"	"shooter01"}
+		{call "update_gun"}
+	}
+	{on fire "gun" overload
+		(define "fire_barrel"
+			name "%0"
+				{call "fire_barrel%0"}
+				{view start "flashbarrel%0"}
+				{ani_play "fire%0"}
+				{delay 0.2
+					{view pause "flashbarrel%0"}
+				}
+		)
+		{if	("fire_barrel" args 00)
+		else ("fire_barrel" args 01)
+		}
+		{call "spawn_shell"}
+	}	
+}
+
+
+
+
 
 ;/*=========== Hotmod Specifics End  ===========*/
