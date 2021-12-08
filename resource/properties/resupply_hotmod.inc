@@ -43,6 +43,8 @@
 	{item "mortarrus_120" "he"		"ammo" 1  {value 5}}
 	{item "mortarrus_120" "sm"		"ammo" 1  {value 5}}
 	{item "mortarrus_120" "ic"		"ammo" 1  {value 5}}
+	{item "bulletrus_73"  "heat"	"ammo" 1 {value 5}} ;//SPG-9 ammo should be considered "light"
+	{item "bulletrus_73"  "he"		"ammo" 1 {value 5}}
 
 ;// Grenade
 	{item "grenade" "f1" 					1  {value 5}}
@@ -76,7 +78,11 @@
 	{item "m67"						"ammo" 1  {value 10}}
 	{item "gustav"					"ammo" 1  {value 10}}
 ;// Light weaponry
-	
+	{item "mortarusa_81" "he"		"ammo" 1  {value 5}}
+	{item "mortarusa_81" "sm"		"ammo" 1  {value 5}}
+	{item "mortarusa_107" "he"		"ammo" 1  {value 5}}
+	{item "mortarusa_107" "sm"		"ammo" 1  {value 5}}
+
 ;// Grenade
 	{item "40mm_grenade" "he"		 "ammo" 1  {value 5}}
 )
