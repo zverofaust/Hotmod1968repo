@@ -1,0 +1,32 @@
+{boarder
+	{anm "driver"
+		{forward	{begin	"board_tank"} {end "seat_driver_car"} {base "open_driver"}}
+		{reverse 	{end	"board_tank" -1} {base "open_driver" -1}}
+	}
+	{anm "charger"
+		{forward	{begin	"board_higharmor"} {end "pose_flak38_charger_left"} {base "doorright1"}}
+		{reverse 	{end	"emit_tank_2_hold"} {base "doorright" -1}}
+	}
+	{anm "gunner"
+		{forward	{begin	"board_higharmor"} {end "pose_61k_gunlayer_right"} {base "doorleft" 0.65}}
+		{reverse	{end	"emit_tank_2_hold"} {base "doorleft" -1}}
+	}
+	{anm "commander"
+		{forward	{begin	"board_tank"} {end "seat_driver_car"} {base "open"}}
+		{reverse 	{end	"board_tank" -1} {base "open" -1}}
+	}
+}
+	
+{placer
+	{place "driver"		{group "crew"} {visor "driver"}}
+	{place "gunner"		{group "crew"} {visor "main"}}
+	{place "charger"	{group "crew"} {visor "main"}}
+	{place "charger2"	{group "crew"} {visor "main"}}
+	{place "commander"	{group "crew"} {visor "driver"}}
+}
+	
+("crew_invisible"		place(driver)								door(emit1)	animation(driver) 		 	group(crew))
+("crew_open"			place(gunner)	bone(gunner1)				door(emit2)	animation(gunner)			group(crew))
+("crew_open"			place(charger) 	bone(gunner2)				door(emit3)	animation(charger) 	 		group(crew))
+("crew_open"			place(charger2) 	bone(gunner3)			door(emit3)	animation(commander)	 		group(crew))
+("crew_open"			place(commander)	bone(commander)			door(emit3)	animation(commander) 		 	group(crew))
