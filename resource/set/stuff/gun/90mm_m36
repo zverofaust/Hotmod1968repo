@@ -1,0 +1,25 @@
+{from "pattern gun"			; L/55 "m48_patton"
+	{filling "bulletusa_90"}
+	{fireSound "gun/gun_88"}
+	{fireSoundclose "gun/gun_interior/size3"}
+	{reloadSound "interior/large/big_reload_interior"}
+	("range_230")
+	{calibre 90}
+
+	("reload time" seconds(8))
+
+	("velocity m/s" ap(853) apcr(1021) he(732) heat(1216))
+	("armor health" damage(260))
+	("armor health custom" shell(apcbche) damage(260) filler(137))
+
+	; M82 Shot
+	("shell_data_215" shell(apcbche) range(230) a(185) b(170) c(155) d(142) e(130))
+
+	; M304 Shot
+	("shell_data_215" shell(apcr) range(230) a(287) b(259) c(234) d(211) e(191))
+	{parameters "apcr" ; Pzgr.40
+		("large_apcr_slope_multiplier")
+	}
+
+	("accuracy_direct_200m" r1(0.65) range_ap(230) range_he(230) range_heat(220))
+}
