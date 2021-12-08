@@ -2,7 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.0))
 	(include "/properties/selection/vehicle.inc" scale(1.0))
-	{props "light" "multi_board" "vision_lev04" "amphibia" "diesel"}
+	{props "light" "multi_board" "vision_lev04" "amphibia" "diesel" "smoke" "nwg"}
 	{able "emit_passengers_on_enemy"}
 	{targetclass "armoredcar"}
 	{targetSelector "tank_zenite"}
@@ -21,12 +21,16 @@
 		}
 	}
 	
+	{extender "shield"{on}}
+	
 	("fuel" args "fuel")
 	("ammo" args "ammo")
 	("transmission" args "transmission")
 	("tracks" repair(30) thickness(15))
 	{volume "engine" {thickness 10}}
 		
+	("shield_tear" args "shield1" 5)
+	
 	{placer
 		{place "driver"		{visor "driver"}}
 		;{place "gunner"		{visor "main"}}
@@ -68,19 +72,25 @@
 	("seat_human" 	place(seat9)  		bone(seat09)	door(emit3)  animation(passenger) 	group(passenger))
 	("seat_human" 	place(seat10) 		bone(seat10)	door(emit3)  animation(passenger) 	group(passenger))
 	
+	{extender "smokescreen"
+		{cooldown 20}
+		{itemTags "grenade nbk39"}
+	}
+	
 	
 	{extender "inventory"
 		{box
-			{item "ammo hmgun_usa" 2000}
+			{item "ammo mgun_ger belt" 4500}
+			{item "nbk39 grenade" 2}
 		}
 	}
 	
 	{Weaponry
 		{place "mgun"
-			{weapon			"browning_m2" filled}
+			{weapon			"mg42_drum" filled}
 			{gunner			"commander"}
 			{charger		"commander"}
-			{LinkBone		"mgun"}
+			{LinkBone		"mgun_helper"}
 			{LinkAnimation	"off"}
 			("abm_mgun")
 		}

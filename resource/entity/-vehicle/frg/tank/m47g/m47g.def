@@ -12,7 +12,7 @@
 		{digit_folder "nato"}
 	}
 
-;	Crew 4: Commander, Gunner, Loader, Driver
+;	Crew 4: Commander, Gunner, Loader, Driver, Radio Operator/Hull Gunner
 	("crew_5_human")
 
 	{placer
@@ -24,9 +24,9 @@
 
 	{extender "inventory"
 		{box
-			{item "ammo bulletusa_90 apcbche" 25} ;60 total
-			{item "ammo bulletusa_90 apcr" 10}
-			{item "ammo bulletusa_90 he" 10}
+			{item "ammo bulletusa_90 apcbche" 35} ;71 total
+			{item "ammo bulletusa_90 apcr" 20}
+			{item "ammo bulletusa_90 he" 15}
 			{item "ammo mgun_usa belt" 2000}
 		}
 	}
@@ -35,7 +35,7 @@
 		("restore_ik_time")
 		{place "gun"
 			{RestoreIKAfterAim}
-			{weapon			"90mm_m41" filling "ammo bulletusa_90 apcbche" 1}
+			{weapon			"90mm_m36" filling "ammo bulletusa_90 apcbche" 1}
 			{gunner "gunner"}
 			{charger "charger"}
 			("abm_dymamic"
@@ -53,10 +53,11 @@
 			{basic}
 		}
 		{place "mgun1"		;hull
+			{type "hull"}
 			{weapon			"browning_m19a4" filled}
-			{foresight		"foresight3"}
-			{gunner			"gunner2"}
-			{charger		"gunner2"}
+			{foresight		"foresight4"}
+			{gunner			"gunner3"}
+			{charger		"gunner3"}
 			("abm_mgun")
 			{basic}
 			{ai_in_manual}
@@ -82,10 +83,16 @@
 	{Extension "m47g.mdl"}
 
 	{bone "turret"			;gun horizontal
-		{speed2 18}			;degree per second
+		{speed2 12}			;degree per second
 	}
 	{bone "gun_rot"			;gun vertical
 		{speed2 5}			;degree per second
 		{limits -12 25}		;min down to max up
+	}
+	{bone "mgun"			;gun horizontal
+		{limits -10 15}		;min down to max up
+	}
+	{bone "mgun_rot"			;gun horizontal
+		{limits -25 25}		;min down to max up
 	}
 }
