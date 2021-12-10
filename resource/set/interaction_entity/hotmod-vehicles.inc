@@ -515,9 +515,30 @@
 	}
 }
 
+{"m114a1 tank"
+	("pz38_sound")
+	{on "gunner4_hatch_open" overload
+		{ani_wind "open2" end}
+	}
+	{on "gunner4_hatch_close" overload
+		{ani_play "open2" -1.0 resume}
+	}
+}
+
+{"m114a2 tank"
+	("pz38_sound")
+	{on "gunner4_hatch_open" overload
+		{ani_wind "open2" end}
+	}
+	{on "gunner4_hatch_close" overload
+		{ani_play "open2" -1.0 resume}
+	}
+}
+
 {"m577"
 	("pz38_sound")
 }
+
 {"m113a1 tank"
 	("pz38_sound")
 	{on "commander_hatch_open" overload

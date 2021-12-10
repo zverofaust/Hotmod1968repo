@@ -305,9 +305,9 @@ Purchases["campaign_capture_the_flag"] = {
 			--AT_Weapons
 			--Howitzers
 			--Wheel_vehicles
-				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m1919"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m2"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "m151_m40"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m1919"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "m151_m2"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m151_m40"},
 				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "m35_guntruck"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m113_m40"},
@@ -318,6 +318,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m42"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m50"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m56"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a2"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m48_patton"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m67_zippo"},

@@ -1,0 +1,37 @@
+;_________________________________________
+; Hispano-Suiza HS.820
+;=========================================
+
+
+{from "pattern gun"			; "Base"
+	{filling "bullet20_hs820" 25}
+	{fireSound "gun/gun_auto"}
+	{fireSoundclose "gun/gun_auto"}
+	{reloadSound "tank/reload_small"}
+	("range_autocannon_12-20")
+	{cursor "ironsights/aa"}
+	{calibre 20}
+	("light_aa")
+
+	("fire rate" rpm(700))
+	("reload time" seconds(7))
+
+	("velocity m/s" ap(760) apcr(1050) he(900) heat(1))
+	("armor health" damage(30))
+
+	{burst
+		{short 10 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 20 1}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
+	}
+
+	; M601
+	("shell_data_100" shell(ap) range(160) a(52) b(37) c(24) d(15) e(10))
+
+	; M594
+	{parameters "he"										; Sprgr.
+		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
+	}
+
+	("accuracy_aa_150m" r1(0.45) range_ap(160) range_he(160) range_heat(160))
+}
