@@ -6,9 +6,9 @@
 		{sequence "hit" {speed 0.3}}
 		{sequence "start" {speed 0.3}}
 		{sequence "stop" {speed 0.3}}
-		{sequence "open_driver" {speed 0.4} {resume}}
-		{sequence "doorleft" {speed 0.1}}
-		{sequence "doorright" {speed 0.1}}
+		{sequence "open_driver" {speed 0.4} {events {2 "hatch_medium"}}}
+		{sequence "doorleft" {speed 0.1} {events {2 "hatch_heavy"}}}
+		{sequence "doorright" {speed 0.1} {events {2 "hatch_heavy"}}}
 		{sequence "spin" {speed 0.6}}
 		{sequence "fire" {speed 0.6}}
 	}
@@ -118,23 +118,13 @@
 				}
 				{VolumeView "wheell07.ply"}
 			}
-			{bone "visor1"
+			{bone "visor2"
 				{Matrix34
 					1	0	0
 					0	0	1
 					0	-1	0
 					25.2264	14.2662	16.2754
 				}
-			}
-			{bone "floatl"
-				{parameters "id=body;"}
-				{Matrix34
-					0	1	0
-					-1	0	0
-					0	0	1
-					1.32962	28.8424	5.06976
-				}
-				{VolumeView "floatl.ply"}
 			}
 			{bone "turret_base"
 				{parameters "ID=body;"}
@@ -183,6 +173,15 @@
 								1	0	0
 								-0.413906	2.49096	-5.9762
 							}
+							{VolumeView "belt.ply"}
+						}
+						{bone "fx_invers"
+							{Matrix34
+								0	0	1
+								0	-1	0
+								1	0	0
+								-0.414135	-3.37933	6.73039
+							}
 						}
 					}
 					{bone "gunner"
@@ -193,6 +192,14 @@
 							0.32684	5.75202	14.46341
 						}
 					}
+					{bone "visor1"
+						{Matrix34
+							0	-1	0
+							1	0	0
+							0	0	1
+							0.32684	5.75202	20.46341
+						}
+					}
 				}
 			}
 			{bone "cover3"
@@ -201,15 +208,19 @@
 				{VolumeView "cover3.ply"}
 			}
 			{bone "detail1"
+				{parameters "id=body;"}
 				{Position -23.0775	-1.01906	13.1987}
+				{VolumeView "detail1.ply"}
 			}
-			{bone "ammo2"
+			{bone "detail4"
+				{parameters "id=body;"}
 				{Matrix34
-					1	0	0
+					0	1	0
+					-1	0	0
 					0	0	1
-					0	-1	0
-					-27.2597	13.1161	1.0843
+					1.3297	0.0211601	5.07062
 				}
+				{VolumeView "detail4.ply"}
 			}
 		}
 		{bone "wheelsr"
@@ -424,6 +435,16 @@
 		0	0	1
 		0	-1	0
 		-3.67907	-0.00374313	-0.71608
+	}
+}
+{Volume "ammo2"
+	{Box 27.937 20.2388 6.79427}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-27.2597	13.1161	1.0843
 	}
 }
 {Volume "body"

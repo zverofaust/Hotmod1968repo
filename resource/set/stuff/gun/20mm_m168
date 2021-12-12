@@ -2,7 +2,7 @@
 ; M168 Vulcan
 ;=========================================
 
-{from "pattern gun"			; "Base"
+{from "pattern gun"			; "M163 VADS"
 	{filling "bullet20_m168" 1000}
 	{fireSound "gun/gun_auto"}
 	{fireSoundclose "gun/gun_auto"}
@@ -13,7 +13,7 @@
 	("light_aa")
 
 	("fire rate" rpm(3000))
-	("reload time" seconds(15))
+	("reload time" seconds(20))
 
 	("velocity m/s" ap(1030) apcr() he(1030) heat(1))
 	("armor health" damage(30))
@@ -21,8 +21,8 @@
 	{range 200 200}
 	
 	{burst
-		{short 10 0.75}			;// short burst shots on long distance, rand (+-)shots
-		{long 60 1}				;// long burst shots on short distance, rand (+-)shots
+		{short 20 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 40 1}				;// long burst shots on short distance, rand (+-)shots
 		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
 	}
 

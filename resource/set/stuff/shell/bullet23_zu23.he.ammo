@@ -1,24 +1,24 @@
-{from "pattern ic"
-	{tag "20to25 no_throw -shell no_ricochet"}
+{from "pattern he"
+	{tag "20to25 no_throw -shell"}
 	{tag "auto size1"}
 	{inventory
 		{weight 4}
 		{size 2 2}
 		{block 25}
 	}
-	{entity "20mm_m168_he"}
+	{entity "23mm_zu23_he"}
 	{mass 0.303}
 
 	{view "howitzer_shell_dummy"
-		{tail "shell_tracer_rus_57_apcr" "tail"}
+		{tail "shell_tracer_20_he" "tail"}
 	}
-	
+
 	{damage fire
 		{radius 1}
-		{heating 20}
+		{heating 10}
 		{time 1}
 		;{ground_interaction_radius 0.3} ;// crashes game if used with fire damage
 	}
 	
-	("he_auto_blast" args 0.8)
+	("he_auto_blast" args 0.7)
 }

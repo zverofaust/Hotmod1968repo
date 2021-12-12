@@ -1,25 +1,31 @@
 {from "pattern gun"			; L/87.3  "23mm_zu23"
-	{filling "bulletrus_25_auto" 50}
+	{filling "bullet23_zu23" 50}
 	{fireSound "gun/gun_auto"}
 	{fireSoundclose "gun/gun_auto"}
 	{reloadSound "tank/reload_small"}
 	("range_autocannon_12-20")
 	{cursor "ironsights/aa"}
-	{calibre 25}
+	{calibre 23}
 	("light_aa")
 
 	("fire rate" rpm(400))
-	("reload time" seconds(1.5))
+	("reload time" seconds(4))
 
 	("velocity" mps(970))
-	("armor health" damage(46))
+	("armor health" damage(38))
 
 	; BZT
-	("shell_data_100" shell(apbc) range(180) a(51) b(36) c(26) d(18) e(13))
+	("shell_data_165" shell(ap) range(200) a(51) b(36) c(26) d(18) e(13))
 
-	{parameters "he"										; OZR-132
-
+	{burst
+		{short 4 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 10 1}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
+	}
+	
+	{parameters "he"										; Sprgr.
+		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
 	}
 
-	("accuracy_aa_150m" r1(0.47) range_ap(180) range_he(180) range_heat(180))
+	("accuracy_aa_150m" r1(0.9) range_ap(200) range_he(200) range_heat(200))
 }

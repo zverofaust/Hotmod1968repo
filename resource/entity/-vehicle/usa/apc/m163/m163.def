@@ -2,7 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.0))
 	(include "/properties/selection/vehicle.inc" scale(1.0))
-	{props "light" "vision_lev03" "muzzle_20mm_25mm_auto" "amphibia" "detect_tank_light"}
+	{props "light" "vision_lev03" "muzzle_20mm_25mm_auto" "shell_eject" "amphibia" "detect_tank_light"}
 	{extension "m163.mdl"}
 	(include "m163.ext")
 	{targetclass "tank_light"}
@@ -33,12 +33,12 @@
 			{reverse 	{end "board_sd232_driver" -1} {base "doorleft"}}
 		}
 		{anm "gunner"
-			{forward 	{begin "board_baboard_sd232_driver20m"} {end "seat_commander_hatch"} {base "doorleft"}}
-			{reverse	{end "board_sd232_driver-20m" -1} {base "doorleft"}}
+			{forward 	{begin "board_sd232_driver"} {end "seat_commander_hatch"} {base "doorleft"}}
+			{reverse	{end "board_sd232_driver" -1} {base "doorleft"}}
 		}
 		{anm "driver"
 			{forward	{begin	"board_middlearmor"} {base ""}}
-			{reverse	{end "emit_t34_hold"} {base ""}}
+			{reverse	{end "emit_tank_2_hold"} {base ""}}
 		}
 	}
 	

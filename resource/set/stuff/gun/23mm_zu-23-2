@@ -1,7 +1,13 @@
 
 {from "23mm_zu-23"			; L/87.3  "23mm_zu23" x 2
-	{filling "bulletrus_25_auto" 100}
+	{filling "bullet23_zu23" 100}
 	
 	("fire rate" rpm(800))
 	("reload time" seconds(8))
+	
+	{burst
+		{short 8 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 20 1}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
+	}
 }
