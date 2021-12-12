@@ -553,6 +553,11 @@
 		}	
 	}
 }
+
+{"m163 tank"
+	("pz38_sound")
+}
+
 {"m113_acav tank"
 	("pz38_sound")
 	{on "commander_hatch_open" overload

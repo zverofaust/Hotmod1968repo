@@ -1,0 +1,106 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "light" "vision_lev03" "muzzle_20mm_25mm_auto" "amphibia" "detect_tank_light"}
+	{extension "m163.mdl"}
+	(include "m163.ext")
+	{targetclass "tank_light"}
+	{targetSelector "tank_zenite"}
+	{PatherID "t37"}
+	{collider "tank.light"}
+
+	{extender "enumerator"
+		{digit_folder "nato"}
+	}
+
+	;("crew_3_human_3")
+
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "commander"	{visor "around"}}
+		{place "gunner"		{visor "main"}}
+		{place "charger"	{visor "none"}}
+	}
+	
+	{boarder
+		{anm "left"
+			{forward 	{begin "board_sd232_driver"}	{base "doorleft"}}
+			{reverse 	{end "board_sd232_driver" -1} {base "doorleft"}}
+		}
+		{anm "right"
+			{forward 	{begin "board_sd232_driver"}	{base "doorleft"}}
+			{reverse 	{end "board_sd232_driver" -1} {base "doorleft"}}
+		}
+		{anm "gunner"
+			{forward 	{begin "board_baboard_sd232_driver20m"} {end "seat_commander_hatch"} {base "doorleft"}}
+			{reverse	{end "board_sd232_driver-20m" -1} {base "doorleft"}}
+		}
+		{anm "driver"
+			{forward	{begin	"board_middlearmor"} {base ""}}
+			{reverse	{end "emit_t34_hold"} {base ""}}
+		}
+	}
+	
+	("crew_driver" 	place(driver) 		bone() 					door(emit1)  	visor(driver))
+	("crew_human" 	place(commander) 	bone() 					door(emit3)  	visor(around))
+	("crew_human" 	place(charger) 		bone() 					door(emit3)  	visor(none))
+	("crew_human_visible_anm" 	place(gunner) 	bone(gunner) 	door(emit3)  	visor(main)			anm_left(gunner) anm_right(gunner))
+
+	
+	{extender "inventory"
+		{box
+			{item "bullet20_m168 aphe" 1100}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "20mm_m168" filling "bullet20_m168 aphe" 1050}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic_stabilised"
+				zeroing(2.0)
+				dispersion(0.20)
+			)
+		}
+	}
+
+	{mass 6800}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.2) len(0.76))
+		("mobility_tank"
+			speed(58) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(10) ;--------Max speed in reverse on road, km/h.
+			traverse(42) ;-------Track traverse, per second, in degrees.
+			weight(6.8) ;-------Weight in Tonnes.
+			power(160) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(235) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(443) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}
+
+	{bone "gun_rot"
+		{limits -7 85}
+		{speed2 30}
+	}
+	{bone "turret"
+		{speed2 40}
+	}
+}

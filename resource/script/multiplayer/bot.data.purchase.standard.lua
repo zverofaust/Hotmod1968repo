@@ -788,7 +788,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m1919"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m40"},
-				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "m35_guntruck"}
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "m35_guntruck"},
 			--Tanks_light
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m113_m40"},

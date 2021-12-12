@@ -1,0 +1,38 @@
+;_________________________________________
+; M168 Vulcan
+;=========================================
+
+{from "pattern gun"			; "Base"
+	{filling "bullet20_m168" 1000}
+	{fireSound "gun/gun_auto"}
+	{fireSoundclose "gun/gun_auto"}
+	{reloadSound "tank/reload_small"}
+	("range_autocannon_12-20")
+	{cursor "ironsights/aa"}
+	{calibre 20}
+	("light_aa")
+
+	("fire rate" rpm(3000))
+	("reload time" seconds(15))
+
+	("velocity m/s" ap(1030) apcr() he(1030) heat(1))
+	("armor health" damage(30))
+
+	{range 200 200}
+	
+	{burst
+		{short 10 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 60 1}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
+	}
+
+	; M601
+	("shell_data_165" shell(aphe) range(200) a(50) b(39) c(28) d(20) e(14))
+
+	; M594
+	{parameters "he"										
+		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
+	}
+
+	("accuracy_aa_150m" r1(0.45) range_ap(200) range_he(170) range_heat(170))
+}
