@@ -107,25 +107,31 @@
 ;			
 ;===================================
 
-; // 10DP M108 Self-Propelled Howitzer
+; // 25DP M163 VADS
+{"doctrine_vehicle_m163(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m163) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t1" cool(180) d(mid_usa_tank) cost(25))
+}
+
+; // 15DP M108 Self-Propelled Howitzer
 {"doctrine_vehicle_m108(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m108) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t1" cool(120) d(mid_usa_tank) cost(15))
 }
 
-; // 20DP M109 Self-Propelled Howitzer
+; // 25DP M109 Self-Propelled Howitzer
 {"doctrine_vehicle_m109(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m109) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t1" cool(180) d(mid_usa_tank) cost(25))
 }
 
-; // 30DP M110 Self-Propelled Howitzer
+; // 35DP M110 Self-Propelled Howitzer
 {"doctrine_vehicle_m110(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m110) crew(sup_tankman:5) cw(0) cp(0))
 	("doctrine_t1" cool(240) d(mid_usa_tank) cost(35))
 }
 
-; // 30DP M728 CEV
+; // 40DP M728 CEV
 {"doctrine_vehicle_m728(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m728) crew(acav_engineer:4) cw(0) cp(0))
 	("doctrine_t1" cool(120) d(mid_usa_tank) cost(40))
@@ -188,6 +194,12 @@
 ;       	DOCTRINE 3
 ;		ARTILLERY BRIGADE
 ;===================================
+
+; // 5DP M35 Artillery Ammo (to be replaced with 5-ton M54)
+{"doctrine_vehicle_m35_ammo(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(m35_arty) crew(sup_guncrew:2) cw(2) cp(0))
+	("doctrine_t1" cool(30) d(mid_usa_artillery) cost(10))
+}
 
 ; // 20DP Command Car
 {"doctrine_vehicle_command(usa)"
@@ -491,4 +503,9 @@
 {"m728"
 	("vehicle"  period(mid) cd(180) ci(180) side(usa) t(vehicle) crew(sup_tankman:4) cw(0) cp(7))
 	{cost 900}{not_for_player_sale 1}
+}
+
+{"m163"
+	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(vehicle light) crew(sup_tankman:4) cw(0) cp(6))
+	{cost 675}{not_for_player_sale 1}
 }

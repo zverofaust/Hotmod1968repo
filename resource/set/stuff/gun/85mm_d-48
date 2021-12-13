@@ -1,0 +1,29 @@
+;_________________________________________
+;  USSR long-barreled Medium AT gun
+;=========================================
+
+
+{from "pattern gun"			; L/52 "t3485"
+	{filling "bullet85_d48"}
+	{fireSound "gun/gun_75_105"}
+	{fireSoundclose "gun/gun_interior/size3"}
+	{reloadSound "interior/large/medium_reload_interior"}
+	("range_220")
+	{calibre 85}
+
+	("reload time" seconds(8))
+
+	("velocity m/s" ap(1040) apcr(1050) he(1010) heat(1))
+	("armor health" damage(250))
+	("armor health custom" shell(aphe) damage(250) filler(65))
+	("armor health custom" shell(aphebc) damage(250) filler(77))
+
+	; BR-365K
+	("shell_data_215" shell(aphe) range(220) a(148) b(126) c(106) d(90) e(77))  ;RHA
+
+	; BR-372
+	("shell_data_215" shell(aphebc) range(220) a(245) b(230) c(216) d(202) e(190))  ;RHA
+
+	; OF-372
+	("accuracy_direct_200m" r1(0.72) range_ap(220) range_he(220) range_heat(200))
+}

@@ -1,0 +1,24 @@
+;_________________________________________
+; ARTY - Russian medium howitzer
+;=========================================
+
+
+{from "pattern gun"			; "D-30 Towed Howitzer/2S1 Gvozdika"
+	{filling "bullet122_2a18"}
+	{fireSound "gun/gun_122_152_short"}
+	{fireSoundclose "gun/gun_122_152_short"}
+	{reloadSound "tank/reload_howitzer"}
+	("medium_artillery")
+	{calibre 122}
+	{range 390 390} ;11.8km
+
+	("reload time" seconds(16))
+
+	("velocity m/s" ap(1) apcr(1) he(220) heat(740)) ;// Real OF-462 HE 690m/s
+	("armor health" damage(350))
+
+	; BK-6M
+	("shell_data_165" shell(heat) range(190) a(460) b(460) c(460) d(460) e(460))
+
+	("accuracy_indirect_200m" r1(1.00) r2(8.5) range_ap(200) range_heat(190) range_he(390))
+}

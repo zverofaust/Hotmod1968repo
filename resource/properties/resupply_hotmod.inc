@@ -37,14 +37,14 @@
 	{item "rpg7"					"ammo" 1  {value 10}}
 	{item "rpg2"					"ammo" 1  {value 10}}
 
-;// Light weaponry
+;// Light weaponry -- For all man-portable (emplacement) heavy weapons
 	{item "mortarrus_82" "he"		"ammo" 1  {value 5}}
 	{item "mortarrus_82" "sm"		"ammo" 1  {value 5}}
-	{item "mortarrus_120" "he"		"ammo" 1  {value 5}}
-	{item "mortarrus_120" "sm"		"ammo" 1  {value 5}}
-	{item "mortarrus_120" "ic"		"ammo" 1  {value 5}}
-	{item "bulletrus_73"  "heat"	"ammo" 1 {value 5}} ;//SPG-9 ammo should be considered "light"
-	{item "bulletrus_73"  "he"		"ammo" 1 {value 5}}
+	{item "mortarrus_120" "he"		"ammo" 1  {value 10}}
+	{item "mortarrus_120" "sm"		"ammo" 1  {value 10}}
+	{item "mortarrus_120" "ic"		"ammo" 1  {value 10}}
+	{item "bullet73_2a28"  "heat"	"ammo" 1  {value 12}} 
+	{item "bullet73_2a28"  "he"		"ammo" 1  {value 8}}
 
 ;// Grenade
 	{item "grenade" "f1" 					1  {value 5}}
@@ -61,8 +61,10 @@
 
 ;// pistol
 	{item "m1911"					"ammo" 8 {value 1}}
+	
 ;// smg
 	{item "m3"						"ammo" 30 {value 2}}
+	
 ;// mg
 	{item "hmgun_usa"				"ammo" 50 {value 5}}
 	{item "mgun_usa" "belt"			"ammo" 50 {value 2}}
@@ -73,15 +75,20 @@
 	{item "m14"						"ammo" 20 {value 1}}
 	{item "m2_carbine"				"ammo" 15 {value 1}}
 	{item "m16"						"ammo" 20 {value 1}}
+	
 ;// AT
 	{item "bazooka"					"ammo" 1  {value 10}}
 	{item "m67"						"ammo" 1  {value 10}}
 	{item "gustav"					"ammo" 1  {value 10}}
-;// Light weaponry
-	{item "mortarusa_81" "he"		"ammo" 1  {value 5}}
-	{item "mortarusa_81" "sm"		"ammo" 1  {value 5}}
-	{item "mortarusa_107" "he"		"ammo" 1  {value 5}}
-	{item "mortarusa_107" "sm"		"ammo" 1  {value 5}}
+	{item "m20"						"ammo" 1  {value 10}}
+	
+;// Light weaponry -- For all man-portable (emplacement) heavy weapons
+	{item "mortarusa_81" 	"he"	"ammo" 1  {value 5}}
+	{item "mortarusa_81" 	"sm"	"ammo" 1  {value 5}}
+	{item "mortarusa_107" 	"he"	"ammo" 1  {value 7}}
+	{item "mortarusa_107"	"sm"	"ammo" 1  {value 7}}
+	{item "bullet106_m40" 	"heat"	"ammo" 1  {value 15}} 
+	{item "bullet106_m40"  	"he"	"ammo" 1  {value 10}}
 
 ;// Grenade
 	{item "40mm_grenade" "he"		 "ammo" 1  {value 5}}
@@ -106,6 +113,7 @@
 )
 
 (define "items_heavy_sov"
+	;// Vanilla items, minus artillery
 	{item "bullet_20_auto"		"aphe"		"ammo" 20 {value 5}}
 
 	{item "bulletrus_20_auto"	"ap"		"ammo" 20 {value 5}}
@@ -126,10 +134,7 @@
 	{item "bulletrus_57"		"aphebc"	"ammo" 1 {value 5}}
 	{item "bulletrus_57"		"apcr"		"ammo" 1 {value 10}}
 	{item "bulletrus_57"		"he"		"ammo" 1 {value 5}}
-	
-	{item "bulletrus_73"		"heat"		"ammo" 1 {value 5}}
-	{item "bulletrus_73"		"he"		"ammo" 1 {value 5}}
-	
+
 	{item "bulletrus_76"		"aphebc"	"ammo" 1 {value 5}}
 	{item "bulletrus_76"		"aphebc2"	"ammo" 1 {value 5}}
 	{item "bulletrus_76"		"apcr"		"ammo" 1 {value 10}}
@@ -141,28 +146,66 @@
 	{item "bulletrus_85"		"apcr"		"ammo" 1 {value 10}}
 	{item "bulletrus_85"		"he"		"ammo" 1 {value 5}}
 
-	{item "bulletrus_100"		"aphe"		"ammo" 1 {value 10}}
-	{item "bulletrus_100"		"aphebc"	"ammo" 1 {value 10}}
+	{item "bulletrus_100"		"aphe"		"ammo" 1 {value 5}}
+	{item "bulletrus_100"		"aphebc"	"ammo" 1 {value 5}}
 	{item "bulletrus_100"		"he"		"ammo" 1 {value 5}}
-	{item "bulletrus_100"		"heat"		"ammo" 1 {value 10}}
-	{item "bulletrus_100"		"apds"		"ammo" 1 {value 10}}
-	
-	{item "bulletrus_115"		"apds"		"ammo" 1 {value 10}}
-	{item "bulletrus_115"		"he"		"ammo" 1 {value 10}}
-	{item "bulletrus_115"		"heat"		"ammo" 1 {value 10}}
-	
-	{item "bulletrus_122_l22"	"he"		"ammo" 1 {value 10}}
-	{item "bulletrus_122_l22"	"heat"		"ammo" 1 {value 15}}
 
 	{item "bulletrus_122_l48"	"aphe"		"ammo" 1 {value 5}}
 	{item "bulletrus_122_l48"	"aphebc"	"ammo" 1 {value 5}}
 	{item "bulletrus_122_l48"	"he"		"ammo" 1 {value 5}}
-	{item "bulletrus_122_l48"	"apds"		"ammo" 1 {value 5}}
-	{item "bulletrus_122_l48"	"heat"		"ammo" 1 {value 5}}
 
-	{item "bulletrus_125"		"apds"		"ammo" 1 {value 10}}
-	{item "bulletrus_125"		"he"		"ammo" 1 {value 10}}
-	{item "bulletrus_125"		"heat"		"ammo" 1 {value 10}}
+	{item "bulletrus_125"		"ic"		"ammo" 1 {value 5}}
+
+	{item "bulletrus_130"		"aphe"		"ammo" 1 {value 10}}
+	{item "bulletrus_130"		"he"		"ammo" 1 {value 10}}
+
+	
+	;// Hotmod-added stuff
+	
+	{item "bullet23_zu23"		"ap"		"ammo" 50 {value 5}}
+	{item "bullet23_zu23"		"he"		"ammo" 50 {value 5}}
+	
+	{item "bullet73_2a28"		"heat"		"ammo" 1 {value 12}}
+	{item "bullet73_2a28"		"he"		"ammo" 1 {value 8}}
+	
+	{item "bullet76_d56"		"apcr"		"ammo" 1 {value 8}}
+	{item "bullet76_d56"		"heat"		"ammo" 1 {value 12}}
+	{item "bullet76_d56"		"he"		"ammo" 1 {value 5}}
+	
+	{item "bullet85_d48"		"aphe"		"ammo" 1 {value 8}}
+	{item "bullet85_d48"		"aphebc"	"ammo" 1 {value 12}}
+	{item "bullet85_d48"		"he"		"ammo" 1 {value 8}}
+	
+	{item "bullet100_d10"		"aphe"		"ammo" 1 {value 10}}
+	{item "bullet100_d10"		"aphebc"	"ammo" 1 {value 10}}
+	{item "bullet100_d10"		"he"		"ammo" 1 {value 5}}
+	{item "bullet100_d10"		"heat"		"ammo" 1 {value 10}}
+	{item "bullet100_d10"		"apds"		"ammo" 1 {value 10}}
+	
+	{item "bullet115_2a20"		"apds"		"ammo" 1 {value 15}}
+	{item "bullet115_2a20"		"he"		"ammo" 1 {value 10}}
+	{item "bullet115_2a20"		"heat"		"ammo" 1 {value 15}}
+	
+	{item "bullet122_d49"		"he"		"ammo" 1 {value 10}}
+	{item "bullet122_d49"		"aphe"		"ammo" 1 {value 10}}
+	{item "bullet122_d49"		"apds"		"ammo" 1 {value 15}}
+	{item "bullet122_d49"		"heat"		"ammo" 1 {value 20}}
+	
+	{item "bullet125_2a46"		"apds"		"ammo" 1 {value 15}}
+	{item "bullet125_2a46"		"he"		"ammo" 1 {value 10}}
+	{item "bullet125_2a46"		"heat"		"ammo" 1 {value 20}}
+	
+	;// ATGMs
+	
+	{item "3m11"				"atgm"		"ammo" 1 {value 20}}
+	{item "3m14"				"atgm"		"ammo" 1 {value 15}}
+	{item "3m7"					"atgm"		"ammo" 1 {value 20}}
+)
+
+(define "items_artillery_sov"
+	;// Vanilla Artillery
+	{item "bulletrus_122_l22"	"he"		"ammo" 1 {value 10}}
+	{item "bulletrus_122_l22"	"heat"		"ammo" 1 {value 15}}
 
 	{item "bulletrus_130"		"aphe"		"ammo" 1 {value 10}}
 	{item "bulletrus_130"		"he"		"ammo" 1 {value 10}}
@@ -178,34 +221,39 @@
 	{item "82mm_rs82"						"ammo" 1 {value 15}}
 	{item "132mm_bm13"						"ammo" 1 {value 20}}
 	{item "300mm_bm30"						"ammo" 1 {value 30}}
-	{item "122mm_2b5"						"ammo" 1 {value 30}}
 	
-	{item "bullet125"		"atgm"			"ammo" 1 {value 15}}
-	{item "bullet180"		"atgm"			"ammo" 1 {value 15}}
+	;// Hotmod Stuff
+	
+	{item "rocket122_9m22u"					"ammo" 1 {value 10}}
+	
+	{item "bullet122_2a18"		"he"		"ammo" 1 {value 10}}
+	{item "bullet122_2a18"		"heat"		"ammo" 1 {value 20}}
 )
 
 (define "items_heavy_usa"
 	{item "bullet75_usa"		"he"		"ammo" 1 {value 5}}
 	{item "bullet75_usa"		"heat"		"ammo" 1 {value 5}}
 	
-	{item "bulletusa_76"		"apcr"		"ammo" 1 {value 5}}
-	{item "bulletusa_76"		"ap"		"ammo" 1 {value 5}}
-	{item "bulletusa_76"		"he"		"ammo" 1 {value 5}}
-	{item "bulletusa_76"		"sm"		"ammo" 1 {value 5}}
-	{item "bulletusa_90"		"apcbche"	"ammo" 1 {value 5}}
-	{item "bulletusa_90"		"apcr"		"ammo" 1 {value 5}}
-	{item "bulletusa_90"		"heat"		"ammo" 1 {value 5}}
-	{item "bulletusa_90"		"he"		"ammo" 1 {value 5}}
-	{item "bulletusa_90"		"sm"		"ammo" 1 {value 5}}
+	{item "bullet76_m32"		"apcr"		"ammo" 1 {value 5}}
+	{item "bullet76_m32"		"ap"		"ammo" 1 {value 5}}
+	{item "bullet76_m32"		"he"		"ammo" 1 {value 5}}
+	{item "bullet76_m32"		"sm"		"ammo" 1 {value 5}}
 	
-	{item "bulletusa_105"		"heat"		"ammo" 1 {value 10}}
-	{item "bulletusa_105"		"he"		"ammo" 1 {value 5}}
-	{item "bulletusa_105"		"apds"		"ammo" 1 {value 10}}
+	{item "bullet90_m41"		"apcbche"	"ammo" 1 {value 5}}
+	{item "bullet90_m41"		"apcr"		"ammo" 1 {value 5}}
+	{item "bullet90_m41"		"heat"		"ammo" 1 {value 5}}
+	{item "bullet90_m41"		"he"		"ammo" 1 {value 5}}
+	{item "bullet90_m41"		"sm"		"ammo" 1 {value 5}}
 	
-	{item "bullet_106"			"he"		"ammo" 1 {value 5}}
-	{item "bullet_106"			"heat"		"ammo" 1 {value 10}}
-	{item "bullet_106"			"he"		"ammo" 1 {value 5}}
+	{item "bullet105_m68"		"heat"		"ammo" 1 {value 10}}
+	{item "bullet105_m68"		"he"		"ammo" 1 {value 5}}
+	{item "bullet105_m68"		"apds"		"ammo" 1 {value 10}}
 	
+	{item "bullet106_m40"		"he"		"ammo" 1 {value 10}}
+	{item "bullet106_m40"		"heat"		"ammo" 1 {value 15}}
+)
+
+(define "items_artillery_usa"
 	{item "bullet105_m1"		"he"		"ammo" 1 {value 5}}
 	{item "bullet105_m1"		"heat"		"ammo" 1 {value 5}}
 	{item "bullet105_m1"		"sm"		"ammo" 1 {value 5}}
@@ -214,8 +262,7 @@
 	
 	{item "bullet203_m1"		"he"		"ammo" 1 {value 20}}
 	
-	;{item "x279mm_m388"						"ammo" 1 {value 500}}
-	
+	;{item "x279mm_m388"					"ammo" 1 {value 500}}
 )
 
 (define "items_heavy_eng"
@@ -433,6 +480,26 @@
 		{resupplyPeriod 	2}			;// resupply period in seconds
 		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				1000}		;// max number of resupplies (0 = unlimited)
+	}
+	{DecalView supply_zone
+		{Sprite "supply_zone.ebm"
+			{Visibility 0.25}
+		}
+		{Layer grounddynamic}
+		{Visible 0}
+	}
+)
+
+(define "truck_ammo_artillery"
+	{extender "supply_zone"
+		{resupply
+			("items_artillery_sov")
+			("items_artillery_usa")
+		}
+		{radius 			12}			;// resupply radius in meter
+		{resupplyPeriod 	2}			;// resupply period in seconds
+		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{limit 				2000}		;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"
