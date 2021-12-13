@@ -276,7 +276,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "zsu-57-2"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "it-1"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "shilka"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "shilka"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-62a"},
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "t-64"},
 			--Tanks_heavy
@@ -313,6 +313,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m113_m40"},
 				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid", unit = "m125"},
 				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid", unit = "m106"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m163"},
 				{priority = 0.3, class = UnitClass.Tank, period = "mid", unit = "m132_zippo"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m41"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m42"},
