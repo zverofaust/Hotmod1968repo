@@ -319,7 +319,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m42"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m50"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m56"},
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a2"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m48_patton"},

@@ -15,37 +15,18 @@
 	{item "mgun_rus" "dp"			"ammo" 47 {value 2}}
 	{item "mgun_rus" "dt"			"ammo" 63 {value 2}}
 	{item "mgun_rus" "belt"			"ammo" 50 {value 2}}
-	{item "rpd_drum"				"ammo" 75 {value 2}}
-	{item "rpk_drum"				"ammo" 75 {value 2}}
-	{item "rpk_mag"					"ammo" 40 {value 2}}
-	{item "pk_box"					"ammo" 100 {value 2}}
-	{item "hmgun_rus_kpvt"			"ammo" 50 {value 2}}
 
 ;// rifle
 	{item "atrifle_rus"				"ammo" 5  {value 5}}
 	{item "rifle_rus" "clip"		"ammo" 10 {value 2}}
 	{item "rifle_rus" "svt"			"ammo" 10 {value 2}}
 	{item "shotgun"					"ammo" 10 {value 2}}
-	{item "akm"						"ammo" 30 {value 2}}
-	{item "sks"						"ammo" 10 {value 2}}
-	{item "svd"						"ammo" 10 {value 2}}
 	
 	;// AT
 	{item "dyakonov"				"ammo" 1  {value 5}}
 	{item "vpgs41"					"ammo" 1  {value 5}}
 	{item "bazooka"					"ammo" 1  {value 10}}
-	{item "rpg7"					"ammo" 1  {value 10}}
-	{item "rpg2"					"ammo" 1  {value 10}}
-
-;// Light weaponry -- For all man-portable (emplacement) heavy weapons
-	{item "mortarrus_82" "he"		"ammo" 1  {value 5}}
-	{item "mortarrus_82" "sm"		"ammo" 1  {value 5}}
-	{item "mortarrus_120" "he"		"ammo" 1  {value 10}}
-	{item "mortarrus_120" "sm"		"ammo" 1  {value 10}}
-	{item "mortarrus_120" "ic"		"ammo" 1  {value 10}}
-	{item "bullet73_2a28"  "heat"	"ammo" 1  {value 12}} 
-	{item "bullet73_2a28"  "he"		"ammo" 1  {value 8}}
-
+	
 ;// Grenade
 	{item "grenade" "f1" 					1  {value 5}}
 	{item "grenade" "rgd33" 				1  {value 5}}
@@ -55,6 +36,38 @@
 	{item "grenade" "molotov_cocktail"		1  {value 10}}
 
 	{item "grenade" "rdg1_smoke" 			1  {value 5}}
+	
+;// Hotmod -added
+
+;// Pistol
+
+;// MG
+	{item "rpd_drum"				"ammo" 75 {value 2}}
+	{item "rpk_drum"				"ammo" 75 {value 2}}
+	{item "rpk_mag"					"ammo" 40 {value 2}}
+	{item "pk_box"					"ammo" 100 {value 2}}
+	{item "hmgun_rus_kpvt"			"ammo" 50 {value 2}}
+	
+;// Rifle
+	{item "akm"						"ammo" 30 {value 2}}
+	{item "sks"						"ammo" 10 {value 2}}
+	{item "svd"						"ammo" 10 {value 2}}
+	
+;// AT
+	{item "rpg7"					"ammo" 1  {value 10}}
+	{item "rpg2"					"ammo" 1  {value 10}}
+	
+;// Grenade
+
+;// Light weaponry -- For all man-portable (emplacement) heavy weapons	
+	{item "mortarrus_82" "he"		"ammo" 1  {value 5}}
+	{item "mortarrus_82" "sm"		"ammo" 1  {value 5}}
+	{item "mortarrus_120" "he"		"ammo" 1  {value 10}}
+	{item "mortarrus_120" "sm"		"ammo" 1  {value 10}}
+	{item "mortarrus_120" "ic"		"ammo" 1  {value 10}}
+	{item "bullet73_2a28"  "heat"	"ammo" 1  {value 12}} 
+	{item "bullet73_2a28"  "he"		"ammo" 1  {value 8}}
+	{item "3m14"				"atgm"		"ammo" 1 {value 15}}
 )
 
 (define "items_light_usa"
@@ -89,6 +102,7 @@
 	{item "mortarusa_107"	"sm"	"ammo" 1  {value 7}}
 	{item "bullet106_m40" 	"heat"	"ammo" 1  {value 15}} 
 	{item "bullet106_m40"  	"he"	"ammo" 1  {value 10}}
+	{item "mgm32a"			"atgm"	"ammo" 1  {value 15}}
 
 ;// Grenade
 	{item "40mm_grenade" "he"		 "ammo" 1  {value 5}}
@@ -224,15 +238,24 @@
 	
 	;// Hotmod Stuff
 	
-	{item "rocket122_9m22u"					"ammo" 1 {value 10}}
-	
+	{item "rocket122_9m22u"					"ammo" 1 {value 10}}	
 	{item "bullet122_2a18"		"he"		"ammo" 1 {value 10}}
 	{item "bullet122_2a18"		"heat"		"ammo" 1 {value 20}}
 )
 
 (define "items_heavy_usa"
-	{item "bullet75_usa"		"he"		"ammo" 1 {value 5}}
-	{item "bullet75_usa"		"heat"		"ammo" 1 {value 5}}
+
+	{item "bullet20_hs820"		"he"		"ammo" 50 {value 5}}
+	{item "bullet20_hs820"		"ap"		"ammo" 50 {value 5}}
+	
+	{item "bullet20_m168"		"ic"		"ammo" 50 {value 5}}
+	{item "bullet20_m168"		"aphe"		"ammo" 50 {value 5}}
+	
+	{item "bullet40_bofors"		"he"		"ammo" 4 {value 5}}
+	{item "bullet40_bofors"		"ap"		"ammo" 4 {value 5}}
+	
+	{item "bullet75_m2"			"he"		"ammo" 1 {value 5}}
+	{item "bullet75_m2"			"heat"		"ammo" 1 {value 5}}
 	
 	{item "bullet76_m32"		"apcr"		"ammo" 1 {value 5}}
 	{item "bullet76_m32"		"ap"		"ammo" 1 {value 5}}
@@ -251,6 +274,10 @@
 	
 	{item "bullet106_m40"		"he"		"ammo" 1 {value 10}}
 	{item "bullet106_m40"		"heat"		"ammo" 1 {value 15}}
+	
+	;// ATGMs
+	{item "mgm32a"				"atgm"		"ammo" 1 {value 15}}
+	
 )
 
 (define "items_artillery_usa"
@@ -262,7 +289,7 @@
 	
 	{item "bullet203_m1"		"he"		"ammo" 1 {value 20}}
 	
-	;{item "x279mm_m388"					"ammo" 1 {value 500}}
+	;{item "x279mm_m388"					"ammo" 1 {value 500}} ;// resupply only possible by purchasing M388 reloads individually
 )
 
 (define "items_heavy_eng"

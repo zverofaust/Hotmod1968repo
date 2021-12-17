@@ -415,7 +415,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m40"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "m35_guntruck"},
 			--Tanks_light
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m113_m40"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m125"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m106"},
@@ -559,7 +559,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m40"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "m35_guntruck"},
 			--Tanks_light
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m113_m40"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m125"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m106"},
@@ -790,7 +790,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m40"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "m35_guntruck"},
 			--Tanks_light
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m113_m40"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m125"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m106"},
@@ -948,7 +948,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m40"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "m35_guntruck"},
 			--Tanks_light
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a2"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m113_m40"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m125"},
@@ -1197,7 +1197,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m40"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "m35_guntruck"},
 			--Tanks_light
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a2"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m113_m40"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m125"},
@@ -1366,7 +1366,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m40"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "m35_guntruck"},
 			--Tanks_light
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a2"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m41"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m42"},
@@ -1639,7 +1639,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m40"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "m35_guntruck"},
 			--Tanks_light
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m114a1"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m114a2"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m113_m40"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m125"},

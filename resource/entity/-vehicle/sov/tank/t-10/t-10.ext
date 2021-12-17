@@ -18,52 +18,52 @@
 	("transmission" args "transmission")
 	("tracks" repair(30) thickness(15))
 
-	{volume "body5"			; Upper Hull
-		{thickness 120}
-		{HighHardness}
-	}
-	{volume "body6"			; right cheek
-		{thickness 120}
-		{HighHardness}
-	}
-	{volume "body7"			; left cheek
-		{thickness 120}
-		{HighHardness}
-	}
+	;Armour tracking
+	;ID                side
+	;1                 front
+	;2                 top
+	;3                 left
+	;4                 right
+	;5                 rear
+	;6                 bottom
 	
 	{volume "body1"			; Upper Hull
 		{thickness 80
-			{front 60}		
+			{front 120}
 			{top 30}
-			{rear 60}
+			{rear 50}
 			{bottom 0}
 		}
 		{HighHardness}
 	}
 	{volume "body2"			; Lower Hull
-		{thickness 80
-			{front 60}		
-			{top 6}
+		{thickness 60
+			{front 120}		
+			{top 0}
 			{rear 60}
 			{bottom 30}
 		}
 		{HighHardness}
 	}
-	{volume "body3"			; Upper Hull Side
-		{thickness 80
+	{volume "body3"			; Upper Hull Right
+		{thickness 
 			{front 120}		
 			{top 30}
-			{rear 60}
-			{bottom 30}
+			{rear 50}
+			{bottom 80}
+			{left 0}
+			{right 120}
 		}
 		{HighHardness}
 	}
-	{volume "body4"			; Upper Hull Side
-		{thickness 80
-			{front 80}		
+	{volume "body3"			; Upper Hull left
+		{thickness 
+			{front 120}		
 			{top 30}
-			{rear 60}
-			{bottom 30}
+			{rear 50}
+			{bottom 80}
+			{left 120}
+			{right 0}
 		}
 		{HighHardness}
 	}
