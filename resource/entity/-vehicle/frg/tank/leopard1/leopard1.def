@@ -2,7 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm"}
+	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "smoke" "nwg"}
 	(include "leopard1.ext")
 	{targetclass "tank_heavy"}
 	{targetSelector "tank_heavy"}
@@ -15,12 +15,18 @@
 	;Crew 4: Commander, Gunner, Loader, Driver
 	("crew_4_human")
 
+	{extender "smokescreen"
+		{cooldown 20}
+		{itemTags "grenade nbk39"}
+	}
+	
 	{extender "inventory"
 		{box
 			{item "ammo bullet105_m68 heat" 20}
 			{item "ammo bullet105_m68 apds" 18}
 			{item "ammo bullet105_m68 he" 25}
-			{item "ammo mgun_usa belt" 3000}
+			{item "ammo mgun_ger belt" 3000}
+			{item "nbk39 grenade" 1}
 		}
 	}
 	{Weaponry
@@ -37,7 +43,7 @@
 		}
 		{place "mgun2"		;coax
 			{type "coaxial"}
-			{weapon			"browning_m19a4" filled}
+			{weapon			"mg42_tank" filled}
 			{foresight		"foresight5"}
 			{gunner "gunner"}
 			{charger "gunner"}
