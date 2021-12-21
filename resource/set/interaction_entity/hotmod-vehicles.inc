@@ -338,11 +338,6 @@
 	("gaz_sound")
 }
 
-
-
-
-
-
 {"mil_mi4 helicopter"
 	{on "add_movement_sound" overload
 		{link_sound "fly"			"vehicle/airborne/helicopter/helicopter_work2" 	}
@@ -759,6 +754,14 @@
 
 {"m48g"
 	("pz6_sound")
+}
+
+{"m48a2c"
+	("pz6b_sound")
+}
+
+{"leopard1"
+	("pz6b_sound")
 }
 
 {"m41g"
