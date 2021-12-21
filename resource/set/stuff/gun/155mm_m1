@@ -5,13 +5,19 @@
 	{reloadSound "tank/reload_howitzer"}
 	("heavy_artillery")
 	{calibre 155}
-	{range 450 450} ;13.3km
+	{range 500 500}
 
 	("reload time" seconds(25))
 
 	("velocity m/s" ap(1) apcr(1) he(220) heat(460))
 	("armor health" damage(450))
 
-
-	("accuracy_indirect_200m" r1(0.95) r2(8.25) range_ap(200) range_heat(200) range_he(450))
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(0.95) 				; // Accuracy radius for direct-fire munitions
+		r2(8) 					; // Accuracy radius for indirect fire
+		rmax(28) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(200) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(200) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(500)			; // Range after which accuracy drops to prevent farshooting.
+	)
 }

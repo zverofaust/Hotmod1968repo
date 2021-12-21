@@ -1,5 +1,4 @@
 {from "pattern gun"			; M115
-	{tag "agf howitzer"}
 	{filling "bullet203_m1"}
 	{fireSound "gun/gun_203_210"}
 	{fireSoundclose "gun/gun_203_210"}
@@ -8,9 +7,16 @@
 	{calibre 203}
 	{range 400 400} ;18km
 
-	("reload time" seconds(60))
+	("reload time" seconds(75))
 
 	("velocity" mps(260)); temp
 
-	("accuracy_indirect_200m" r1(0.95) r2(7.5) range_ap(210) range_heat(210) range_he(400))
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(1.50) 				; // Accuracy radius for direct-fire munitions
+		r2(12) 					; // Accuracy radius for indirect fire
+		rmax(45) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(210) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(210) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(400)			; // Range after which accuracy drops to prevent farshooting.
+	)
 }

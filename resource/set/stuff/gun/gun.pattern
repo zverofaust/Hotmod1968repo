@@ -7,25 +7,25 @@
 		{size 4 2}
 		{weight 1000}
 	}
-	{mass 1000}										;//
-	{foresight "Foresight1"}						;// bone for muzzleflash fx
-	{aimRange 15}									;// Maximum fire range for AI. Expressed as {range 15 25} equals the same thing.
-	{maxRange 25}									;//	Maximum fire range for player in direct control.
-	{spreading 1 {SpreadPower 2}}
-	("reload time" seconds(5))								;// Shell reload or full magazine reload in autoloaders 
-	("velocity m/s" ap(100) apcr(100) he(100) heat(100))	;// Muzzle velocity in m/s
+	{mass 1000}										
+	{foresight "Foresight1"}							;// bone for muzzleflash fx
+	{aimRange 15}										;// Maximum fire range for AI. Expressed as {range 15 25} equals the same thing.
+	{maxRange 25}										;//	Maximum fire range for player in direct control.
+	{spreading 1 {SpreadPower 1}}                 	    ;//	Skews the distribution of shells more biased toward the centre (>1) or away (<1)
+	("reload time" seconds(5))							;// Shell reload or full magazine reload in autoloaders 
+	("velocity m/s" ap(100) apcr(100) he(100) heat(100));// Muzzle velocity in m/s
 	{aimingTolerance 0.5}								;// Measure in degrees of IK error when AI is allowed to shoot
-	{projectileDamageThreshold 1}					;// Damages lower than armor * threshold are ignored
-	("human health" damage(2500))					;// Damage to human health
-	{LockFireDistanceTime 0}						;// Time that AIM is allowed to be out of range for before firing is disabled
+	{projectileDamageThreshold 1}						;// Damages lower than armor * threshold are ignored
+	("human health" damage(2500))						;// Damage to human health
+	{LockFireDistanceTime 0}							;// Time that AIM is allowed to be out of range for before firing is disabled
 
-	{cursor "ironsights/tank2"}						;// rts cursor
-	{cursorReloading "carbine_reload"}				;// rts reload cursor
+	{cursor "ironsights/tank2"}							;// rts cursor
+	{cursorReloading "carbine_reload"}					;// rts reload cursor
 
-	{crosshair "crosshair_tank"}					;// third person crosshair
-	{crosshairReloading "crosshair_tank_reload"}	;// third person reload crosshair. 
+	{crosshair "crosshair_tank"}						;// third person crosshair
+	{crosshairReloading "crosshair_tank_reload"}		;// third person reload crosshair. 
 
-	{SyncedProjectiles 1} 							;// visually syncs decal/crater spawn in multiplayer
+	{SyncedProjectiles 1} 								;// visually syncs decal/crater spawn in multiplayer
 
 	{toplayerVignette ""}
 
@@ -98,6 +98,7 @@
 	}
 	{parameters "he"
 		{cursorReloading "gun_he"}
+		(mod "mp" {unlimitedRangeTPC 0})	;// restrict range in TPC/FPC in multiplayer only
 	}
 	{parameters "sm"
 		{cursorReloading "gun_sm"}
@@ -108,25 +109,30 @@
 	{parameters "heat"
 		{cursorReloading "gun_heat"}
 		("heat_slope_multiplier")
+		(mod "mp" {unlimitedRangeTPC 0})	;// restrict range in TPC/FPC in multiplayer only
 	}
 	{parameters "heata"
 		{cursorReloading "gun_heat"}
 		("heat_slope_multiplier")
+		(mod "mp" {unlimitedRangeTPC 0})	;// restrict range in TPC/FPC in multiplayer only
 	}
 	{parameters "heatb"
 		{cursorReloading "gun_heat"}
 		("heat_slope_multiplier")
+		(mod "mp" {unlimitedRangeTPC 0})	;// restrict range in TPC/FPC in multiplayer only
 	}
 	{parameters "heatc"
 		{cursorReloading "gun_heat"}
 		("heat_slope_multiplier")
-	}
-	{parameters "ic"
-		{cursorReloading "gun_ic"}
+		(mod "mp" {unlimitedRangeTPC 0})	;// restrict range in TPC/FPC in multiplayer only
 	}
 	{parameters "atgm"
 		{cursorReloading "gun_heat"}
 		("heat_slope_multiplier")
+		(mod "mp" {unlimitedRangeTPC 0})	;// restrict range in TPC/FPC in multiplayer only
+	}
+	{parameters "ic"
+		{cursorReloading "gun_ic"}
 	}
 
 	{OvermatchDamping							; [??] (angle - damping)

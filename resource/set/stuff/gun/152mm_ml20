@@ -4,21 +4,20 @@
 
 
 {from "pattern gun"			; L/29 "152mm_ml20"
-	{tag "agf howitzer"}
 	{filling "bulletrus_152"}
 	{fireSound "gun/gun_122_152"}
 	{fireSoundclose "gun/gun_122_152"}
 	{reloadSound "tank/reload_howitzer"}
 	("heavy_artillery")
 	{calibre 152}
-	{range 580 580} ;17.2km
+	{range 580 580} ; // 17.2km
 
-	("reload time" seconds(25))
+	("reload time" seconds(30))
 
-	("velocity m/s" ap(600) apcr(1) he(240) heat(1)) 		; historical velocity (600)(1)(600)(1)
+	("velocity m/s" ap(600) apcr(1) he(250) heat(1)) 		; // historical velocity (600)(1)(600)(1)
 	("armor health" damage(450))
-	("armor health custom_400" shell(aphe) damage(450) filler(660))
-	("armor health custom_400" shell(aphebc) damage(450) filler(480))
+	("armor health custom" shell(aphe) damage(450) filler(660))
+	("armor health custom" shell(aphebc) damage(450) filler(480))
 
 	; BR-540
 	("shell_data_165" shell(aphe) range(210) a(165) b(152) c(137) d(124) e(111))  ;RHA
@@ -27,6 +26,13 @@
 	; BR-540B ;issued July. 1944 or possible earlier
 	("shell_data_165" shell(aphebc) range(210) a(135) b(128) c(119) d(114) e(110))  ;RHA
  ;//("shell_data_165" shell(aphebc) range(210) a(148) b(142) c(135) d(128) e(122))  ;FHA
-
-	("accuracy_indirect_200m" r1(0.95) r2(8.25) range_ap(210) range_heat(210) range_he(580))
+	
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(0.95) 				; // Accuracy radius for direct-fire munitions
+		r2(8) 					; // Accuracy radius for indirect fire
+		rmax(45) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(210) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(210) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(580)			; // Range after which accuracy drops to prevent farshooting.
+	)
 }
