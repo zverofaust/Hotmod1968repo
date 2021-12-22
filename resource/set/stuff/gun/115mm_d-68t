@@ -1,26 +1,8 @@
-;_________________________________________
-; USSR heavy long-barreled AT Gun
-;=========================================
-
-
-{from "pattern gun"			; L/52.6 "T-64"
-	{filling "bulletrus_115"}
+{from "115mm_2a20"				; L/52.6 "T-64"
 	{fireSound "gun/gun_115"}
-	{fireSoundclose "interior/large/big_reload_interior"}
-	{reloadSound "tank/reload_big"}
-	("range_300")
-	{calibre 115}
-
 	("reload time" seconds(6))
-
-	("velocity m/s" ap(887) apcr(1615) he(905) heat(950))
-	("armor health" damage(300))
-
 	; 3BM5
 	("shell_data_215" shell(apds) range(300) a(350) b(322) c(300) d(283) e(270))  ;RHA
- 
-	; 3BK4
-	("shell_data_215" shell(heat) range(280) a(440) b(440) c(440) d(440) e(440))
-
+	
 	("accuracy_direct" r1(0.4) range_ap(300) range_he(250) range_heat(280))
 }
