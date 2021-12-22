@@ -58,7 +58,10 @@
 	{item "rpg2"					"ammo" 1  {value 10}}
 	
 ;// Grenade
-
+	
+	{item "grenade" "rgd5" 					1  {value 5}}
+	{item "grenade" "rdgm_smoke" 			1  {value 5}}
+	
 ;// Light weaponry -- For all man-portable (emplacement) heavy weapons	
 	{item "mortarrus_82" "he"		"ammo" 1  {value 5}}
 	{item "mortarrus_82" "sm"		"ammo" 1  {value 5}}
@@ -106,6 +109,8 @@
 
 ;// Grenade
 	{item "40mm_grenade" "he"		 "ammo" 1  {value 5}}
+	{item "grenade" "m67" 					1  {value 5}}
+	{item "grenade" "anm8_smoke" 			1  {value 5}}
 )
 
 (define "items_light_generic"
@@ -212,7 +217,7 @@
 	;// ATGMs
 	
 	{item "3m11"				"atgm"		"ammo" 1 {value 20}}
-	{item "3m14"				"atgm"		"ammo" 1 {value 15}}
+	{item "9m14"				"atgm"		"ammo" 1 {value 15}}
 	{item "3m7"					"atgm"		"ammo" 1 {value 20}}
 )
 
@@ -220,9 +225,6 @@
 	;// Vanilla Artillery
 	{item "bulletrus_122_l22"	"he"		"ammo" 1 {value 10}}
 	{item "bulletrus_122_l22"	"heat"		"ammo" 1 {value 15}}
-
-	{item "bulletrus_130"		"aphe"		"ammo" 1 {value 10}}
-	{item "bulletrus_130"		"he"		"ammo" 1 {value 10}}
 
 	{item "bulletrus_152"		"aphe"		"ammo" 1 {value 20}}
 	{item "bulletrus_152"		"aphebc"	"ammo" 1 {value 20}}
@@ -274,6 +276,12 @@
 	
 	{item "bullet106_m40"		"he"		"ammo" 1 {value 10}}
 	{item "bullet106_m40"		"heat"		"ammo" 1 {value 15}}
+	
+	{item "bullet120_m58"		"he"		"ammo" 1 {value 8}}
+	{item "bullet120_m58"		"ap"		"ammo" 1 {value 12}}
+	{item "bullet120_m58"		"heat"		"ammo" 1 {value 16}}
+	
+	{item "bullet165_l9"		"he"		"ammo" 1 {value 20}}
 	
 	;// ATGMs
 	{item "mgm32a"				"atgm"		"ammo" 1 {value 15}}

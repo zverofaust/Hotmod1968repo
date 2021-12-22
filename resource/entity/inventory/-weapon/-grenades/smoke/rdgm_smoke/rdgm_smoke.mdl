@@ -1,100 +1,61 @@
-;Exported by: Артем
-;Date:        Thu Feb 26 14:20:20 2015
-;File:        D:\Autodesk\Low poly\freelance\DMS 2.0\Weapons\Grenades & stuff\rdg-m\rdg-m+.max
-{Skeleton
-	{bone "rdg"
-		{parameters "ID=mgun;"}
-		{Orientation
-			1	0	0
-			0	-1	0
-			0	0	1
+{skeleton
+	{bone "rdgm"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
 		}
-		{LODView
-			{VolumeView "rdg.ply"}
-			{VolumeView "rdg_lod1.ply"}
-		}
+		{VolumeView "rdgm.ply"}
 		{bone "handle"
-			{Position -1.24849	0.202468	0.810519}
+			{matrix34
+				0.0994 	 0.0561 	 -0.9935
+				0.993 	 -0.0691 	 0.0955
+				-0.0633 	 -0.996 	 -0.0626
+				0.1935 	 0.0092 	 -0.1309
+			}
 		}
 	}
 }
-{Volume "body"
-	{Cylinder 0.586145 3.24733}
-	{Bone "rdg"}
-	{Matrix34
-		1	0	0
-		0	0	1
-		0	-1	0
-		-0.021362	0.332168	0.551819
+{volume "body"
+	{cylinder 0.638105 1.83038}
+	{bone "rdgm"}
+	{matrix34
+		0 	 0 	 -1
+		-0.0006 	 1 	 0
+		1 	 0.0006 	 0
+		0.1105 	 0.0098 	 0.0076
 	}
 }
-{Volume "select"
-	{Box 5.06684 5.70816 2.59872}
-	{Bone "rdg"}
-	{Position -0.104112	0.696473	0.805511}
-}
-{Volume "smoke1"
-	{box 75 75 75}
-	{Bone "rdg"}
-	{Matrix34
-		-1	0	0
-		0	0	-1
-		0	-1	0
-		0.00861867	0.175069	0.00596238
+{volume "select"
+	{cylinder 1.09653 3.46318}
+	{bone "rdgm"}
+	{matrix34
+		0 	 0 	 -1
+		-0.0012 	 1 	 0
+		1 	 0.0012 	 0
+		0.2793 	 0.0114 	 0.0066
 	}
 }
-{Volume "smoke2"
-	{box 150 150 150}
-	{Bone "rdg"}
-	{Matrix34
-		-1	0	0
-		0	0	-1
-		0	-1	0
-		0.00861867	0.175069	0.00596238
-	}
-}
-{Extender "preview"
-	{"Stuff_secondary"
+{extender "preview"
+	{"stuff"
 		{camera
-			{origin 7.5337	-0.834427	9.27927}
-			{lookat -0.0740688	-0.317122	0.563207}
-			{fov 22.6199}
-			{horizon 49.5}
+			{origin -2.1339 	 7.7332 	 14.652}
+			{lookat 0.3578 	 -0.0587 	 -0.1402}
+			{fov 11.6109}
+			{horizon 167.136}
 		}
 		{lights
 			{"0"
-				{type directional}
-				{direction 0.319307	-0.327263	0.202341}
+				{type point}
+				{position 0.9598 	 2.2385 	 -1.0671}
 			}
 			{"1"
 				{type directional}
-				{direction -0.024714	0.311714	-0.390158}
+				{direction 0.2294 	 -0.1302 	 -0.4248}
 			}
 			{"2"
-				{type directional}
-				{direction -0.43337	-0.21998	0.117469}
-			}
-		}
-	}
-	{"Stuff"
-		{camera
-			{origin 10.1531	-0.385444	9.84583}
-			{lookat -0.0426929	-0.390998	0.532112}
-			{fov 15.1893}
-			{horizon -0.0989117}
-		}
-		{lights
-			{"0"
-				{type directional}
-				{direction 0.0792154	0.480808	-0.112023}
-			}
-			{"1"
-				{type directional}
-				{direction -0.444265	-0.228308	-0.0224553}
-			}
-			{"2"
-				{type directional}
-				{direction 0.249252	-0.00299486	-0.433433}
+				{type point}
+				{position 0.3001 	 -3.0819 	 1.8238}
 			}
 		}
 	}
