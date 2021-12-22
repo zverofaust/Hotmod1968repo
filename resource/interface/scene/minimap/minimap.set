@@ -1,0 +1,197 @@
+{minimap
+	(define "scale"
+		{scale (* 1.25 %s)}
+	)
+	{settings
+		{max_tracers		100	}
+		{tracer_length		0.9	} ; 0.9
+		{rotation_speed		2	}
+		{padding			0	}; 10
+		{margin				10	}; 10
+	}
+	{colors
+		{neutral			0xffffffff}
+		{self				0xff5691FF}
+		{ally				0xff54C600}
+		{coop_ally			0xff00D3B7}
+		{enemy				0xffD9412B}
+		{selected			0xffffffff}
+		{friendly_tracer	0xffffaa00}
+		{enemy_tracer		0xffff5e00}
+	}
+	{frequencies ; flashing speed of certain minimap entities
+		{flag_capturing 2}
+		{flag_losing 2}
+		{selected_units 1}
+	}
+	{view "cannon"
+		("scale" s(0.70))
+		{props "cannon_small"}
+	}
+	{view "cannon"
+		("scale" s(0.85))
+		{props "cannon"}
+	}
+	{view "emplacement"
+		("scale" s(0.85))
+		{props "cannon_small"}
+	}	
+	{view "cannon"
+		("scale" s(0.85))
+		{props "cannon"}
+	}
+	{view "apc"
+		("scale" s(0.85))
+		{props "apc"}
+	}
+	{view "ifv"
+		("scale" s(1))
+		{props "ifv"}
+	}
+	{view "supply"
+		("scale" s(0.85))
+		{props "supply"}
+	}
+	{view "vehicle"
+		("scale" s(0.85))
+		{props "truck"}
+	}
+	{view "vehicle"
+		("scale" s(0.7))
+		{props "moto"}
+	}
+	{view "tank_spg"
+		("scale" s(1))
+		{props "spg"}
+	}
+	{view "tank_td"
+		("scale" s(1))
+		{props "td"}
+	}
+	{view "tank_l"
+		("scale" s(1))
+		{props "light"}
+	}
+	{view "tank_m"
+		("scale" s(1))
+		{props "medium"}
+	}
+	{view "tank_h"
+		("scale" s(1))
+		{props "heavy"}
+	}
+	{view "vehicle"
+		("scale" s(0.7))
+		{props "vehicle"}
+	}
+	{view "bleeding_human"
+		("scale" s(0.40))
+		{tags "bleeding"}
+	}
+	{view "human"
+		("scale" s(0.55))
+		{props "human"}
+	}
+	{view "point"
+		{tags "pointer"}
+	}
+	{view "point"
+		{tags "pointer_attack"}
+		{color 0xffff4046}
+	}
+	{view "point"
+		{tags "pointer_defend"}
+		{color 0xff4083ff}
+	}
+	{view "point"
+		{tags "pointer_enemy"}
+		{color 0xff262626}
+	}
+	{view "point"
+		{tags "pointer_going"}
+		{color 0xffffffff}
+	}
+	{view "point"
+		{tags "pointer_watchout"}
+		{color 0xffffd640}
+	}
+	{view "point"
+		{tags "pointer_help"}
+		{color 0xff52ff40}
+	}
+	{view "point"
+		("scale" s(1.0))
+		{tags "user_guide"}
+		{color 0xffff0000}
+	}
+	{view "flag_slave"
+		("scale" s(0.65))
+		{props "flag_slave"}
+	}
+	{view "fortification"
+		("scale" s(0.25))
+		{props "fortification"}
+	}
+	{view "mappoint"
+		("scale" s(0.75))
+		{props "flag"}
+	}
+	{view "waypoint"
+		{tags "waypoint"}
+		("scale" s(0.3))
+	}
+	{view "empty"
+		{tags "do_not_show_on_minimap"}
+		("scale" s(0.4))
+	}
+	{view "spawn_a"
+		("scale" s(0.7))
+		{props "spawn_team_a"}
+		{color 0xffff0000}
+	}
+	{view "spawn_b"
+		("scale" s(0.7))
+		{props "spawn_team_b"}
+		{color 0xffff0000}
+	}
+	{view "arrow_straight"
+		("scale" s(0.5))
+		{props "arrow_enemy_straight"}
+		{color 0xffff0000}
+	}
+	{view "arrow_straight"
+		("scale" s(0.5))
+		{props "arrow_friendly_straight"}
+		{color 0xff00ff00}
+	}
+	{view "quest"
+		("scale" s(0.7))
+		{props "quest"}
+		{color 0xffff0000}
+	}
+	{view "crosshair"
+		{props "crosshair"}
+		("scale" s(0.6))
+		{color 0xffff0000}
+	}
+	{view "arrow_attack"
+		{props "arrow_enemy"}
+		("scale" s(0.4))
+		{color 0xffD9412B}
+	}	
+	{view "arrow_attack"
+		{props "arrow_friendly"}
+		("scale" s(0.4))
+		{color 0xff54C600}
+	}	
+	{view "artillery_warning"
+		{props "artillery_minimap_signal_heavy"}
+		("scale" s(0.80))
+		;{color 0xffff0000}
+	}
+	{view "artillery_warning"
+		{props "artillery_minimap_signal_medium"}
+		("scale" s(0.50))
+		;{color 0xffff0000}
+	}
+}
