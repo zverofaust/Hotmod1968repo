@@ -70,7 +70,7 @@
 	{item "mortarrus_120" "ic"		"ammo" 1  {value 10}}
 	{item "bullet73_2a28"  "heat"	"ammo" 1  {value 12}} 
 	{item "bullet73_2a28"  "he"		"ammo" 1  {value 8}}
-	{item "3m14"				"atgm"		"ammo" 1 {value 15}}
+	{item "9m14"			"atgm"		"ammo" 1 {value 15}}
 )
 
 (define "items_light_usa"
