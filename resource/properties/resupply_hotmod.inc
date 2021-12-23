@@ -374,6 +374,8 @@
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_artillery_sov")
+			("items_artillery_usa")
 		}
 		{radius 			10}		;// resupply radius in meter
 		{resupplyPeriod 	2}		;// resupply period in seconds

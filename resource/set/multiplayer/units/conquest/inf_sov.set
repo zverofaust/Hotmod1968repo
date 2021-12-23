@@ -15,7 +15,7 @@
 	{cw 2}
 	{score_factor 0.2}
 )
-{"mp/sov/mid/sup_radioman"			("sov_radioman" side(sov)) {cost 200.0}}
+{"mp/sov/mid/reg_radioman"			("sov_radioman" side(sov)) {cost 200.0}}
 
 (define "sov_tankman"
 	{tags "mid %side infantry man"}
@@ -25,11 +25,10 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/sov/mid/mg_crew"				("sov_tankman" side(sov)) {cost 5.0}} ; SKS
-{"mp/sov/mid/artilleryman"			("sov_tankman" side(sov)) {cost 5.0}} ; SKS
-{"mp/sov/mid/supporter"				("sov_tankman" side(sov)) {cost 5.0}} ; SKS
-{"mp/sov/mid/tankman"				("sov_tankman" side(sov)) {cost 4.0}} ; Pistol
-{"mp/sov/mid/vehicleman"			("sov_tankman" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
+{"mp/sov/mid/sup_guncrew"			("sov_tankman" side(sov)) {cost 5.0}} ; Makarov Pistol
+{"mp/sov/mid/sup_supporter"			("sov_tankman" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/mid/sup_tankman"				("sov_tankman" side(sov)) {cost 4.0}} ; Pistol
+{"mp/sov/mid/sup_vehicleman"			("sov_tankman" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
 
 (define "sov_basic"
 	{tags "mid %side infantry man lvl1"}
@@ -39,10 +38,10 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/sov/mid/conscript_rifle"		("sov_basic" side(sov)) {cost 5.0}} ; SKS
-{"mp/sov/mid/conscript_mgun"		("sov_basic" side(sov)) {cost 30.0}} ; RPD
-{"mp/sov/mid/conscript_at"			("sov_basic" side(sov)) {cost 20.0}} ; SKS & RPG-43
-{"mp/sov/mid/conscript_nco"			("sov_basic" side(sov)) {cost 15.0}} ; AKM
+{"mp/sov/mid/con_rifleman"		("sov_basic" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/mid/con_mg"		("sov_basic" side(sov)) {cost 30.0}} ; RPD
+{"mp/sov/mid/con_antitank"			("sov_basic" side(sov)) {cost 20.0}} ; SKS & RPG-43
+{"mp/sov/mid/con_squadlead"			("sov_basic" side(sov)) {cost 15.0}} ; AKM
 
 
 (define "sov_regular"
@@ -53,15 +52,16 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/sov/mid/antitank_2"			("sov_regular" side(sov)) {cost 15.0}} ; AKM & RPG-7 Ammo
-{"mp/sov/mid/antitank_4"			("sov_regular" side(sov)) {cost 15.0}} ; AKM & RPG-2 Ammo
-{"mp/sov/mid/mgun_1"				("sov_regular" side(sov)) {cost 35.0}} ; RPK
-{"mp/sov/mid/mgun_2"				("sov_regular" side(sov)) {cost 15.0}} ; AKM
-{"mp/sov/mid/mgun_3"				("sov_regular" side(sov)) {cost 45.0}} ; PK
-{"mp/sov/mid/mgun_4"				("sov_regular" side(sov)) {cost 15.0}} ; AKM
-{"mp/sov/mid/rifleman_2"			("sov_regular" side(sov)) {cost 12.0}} ; AKM
-{"mp/sov/mid/senior"				("sov_regular" side(sov)) {cost 16.0}} ; AKM
-{"mp/sov/mid/nco"					("sov_regular" side(sov)) {cost 25.0}} ; AKM
+{"mp/sov/mid/reg_antitank3"			("sov_regular" side(sov)) {cost 15.0}} ; AKM & RPG-43 Grenades
+{"mp/sov/mid/reg_atassist"			("sov_regular" side(sov)) {cost 15.0}} ; AKM & RPG-7 Ammo
+{"mp/sov/mid/reg_atassist2"			("sov_regular" side(sov)) {cost 15.0}} ; AKM & RPG-2 Ammo
+{"mp/sov/mid/reg_lmg"				("sov_regular" side(sov)) {cost 35.0}} ; RPK
+{"mp/sov/mid/reg_lmgassist"				("sov_regular" side(sov)) {cost 15.0}} ; AKM
+{"mp/sov/mid/reg_mg"				("sov_regular" side(sov)) {cost 45.0}} ; PK
+{"mp/sov/mid/reg_mgassist"				("sov_regular" side(sov)) {cost 15.0}} ; AKM
+{"mp/sov/mid/reg_rifleman"			("sov_regular" side(sov)) {cost 12.0}} ; AKM
+{"mp/sov/mid/reg_senior"				("sov_regular" side(sov)) {cost 16.0}} ; AKM
+{"mp/sov/mid/reg_squadlead"					("sov_regular" side(sov)) {cost 25.0}} ; AKM
 
 (define "sov_regular_advanced"
 	{tags "mid %side infantry man lvl2"}
@@ -72,11 +72,11 @@
 	{score_factor 0.05}
 )
 
-{"mp/sov/mid/antitank_1"			("sov_regular" side(sov)) {cost 50.0}} ; AKMS & RPG-7
-{"mp/sov/mid/antitank_3"			("sov_regular" side(sov)) {cost 40.0}} ; AKMS & RPG-2
-{"mp/sov/mid/rifleman_4"			("sov_regular" side(sov)) {cost 50.0}} ; SVD
-{"mp/sov/mid/flamer"				("sov_regular" side(sov)) {cost 50.0}} ; RKO
-{"mp/sov/mid/engineer_1"			("sov_regular" side(sov)) {cost 12.0}} ; SKS
+{"mp/sov/mid/reg_antitank"			("sov_regular" side(sov)) {cost 50.0}} ; AKMS & RPG-7
+{"mp/sov/mid/reg_antitank2"			("sov_regular" side(sov)) {cost 40.0}} ; AKMS & RPG-2
+{"mp/sov/mid/reg_marksman"			("sov_regular" side(sov)) {cost 50.0}} ; SVD
+{"mp/sov/mid/reg_flamer"				("sov_regular" side(sov)) {cost 50.0}} ; RKO
+{"mp/sov/mid/reg_engineer"			("sov_regular" side(sov)) {cost 12.0}} ; SKS
 
 (define "sov_vdv"
 	{tags "mid %side infantry man lvl2 lvl3"}
@@ -92,7 +92,7 @@
 {"mp/sov/mid/vdv_lightmg"			("sov_vdv" side(sov)) {cost 50.0}} ; PK
 {"mp/sov/mid/vdv_lightmgassist"		("sov_vdv" side(sov)) {cost 20.0}} ; AKM
 {"mp/sov/mid/vdv_rifleman"			("sov_vdv" side(sov)) {cost 17.0}} ; AKM
-{"mp/sov/mid/vdv_senior"			("sov_vdv" side(sov)) {cost 22.0}} ; AKM
+{"mp/sov/mid/vdv_reg_senior"			("sov_vdv" side(sov)) {cost 22.0}} ; AKM
 {"mp/sov/mid/vdv_squadlead"			("sov_vdv" side(sov)) {cost 30.0}} ; AKM
 {"mp/sov/mid/vdv_vehicleman"		("sov_vdv" side(sov)) {cost 15.0}} ; AKMS
 
@@ -110,7 +110,7 @@
 {"mp/sov/mid/grd_mg"				("sov_guards" side(sov)) {cost 50.0}} ; PK
 {"mp/sov/mid/grd_mgassist"			("sov_guards" side(sov)) {cost 20.0}} ; AKM
 {"mp/sov/mid/grd_rifleman"			("sov_guards" side(sov)) {cost 17.0}} ; AKM
-{"mp/sov/mid/grd_senior"			("sov_guards" side(sov)) {cost 22.0}} ; AKM
+{"mp/sov/mid/grd_reg_senior"			("sov_guards" side(sov)) {cost 22.0}} ; AKM
 {"mp/sov/mid/grd_squadlead"			("sov_guards" side(sov)) {cost 30.0}} ; AKM
 {"mp/sov/mid/grd_vehicleman"		("sov_guards" side(sov)) {cost 15.0}} ; AKMS
 
@@ -147,7 +147,7 @@
 	{cw 0.5}
 	{score_factor -0.2}
 )
-{"mp/sov/mid/medic"			("sov_medic" side(sov)) {cost 40.0}}
+{"mp/sov/mid/reg_medic"			("sov_medic" side(sov)) {cost 40.0}}
 
 
 (define "sov_officer"
@@ -158,7 +158,7 @@
 	{cw 5}
 	{score_factor 0.2}
 )
-{"mp/sov/mid/officer"		("sov_officer" side(sov)) {cost 65.0}} ; Pistol; High-value officer target.
+{"mp/sov/mid/reg_officer"		("sov_officer" side(sov)) {cost 65.0}} ; Pistol; High-value reg_officer target.
 
 
 (define "sov_sniper"
