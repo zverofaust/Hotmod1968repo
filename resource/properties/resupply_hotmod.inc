@@ -88,6 +88,7 @@
 	
 ;// rifle
 	{item "m1_garand"				"ammo" 8 {value 1}}
+	{item "m1903"					"ammo" 5 {value 1}}
 	{item "m14"						"ammo" 20 {value 1}}
 	{item "m2_carbine"				"ammo" 15 {value 1}}
 	{item "m16"						"ammo" 20 {value 1}}
@@ -123,12 +124,15 @@
 ;// other
 	{item "bandage_ger"						1 {value 1}}
 	{item "bandage_rus"						1 {value 1}}
+	{item "bandage_usa"						1 {value 1}}
 )
 
 (define "items_medic"
 ;// other
 	{item "bandage_ger"						1 {value 1}}
 	{item "bandage_rus"						1 {value 1}}
+	{item "bandage_usa"						1 {value 1}}
+	{item "tent_kit"						1 {value 10}}
 )
 
 (define "items_heavy_sov"
