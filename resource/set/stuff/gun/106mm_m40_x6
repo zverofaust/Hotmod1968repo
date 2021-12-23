@@ -1,6 +1,12 @@
 {from "106mm_m40"			; M40 Recoilless Rifle times 6 for M50 Ontos
-	{filling "bullet_106" 6}
+	{filling "bullet106_m40" 6}
 
 	("fire rate" rpm(300))
 	("reload time" seconds(30.0))
+	
+	{burst
+		{short 3 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 1 1}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
+	}
 }
