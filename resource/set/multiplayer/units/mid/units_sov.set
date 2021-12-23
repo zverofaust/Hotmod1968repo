@@ -99,6 +99,12 @@
 
 ; ======Tier1======
 
+; // 5DP Ural 375 Heavy Ammo
+{"doctrine_vehicle_ural_ammo(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(ural375_ammo) crew(sup_supporter:1) cw(2) cp(0))
+	("doctrine_t1" cool(30) d(mid_sov_tank) cost(10))
+}
+
 ; // 20DP Guards Motostrelki Squad in BMP-1
 {"doctrine_squad_guards_mech(sov)"
 	("squad_vehicle7_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(bmp-1) crew1(sup_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_atassist:1) crew6(grd_marksman:1) crew7(grd_rifleman:1) cw(2) cp(0))
@@ -202,7 +208,7 @@
 ; ======Tier1======
 
 ; // 5DP Ural 375 Artillery Ammo (to be replaced with ATS-59 tractor)
-{"doctrine_vehicle_ural_ammo(sov)"
+{"doctrine_vehicle_ural_arty(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(ural375_arty) crew(sup_supporter:1) cw(2) cp(0))
 	("doctrine_t1" cool(30) d(mid_sov_artillery) cost(10))
 }
@@ -374,9 +380,9 @@
 	{cost 5}
 }
 
-{"gaz-51"
+{"gaz-51_ammo"
 	("vehicle"  period(mid) cd(0) ci(15) g(wheel2) side(sov) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
-	{cost 30}
+	{cost 100}
 }
 
 {"zil157_ammo"

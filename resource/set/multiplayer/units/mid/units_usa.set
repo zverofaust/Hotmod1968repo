@@ -107,6 +107,12 @@
 ;			
 ;===================================
 
+; // 5DP M35 Heavy Ammo (to be replaced with 5-ton M54)
+{"doctrine_vehicle_m35_ammo(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(m35_ammo) crew(sup_guncrew:2) cw(2) cp(0))
+	("doctrine_t1" cool(30) d(mid_usa_tank) cost(10))
+}
+
 ; // 25DP M163 VADS
 {"doctrine_vehicle_m163(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m163) crew(sup_tankman:4) cw(0) cp(0))
@@ -195,8 +201,8 @@
 ;		ARTILLERY BRIGADE
 ;===================================
 
-; // 5DP M35 Artillery Ammo (to be replaced with 5-ton M54)
-{"doctrine_vehicle_m35_ammo(usa)"
+; // 5DP M35 Artillery Ammo (to be replaced with M548 Cargo Carrier)
+{"doctrine_vehicle_m35_arty(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(m35_arty) crew(sup_guncrew:2) cw(2) cp(0))
 	("doctrine_t1" cool(30) d(mid_usa_artillery) cost(10))
 }
@@ -357,6 +363,16 @@
 	{cost 5}
 }
 
+{"dodge_m37_ammo"
+	("vehicle"  period(mid) cd(0) ci(15) g(wheel3) side(usa) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 100}
+}
+
+{"dodge_m37_eng"
+	("vehicle"  period(mid) cd(60) ci(60) g(wheel3) side(usa) t(vehicle supply) crew(reg_engineer:2) b(vehicles) cw(0) cp(2))
+	{cost 225}
+}
+
 {"m35"
 	("vehicle"  period(mid) cd(0) ci(15) g(wheel2) side(usa) t(vehicle apc) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
 	{cost 40}
@@ -365,11 +381,6 @@
 {"m35_ammo"
 	("vehicle"  period(mid) cd(60) ci(60) g(wheel3) side(usa) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
 	{cost 200}
-}
-
-{"dodge_m37_eng"
-	("vehicle"  period(mid) cd(60) ci(60) g(wheel3) side(usa) t(vehicle supply) crew(reg_engineer:2) b(vehicles) cw(0) cp(2))
-	{cost 225}
 }
 
 {"m113a1"
