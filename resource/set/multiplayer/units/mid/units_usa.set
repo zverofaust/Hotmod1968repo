@@ -278,11 +278,6 @@
 ("squad_with6types" side(usa) name(squad_weapon)			period(mid) cd(0) ci(15) g(squad_5) c1(reg_squadlead:1) c2(reg_mg:2) c3(reg_mgassist:2) c4(reg_antitank:2) c5(reg_atassist:2) c6(reg_teamlead:1)											b(inf1) t())
 ;("squad_with4types" side(usa) name(squad_lrrp)				period(mid) cd(0) ci(60) g(squad_6) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1)															b(inf1) t())
 
-; Remove this; no military in their right mind would allow troops to enter combat zones in unarmored trucks
-;{"squad_reservist_moto(usa)"
-;	("squad_vehicle5" period(mid) cd(0) ci(15) side(usa) t(vehicle) vehicle(m35) crew1(sup_supporter:1) crew2(rsv_squadlead:1) crew3(rsv_autorifle:2) crew4(rsv_rifleman:7) b(inf1) cw(2) cp(4)){squad_cost_factor 1}
-;
-;}
 {"squad_rifle_moto(usa)"
 	("squad_vehicle7" period(mid) cd(0) ci(0) side(usa) t(vehicle) vehicle(m113a1) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_autorifle:2) crew4(reg_grenadier:2) crew5(reg_teamlead:1) crew6(reg_rifleman:2) crew7(reg_lat:2)		b(inf1) cw(2) cp(8)){squad_cost_factor 1}
 }
@@ -459,6 +454,10 @@
 ;_________________________________________________
 ;|        		 AI ONLY for purchase             |
 ;|________________________________________________|
+
+{"squad_acav_moto_ai(usa)"
+	("squad_vehicle8" period(mid) cd(0) ci(15) side(usa) t(vehicle) vehicle(m113_acav) crew1(acav_vehicleman:2) crew2(acav_rifleman:2) crew3(acav_squadlead:1) crew4(acav_mg:1) crew5(acav_antitank:1) crew6(acav_mgassist:1) crew7(acav_atassist:1) crew8(acav_grenadier:1) cw(2) cp(10)){squad_cost_factor 1}{not_for_player_sale 1}
+}
 
 {"m35_guntruck"
 	("vehicle"  period(mid) cd(30) ci(30) side(usa) t(vehicle light) crew(sup_supporter:3) cw(0) cp(6))
