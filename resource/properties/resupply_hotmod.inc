@@ -188,6 +188,9 @@
 	{item "bullet23_zu23"		"ap"		"ammo" 50 {value 5}}
 	{item "bullet23_zu23"		"he"		"ammo" 50 {value 5}}
 	
+	{item "bullet57_s60"		"aphe"		"ammo" 4 {value 5}}
+	{item "bullet57_s60"		"he"		"ammo" 4 {value 5}}
+	
 	{item "bullet73_2a28"		"heat"		"ammo" 1 {value 12}}
 	{item "bullet73_2a28"		"he"		"ammo" 1 {value 8}}
 	

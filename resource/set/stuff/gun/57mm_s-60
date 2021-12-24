@@ -4,7 +4,7 @@
 
 
 {from "pattern gun"			; L/73  "zsu-57-2"
-	{filling "bulletrus_57" 4}
+	{filling "bullet57_s60" 4}
 	{fireSound "gun/gun_37_57"}
 	{fireSoundclose "gun/gun_37_57"}
 	{reloadSound "tank/reload_medium"}
@@ -17,20 +17,16 @@
 	("fire rate" rpm(105))
 	("reload time" seconds(4))
 
-	("velocity m/s" ap(990) apcr(1200) he(700) heat(1))
+	("velocity m/s" ap(1000) apcr(1200) he(1000) heat(1))
 	("armor health" damage(150))
 	("armor health custom" shell(aphe) damage(150) filler(24))
 	("armor health custom" shell(aphebc) damage(150) filler(24))
 
-	("shell_data_165" shell(aphe) range(210) a(134) b(111) c(87) d(69) e(54))  ;RHA
+	("shell_data_165" shell(aphe) range(210) a(151) b(132) c(114) d(100) e(87))  ;RHA
 
-	("shell_data_165" shell(aphebc) range(210) a(119) b(106) c(91)  d(78) e(68)) ;RHA
-
-	("shell_data_165" shell(apcr) range(210) a(183) b(147) c(111) d(84) e(64))
-
-	{parameters "he"
-		{range 190 190}
+	{parameters "he"										
+		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
 	}
 
-	("accuracy_direct" r1(0.49) range_ap(210) range_he(190) range_heat(190))
+	("accuracy_direct" r1(0.49) range_ap(210) range_he(210) range_heat(190))
 }
