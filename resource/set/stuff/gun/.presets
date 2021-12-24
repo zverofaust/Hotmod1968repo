@@ -33,7 +33,9 @@
 	{parameters "he"		("global velocity" gv(%he))}
 	{parameters "sm"		("global velocity" gv(%he))}
 	{parameters "wp"		("global velocity" gv(%he))}
-
+	
+	{parameters "hesh"		("global velocity" gv(%he))}
+	
 	{parameters "heat"		("global velocity" gv(%heat))}
 	{parameters "heata"		("global velocity" gv(%heat))}
 	{parameters "heatb"		("global velocity" gv(%heat))}
@@ -123,6 +125,7 @@
 	{parameters "hvap" 		{minimumDamageModifier (* 0.75 %damage)}}
 	{parameters "apds" 		{minimumDamageModifier (* 0.75 %damage)}}
 	{parameters "apfsds" 	{minimumDamageModifier (* 0.75 %damage)}}
+	{parameters "hesh" 		{minimumDamageModifier (* 1.25 %damage)}}
 	{parameters "heat" 		{minimumDamageModifier (* 1.25 %damage)}}
 	{parameters "heata" 	{minimumDamageModifier (* 1.25 %damage)}}
 	{parameters "heatb" 	{minimumDamageModifier (* 1.25 %damage)}}
@@ -259,6 +262,11 @@
 		}
 	}
 	{parameters "ic"
+		{spreading
+			{radiusTable {0 0} {100 (* 0.50 (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {(- %range_he 0.1) (* %rmax %r0)} {(+ %range_he 10) 60}} ; // Anti-farshoot, accuracy goes haywire past max range
+		}
+	}
+	{parameters "hesh"
 		{spreading
 			{radiusTable {0 0} {100 (* 0.50 (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {(- %range_he 0.1) (* %rmax %r0)} {(+ %range_he 10) 60}} ; // Anti-farshoot, accuracy goes haywire past max range
 		}
@@ -402,6 +410,11 @@
 		}
 	}
 	{parameters "ic"
+		{spreading
+			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {150 (* %he150 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 150) (- 200 150)) (- %he200 %he150)) %he150) (* %r1 %r0))} {%range_he 20}}
+		}
+	}
+	{parameters "hesh"
 		{spreading
 			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {150 (* %he150 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 150) (- 200 150)) (- %he200 %he150)) %he150) (* %r1 %r0))} {%range_he 20}}
 		}
