@@ -185,7 +185,7 @@
 	
 	;// Hotmod-added stuff
 	
-	{item "bullet23_zu23"		"ap"		"ammo" 50 {value 5}}
+	{item "bullet23_zu23"		"aphe"		"ammo" 50 {value 5}}
 	{item "bullet23_zu23"		"he"		"ammo" 50 {value 5}}
 	
 	{item "bullet57_s60"		"aphe"		"ammo" 4 {value 5}}
@@ -257,7 +257,7 @@
 	{item "bullet20_hs820"		"he"		"ammo" 50 {value 5}}
 	{item "bullet20_hs820"		"ap"		"ammo" 50 {value 5}}
 	
-	{item "bullet20_m168"		"ic"		"ammo" 50 {value 5}}
+	{item "bullet20_m168"		"he"		"ammo" 50 {value 5}}
 	{item "bullet20_m168"		"aphe"		"ammo" 50 {value 5}}
 	
 	{item "bullet40_bofors"		"he"		"ammo" 4 {value 5}}
