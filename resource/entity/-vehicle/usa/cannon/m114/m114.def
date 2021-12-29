@@ -13,7 +13,7 @@
 	("wheel" args "wheelright")
 	("wheel" args "wheelleft")
 	
-{boarder
+	{boarder
 		{anm "gunner"
 			{forward {end "pose_new_cannon_gunner_fire" 10}}
 		}
@@ -73,20 +73,6 @@
 	
 	{mass 2700}
 	{Extension "m114.mdl"}
-	(include "/properties/selection/cannon.inc"  scale(0.7))
-
-	{bone "basis"
-		{limits}
-		{speed 0.005}
-	}
-	{bone "turret"
-		{limits -10 10}
-		{speed 0.003}
-	}
-	{bone "gun_rot"
-		{limits -5 50}
-		{speed 0.003}
-	}
 
 	{extender "cannon"
 		{animation
@@ -102,7 +88,7 @@
 		{trailing {workers "seat1" "seat2" "seat3" "seat4"}}								;// trailing state: cannon is being towed {obstacle} not needed. Uses "close"
 	}
 
-		{Chassis "track"
+	{Chassis "track"
 		("car_trace" fx("tracewheel03") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
 		("mobility_cannon"
 			speed(5.0) ;-----------------------------------Max speed.
