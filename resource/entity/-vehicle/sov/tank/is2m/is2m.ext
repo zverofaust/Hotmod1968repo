@@ -1,0 +1,92 @@
+;SDL
+
+	;notes
+	;tracks and wheels 30mm
+	;gun 30mm
+
+	("tank_heavy_tier1")
+
+	("shield" args "shield1" 20)
+	("shield" args "shield2" 20)
+	("shield" args "shield3" 20)
+
+	("tracks" repair(30) thickness(30))
+	("gun" repair(30) thickness(30))
+
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("ammo" args "ammo5")
+	("transmission" args "transmission")
+
+	{volume "body1"		; Hull
+		{thickness 90
+			{front 100}
+			{rear 25}
+			{bottom 25}
+		}
+		{HighHardness}
+	}
+	{volume "body2"		; Glacis
+		{thickness 90
+			{front 100}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	{volume "body3"		; Superstructure
+		{thickness 100
+			{front 100}
+			{top 30}
+			{right 130}	; Cheeks for both sides
+			{rear 25}
+			{bottom 25}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	{volume "engine1"
+		{thickness 90
+			{front 25}
+			{rear 60}
+			{bottom 25}
+		}
+		{HighHardness}
+	}
+	{volume "engine2"
+		{thickness 90
+			{front 25}
+			{top 30}
+			{rear 60}
+			{bottom 25}
+		}
+		{HighHardness}
+	}
+	{volume "turret"
+		{thickness 100
+			{top 30}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	{volume "mantlet"
+		{thickness 100
+			{front 110}
+		}
+		{HighHardness}
+		{component "turret"}
+	}
+	{volume "cupola"
+		{thickness 90
+			{top 30}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+
+	{component "shield1" {tags "cut_part"}}
+	{component "shield2" {tags "cut_part"}}
+	{component "shield3" {tags "cut_part"}}

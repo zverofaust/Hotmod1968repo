@@ -1,0 +1,91 @@
+;SDL
+	
+	;notes
+	;tracks and wheels 30mm
+	;gun 30mm
+	;external fuel 5mm
+	;mud guards 4mm
+
+	("tank_heavy_tier1")
+
+	("tracks" repair(30) thickness(30))
+	("gun" repair(30) thickness(30))
+
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("fuel" args "fuel3")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("transmission" args "transmission")
+
+	("shield" args "detail1" 30)
+	("shield" args "detail2" 30)
+	("shield" args "detail3" 30)
+	("shield" args "detail4" 5)
+	("shield" args "detail5" 5)
+	("shield" args "detail6" 5)
+	("shield" args "detail7" 5)
+	("shield_tear" args "shieldl1" 4)	; Mud Guard
+	("shield_tear" args "shieldl2" 4)	; Mud Guard
+	("shield_tear" args "shieldr1" 4)	; Mud Guard
+	("shield_tear" args "shieldr2" 4)	; Mud Guard
+
+	{volume "body1"			; Hull
+		{thickness 90
+			{front 90}
+			{top 60}
+			{bottom 20}
+			{rear 60}
+		}
+	}
+	{volume "body2"			; Superstructure
+		{thickness 75
+			{front 90}
+			{top 30}
+			{bottom 20}
+			{rear 60}
+		}
+	}
+	{volume "body3"			; Superstructure nose
+		{thickness 65}
+	}
+	{volume "engine1"		; Hull
+		{thickness 90
+			{front 20}
+			{top 30}
+			{bottom 20}
+			{rear 60}
+		}
+	}
+	{volume "engine2" 		; Superstructure
+		{thickness 75
+			{front 20}
+			{top 30}
+			{bottom 20}
+			{rear 60}
+		}
+	}
+	{volume "mantlet"
+		{thickness 100}
+		{CastSteel 0.8063}
+	}
+	{volume "hatch_right1"
+		{thickness 30}
+	}
+	{volume "hatch_right2"
+		{thickness 30}
+	}
+	{volume "armor1"
+		{thickness 40}
+		{CastSteel 0.8063}
+	}
+
+	{component "detail1" {tags "cut_part"}}
+	{component "detail2" {tags "cut_part"}}
+	{component "detail3" {tags "cut_part"}}
+	{component "detail4" {tags "cut_part"}}
+	{component "detail5" {tags "cut_part"}}
+	{component "detail6" {tags "cut_part"}}
+	{component "detail7" {tags "cut_part"}}
