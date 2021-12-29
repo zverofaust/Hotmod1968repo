@@ -1,0 +1,130 @@
+;Exported by: Артем
+;Date:        Sat Nov 07 12:40:05 2015
+;File:        D:\Autodesk\Low poly\freelance\DMS 2.0\Cannon\ZPU-2\export\ZPU-2_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.7}}
+			}
+			{Position -4.15735	-0.0901996	1.4029}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.9}}
+				}
+				{speed 0.015}
+				{Position 0.079957	-0.0112939	0.448847}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 0.6}}
+					}
+					{limits -10 75}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						6.78074	0.101493	11.0249
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun2"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							10.3591	0.925728	2.02785
+						}
+						{VolumeView "gun2.ply"}
+					}
+					{bone "gun1"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							10.3591	0.925727	-1.82486
+						}
+						{VolumeView "gun1.ply"}
+					}
+				}
+				{bone "pipe"
+					{Position 6.34824	-0.00134687	16.0755}
+					{VolumeView "pipe.ply"}
+				}
+				{bone "pivot_front2"
+					{Matrix34
+						0	0	1
+						0	1	0
+						-1	0	0
+						-0.0694151	11.6842	0.98592
+					}
+					{VolumeView "pivot_front2.ply"}
+					{bone revolute "wheell"
+						{parameters "ID=wheelleft;Support=1;Radius=0.35;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							5.19709	3.34306	-2.67295
+						}
+						{VolumeView "wheell.ply"}
+					}
+				}
+				{bone "pivot_front"
+					{Matrix34
+						0	0	1
+						0	1	0
+						-1	0	0
+						-0.0694189	-11.6842	0.985916
+					}
+					{VolumeView "pivot_front.ply"}
+					{bone revolute "wheelr"
+						{parameters "ID=wheelright;Support=1;Radius=0.35;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							5.19708	-3.34306	-2.67296
+						}
+						{VolumeView "wheelr.ply"}
+					}
+				}
+			}
+			{bone "det_1"
+				{Position -10.6126	-0.0112892	-0.542767}
+				{VolumeView "det_1.ply"}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 5.51181 3.20613}
+	{Bone "wheell"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		0	0	-0.382455
+	}
+}
+{Volume "wheelright"
+	{Cylinder 5.51181 3.20613}
+	{Bone "wheelr"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		0	0	0.233464
+	}
+}

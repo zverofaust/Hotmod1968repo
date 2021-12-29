@@ -1,0 +1,62 @@
+;SDL
+
+;//////////////////////////////////////////////////////////////////////////////
+
+(define "board_mortar"
+	{boarder
+		{anm "gunner"
+			{forward	{begin	"squat_from_stand_empty"}{end "pose_pak40_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{begin	"squat_from_stand_empty"}{end "pose_pak40_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "mortar_driver_r" 10}}
+		}
+		{anm "driver2"
+			{forward {end "mortar_driver_l" 10}}
+		}
+		{link "driver1" "gunner"}
+		{link "driver2" "commander"}
+	}
+)
+
+;//////////////////////////////////////////////////////////////////////////////
+
+(define "crew_open"
+	{placer
+		{place "%place"
+			{group "%group"}
+			{linkbone "%bone"}
+			{openForCrush}
+		}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "%animation2"} {forward putoff} {reverse puton}}
+	}
+)
+
+(define "crew_gunner_open"
+	("board_tank_1")
+	("crew_open" place(gunner2) bone(gunner2) door(emit1) door2(emit2) animation(anim_board_tank) animation2(anim_board_tank) group(crew))
+)
+
+(define "crew_gunner_back"
+	("board_lowtank_1")
+	("crew_open" place(gunner) bone(gunner) door(emit3) door2(emit4) animation(anim_board_tank) animation2(anim_board_tank) group(crew))
+)
+
+;//////////////////////////////////////////////////////////////////////////////
+
+(define "crew_mortar"
+	("board_mortar")
+	("crew_open" place(gunner)		bone(gunner)	door(emit1) animation(gunner)		group(crew) visor(gunner))
+	("crew_open" place(commander)	bone(commander)	door(emit2) animation(commander)	group(crew) visor(commander))
+	("crew_open" place(driver1)		bone(driver1)	door(emit1) animation(driver1)		group(crew) visor(commander))
+	("crew_open" place(driver2)		bone(driver2)	door(emit2) animation(driver2)		group(crew) visor(commander))
+)
+
+;//////////////////////////////////////////////////////////////////////////////
