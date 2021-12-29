@@ -8,6 +8,7 @@
 
 (define "spetsnaz"			;// Soviet Spetsnaz
 	{"stealth"}
+	{"speed" 1.15}
 	{"stamina" "400%"}
 	{"telescope"}
 	{"vision" human_elite}
@@ -17,13 +18,13 @@
 
 (define "specialforces"			;// US Special Forces
 	{"stealth"}
+	{"speed" 1.2}
 	{"stamina" "300%"}
 	{"health" "250%"}
 	{"aimedshot"}			;// Silenced Nagant Pistol
 )
 
 (define "ranger"			;// US Special Forces
-	{"speed" 1.2}
 	{"stamina" "400%"}
 	{"telescope"}
 	{"vision" human_elite}
@@ -59,6 +60,13 @@
 	{"stamina_regeneration" "125%"}
 )
 
+(define "redbanner"		;// Soviet Red Banner Guards
+	{"health" "400%"}
+	{"health_regeneration" "125%"}
+	{"stamina" "200%"}
+	{"stamina_regeneration" "125%"}
+)
+
 (define "marines"	;// Marines
 	{"health" "350%"}
 	{"stamina" "220%"}
@@ -73,7 +81,6 @@
 
 (define "recon"		;// recon soldiers
 	{"health" "160%"}
-	{"health_regeneration" "5%"}
 	{"stamina" "175%"}
 	{"stamina_regeneration" "110%"}
 	("recon_vision")
