@@ -820,33 +820,6 @@
 		{play_sound "bkg_mgun"}
 	}
 }
-	
-{"zu-23-2"				
-	{on "init_gun" overload
-		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
-		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
-		{add_view "zenit_gilz"			"shell"			"FXshell1"}
-		{add_view "zenit_gilz"			"shell"			"FXshell2"}
-		{call "update_gun"}
-	}
-	{on fire "mgun" overload
-		{play_sound "bkg_mg"}
-		{if  name "00"
-			{ani_wind "recoil" end}
-			{view start "flashbarrel00"}
-			{delay 0.2
-				{view pause "flashbarrel00"}
-			}
-		}
-		{if name "01"
-			{view start "flashbarrel01"}
-			{delay 0.2
-				{view pause "flashbarrel01"}
-			}
-		}
-	}
-}
-
 
 {"dshk_aa"
 	{on "init_gun" overload
@@ -1091,10 +1064,6 @@
 	}
 
 	("cannon_big")
-}
-
-{"d1"
-
 }
 
 {"203mm_b4"
@@ -1389,6 +1358,33 @@
 
 ;/*=========== SOVIET Cannons  ===========*/
 
+{"zu-2"				
+	{on "init_gun" overload
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
+		{add_view "zenit_gilz"			"shell"			"FXshell1"}
+		{add_view "zenit_gilz"			"shell"			"FXshell2"}
+		{call "update_gun"}
+	}
+	{on fire "mgun" overload
+		{play_sound "bkg_mg"}
+		{if  name "00"
+			{ani_wind "fire00" end}
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		}
+		{if name "01"
+			{ani_wind "fire01" end}
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
+	}
+	("cannon_small")
+}
 
 {"zpu-4"				
 	{on "init_gun" overload
@@ -1401,10 +1397,6 @@
 		{add_view "zenit_gilz"			"shell"			"FXshell02"}
 		{add_view "zenit_gilz"			"shell"			"FXshell03"}
 		{call "update_gun"}
-	}
-	{on "add_movement_sound"
-		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
-		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
 	{on fire "mgun" overload
 		{play_sound "bkg_mg"}
@@ -1433,6 +1425,34 @@
 			}
 		}
 	}
+	("cannon_small")
+}
+
+{"zu-23-2"				
+	{on "init_gun" overload
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
+		{add_view "zenit_gilz"			"shell"			"FXshell1"}
+		{add_view "zenit_gilz"			"shell"			"FXshell2"}
+		{call "update_gun"}
+	}
+	{on fire "mgun" overload
+		{play_sound "bkg_mg"}
+		{if  name "00"
+			{ani_wind "recoil" end}
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		}
+		{if name "01"
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
+	}
+	("cannon_small")
 }
 
 {"spg9"			
@@ -1447,10 +1467,76 @@
 		{view start "backblast"}
 		{call "spawn_shell"}
 	}
-	{on "add_movement_sound"
-		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
-		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+	("cannon_small")
+}
+
+{"76mm_zis3_sov"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 0.4 0.3)
 	}
+
+	{on "cut_parts" overload
+		("cut_part" args "part2" 1)
+		{inherited}
+	}
+
+	("cannon_small")
+}
+
+{"d1"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
+}
+
+{"122mm_m30_sov"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
+}
+{"152mm_ml20_sov"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1.5 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 23 1.5 23)
+	}
+	{on "cut_parts" overload
+		("cut_part" args "part1" 1)
+		("cut_part" args "part2" 1)
+		("cut_part" args "part3" 1)
+		("cut_part" args "part4" 1)
+		("cut_part" args "part5" 1)
+		{inherited}
+	}
+
+	("cannon_big")
+}
+
+{"203mm_b4_sov"
+	{on "spawn_shell_delay" overload
+		("no_shell_eject_delay" args 4 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 12 1.5 12)
+	}
+	{on "cut_parts" overload
+		("cut_part" args "part1" 1)
+		("cut_part" args "part2" 1)
+		("cut_part" args "part3" 1)
+		("cut_part" args "part4" 1)
+		{inherited}
+	}
+
+	("cannon_big")
 }
 
 ;/*=========== AMERICAN Cannons  ===========*/

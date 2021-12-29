@@ -40,6 +40,18 @@
 	("t70_sound")
 }
 
+{"t-34-85m tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+}
+
 {"shilka tank"
 	("t70_sound")
 	{on "event_no_crew"
@@ -221,6 +233,49 @@
 	}
 }
 
+{"is2m tank"
+	("is_sound")
+}
+
+{"isu-122m tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/is/start"}
+		{link_sound "engine_stop"		"vehicle/engine/is/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/is/idle"}
+		{link_sound "engine_full"		"vehicle/engine/is/full"}
+		{link_sound "exhaust"			"vehicle/engine/is/exhaust"}
+		{link_sound "move"				"vehicle/tracks/is/"}
+		{link_sound "rotate_turret"		"vehicle/turret/gun/gun_horizontal"}
+	}
+	{on "commander_hatch_open" overload
+		{ani_wind "open_right" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open_right" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+}
+{"isu-152m tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/is/start"}
+		{link_sound "engine_stop"		"vehicle/engine/is/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/is/idle"}
+		{link_sound "engine_full"		"vehicle/engine/is/full"}
+		{link_sound "exhaust"			"vehicle/engine/is/exhaust"}
+		{link_sound "move"				"vehicle/tracks/is/"}
+		{link_sound "rotate_turret"		"vehicle/turret/gun/gun_horizontal"}
+	}
+	{on "commander_hatch_open" overload
+		{ani_wind "open_right" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open_right" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+}
+
 {"zsu-57-2 tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
@@ -335,6 +390,10 @@
 }
 
 {"gaz-69a"
+	("gaz_sound")
+}
+
+{"gaz-69spz"
 	("gaz_sound")
 }
 
