@@ -1,0 +1,32 @@
+{from "pattern rifle_grenade"
+	{tag "at_rifle" "ap"}
+	{entity "m31_garand"}
+	{filling "ammo m31_grenade" 1}
+	{fillingVisible "grenade"}
+	{fireSound "rifle/kar98_shot"}
+	{fireSoundclose "rifle/kar98_shot/3p/"}
+	{reloadSound "kar98"}
+	{calibre 66}
+	{mass 8.2}
+
+	{inventory
+		{size 3 1}
+		{link_bone "gun_back"}
+		{weight 100}
+	}
+	
+	{parameters "he" ;
+		{cursorReloading "gun_he"}
+		{spreading 6
+			{SpreadXYRatio 0.75}
+		}
+		{range 80 80}
+	}
+
+	{parameters "heat" ;M31 HEAT
+		{cursorReloading "gun_heat"}
+		{range 60 60}
+		("penetration" args 180)
+		("armor health" damage(150))
+	}
+}
