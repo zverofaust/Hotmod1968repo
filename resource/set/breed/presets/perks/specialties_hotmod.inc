@@ -79,6 +79,14 @@
 	{"stamina" "90%"}
 )
 
+(define "border"			;// KGB Border Troops, relatively elite but poorly equipped
+	{"stealth"}
+	{"speed" 1.1}
+	{"stamina" "150%"}
+	{"telescope"}
+	{"vision" human_elite}
+)
+
 (define "recon"		;// recon soldiers
 	{"health" "160%"}
 	{"stamina" "175%"}
