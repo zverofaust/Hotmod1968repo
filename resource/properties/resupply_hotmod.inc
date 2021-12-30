@@ -470,6 +470,9 @@
 			("items_light_generic")
 			("items_light_sov")
 			("items_light_usa")
+			("items_heavy_sov")
+			("items_heavy_usa")
+			("items_heavy_eng")
 		}
 		{mechanicResources {amount 10}{value 10}}
 		{radius 			12}		;// resupply radius in meter
@@ -537,6 +540,9 @@
 (define "truck_ammo_artillery"
 	{extender "supply_zone"
 		{resupply
+			("items_heavy_sov")
+			("items_heavy_usa")
+			("items_heavy_eng")
 			("items_artillery_sov")
 			("items_artillery_usa")
 		}
