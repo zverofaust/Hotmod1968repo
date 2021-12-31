@@ -265,28 +265,58 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["sov"] = {--Soviet Union
 			--Infantry
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_interior_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_border_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_border_moto_con(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_con(sov)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_maneuv_con(sov)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_fireteam_con(sov)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_rifle_con(sov)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_guards_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_ak_con(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_moto_con(sov)"},
+				
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_maneuv_con(sov)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, unit = "squad_fireteam_con(sov)"},
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_rifle_con(sov)"},
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_rifle_full_con(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto2_con(sov)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_recon_con(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_vdv_antitank_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_asu57_con(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_vdv_asu85_con(sov)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_con(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_moto_con(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_moto2_con(sov)"},
+				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_guards_mech_con(sov)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_banner_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_banner_moto_con(sov)"},
+				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_banner_mech_con(sov)"},
+				
+				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_spz_recon_con(sov)"},
+				{priority = 0.5, class = UnitClass.ATInfantry, unit = "squad_spz_sabo_con(sov)"},
+				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_spz_con(sov)"},
 				
 				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at2(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at3(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_marksman(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sniper(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sapperap(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sapperat(sov)"},
 			--Cannons
 			--HMGs
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "sg43_stand_sov"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "dshk_aa_sov"},
 			--Anti_Aircraft
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "zu-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "zpu-4"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "zu-23-2"},
 			--Anti_Tank
+				{priority = 1.0, class = UnitClass.ATTank, unit = "76mm_zis3_sov"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "spg9"},
 				{priority = 0.5, class = UnitClass.ATTank, unit = "t-12"},
 				{priority = 0.5, class = UnitClass.ATTank, unit = "9m14"},
