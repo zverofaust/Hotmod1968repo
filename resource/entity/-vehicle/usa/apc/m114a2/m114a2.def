@@ -55,6 +55,7 @@
 	{extender "shield" {on}}
 
 	{extender "inventory"
+		{weapon "mgun2" {mask "mountable"}}
 		{box
 			{item "bullet20_hs820 ap" 200}	; Only 400 rounds carried (including the 100 already in the gun)
 			{item "bullet20_hs820 he" 100}
@@ -62,6 +63,7 @@
 			{item "m72_law weapon" filled}
 			{item "m72_law weapon" filled}
 			{item "m72_law weapon" filled}
+			{item "m60" filled {user "mgun2"}}
 		}
 	}
 
@@ -78,10 +80,8 @@
 			)
 		}
 		{place "mgun2"
-			{weapon "m60d" filled}
 			{gunner "gunner4"}
 			{charger "gunner4"}
-			;{foresight "foresight5"}
 			{LinkBone		"mgun2_help"}
 			{LinkAnimation	"off"}
 			{basic}

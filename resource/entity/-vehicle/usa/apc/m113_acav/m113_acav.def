@@ -93,9 +93,13 @@
 	("seat_human" 	place(seat8) 		 bone(seat08)			door(emit3)  animation(passenger) 	group(passenger))
 
 	{extender "inventory"
+		{weapon "mgun2" {mask "mountable"}}
+		{weapon "mgun3" {mask "mountable"}}
 		{box
 			{item "ammo hmgun_usa" 1250}
 			{item "ammo m60_box" 	2000}
+			{item "m60" filled {user "mgun2"}}
+			{item "m60b" filled {user "mgun3"}}
 		}
 	}
 	
@@ -113,7 +117,6 @@
 			{charger		"gunner3"}
 			{LinkBone		"mgun1"}
 			{LinkAnimation	"off"}
-			{weapon			"m60d" filled}
 			{basic}
 			{ai_in_manual}
 		}
@@ -122,7 +125,6 @@
 			{charger		"gunner4"}
 			{LinkBone		"mgun2"}
 			{LinkAnimation	"off"}
-			{weapon			"m60d" filled}
 			{basic}
 			{ai_in_manual}
 		}
