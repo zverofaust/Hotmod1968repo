@@ -25,7 +25,7 @@
 		{call "update_mg_turret"}
 	}
 }
-/// Added from Valour mod
+;/// Added from Valour mod
 (define "m4a3_sound"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/m4a3/start"}
@@ -159,6 +159,18 @@
 	("studebaker_sound")
 	("animation_sound" args "open_left")
 	("animation_sound" args "open_right")
+}
+
+{"zil-130 car"
+	("zis5_sound")
+}
+
+{"zil-130_eng car"
+	("zis5_sound")
+}
+
+{"zil-130_ammo car"
+	("zis5_sound")
 }
 
 {"zil157 car"
