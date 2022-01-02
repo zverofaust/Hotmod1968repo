@@ -356,25 +356,51 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["usa"] = {--United States
 			--Infantry
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at(usa)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at2(usa)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_lat2(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_marksman(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sniper(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer(usa)"},
+				
+				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_m14_con(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_fireteamAP_con(usa)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "squad_fireteamAT_con(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_rifle_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_weapon_moto_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_full_con(usa)"},
+				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_rifle_m16_con(usa)"},
+				{priority = 0.3, class = UnitClass.Infantry, unit = "squad_weapon_con(usa)"},
+				{priority = 0.15, class = UnitClass.Infantry, unit = "squad_weapon_m16_con(usa)"},
 				
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_lrrp_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_ranger_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto2_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_weapon_moto2_con(usa)"},
 				
-				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sniper(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer(usa)"},
+				{priority = 0.6, class = UnitClass.Infantry, unit = "squad_rifle_m16_moto_con(usa)"},
+				{priority = 0.3, class = UnitClass.Infantry, unit = "squad_weapon_m16_moto_con(usa)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_acav_moto_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_acav_assault_moto_con(usa)"},
+				
+				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_usmc_fireteam_con(usa)"},
+				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_usmc_con(usa)"},
+				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_usmc_mg_con(usa)"},
+				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_usmc_flame_con(usa)"},
+				
+				{priority = 0.3, class = UnitClass.Infantry, unit = "squad_lrrp_con(usa)"},
+				{priority = 0.3, class = UnitClass.Infantry, unit = "squad_ranger_demo_con(usa)"},
+				{priority = 0.2, class = UnitClass.Infantry, unit = "squad_ranger_con(usa)"},
+				
+				{priority = 0.3, class = UnitClass.Infantry, unit = "squad_ops_con(usa)"},
+				{priority = 0.2, class = UnitClass.Infantry, unit = "squad_specops_con(usa)"},
 			--Cannons
 			--HMGs
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "m2_m1919a4"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m63_browning"},
 			--Anti_Aircraft
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "m45_maxson"},
+				{priority = 0.5, class = UnitClass.Vehicle, unit = "m45_maxson"},
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m40"},
 				{priority = 0.5, class = UnitClass.ATTank, unit = "entac"},
@@ -383,7 +409,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "m30_mortar"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m98_howtar"},
 			--Infantry_Support
-				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "m116_packhow"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m116_packhow"},
 			--Artillery
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "m101a1"},
 			--	{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "m114"},
@@ -395,21 +421,24 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.Vehicle, unit = "m151_m2"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m151_m40"},
 				{priority = 0.5, class = UnitClass.ATTank, unit = "m35_guntruck"},
-			--Tanks_light
+			--APCs/BTRs
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m113_m40"},
 				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "m125"},
 				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "m106"},
-				{priority = 0.5, class = UnitClass.Tank, unit = "m163"},
 				{priority = 0.3, class = UnitClass.Tank, unit = "m132_zippo"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m41"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m42"},
-				{priority = 0.5, class = UnitClass.Tank, unit = "m50"},
-				{priority = 0.5, class = UnitClass.Tank, unit = "m56"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "m163"},
 				{priority = 0.75, class = UnitClass.Tank, unit = "m114a1"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "m114a2"},
+			--Tanks_light
+				{priority = 1.0, class = UnitClass.Tank, unit = "m24_chaffee"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "m41"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "m42"},
+				{priority = 0.75, class = UnitClass.Tank, unit = "m56"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "m50"},
 			--Tanks_medium
+				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3e8"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m48_patton"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m67_zippo"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "m67_zippo"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m48a3"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m60a1"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "m728"},
