@@ -3,10 +3,11 @@
 ;File:        D:\פאיכû\דאפטךא\zil131.max
 {Skeleton
 	{animation
-		{sequence "start" {speed 0.6}}
-		{sequence "stop" {speed 0.6}}
-		{sequence "doorleft" {speed 0.6} {events {1 "truck_open"} {50 "truck_close"}}}
-		{sequence "doorright" {speed 0.6} {events {1 "truck_open"} {50 "truck_close"}}}
+		{sequence "start" {speed 0.2}}
+		{sequence "stop" {speed 0.2}}
+		{sequence "hit" {speed 0.3}}
+		{sequence "doorleft" {speed 0.13} {events {1 "truck_open"} {50 "truck_close"}}}
+		{sequence "doorright" {speed 0.13} {events {1 "truck_open"} {50 "truck_close"}}}
 	}
 	{bone "basis"
 		{parameters "Wheelradius=0.6;SteerMax=35;"}
@@ -237,8 +238,8 @@
 					-1.32486	15.249	-0.862514
 				}
 			}
-			{bone "shield"
-				{parameters "ID=shield;"}
+			{bone "detail2"
+				{parameters "ID=body;"}
 				{Position -1.35343	-1.64173	-10.3654}
 				{VolumeView "shield.ply"}
 			}
@@ -299,6 +300,22 @@
 					1	0	0
 					0	0	1
 					-50	0	-13
+				}
+			}
+			{bone "link2"
+				{Matrix34
+					-0.999974	0	-0.00727641
+					-0.00727641	0	0.999974
+					0	1	0
+					-65.1169	0.675675	2.36783
+				}
+			}
+			{bone "fxsmoke1"
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					17.9634	-20.5606	-14.9211
 				}
 			}
 		}
@@ -373,12 +390,27 @@
 }
 {Volume "shield"
 	{Polyhedron "shield.vol"}
-	{Bone "shield"}
+	{Bone "detail2"}
 	{Matrix34
 		1	0	0
 		0	0	1
 		0	-1	0
 		-29.8797	24.175	29.7741
+	}
+}
+{Volume "fuel"
+	{Box 16 12 8} ; front-back;side-side;up-down
+	{Bone "body"}
+	{Position -5.5	15.5	-2}
+}
+{volume "transmission"
+	{cylinder 5 60}
+	{bone "body"}
+	{matrix34
+		0 	 1 	 0
+		0 	 0 	 1
+		1 	 0 	 0
+		0	 0 	 -5
 	}
 }
 {Volume "wheelleft1"

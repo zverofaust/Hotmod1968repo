@@ -237,8 +237,8 @@
 					-1.32486	15.249	-0.862514
 				}
 			}
-			{bone "shield"
-				{parameters "ID=shield;"}
+			{bone "detail2"
+				{parameters "ID=body;"}
 				{Position -1.35343	-1.64173	-10.3654}
 				{VolumeView "shield.ply"}
 			}
@@ -279,6 +279,22 @@
 					{parameters "ID=glass;"}
 					{Position -7.7326	0.703945	11.499}
 					{VolumeView "glass1.ply"}
+				}
+			}
+			{bone "link2"
+				{Matrix34
+					-0.999974	0	-0.00727641
+					-0.00727641	0	0.999974
+					0	1	0
+					-65.1169	0.675675	2.36783
+				}
+			}
+			{bone "fxsmoke1"
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					17.9634	-20.5606	-14.9211
 				}
 			}
 		}
@@ -353,12 +369,27 @@
 }
 {Volume "shield"
 	{Polyhedron "shield.vol"}
-	{Bone "shield"}
+	{Bone "detail2"}
 	{Matrix34
 		1	0	0
 		0	0	1
 		0	-1	0
 		-29.8797	24.175	29.7741
+	}
+}
+{Volume "fuel"
+	{Box 16 12 8} ; front-back;side-side;up-down
+	{Bone "body"}
+	{Position 5	16	-11}
+}
+{volume "transmission"
+	{cylinder 5 60}
+	{bone "body"}
+	{matrix34
+		0 	 1 	 0
+		0 	 0 	 1
+		1 	 0 	 0
+		0	 0 	 -13
 	}
 }
 {Volume "wheelleft1"

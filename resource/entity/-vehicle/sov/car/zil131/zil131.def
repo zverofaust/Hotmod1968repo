@@ -2,7 +2,7 @@
 	(include "/properties/car.ext")
 	(include "/properties/shadow/tank.inc" scale(1.0))
 	(include "/properties/selection/vehicle.inc" scale(1.1))
-	{props "multi_board" "truck" "vision_lev02" "tractor" "tractor_medium"}
+	{props "multi_board" "truck" "vision_lev02" "tractor" "tractor_heavy"}
 	{able "emit_on_attack"}
 	{collider "truck"}
 	{patherId "gazaaa"}
@@ -37,8 +37,16 @@
 	("wheel" args "wheelleft2")
 	("wheel" args "wheelleft3")
 	
-
-	{volume "bodyback" {material "wood"} {tags "wood"}}
+	("shield_cover" args "shield" 1)
+	
+	("fuel" args "fuel")
+	("transmission" args "transmission")
+	
+	{Volume "Body"
+		{tags "body"}
+		{component "body"}
+		{thickness 4}
+	}
 	
 	{mass 3100}
 
@@ -59,27 +67,4 @@
 	}
 	
 	{Extension "zil131.mdl"}
-	{extender "shield"
-			{on}
-		)
-	}
-	{component "shield"	
-		{RepairTime 10}
-	}
-	{volume "shield"
-		{thickness 0.3}
-	}
-	{component "cabin"	
-		{RepairTime 12}
-	}
-	{volume "cabin"
-		{thickness 6}
-	}
-	{volume "engine"
-		{thickness 6}
-	}
-	{Volume "fuel"
-		{thickness 1}
-	}
-	{Volume "Body" {thickness 7}}
 }

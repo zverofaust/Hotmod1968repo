@@ -10,7 +10,7 @@
 
 	("crew_2_human")
 	
-	("truck_ammo")
+	("truck_ammo_heavy")
 	
 	("board_animation"
 		place(driver)
@@ -32,7 +32,16 @@
 	("wheel" args "wheelleft2")
 	("wheel" args "wheelleft3")
 
-	{volume "bodyback" {material "wood"} {tags "wood"}}
+	("shield_cover" args "shield" 1)
+	
+	("fuel" args "fuel")
+	("transmission" args "transmission")
+	
+	{Volume "Body"
+		{tags "body"}
+		{component "body"}
+		{thickness 4}
+	}
 	
 	{mass 3100}
 
@@ -53,27 +62,4 @@
 	}
 	
 	{Extension "zil131_ammo.mdl"}
-	{extender "shield"
-			{on}
-		)
-	}
-	{component "shield"	
-		{RepairTime 10}
-	}
-	{volume "shield"
-		{thickness 0.3}
-	}
-	{component "cabin"	
-		{RepairTime 12}
-	}
-	{volume "cabin"
-		{thickness 6}
-	}
-	{volume "engine"
-		{thickness 6}
-	}
-	{Volume "fuel"
-		{thickness 1}
-	}
-	{Volume "Body" {thickness 7}}
 }
