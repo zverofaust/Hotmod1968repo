@@ -25,7 +25,52 @@
 		{call "update_mg_turret"}
 	}
 }
-
+/// Added from Valour mod
+(define "m4a3_sound"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/m4a3/start"}
+		{link_sound "engine_stop"		"vehicle/engine/m4a3/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/m4a3/idle"}
+		{link_sound "engine_full"		"vehicle/engine/pz4/full"}
+		{link_sound "exhaust"			"vehicle/engine/pz4/exhaust"}
+		{link_sound "move"			"vehicle/tracks/m4a2"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+)
+(define "m24_sound"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/m24/start"}
+		{link_sound "engine_stop"		"vehicle/engine/m24/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/m24/idle"}
+		{link_sound "engine_full"		"vehicle/engine/m24/full"}
+		{link_sound "exhaust"			"vehicle/engine/hetzer/exhaust"}
+		{link_sound "move"			"vehicle/tracks/m24"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+)
+(define "us_halftrack_sound"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/us_halftrack/start"}
+		{link_sound "engine_stop"		"vehicle/engine/us_halftrack/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/us_halftrack/idle"}
+		{link_sound "engine_full"		"vehicle/engine/us_halftrack/full"}
+		{link_sound "exhaust"			"vehicle/engine/sdkfz251/exhaust"}
+		{link_sound "move"			"vehicle/tracks/m3a1"}
+		{link_sound "rotate_turret" 		"vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" 		"vehicle/turret/gun/gun_vertical"}
+	}
+)
+(define "m26_sound"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/m26/start"}
+		{link_sound "engine_stop"		"vehicle/engine/m26/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/m26/idle"}
+		{link_sound "engine_full"		"vehicle/engine/m26/full"}
+		{link_sound "exhaust"			"vehicle/engine/m26/exhaust"}
+		{link_sound "move"			"vehicle/tracks/m26"}
+		{link_sound "rotate_turret"		"vehicle/turret/hydraulic/hydraulic_heavy"}
+	}
+)
 ;/*=========== SOVIET Vehicles  ===========*/
 
 {"pt-76 tank"
@@ -787,6 +832,26 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+}
+
+{"m4a3e8 tank"
+	("m4a3_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
+{"m24_chaffee tank"
+	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open2" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open2" -1.0 resume}
 	}
 }
 
