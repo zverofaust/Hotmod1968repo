@@ -1,0 +1,125 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(0.9))
+	{props "light" "vision_lev03" "muzzle_75mm_76mm" "detect_tank_light"}
+	{Extension "m24_chaffee.mdl"}
+	(include "m24.ext")
+	{collider "tank.light"}
+	{targetclass "tank_light"}
+	{targetSelector "tank_light"}
+
+		
+	("crew_5_human_extended")
+	("gunner_visible")
+
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "gunner"		{visor "main"}}
+		{place "commander"	{visor "mgun"}{sealable}}
+	}
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat4) bone(seat02) door(emit4)  animation(armor))
+	
+	{extender "inventory"
+		{box
+			{item "ammo mgun_usa belt" 2500}
+			{item "bullet75_m6 ap" 23}
+            {item "bullet75_m6 he" 15}
+            {item "bullet75_m6 apcbche" 10}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "75mm_m6" filling "bullet75_m6 ap" 1}
+			("abm_dymamic"
+				zeroing(2.0)
+				dispersion(0.15)
+			)
+		}
+		{place "mgun2"
+			{type "coaxial"}
+			{weapon "browning_m19a4" filled}
+			{foresight "foresight5"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun"		;aa
+			{type 			"aa"}
+			{weapon 		"browning_m2" filled}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun1"
+			{type "hull"}
+			{weapon "browning_m19a4" filled}
+			{foresight "foresight4"}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	{mass 18400}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.45))
+		("mobility_tank"
+			speed(56) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(22) ;--------Max speed in reverse on road, km/h.
+			traverse(32) ;-------Track traverse, per second, in degrees.
+			weight(18.4) ;--------Weight in Tonnes.
+			power(220) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(420) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(160) ;---------Range in km, off-road.
+		)
+	}
+	{bone "gun_rot"
+		{speed2 10}
+		{limits -10 15}
+	}
+	{bone "turret"
+		{speed2 10}
+	}
+	{bone "mgun_rot_turret"	;top mgun horizontal
+		{speed 0.025}
+		{limits -15 15}
+	}
+	{bone "mgun_rot"		;top mgun vertical
+		{speed 0.025}
+	}
+	{bone "mgun_rot1"		;hull mgun horizontal
+		{limits -10 10}
+	}
+	{bone "mgun_rot2"		;hull mgun vertical
+		{limits -10 10}
+	}
+}
