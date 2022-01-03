@@ -230,12 +230,12 @@
 
 (define "items_artillery_sov"
 	;// Vanilla Artillery
-	{item "bulletrus_122_l22"	"he"		"ammo" 1 {value 10}}
-	{item "bulletrus_122_l22"	"heat"		"ammo" 1 {value 15}}
+	{item "bulletrus_122_l22"	"he"		"ammo" 1 {value 8}}
+	{item "bulletrus_122_l22"	"heat"		"ammo" 1 {value 14}}
 
-	{item "bulletrus_152"		"aphe"		"ammo" 1 {value 20}}
-	{item "bulletrus_152"		"aphebc"	"ammo" 1 {value 20}}
-	{item "bulletrus_152"		"he"		"ammo" 1 {value 20}}
+	{item "bulletrus_152"		"aphe"		"ammo" 1 {value 12}}
+	{item "bulletrus_152"		"aphebc"	"ammo" 1 {value 12}}
+	{item "bulletrus_152"		"he"		"ammo" 1 {value 10}}
 
 	{item "bulletrus_152_l24"	"he"		"ammo" 1 {value 10}}
 
@@ -425,6 +425,9 @@
 			("items_light_generic")
 			("items_light_sov")
 			("items_light_usa")
+			("items_heavy_sov")
+			("items_heavy_usa")
+			("items_heavy_eng")
 		}
 		{radius 			15}		;// resupply radius in meter
 		{resupplyPeriod 	5}		;// resupply period in seconds
@@ -449,6 +452,8 @@
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_artillery_sov")
+			("items_artillery_usa")
 		}
 		{radius 			15}		;// resupply radius in meter
 		{resupplyPeriod 	10}		;// resupply period in seconds
@@ -473,6 +478,8 @@
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_artillery_sov")
+			("items_artillery_usa")
 		}
 		{mechanicResources {amount 10}{value 10}}
 		{radius 			8}		;// resupply radius in meter
@@ -498,6 +505,8 @@
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_artillery_sov")
+			("items_artillery_usa")
 		}
 		{radius 			12}			;// resupply radius in meter
 		{resupplyPeriod 	2}			;// resupply period in seconds
@@ -522,6 +531,8 @@
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_artillery_sov")
+			("items_artillery_usa")
 		}
 		{radius 			15}			;// resupply radius in meter
 		{resupplyPeriod 	2}			;// resupply period in seconds
