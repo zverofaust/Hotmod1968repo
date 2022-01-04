@@ -1,40 +1,35 @@
 ;Exported by:	 Carlos
 ;Date:			 22.11.2020 14:30:51
 ;File:			 T:\GoH_3D_human_export\3d_weapons\Mkb-42h\export\stg_ammo_export.max
-{skeleton
+{Skeleton
 	{bone "magazine"
-		{orientation
-			1 	 0 	 0
-			0 	 -1 	 0
-			0 	 0 	 1
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
 		}
-		{LODView
-			{VolumeView "magazine.ply"}
-			{VolumeView "magazine_lod1.ply"}
-			{VolumeView "magazine_lod2.ply"}
-			{VolumeView "magazine_lod3.ply"}
-		}
+		{VolumeView "magazine.ply"}
 	}
 }
-{volume "body"
-	{polyhedron "body.vol"}
-	{bone "magazine"}
-	{Position 0.0807 	 0.5722 	 0.4045}
-}
-{volume "select"
-	{box 2.32492 6.69996 1.41442}
-	{bone "magazine"}
-	{matrix34
-		0.9659 	 -0.2588 	 0
-		0.2588 	 0.9659 	 0
-		0 	 0 	 1
-		0.0882 	 0.1151 	 0.1037
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "magazine"}
+	{Matrix34
+		0.866025	-0.5	0
+		0	0	1
+		-0.5	-0.866025	0
+		-0.101167	2.11271	0.000518203
 	}
+}
+{Volume "select"
+	{Box 6.18756 7.59293 1.29905}
+	{Bone "magazine"}
+	{Position -0.384054	0.264816	-0.0434481}
 }
 {extender "preview"
 	{"stuff"
 		{camera
-			{origin 1.3202 	 -18.7161 	 57.057}
+			{origin 2.3202 	 -18.7161 	 57.057}
 			{lookat 0.0114 	 -0.9136 	 2.507}
 			{fov 2.62178}
 			{horizon -176.649}

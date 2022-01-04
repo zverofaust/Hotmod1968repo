@@ -1,44 +1,80 @@
-;Exported by: A
-;Date:        Tue Oct 15 20:45:47 2019
-;File:        D:\Cold War\Models\akms\akms.max
+;Exported by: misan
+;Date:        Tue Jan  4 00:23:43 2022
+;File:        D:\Cold War\Models\Inf Weapons\AKMS 2.0\AKMS.max
 {Skeleton
+	{animation
+		{sequence "recoil" {speed 0.6}}
+		{sequence "bipod_open" {speed 0.6}}
+	}
 	{bone "akms"
-		{parameters "ID=mgun;"}
-		{Matrix34
+		{Orientation
 			1	0	0
 			0	-1	0
 			0	0	1
-			-1       0      0
 		}
 		{VolumeView "akms.ply"}
+		{bone "stock"
+			{Position -0.310933	0.738353	-0.000518106}
+			{VolumeView "stock.ply"}
+			{bone "stock_end"
+				{Position 5.0282	0.172844	0}
+				{VolumeView "stock_end.ply"}
+			}
+		}
+		{bone "bolt"
+			{Position 2.92911	1.40455	0.427143}
+			{VolumeView "bolt.ply"}
+		}
 		{bone "handle"
-			{Position 5.15413	1.99807	0}
+			{Matrix34
+				1	0	0
+				0	0	-1
+				0	1	0
+				4.71666	1.83801	0
+			}
 		}
 		{bone "foresight12"
-			{Position 12.4376	1.19974	-3.29618e-05}
+			{Position 11.6378	1.0755	0}
+		}
+		{bone "magazine"
+			{Position 2.54543	0.734451	-0.000518203}
+			{VolumeView "magazine.ply"}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.342021	0.939692
+				0	0.939692	-0.342021
+				-1	0	0
+				2.95627	1.35574	0.199154
+			}
 		}
 	}
 }
 {Volume "body"
-	{Box 16.9274 4.9782 1.18138}
+	{Box 16.2304 2.85897 0.775117}
 	{Bone "akms"}
+	{Position 4.69321	0.61421	0}
+}
+{Volume "magazine"
+	{Polyhedron "magazine.vol"}
+	{Bone "magazine"}
 	{Matrix34
-		0.999657	0.0261769	0
-		-0.0261769	0.999657	0
+		1	0	0
 		0	0	1
-		3.48467	-0.402279	0.0720558
+		0	-1	0
+		-0.0327501	-0.00937843	0.000518203
 	}
 }
 {Volume "select"
-	{Box 23.1833 9.11718 2.39379}
+	{Box 17.6973 6.57166 1.91408}
 	{Bone "akms"}
-	{Position 4.11949	0.0502287	0.00360417}
+	{Position 5.15655	0.392712	0}
 }
 {Extender "preview"
 	{"Stuff"
 		{camera
-			{origin 3.94166	-2.17318	44.3209}
-			{lookat 3.94166	-0.085443	0.0193558}
+			{origin 5.94166	-2.17318	38.3209}
+			{lookat 5.94166	-0.085443	0.0193558}
 			{fov 23.9132}
 			{horizon -172.326}
 		}
