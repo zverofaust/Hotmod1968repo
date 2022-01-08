@@ -60,6 +60,7 @@
 	{"squad_spz_sabo_con(sov)"			requires	"squad_spz_recon_con(sov)"			costs 2 }
 	{"squad_spz_pioneer_con(sov)"		requires	"squad_spz_sabo_con(sov)"			costs 2 }
 	{"squad_spetsnaz_con(sov)"			requires	"squad_spz_sabo_con(sov)"			costs 4 }
+	{"squad_spetsnaz_bmd1_con(sov)"		requires	"squad_spetsnaz_con(sov) squad_vdv_asu85_con(sov) bmd-1"			costs 5 }
 	
 ;---MG---
 	{"dshk_aa_sov"		requires	"sg43_stand_sov"	costs 1}
@@ -117,6 +118,7 @@
 ;---Tanks---
 	{"asu57"			requires	""				costs 1}
 	{"asu-85"			requires	"asu57"			costs 2}
+	{"bmd-1"			requires	"asu-85"		costs 4}
 	{"pt-76"			requires	""				costs 1}
 	{"t-34-85m"			requires	""				costs 2}
 	{"t-54"				requires	"t-34-85m"		costs 2}
@@ -211,20 +213,21 @@
 	{"squad_guards_moto2_con(sov)"		6 10}
 	{"squad_guards_mech_con(sov)"		6 11}
 	
-	{"squad_vdv_recon_con(sov)"			0 12}
-	{"squad_vdv_antitank_con(sov)"		0 13}
-	{"squad_vdv_con(sov)"				0 14}
-	{"squad_vdv_asu57_con(sov)"			0 15}
-	{"squad_vdv_asu85_con(sov)"			0 16}
+	{"squad_vdv_recon_con(sov)"			0 11}
+	{"squad_vdv_antitank_con(sov)"		0 10}
+	{"squad_vdv_con(sov)"				1 11}
+	{"squad_vdv_asu57_con(sov)"			1 12}
+	{"squad_vdv_asu85_con(sov)"			1 13}
 	
 	{"squad_banner_con(sov)"			7 7}
 	{"squad_banner_moto_con(sov)"		7 10}
 	{"squad_banner_mech_con(sov)"		7 11}
 	
-	{"squad_spz_recon_con(sov)"			0 11}
-	{"squad_spz_sabo_con(sov)"			1 11}
-	{"squad_spz_pioneer_con(sov)"		1 10}
-	{"squad_spetsnaz_con(sov)"			2 11}
+	{"squad_spz_recon_con(sov)"			0 12}
+	{"squad_spz_sabo_con(sov)"			0 13}
+	{"squad_spz_pioneer_con(sov)"		2 10}
+	{"squad_spetsnaz_con(sov)"			0 14}
+	{"squad_spetsnaz_bmd1_con(sov)"		1 14}
 
 	
 ;---MG---
@@ -295,8 +298,9 @@
 
 ;---Medium Tanks---
 	
-	{"asu57"							1 15}
-	{"asu-85"							1 16}
+	{"asu57"							2 12}
+	{"asu-85"							2 13}
+	{"bmd-1"							2 14}
 	;{"isu-122m"						4 21}
 	{"isu-152m"							4 21}
 	{"su100m"							4 22}

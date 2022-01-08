@@ -438,6 +438,10 @@
 	("bt_sound")
 }
 
+{"bmd-1"
+	("bt_sound")
+}
+
 {"9p110"
 	("sdkfz222_sound")
 }
