@@ -110,6 +110,7 @@
 
 ;// Grenade
 	{item "40mm_grenade" "he"		 "ammo" 1  {value 5}}
+	{item "m31_grenade" "heat"	 		 "ammo" 1  {value 5}}
 	{item "grenade" "m67" 					1  {value 5}}
 	{item "grenade" "anm8_smoke" 			1  {value 5}}
 )
