@@ -31,18 +31,18 @@
 			{forward {begin "board_LowTank_left"} {end "seat_gunner_stand"} {base "open_driver"}}
 			{reverse {end "emit_tank_1_hold"} {base "open_driver"}}
 		}
-		{anm "commander"
-			{forward {begin "board_LowTank_left"} {end "seat_gunner_stand"}}
-			{reverse {end "emit_tank_1_hold"}}
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
 		}
-		{anm "gunner"
-			{forward {begin "board_LowTank_left"} {end "seat_gunner_stand"}}
-			{reverse {end "emit_tank_1_hold"}}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
 		}
 	}
 	
-	("seat_human" 	place(gunner) 		bone() 				door(emit1)  				animation(gunner))
-	("seat_human" 	place(commander) 	bone(gunner2) 		door(emit2)  				animation(commander))
+	;("crew_human" 	place(gunner) 		bone() 				door(emit1)  door1(emit1)				animation(gunner))
+	;("crew_human" 	place(commander) 	bone(gunner2) 		door(emit2)  				animation(commander))
 	
 	{extender "inventory"
 		{box	
