@@ -16,6 +16,7 @@
 			0	0	1
 		}
 		{bone "body"
+			{parameters "ID=body;"}
 			{Position 0	0	8.94316}
 			{VolumeView "body.ply"}
 			{bone "enumerator"
@@ -31,6 +32,7 @@
 				{Position 39.6886	22.9839	17.6257}
 			}
 			{bone "door_back"
+				{parameters "ID=body;"}
 				{Matrix34
 					0	1	0
 					-1	0	0
@@ -46,6 +48,7 @@
 				{Position -33.051	0.327701	11.8303}
 			}
 			{bone "engine"
+				{parameters "ID=engine;"}
 				{Matrix34
 					0	1	0
 					-1	0	0
@@ -147,10 +150,12 @@
 				{VolumeView "wheell6.ply"}
 			}
 			{bone "antenna"
+				{parameters "ID=body;"}
 				{Position -29.5731	23.1362	23.8178}
 				{VolumeView "antenna.ply"}
 			}
 			{bone "detail1"
+				{parameters "ID=body;"}
 				{Matrix34
 					0	1	0
 					-1	0	0
@@ -160,6 +165,7 @@
 				{VolumeView "detail1.ply"}
 			}
 			{bone "detail2"
+				{parameters "ID=body;"}
 				{Matrix34
 					0	1	0
 					1	0	0
@@ -172,6 +178,7 @@
 				{Position 39.143	0.0180235	20.745}
 			}
 			{bone revolute "turret"
+				{parameters "ID=turret;"}
 				{Position 11.9446	0	20.0338}
 				{VolumeView "turret.ply"}
 				{bone "visor1"
@@ -181,6 +188,7 @@
 					{Position 4.72722	-6.79047	9.29698}
 				}
 				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
 					{Matrix34
 						1	0	0
 						0	0	-1
@@ -189,6 +197,7 @@
 					}
 					{VolumeView "gun_rot.ply"}
 					{bone "gun"
+						{parameters "ID=gun;"}
 						{Matrix34
 							0	0	1
 							-1	0	0
@@ -213,7 +222,7 @@
 							}
 						}
 					}
-					{bone "foresight5"
+					{bone "foresight3"
 						{Matrix34
 							1	0	0
 							0	0	1
@@ -229,6 +238,7 @@
 							4.75633	-4.70628	0.0524292
 						}
 						{bone "rocket"
+							{parameters "ID=turret;"}
 							{Matrix34
 								1	0	0
 								0	0	-1
@@ -240,6 +250,7 @@
 					}
 				}
 				{bone "cover"
+					{parameters "ID=turret;"}
 					{Matrix34
 						0	1	0
 						-1	0	0
@@ -311,6 +322,28 @@
 					17.7043	-21.6625	6.14422
 				}
 				{VolumeView "wheelr10.ply"}
+			}
+			{bone revolute "mgun1_turret"
+				{Position 49.5486	17.3295	14.5572}
+				{bone revolute "foresight4"
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0.0711441	0	0
+					}
+				}
+			}
+			{bone revolute "mgun2_turret"
+				{Position 49.5486	-17.4349	14.5573}
+				{bone revolute "foresight5"
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0.0711441	0	0
+					}
+				}
 			}
 		}
 		{bone "emit2"
@@ -507,6 +540,11 @@
 		}
 	}
 }
+{Volume "ram"
+	{Polyhedron "ram.vol"}
+	{Bone "body"}
+	{Position 4.61235	0.329942	-8.94316}
+}
 {Volume "ammo"
 	{Cylinder 15.7075 16.2074}
 	{Bone "body"}
@@ -560,5 +598,69 @@
 		0	0	1
 		0	-1	0
 		-40.8875	0	4.99515
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+}
+{Volume "gun"
+	{Cylinder 1.47149 28.4476}
+	{Bone "gun"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		5.42258e-005	-17.0465	-0.0464564
+	}
+}
+{Volume "trackleft"
+	{Polyhedron "trackleft.vol"}
+	{Bone "wheelsl"}
+	{Position -3.23123	2.18284	0.99476}
+}
+{Volume "trackright"
+	{Polyhedron "trackright.vol"}
+	{Bone "wheelsr"}
+	{Position -3.23123	-2.15454	0.99476}
+}
+{Volume "fuel1"
+	{Box 6.52857 7.53656 12.1369}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-29.8722	-15.864	5.69318
+	}
+}
+{Volume "fuel2"
+	{Box 6.52857 7.53656 12.1369}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-29.8722	16.2328	5.69318
+	}
+}
+{Volume "hole1"
+	{Box 69.9053 5.3625 7.76726}
+	{Bone "wheelsr"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-3.02316	-1.91377	5.21902
+	}
+}
+{Volume "hole2"
+	{Box 69.9053 5.36269 7.76726}
+	{Bone "wheelsl"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-3.02316	2.42361	5.21905
 	}
 }

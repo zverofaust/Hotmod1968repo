@@ -1,0 +1,225 @@
+;Exported by: misan
+;Date:        Sat Jan  8 15:52:34 2022
+;File:        D:\Cold War\Models\BMD-2\BMD_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.999338	-0.0132195	-0.033892
+				0.0140067	0.999635	0.0230969
+				0.0335743	-0.0235563	0.999159
+				0	0	5.22073
+			}
+			{VolumeView "body.ply"}
+			{bone "door_back"
+				{parameters "ID=body;"}
+				{Matrix34
+					0	1	0
+					-0.906308	0	0.422618
+					0.422618	0	0.906308
+					-4.7423	0.114497	21.0979
+				}
+				{VolumeView "door_back.ply"}
+			}
+			{bone "fxfire2"
+				{Position -10.3221	-1.96844e-05	17.0374}
+			}
+			{bone "fxfire1"
+				{Position -33.051	0.327701	11.8303}
+			}
+			{bone "engine"
+				{parameters "ID=engine;"}
+				{Matrix34
+					0	1	0
+					-1	0	0
+					0	0	1
+					-33.1053	0.0189213	7.45142
+				}
+				{VolumeView "engine.ply"}
+			}
+			{bone "fxsmoke1"
+				{Matrix34
+					-0.965926	0	-0.258819
+					0	-1	0
+					-0.258819	0	0.965926
+					-45.2387	18.2602	11.7341
+				}
+			}
+			{bone "fxsmoke2"
+				{Matrix34
+					-0.965926	0	-0.258819
+					0	-1	0
+					-0.258819	0	0.965926
+					-45.2387	-18.5478	11.7342
+				}
+			}
+			{bone "antenna"
+				{parameters "ID=body;"}
+				{Position -29.5731	23.1362	23.8178}
+				{VolumeView "antenna.ply"}
+			}
+			{bone "detail1"
+				{parameters "ID=body;"}
+				{Matrix34
+					0	1	0
+					-1	0	0
+					0	0	1
+					30.6181	-23.0876	14.6604
+				}
+				{VolumeView "detail1.ply"}
+			}
+			{bone "detail2"
+				{parameters "ID=body;"}
+				{Matrix34
+					0	1	0
+					1	0	0
+					0	0	-1
+					30.5064	23.0924	13.5306
+				}
+				{VolumeView "detail2.ply"}
+			}
+			{bone "turret"
+				{parameters "ID=turret;"}
+				{Matrix34
+					0.785995	-0.618226	-0.0029335
+					0.618213	0.785924	0.0116512
+					-0.00489759	-0.0109713	0.999928
+					11.9446	0	20.6996
+				}
+				{VolumeView "turret.ply"}
+				{bone "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						0.984808	0	-0.173648
+						-0.173648	0	-0.984808
+						0	1	0
+						13.2071	0	4.10628
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0	0	1
+							-1	0	0
+							0	-1	0
+							-0.332464	0.0272293	0
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "cover"
+					{parameters "ID=turret;"}
+					{Matrix34
+						0.159822	0.959771	-0.23086
+						0.859143	-0.0200691	0.511341
+						0.486137	-0.280066	-0.827789
+						0.908251	6.17619	7.02533
+					}
+					{VolumeView "cover.ply"}
+				}
+				{bone "fxfire3"
+					{Position -2.90693	3.37514	2.54118}
+				}
+			}
+			{bone "tracksr"
+				{parameters "ID=trackRight;"}
+				{Matrix34
+					0.999338	0.0140067	0.0335745
+					-0.0132195	0.999635	-0.0235565
+					-0.0338922	0.0230971	0.999159
+					-1.98469	-22.8362	4.29242
+				}
+				{VolumeView "tracksr.ply"}
+			}
+			{bone "tracksl"
+				{parameters "ID=trackLeft;"}
+				{Matrix34
+					0.999338	0.0140068	0.0335745
+					-0.0132196	0.999635	-0.0235565
+					-0.0338922	0.0230971	0.999159
+					-2.58684	23.4525	3.287
+				}
+				{VolumeView "tracksl.ply"}
+			}
+		}
+		{bone "emit2"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				14.6589	-46.8561	0
+			}
+		}
+		{bone "emit1"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				13.7669	42.3433	0
+			}
+		}
+		{bone "emit3"
+			{Position -62.9446	-3.14838	0}
+		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		56.657	-0.0372188	10.59
+	}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body"}
+	{Position 9.46785	0	10.5958}
+}
+{Volume "body3"
+	{Box 86.8314 40.2464 9.75824}
+	{Bone "body"}
+	{Position -2.83697	0	5.73014}
+}
+{Volume "body4"
+	{Polyhedron "body4.vol"}
+	{Bone "body"}
+	{Position -30.0819	-18.2229	10.5794}
+}
+{Volume "body5"
+	{Polyhedron "body5.vol"}
+	{Bone "body"}
+	{Position -30.0819	18.2409	10.5794}
+}
+{Volume "trackleft"
+	{Polyhedron "trackleft.vol"}
+	{Bone "tracksl"}
+	{Position 0.0207748	-0.20256	0.0755968}
+}
+{Volume "trackright"
+	{Polyhedron "trackright.vol"}
+	{Bone "tracksr"}
+	{Position 0.0335851	0.00391388	0.160559}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+}
+{Volume "gun"
+	{Cylinder 1.47149 28.4476}
+	{Bone "gun"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		5.42258e-005	-17.0465	-0.0464564
+	}
+}
