@@ -8,11 +8,10 @@
 	{targetSelector "tank_heavy"}
 	{patherId "zis30"}
 
-	("crew_3_human_2_extended")
-	("gunner_visible")
+	("crew_3_human")
 	
-	("shield" args "shield" 6)
-	{extender "shield" {on}}
+	;("shield" args "shield" 6)
+	;{extender "shield" {on}}
 	
 	
 	{extender "enumerator"
@@ -41,9 +40,6 @@
 		}
 	}
 	
-	;("crew_human" 	place(gunner) 		bone() 				door(emit1)  door1(emit1)				animation(gunner))
-	;("crew_human" 	place(commander) 	bone(gunner2) 		door(emit2)  				animation(commander))
-	
 	{extender "inventory"
 		{box	
 			{item "ammo bullet106_m40 he" 6}
@@ -57,7 +53,7 @@
 			{RestoreIKAfterAim}
 			{weapon "106mm_m40_x6" filling "ammo bullet106_m40 heat" 6}
 			{gunner			"gunner"}
-			{charger		"gunner"}
+			{charger		"charger"}
 			{foresight "foresight"}
 			{Rotate}
 			{Barrels 6}
@@ -70,8 +66,8 @@
 		{place "mgun"
 			{type 			"aa"}
 			{weapon "browning_m19a4" filled}
-			{gunner			"commander"}
-			{charger		"commander"}
+			{gunner			"gunner"}
+			{charger		"gunner"}
 			{foresight "foresight14"}
 			("abm_mgun")
 			{basic}
@@ -111,7 +107,7 @@
 		{limits -40 40}
 	}
 	{bone "mgun_rot"		;top mgun horiz
-		{limits -10 10}
+		{limits -1 1}
 		{speed 0.025}
 	}
 
