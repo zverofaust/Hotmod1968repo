@@ -1,8 +1,23 @@
-{from "152mm_ml20"			; L/29 "d1"
-	{range 400 400} ; // 12.4km
+{from "pattern gun"			;  "D-1"
+	{filling "bulletrus_152"}
+	{fireSound "gun/gun_122_152"}
+	{fireSoundclose "gun/gun_122_152"}
+	{reloadSound "tank/reload_howitzer"}
+	("heavy_artillery")
+	{calibre 152}
+	{range 415 415 } ;//12.4
 
-	("reload time" seconds(26))
+	("reload time" seconds(25))
 
-	("velocity m/s" ap(600) apcr(1) he(200) heat(1)) 		; // historical velocity (508)(1)(508)(1)
+	("velocity m/s" ap(508) apcr(1) he(254) heat(560)) 		; // historical velocity (508)(1)(508)(560)
 	("armor health" damage(450))
+
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(0.95) 				; // Accuracy radius for direct-fire munitions
+		r2(8) 					; // Accuracy radius for indirect fire
+		rmax(28) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(200) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(200) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(415)			; // Range after which accuracy drops to prevent farshooting.
+	)
 }

@@ -1,0 +1,26 @@
+{from "pattern gun"			; L/22 "m30"
+	{filling "bulletrus_122_l22"}
+	{fireSound "gun/gun_122_152_short"}
+	{fireSoundclose "gun/gun_122_152_short"}
+	{reloadSound "tank/reload_howitzer"}
+	("medium_artillery")
+	{calibre 122}
+	{range 390 390} ; // 11.8km
+
+	("reload time" seconds(20))
+
+	("velocity m/s" ap(1) apcr(1) he(257) heat(335)) ; // Real HE 515m/s
+	("armor health" damage(320))
+
+	; BP-460A
+	("shell_data_165" shell(heat) range(190) a(120) b(120) c(120) d(120) e(120))
+	
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(1.20) 				; // Accuracy radius for direct-fire munitions
+		r2(9) 					; // Accuracy radius for indirect fire
+		rmax(20) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(200) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(190) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(390)			; // Range after which accuracy drops to prevent farshooting.
+	)
+}
