@@ -67,9 +67,11 @@
 	}
 	
 	{extender "inventory"
+		{weapon "mgun" {mask "mountable"}}
 		{box
 			{item "pk_box" 2000}
 			{item "satchel_charge_rus" 1}
+			{item "pk" filled {user "mgun"}}
 		}
 	}
 	
@@ -77,7 +79,7 @@
 		("restore_ik_time")
 		{place "mgun"
 			{type 			"aa"}
-			{weapon			"pkmt" filled}
+			;{weapon			"pk" filled}
 			{gunner			"gunner2"}
 			{charger		"gunner2"}
 			{LinkBone		"mgun"}
@@ -108,10 +110,14 @@
 	
 	{bone "turret_mgun"
         {limits -45 45}
-		{speed2 120}
-	}
-	{bone "mgun_rot"
-		{limits -40 30}
 		{speed2 80}
+	}
+	{bone "mgun_rot" ;mgun horizontal
+		{limits -6 6}
+		{speed2 60}
+	}
+	{bone "mgun" ; mgun vertical
+		{limits -7 20}
+		{speed2 60}
 	}
 }

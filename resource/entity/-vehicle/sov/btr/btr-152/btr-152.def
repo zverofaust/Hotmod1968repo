@@ -42,7 +42,7 @@
 			{weapon			"dshk" filled}
 			{gunner			"gunner2"}
 			{charger		"gunner2"}
-			{LinkBone		"mgun"}
+			{LinkBone		"mgun_bone"}
 			{LinkAnimation	"off"}
 			("abm_mgun")
 		}
@@ -67,7 +67,7 @@
 			{reverse 	{end	"emit_body"}{base "open_right"}}
 		}
 		{anm "gunner2"
-			{forward	{begin	"board_big-midcar"} {end "seat_gunner_stand"}{base "open_right"}}
+			{forward	{begin	"board_big-midcar"} {end "seat_isu152_gunner2"}{base "open_right"}}
 			{reverse 	{end	"emit_body"}{base "open_right"}}
 		}
 		{anm "passenger"
@@ -113,13 +113,13 @@
 	}
 	{Extension "btr-152.mdl"}
 
-	{bone "turret_mgun"
-		{limits -65 65}
-		{speed2 50}
-		{terminator}
+	{bone "mgun_a_rot2" ; vertical
+		{limits -6 25}
+		{speed2 60}
 	}
-	{bone "mgun"
-		{limits -7 25}
+	{bone "mgun_a_rot1" ; horizontal (with gunner)
+        {limits -50 50}
+		{speed2 60}
 	}
 }
 

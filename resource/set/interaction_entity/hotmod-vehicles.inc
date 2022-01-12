@@ -235,6 +235,12 @@
 
 {"btr-60pa"
 	("sdkfz234_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "mgun_aa" -1.0 resume}
+	}
 }
 
 {"btr-60pb"

@@ -391,7 +391,7 @@ Purchases["standard"] = {
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-54"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "zsu-57-2"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"}
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"}
 			--Tanks_heavy
 			--SPG
 			},
@@ -548,7 +548,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t-54"},
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t-55a"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "zsu-57-2"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-62a"}
 				
 			--Tanks_heavy
@@ -771,7 +771,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-54"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-55a"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "zsu-57-2"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-62a"},
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "t-10"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "it-1"}
@@ -939,7 +939,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-54"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-55a"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "zsu-57-2"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-62a"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "it-1"},
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "shilka"},
@@ -1204,7 +1204,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-54"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-55a"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "zsu-57-2"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-62a"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "it-1"},
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "shilka"},
@@ -1383,7 +1383,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-54"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-55a"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "zsu-57-2"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-62a"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "it-1"},
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "shilka"},
@@ -1659,7 +1659,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-54"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-55a"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "zsu-57-2"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "su-122-54"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-62a"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "it-1"},
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "shilka"},
