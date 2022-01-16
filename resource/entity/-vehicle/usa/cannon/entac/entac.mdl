@@ -1,5 +1,5 @@
-;Exported by: A
-;Date:        Sat Oct 19 19:59:44 2019
+;Exported by: misan
+;Date:        Thu Jan 13 16:21:38 2022
 ;File:        D:\Cold War\Models\entac\entac.max
 {Skeleton
 	{animation
@@ -14,13 +14,14 @@
 		}
 		{bone revolute "turret"
 			{parameters "ID=turret;"}
+			{limits 25 25}
 			{Matrix34
 				1	0	0
 				0	1	0
 				0	0	1
 				0.183123	-0.00743043	0
 			}
-			{bone revolute "gun_rot"
+			{bone "gun_rot"
 				{parameters "ID=turret;"}
 				{Matrix34
 					1	0	0
@@ -29,7 +30,12 @@
 					-0.0321522	0	3.8049
 				}
 				{bone "foresight1"
-					{Position 9.41402	4.47403	0}
+					{Matrix34
+						0.996195	0.0871552	0
+						-0.087155	0.996195	0
+						0	0	1
+						9.41402	4.47403	0
+					}
 				}
 			}
 			{bone "body"
@@ -140,8 +146,8 @@
 }
 {Obstacle "body"
 	{Obb2
-		{Center 2.02124 0.00743222}
-		{Extent 8.60415 4.00893}
+		{Center 1.87068 0.00743198}
+		{Extent 10.4863 5.17151}
 		{Axis 1 0}
 	}
 	{Rotate}
@@ -149,23 +155,23 @@
 {Obstacle "body_vol2"
 	{Obb2
 		{Center -8.59742 -24.6068}
-		{Extent 2.59146 3.0131}
+		{Extent 4.4314 4.51965}
 		{Axis 1 0}
 	}
 	{Rotate}
 }
 {Volume "body"
-	{Box 15.5886 8.01785 8.31031}
+	{Box 19.174 10.343 9.47375}
 	{Bone "body"}
 	{Matrix34
 		-1	0	0
 		0	-1	0
 		0	0	1
-		8.17943	0	4.15516
+		8.17943	0	4.73688
 	}
 }
 {Volume "body_vol2"
-	{Box 5.18292 6.0262 5.27888}
+	{Box 8.86279 9.0393 22.9315}
 	{Bone "control_box"}
-	{Position 0.334921	0.622028	1.15749}
+	{Position 0.334921	0.622028	2.22257}
 }
