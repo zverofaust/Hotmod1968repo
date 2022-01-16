@@ -124,8 +124,11 @@
 
 ;//ELITE SQUADS
 ; US Army Rangers
-("squad_with4types_conquest" side(usa) name(squad_lrrp_con)				period(mid) min_stage(4) max_stage(99) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1))
-("squad_with4types_conquest" side(usa) name(squad_ranger_demo_con)		period(mid) min_stage(5) max_stage(99) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1))
+{"squad_lrrp_con(usa)"
+	("squad_vehicle4" period(mid) min_stage(5) max_stage(99) side(usa) vehicle(m151) cw(0) cp(4) crew1(rng_squadlead:1) crew2(rng_sniper:1) crew3(rng_spotter:1) crew4(rng_mg:1))
+}
+;("squad_with4types_conquest" side(usa) name(squad_lrrp_con)				period(mid) min_stage(4) max_stage(99) c1(rng_squadlead:1) c2(rng_sniper:1) c3(rng_spotter:1) c4(rng_mg:1))
+("squad_with3types_conquest" side(usa) name(squad_ranger_demo_con)		period(mid) min_stage(5) max_stage(99) c1(rng_squadlead:1) c2(rng_demo:2) c3(rng_antitank:2))
 ("squad_with7types_conquest" side(usa) name(squad_ranger_con)			period(mid) min_stage(6) max_stage(99) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1) c5(rng_grenadier:1) c6(rng_demo:1) c7(rng_rifleman:4))
 
 ; US Special Forces

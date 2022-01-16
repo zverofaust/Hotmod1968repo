@@ -12,7 +12,9 @@
 		(include "third_person/vehicle_specific_rus_tank.inc")
 		(include "third_person/vehicle_specific_rus_cannon.inc")
 	;Hotmod includes
+		(include "third_person/vehicle_specific_hotmod_generic.inc")
 		(include "third_person/vehicle_specific_hotmod_sov.inc")
+		(include "third_person/vehicle_specific_hotmod_usa.inc")
 ;_____________________________________________________
 ;|   Unnamed units will inherit 'default' setting     |
 ;|    Which has a rudimentary generic visor slot      |
@@ -23,6 +25,7 @@
 	;	{"searchlight1" inherit "vehicle generic.unarmed"}
 	
 	
+; ############### HOTMOD SECTION BEGIN ################
 ;_____________________________________________________
 ;|                 Hotmod Soviet Units                |
 ;|____________________________________________________|
@@ -31,11 +34,11 @@
 
 ;=================== Cannon ===================
 	
-	{"9m14" inherit "vehicle atgun.9m14"}
+	{"9m14" inherit "vehicle atgun.mclosatgm"}
 	{"76mm_zis3_sov" inherit "vehicle atgun.zis3"}
-	{"spg9" inherit "vehicle tank.bmp1"}
+	{"spg9" inherit "vehicle gun.atgun"}
 	{"82mm_bm37_sov" inherit "vehicle mortar.common"}
-	{"t-12" inherit "vehicle atgun.bs3"}
+	{"t-12" inherit "vehicle gun.atgun"}
 	{"120mm_pm38_sov" inherit "vehicle mortar.common"}
 	{"122mm_m30_sov" inherit "vehicle artillery.short"}
 	{"d30a" inherit "vehicle artillery.long"}
@@ -45,9 +48,9 @@
 	
 	{"sg43_stand_sov" inherit "vehicle low_mg.common"}
 	{"dshk_aa_sov" inherit "vehicle medium_mg.common"}
-	{"zu-2" inherit "vehicle atgun.aa"}
-	{"zpu-4" inherit "vehicle atgun.aa"}
-	{"zu-23-2" inherit "vehicle atgun.aa"}
+	{"zu-2" inherit "vehicle gun.aagun"}
+	{"zpu-4" inherit "vehicle gun.aagun"}
+	{"zu-23-2" inherit "vehicle gun.aagun"}
 	
 ;=================== BTR/APC ===================
 
@@ -66,16 +69,16 @@
 	{"gaz-69" inherit "vehicle small.unarmed"}
 	{"gaz-69a" inherit "vehicle small.unarmed"}
 	{"gaz-69spz" inherit "vehicle small.unarmed"}
-	{"zil-130" inherit "vehicle small.unarmed"}
-	{"zil-130_ammo" inherit "vehicle small.unarmed"}
-	{"zil-130_fuel" inherit "vehicle small.unarmed"}
-	{"zil-130_eng" inherit "vehicle small.unarmed"}
-	{"zil157_fuel" inherit "vehicle small.unarmed"}
-	{"ural375" inherit "vehicle small.unarmed"}
-	{"ural375_ammo" inherit "vehicle small.unarmed"}
-	{"ural375_arty" inherit "vehicle small.unarmed"}
-	{"zil131" inherit "vehicle small.unarmed"}
-	{"zil131_ammo" inherit "vehicle small.unarmed"}
+	{"zil-130" inherit "vehicle generic.unarmed"}
+	{"zil-130_ammo" inherit "vehicle generic.unarmed"}
+	{"zil-130_fuel" inherit "vehicle generic.unarmed"}
+	{"zil-130_eng" inherit "vehicle generic.unarmed"}
+	{"zil157_fuel" inherit "vehicle generic.unarmed"}
+	{"ural375" inherit "vehicle generic.unarmed"}
+	{"ural375_ammo" inherit "vehicle generic.unarmed"}
+	{"ural375_arty" inherit "vehicle generic.unarmed"}
+	{"zil131" inherit "vehicle generic.unarmed"}
+	{"zil131_ammo" inherit "vehicle generic.unarmed"}
 	{"uaz-452a" inherit "vehicle small.unarmed"}
 	{"gaz-51" inherit "vehicle small.unarmed"}
 	{"gaz-51_ammo" inherit "vehicle small.unarmed"}
@@ -84,24 +87,24 @@
 	
 ;=================== Tank ===================
 	
-	{"asu57" inherit "vehicle td.zis30"}
-	{"asu57_para" inherit "vehicle td.zis30"}
-	{"asu-85" inherit "vehicle td.su85"}
-	{"pt-76" inherit "vehicle tank.t3476"}
+	{"asu57" inherit "vehicle td.asu57"}
+	{"asu57_para" inherit "vehicle td.asu57"}
+	{"asu-85" inherit "vehicle td.isu"}
+	{"pt-76" inherit "vehicle tank.t54"}
 	{"bmp-1" inherit "vehicle tank.bmp1"}
 	{"bmd-1" inherit "vehicle tank.bmp1"}
-	{"t-34-85m" inherit "vehicle tank.t3485"}
+	{"t-34-85m" inherit "vehicle tank.t54"}
 	{"su100m" inherit "vehicle td.su100"}
-	{"su-122-54" inherit "vehicle td.isu122"}
-	{"t-54" inherit "vehicle tank.t3485"}
+	{"su-122-54" inherit "vehicle td.isu"}
+	{"t-54" inherit "vehicle tank.t54"}
 	{"t-55a" inherit "vehicle tank.t55"}
 	{"t-62a" inherit "vehicle tank.t62"}
 	{"it-1" inherit "vehicle tank.it1"}
 	{"t-64" inherit "vehicle tank.t62"}
 	
 	{"is2m" inherit "vehicle tank.is2"}
-	{"isu-122m" inherit "vehicle td.isu122"}
-	{"isu-152m" inherit "vehicle td.su152"}
+	{"isu-122m" inherit "vehicle td.isu"}
+	{"isu-152m" inherit "vehicle td.isu"}
 	{"t-10" inherit "vehicle tank.t10"}
 
 	{"zsu-57-2" inherit "vehicle tank.spaag"}
@@ -109,6 +112,80 @@
 	
 	{"2s3" inherit "vehicle artillery.long"}
 	
+	
+	
+;_____________________________________________________
+;|                Hotmod American Units               |
+;|____________________________________________________|
+
+;=================== Airborne ===================
+
+;=================== Cannon ===================
+	
+	{"m2_m1919a4" inherit "vehicle low_mg.common"}
+	{"m63_browning" inherit "vehicle medium_mg.common"}
+	{"m45_maxson" inherit "vehicle gun.aagun"}
+	{"m40" inherit "vehicle atgun_common"}
+	{"entac" inherit "vehicle atgun.mclosatgm"}
+	{"m116_packhow" inherit "vehicle artillery.supershort"}
+	{"m-28" inherit "vehicle artillery.short"}
+	{"m29_mortar" inherit "vehicle mortar.common"}
+	{"m30_mortar" inherit "vehicle mortar.common"}
+	{"m98_howtar" inherit "vehicle mortar.common"}
+	{"m101a1" inherit "vehicle artillery.short"}
+	{"m114" inherit "vehicle artillery.medium"}
+	{"m59_longtom" inherit "vehicle artillery.long"}
+	{"m115" inherit "vehicle artillery.long"}
+	
+;=================== BTR/APC ===================
+
+	{"m106" inherit "vehicle mortar.common"}
+	{"m125" inherit "vehicle mortar.common"}
+	{"m113a1" inherit "vehicle vehicle.m113"}
+	{"m113_acav" inherit "vehicle vehicle.m113"}
+	{"m113_m40" inherit "vehicle vehicle.m113"}
+	{"m113_acav_m40" inherit "vehicle vehicle.m113"}
+	{"m132_zippo" inherit "vehicle vehicle.zippo"}
+	{"m163" inherit "vehicle vehicle.m163"}
+	{"m577" inherit "vehicle generic.unarmed"}
+	
+;=================== Cars ===================
+	
+	{"m151" inherit "vehicle small.unarmed"}
+	{"m151_prc77" inherit "vehicle small.unarmed"}
+	{"m416" inherit "vehicle small.unarmed"}
+	{"m416_m388" inherit "vehicle small.unarmed"}
+	{"dodge_m37" inherit "vehicle small.unarmed"}
+	{"dodge_m37_ammo" inherit "vehicle small.unarmed"}
+	{"dodge_m37_eng" inherit "vehicle small.unarmed"}
+	{"m35" inherit "vehicle generic.unarmed"}
+	{"m35_ammo" inherit "vehicle generic.unarmed"}
+	{"m35_arty" inherit "vehicle generic.unarmed"}
+	
+	{"m151_m1919" inherit "vehicle vehicle.m151mg"}
+	{"m151_m2" inherit "vehicle vehicle.m151mg"}
+	{"m151_m40" inherit "vehicle vehicle.m151m40"}
+
+;=================== Tank ===================
+	
+	{"m24_chaffee" inherit "vehicle tank.chaffee"}
+	{"m41" inherit "vehicle tank.patton"}
+	{"m42" inherit "vehicle tank.spaag"}
+	{"m4a3e8" inherit "vehicle tank.sherman"}
+	{"m48_patton" inherit "vehicle tank.patton"}
+	{"m48a3" inherit "vehicle tank.patton"}
+	{"m60a1" inherit "vehicle tank.patton"}
+	{"m67_zippo" inherit "vehicle tank.patton"}
+	{"m103" inherit "vehicle tank.patton"}
+	{"m728" inherit "vehicle tank.patton"}
+	{"m56" inherit "vehicle tank.chaffee"}
+	{"m50" inherit "vehicle tank.chaffee"}
+	
+	{"m108" inherit "vehicle artillery.short"}
+	{"m109" inherit "vehicle artillery.medium"}
+	{"m110" inherit "vehicle artillery.long"}
+
+; ############### HOTMOD SECTION END ##################
 ;_____________________________________________________
 ;|                   German units                     |
 ;|____________________________________________________|
@@ -133,7 +210,7 @@
 		
 		{"75mm_pak40" inherit "vehicle atgun.pak40"}
 
-;		{"75mm_pak9738" inherit "vehicle atgun.common"}
+;		{"75mm_pak9738" inherit "vehicle gun.atgun"}
 
 		{"88mm_flak18" inherit "vehicle atgun.flak18"}
 		{"88mm_flak36" inherit "vehicle atgun.flak18"}

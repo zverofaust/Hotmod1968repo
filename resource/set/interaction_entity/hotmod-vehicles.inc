@@ -1,5 +1,83 @@
 ;/*=========== Hotmod Specifics Begin  ===========*/
 
+{"hatch"
+;/*===========  Hatch Animation Begin  ===========*/
+
+	{on "spawn_no_crew"
+		{ani_wind "open" begin}
+		{ani_wind "open1" begin}
+	}
+	{on "spawn_with_crew"
+		{ani_wind "open" begin}
+	}
+
+	{on "event_no_crew"
+		{ani_play "open" +1.0 resume}
+		{ani_play "open1" +1.0 resume}
+	}
+	{on "event_with_crew"
+		{ani_play "open" -1.0 resume}
+		{ani_play "open1" -1.0 resume}
+	}
+
+	{on "gunner2_hatch_open"
+		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "gunner2_hatch_close"
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+	{on "gunner4_hatch_open"}
+	{on "gunner4_hatch_close"}
+	{on "commander_hatch_open"}
+	{on "commander_hatch_close"}
+	{on "charger_hatch_open"}
+	{on "charger_hatch_close"}
+
+	(define "places"
+		{if has_place "%0"
+			{if crew_in_place "%0"
+				{call "%0_hatch_open"}
+			else
+				{call "%0_hatch_close"}
+			}
+		}
+	)
+	(define "update_hatch"
+		{if not operatable
+			{if %wind
+				{call "spawn_no_crew"}
+			else
+				{call "event_no_crew"}
+			}
+		else
+			{if %wind
+				{call "spawn_with_crew"}
+			else
+				{call "event_with_crew"}
+			}
+			("places" args gunner2)
+			("places" args gunner4)
+			("places" args commander)
+			("places" args charger)
+		}
+	)
+	{on "update_hatch_on_spawn"
+		("update_hatch" wind(true))
+	}
+	(define "update_hatch_event"
+		{on %event
+			("update_hatch" wind(false))
+		}
+	)
+	("update_hatch_event" event(operatable on))
+	("update_hatch_event" event(operatable off))
+	("update_hatch_event" event(crew in))
+	("update_hatch_event" event(crew out))
+
+	;/*=========== Hatch Animation End ===========*/
+}
+
 {"mg_turret"
 	{on spawn
 		{call "update_mg_turret"}
@@ -448,8 +526,84 @@
 	("bt_sound")
 }
 
-{"9p110"
+{"9p110" ;// can't figure out how to reset turret to 0
 	("sdkfz222_sound")
+ 
+	{on spawn
+		{tags add "weapon_down"}
+	}
+	
+	{on "reload"
+		{tags add "reloading"}
+		{ik_enable "turret" 0}
+		{ani_play "turret_reset"}
+		{ani_play "weapon_down"}
+		{tags add "weapon_down"}
+		{talk "reload"}
+		{delay 1
+			{call "update_missilerack"}
+			{delay 60
+				{tags remove "reloading"}
+				{talk "reloaded"}
+				{call "update_missilerack"}
+			}
+		}
+	}
+ 
+	{on repair
+		{if component "turret"
+			{call "update_missilerack"}
+		}
+	}
+ 
+	(define "update_missilerack"
+		{if crew_in_place "gunner"
+			{if tagged "reloading"
+				{delay 0.1}
+			else
+				{if work "turret"
+					{if tagged "weapon_down"
+						{ani_play "weapon_up"}
+						{tags remove "weapon_down"}
+						{ik_enable "turret" 1}
+					else
+						{delay 0.1}
+					}
+				else
+					{delay 0.1}
+				}
+			}
+		else
+			{if not tagged "weapon_down"
+				{ani_play "weapon_down"}
+				{tags add "weapon_down"}
+			else
+				{delay 0.1}
+			}
+		}
+	)
+ 
+ 
+	{on "update_missilerack"
+		("update_missilerack" n())
+	}
+	
+	(define "update_rack_event"
+		{on %event
+			{call "update_missilerack"}
+		}
+	)
+	("update_rack_event" event(operatable on))
+	("update_rack_event" event(operatable off))
+	("update_rack_event" event(crew in))
+	("update_rack_event" event(crew out))
+}
+
+{"9p110x"
+	("sdkfz222_sound")
+	{on spawn
+		{ani_play "weapon_up"}
+	}
 }
 
 {"btr-40"

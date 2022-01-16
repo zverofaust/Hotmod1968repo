@@ -1,0 +1,156 @@
+;Exported by: A
+;Date:        Sat Oct 19 08:55:07 2019
+;File:        D:\Cold War\Models\9m14\9m1.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.6}}
+		{sequence "open" {speed 0.6}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone revolute "turret"
+			{parameters "ID=turret;"}
+			{Matrix34
+				1	0	0
+				0	1	0
+				0	0	1
+				0.183123	-0.00743043	0
+			}
+			{bone "body"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0
+					0	1	0
+					0	0	1
+					-0.183123	0	0
+				}
+				{VolumeView "body.ply"}
+				{bone "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						0.984808	0	0.173648
+						0.173648	0	-0.984808
+						0	1	0
+						-4.69135	0.354489	3.69197
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun_rot_leg"
+						{parameters "ID=body;"}
+						{Position 7.44754	-1.02006	-0.0172587}
+						{VolumeView "gun_rot_leg.ply"}
+					}
+					{bone "foresight1"
+						{Matrix34
+							1	0	0
+							0	-1	0
+							0	0	-1
+							14.2563	-3.2758	0.0955029
+						}
+					}
+					{bone "rocket"
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							6.61481	-3.23694	0.1199
+						}
+						{VolumeView "rocket.ply"}
+						{bone "shooter00"
+							{Matrix34
+								1	0	0
+								0	0	1
+								0	-1	0
+								5.86818	-0.0244011	-0.00293875
+							}
+						}
+					}
+				}
+			}
+		}
+		{bone "controller"
+			{parameters "ID=body;"}
+			{Position -9.18078	25.1036	0}
+			{VolumeView "controller.ply"}
+			{bone revolute "periscope"
+				{parameters "ID=body;"}
+				{Position 0.877666	-0.587322	1.70202}
+				{VolumeView "periscope.ply"}
+				{bone "visor"
+					{Matrix34
+						0	1	0
+						0	0	1
+						1	0	0
+						1.28162	0.176666	10.172
+					}
+				}
+			}
+		}
+		{bone "emit1"
+			{Position -22.4228	26.8034	0}
+		}
+		{bone "gunner"
+			{Position -22.4228	25.0995	0}
+		}
+		{bone "driver2"
+			{Position 0.155422	8.43129	0}
+		}
+		{bone "handle2"
+			{Position 0.155422	8.40837	18.058}
+		}
+		{bone "visor2"
+			{Matrix34
+				0	1	0
+				0	0	1
+				1	0	0
+				-7.02149	-24.5905	7.51605
+			}
+		}
+		{bone "handle3"
+			{Position 0.168375	-13.6101	18.2009}
+		}
+		{bone "commander"
+			{Position -16.1184	-24.1463	0}
+		}
+		{bone "emit2"
+			{Position -16.1184	-25.2409	0}
+		}
+		{bone "driver1"
+			{Position 0.168375	-13.6131	0}
+		}
+	}
+}
+{Obstacle "body"
+	{Obb2
+		{Center 0.807566 -0.455598}
+		{Extent 5.89279 3.24347}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body_vol2"
+	{Obb2
+		{Center -8.33018 -23.3136}
+		{Extent 3 2}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Volume "body"
+	{Box 11.7856 6.48693 8.45317}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0.807566	0.463028	4.22658
+	}
+}
+{Volume "body_vol2"
+	{Box 4 6 3}
+	{Bone "controller"}
+	{Position 1.28162	0.176666	10.172}
+}
