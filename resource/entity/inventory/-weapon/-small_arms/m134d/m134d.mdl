@@ -1,0 +1,59 @@
+;Exported by: misan
+;Date:        Sat Jan 15 18:50:35 2022
+;File:        D:\Cold War\Models\Inf Weapons\M134\M134.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.6}}
+	}
+	{bone "m134d"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "m134d.ply"}
+		{bone "foresight14"
+			{Matrix34
+				1	0	0
+				0	0	1
+				0	-1	0
+				17.0622	1.82302	-0.020626
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0.65676	0	0.754099
+				-0.754099	0	0.65676
+				0	-1	0
+				3.53884	1.43308	1.13686
+			}
+		}
+		{bone "handle"
+			{Matrix34
+				1	0	0
+				0	-0.173648	-0.984808
+				0	0.984808	-0.173648
+				3.25401	3.50958	-0.810206
+			}
+		}
+		{bone "barrels"
+			{Position 10.702	1.33836	0.00581992}
+			{VolumeView "barrels.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 18.5353 5.28901 3.85954}
+	{Bone "m134d"}
+	{Position 6.22402	1.45269	-0.0179956}
+}
+{Volume "select"
+	{Box 25.5411 7.87879 9.90584}
+	{Bone "m134d"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		5.80595	1.38689	0.124834
+	}
+}
