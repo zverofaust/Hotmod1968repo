@@ -1,10 +1,10 @@
 {boarder
 	{anm "left"
-		{forward {begin "board_tank_right"} {end "seat_gunner_stand"}{base "open"}}
+		{forward {begin "board_tank_right"} {end "seat_gunner_stand"}{base "doorleft"}}
 		{reverse {end "emit_tank_2_hold"}{base "open" -1}}
 	}
 	{anm "right"
-		{forward {begin "board_tank_right"} {end "seat_gunner_stand"}{base "open"}}
+		{forward {begin "board_tank_right"} {end "seat_gunner_stand"}{base "doorright"}}
 		{reverse {end "emit_tank_2_hold"}{base "open" -1}}
 	}
 }
@@ -22,5 +22,4 @@
 )
 
 ("crew_human" place(driver) bone()  visor(driver) off({sensor}))
-("crew_human" place(commander) bone()  visor(around) off())
-("crew_human" place(gunner2) bone()  visor(main) off())
+("crew_human" place(gunner) bone()  visor(around) off())

@@ -51,9 +51,9 @@
 		("restore_ik_time")
 		{place "gun"
 			{weapon			"atgm_9m14_x6" filled}
-			{gunner			"commander"}
-			{charger		"commander"}
-			{shooter		"shooter_a"}
+			{gunner			"gunner"}
+			{charger		"gunner"}
+			{shooter		"shooter"} ;shooter_a
 			{foresight		"foresight1"}
 			{barrels 6}
 			("abm_mgun")
@@ -92,11 +92,12 @@
 			{terrain "water" "deep_water"}
 		}
 	}	
-	{bone "gun_rot"
-		{limits -5 40}
-		{speed2 20}
-	}
+	;{bone "gun_rot"
+	;	{limits -5 40}
+	;	{speed2 20}
+	;}
 	{bone "turret"
+		{terminator}
         {limits -90 90}
 		{speed2 20}
 	}
