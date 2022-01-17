@@ -169,7 +169,7 @@
 				{vision_modes_active}
 				{hide_crosshair 1}
 				{linkBone "visor1"}
-				{offset 5 0 2}
+				{offset 25 0 2}
 				{scope_vignette "/texture/common/environment/lens_effects/vehicle_telescope_rus_hmg"}
 				{blur_mask "/texture/common/environment/lens_effects/vehicle_telescope_mask"}
 				{refraction_mask "/texture/common/environment/lens_effects/vehicle_telescope_base_bp"}

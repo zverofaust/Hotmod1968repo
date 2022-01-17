@@ -26,6 +26,8 @@
 		; {no_rim_light} //not sure what rim lights are but this disables it
 		; {soundEffect} //Sound filter?
 		
+		
+		
 		{"vehicle.m151mg"
 			{clip
 				{viewMin		-20	}	; camera rotate upward limit (looking down)
@@ -402,4 +404,51 @@
 				{offset 2 0 2}
 			}
 		}
+		
+		{"vehicle.hueyatgm"
+			{clip
+				{viewMin		-12	}	; camera rotate upward limit (looking down)
+				{viewMax		20	}	; camera rotate downward limit (looking up)
+				{distanceMin	200	}	; camera min distance from object. value / 20 = meters
+				{distanceMax	350	}	; camera max distance from object. value / 20 = meters
+			}
+			{level ;0
+				{linkBone "basis"}
+				{faroffset 0 15 70}
+				{nearoffset -45 35 55}
+				{camera "zoom1"}
+				{hide_hitmarker 1}
+				{blur_strength 2}
+				{disable_fow 0}
+				{no_grain}
+			}
+			{level ;1
+				{zoom}
+				{vision_modes_active}
+				{hide_crosshair 1}
+				{linkBone "visor"}
+				{offset 5 0 2}
+				{scope_vignette "/texture/common/environment/lens_effects/vehicle_telescope_blank"}
+				{blur_mask "/texture/common/environment/lens_effects/vehicle_telescope_mask"}
+				{refraction_mask "/texture/common/environment/lens_effects/vehicle_telescope_base_bp"}
+				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_02"}
+				{distance 5}
+				{distanceSet 0}
+				{delta 0}
+				{camera "zoom1.5"}
+				{ManualAccuracyZoom}
+				{blur_strength 10}
+				{disable_fow 0}
+				{no_rim_light}
+				{soundEffect "opentop_vehicle"}
+			}
+			{level ;2
+				{camera "zoom2.5"}
+				{offset 2 0 2}
+			}
+			{level ;2
+				{camera "zoom4"}
+				{offset 2 0 2}
+			}
+		}	
 	

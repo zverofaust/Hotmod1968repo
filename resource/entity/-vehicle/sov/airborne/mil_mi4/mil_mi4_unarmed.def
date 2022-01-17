@@ -1,0 +1,156 @@
+{game_entity		;Mi-4AV
+	(include "/properties/helicopter.ext")
+	(include "/properties/shadow/airborn.inc" scale(2.2))
+	(include "/properties/selection/airborne.inc" scale(2.0))
+	(include "/properties/car_crew.ext")
+	{props "helicopter" "tractor" "tractor_medium"} ;"wheeled" 
+	
+	("armor_medium")
+	
+	{PatherID "bf109"}
+	
+	{Extender "detail"
+		{random 0}
+	}
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse	{end	"board_plane_left" -1} {base "doorleft" -1}}
+		}
+		{anm "right"
+			{forward	{begin	"board_plane_left"} {end "seat_passenger"} {base "doorright"}}
+			{reverse	{end	"board_plane_left" -1} {base "doorright" -1}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_dodge_bodyback"} {end "seat_passenger"} {base "doorback"}}
+			{reverse	{end	"emit_body"} {base "doorback" -1}}
+		}
+	}
+	
+	("crew_human"		place(driver)	bone(driver)	door(emit1) animation(left)			group(crew))
+	("crew_human"		place(commander) bone(commander) 	door(emit2) animation(right)		group(crew))
+	
+	("crew_human"		place(seat01)	bone(seat01)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat02)	bone(seat02)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat03)	bone(seat03)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat04)	bone(seat04)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat05)	bone(seat05)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat06)	bone(seat06)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat07)	bone(seat07)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat08)	bone(seat08)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat09)	bone(seat09)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat10)	bone(seat10)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat11)	bone(seat11)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human" 		place(seat12)	bone(seat12)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human" 		place(seat13)	bone(seat13)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat14)	bone(seat14)	door(emit4) animation(passenger)	group(passenger))
+
+	;volume, component/tag, thickness
+	{Volume "body"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body1"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	
+	;{Obstacle "in_air"
+	;	{Obb2
+	;		{Center -20 0}
+	;		{Extent 200 160}
+	;		{Axis -1 0}
+	;	}
+	;	{rotate}
+	;}
+	;{ObstacleId "helicopter" "in_air"}
+
+	;volume/component, thickness
+	("glass" args "window1" 10)
+	("glass" args "window2" 10)
+	("glass" args "window3" 10)
+	("glass" args "window4" 10)
+	("glass" args "window5" 10)
+	("glass" args "window6" 10)
+	("glass" args "window7" 10)
+	("glass" args "window8" 10)
+	("glass" args "window9" 10)
+	("glass" args "window10" 10)
+	("glass" args "window11" 10)
+	("glass" args "window12" 10)
+	("glass" args "window13" 10)
+	("glass" args "window14" 10)
+	("glass" args "window15" 10)
+	("glass" args "window16" 10)
+	("glass" args "window17" 10)
+
+	{Weaponry
+		{place "mgun"
+			{rotate}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{LinkBone		"mgun_hlp"}
+			{LinkAnimation	"off"}
+			{weapon			"a-12_7" filled}
+			{basic}
+			{ai_in_manual}
+			{rotate}
+		}
+	}
+
+	{mass 5100}
+	
+	{Chassis "wheel"
+	}
+	
+	{Chassis "helicopter"
+		{Locomotion ("locomotion_transport")}
+	}
+	
+	;main rotor + blades
+	("part" args "rotor")
+	("part" args "propeller1")
+	("part" args "propeller2")
+	("part" args "propeller3")
+	("part" args "propeller4")
+
+	;back rotor + blades
+	("part" args "rotor_b")
+	("part" args "propeller_b")
+	("part" args "propeller_b1")
+	("part" args "propeller_b2")
+
+	("wheel" args "wheell1")
+	("wheel" args "wheelr1")
+	("wheel" args "wheell2")
+	("wheel" args "wheelr2")
+
+	{Extension "mil_mi4_unarmed.mdl"}
+	
+	{bone "mgun_rot_h"		;mgun: right/left
+		{speed 0.025}
+		{limits -45 45}
+	}
+	{bone "mgun_rot_v"			;mgun: up/down
+		{speed 0.025}
+		{limits -15 45}
+	}
+}

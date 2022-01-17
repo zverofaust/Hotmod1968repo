@@ -2,34 +2,20 @@
 actor
 
 (include "vehicle.ext")
-(include "armor.ext")
-(include "armor_helicopter.ext")
+{lodclass "vehicle"}
 
-{collider "helicopter"}
-;{patherID "helicopter"}
+{Collider "helicopter"}
+{PatherID "helicopter"}
 
-{targetClass "airborne"}
-{targetSelector "airborne_bullet"}
+{TargetClass "helicopter"}
+{TargetSelector "helicopter"}
 
-{Props "airborne" "helicopter" "vision_lev01_air"}
+{Props "helicopter" "muzzle_zenite" "vision_vehicle_high"}
 
 {brain "vehicle" {state "airborne"}}
 
 {simulatorId "airborne"}
 
-{placer
-	{place "driver"			{visor "main"}}
-	{place "commander"		{visor "around"}}
-}
-
-{Extender "inventory"
-	{box
-		{Size 9 10}
-		{weight 20000}
-	}
-}
-
-{hearingBias 250.0}				;// reduces units ability to hear sound signals. value = meters
 {sensor
 	{Visor "main"
 		{vision "airborne_main"}
@@ -39,17 +25,30 @@ actor
 		{vision "airborne_around"}
 		{bone "basis"}
 	}
+	{InformRange 100 135}		;first - AI ;second - USER
+}
+
+{placer
+	{place "driver"		{group "driver"}	{visor "main"}}
+	{place "commander"	{group "driver"}	{visor "main"}}
+}
+
+{Extender "inventory"
+	{box
+		{Size 8 6}
+		{weight 20000}
+	}
 }
 
 {Volume "body"
 	{tags "body"}
 	{thickness 20}
-	{component "body"}
+	{able {visible 0}}
 }
 {Volume "engine"
 	{tags "body" "inflammable"}
 	{thickness 20}
-	{component "engine"}
+	{able {visible 1}}
 }
 {Volume "cabin"
 	{tags "body"}
@@ -59,86 +58,128 @@ actor
 
 {Component "body"
 	{RepairTime 25}
-	{RepairOrder 0}
 }
 {Component "engine"
 	{RepairTime 25}
-	{RepairOrder 3}
 }
 
 ;main rotor components
 {Component "rotor"
 	{RepairTime 10}
-	{RepairOrder 4}
 }
 
 ;back rotor components
 {Component "rotor_b"
 	{RepairTime 10}
-	{RepairOrder 4}
 }
 
-("helicopter_durability" body(100) engine(50) rotor(50) rotor_b(50) glass(50))
-
 {perks
+	{component "body"
+		{category "airborne_medium"}
+	}
+	{component "engine"
+		{category "engine_medium"}
+	}
 	{blastwave_modifier 20.0}
 }
 
 {Chassis "wheel"
-	{Locomotion
-		{MaxSpeed		90	}	; max speed, km/h
-		{StartTime		9	}	; acceleration time from 0 to max. speed, seconds
-		{BrakeTime		5	}	; deceleration time from max. speed to 0, seconds
-		{StopTime		3	}	; stop time after turning off the engine, seconds
+	{locomotion
+		{MaxSpeed		3	}	;// max speed while in wheeled mode in kph
+		{maxSpeedAtMaxTurn 5}	;// max speed when at max turn in kph
+		{StartTime		2	}	;// time to accelerate to max speed from 0 kph in seconds
+		{BrakeTime		1	}	;// time to decelerate from max speed to 0 kph in seconds when using brakes (hard stop)
+		{StopTime		2	}	;// time to decelerate from max speed to 0 kph in seconds when coasting to a stop (not applying forward motion)
+	}
+	{FuelBag
+		{volume 500	}			;// maximum capacity of fuel tank in liters
+		{rate	10	}			;// how much fuel is consumed during movement
+		{remain 500	}			;// how much fuel is in fuel tank at spawn
+		{fuel "fuel"}			;// type of fuel used. "fuel" = petrol/gasoline. "diesel" = diesel
+	}
+	{speed
+		{Slow	3	}			;// speed for slow movement state
+		{Normal	5	}			;// speed for normal movement state (single mouse click move order)
+		{Fast	10	}			;// speed for fast movement state (double mouse click move order)
 	}
 	{DontUseSlope}
 }
+
 {Chassis "helicopter"
-	{FrontSlopeSpeed		10	} ; degree/s
+	{Locomotion
+		{StartTime		3	}
+		{BrakeTime		3	}
+		{StopTime		4	}
+		{SplineRadius	5	}
+		{Slow			60	}
+		{Normal			80	}
+		{Fast			100	}
+		{MaxSpeed		110	}
+		{TurnRadius		15	} 
+	}
+	{FrontSlopeSpeed		5	} ; degree/s
 	{MaxFrontSlope			15	} ; degree
-	{SideSlopeSpeed			15	} ; degree/s
-	{MaxSideSlope			15	} ; degree
-	{MaxElevationSpeed		10	} ; m/s
-	{ElevationAcceleration	5	} ; m/s^2
-	{MaxAltitude			50	} ; m
-	{TravelAltitude			22	} ; m minimum altitude above ground, moving is dynamic
-	{EngineStartupTime		3.6 } ; seconds
+	{SideSlopeSpeed			25	} ; degree/s
+	{MaxSideSlope			25	} ; degree
+	{MaxElevationSpeed		5	} ; m/s
+	{ElevationAcceleration	3	} ; m/s^2
+	{MaxAltitude			40	} ; m
+	{EngineStartupTime		3} ; seconds
 	{DontUseSlope}
 	{Airborne}
 	{IgnorePatherBoundsAI}		; AI ignores pather bounds, USER is constrained by pather bounds
 	{FuelBag
 		{volume 1000}
-		{rate   10 	}		; * 20 liter/km
+		{rate   10 	}			;// how much fuel is consumed during movemen
 		{remain 1000}
 		{fuel "fuel"}
 	}
 }
+
 {ChassisManager
 	{Current "helicopter"}
 }
 
-(define "locomotion_transport"
+(define "locomotion"
 	{StartTime		3	}	; acceleration time from 0 to max. speed, seconds
-	{BrakeTime		0.8	}	; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
+	{BrakeTime		3	}	; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
 	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds but less
 	{SplineRadius	5	}	; limit turning radius on the splines, meters
-	{Slow			30	}	; km/h
-	{Normal			60	}
-	{Fast			90	}
-	{MaxSpeed		90	}	; max speed, km/h
+	{SteerOn		15	}			
+	{SteerOff		15	}
+	{Slow			60	}	; km/h
+	{Normal			80	}
+	{Fast			100	}
+	{MaxSpeed		120	}	; max speed, km/h
+	{TurnRadius		15	}	; turn radius, m
+)
+
+(define "locomotion_transport"
+	{StartTime		3	}	; acceleration time from 0 to max. speed, seconds
+	{BrakeTime		3	}	; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
+	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds but less
+	{SplineRadius	5	}	; limit turning radius on the splines, meters
+	{SteerOn		15	}			
+	{SteerOff		15	}
+	{Slow			60	}	; km/h
+	{Normal			80	}
+	{Fast			100	}
+	{MaxSpeed		120	}	; max speed, km/h
 	{TurnRadius		15	}	; turn radius, m
 )
 
 (define "locomotion_attack"
-	{StartTime		2	} ; acceleration time from 0 to max. speed, seconds
-	{BrakeTime		0.8	} ; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
-	{StopTime		3	} ; stop time after turning off the engine from max. speed to 0, seconds but less
-	{SplineRadius	5	} ; limit turning radius on the splines, meters
-	{Slow			50	} ; km/h
-	{Normal			70	}
+	{StartTime		3	}	; acceleration time from 0 to max. speed, seconds
+	{BrakeTime		3	}	; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
+	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds but less
+	{SplineRadius	5	}	; limit turning radius on the splines, meters
+	{SteerOn		15	}			
+	{SteerOff		15	}
+	{Slow			60	}	; km/h
+	{Normal			80	}
 	{Fast			100	}
-	{MaxSpeed		100	} ; max speed, km/h
-	{TurnRadius		15	} ; turn radius, m
+	{MaxSpeed		120	}	; max speed, km/h
+	{TurnRadius		15	}	; turn radius, m
 )
 
 (define "part"
@@ -177,6 +218,13 @@ actor
 				{pierce {value 4}}
 			}
 		}
+	}
+)
+
+(define "window_volume"
+	{volume "%name"
+		{thickness %thickness}
+		{able {window}}
 	}
 )
 

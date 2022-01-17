@@ -1,0 +1,22 @@
+{from "pattern gun"	 ;
+	{filling "57mm_s-5" 16}
+	{fillingVisible "rocket"}
+	{fireSound "reactive/rocket_burst/"}
+	{reloadSound "tank/reload_medium"}
+
+	{calibre 57}
+	{range 375 375} ;//11.1km range x 33.7
+	
+
+	("fire rate" rpm(1200))
+	("reload time" seconds(16))
+
+	("velocity m/s" ap(1) apcr(1) he(586) heat(1))
+	("armor health" damage(150))
+
+	{parameters "he"										
+		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
+	}
+
+	("accuracy_direct" r1(0.49) range_ap(210) range_he(210) range_heat(190))
+}

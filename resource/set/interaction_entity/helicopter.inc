@@ -5,6 +5,8 @@
 		{add_view "smoke_black" "smoke_engine" 		"FXfire1"}
 		{add_view "smoke_black" "smoke_rotor" 		"FXfire2"}
 		{add_view "smoke_black" "smoke_rotor_back" 	"FXfire3"}
+		{add_view "spheredust_heli" "spheredust_heli" "on_water"}
+		{add_view "spheredust_heli" "spheredust_heli" "on_ground"}
 		{call "init_gun"}
 	}
 	
@@ -16,7 +18,22 @@
 	}
 	
 	{on engine on overload
-		{call "engine_on"}
+		(mod "mp"
+			{if not "engine_started"
+				{set "engine_started" 1}
+			}
+		)
+		{if not "engine_started"
+			{set "engine_started" 1}
+			{play_sound "engine_start"}
+			{ani_play "engine_start" callback}
+		else
+			{ani_play "engine_work" loop}
+			{play_sound "engine_work" 1}
+			{delay 0.3 "start_check_altitude" 
+				{call "check_altitude"}
+			}
+		}
 	}
 	
 	{on bullet_hit
@@ -26,13 +43,6 @@
 		}
 	}
 	
-	{on "engine_started"
-		{if not "engine_started"
-			{set "engine_started" 1}
-			{ani_stop "engine_stop"}
-			{stop_sound "engine_stop"}
-		}
-	}
 	{on "engine_stopped"
 		{if "engine_started"
 			{set "engine_started" 0}
@@ -40,6 +50,28 @@
 			{ani_play "engine_stop"}
 			{stop_sound "engine_work"}
 			{stop_sound "fly"}
+		}
+	}
+	
+	{on "engine_count"
+		{tags add "engine_count_1"}
+	}
+	
+	{on "engine_switch"
+		{if "toggle_delay"
+			{play_sound "false_start"}
+		else "engine_started"
+			{call "engine_stop"}
+		else
+			{call "engine_on"}
+		}
+	}
+	
+	{on "engine_toggle" overload			;// UI button to toggle engine on/off
+		{if "toggle_delay"
+			{play_sound "false_start"}
+		else "engine_started"
+		else
 		}
 	}
 	
@@ -56,17 +88,48 @@
 		else
 			{ani_play "engine_work" loop}
 			{play_sound "engine_work" 1}
+			{delay 0.3 "start_check_altitude" 
+				{call "check_altitude"}
+			}
+		}
+	}
+
+	{on "engine_started"
+		(mod "mp"
+			{if not "engine_started"
+				{set "engine_started" 1}
+			}
+		)
+		{if not "engine_started"
+			{set "engine_started" 1}
+			{play_sound "engine_start"}
+			{ani_play "engine_start" callback}
+		else
+			{ani_play "engine_work" loop}
+			{play_sound "engine_work" 1}
+			{delay 0.3 "start_check_altitude" 
+				{call "check_altitude"}
+			}
 		}
 	}
 	
+		
 	{on animation_end "engine_start"
 		{ani_play "engine_work" loop}
 		{play_sound "engine_work" 1}
 	}
 	
 	{on engine off overload
-		{call "engine_stop"}
-		{play_sound "engine_stop"}
+		{kill_delay "engine_stopped"}
+		{if "engine_started"
+			{set "engine_started" 0}
+			{ani_stop "engine_start"}
+			{ani_stop "engine_work"}
+			{ani_play "engine_stop"}
+			{stop_sound "engine_start"}
+			{stop_sound "engine_work"}
+			{stop_sound "fly"}
+		}
 	}
 	
 	{on "engine_stop"
@@ -127,7 +190,6 @@
 			{set "fall" 1}
 			{impulse up 0.1 com}
 			{explosive 1}
-			{play_sound "fall"}
 			{call "fall_fx"}
 		}
 	}
@@ -300,6 +362,15 @@
 				}
 			}
 		}
+		{if "engine_started"
+			{set "engine_started" 0}
+			{ani_stop "engine_start"}
+			{ani_stop "engine_work"}
+			{ani_play "engine_stop"}
+			{stop_sound "engine_start"}
+			{stop_sound "engine_work"}
+			{stop_sound "fly"}
+		}
 	}
 	
 	{on "_explosion" overload
@@ -392,18 +463,130 @@
 	}
 )
 
-{"mil_mi4"
-	("helicopter2_sound")
+{"uh-1h"
+	{on "add_movement_sound" overload
+		{link_sound "fly"				"vehicle/airborne/uh1h_move"			}
+		{link_sound "engine_start"		"vehicle/airborne/uh1h_start"		}
+		{link_sound "engine_work"		"vehicle/airborne/uh1h_work"			}
+		{link_sound "engine_stop"		"vehicle/airborne/uh1h_stop"			}
+	}
+	{on "explosion_sound" overload
+		{start_sound "crush/big/airborne/1"}
+	}
+	{on "fall_sound" overload
+	}
 }
 
-{"mil_mi4_airborne"
-	("helicopter2_sound")
+{"uh-1h_sf"
+	{on "add_movement_sound" overload
+		{link_sound "fly"				"vehicle/airborne/uh1h_move"			}
+		{link_sound "engine_start"		"vehicle/airborne/uh1h_start"		}
+		{link_sound "engine_work"		"vehicle/airborne/uh1h_work"			}
+		{link_sound "engine_stop"		"vehicle/airborne/uh1h_stop"			}
+	}
+	{on "explosion_sound" overload
+		{start_sound "crush/big/airborne/1"}
+	}
+	{on "fall_sound" overload
+	}
+}
+
+{"uh-1b"
+	{on "add_movement_sound" overload
+		{link_sound "fly"				"vehicle/airborne/uh1h_move"			}
+		{link_sound "engine_start"		"vehicle/airborne/uh1h_start"		}
+		{link_sound "engine_work"		"vehicle/airborne/uh1h_work"			}
+		{link_sound "engine_stop"		"vehicle/airborne/uh1h_stop"			}
+	}
+	{on "explosion_sound" overload
+		{start_sound "crush/big/airborne/1"}
+	}
+	{on "fall_sound" overload
+	}
+}
+
+{"uh-1b_maxwell"
+	{on "add_movement_sound" overload
+		{link_sound "fly"				"vehicle/airborne/uh1h_move"			}
+		{link_sound "engine_start"		"vehicle/airborne/uh1h_start"		}
+		{link_sound "engine_work"		"vehicle/airborne/uh1h_work"			}
+		{link_sound "engine_stop"		"vehicle/airborne/uh1h_stop"			}
+	}
+	{on "explosion_sound" overload
+		{start_sound "crush/big/airborne/1"}
+	}
+	{on "fall_sound" overload
+	}
+}
+
+{"uh-1b_m22"
+	{on "add_movement_sound" overload
+		{link_sound "fly"				"vehicle/airborne/uh1h_move"			}
+		{link_sound "engine_start"		"vehicle/airborne/uh1h_start"		}
+		{link_sound "engine_work"		"vehicle/airborne/uh1h_work"			}
+		{link_sound "engine_stop"		"vehicle/airborne/uh1h_stop"			}
+	}
+	{on "explosion_sound" overload
+		{start_sound "crush/big/airborne/1"}
+	}
+	{on "fall_sound" overload
+	}
+}
+
+{"mil_mi4"
+	{on "add_movement_sound" overload
+		{link_sound "fly"				"vehicle/airborne/uh1h_move"			}
+		{link_sound "engine_start"		"vehicle/airborne/uh1h_start"		}
+		{link_sound "engine_work"		"vehicle/airborne/uh1h_work"			}
+		{link_sound "engine_stop"		"vehicle/airborne/uh1h_stop"			}
+	}
+	{on "explosion_sound" overload
+		{start_sound "crush/big/airborne/1"}
+	}
+	{on "fall_sound" overload
+	}
+}
+
+{"airborne mil_mi4_airborne"
+	{on "add_movement_sound" overload
+		{link_sound "fly"				"vehicle/airborne/uh1h_move"			}
+		{link_sound "engine_start"		"vehicle/airborne/uh1h_start"		}
+		{link_sound "engine_work"		"vehicle/airborne/uh1h_work"			}
+		{link_sound "engine_stop"		"vehicle/airborne/uh1h_stop"			}
+	}
+	{on "explosion_sound" overload
+		{start_sound "crush/big/airborne/1"}
+	}
+	{on "fall_sound" overload
+	}
 }
 
 {"mil_mi4_heavy"
-	("helicopter2_sound")
+	{on "add_movement_sound" overload
+		{link_sound "fly"				"vehicle/airborne/uh1h_move"			}
+		{link_sound "engine_start"		"vehicle/airborne/uh1h_start"		}
+		{link_sound "engine_work"		"vehicle/airborne/uh1h_work"			}
+		{link_sound "engine_stop"		"vehicle/airborne/uh1h_stop"			}
+	}
+	{on "explosion_sound" overload
+		{start_sound "crush/big/airborne/1"}
+	}
+	{on "fall_sound" overload
+	}
 }
 
-{"mil_mi4_heavy_airborne"
-	("helicopter2_sound")
+{"airborne mil_mi4_heavy_airborne"
+	{on "add_movement_sound" overload
+		{link_sound "fly"				"vehicle/airborne/uh1h_move"			}
+		{link_sound "engine_start"		"vehicle/airborne/uh1h_start"		}
+		{link_sound "engine_work"		"vehicle/airborne/uh1h_work"			}
+		{link_sound "engine_stop"		"vehicle/airborne/uh1h_stop"			}
+	}
+	{on "explosion_sound" overload
+		{start_sound "crush/big/airborne/1"}
+	}
+	{on "fall_sound" overload
+	}
 }
+
+

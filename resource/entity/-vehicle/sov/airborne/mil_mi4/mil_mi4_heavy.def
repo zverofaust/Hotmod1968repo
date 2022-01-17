@@ -1,15 +1,16 @@
-{game_entity		;Mi-4AV
+{game_entity		;Mi-4AV KV-4
 	(include "/properties/helicopter.ext")
 	(include "/properties/shadow/airborn.inc" scale(2.2))
 	(include "/properties/selection/airborne.inc" scale(1.5))
-	;{props "helicopter"} ;"wheeled" 
-	{PatherID "bf110"}
+	(include "/properties/car_crew.ext")
+	{props "helicopter"} ;"wheeled" 
+	{PatherID "bf109"}
+	("armor_medium")
 	
 	{Extender "detail"
 		{random 0}
 	}
 
-	(include "/properties/car_crew.ext")
 	{boarder
 		{anm "left"
 			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "doorleft"}}
@@ -26,7 +27,7 @@
 	}
 	
 	("crew_human"		place(driver)	bone(driver)	door(emit1) animation(left)			group(crew))
-	("crew_human"		place(commander) bone(driver) 	door(emit2) animation(right)		group(crew))
+	("crew_human"		place(commander) bone(commander) 	door(emit2) animation(right)		group(crew))
 	
 	("crew_human"		place(seat01)	bone(seat01)	door(emit3) animation(passenger)	group(passenger))
 	("crew_human"		place(seat02)	bone(seat02)	door(emit4) animation(passenger)	group(passenger))
@@ -44,17 +45,41 @@
 	("crew_human"		place(seat14)	bone(seat14)	door(emit4) animation(passenger)	group(passenger))
 
 	;volume, component/tag, thickness
-	{volume "body6"}
-	
-	{Obstacle "in_air"
-		{Obb2
-			{Center -20 0}
-			{Extent 200 160}
-			{Axis -1 0}
-		}
-		{rotate}
+	{Volume "body"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
 	}
-	{ObstacleId "helicopter" "in_air"}
+	{Volume "body1"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	
+	;{Obstacle "in_air"
+	;	{Obb2
+	;		{Center -20 0}
+	;		{Extent 200 160}
+	;		{Axis -1 0}
+	;	}
+	;	{rotate}
+	;}
+	;{ObstacleId "helicopter" "in_air"}
 
 	;volume/component, thickness
 	("glass" args "window1" 10)
@@ -76,18 +101,8 @@
 	("glass" args "window17" 10)
 
 	{Weaponry
-		{place "mgun"
-			{rotate}
-			{gunner			"driver"}
-			{charger		"driver"}
-			{LinkBone		"mgun_hlp"}
-			{LinkAnimation	"off"}
-			{weapon			"a-12_7" filled}
-			{basic}
-			{ai_in_manual}
-		}
 		{place "gun"
-			{weapon "weapon 57mm_ub-16_x4" filled}
+			{weapon "57mm_ub-16_x6" filled}
 			{barrels 64}
 			{foresight "foresight3"}
 			{shooter "shooter_a"}
@@ -108,6 +123,16 @@
 			{basic}
 			{ai_in_manual}
 		}
+		{place "mgun"
+			{rotate}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{LinkBone		"mgun_hlp"}
+			{LinkAnimation	"off"}
+			{weapon			"a-12_7" filled}
+			{basic}
+			{ai_in_manual}
+		}
 	}
 
 	{mass 5100}
@@ -116,7 +141,7 @@
 	}
 	
 	{Chassis "helicopter"
-		{Locomotion ("locomotion_attack")}
+		{Locomotion ("locomotion_transport")}
 	}
 
 	;main rotor + blades

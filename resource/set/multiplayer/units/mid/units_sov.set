@@ -41,11 +41,6 @@
 	{cost 10}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
 }
 
-;{"air_rocket_sov"
-;	("squad_vehicle" side(sov) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(sup_tankman:1))
-;	{cost 10}{conditions "radio_sov"}{action "airstrike:s-5_ammo"} 
-;}
-
 ;{"air_bomb_sov"
 ;	("squad_vehicle" side(sov) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(su-7) crew(sup_tankman:1))
 ;	{cost 10}{conditions "radio_sov"}{action "airstrike:sc_250_mp"} 
@@ -91,6 +86,20 @@
 {"doctrine_vehicle_grad(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(bm-21_grad) crew(sup_vehicleman:2) cw(0) cp(0))
 	("doctrine_t1" cool(160) d(mid_sov_motostrelki) cost(15))
+}
+
+; // 10DP Mi-4TV Light CAS Run
+{"doctrine_cas_mi4(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(mil_mi4_airborne) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(240) d(mid_sov_motostrelki) cost(10))
+	{action "airstrike:s-5_ammo"} 
+}
+
+; // 15DP Mi-4TV Heavy CAS Run
+{"doctrine_cas_mi4heavy(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(240) d(mid_sov_motostrelki) cost(15))
+	{action "airstrike:s-5_ammo"} 
 }
 
 ; ======Tier2======

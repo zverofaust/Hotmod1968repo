@@ -1,7 +1,7 @@
 {game_entity		;Mi-4AV
 	(include "/properties/airborne.ext")
 	;{props "wheeled"}
-	{PatherID "bf110"}
+	{PatherID "bf109"}
 	(include "/properties/shadow/airborn.inc" scale(2.2))
 	(include "/properties/selection/airborne.inc" scale(3.0))
 	(include "/properties/car_crew.ext")
@@ -24,37 +24,39 @@
 			{forward	{begin	"board_plane_left"} {end "seat_passenger"} {base "doorright"}}
 			{reverse	{end	"board_plane_left" -1} {base "doorright" -1}}
 		}
-		{anm "passenger"
-			{forward	{begin	"board_dodge_bodyback"} {end "seat_passenger"} {base "doorback"}}
-			{reverse	{end	"emit_body"} {base "doorback" -1}}
-		}
 	}
 	
 	("crew_human"		place(driver)	bone(driver)	door(emit1) animation(left)			group(crew))
 	("crew_human"		place(commander) bone(driver) 	door(emit2) animation(right)		group(crew))
 	
-	("crew_human"		place(seat01)	bone(seat01)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat02)	bone(seat02)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human"		place(seat03)	bone(seat03)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat04)	bone(seat04)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human"		place(seat05)	bone(seat05)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat06)	bone(seat06)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human"		place(seat07)	bone(seat07)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat08)	bone(seat08)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human"		place(seat09)	bone(seat09)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat10)	bone(seat10)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human"		place(seat11)	bone(seat11)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human" 		place(seat12)	bone(seat12)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human" 		place(seat13)	bone(seat13)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat14)	bone(seat14)	door(emit4) animation(passenger)	group(passenger))
-	
-	
-	
-	
 	;add extra boarding door for passengers
 
 	;volume, component/tag, thickness
-	{volume "body6"}
+	{Volume "body"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body1"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
 	
 
 	;volume/component, thickness
@@ -77,6 +79,17 @@
 	("glass" args "window17" 10)
 
 	{Weaponry
+		{place "gun"
+			{weapon "57mm_ub-16_x4" filled}
+			{barrels 64}
+			{foresight "foresight3"}
+			{shooter "shooter_a"}
+			{gunner "driver"}
+			{charger "driver"}
+			{basic}
+			{rotate}
+			{ai_in_manual}
+		}
 		{place "mgun"
 			{rotate}
 			{gunner			"driver"}
@@ -85,17 +98,6 @@
 			{LinkAnimation	"off"}
 			{weapon			"a-12_7" filled}
 			{basic}
-			{ai_in_manual}
-		}
-		{place "gun"
-			{weapon "weapon 57mm_ub-16_x4" filled}
-			{barrels 64}
-			{foresight "foresight3"}
-			{shooter "shooter_a"}
-			{gunner "driver"}
-			{charger "driver"}
-			{basic}
-			{rotate}
 			{ai_in_manual}
 		}
 		{place "gun2"
@@ -136,7 +138,7 @@
 	;("part" args "propeller2")
 	;("part" args "propeller3")
 	;("part" args "propeller4")
-;
+
 	;back rotor + blades
 	;("part" args "rotor_b")
 	;("part" args "propeller_b")
@@ -160,10 +162,10 @@
 	}
 	{bone "gun_rot_h"			;rockets: right/left
 		{speed 0.01}
-		{limits -10 10}
+		{limits -5 5}
 	}
 	{bone "gun_rot_v"			;rockets: up/down
 		{speed 0.01}
-		{limits -15 15}
+		{limits -25 15}
 	}
 }

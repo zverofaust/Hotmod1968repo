@@ -2,30 +2,36 @@
 actor
 
 (include "vehicle.ext")
-{lodclass "vehicle_big"}
+(include "armor.ext")
+
+{lodclass "vehicle"}
 
 {Collider "helicopter"}
-{PatherID "helicopter"}
+;{PatherID "helicopter"}
 
-{TargetClass "helicopter"}
-{TargetSelector "helicopter"}
+{targetClass "airborne"}
+{targetSelector "airborne_bullet"}
 
-{Props "helicopter muzzle_zenite"}
+{Props "helicopter" "vision_lev01_air"}
 
-{Brain "vehicle" {state "airborne"}}
+{brain "vehicle" {state "airborne"}}
 
-{SimulatorId "airborne"}
+{simulatorId "airborne"}
 
-{Sensor
+{sensor
 	{Visor "main"
-		{vision "helicopter_pilot"}
-		{bone	"basis"}
+		{vision "airborne_main"}
+		{bone "visor"}
+	}
+	{visor "around"
+		{vision "airborne_around"}
+		{bone "basis"}
 	}
 }
 
 {placer
-	{place "driver"		{visor "main"}}
-	{place "commander"	{visor "main"}}
+	{place "driver"		{group "driver"}	{visor "main"}}
+	{place "commander"	{group "driver"}	{visor "main"}}
 }
 
 {Extender "inventory"
@@ -38,12 +44,12 @@ actor
 {Volume "body"
 	{tags "body"}
 	{thickness 20}
-	{component "body"}
+	{able {visible 0}}
 }
 {Volume "engine"
 	{tags "body" "inflammable"}
 	{thickness 20}
-	{component "engine"}
+	{able {visible 1}}
 }
 {Volume "cabin"
 	{tags "body"}
@@ -53,43 +59,38 @@ actor
 
 {Component "body"
 	{RepairTime 25}
+	{RepairOrder 0}
 }
 {Component "engine"
 	{RepairTime 25}
+	{RepairOrder 3}
 }
 
 ;main rotor components
 {Component "rotor"
 	{RepairTime 10}
+	{RepairOrder 4}
 }
 
 ;back rotor components
 {Component "rotor_b"
 	{RepairTime 10}
+	{RepairOrder 4}
 }
 
 {perks
 	{component "body"
-		{category "tank_light"}
+		{category "airborne_medium"}
 	}
 	{component "engine"
 		{category "engine_medium"}
 	}
-	{component tag "rotor"
-		{category "wheel_medium"}
-	}
-	{component tag "rotor_b"
-		{category "wheel_medium"}
-	}
-	{component tag "glass"
-		{category "glass_light"}
-	}
+	{blastwave_modifier 20.0}
 }
 
 {Chassis "wheel"
-	("chassis_defaults")
 	{Locomotion
-		("Speed" s(10))			; max speed, km/h
+		{MaxSpeed		90	}	; max speed, km/h
 		{StartTime		9	}	; acceleration time from 0 to max. speed, seconds
 		{BrakeTime		5	}	; deceleration time from max. speed to 0, seconds
 		{StopTime		3	}	; stop time after turning off the engine, seconds
@@ -101,17 +102,17 @@ actor
 	{MaxFrontSlope			15	} ; degree
 	{SideSlopeSpeed			15	} ; degree/s
 	{MaxSideSlope			15	} ; degree
-	{MaxElevationSpeed		6	} ; m/s
-	{ElevationAcceleration	2	} ; m/s^2
+	{MaxElevationSpeed		10	} ; m/s
+	{ElevationAcceleration	5	} ; m/s^2
 	{MaxAltitude			50	} ; m
-	{TravelAltitude			15	} ; m start altitude, moving is dynamic
+	{TravelAltitude			22	} ; m minimum altitude above ground, moving is dynamic
 	{EngineStartupTime		3.6 } ; seconds
 	{DontUseSlope}
 	{Airborne}
 	{IgnorePatherBoundsAI}		; AI ignores pather bounds, USER is constrained by pather bounds
 	{FuelBag
 		{volume 1000}
-		("rate" r(1))		; * 20 liter/km
+		{rate   10 	}		; * 20 liter/km
 		{remain 1000}
 		{fuel "fuel"}
 	}
@@ -122,8 +123,8 @@ actor
 
 (define "locomotion_transport"
 	{StartTime		3	}	; acceleration time from 0 to max. speed, seconds
-	{BrakeTime		3	}	; deceleration time from max. speed, seconds
-	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds
+	{BrakeTime		0.8	}	; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
+	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds but less
 	{SplineRadius	5	}	; limit turning radius on the splines, meters
 	{Slow			30	}	; km/h
 	{Normal			60	}
@@ -134,8 +135,8 @@ actor
 
 (define "locomotion_attack"
 	{StartTime		2	} ; acceleration time from 0 to max. speed, seconds
-	{BrakeTime		2	} ; deceleration time from max. speed, seconds
-	{StopTime		3	} ; stop time after turning off the engine from max. speed to 0, seconds
+	{BrakeTime		0.8	} ; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
+	{StopTime		3	} ; stop time after turning off the engine from max. speed to 0, seconds but less
 	{SplineRadius	5	} ; limit turning radius on the splines, meters
 	{Slow			50	} ; km/h
 	{Normal			70	}
@@ -145,13 +146,13 @@ actor
 )
 
 (define "part"
-	{volume %0
-		{tags %0 "part"}
-		{component %0}
+	{volume %0					;adress volume named %0
+		{tags %0 "part"}		;give it a tag of its name and "part"
+		{component %0}			;assign component of name %0 (in case it existed)
 		{thickness 0.5}
 		{able {visible 0}}
 	}
-	{component %0}
+	{component %0}				;create component with name %0
 )
 
 (define "armor_helicopter"
@@ -180,6 +181,13 @@ actor
 				{pierce {value 4}}
 			}
 		}
+	}
+)
+
+(define "window_volume"
+	{volume "%name"
+		{thickness %thickness}
+		{able {window}}
 	}
 )
 

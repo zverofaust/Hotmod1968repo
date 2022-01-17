@@ -1,0 +1,233 @@
+{game_entity		;UH-1B/C with M21 subsystem
+	(include "/properties/helicopter.ext")
+	(include "/properties/shadow/airborn.inc" scale(2.5))
+	(include "/properties/selection/airborne.inc" scale(2.00))
+	(include "/properties/car_crew.ext")
+	{props "td.uh-1h" "helicopter"}
+	("armor_medium")
+	{PatherID "bf109"}
+
+	{extender "enumerator"}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse 	{end	"board_big-midcar_driver" -1} {base "doorleft" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "doorright"}}
+			{reverse 	{end	"board_big-midcar" -1} {base "doorright" -1}}
+		}
+		{anm "passenger"
+			{forward	{begin 	"board_tank"}	{end "seat_passenger"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "passenger-a"
+			{forward	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "passenger-b"
+			{forward	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "gunner1"
+			{forward	{begin	"board_SdKfz251-1"} {end "seat_passenger"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "passenger-c"
+			{forward	{end "pose_flak30_gunner"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(commander) bone(commander) door(emit2) animation(commander))
+	("crew_human" place(passenger1) bone(passenger1) door(emit3) animation(passenger-a))
+	("crew_human" place(passenger2) bone(passenger2) door(emit4) animation(passenger-a))
+	("crew_human" place(passenger3) bone(passenger3) door(emit3) animation(passenger-b))
+	("crew_human" place(passenger4) bone(passenger4) door(emit4) animation(passenger-b))
+	("crew_human" place(passenger5) bone(passenger5) door(emit3) animation(passenger-a))
+	("crew_human" place(passenger6) bone(passenger6) door(emit4) animation(passenger-b))
+	
+	{placer
+		{place "driver"		{group "crew"}}
+		{place "commander"	{group "crew"}}
+		{place "passenger1"	{group "passenger"}}
+		{place "passenger2"	{group "passenger"}}
+		{place "passenger3"	{group "passenger"}}
+		{place "passenger4"	{group "passenger"}}
+		{place "passenger5"	{group "passenger"}}
+		{place "passenger6"	{group "passenger"}}
+	}
+	
+	{Sensor
+		{Visor "main"
+			{bone	 "pivot_back"}
+		}
+	}
+	
+	;volume, component/tag, thickness
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "window1"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window2"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window3"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window4"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window5"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window6"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window7"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window8"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window9"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window10"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window11"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window12"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window13"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window14"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window15"
+		{Thickness 10}
+		{able {window}}
+	}
+	{Volume "window16"
+		{Thickness 10}
+		{able {window}}
+	}
+	
+	("part" args "body")
+	("part" args "body1")
+	("part" args "body2")
+	("part" args "body3")
+	("part" args "body4")
+
+	;main rotor + blades
+	("part" args "rotor")
+	("part" args "propeller")
+	("part" args "propeller1")
+
+	;back rotor + blades
+	("part" args "rotor_b")
+	("part" args "propeller_b")
+	("part" args "propeller_b1")
+
+	{Weaponry
+		{place "mgun2"
+			{rotate}
+			{weapon			"m134_x2" filled}
+			{barrels 		2}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{foresight		"foresight1"}
+			{basic}
+		}
+		{place "gun2"
+			{rotate}
+			{weapon			"70mm_ffar_m141_x2" filled}
+			{barrels		14}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter_a"}
+			{foresight		"foresight2"}
+			{basic}
+		}
+	}
+
+	{mass 4309}
+	;{Obstacle "in_air"
+	;	{Obb2
+	;		{Center -10 0}
+	;		{Extent 200 180}
+	;	}
+	;	{rotate}
+	;}
+	;{ObstacleId "helicopter" "in_air"}
+	
+	{Chassis "helicopter"
+		{Locomotion ("locomotion_transport")}
+	}
+
+	{Extender "detail"
+		{random 0}
+	}
+
+	{Extension "uh-1b.mdl"}
+
+	{bone "mgun_rot_h"			;miniguns: right/left
+		{speed 0.025}
+		{limits -35 35}
+	}
+	{bone "mgun_rot_v"			;miniguns: down/up
+		{speed 0.025}
+		{limits -45 15}
+	}
+	{bone "gun_rot_h"			;rockets: right/left
+		{speed 0.01}
+		{limits -20 20}			;back to -10 10 as soon as they are able to rotate on their own
+	}
+	{bone "gun_rot_v"			;rockets: down/up
+		{speed 0.01}
+		{limits -35 15}
+	}
+}

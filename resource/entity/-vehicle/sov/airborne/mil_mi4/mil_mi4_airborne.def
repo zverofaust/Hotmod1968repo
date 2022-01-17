@@ -1,7 +1,7 @@
 {game_entity		;Mi-4AV
 	(include "/properties/airborne.ext")
 	;{props "wheeled"}
-	{PatherID "bf110"}
+	{PatherID "bf109"}
 	(include "/properties/shadow/airborn.inc" scale(2.2))
 	(include "/properties/selection/airborne.inc" scale(3.0))
 	(include "/properties/car_crew.ext")
@@ -54,7 +54,31 @@
 	;add extra boarding door for passengers
 
 	;volume, component/tag, thickness
-	{volume "body6"}
+	{Volume "body"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body1"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
 	
 
 	;volume/component, thickness
@@ -78,13 +102,15 @@
 
 	{Weaponry
 		{place "gun"
-			{weapon "weapon 57mm_ub-16_x4" filled}
+			{weapon "57mm_ub-16_x4" filled}
 			{barrels 64}
 			{foresight "foresight3"}
 			{shooter "shooter_a"}
 			{gunner "driver"}
 			{charger "driver"}
 			{basic}
+			{rotate}
+			{ai_in_manual}
 		}
 		{place "mgun"
 			{rotate}
@@ -94,17 +120,9 @@
 			{LinkAnimation	"off"}
 			{weapon			"a-12_7" filled}
 			{basic}
+			{rotate}
+			{ai_in_manual}
 		}
-	;	{place "gun2"
-	;		{rotate}
-	;		{weapon			"57mm_s-5m_x64" filled}
-	;		{barrels		64}
-	;		{gunner			"driver"}
-	;		{charger		"driver"}
-	;		{shooter		"shooter_a"}
-	;		{foresight		"foresight"}
-	;		{basic}
-	;	}
 	}
 
 	{mass 5100}
@@ -133,7 +151,7 @@
 	;("part" args "propeller2")
 	;("part" args "propeller3")
 	;("part" args "propeller4")
-;
+
 	;back rotor + blades
 	;("part" args "rotor_b")
 	;("part" args "propeller_b")

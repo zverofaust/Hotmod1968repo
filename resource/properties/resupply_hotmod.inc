@@ -286,7 +286,7 @@
 	{item "bullet106_m40"		"heat"		"ammo" 1 {value 15}}
 	
 	{item "bullet120_m58"		"he"		"ammo" 1 {value 8}}
-	{item "bullet120_m58"		"ap"		"ammo" 1 {value 12}}
+	{item "bullet120_m58"		"apbc"		"ammo" 1 {value 12}}
 	{item "bullet120_m58"		"heat"		"ammo" 1 {value 16}}
 	
 	{item "bullet165_l9"		"he"		"ammo" 1 {value 20}}
