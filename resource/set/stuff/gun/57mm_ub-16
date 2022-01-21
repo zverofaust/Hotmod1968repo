@@ -5,10 +5,10 @@
 	{reloadSound "tank/reload_medium"}
 
 	{calibre 57}
-	{range 375 375} ;//11.1km range x 33.7
+	{range 200 200} ;//totaly arbitrary, historic range around 2-3km
 	
 
-	("fire rate" rpm(1200))
+	("fire rate" rpm(600))
 	("reload time" seconds(16))
 
 	("velocity m/s" ap(1) apcr(1) he(586) heat(1))
@@ -18,5 +18,7 @@
 		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
 	}
 
-	("accuracy_direct" r1(0.49) range_ap(210) range_he(210) range_heat(190))
+	("accuracy_direct" r1(5.0) range_ap(210) range_he(210) range_heat(210))
+	
+	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_rus_hmg"}
 }

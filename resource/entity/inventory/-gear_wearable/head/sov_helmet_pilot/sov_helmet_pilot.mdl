@@ -1,0 +1,51 @@
+;Exported by: Verena
+;Date:        Fri Apr 12 08:55:36 2019
+;File:        D:\work in progress\Modeling\helmets\ussr_helicopter_pilot.max
+{Skeleton
+	{bone "helmet"
+		{Matrix34
+			1	0	0
+			0	-1	0
+			0	0	1
+			-0.5   0   0
+		}
+		{LODView
+			{VolumeView "helmet.ply"}
+			{VolumeView "helmet_lod1.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Sphere 2.54202}
+	{Bone "helmet"}
+	{Position 0.273379	-0.0573427	2.87211}
+}
+{Volume "select"
+	{Box 8.34791 8.20985 7.71118}
+	{Bone "helmet"}
+	{Position -0.152023	0.161122	2.96027}
+}
+{Extender "preview"
+	{"Stuff"
+		{camera
+			{origin 11.2554	-9.1706	4.8965}
+			{lookat 1.55761	-1.18691	2.92832}
+			{fov 22.6199}
+			{horizon -3.38639}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.171162	0.146829	-0.446256}
+			}
+			{"1"
+				{type directional}
+				{direction -0.189277	0.266067	0.378659}
+			}
+			{"2"
+				{type directional}
+				{direction -0.105484	-0.229601	-0.431458}
+			}
+		}
+	}
+}

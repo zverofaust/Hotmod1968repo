@@ -1,12 +1,14 @@
-{game_entity		;UH-1B/C with Maxwell subsystem
+{game_entity		;UH-1B/C with M22 subsystem
 	(include "/properties/helicopter.ext")
 	(include "/properties/shadow/airborn.inc" scale(2.5))
 	(include "/properties/selection/airborne.inc" scale(2.00))
 	(include "/properties/car_crew.ext")
 	{props "td.uh-1h" "helicopter"}
-	("armor_medium")
 	{PatherID "bf109"}
+	{targetSelector "helicopter_atgm"}
 
+	("helicopter_tier1")
+	
 	{extender "enumerator"}
 
 	{boarder
@@ -179,7 +181,7 @@
 			{gunner			"commander"}
 			{charger		"commander"}
 			{shooter		"shooter"}
-			{foresight		"foresight3"}
+			{foresight		"foresight1"}
 			{basic}
 		}
 	}

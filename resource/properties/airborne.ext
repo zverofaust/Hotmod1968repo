@@ -163,6 +163,23 @@ actor
 	("prop_spin"	volume(spin)	number(1))
 
 	("engine"		volume(engine)	number(1))
+	
+	;//fake helicopter props
+	("prop_blade"	volume(propeller)	number(1))
+	("prop_blade"	volume(propeller1)	number(1))
+	("prop_blade"	volume(propeller2)	number(1))
+	("prop_blade"	volume(propeller3)	number(1))
+	("prop_blade"	volume(propeller4)	number(1))
+	("prop_blade"	volume(propeller5)	number(1))
+	("prop_blade"	volume(propeller6)	number(1))
+	
+	("prop_blade"	volume(propeller_b1)	number(1))
+	("prop_blade"	volume(propeller_b2)	number(1))
+	("prop_blade"	volume(propeller_b3)	number(1))
+	("prop_blade"	volume(propeller_b4)	number(1))
+	
+	("prop_spin"	volume(rotor)	number(1))
+	("prop_spin"	volume(rotor_b)	number(1))
 )
 
 (define "double_engine"
@@ -250,6 +267,10 @@ actor
 ("visible" volume(body) number(2) tags() extra())
 ("visible" volume(body) number(3) tags() extra())
 ("visible" volume(body) number(4) tags() extra())
+("visible" volume(body) number(5) tags() extra())
+("visible" volume(body) number(6) tags() extra())
+("visible" volume(body) number(7) tags() extra())
+("visible" volume(body) number(8) tags() extra())
 
 ("visible" volume(canopy) number() tags() extra())
 ("visible" volume(cockpit) number() tags() extra())
@@ -290,6 +311,8 @@ actor
 ("body" repair(100))
 
 ("plane_durability" body(100) engine(50) propeller(50) wing(75) wheel(100) part(100))
+
+("helicopter_durability" body(200) engine(100) rotor(50) rotor_b(50) part(100))
 
 {perks
 	{blastwave_modifier 12.5}

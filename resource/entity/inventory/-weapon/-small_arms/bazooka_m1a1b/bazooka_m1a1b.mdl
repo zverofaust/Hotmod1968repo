@@ -1,0 +1,94 @@
+;Exported by:	 Carlos
+;Date:			 29.01.2021 13:38:58
+;File:			 T:\GoH_3D_human_export\3d_weapons\m1a1 bazooka\m1a1bazooka_export.max
+{skeleton
+	{animation
+		{sequence "recoil" {speed 1}}
+	}
+	{bone "m1a1bazooka"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{LODView
+			{VolumeView "m1a1bazooka.ply"}
+			{VolumeView "m1a1bazooka_lod1.ply"}
+			{VolumeView "m1a1bazooka_lod2.ply"}
+		}
+		{bone "rocket"
+			{Position -4.9486 	 0.0182 	 0.3229}
+			{LODView
+				{VolumeView "rocket.ply"}
+				{VolumeView "rocket_lod1.ply"}
+			}
+		}
+		{bone "trigger"
+			{Position 6.4375 	 0 	 -0.4603}
+			{VolumeView "trigger.ply"}
+		}
+		{bone "tail"
+			{matrix34
+				-1 	 0 	 0
+				0 	 0.0091 	 1
+				0 	 1 	 -0.0091
+				-11.3324 	 -0.0397 	 0.3503
+			}
+		}
+		{bone "fxshot"
+			{matrix34
+				1 	 0 	 0
+				0 	 -0.0091 	 1
+				0 	 -1 	 -0.0091
+				-11.5111 	 -0.0397 	 0.3886
+			}
+		}
+		{bone "handle"
+			{Position 0.3279 	 0.1533 	 0.1261}
+		}
+		{bone "foresight1"
+			{matrix34
+				1 	 0 	 0
+				0 	 -0.0091 	 1
+				0 	 -1 	 -0.0091
+				17.0555 	 -0.0397 	 0.3408
+			}
+		}
+	}
+}
+{volume "body"
+	{cylinder 0.714035 26.6225}
+	{bone "m1a1bazooka"}
+	{matrix34
+		0 	 -1 	 0
+		0 	 0 	 1
+		-1 	 0 	 0
+		2.9887 	 0.0405 	 0.3064
+	}
+}
+{volume "select"
+	{box 27.9054 1.8248 3.32293}
+	{bone "m1a1bazooka"}
+	{Position 2.7334 	 0.0106 	 -0.4609}
+}
+{extender "preview"
+	{"stuff"
+		{camera
+			{origin 2.7392 	 -74.6894 	 8.3055}
+			{lookat 2.5466 	 -0.5099 	 -0.3632}
+			{fov 21.3628}
+			{horizon 0.0197823}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.0055 	 0.4593 	 -0.1975}
+				{ambient 0xff5f5f5f}
+			}
+			{"1"
+				{type point}
+				{position 5.4967 	 76.225 	 25.8822}
+			}
+		}
+	}
+}

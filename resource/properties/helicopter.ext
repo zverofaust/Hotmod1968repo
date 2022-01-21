@@ -2,12 +2,13 @@
 actor
 
 (include "vehicle.ext")
+(include "armor.ext")
 {lodclass "vehicle"}
 
 {Collider "helicopter"}
 {PatherID "helicopter"}
 
-{TargetClass "helicopter"}
+{TargetClass "airborne"}
 {TargetSelector "helicopter"}
 
 {Props "helicopter" "muzzle_zenite" "vision_vehicle_high"}
@@ -228,6 +229,4 @@ actor
 	}
 )
 
-(define "armor_medium"
-	("armor_helicopter")
-)
+("helicopter_durability" body(200) engine(100) rotor(50) rotor_b(50) part(100))

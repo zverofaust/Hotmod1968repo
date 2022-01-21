@@ -41,7 +41,10 @@
 	{cost 10}{conditions "radio_usa"}{action "airstrike:flare_mortar_120"}
 }
 
-
+{"cas_uh1_usa"
+	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_supporter:2))
+	{cost 10}{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
+}
 
 ;_________________________________________________
 ;|            Doctrines                           |
@@ -95,12 +98,52 @@
 ;			
 ;===================================
 
+; // 10DP Airmobile Infantry Squad in UH-1D
+{"doctrine_squad_rifle_huey(usa)"
+	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h) crew1(sup_supporter:2) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:1) crew5(aircav_lat:2) crew6(aircav_mgassist:1) crew7(aircav_grenadier:2) crew8(aircav_rifleman:2) cw(2) cp(0))
+	("doctrine_t1" cool(15) d(mid_usa_air) cost(10))
+}
+
+; // 10DP Airmobile Weapons Squad in UH-1D (longer cooldown than standard squad)
+{"doctrine_squad_weapons_huey(usa)"
+	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h) crew1(sup_supporter:2) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:1) crew5(aircav_lat:2) crew6(aircav_mgassist:1) crew7(aircav_grenadier:2) crew8(aircav_rifleman:2) cw(2) cp(0))
+	("doctrine_t1" cool(45) d(mid_usa_air) cost(10))
+}
+
+; // 20DP Airmobile Ranger Squad in UH-1D
+
+{"doctrine_squad_ranger_huey(usa)"
+	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h_sf) crew1(sup_supporter:2) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
+	("doctrine_t1" cool(180) d(mid_usa_air) cost(20))
+}
+
 ; // 10DP Air-Dropped M56 Scorpion
-;{"doctrine_paradrop_m56(usa)"
-;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_tankman:3) cw(0) cp(0))
-;	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
-;	{action "airstrike:paradrop_m56"} 
-;}
+{"doctrine_paradrop_m56(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_supporter:0) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
+	{action "airstrike:paradrop_m56"} 
+}
+
+; // 10 DP Chinook Transport/Supply
+; // 20DP M114A2
+{"doctrine_vehicle_chinook(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ch-47_chinook_mg) crew(sup_supporter:4) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
+}
+
+; // 15 DP Huey ARA CAS
+{"cas_uh1_ara_usa"
+	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_ara_airborne) crew(sup_supporter:2) cw(0) cp(0))
+	("doctrine_strat" cool(180) d(mid_usa_air) cost(15))
+	{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
+}
+
+; // 10DP 250kg bomb strike by F-105
+{"airstrike_250_usa"
+	("strategic_doctrine" side(usa) period(mid) vehicle(f-105) crew(sup_supporter:1) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
+	{conditions "radio_usa"}{action "airstrike:sc_250"}
+}
 
 ;===================================
 ;         ARMORED BRIGADE
@@ -141,6 +184,13 @@
 {"doctrine_vehicle_m728(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m728) crew(acav_engineer:4) cw(0) cp(0))
 	("doctrine_t1" cool(120) d(mid_usa_tank) cost(40))
+}
+
+; // 15 DP Huey M22 CAS
+{"cas_uh1_m22_usa"
+	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_m22_airborne) crew(sup_supporter:2) cw(0) cp(0))
+	("doctrine_strat" cool(180) d(mid_usa_tank) cost(15))
+	{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
 }
 
 ;===================================
@@ -190,10 +240,17 @@
 	("doctrine_t1" cool(180) d(mid_usa_usmc) cost(15))
 }
 
-; // 25DP M103 Heavy Tank
+; // 20DP M103 Heavy Tank
 {"doctrine_vehicle_m103(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m103) crew(usmc_vehicleman:5) cw(2) cp(0))
-	("doctrine_t1" cool(300) d(mid_usa_usmc) cost(25))
+	("doctrine_t1" cool(300) d(mid_usa_usmc) cost(20))
+}
+
+; // 15 DP Huey Maxwell CAS
+{"cas_uh1_maxwell_usa"
+	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_maxwell_airborne) crew(sup_supporter:2) cw(0) cp(0))
+	("doctrine_strat" cool(180) d(mid_usa_usmc) cost(15))
+	{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
 }
 
 ;===================================
@@ -243,31 +300,31 @@
 	("doctrine_t1" cool(300) d(mid_usa_artillery) cost(40))
 }
 
-; // 10DP 105-122mm Smoke Barrage
+; // 5DP 105-122mm Smoke Barrage
 {"artillery_barrage_smoke_usa"
 	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(120) d(mid_usa_artillery) cost(10))
+	("doctrine_strat" cool(120) d(mid_usa_artillery) cost(5))
 	{conditions "radio_usa_artillery"}{action "airstrike:flare_artillery_smoke"} 
 }
 
-; // 15DP 105-122mm Artillery Barrage
+; // 8DP 105-122mm Artillery Barrage
 {"artillery_barrage_light_usa"
 	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(200) d(mid_usa_artillery) cost(15))
+	("doctrine_strat" cool(200) d(mid_usa_artillery) cost(8))
 	{conditions "radio_usa_artillery"}{action "airstrike:flare_artillery_105"} 
 }
 
-; // 20DP 152-155mm Artillery Barrage
+; // 12DP 152-155mm Artillery Barrage
 {"artillery_barrage_light_usa"
 	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(300) d(mid_usa_artillery) cost(20))
+	("doctrine_strat" cool(300) d(mid_usa_artillery) cost(12))
 	{conditions "radio_usa_artillery"}{action "airstrike:flare_artillery_150"} 
 }
 
-; // 30DP 152-155mm Artillery Barrage
+; // 16DP 152-155mm Artillery Barrage
 {"artillery_barrage_heavy_usa"
 	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(300) d(mid_usa_artillery) cost(30))
+	("doctrine_strat" cool(300) d(mid_usa_artillery) cost(16))
 	{conditions "radio_usa_artillery"}{action "airstrike:flare_artillery_203"} 
 }
 
@@ -296,7 +353,7 @@
 ;|________________________________________________|
 
 
-("squad_with1types" 	side(usa) name(single_tankman)			period(mid) cd(0)   ci(10)  g(single_sup_tankman)			c1(sup_tankman:3)								b(inf2) t())
+("squad_with1types" 	side(usa) name(single_tankman)			period(mid) cd(0)   ci(10)  g(single_sup_tankman)			c1(sup_tankman:3)							b(inf2) t())
 ("squad_with1types" 	side(usa) name(single_supporter)		period(mid) cd(0)   ci(5)  	g(single_rifle)				c1(sup_supporter:2) 							b(inf2) t())
 ("squad_with2types"		side(usa) name(single_scout)			period(mid) cd(0)   ci(30)  g(single_scout)				c1(reg_scout:1) 								b(inf2) t())
 ("squad_with2types"		side(usa) name(single_mg)				period(mid) cd(0)   ci(15)  g(single_mg)				c1(reg_mg:1) c2(reg_mgassist:1)					b(inf2) t())
@@ -318,29 +375,29 @@
 }
 
 {"m45_maxson"
-	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(usa) crew(sup_supporter:2)  g(empl1) b(empl) cw(0) cp(8))
+	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(usa) crew(sup_supporter:2)  g(empl2) b(empl) cw(0) cp(8))
 	{cost 200}
 }
 
 ; AT WEAPONRY
 {"m40"
-	("vehicle" period(mid) cd(0) ci(30) t(cannon) side(usa) crew(sup_supporter:4)  g(empl2) b(empl) cw(4) cp(4))
+	("vehicle" period(mid) cd(0) ci(30) t(cannon) side(usa) crew(sup_supporter:4)  g(empl3) b(empl) cw(4) cp(4))
 	{cost 150}
 }
 
 {"entac"
-	("vehicle" period(mid) cd(60) ci(120) t(cannon) side(usa) crew(sup_supporter:2)  g(empl3) b(empl) cw(4) cp(6))
+	("vehicle" period(mid) cd(60) ci(120) t(cannon atgm) side(usa) crew(sup_supporter:2)  g(empl4) b(empl) cw(4) cp(6))
 	{cost 200}
 }
 
 ;HOWITZERS
 {"m29_mortar"
-	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(usa) crew(sup_supporter:2) g(empl6) b(empl) cw(0) cp(6))
+	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(usa) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(6))
 	{cost 225}
 }
 
 {"m30_mortar"
-	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(usa) crew(sup_supporter:2) g(empl6) b(empl) cw(0) cp(8))
+	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(usa) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(8))
 	{cost 325}
 }
 
@@ -356,7 +413,7 @@
 ;|________________________________________________|
 
 {"m416"
-	("vehicle"  period(mid) cd(0) ci(5) g(wheel1) side(usa) t(vehicle supply) crew(sup_supporter:0) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) cd(0) ci(5) g(supply) side(usa) t(vehicle supply) crew(sup_supporter:0) b(vehicles) cw(0) cp(2))
 	{cost 75}
 }
 
@@ -366,32 +423,32 @@
 }
 
 {"dodge_m37_ammo"
-	("vehicle"  period(mid) cd(0) ci(15) g(wheel3) side(usa) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) cd(0) ci(15) g(supply1) side(usa) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
 	{cost 100}
 }
 
 {"dodge_m37_eng"
-	("vehicle"  period(mid) cd(60) ci(60) g(wheel3) side(usa) t(vehicle supply) crew(reg_engineer:2) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) cd(60) ci(60) g(supply2) side(usa) t(vehicle supply) crew(reg_engineer:2) b(vehicles) cw(0) cp(2))
 	{cost 225}
 }
 
 {"m35"
-	("vehicle"  period(mid) cd(0) ci(5) g(wheel2) side(usa) t(vehicle apc) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) cd(0) ci(5) g(wheel2) side(usa) t(vehicle transport) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
 	{cost 40}
 }
 
 {"m35_ammo"
-	("vehicle"  period(mid) cd(60) ci(60) g(wheel3) side(usa) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) cd(60) ci(60) g(supply2) side(usa) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
 	{cost 200}
 }
 
 {"m113a1"
-	("vehicle"  period(mid) cd(60) ci(30) g(wheel6) side(usa) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	("vehicle"  period(mid) cd(60) ci(30) g(apc) side(usa) t(vehicle transport apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
 	{cost 100}
 }
 
 {"m151_prc77"
-	("vehicle2"  period(mid) cd(60) ci(280) g(wheel1) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(reg_officer:1) b(vehicles) cw(0) cp(2))
+	("vehicle2"  period(mid) cd(60) ci(280) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(reg_officer:1) b(vehicles) cw(0) cp(2))
 	{cost 250}
 }
 
@@ -402,64 +459,64 @@
 ;LIGHT
 
 {"m151_m1919"
-	("vehicle"  period(mid) cd(0) ci(15) g(wheel1) side(usa) t(vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(5))
+	("vehicle"  period(mid) cd(0) ci(15) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(5))
 	{cost 50}
 }
 
 {"m151_m2"
-	("vehicle"  period(mid) cd(30) ci(30) g(wheel1) side(usa) t(vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(5))
+	("vehicle"  period(mid) cd(30) ci(30) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(5))
 	{cost 100}
 }
 
 {"m151_m40"
-	("vehicle"  period(mid) cd(0) ci(30) g(wheel1) side(usa) t(vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(7))
+	("vehicle"  period(mid) cd(0) ci(30) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(7))
 	{cost 150}
 }
 
 {"m114a1"
-	("vehicle"  period(mid) cd(30) ci(30) g(wheel1) side(usa) t(vehicle) crew(sup_vehicleman:3) b(tanks) cw(0) cp(7))
+	("vehicle"  period(mid) cd(30) ci(30) g(light1) side(usa) t(vehicle apc) crew(sup_vehicleman:3) b(tanks) cw(0) cp(7))
 	{cost 200}
 }
 
 {"m113_m40"
-	("vehicle"  period(mid) cd(30) ci(45) g(wheel1) side(usa) t(vehicle) crew(sup_vehicleman:3) b(tanks) cw(0) cp(7))
+	("vehicle"  period(mid) cd(30) ci(45) g(light1) side(usa) t(vehicle apc) crew(sup_vehicleman:3) b(tanks) cw(0) cp(7))
 	{cost 200}
 }
 
 {"m125"
-	("vehicle"  period(mid) cd(60) ci(60) g(wheel1) side(usa) t(vehicle mortar) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	("vehicle"  period(mid) cd(60) ci(60) g(light2) side(usa) t(vehicle mortar apc) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
 	{cost 350}
 }
 
 {"m106"
-	("vehicle"  period(mid) cd(120) ci(60) g(wheel1) side(usa) t(vehicle mortar) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	("vehicle"  period(mid) cd(120) ci(60) g(light2) side(usa) t(vehicle mortar apc) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
 	{cost 450}
 }
 
 {"m41"
-	("vehicle" period(mid) cd(60) ci(60) t(light) side(usa) crew(sup_tankman:4) g(light1) b(tanks) cw(0) cp(10))
+	("vehicle" period(mid) cd(60) ci(60) t(light tank) side(usa) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(10))
 	{cost 275}
 }
 
 ;Medium
 
 {"m42"
-	("vehicle" period(mid) cd(240) ci(120) t(light antiair) side(usa) crew(sup_tankman:4) g(light1) b(tanks) cw(0) cp(15))
+	("vehicle" period(mid) cd(240) ci(120) t(light antiair) side(usa) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(15))
 	{cost 400}
 }
 
 {"m48_patton"
-	("vehicle" period(mid) cd(200) ci(90) t(medium) side(usa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	("vehicle" period(mid) cd(200) ci(90) t(medium tank) side(usa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
 	{cost 400}
 }
 
 {"m48a3"
-	("vehicle" period(mid) cd(200) ci(90) t(medium) side(usa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	("vehicle" period(mid) cd(200) ci(90) t(medium tank) side(usa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
 	{cost 550}
 }
 
 {"m60a1"
-	("vehicle" period(mid) cd(300) ci(180) t(light) side(usa) crew(sup_tankman:4) g(medium2) b(tanks) cw(0) cp(20))
+	("vehicle" period(mid) cd(300) ci(180) t(medium tank) side(usa) crew(sup_tankman:4) g(medium2) b(tanks) cw(0) cp(20))
 	{cost 650}
 }
 

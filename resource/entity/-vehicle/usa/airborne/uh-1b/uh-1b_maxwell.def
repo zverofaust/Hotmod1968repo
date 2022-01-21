@@ -4,9 +4,11 @@
 	(include "/properties/selection/airborne.inc" scale(2.00))
 	(include "/properties/car_crew.ext")
 	{props "td.uh-1h" "helicopter"}
-	("armor_medium")
 	{PatherID "bf109"}
+	{targetSelector "helicopter"}
 
+	("helicopter_tier1")
+	
 	{extender "enumerator"}
 
 	{boarder
@@ -172,16 +174,6 @@
 	("part" args "propeller_b1")
 
 	{Weaponry
-		{place "gun2"
-			{rotate}
-			{weapon			"70mm_ffar_m3_x2" filled}
-			{barrels		36}
-			{gunner			"driver"}
-			{charger		"driver"}
-			{shooter		"shooter_a"}
-			{foresight		"foresight2"}
-			{basic}
-		}
 		{place "gun"
 			{rotate}
 			{weapon			"atgm_agm-22_x2" filled}
@@ -189,6 +181,16 @@
 			{gunner			"commander"}
 			{charger		"commander"}
 			{shooter		"shooter_b"}
+			{foresight		"foresight1"}
+			{basic}
+		}
+		{place "gun2"
+			{rotate}
+			{weapon			"70mm_ffar_maxwell_x2" filled}
+			{barrels		36}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter_a"}
 			{foresight		"foresight2"}
 			{basic}
 		}
@@ -214,11 +216,19 @@
 
 	{Extension "uh-1b_maxwell.mdl"}
 
-	{bone "gun_rot_h"			;rockets: right/left
+	{bone "gun_rot_h"			;miniguns: right/left
+		{speed 0.025}
+		{limits -35 35}
+	}
+	{bone "gun_rot_v"			;miniguns: down/up
+		{speed 0.025}
+		{limits -45 15}
+	}
+	{bone "gun2_rot_h"			;rockets: right/left
 		{speed 0.01}
 		{limits -20 20}			;back to -10 10 as soon as they are able to rotate on their own
 	}
-	{bone "gun_rot_v"			;rockets: down/up
+	{bone "gun2_rot_v"			;rockets: down/up
 		{speed 0.01}
 		{limits -35 15}
 	}

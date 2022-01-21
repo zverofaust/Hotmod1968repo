@@ -1,32 +1,32 @@
 {selector
-	{type "helicopter"}
+  {type "helicopter"}
+
+  {group
+    {ignore {class airborne}}
+	{select {class tank}}
+	{select {class cannon}}
+	{select {class armoredcar}}
+	{select {class car}}
+    {select {class human}}
 	
-	{group
-		{ignore {class airborne}}
-
-		{sort {weapon "shell atgm"} {attacking}}
-		{sort {weapon "zenite"} {attacking}}
-		{sort {weapon "shell fg"} {attacking}}
-
-		{sort {weapon "shell atgm"} {threating}}
-		{sort {weapon "zenite"} {threating}}
-		{sort {weapon "shell fg"} {threating}}
-
-		{sort {weapon "rocketlauncher ap"} {attacking}}
-		{sort {weapon "shell heat"} {attacking}}
-		{sort {weapon "shell ap"} {attacking}}
-
-		{sort {weapon "rocketlauncher ap"} {threating}}
-		{sort {weapon "shell heat"} {threating}}
-		{sort {weapon "shell ap"} {threating}}
-
-		{sort {weapon "shell atgm"}}
-		{sort {weapon "zenite"}}
-		{sort {weapon "shell fg"}}
-		{sort {weapon "rocketlauncher ap"}}
-		{sort {weapon "shell heat"}}
-		{sort {weapon "shell ap"}}
-
-		{sort distance}
-	}
+	{sort {class airborne}}
+	{sort {class tank_heavy}}
+	{sort {class tank_medium}}
+	{sort {class tank_light}}
+	{sort {class tank_bullet}}
+	{sort {class cannon}}
+	{sort {class armoredcar}}
+	{sort {class car_cannon}}
+	{sort {class car_bullet}}
+   	{sort {class human}}
+    {sort {weapon "aa"}}
+	{sort {weapon "fg"}}
+    {sort {weapon "ap"}}
+	{sort {weapon}}
+    {sort distance}
+  }
+  {group
+    {sort {attacking}}
+    {sort distance}
+  }
 }

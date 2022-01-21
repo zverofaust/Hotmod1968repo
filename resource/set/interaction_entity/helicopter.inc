@@ -37,7 +37,7 @@
 	}
 	
 	{on bullet_hit
-		{if stuff "ammo grenade fg"
+		{if stuff "ammo"
 			{bullet_detonate}
 ;			{component break}
 		}

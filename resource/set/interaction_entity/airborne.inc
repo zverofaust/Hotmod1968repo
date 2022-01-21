@@ -1931,3 +1931,119 @@
 		}
 	}
 }
+
+{"uh-1b_airborne"
+	{on "add_movement_sound" overload
+		{link_sound "engine1_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine1_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine1_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "engine2_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine2_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine2_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "engine3_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine3_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine3_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "fly"					"vehicle/airborne/uh1h_move"}	
+		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}	
+		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_stop"			"vehicle/airborne/uh1h_stop"}
+		{link_sound "attack"				"vehicle/airborne/uh1h_move"}
+	}
+
+	{##on "wheels_fx"
+		{add_view "spheredust_big" "ground_dust" "support1"}
+		{add_view "spheredust_big" "ground_dust" "support2"}
+		{view start "ground_dust"}
+		{delay 4
+			{view stop "ground_dust"}
+		}
+	}
+}
+
+{"uh-1b_ara_airborne"
+	{on "add_movement_sound" overload
+		{link_sound "engine1_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine1_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine1_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "engine2_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine2_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine2_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "engine3_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine3_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine3_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "fly"					"vehicle/airborne/uh1h_move"}	
+		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}	
+		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_stop"			"vehicle/airborne/uh1h_stop"}
+		{link_sound "attack"				"vehicle/airborne/uh1h_move"}
+	}
+
+	{##on "wheels_fx"
+		{add_view "spheredust_big" "ground_dust" "support1"}
+		{add_view "spheredust_big" "ground_dust" "support2"}
+		{view start "ground_dust"}
+		{delay 4
+			{view stop "ground_dust"}
+		}
+	}
+}
+
+{"uh-1b_m22_airborne"
+	{on "add_movement_sound" overload
+		{link_sound "engine1_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine1_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine1_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "engine2_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine2_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine2_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "engine3_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine3_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine3_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "fly"					"vehicle/airborne/uh1h_move"}	
+		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}	
+		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_stop"			"vehicle/airborne/uh1h_stop"}
+		{link_sound "attack"				"vehicle/airborne/uh1h_move"}
+	}
+
+	{##on "wheels_fx"
+		{add_view "spheredust_big" "ground_dust" "support1"}
+		{add_view "spheredust_big" "ground_dust" "support2"}
+		{view start "ground_dust"}
+		{delay 4
+			{view stop "ground_dust"}
+		}
+	}
+}
+
+{"uh-1b_maxwell_airborne"
+	{on "add_movement_sound" overload
+		{link_sound "engine1_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine1_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine1_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "engine2_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine2_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine2_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "engine3_start"			"vehicle/airborne/uh1h_start"}
+		{link_sound "engine3_idle"			"vehicle/airborne/uh1h_work"}
+		{link_sound "engine3_full"			"vehicle/airborne/uh1h_move"}
+		{link_sound "fly"					"vehicle/airborne/uh1h_move"}	
+		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}	
+		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_stop"			"vehicle/airborne/uh1h_stop"}
+		{link_sound "attack"				"vehicle/airborne/uh1h_move"}
+	}
+
+	{##on "wheels_fx"
+		{add_view "spheredust_big" "ground_dust" "support1"}
+		{add_view "spheredust_big" "ground_dust" "support2"}
+		{view start "ground_dust"}
+		{delay 4
+			{view stop "ground_dust"}
+		}
+	}
+}

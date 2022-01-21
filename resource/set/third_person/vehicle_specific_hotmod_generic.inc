@@ -355,9 +355,9 @@
 				{distanceset 1}
 				{delta 0}
 				{linkBone "gun"}
-				{offset -300 0 300}
+				{offset -100 0 400}
 				{gunnerviewoff 1}
-				{camera "zoom1.5"}
+				{camera "zoom2.5"}
 				{ManualAccuracyZoom}
 				{blur_strength 10}
 				{disable_fow 1}
@@ -365,12 +365,22 @@
 				{soundEffect "opentop_vehicle"}
 			}
 			{level ;3
+				{camera "zoom3.0"}
+				{offset 0 0 600}
+			}
+			{level ;3
 				{camera "zoom3.5"}
-				{offset 0 0 800}
+				{offset 200 0 800}
+				{distanceset 200}
 			}
 			{level ;4
 				{camera "zoom4"}
-				{offset 500 0 1200}
+				{offset 400 0 1200}
+				{distanceset 400}
+			}
+			{level ;4
+				{camera "zoom4.5"}
+				{offset 600 0 1400}
 				{distanceset 500}
 			}
 			{level ;5
@@ -380,12 +390,7 @@
 			}
 			{level ;6
 				{camera "zoom6"}
-				{offset 2500 0 2000}
-				{distanceset 2500}
+				{offset 1200 0 2000}
+				{distanceset 1200}
 			}
-			;{level ;7
-			;	{camera "zoom8"}
-			;	{offset 6000 0 4000}
-			;	{distanceset 6000}
-			;}
 		}

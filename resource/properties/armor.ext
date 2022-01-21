@@ -281,19 +281,12 @@
 	}
 )
 
-(define "heli_durability"
+(define "helicopter_durability"
 	{perks
 		{component "body"
 			{health
 				{hp %body}
 				{hp_broken (* %body 0.5)}
-			}
-			("global_damage_mod")
-		}
-		{component "engine"
-			{health
-				{hp %engine}
-				{hp_broken (* %engine 1.33)}
 			}
 			("global_damage_mod")
 		}
@@ -311,29 +304,23 @@
 			}
 			("global_damage_mod")
 		}
-		{component tag "propeller"
+		{component tag "rotor"
 			{health
-				{hp %propeller}
-				{hp_broken (* %propeller 1.0)}
+				{hp %rotor}
+				{hp_broken (* %rotor 1.0)}
 			}
 			("global_damage_mod")
 		}
-		{component tag "wing"
+		{component tag "rotor_b"
 			{health
-				{hp %wing}
-				{hp_broken (* %wing 0.66)}
+				{hp %rotor_b}
+				{hp_broken (* %rotor_b 0.66)}
 			}
 			("global_damage_mod")
 		}
-		{component tag "wheel"
+		{component tag "glass"
 			{health
-				{hp %wheel}
-			}
-			("global_damage_mod")
-		}
-		{component tag "part"
-			{health
-				{hp %part}
+				{hp 60}
 				{hp_broken 1}
 			}
 			("global_damage_mod")
@@ -409,4 +396,12 @@
 
 (define "fighter_tier2"
 	("plane_durability" body(175) engine(75) propeller(50) wing(125) wheel(100) part(100))
+)
+
+(define "helicopter_tier1"
+	("helicopter_durability" body(200) engine(100) rotor(50) rotor_b(50) part(100))
+)
+
+(define "helicopter_tier2"
+	("helicopter_durability" body(250) engine(125) rotor(75) rotor_b(75) part(100))
 )
