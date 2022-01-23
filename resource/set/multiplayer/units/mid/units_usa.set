@@ -28,21 +28,21 @@
 
 {"mortar_barrage_smoke_usa"
 	("squad_vehicle" side(usa) cd(0) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
-	{cost 5}{conditions "radio_usa"}{action "airstrike:flare_mortar_smoke"}
+	{cost 2}{conditions "radio_usa"}{action "airstrike:flare_mortar_smoke"}
 }
 
 {"mortar_barrage_light_usa"
 	("squad_vehicle" side(usa) cd(0) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
-	{cost 5}{conditions "radio_usa"}{action "airstrike:flare_mortar_80"}
+	{cost 3}{conditions "radio_usa"}{action "airstrike:flare_mortar_80"}
 }
 
 {"mortar_barrage_medium_usa"
 	("squad_vehicle" side(usa) cd(0) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
-	{cost 10}{conditions "radio_usa"}{action "airstrike:flare_mortar_120"}
+	{cost 6}{conditions "radio_usa"}{action "airstrike:flare_mortar_120"}
 }
 
 {"cas_uh1_usa"
-	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_supporter:2))
+	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:2))
 	{cost 10}{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
 }
 
@@ -100,20 +100,20 @@
 
 ; // 10DP Airmobile Infantry Squad in UH-1D
 {"doctrine_squad_rifle_huey(usa)"
-	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h) crew1(sup_supporter:2) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:1) crew5(aircav_lat:2) crew6(aircav_mgassist:1) crew7(aircav_grenadier:2) crew8(aircav_rifleman:2) cw(2) cp(0))
+	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h) crew1(sup_pilot:4) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:1) crew5(aircav_lat:2) crew6(aircav_mgassist:1) crew7(aircav_grenadier:2) crew8(aircav_rifleman:2) cw(2) cp(0))
 	("doctrine_t1" cool(15) d(mid_usa_air) cost(10))
 }
 
 ; // 10DP Airmobile Weapons Squad in UH-1D (longer cooldown than standard squad)
 {"doctrine_squad_weapons_huey(usa)"
-	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h) crew1(sup_supporter:2) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:1) crew5(aircav_lat:2) crew6(aircav_mgassist:1) crew7(aircav_grenadier:2) crew8(aircav_rifleman:2) cw(2) cp(0))
+	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h) crew1(sup_pilot:4) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:1) crew5(aircav_lat:2) crew6(aircav_mgassist:1) crew7(aircav_grenadier:2) crew8(aircav_rifleman:2) cw(2) cp(0))
 	("doctrine_t1" cool(45) d(mid_usa_air) cost(10))
 }
 
 ; // 20DP Airmobile Ranger Squad in UH-1D
 
 {"doctrine_squad_ranger_huey(usa)"
-	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h_sf) crew1(sup_supporter:2) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
+	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
 	("doctrine_t1" cool(180) d(mid_usa_air) cost(20))
 }
 
@@ -127,20 +127,20 @@
 ; // 10 DP Chinook Transport/Supply
 ; // 20DP M114A2
 {"doctrine_vehicle_chinook(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ch-47_chinook_mg) crew(sup_supporter:4) cw(0) cp(0))
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ch-47_chinook_mg) crew(sup_pilot:4) cw(0) cp(0))
 	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
 }
 
 ; // 15 DP Huey ARA CAS
 {"cas_uh1_ara_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_ara_airborne) crew(sup_supporter:2) cw(0) cp(0))
+	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_ara_airborne) crew(sup_pilot:2) cw(0) cp(0))
 	("doctrine_strat" cool(180) d(mid_usa_air) cost(15))
 	{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
 }
 
 ; // 10DP 250kg bomb strike by F-105
 {"airstrike_250_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(f-105) crew(sup_supporter:1) cw(0) cp(0))
+	("strategic_doctrine" side(usa) period(mid) vehicle(f-105) crew(sup_pilot:1) cw(0) cp(0))
 	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
 	{conditions "radio_usa"}{action "airstrike:sc_250"}
 }
@@ -188,7 +188,7 @@
 
 ; // 15 DP Huey M22 CAS
 {"cas_uh1_m22_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_m22_airborne) crew(sup_supporter:2) cw(0) cp(0))
+	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_m22_airborne) crew(sup_pilot:2) cw(0) cp(0))
 	("doctrine_strat" cool(180) d(mid_usa_tank) cost(15))
 	{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
 }
@@ -206,7 +206,7 @@
 
 ; // 5DP M98 107mm Howtar
 {"doctrine_vehicle_howtar(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m98_howtar) crew(usmc_guncrew:4) cw(0) cp(0))
+	("towed_gun_doctrine" side(usa) period(mid) vehicle(m151) crew_v(sup_supporter:1) cannon(m98_howtar) crew_c(usmc_guncrew:4) cw(0) cp(0))
 	("doctrine_t1" cool(30) d(mid_usa_usmc) cost(5))
 }
 
@@ -223,10 +223,10 @@
 }
 
 ; // 15DP SEAL Detachment
-{"doctrine_squad_seal(usa)"
-	("squad_with7types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(spec_squadlead:1) c2(spec_antitank:1) c3(spec_demo:1) c4(spec_grenadier:1) c5(spec_marksman:1) c6(spec_mg:1) c7(spec_rifleman:4))
-	("doctrine_t1" cool(90) d(mid_usa_usmc) cost(15))
-}
+;{"doctrine_squad_seal(usa)"
+;	("squad_with7types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(spec_squadlead:1) c2(spec_antitank:1) c3(spec_demo:1) c4(spec_grenadier:1) c5(spec_marksman:1) c6(spec_mg:1) c7(spec_rifleman:4))
+;	("doctrine_t1" cool(90) d(mid_usa_usmc) cost(15))
+;}
 
 ; // 15DP M50 Ontos
 {"doctrine_vehicle_m50(usa)"
@@ -246,9 +246,15 @@
 	("doctrine_t1" cool(300) d(mid_usa_usmc) cost(20))
 }
 
-; // 15 DP Huey Maxwell CAS
+; // 20DP Airborne SEAL Detachment
+{"doctrine_squad_seal_huey(usa)"
+	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(spec_squadlead:1) crew3(spec_demo:1) crew4(spec_mg:1) crew5(spec_antitank:2) crew6(spec_marksman:1) crew7(spec_grenadier:1) crew8(spec_rifleman:3) cw(2) cp(0))
+	("doctrine_t1" cool(180) d(mid_usa_usmc) cost(20))
+}
+
+; // 15 DP Huey Maxwell CAS; to be replaced by CH-34 with TK-1 subsystem
 {"cas_uh1_maxwell_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_maxwell_airborne) crew(sup_supporter:2) cw(0) cp(0))
+	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_maxwell_airborne) crew(sup_pilot:2) cw(0) cp(0))
 	("doctrine_strat" cool(180) d(mid_usa_usmc) cost(15))
 	{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
 }
@@ -357,8 +363,8 @@
 ("squad_with1types" 	side(usa) name(single_supporter)		period(mid) cd(0)   ci(5)  	g(single_rifle)				c1(sup_supporter:2) 							b(inf2) t())
 ("squad_with2types"		side(usa) name(single_scout)			period(mid) cd(0)   ci(30)  g(single_scout)				c1(reg_scout:1) 								b(inf2) t())
 ("squad_with2types"		side(usa) name(single_mg)				period(mid) cd(0)   ci(15)  g(single_mg)				c1(reg_mg:1) c2(reg_mgassist:1)					b(inf2) t())
-("squad_with2types" 	side(usa) name(single_at)				period(mid) cd(0)   ci(30)  g(single_at)				c1(reg_antitank:1) c2(reg_atassist:1)			b(inf2) t())
 ("squad_with1types" 	side(usa) name(single_lat)				period(mid) cd(0)   ci(30)  g(single_lat)				c1(reg_lat:2) 									b(inf2) t())
+("squad_with2types" 	side(usa) name(single_at)				period(mid) cd(0)   ci(30)  g(single_at)				c1(reg_antitank:1) c2(reg_atassist:1)			b(inf2) t())
 ("squad_with2types" 	side(usa) name(single_sniper)			period(mid) cd(0)   ci(60)  g(single_sniper)			c1(spec_sniper:1) c2(spec_spotter:1)			b(inf2) t(sniper))
 ("squad_with1types" 	side(usa) name(single_flamer)			period(mid) cd(0)   ci(60)  g(single_flamer)			c1(reg_flamer:1) 								b(inf2) t(flamer))
 ("squad_with1types" 	side(usa) name(single_medic)			period(mid) cd(0)   ci(60)  g(single_medic)				c1(reg_medic:1) 								b(inf2) t(reg_medic))

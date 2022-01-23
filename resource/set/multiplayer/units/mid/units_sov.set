@@ -38,7 +38,7 @@
 
 {"mortar_barrage_medium_sov"
 	("squad_vehicle" side(sov) cd(180) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
-	{cost 5}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
+	{cost 6}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
 }
 
 ;{"air_bomb_sov"
@@ -227,9 +227,9 @@
 	("doctrine_t1" cool(200) d(mid_sov_vdv) cost(15))
 }
 
-; // 25DP GRU Spetsnaz Assault Squad ; Will become Mechanized when BMD is introduced
+; // 25DP GRU Spetsnaz Assault Squad
 {"doctrine_squad_spz_desantski(sov)"
-	("squad_vehicle6_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(bmd-1) crew1(vdv_vehicleman:2) crew2(spz_squadlead:1) crew3(spz_lmg:1) crew4(spz_antitank:1) crew5(spz_marksman:1) crew6(spz_demo:1) cw(2) cp(0))
+	("squad_vehicle6_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(bmd-1) crew1(vdv_vehicleman:2) crew2(spz_squadlead:1) crew3(spz_mg:1) crew4(spz_antitank:1) crew5(spz_marksman:1) crew6(spz_demo:1) cw(2) cp(0))
 	("doctrine_t1" cool(200) d(mid_sov_vdv) cost(25))
 }
 
@@ -288,45 +288,45 @@
 	("doctrine_t1" cool(360) d(mid_sov_artillery) cost(30))
 }
 
-; // 10DP 122mm Smoke Barrage
+; // 5DP 122mm Smoke Barrage
 {"artillery_barrage_smoke_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(120) d(mid_sov_artillery) cost(15))
+	("doctrine_strat" cool(120) d(mid_sov_artillery) cost(5))
 	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_smoke"} 
 }
 
-; // 15DP 122mm Artillery Barrage
+; // 8DP 122mm Artillery Barrage
 {"artillery_barrage_light_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(200) d(mid_sov_artillery) cost(15))
+	("doctrine_strat" cool(200) d(mid_sov_artillery) cost(8))
 	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_105"} 
 }
 
-; // 20DP 152mm Artillery Barrage
+; // 12DP 152mm Artillery Barrage
 {"artillery_barrage_medium_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(300) d(mid_sov_artillery) cost(20))
+	("doctrine_strat" cool(300) d(mid_sov_artillery) cost(12))
 	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_150"} 
 }
 
-; // 30DP 152mm Artillery Barrage
+; // 16DP 203mm Artillery Barrage
 {"artillery_barrage_heavy_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(300) d(mid_sov_artillery) cost(30))
+	("doctrine_strat" cool(300) d(mid_sov_artillery) cost(16))
 	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_203"} 
 }
 
 ; // 25DP Rocket Artillery Barrage
 {"artillery_barrage_rocket_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(360) d(mid_sov_artillery) cost(25))
+	("doctrine_strat" cool(360) d(mid_sov_artillery) cost(16))
 	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_rocket"} 
 }
 
 ; // 35DP Rocket Artillery Barrage
 {"artillery_barrage_rocket_heavy_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(360) d(mid_sov_artillery) cost(35))
+	("doctrine_strat" cool(360) d(mid_sov_artillery) cost(22))
 	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_rocket_heavy"} 
 }
 
@@ -365,8 +365,8 @@
 ("squad_with1types" 	side(sov) name(single_supporter)		period(mid) cd(0)   ci(60)  g(single_rifle)				c1(sup_supporter:2) 							b(inf2) t())
 ("squad_with2types"		side(sov) name(single_scout)			period(mid) cd(0)   ci(30)  g(single_scout)				c1(reg_scout:1) 								b(inf2) t())
 ("squad_with2types"		side(sov) name(single_mg)				period(mid) cd(0)   ci(0)   g(single_mg)				c1(reg_mg:1) c2(reg_mgassist:1)					b(inf2) t())
-("squad_with2types" 	side(sov) name(single_at)				period(mid) cd(0)   ci(60)  g(single_at)				c1(reg_antitank:1) c2(reg_atassist:1)			b(inf2) t())
 ("squad_with1types" 	side(sov) name(single_lat)				period(mid) cd(0)   ci(60)  g(single_lat)				c1(reg_lat:2) 									b(inf2) t())
+("squad_with2types" 	side(sov) name(single_at)				period(mid) cd(0)   ci(60)  g(single_at)				c1(reg_antitank:1) c2(reg_atassist:1)			b(inf2) t())
 ("squad_with2types" 	side(sov) name(single_sniper)			period(mid) cd(0)   ci(60)  g(single_sniper)			c1(spz_sniper:1) c2(spz_spotter:1)				b(inf2) t(sniper))
 ("squad_with1types" 	side(sov) name(single_flamer)			period(mid) cd(0)   ci(60)  g(single_reg_flamer)		c1(reg_flamer:1) 								b(inf2) t(flamer))
 ("squad_with1types" 	side(sov) name(single_medic)			period(mid) cd(0)   ci(60)  g(single_medic)				c1(reg_medic:1) 								b(inf2) t(medic))
