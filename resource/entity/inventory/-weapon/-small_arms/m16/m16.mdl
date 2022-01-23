@@ -1,107 +1,90 @@
-;Exported by: misan
-;Date:        Fri Dec  3 23:47:44 2021
-;File:        D:\Cold War\Models\Sketchfab\M16 by austincford on Sketchfab\m16.max
+;Exported by: rowen
+;Date:        Tue May 21 16:13:41 2019
+;File:        H:\!_Work\!_weapon_export\3D\m16.max
 {Skeleton
-	{animation
-		{sequence "recoil" {speed 0.6}}
-	}
-	{bone "basis"
+	{bone "m16"
+		{parameters "ID=mgun;"}
 		{Orientation
 			1	0	0
 			0	-1	0
 			0	0	1
 		}
-		{bone "m16"
+		{VolumeView "m16.ply"}
+		{bone "foresight12"
+			{parameters "Voxels=0;"}
+			{Position 14.4196	1.4527	0}
+		}
+		{bone "fxshell"
 			{Matrix34
-				0	0	1
+				0	-0.978149	0.207904
+				-1	1.20543e-05	1.14894e-05
+				-1.37445e-05	-0.207904	-0.978149
+				2.63124	1.53095	0.348524
+			}
+		}
+		{bone "handle"
+			{parameters "Voxels=0;"}
+			{Matrix34
+				1	0	0
+				0	0	-1
 				0	1	0
-				-1	0	0
-				0	0	-0.0029211
-			}
-			{LODView
-				{VolumeView "m16.ply"}
-				{VolumeView "m16_lod1.ply"}
-			}
-			{bone "magazine"
-				{Position 0.0039456	-0.906264	-2.5158}
-				{VolumeView "magazine.ply"}
-			}
-			{bone "bolt"
-				{Position 0.00394588	0.835689	-1.20923}
-				{VolumeView "bolt.ply"}
-			}
-			{bone "fxshell"
-				{Matrix34
-					0.965926	0.25882	0
-					-0.25882	0.965926	0
-					0	0	1
-					0.439352	1.45082	-2.12883
-				}
-			}
-			{bone "handle"
-				{Matrix34
-					0	0	-1
-					0	1	0
-					1	0	0
-					0.00292129	2.70292	-1.73899
-				}
-			}
-			{bone "foresight12"
-				{Position 0.00292144	1.37331	-15.1653}
+				2.03337	2.91697	0.230238
 			}
 		}
 	}
 }
 {Volume "body"
-	{Box 17.8537 3.51783 0.502547}
+	{Box 19.2426 2.9529 1.26739}
 	{Bone "m16"}
-	{Matrix34
-		0	0	-1
-		0	1	0
-		1	0	0
-		0.00292086	0.859786	-2.07805
-	}
-}
-{Volume "magazine"
-	{Box 1.3397 2.25502 0.432698}
-	{Bone "magazine"}
-	{Matrix34
-		0	0	-1
-		0	1	0
-		1	0	0
-		0.012935	0.676579	0.210686
-	}
+	{Position 3.9977	1.02117	0.218855}
 }
 {Volume "select"
-	{Box 23.0312 6.96531 1.36693}
+	{Box 20.8156 3.20268 0.885033}
 	{Bone "m16"}
-	{Matrix34
-		0	0	-1
-		0	1	0
-		1	0	0
-		0.00292144	0.859786	-3.59905
-	}
+	{Position 4.12517	0.415407	0.044179}
 }
-{extender "preview"
-	{"stuff"
+{Extender "preview"
+	{"Stuff_primary"
 		{camera
-			{origin 3.9115 	 -0.7172 	 -28.6064}
-			{lookat 3.9044 	 -0.7166 	 -20.5316}
-			{fov 45}
-			{horizon 83.7991}
+			{origin 3.90421	-2.55302	56.2637}
+			{lookat 3.90421	-1.4673	0.239324}
+			{fov 23.9132}
+			{horizon -174.325}
 		}
 		{lights
 			{"0"
 				{type point}
-				{position 10.1706 	 -6.0223 	 -2.9427}
+				{position 3.96282	11.0784	2.97467}
+			}
+			{"1"
+				{type point}
+				{position 13.0919	-6.31717	20.4806}
+			}
+			{"2"
+				{type directional}
+				{direction 0.000725109	0.410639	-0.285263}
+			}
+		}
+	}
+	{"Stuff"
+		{camera
+			{origin 3.60924	-3.20954	56.4649}
+			{lookat 3.60925	-0.914098	0.22908}
+			{fov 23.9132}
+			{horizon -172.326}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 14.9335	-8.83276	18.5138}
 			}
 			{"1"
 				{type directional}
-				{direction -0.0937 	 0.0114 	 0.491}
+				{direction -0.00294092	0.418475	-0.273625}
 			}
 			{"2"
 				{type point}
-				{position -3.5612 	 2.7698 	 -0.0379}
+				{position 3.96281	4.56888	2.08952}
 			}
 		}
 	}
