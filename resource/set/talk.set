@@ -1,0 +1,107 @@
+{talks
+
+;/*================ defines ================*/
+
+(define "phrase_voice"
+	{phrase
+		{language "%1"}
+		{voice %2}
+		{sound "talk/%0/%1/%3/v%2"}
+		{text_dbg "(%1) %1/%3/v%2"}
+	}
+)
+
+(define "phrases"	; args: actor | language | voice | foldername
+	("phrase_voice" args %0 rus 1 %1)
+	("phrase_voice" args %0 rus 2 %1)
+	("phrase_voice" args %0 rus 3 %1)
+	("phrase_voice" args %0 rus 4 %1)
+	("phrase_voice" args %0 rus 5 %1)
+	("phrase_voice" args %0 rus 6 %1)
+	("phrase_voice" args %0 rus 7 %1)
+	
+	("phrase_voice" args %0 ger 1 %1)
+	("phrase_voice" args %0 ger 2 %1)
+	("phrase_voice" args %0 ger 3 %1)
+	("phrase_voice" args %0 ger 4 %1)
+	("phrase_voice" args %0 ger 5 %1)
+	("phrase_voice" args %0 ger 6 %1)
+	("phrase_voice" args %0 ger 7 %1)
+	("phrase_voice" args %0 ger 8 %1)
+	
+	("phrase_voice" args %0 usa 1 %1)
+	("phrase_voice" args %0 usa 2 %1)
+	("phrase_voice" args %0 usa 3 %1)
+	
+	("phrase_voice" args %0 ger_officer 1 %1)
+	("phrase_voice" args %0 ger_medic   1 %1)
+	("phrase_voice" args %0 ger_sniper  1 %1)
+	
+	("phrase_voice" args %0 spa 1 %1)
+	
+)
+
+(define "phrases_tank"	; args: actor | language | voice | foldername
+	("phrase_voice" args %0 rus 1 %1)
+	("phrase_voice" args %0 rus 2 %1)
+	("phrase_voice" args %0 rus 3 %1)
+
+	("phrase_voice" args %0 ger 1 %1)
+	("phrase_voice" args %0 ger 2 %1)
+	("phrase_voice" args %0 ger 3 %1)
+)
+
+(define "human_phrases"	; args: actor | foldername
+	("phrases" args human %0)
+)
+
+(define "cannon_phrases"
+	("phrases" args cannon %0)
+)
+
+(define "tank_phrases"
+	("phrases_tank" args tank %0)
+)
+
+;/*================ talks for engine generated events ================*/
+
+(include "talk/voicelines_human.inc")
+(include "talk/voicelines_tank.inc")
+(include "talk/voicelines_cannon.inc")
+
+;/*================ Configuration ================*/
+
+;For setting up condition-based talk events:
+;Actual words that can be used are only a few defined from ActorTalkScanner.cpp 
+;what will be said is the name of the .set file
+
+;	{immediate}		; Unit talks immediately.
+;	{priority 5}	; Default value = 0. Talk with higher priority can interrupt talk with lower priority.
+;	{timeout 35 10}	; Random value and deviation (value - deviation to value + deviation). Talk cannot occur again until timeout time has passed.
+
+
+;condition	side	entity		optional	#how many
+;seen		ally	human		repairing	1}		;seen one hundread they will talk "retreat" which is the name of the file, retreat.set
+;			enemy	tank		shooting
+;			any		airborne	sniping				;where any is neutral
+;					cannon		throwing
+;					car			unmasked
+;					mg_stan		abandoned
+;					marine		destroyed
+;					vehicle		crushed
+;					moto		recruited
+;					armored_car	head
+;								body
+;					mine						;explodable mines
+
+
+;		{health_level 0.25		;condition 1/4 health remaining
+;			{enemy_ratio 2.0}	;unit can see twice more enemies than your allies. (2:1 ratio)
+;		}
+
+;		OR
+
+;		{in_action				;in combat condition
+;		{seen ally human 100}}	;when they see 100 of their allies in combat, that will trigger their talk. 
+
+}
