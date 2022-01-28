@@ -280,6 +280,7 @@
 	
 	{item "bullet105_m68"		"heat"		"ammo" 1 {value 10}}
 	{item "bullet105_m68"		"he"		"ammo" 1 {value 5}}
+	{item "bullet105_m68"		"hesh"		"ammo" 1 {value 10}}
 	{item "bullet105_m68"		"apds"		"ammo" 1 {value 10}}
 	
 	{item "bullet106_m40"		"he"		"ammo" 1 {value 10}}
@@ -290,6 +291,7 @@
 	{item "bullet120_m58"		"heat"		"ammo" 1 {value 16}}
 	
 	{item "bullet165_l9"		"he"		"ammo" 1 {value 20}}
+	{item "bullet165_l9"		"hesh"		"ammo" 1 {value 20}}
 	
 	;// ATGMs
 	{item "mgm32a"				"atgm"		"ammo" 1 {value 15}}
