@@ -15,11 +15,23 @@
 	
 	("armoredcar_tier2")
 
-	{volume "body"
+	{Volume "body1"
 		{thickness 7
 			{front	14}
 		}
 	}
+	{Volume "body2"
+		{thickness 7
+			{front	14}
+		}
+	}
+	{Volume "body3"
+		{thickness 7}
+	}
+	{Volume "body4"
+		{thickness 7}
+	}
+	
 	("turret" repair(30))
 	("gun" repair(30) thickness(10))
 	
@@ -34,17 +46,14 @@
 		}
 	}
 	
-	{volume "engine1"
-		{thickness 10}
-	}
-	{volume "engine2"
+	{volume "engine"
 		{thickness 10}
 	}
 	
-	("wheel" args "wheelright1")
-	("wheel" args "wheelleft1")
-	("wheel" args "wheelright2")
-	("wheel" args "wheelleft2")
+	("solid_wheel" args "wheelr1")
+	("solid_wheel" args "wheell1")
+	("solid_wheel" args "wheelr2")
+	("solid_wheel" args "wheell2")
 	
 	{boarder
 		{anm "driver"
@@ -61,10 +70,17 @@
 	("crew_human" place(gunner)		bone()		door(emit2) animation(gunner) group(crew))
 	("crew_human" place(commander)	bone()		door(emit2) animation(gunner) group(crew))
 
+	{sensor
+		{visor "commander"
+			{vision "recon_main"}
+			{bone "vision_rot"}
+		}
+	}
+	
 	{placer
 		{place "driver"		{visor "driver"}}
 		{place "gunner"		{visor "main"}}
-		{place "commander"	{visor "around"}}
+		{place "commander"	{visor "commander"}}
 	}
 
 	{extender "inventory"
@@ -92,6 +108,14 @@
 			{charger "gunner"}
 			("abm_mgun")
 			{basic}
+		}
+		{place "mgun"
+			{type "commander"}
+			{weapon "commander_vision"}
+			{foresight "vision_rot"}
+			{gunner "commander"}
+			{basic}
+			{ai_in_manual}
 		}
 	}
 
