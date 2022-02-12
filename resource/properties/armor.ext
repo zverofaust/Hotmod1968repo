@@ -9,6 +9,16 @@
 	}
 )
 
+(define "set_ammo"
+	{setting "ammo"
+		{threshold
+			{blast	{koef %0}}		;// koef = coefficient. Threshold = koef value x volume effective thickness
+			{pierce {koef 0.8}}
+		}
+		{volumes "ammo*"}
+	}
+)
+
 (define "basic_armor"
 	{armor
 		;// Common
@@ -16,6 +26,8 @@
 		("set_armor" args turret)
 		("set_armor" args aux_turret1)
 		("set_armor" args aux_turret2)
+		("set_armor" args aux_turret3)
+		("set_armor" args aux_turret4)
 		("set_armor" args gun)			;// delete after conversion
 		("set_armor" args barrel)
 		("set_armor" args mantlet)
@@ -58,13 +70,7 @@
 		("set_armor" args propeller)
 		("set_armor" args propeller_b)
 
-		{setting "ammo"
-			{threshold
-				{blast	{koef 999}}		;// koef = coefficient. Threshold = koef value x volume effective thickness
-				{pierce {koef 0.8}}
-			}
-			{volumes "ammo*"}
-		}
+		("set_ammo" args %0)
 	}
 )
 
@@ -184,7 +190,7 @@
 		}
 		{component tag "ammo"
 			{health
-				{hp 125}
+				{hp 170}
 				{hp_broken 1}	;// destroys component and cannot be repaired
 			}
 			("global_damage_mod")
@@ -328,6 +334,101 @@
 	}
 )
 
+(define "train_durability"
+	{perks
+		{component "body"
+			{health
+				{hp %body}
+				{hp_broken (* %body 0.5)}
+			}
+			("global_damage_mod")
+		}
+		{component "cabin"
+			{health
+				{hp %body}
+				{hp_broken %body}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+		}
+		{component "engine"
+			{health
+				{hp %engine}
+				{hp_broken %engine}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+		}
+		{component "mantlet"
+			{health
+				{hp %mantlet}
+			}
+			("global_damage_mod")
+		}
+		{component "turret"
+			{health
+				{hp %turret}
+			}
+			("global_damage_mod")
+		}
+		{component "aux_turret1"
+			{health
+				{hp %turret}
+			}
+			("global_damage_mod")
+		}
+		{component "aux_turret2"
+			{health
+				{hp %turret}
+			}
+			("global_damage_mod")
+		}
+		{component "gun"
+			{health
+				{hp %gun}
+			}
+			("global_damage_mod")
+		}
+		{component tag "wheel"
+			{health
+				{hp 125}
+			}
+			{armor_damage_modifier 5}
+		}
+		{component tag "glass"
+			{health
+				{hp 60}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+		}
+		{component tag "shield"
+			{health
+				{hp 100}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+		}
+		{component tag "cut_part"
+			{health
+				{hp 100}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+		}
+		{component tag "fuel"
+			{health
+				{hp 100}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+		}
+		{component tag "ammo"
+			{health
+				{hp 170}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+		}
+	}
+)
 
 ;/*========================================*/
 ;/*========================================*/

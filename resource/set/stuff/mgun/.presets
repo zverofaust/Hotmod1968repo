@@ -42,6 +42,14 @@
 	}
 )
 
+(define "burst_aa_quad"
+	{burst
+		{short 30 0}
+		{long 150 3}
+		{rangeKoef 0.5}
+	}
+)
+
 ;/*=========================*/
 
 (define "spreading_mounted_low"
@@ -119,6 +127,9 @@
 
 (define "airborne_mg"
 	{range 300 500}
+	(mod not "mp"
+		{range 300 500}
+	)
 	
 	{spreading
 		{SpreadPower 1.5}

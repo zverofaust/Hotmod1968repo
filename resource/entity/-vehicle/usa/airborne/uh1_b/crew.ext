@@ -1,0 +1,29 @@
+  
+
+;SDL
+
+{boarder
+	{anm "crew"
+		{forward	{begin	"board_gaz-m"} {end "seat_driver_car"} {base "open"}}
+		{reverse 	{end	"board_gaz-m" -1} }
+	}
+	{anm "passengers"
+		{forward	{begin	"board_gaz-m"} {end "seat_driver_car"} {base "open"}}
+		{reverse 	{end	"emit_cg-4a" -1} }
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {sensor} {shadow} {targetable}}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(driver)		door(emit1) bone(driver)	animation(crew)  group(crew))
+("crew_human" place(gunner)		door(emit2) bone(gunner)	animation(crew)  group(crew))
+  
+

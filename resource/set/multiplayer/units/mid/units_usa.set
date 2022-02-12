@@ -25,6 +25,15 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
+{"m151_prc77"
+	("vehicle2"  period(mid) cd(60) ci(280) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(reg_officer:1) b(strategic) cw(0) cp(2))
+	{cost 250}
+}
+
+{"m577"
+	("vehicle2"  period(mid) cd(120) ci(280) g(command) side(usa) t(vehicle command) crew1(sup_vehicleman:2) crew2(reg_officer:1) b(strategic) cw(0) cp(4))
+	{cost 400}
+}
 
 {"mortar_barrage_smoke_usa"
 	("squad_vehicle" side(usa) cd(0) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
@@ -111,7 +120,6 @@
 }
 
 ; // 20DP Airmobile Ranger Squad in UH-1D
-
 {"doctrine_squad_ranger_huey(usa)"
 	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
 	("doctrine_t1" cool(180) d(mid_usa_air) cost(20))
@@ -125,7 +133,6 @@
 }
 
 ; // 10 DP Chinook Transport/Supply
-; // 20DP M114A2
 {"doctrine_vehicle_chinook(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ch-47_chinook_mg) crew(sup_pilot:4) cw(0) cp(0))
 	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
@@ -270,12 +277,6 @@
 	("doctrine_t1" cool(30) d(mid_usa_artillery) cost(10))
 }
 
-; // 20DP Command Car
-{"doctrine_vehicle_command(usa)"
-	("squad_vehicle2_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(m577) crew1(sup_vehicleman:2) crew2(reg_officer:1) cw(2) cp(0))
-	("doctrine_t1" cool(200) d(mid_usa_artillery) cost(20))
-}
-
 ; // 5DP M101A1 105mm Howitzer
 {"doctrine_vehicle_m101a1(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m101a1) crew(sup_guncrew:4) cw(0) cp(0))
@@ -321,7 +322,7 @@
 }
 
 ; // 12DP 152-155mm Artillery Barrage
-{"artillery_barrage_light_usa"
+{"artillery_barrage_medium_usa"
 	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
 	("doctrine_strat" cool(300) d(mid_usa_artillery) cost(12))
 	{conditions "radio_usa_artillery"}{action "airstrike:flare_artillery_150"} 
@@ -451,11 +452,6 @@
 {"m113a1"
 	("vehicle"  period(mid) cd(60) ci(30) g(apc) side(usa) t(vehicle transport apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
 	{cost 100}
-}
-
-{"m151_prc77"
-	("vehicle2"  period(mid) cd(60) ci(280) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(reg_officer:1) b(vehicles) cw(0) cp(2))
-	{cost 250}
 }
 
 ;_________________________________________________

@@ -26,6 +26,16 @@
 ;|________________________________________________|
 
 
+{"gaz-69a"
+	("vehicle2"  period(mid) cd(60) ci(280) g(command) side(sov) t(vehicle command) crew1(sup_supporter:1) crew2(reg_officer:1) b(strategic) cw(0) cp(2))
+	{cost 250}
+}
+
+{"brdm-1u"
+	("vehicle2"  period(mid) cd(120) ci(280) g(command) side(sov) t(vehicle command) crew1(sup_supporter:2) crew2(reg_officer:1) b(strategic) cw(0) cp(4))
+	{cost 400}
+}
+
 {"mortar_barrage_smoke_sov"
 	("squad_vehicle" side(sov) cd(60) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
 	{cost 2}{conditions "radio_sov"}{action "airstrike:flare_mortar_smoke"}
@@ -46,7 +56,7 @@
 ;	{cost 10}{conditions "radio_sov"}{action "airstrike:sc_250_mp"} 
 ;}
 
-{"cas_mi4_sov)"
+{"cas_mi4_sov"
 	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(sup_pilot:2))
 	{cost 15}{conditions "radio_sov"}{action "airstrike:s-5_ammo"} 
 }
@@ -221,6 +231,12 @@
 	{action "airstrike:paradrop_asu57"} 
 }
 
+; // 10 DP Mi-8 Transport/Supply
+{"doctrine_vehicle_mi8(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(mil_mi8) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(10))
+}
+
 ; // 15DP VDV Desantski Assault Squad
 {"doctrine_squad_vdv_desantski(sov)"
 	("squad_vehicle5_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(asu-85) crew1(vdv_vehicleman:4) crew2(vdv_squadlead:1) crew3(vdv_lightmg:1) crew4(vdv_antitank:1) crew5(vdv_marksman:1) cw(2) cp(0))
@@ -262,12 +278,6 @@
 {"doctrine_vehicle_ural_arty(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(ural375_arty) crew(sup_supporter:1) cw(2) cp(0))
 	("doctrine_t1" cool(30) d(mid_sov_artillery) cost(5))
-}
-
-; // 20DP BRDM-1U Command Car -- to be replaced by BTR-50PU Command APC
-{"doctrine_vehicle_command(sov)"
-	("squad_vehicle2_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(brdm-1u) crew1(sup_supporter:2) crew2(reg_officer:1) cw(2) cp(0))
-	("doctrine_t1" cool(200) d(mid_sov_artillery) cost(20))
 }
 
 ; // 5DP D-30 122mm Howitzer
@@ -469,10 +479,6 @@
 	{cost 100}
 }
 
-{"gaz-69a"
-	("vehicle2"  period(mid) cd(60) ci(280) g(command) side(sov) t(vehicle command) crew1(sup_supporter:1) crew2(reg_officer:1) b(vehicles) cw(0) cp(2))
-	{cost 250}
-}
 
 ;_________________________________________________
 ;|        		 Fighting Vehicles                |
@@ -577,9 +583,4 @@
 {"bm-21_grad"
 	("vehicle" period(mid) cd(300) ci(240) t(vehicle artillery heavyart) side(sov) crew(sup_tankman:2) cw(0) cp(20))
 	{cost 1200}{not_for_player_sale 1}
-}
-
-{"mil_mi4_heavy_airborne"
-	("vehicle" period(mid) cd(0) ci(0) t(vehicle airborne helicopter) side(sov) crew(sup_pilot:2) cw(0) cp(0))
-	{cost 100}{not_for_player_sale 1}
 }
