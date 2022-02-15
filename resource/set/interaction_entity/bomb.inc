@@ -1,9 +1,8 @@
 ;/*=========== Bomb Run Types Begin ==========*/
 
-		
 {"flare_bombrun_cas"			;// Dummy object for non-bomb CAS callins
 	{on spawn
-		{delete}
+		{delay 5 {delete}}
 	}
 }
 

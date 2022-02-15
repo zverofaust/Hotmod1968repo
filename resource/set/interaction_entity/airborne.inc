@@ -77,7 +77,7 @@
 		{add_view	"tank_grit_small_w"		"on_puddle"			"FXtraceR1"}
 		{add_view	"tank_grit_small_w"		"on_puddle"			"FXtraceL1"}
 	}
-
+	
 	(define "fx_base"
 		{view %action "%fx%number"}
 	)
@@ -1951,9 +1951,9 @@
 		{link_sound "attack"				"vehicle/airborne/uh1h_move"}
 	}
 
-	{##on "wheels_fx"
-		{add_view "spheredust_big" "ground_dust" "support1"}
-		{add_view "spheredust_big" "ground_dust" "support2"}
+	{on "wheels_fx"
+		{add_view "spheredust_big" "ground_dust" "basis"}
+		{add_view "spheredust_big" "ground_dust" "basis"}
 		{view start "ground_dust"}
 		{delay 4
 			{view stop "ground_dust"}
