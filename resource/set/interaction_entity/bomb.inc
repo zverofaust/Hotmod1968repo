@@ -47,7 +47,7 @@
 			{tags add "fired"}
 			(define "rnd_art_bomb"
 				{delay %delay 0.0
-					{spawn "bomb_single_50" {impulse up -20.5 forward 0 5 rnd_dir 7 com}}
+					{spawn "bomb_single_50" {impulse up -20.5 forward 0 5 rnd_dir 12 com}}
 				}
 			)
 			("rnd_art_bomb" delay(0.01))
@@ -69,7 +69,7 @@
 			{tags add "fired"}
 			(define "rnd_art_bomb"
 				{delay %delay 0.0
-					{spawn "bomb_single_100" {impulse up -20.5 forward 0 5 rnd_dir 7 com}}
+					{spawn "bomb_single_100" {impulse up -20.5 forward 0 5 rnd_dir 10 com}}
 				}
 			)
 			("rnd_art_bomb" delay(0.01))
@@ -89,7 +89,7 @@
 			{tags add "fired"}
 			(define "rnd_art_bomb"
 				{delay %delay 0.0
-					{spawn "bomb_single_250" {impulse up -20.5 forward 0 5 rnd_dir 7 com}}
+					{spawn "bomb_single_250" {impulse up -20.5 forward 0 5 rnd_dir 8 com}}
 				}
 			)
 			("rnd_art_bomb" delay(0.0))
@@ -107,7 +107,7 @@
 			{tags add "fired"}
 			(define "rnd_art_bomb"
 				{delay %delay 0.0
-					{spawn "bomb_single_500" {impulse up -20.5 forward 0 5 rnd_dir 7 com}}
+					{spawn "bomb_single_500" {impulse up -20.5 forward 0 5 rnd_dir 6 com}}
 				}
 			)
 			("rnd_art_bomb" delay(0.0))
