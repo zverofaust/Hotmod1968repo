@@ -34,6 +34,12 @@
 	else stuff "shell size4"							; 150-169mm cannon AP shells
 		{spawn "ex_size3_water"}
 
+	else stuff "shell size5"							; 170mm+ cannon HE shells
+		{spawn "ex_size4_water"}
+
+	else stuff "shell size6"							; 240mm+ cannon HE shells
+		{spawn "ex_size4_water"}
+
 	else stuff "flare marker"							; Special Flare ammo for mission scripts
 		{spawn "flare_marker"}
 		{spawn "ex_bul_sm_w"}
@@ -77,7 +83,15 @@
 
 	else stuff "bomb size3"								; 250kg+ bomb
 		{spawn "ex_size4_water"}
+	
+	else stuff "bomb size4"								; 500kg+ bomb
+		{spawn "ex_size4_water"}
 		
+	else stuff "bomb napalm"								; Napalm bomb
+			{spawn "ex_size2_water"}
+			{spawn "fuel_die"}
+			{spawn "crater_small" terrain_texmod}
+			
 	else stuff "bomb sizenuke"								; W33 'Davy Crockett' Nuclear Warhead
 			{start_sound "detonation/nuke/" use_position}
 			{spawn "expluto"}
@@ -129,6 +143,12 @@
 	else stuff "shell size4"							; 150-169mm cannon AP shells
 		{spawn "ex_ap_size4_mud"}
 
+	else stuff "shell size5"							; 170mm+ cannon shells
+		{spawn "ex_he_size5"}
+
+	else stuff "shell size6"							; 240mm+ cannonshells
+		{spawn "ex_he_size6"}
+
 	else stuff "bomb size1"								; 50-60kg bombs / explosives
 		{spawn "ex_he_size2_mud"}
 
@@ -136,7 +156,15 @@
 		{spawn "ex_he_size3_mud"}
 
 	else stuff "bomb size3"								; 250kg+ bomb
-		{spawn "ex_he_size3_mud"}
+		{spawn "ex_he_size5"}
+		
+	else stuff "bomb size4"								; 500kg+ bomb
+		{spawn "ex_he_size6"}
+	
+	else stuff "bomb napalm"								; Napalm bomb
+			{spawn "ex_he_size2_mud"}
+			{spawn "fuel_die"}
+			{spawn "crater_small" terrain_texmod}
 		
 	else stuff "bomb sizenuke"								; W33 Davy Crockett
 			{start_sound "detonation/nuke/" use_position}
@@ -307,6 +335,11 @@
 			{spawn "ex_he_size5"}
 			{spawn "crater_big" terrain_texmod}
 
+		else stuff "shell size6"							; 240mm+ cannon HE shells
+			{start_sound "detonation/he_size5/bkg/" use_position}
+			{spawn "ex_he_size6"}
+			{spawn "crater_massive" terrain_texmod}
+
 		else stuff "shell smoke wp_small"							; small WP Smoke shells
 			{spawn "ex_wp_small"}									; initial explosion fx
 			{spawn "shell_smoke_wp_small"}							; actual smoke and vision volumes
@@ -336,12 +369,23 @@
 			{spawn "ex_bomb_100kg"}
 			{spawn "crater_big" terrain_texmod}
 
-
 		else stuff "bomb size3"								; 250kg+ bomb
 			{start_sound "detonation/250kg_bomb/bkg/" use_position}
 			{spawn "shockwave_sphere"}
 			{spawn "ex_bomb_250kg"}
 			{spawn "crater_massive" terrain_texmod}
+			
+		else stuff "bomb size4"								; 500kg+ bomb
+			{start_sound "detonation/he_size5/bkg/" use_position}
+			{spawn "shockwave_sphere"}
+			{spawn "ex_he_size6"}
+			{spawn "crater_massive" terrain_texmod}
+			
+		else stuff "bomb napalm"								; Napalm bomb
+			{start_sound "detonation/he_size5/bkg/" use_position}
+			{spawn "shockwave_sphere"}
+			{spawn "fuel_die"}
+			{spawn "crater_small" terrain_texmod}
 			
 		else stuff "bomb sizenuke"								; W33 Davy Crockett
 			{start_sound "detonation/nuke/" use_position}

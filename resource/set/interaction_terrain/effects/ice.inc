@@ -139,7 +139,12 @@
 			{start_sound "detonation/he_size5/bkg/" use_position}
 			{spawn "shockwave_sphere"}
 			{spawn "ex_he_size5_snow"}
-
+			
+		else stuff "shell size6"							; 240mm+ cannon HE shells
+			{start_sound "detonation/he_size5/bkg/" use_position}
+			{spawn "shockwave_sphere"}
+			{spawn "ex_he_size6_snow"}
+			
 		else stuff "shell smoke wp_small"							; small WP Smoke shells
 			{spawn "ex_wp_small"}									; initial explosion fx
 			{spawn "shell_smoke_wp_small"}							; actual smoke and vision volumes
@@ -175,6 +180,18 @@
 			{spawn "shockwave_sphere"}
 			{spawn "ex_bomb_250kg_snow"}
 
+		else stuff "bomb size4"								; 500kg+ bomb
+			{start_sound "detonation/he_size5/bkg/" use_position}
+			{spawn "shockwave_sphere"}
+			{spawn "ex_he_size6_snow"}
+			{spawn "crater_massive" terrain_texmod}
+			
+		else stuff "bomb napalm"								; Napalm bomb
+			{start_sound "detonation/he_size5/bkg/" use_position}
+			{spawn "shockwave_sphere"}
+			{spawn "fuel_die"}
+			{spawn "crater_small" terrain_texmod}
+			
 		else stuff "bomb sizenuke"								; W33 Davy Crockett
 			{start_sound "detonation/nuke/" use_position}
 			{spawn "expluto"}

@@ -65,6 +65,18 @@
 			{spawn "shockwave_sphere"}
 			{spawn "ex_bomb_250kg"}
 			
+		else stuff "bomb size4"								; 500kg+ bomb
+			{start_sound "detonation/he_size5/bkg/" use_position}
+			{spawn "shockwave_sphere"}
+			{spawn "ex_he_size6"}
+			{spawn "crater_massive" terrain_texmod}
+			
+		else stuff "bomb napalm"								; Napalm bomb
+			{start_sound "detonation/he_size5/bkg/" use_position}
+			{spawn "shockwave_sphere"}
+			{spawn "fuel_die"}
+			{spawn "crater_small" terrain_texmod}
+		
 		else stuff "bomb sizenuke"								; W33 Davy Crockett
 			{start_sound "detonation/nuke/" use_position}
 			{spawn "expluto"}
