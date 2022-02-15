@@ -1,6 +1,7 @@
 ;/*=========== Bomb Run Types Begin ==========*/
 
-{"flare_bombrun_dummy"			;// Dummy object for Helicopter CAS runs
+		
+{"flare_bombrun_cas"			;// Dummy object for non-bomb CAS callins
 	{on spawn
 		{delete}
 	}

@@ -1834,7 +1834,7 @@
 		{link_sound "engine_stop"			"vehicle/airborne/f4_stop"}
 		{link_sound "attack"				"vehicle/airborne/f4_move2"}
 	}
-
+	
 	{##on "wheels_fx"
 		{add_view "spheredust_big" "ground_dust" "support1"}
 		{add_view "spheredust_big" "ground_dust" "support2"}
