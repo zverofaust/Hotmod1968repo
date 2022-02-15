@@ -27,13 +27,13 @@
 
 
 {"gaz-69a"
-	("vehicle2"  period(mid) cd(60) ci(280) g(command) side(sov) t(vehicle command) crew1(sup_supporter:1) crew2(reg_officer:1) b(strategic) cw(0) cp(2))
-	{cost 250}
+	("vehicle2"  period(mid) cd(120) ci(200) g(command) side(sov) t(vehicle command) crew1(sup_supporter:1) crew2(reg_officer:1) b(strategic) cw(0) cp(2))
+	{cost 5}
 }
 
 {"brdm-1u"
-	("vehicle2"  period(mid) cd(120) ci(280) g(command) side(sov) t(vehicle command) crew1(sup_supporter:2) crew2(reg_officer:1) b(strategic) cw(0) cp(4))
-	{cost 400}
+	("vehicle2"  period(mid) cd(240) ci(240) g(command) side(sov) t(vehicle command) crew1(sup_supporter:2) crew2(reg_officer:1) b(strategic) cw(0) cp(4))
+	{cost 5}
 }
 
 {"mortar_barrage_smoke_sov"
@@ -48,13 +48,8 @@
 
 {"mortar_barrage_medium_sov"
 	("squad_vehicle" side(sov) cd(180) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
-	{cost 6}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
+	{cost 5}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
 }
-
-;{"air_bomb_sov"
-;	("squad_vehicle" side(sov) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(su-7) crew(sup_tankman:1))
-;	{cost 10}{conditions "radio_sov"}{action "airstrike:sc_250_mp"} 
-;}
 
 {"cas_mi4_sov"
 	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(sup_pilot:2))
@@ -110,10 +105,12 @@
 	{conditions "radio_sov"}{action "airstrike:s-5_ammo"} 
 }
 
-; ======Tier2======
-
-
-; ======Tier3======
+; // 15DP 500kg bomb strike by Su-7
+{"airstrike_500_motostrelki_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:1) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_motostrelki) cost(15))
+	{conditions "radio_sov"}{action "airstrike:flare_bombrun_500"}
+}
 
 ;===================================
 ;        Heavy Tank Brigade
@@ -152,10 +149,12 @@
 	("doctrine_t1" cool(200) d(mid_sov_tank) cost(20))
 }
 
-; ======Tier2======
-
-; ======Tier3======
-
+; // 12DP 50kg bomb strike by Su-7
+{"airstrike_50_tank_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:1) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_tank) cost(12))
+	{conditions "radio_sov"}{action "airstrike:flare_bombrun_50"}
+}
 
 ;===================================
 ;        Red Banner
@@ -206,9 +205,12 @@
 	("doctrine_t1" cool(600) d(mid_sov_banner) cost(50))
 }
 
-; ======Tier2======
-
-; ======Tier3======
+; // 15DP 500kg bomb strike by Su-7
+{"airstrike_500_banner_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:1) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_banner) cost(15))
+	{conditions "radio_sov"}{action "airstrike:flare_bombrun_500"}
+}
 
 
 ;===================================
@@ -218,17 +220,16 @@
 
 ; ======Tier1======
 
+; // 10DP Air-Dropped ASU-57
+{"doctrine_paradrop_asu57(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(asu57) crew(vdv_vehicleman:3) cw(0) cp(0))
+	("doctrine_t1" cool(140) d(mid_sov_vdv) cost(6))
+}
+
 ; // 10DP GRU Spetsnaz Assault Pioneer Team, to be mounted in amphibious GAZ-46 when available
 {"doctrine_squad_spz_pioneer(sov)"
 	("squad_vehicle3_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(gaz-69spz) crew1(spz_squadlead:1) crew2(spz_demo:2) crew3(spz_antitank:1) cw(2) cp(0))
 	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(10))
-}
-
-; // 10DP Air-Dropped ASU-57
-{"doctrine_paradrop_asu57(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(d30a) crew(vdv_vehicleman:3) cw(0) cp(0))
-	("doctrine_t1" cool(140) d(mid_sov_vdv) cost(10))
-	{action "airstrike:paradrop_asu57"} 
 }
 
 ; // 10 DP Mi-8 Transport/Supply
@@ -256,11 +257,11 @@
 	{conditions "radio_sov"}{action "airstrike:s-5_ammo"} 
 }
 
-; // 10DP 250kg bomb strike by Su-7
-{"airstrike_250_sov"
+; // 15DP 100kg bomb strike by Su-7
+{"airstrike_100_vdv_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:1) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(10))
-	{conditions "radio_sov"}{action "airstrike:sc_250"}
+	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(15))
+	{conditions "radio_sov"}{action "airstrike:flare_bombrun_100"}
 }
 
 ; ======Tier2======

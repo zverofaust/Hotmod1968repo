@@ -26,13 +26,13 @@
 ;|________________________________________________|
 
 {"m151_prc77"
-	("vehicle2"  period(mid) cd(60) ci(280) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(reg_officer:1) b(strategic) cw(0) cp(2))
-	{cost 250}
+	("vehicle2"  period(mid) cd(120) ci(200) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(reg_officer:1) b(strategic) cw(0) cp(2))
+	{cost 5} {squad_cost_factor 0}
 }
 
 {"m577"
-	("vehicle2"  period(mid) cd(120) ci(280) g(command) side(usa) t(vehicle command) crew1(sup_vehicleman:2) crew2(reg_officer:1) b(strategic) cw(0) cp(4))
-	{cost 400}
+	("vehicle2"  period(mid) cd(240) ci(300) g(command) side(usa) t(vehicle command) crew1(sup_vehicleman:2) crew2(reg_officer:1) b(strategic) cw(0) cp(4))
+	{cost 5} {squad_cost_factor 0}
 }
 
 {"mortar_barrage_smoke_usa"
@@ -47,12 +47,17 @@
 
 {"mortar_barrage_medium_usa"
 	("squad_vehicle" side(usa) cd(0) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
-	{cost 6}{conditions "radio_usa"}{action "airstrike:flare_mortar_120"}
+	{cost 5}{conditions "radio_usa"}{action "airstrike:flare_mortar_120"}
 }
 
 {"cas_uh1_usa"
 	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:2))
 	{cost 10}{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
+}
+
+{"airstrike_50_usa"
+	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105) crew(sup_pilot:1))
+	{cost 15}{conditions "radio_usa"}{action "airstrike:flare_bombrun_50"} 
 }
 
 ;_________________________________________________
@@ -102,6 +107,13 @@
 	("doctrine_t1" cool(120) d(mid_usa_acav) cost(20))
 }
 
+; // 20 DP Napalm bomb strike by F-105
+{"airstrike_napalm_acav_usa"
+	("strategic_doctrine" side(usa) period(mid) vehicle(f-105) crew(sup_pilot:1) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_usa_acav) cost(20))
+	{conditions "radio_usa"}{action "airstrike:flare_bombrun_napalm"}
+}
+
 ;===================================
 ;         AIR CAV
 ;			
@@ -121,15 +133,14 @@
 
 ; // 20DP Airmobile Ranger Squad in UH-1D
 {"doctrine_squad_ranger_huey(usa)"
-	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
+	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
 	("doctrine_t1" cool(180) d(mid_usa_air) cost(20))
 }
 
 ; // 10DP Air-Dropped M56 Scorpion
 {"doctrine_paradrop_m56(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_supporter:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
-	{action "airstrike:paradrop_m56"} 
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m56) crew(aircav_vehicleman:3) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_usa_air) cost(7))
 }
 
 ; // 10 DP Chinook Transport/Supply
@@ -145,11 +156,11 @@
 	{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
 }
 
-; // 10DP 250kg bomb strike by F-105
-{"airstrike_250_usa"
+; // 12DP 100kg bomb strike by F-105
+{"airstrike_100_air_usa"
 	("strategic_doctrine" side(usa) period(mid) vehicle(f-105) crew(sup_pilot:1) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
-	{conditions "radio_usa"}{action "airstrike:sc_250"}
+	("doctrine_t1" cool(240) d(mid_usa_air) cost(15))
+	{conditions "radio_usa"}{action "airstrike:flare_bombrun_100"}
 }
 
 ;===================================
@@ -200,6 +211,13 @@
 	{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
 }
 
+; // 15DP 250kg bomb strike by F-105
+{"airstrike_250_tank_usa"
+	("strategic_doctrine" side(usa) period(mid) vehicle(f-105) crew(sup_pilot:1) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_usa_tank) cost(15))
+	{conditions "radio_usa"}{action "airstrike:flare_bombrun_250"}
+}
+
 ;===================================
 ;          USMC
 ;            
@@ -228,12 +246,6 @@
 	("squad_with7types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(usmc_squadlead:1) c2(usmc_teamlead:3) c3(usmc_autorifle:3) c4(usmc_grenadier:1) c5(usmc_lat:3) c6(usmc_rifleman:2) c7(usmc_corpsman))
 	("doctrine_t1" cool(15) d(mid_usa_usmc) cost(10))
 }
-
-; // 15DP SEAL Detachment
-;{"doctrine_squad_seal(usa)"
-;	("squad_with7types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(spec_squadlead:1) c2(spec_antitank:1) c3(spec_demo:1) c4(spec_grenadier:1) c5(spec_marksman:1) c6(spec_mg:1) c7(spec_rifleman:4))
-;	("doctrine_t1" cool(90) d(mid_usa_usmc) cost(15))
-;}
 
 ; // 15DP M50 Ontos
 {"doctrine_vehicle_m50(usa)"
@@ -264,6 +276,20 @@
 	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_maxwell_airborne) crew(sup_pilot:2) cw(0) cp(0))
 	("doctrine_strat" cool(180) d(mid_usa_usmc) cost(15))
 	{conditions "radio_usa"}{action "airstrike:s-5_ammo"} 
+}
+
+; // 15DP 100kg bomb strike by F-105
+{"airstrike_100_usmc_usa"
+	("strategic_doctrine" side(usa) period(mid) vehicle(f-105) crew(sup_pilot:1) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_usa_usmc) cost(15))
+	{conditions "radio_usa"}{action "airstrike:flare_bombrun_100"}
+}
+
+; // 15DP Napalm bomb strike by F-105
+{"airstrike_napalm_usmc_usa"
+	("strategic_doctrine" side(usa) period(mid) vehicle(f-105) crew(sup_pilot:1) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_usa_usmc) cost(15))
+	{conditions "radio_usa"}{action "airstrike:flare_bombrun_napalm"}
 }
 
 ;===================================
@@ -580,3 +606,4 @@
 	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(vehicle light) crew(sup_tankman:4) cw(0) cp(6))
 	{cost 675}{not_for_player_sale 1}
 }
+
