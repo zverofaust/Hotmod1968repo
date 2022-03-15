@@ -58,21 +58,21 @@
 
 ;/*============================== Damages ==============================*/
 
-(define "shell_data_215"
-	{parameters "%shell" ;// for units with higher range than 215, polynomial curve to simulate closer range engagements
-		{projectileDamageTable {20 %a} {100 %b} {165 %c} {215 %d} {%range (+ (* (/ (- 250 %range) (- 250 215)) (- %d %e)) %e)} {(+ %range 20) 0} }
+(define "penetration_long"
+	{parameters "%shell" ;// for units with higher range than 205, polynomial curve to simulate closer range engagements
+		{projectileDamageTable {20 %a} {100 %b} {155 %c} {205 %d} {%range (+ (* (/ (- 250 %range) (- 250 200)) (- %d %e)) %e)} {(+ %range 20) 0} }
 		{range %range %range}
 	}
 )
-(define "shell_data_165"
-	{parameters "%shell" ;// for units with higher range than 165 and lower 215, polynomial curve to simulate closer range engagements
-		{projectileDamageTable {20 %a} {100 %b} {165 %c} {%range (+ (* (/ (- 215 %range) (- 215 165)) (- %c %d)) %d)} {(+ %range 20) 0} }
+(define "penetration_medium"
+	{parameters "%shell" ;// for units with higher range than 155 and lower 205, polynomial curve to simulate closer range engagements
+		{projectileDamageTable {20 %a} {100 %b} {155 %c} {%range (+ (* (/ (- 205 %range) (- 205 155)) (- %c %d)) %d)} {(+ %range 20) 0} }
 		{range %range %range}
 	}
 )
-(define "shell_data_100"
-	{parameters "%shell" ;// for units with higher range than 100 and lower than 165, polynomial curve to simulate closer range engagements
-		{projectileDamageTable {20 %a} {100 %b} {%range (+ (* (/ (- 165 %range) (- 165 100)) (- %b %c)) %c)} {(+ %range 20) 0} }
+(define "penetration_short"
+	{parameters "%shell" ;// for units with higher range than 100 and lower than 155, polynomial curve to simulate closer range engagements
+		{projectileDamageTable {20 %a} {100 %b} {%range (+ (* (/ (- 155 %range) (- 155 100)) (- %b %c)) %c)} {(+ %range 20) 0} }
 		{range %range %range}
 	}
 )
@@ -444,7 +444,7 @@
 
 
 
-;/*============================== RANGES AND SPECIFICS ==============================*/
+;/*============================== GLOBAL DEFINES ==============================*/
 
 
 (define "standard_firing_arc"
@@ -457,27 +457,35 @@
 	{gravity 6.0}
 )
 
-(define "anti-aircratft"
-
-)
-
 (define "light_aa"
-	("anti-aircratft" range(5000) spread(3))
 	{AimingTolerance 12}
 	{SpreadTolerance 0.1}
 )
 
 (define "medium_aa"
-	("anti-aircratft" range(600) spread(2.25))
 	{AimingTolerance 12}
 	{SpreadTolerance 0.1}
 )
 
 (define "heavy_aa"
-	("anti-aircratft" range(800) spread(1.5))
 	{AimingTolerance 5}
 	{SpreadTolerance 0.4}
 )
+(define "direct_settings"
+	{SpreadTolerance 0.60}		;// Zeroing up to 60% needed before fire
+	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
+	{spreading {SpreadXYRatio 0.4}}
+	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+)
+(define "indirect_settings"
+	{SpreadTolerance 0.75}		;// Zeroing up to 75% needed before fire
+	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
+	{spreading {SpreadXYRatio 3}}
+)
+
+
+;/*============================== RANGES AND SPECIFICS ==============================*/
+
 
 (define "range_aircraft_gun"
 	("standard_firing_arc")
@@ -573,118 +581,80 @@
 	{SyncedProjectiles 0}		;// not for automatic weapons
 )
 
-
+(define "range_160"
+	("standard_firing_arc")
+	{range 160 160}
+	("direct_settings")
+)
 (define "range_170"
 	("standard_firing_arc")
 	{range 170 170}
-	{SpreadTolerance 0.60}		;// Zeroing up to 60% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_180"
 	("standard_firing_arc")
 	{range 180 180}
-	{SpreadTolerance 0.60}		;// Zeroing up to 60% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_190"
 	("standard_firing_arc")
 	{range 190 190}
-	{SpreadTolerance 0.60}		;// Zeroing up to 60% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_200"
 	("standard_firing_arc")
 	{range 200 200}
-	{SpreadTolerance 0.60}		;// Zeroing up to 60% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_210"
 	("standard_firing_arc")
 	{range 210 210}
-	{SpreadTolerance 0.60}		;// Zeroing up to 60% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_220"
 	("standard_firing_arc")
 	{range 220 220}
-	{SpreadTolerance 0.60}		;// Zeroing up to 60% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_230"
 	("standard_firing_arc")
 	{range 230 230}
-	{SpreadTolerance 0.65}		;// Zeroing up to 65% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_240"
 	("standard_firing_arc")
 	{range 240 240}
-	{SpreadTolerance 0.65}		;// Zeroing up to 65% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_250"
 	("standard_firing_arc")
 	{range 250 250}
-	{SpreadTolerance 0.65}		;// Zeroing up to 65% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_260"
 	("standard_firing_arc")
 	{range 260 260}
-	{SpreadTolerance 0.65}		;// Zeroing up to 65% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_270"
 	("standard_firing_arc")
 	{range 270 270}
-	{SpreadTolerance 0.65}		;// Zeroing up to 65% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_280"
 	("standard_firing_arc")
 	{range 280 280}
-	{SpreadTolerance 0.65}		;// Zeroing up to 65% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_290"
 	("standard_firing_arc")
 	{range 290 290}
-	{SpreadTolerance 0.65}		;// Zeroing up to 65% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 (define "range_300"
 	("standard_firing_arc")
 	{range 300 300}
-	{SpreadTolerance 0.65}		;// Zeroing up to 65% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	("direct_settings")
 )
 
 (define "range_atgm"
@@ -705,40 +675,35 @@
 	{spreading {SpreadXYRatio 0.4}}
 )
 
+(define "range_160_howitzer"
+	("curved_firing_arc")
+	{range 160 160}
+	("indirect_settings")
+)
 (define "range_170_howitzer"
 	("curved_firing_arc")
 	{range 170 170}
-	{SpreadTolerance 0.75}		;// Zeroing up to 75% needed before fire
-	{ZeroingAccuracy 0.9 0.85 0.8 0.75 0.70 0.65 0.60 0.55 0.50}
-	{spreading {SpreadXYRatio 3}}
+	("indirect_settings")
 )
 (define "range_180_howitzer"
 	("curved_firing_arc")
 	{range 180 180}
-	{SpreadTolerance 0.75}		;// Zeroing up to 75% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 3}}
+	("indirect_settings")
 )
 (define "range_190_howitzer"
 	("curved_firing_arc")
 	{range 190 190}
-	{SpreadTolerance 0.75}		;// Zeroing up to 75% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 3}}
+	("indirect_settings")
 )
 (define "range_200_howitzer"
 	("curved_firing_arc")
 	{range 200 200}
-	{SpreadTolerance 0.75}		;// Zeroing up to 75% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 3}}
+	("indirect_settings")
 )
 (define "range_210_howitzer"
 	("curved_firing_arc")
 	{range 210 210}
-	{SpreadTolerance 0.75}		;// Zeroing up to 75% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 3}}
+	("indirect_settings")
 )
 
 (define "medium_artillery"
