@@ -19,8 +19,7 @@
 	{"squad_ops_con(usa)"				requires	"single_sniper(usa)"				costs 2 }
 	{"squad_specops_con(usa)"			requires	"squad_ops_con(usa)"				costs 4 }
 	
-	{"squad_reservist_con(usa)"			requires	""									costs 0 }
-	{"squad_reservist_m14_con(usa)"		requires	"squad_reservist_con(usa)"			costs 1 }
+	{"squad_reservist_m14_con(usa)"		requires	"usa_army"								costs 1 }
 	{"squad_natguard_con(usa)"			requires	"squad_reservist_m14_con(usa)"		costs 1 }
 	{"squad_natguard_moto2_con(usa)"	requires	"squad_natguard_con(usa) m113a1"	costs 0 }
 	
@@ -39,23 +38,26 @@
 	{"squad_rifle_m16_moto_con(usa)"	requires	"m113a1 squad_rifle_m16_con(usa)"	costs 0 }
 	{"squad_weapon_m16_moto_con(usa)"	requires	"m113a1 squad_weapon_m16_con(usa)"	costs 0 }
 	
-	{"squad_acav_moto_con(usa)"			requires	"squad_rifle_m16_moto_con(usa) m113_acav"	costs 1 }
-	{"squad_acav_assault_moto_con(usa)"	requires	"squad_weapon_m16_moto_con(usa) m113_acav_m40"	costs 1 }
+	{"squad_acav_moto_con(usa)"			requires	"m113_acav"							costs 1 }
+	{"squad_acav_assault_moto_con(usa)"	requires	"m113_acav_m40"						costs 1 }
 
-	{"squad_aircav_recon_con(usa)"		requires	""									costs 1 }
-	{"squad_aircav_con(usa)"			requires	"squad_aircav_recon_con(usa)"		costs 2 }
+	{"squad_aircav_recon_con(usa)"		requires	"usa_aircav"							costs 0 }
+	{"squad_aircav_con(usa)"			requires	"uh-1h"								costs 2 }
 	{"squad_lrrp_con(usa)"				requires	"squad_aircav_recon_con(usa)"		costs 1 }
 	{"squad_ranger_demo_con(usa)"		requires	"squad_lrrp_con(usa)"				costs 2 }
-	{"squad_ranger_con(usa)"			requires	"squad_aircav_con(usa)"				costs 3 }
+	{"squad_ranger_con(usa)"			requires	"squad_aircav_con(usa) squad_ranger_demo_con(usa)"	costs 2 }
 	
-	{"squad_usmc_fireteam_con(usa)"		requires	""									costs 1 }	
-	{"single_marksman_usmc(usa)"		requires	"squad_usmc_fireteam_con(usa)"		costs 1 }
+	{"single_marksman_usmc(usa)"		requires	"usa_usmc"							costs 0 }
 	{"single_sniper_usmc(usa)"			requires	"single_marksman_usmc(usa)"			costs 1 }
-	{"single_corpsman(usa)"				requires	"squad_usmc_fireteam_con(usa)"		costs 1 }
-	{"squad_usmc_con(usa)"				requires	"squad_usmc_fireteam_con(usa)"		costs 1 }
+	{"single_corpsman(usa)"				requires	"usa_usmc"							costs 1 }
+	{"squad_usmc_fireteam_con(usa)"		requires	"single_marksman_usmc(usa)"			costs 1 }	
+	{"squad_usmc_con(usa)"				requires	"squad_usmc_fireteam_con(usa)"		costs 2 }
 	{"squad_usmc_mg_con(usa)"			requires	"squad_usmc_con(usa)"				costs 2 }
-	{"squad_usmc_flame_con(usa)"		requires	"squad_usmc_con(usa)"				costs 3 }
+	{"squad_usmc_flame_con(usa)"		requires	"squad_usmc_con(usa)"				costs 2 }
 	
+	{"squad_udt_con(usa)"				requires	"single_sniper_usmc(usa)"			costs 2 }
+	{"squad_seal_con(usa)"				requires	"squad_udt_con(usa)"				costs 2 }
+	{"squad_seal_air_con(usa)"			requires	"squad_seal_con(usa)"				costs 4 }
 
 	
 ;---MG---
@@ -65,12 +67,13 @@
 
 ;---Mortar---
 
-	{"m30_mortar"		requires	"m29_mortar"				 costs 2}
-	{"m98_howtar"		requires	"m30_mortar m116_packhow" costs 1}
+	{"m30_mortar"		requires	"m29_mortar"		costs 2}
+	{"m98_howtar"		requires	"usa_usmc" 				costs 1}
 	
 ;---AA---
 
 	{"m45_maxson"		requires	"m63_browning"		costs 2}
+	{"40_mm_m1"			requires	"m45_maxson"		costs 2}
 
 ;---AT Guns---
 	
@@ -90,13 +93,13 @@
 	
 	{"dodge_m37"		requires	""					costs 0}
 	{"dodge_m37_ammo"	requires	"dodge_m37"			costs 1}
-	{"dodge_m37_eng"	requires	"dodge_m37 single_engineer(usa)"	costs 1}
+	{"dodge_m37_eng"	requires	"single_engineer(usa)"	costs 1}
 	{"m151_m2"			requires	"m63_browning"		costs 1}
 	{"m151_m40"			requires	"m40"				costs 2}
 	{"m35"				requires	"dodge_m37"			costs 1}
 	{"m35_ammo"			requires	"m35"				costs 1}
 	{"m35_arty"			requires	"m35_ammo"			costs 2}
-	{"m35_guntruck"		requires	"m35_ammo"				costs 1}
+	{"m35_guntruck"		requires	"m35_ammo"			costs 1}
 	
 	
 ;TOTAL: 4
@@ -105,15 +108,14 @@
 ;---BTRs (aka M113s)---
 
 	{"m113a1"				requires	""					costs 1}
-	{"m113_m40"				requires	"m151_m40"	costs 2}
-	{"m113_acav"			requires	"m113a1"			costs 2}
-	{"m113_acav_m40"		requires	"m113_acav m113_m40"	costs 1}
+	{"m113_acav"			requires	"m114a1"			costs 2}
+	{"m113_acav_m40"		requires	"m113_acav"			costs 1}
 	
-	{"m114a1"				requires	"m113a1"			costs 1}
+	{"m114a1"				requires	"usa_acav"				costs 0}
 	{"m114a2"				requires	"m114a1"			costs 2}
 	
 	{"m125"					requires	"m29_mortar"		costs 3}
-	{"m106"					requires	"m125 m30_mortar"	costs 1}
+	{"m106"					requires	"m30_mortar"		costs 1}
 	
 	{"m132_zippo"			requires	"squad_usmc_flame_con(usa)"	costs 2}
 	{"m163"					requires	"m42"				costs 4}
@@ -126,7 +128,7 @@
 	{"m24_chaffee"			requires	""								costs 1}
 	{"m41"					requires	"m24_chaffee"					costs 1}
 	{"m56"					requires	"m41"							costs 1}
-	{"m42"					requires	"m41"							costs 2}
+	{"m42"					requires	"m41 40_mm_m1"					costs 1}
 	{"m50"					requires	"m56"							costs 2}
 	
 ;TOTAL: 6
@@ -136,7 +138,7 @@
 	{"m4a3e8"				requires	""					costs 2}
 	{"m48_patton"			requires	"m4a3e8"			costs 2}
 	{"m48a3"				requires	"m48_patton"		costs 3}
-	{"m67_zippo"			requires	"m48_patton m132_zippo"	costs 2}
+	{"m67_zippo"			requires	"m132_zippo"		costs 2}
 	{"m60a1"				requires	"m48a3"				costs 4}
 	{"m728"					requires	"m60a1"				costs 4}
 
@@ -144,13 +146,22 @@
 
 ;---Heavy Tanks---
 
-	{"m103"					requires	"m48_patton"	costs 3}
+	{"m26_pershing"			requires	"m4a3e8"		costs 2}
+	{"m103"					requires	"m26_pershing"	costs 3}
 	
 ;---SPGs---
 
 	{"m108"					requires	"m101a1"		costs 2}
 	{"m109"					requires	"m114"			costs 3}
 	{"m110"					requires	"m115"			costs 4}
+	
+;---Helis---
+
+	{"uh-1h"				requires	"squad_aircav_recon_con(usa)"		costs 1}
+	{"uh-1b"				requires	"uh-1h"			costs 2}
+	{"uh-1b_ara"			requires	"uh-1b"			costs 2}
+	{"uh-1b_m22"			requires	"uh-1b_ara"		costs 2}
+	
 	
 	
 ;TOTAL: 4
@@ -166,6 +177,12 @@
 { tech "reinforcement_stage_4"	requires "reinforcement_stage_3"			costs 6 }
 { tech "reinforcement_stage_5"	requires "reinforcement_stage_4"			costs 9 }
 
+; ---DETACHMENTS---
+
+{ tech "usa_army"		requires ""				costs 0 }
+{ tech "usa_aircav"		requires ""				costs 5 }
+{ tech "usa_acav"		requires ""				costs 5 }
+{ tech "usa_usmc"		requires ""				costs 5 }
 
 
 {GridWidth 10} ;total with 0-#
@@ -181,147 +198,162 @@
 	{"reinforcement_stage_4"	3 0}
 	{"reinforcement_stage_5"	4 0}
 
+	{"usa_army"						0 8}
+	{"usa_aircav"					0 15}
+	{"usa_acav"						5 15}
+	{"usa_usmc"						1 20}
+
 
 ;---SQUADS---
 	
 	{"single_lat2(usa)"					0 2}
-	{"single_tankman(usa)"				4 1}
-	{"single_sapperap(usa)"				5 1}
-	{"single_sapperat(usa)"				6 1}
-	{"single_engineer(usa)"				7 1}
+	{"single_tankman(usa)"				0 5}
+	{"single_sapperap(usa)"				1 5}
+	{"single_sapperat(usa)"				2 5}
+	{"single_engineer(usa)"				3 5}
 	
-	{"single_medic(usa)"				0 3}
+	{"single_medic(usa)"				0 4}
 	
 	{"single_mg(usa)"					1 1}
-	{"single_marksman(usa)"				1 3}
-	{"single_sniper(usa)"				2 3}
-	{"squad_ops_con(usa)"				3 3}
-	{"squad_specops_con(usa)"			4 3}
+	{"single_marksman(usa)"				0 3}
+	{"single_sniper(usa)"				1 3}
+	{"squad_ops_con(usa)"				2 3}
+	{"squad_specops_con(usa)"			3 3}
 	
 	{"single_flamer(usa)"				0 1}
 	{"single_at2(usa)"					1 2}
 	{"single_at(usa)"					2 2}
 	
-	{"squad_reservist_con(usa)"			0 5}
-	{"squad_reservist_m14_con(usa)"		1 5}
-	{"squad_natguard_con(usa)"			2 5}
-	{"squad_natguard_moto2_con(usa)"	4 5}
+	{"squad_reservist_m14_con(usa)"		1 8}
+	{"squad_natguard_con(usa)"			2 8}
+	{"squad_natguard_moto2_con(usa)"	4 8}
 	
-	{"squad_fireteamap_con(usa)"		2 6}
-	{"squad_fireteamlat_con(usa)"		1 7}
-	{"squad_fireteamat_con(usa)"		1 8}
+	{"squad_fireteamap_con(usa)"		2 9}
+	{"squad_fireteamlat_con(usa)"		1 10}
+	{"squad_fireteamat_con(usa)"		1 11}
 	
-	{"squad_rifle_con(usa)"				1 6}
-	{"squad_rifle_full_con(usa)"		2 7}
-	{"squad_rifle_m16_con(usa)"			2 9}
+	{"squad_rifle_con(usa)"				1 9}
+	{"squad_rifle_full_con(usa)"		2 10}
+	{"squad_rifle_m16_con(usa)"			2 12}
 	
-	{"squad_weapon_con(usa)"			2 8}
-	{"squad_weapon_m16_con(usa)"		2 10}
+	{"squad_weapon_con(usa)"			2 11}
+	{"squad_weapon_m16_con(usa)"		2 13}
 	
-	{"squad_rifle_moto2_con(usa)"		4 7}
-	{"squad_weapon_moto2_con(usa)"		4 8}
+	{"squad_rifle_moto2_con(usa)"		4 10}
+	{"squad_weapon_moto2_con(usa)"		4 11}
 	
-	{"squad_rifle_m16_moto_con(usa)"	4 9}
-	{"squad_weapon_m16_moto_con(usa)"	4 10}
+	{"squad_rifle_m16_moto_con(usa)"	4 12}
+	{"squad_weapon_m16_moto_con(usa)"	4 13}
 	
-	{"squad_acav_moto_con(usa)"			5 9}
-	{"squad_acav_assault_moto_con(usa)"	6 10}
+	{"squad_acav_moto_con(usa)"			6 17}
+	{"squad_acav_assault_moto_con(usa)"	7 17}
 	
-	{"single_corpsman(usa)"				0 15}
-	{"single_marksman_usmc(usa)"		0 13}
-	{"single_sniper_usmc(usa)"			0 12}
-	{"squad_usmc_fireteam_con(usa)"		0 14}
-	{"squad_usmc_con(usa)"				1 14}
-	{"squad_usmc_mg_con(usa)"			1 13}
-	{"squad_usmc_flame_con(usa)"		1 15}
+	{"single_corpsman(usa)"				2 21}
+	{"single_marksman_usmc(usa)"		2 20}
+	{"single_sniper_usmc(usa)"			2 19}
+	{"squad_usmc_fireteam_con(usa)"		3 20}
+	{"squad_usmc_con(usa)"				4 20}
+	{"squad_usmc_mg_con(usa)"			4 21}
+	{"squad_usmc_flame_con(usa)"		4 22}
+	{"squad_udt_con(usa)"				3 19}
+	{"squad_seal_con(usa)"				4 19}
+	{"squad_seal_air_con(usa)"			5 19}
 	
-	{"squad_aircav_recon_con(usa)"		6 7}
-	{"squad_aircav_con(usa)"			7 7}
-	{"squad_lrrp_con(usa)"				6 8}
-	{"squad_ranger_demo_con(usa)"		7 8}
-	{"squad_ranger_con(usa)"			8 7}
+	{"squad_aircav_recon_con(usa)"		1 15}
+	{"squad_aircav_con(usa)"			2 16}
+	{"squad_lrrp_con(usa)"				1 16}
+	{"squad_ranger_demo_con(usa)"		1 17}
+	{"squad_ranger_con(usa)"			2 17}
 	
 ;---Trucks---
 	
-	{"dodge_m37"						8 2}
-	{"dodge_m37_ammo"					7 2}
-	{"dodge_m37_eng"					8 1}
-	{"m151_m2"							3 15}
-	{"m151_m40"							6 13}
-	{"m35"								8 3}
-	{"m35_ammo"							7 3}
-	{"m35_arty"							7 5}
-	{"m35_guntruck"						6 4}
+	{"dodge_m37"						7 1}
+	{"dodge_m37_ammo"					6 2}
+	{"dodge_m37_eng"					4 5}
+	{"m151_m2"							1 31}
+	{"m151_m40"							2 24}
+	{"m35"								7 3}
+	{"m35_ammo"							8 3}
+	{"cckw353_fuel"						6 3}
+	{"m35_arty"							8 5}
+	{"m35_guntruck"						8 4}
 	
 ;---MG---
-	{"m2_m1919a4"						4 14}
-	{"m63_browning"						4 15}
+	{"m2_m1919a4"						0 30}
+	{"m63_browning"						1 30}
 	
 ;---Mortars---
 	
-	{"m29_mortar"						8 10}
-	{"m30_mortar"						8 11}
-	{"m98_howtar"						8 12}
+	{"m29_mortar"						5 25}
+	{"m30_mortar"						6 25}
+	{"m98_howtar"						1 21}
 	
 ;---AA---
 	
-	{"m45_maxson"						4 16}
+	{"m45_maxson"						2 30}
+	{"40_mm_m1"							3 30}
 	
 ;---Cannons---
 	
-	{"m40"								6 14}
-	{"entac"							5 14}
+	{"m40"								2 25}
+	{"entac"							3 25}
 	
 ;---Artillery---
 	
-	{"m116_packhow"						8 14}
-	{"m101a1"							8 15}
-	{"m114"								8 16}
-	{"m115"								8 17}
-	{"m-28"								8 19}
-	{"m416_m388"						7 19}
+	{"m116_packhow"						0 25}
+	{"m101a1"							1 26}
+	{"m114"								2 26}
+	{"m115"								3 26}
+	{"m-28"								5 28}
+	{"m416_m388"						6 28}
 	
 ;---Armored Cars---
 	
-	{"m113a1"							4 11}
-	{"m113_acav"						5 11}
-	{"m132_zippo"						0 16}
-	{"m125"								7 10}
-	{"m106"								7 11}
-	{"m113_m40"							6 12}
-	{"m113_acav_m40"					6 11}
-	{"m163"								4 23}
+	{"m113a1"							4 7}
+	{"m113_acav"						6 16}
+	{"m132_zippo"						4 23}
+	{"m125"								5 26}
+	{"m106"								6 26}
+;	{"m113_m40"							6 12}
+	{"m113_acav_m40"					7 16}
+	{"m163"								3 38}
 	
-	{"m114a1"							4 12}
-	{"m114a2"							4 13}
+	{"m114a1"							6 15}
+	{"m114a2"							7 15}
 	
 ; ---Light Tanks---
 	
-	{"m24_chaffee"						3 18}
-	{"m56"								3 20}
-	{"m50"								3 21}
-	{"m41"								3 19}
-	{"m42"								4 19}
+	{"m24_chaffee"						2 33}
+	{"m56"								2 35}
+	{"m50"								2 36}
+	{"m41"								2 34}
+	{"m42"								3 35}
 	
 ;---Medium Tanks---
 	
-	{"m4a3e8"							2 18}
-	{"m48_patton"						2 20}
-	{"m48a3"							2 21}
-	{"m60a1"							2 22}
-	{"m67_zippo"						0 20}
-	{"m728"								1 22}
+	{"m4a3e8"							1 33}
+	{"m26_pershing"						0 33}
+	{"m48_patton"						1 35}
+	{"m48a3"							1 36}
+	{"m60a1"							1 37}
+	{"m67_zippo"						5 23}
+	{"m728"								0 37}
 	
 ;---Heavy Tanks---
 	
-	{"m103"								1 20}
+	{"m103"								0 35}
 	
 ;---SPGs---
 	
-	{"m108"								6 15}
-	{"m109"								6 16}
-	{"m110"								6 17}
+	{"m108"								1 28}
+	{"m109"								2 28}
+	{"m110"								3 28}
 
 ;---Aircraft---
+
+	{"uh-1h"							2 15}
+	{"uh-1b"							3 15}
+	{"uh-1b_ara"						3 16}
+	{"uh-1b_m22"						3 17}
 	
 }

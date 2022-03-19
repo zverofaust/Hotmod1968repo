@@ -80,6 +80,7 @@
 ;;; Basic LVL1 Squads
 ("squad_with4types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_conscript_con)				c1(con_squadlead:1) c2(con_mg:1) c3(con_antitank:1) c4(con_rifleman:5))
 ("squad_with4types_conquest" side(sov) period(mid) min_stage(1) max_stage(99) name(squad_conscript_ak_con)			c1(con_squadlead:1) c2(con_mg:1) c3(con_antitank2:1) c4(con_rifleman2:5))
+("squad_with3types_conquest" side(sov) period(mid) min_stage(1) max_stage(99) name(squad_conscript_at_con)			c1(con_squadlead:1) c2(con_antitank2:3) c3(con_rifleman:4))
 ("squad_with5types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_border_con)				c1(brd_squadlead:1) c2(brd_senior:1) c3(brd_antitank:1) c4(brd_rifleman:2) c5(brd_mg:1))
 ("squad_with4types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_internal_con)				c1(mvd_squadlead:1) c2(mvd_antitank:1) c3(mvd_rifleman:6) c4(mvd_mg:1))
 {"squad_conscript_moto_con(sov)" 
@@ -87,6 +88,10 @@
 }
 {"squad_border_moto_con(sov)" 
 	("squad_vehicle5"		 side(sov) period(mid) min_stage(0) max_stage(99) vehicle(btr-40) cw(0) cp(4) crew1(brd_squadlead:1) crew2(brd_mg:1) crew3(brd_antitank:1) crew4(brd_rifleman:2) crew5(brd_senior:1))
+}
+
+{"squad_conscript_mg_con(sov)" 
+	("squad_3vehicle3"		 side(sov) period(mid) min_stage(0) max_stage(99) vehicle(sg43_stand_sov) cw(0) cp(4) crew1(con_rifleman:2) crew2(con_squadlead:1) crew3(con_rifleman:3))
 }
 
 ;;;Regular LVL2 Squads
@@ -162,6 +167,10 @@
 	("squad_vehicle7"		 side(sov) period(mid) min_stage(4) max_stage(99) vehicle(bmd-1) cw(0) cp(4) 		crew1(vdv_vehicleman:2) crew2(spz_squadlead:1) crew3(spz_marksman:1) crew4(spz_antitank:1) crew5(spz_demo:1) crew6(spz_mg:1) crew7(spz_rifleman:1))
 }
 
+{"squad_spetsnaz_mi4_con(sov)" 
+	("squad_vehicle7"		 side(sov) period(mid) min_stage(4) max_stage(99) vehicle(mil-mi4) cw(0) cp(4) 		crew1(sup_pilot:2) crew2(spz_squadlead:1) crew3(spz_marksman:1) crew4(spz_antitank:2) crew5(spz_demo:1) crew6(spz_mg:1) crew7(spz_rifleman:2))
+}
+
 ;;; Other Squads
 {"squad_medic_moto_con(sov)" 
 	("squad_vehicle"		 side(sov) period(mid) min_stage(4) max_stage(99) vehicle(uaz-452a) cw(0) cp(4) 		crew(reg_medic:4) )
@@ -218,12 +227,23 @@
 	{cost 325}
 }
 
+{"37mm_61k_sov"
+	("vehicle"  side(sov) period(mid) min_stage(2) max_stage(99) cw(4) cp(8) crew(sup_supporter:3))
+	{cost 270}
+}
+
 
 ; AT WEAPONRY
 {"76mm_zis3_sov"
 	("vehicle" period(mid) min_stage(1) max_stage(99) side(sov) crew(sup_supporter:4) cw(4) cp(6))
 	{cost 150}
 }
+
+{"b-10_82mm"
+	("vehicle" period(mid) min_stage(1) max_stage(99) side(sov) crew(sup_supporter:2) cw(4) cp(6))
+	{cost 180}
+}
+
 {"spg9"
 	("vehicle" period(mid) min_stage(1) max_stage(99) side(sov) crew(sup_supporter:2) cw(4) cp(6))
 	{cost 200}
@@ -336,11 +356,6 @@
 {"ural375_ammo"
 	("vehicle"  period(mid) min_stage(2) max_stage(99) side(sov) crew(sup_supporter:1) cw(0) cp(2))
 	{cost 250}
-}
-
-{"ural375_arty"
-	("vehicle"  period(mid) min_stage(3) max_stage(99) side(sov) crew(sup_supporter:1) cw(0) cp(2))
-	{cost 350}
 }
 
 {"zil157_fuel"
@@ -484,4 +499,26 @@
 {"t-10"
 	("vehicle" period(mid) min_stage(4) max_stage(99) side(sov) crew(sup_tankman:4) cw(0) cp(14))
 	{cost 600}
+}
+
+;Helicopters
+
+{"mil_mi4_unarmed"
+	("vehicle" period(mid) min_stage(4) max_stage(99) side(sov) crew(sup_pilot:2) cw(0) cp(14))
+	{cost 150}
+}
+
+{"mil_mi4"
+	("vehicle" period(mid) min_stage(4) max_stage(99) side(sov) crew(sup_pilot:2) cw(0) cp(14))
+	{cost 400}
+}
+
+{"mil_mi4_heavy"
+	("vehicle" period(mid) min_stage(4) max_stage(99) side(sov) crew(sup_pilot:2) cw(0) cp(14))
+	{cost 600}
+}
+
+{"mil_mi8"
+	("vehicle" period(mid) min_stage(4) max_stage(99) side(sov) crew(sup_pilot:2) cw(0) cp(14))
+	{cost 400}
 }

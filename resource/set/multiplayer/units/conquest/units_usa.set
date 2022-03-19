@@ -111,7 +111,10 @@
 
 ; Air Cavalry/Air Mobile
 ("squad_with3types_conquest" side(usa) period(mid) min_stage(1) max_stage(99) name(squad_aircav_recon_con)		c1(aircav_teamlead:1) c2(aircav_rifleman:2) c3(aircav_lat:1))
-("squad_with7types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) name(squad_aircav_con)			c1(aircav_squadlead:1) c2(aircav_teamlead:1) c3(aircav_mg:1) c4(aircav_mgassist:1) c5(aircav_lat:2) c6(aircav_grenadier:2) c7(aircav_rifleman:2))
+
+{"squad_aircav_con(usa)"
+	("squad_vehicle8" period(mid) min_stage(5) max_stage(99) side(usa) vehicle(uh-1h) cw(0) cp(4) crew1(sup_pilot:4) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:1) crew5(aircav_mgassist:1) crew6(aircav_lat:2) crew7(aircav_grenadier:2) crew8(aircav_rifleman:2))
+}
 
 ; USMC
 ("squad_with1types_conquest" side(usa) period(mid) min_stage(1) max_stage(99) name(single_corpsman)			 	c1(usmc_corpsman:1))
@@ -129,13 +132,20 @@
 }
 ;("squad_with4types_conquest" side(usa) name(squad_lrrp_con)				period(mid) min_stage(4) max_stage(99) c1(rng_squadlead:1) c2(rng_sniper:1) c3(rng_spotter:1) c4(rng_mg:1))
 ("squad_with3types_conquest" side(usa) name(squad_ranger_demo_con)		period(mid) min_stage(5) max_stage(99) c1(rng_squadlead:1) c2(rng_demo:2) c3(rng_antitank:2))
-("squad_with7types_conquest" side(usa) name(squad_ranger_con)			period(mid) min_stage(6) max_stage(99) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1) c5(rng_grenadier:1) c6(rng_demo:1) c7(rng_rifleman:4))
+{"squad_ranger_con(usa)"
+	("squad_vehicle8" period(mid) min_stage(5) max_stage(99) side(usa) vehicle(uh-1h) cw(0) cp(4) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_mg:1) crew4(rng_antitank:1) crew5(rng_marksman:1) crew6(rng_grenadier:1) crew7(rng_demo:1) crew8(rng_rifleman:4))
+}
 
 ; US Special Forces
 ("squad_with2types_conquest" side(usa) period(mid) min_stage(1) max_stage(99) name(single_sniper)				c1(spec_sniper:1) c2(spec_spotter:1))
 ("squad_with4types_conquest" side(usa) period(mid) min_stage(5) max_stage(99) name(squad_ops_con)				c1(spec_squadlead:1) c2(spec_mg:1) c3(spec_grenadier:1) c4(spec_demo:1))
 ("squad_with7types_conquest" side(usa) period(mid) min_stage(5) max_stage(99) name(squad_specops_con)			c1(spec_squadlead:1) c2(spec_marksman:1) c3(spec_mg:1) c4(spec_antitank:1) c5(spec_grenadier:1) c6(spec_rifleman:2) c7(spec_ammo:1))
 
+("squad_with3types_conquest" side(usa) period(mid) min_stage(5) max_stage(99) name(squad_udt_con)				c1(spec_squadlead:1) c2(spec_mg:1) c3(spec_demo:2))
+("squad_with6types_conquest" side(usa) period(mid) min_stage(5) max_stage(99) name(squad_seal_con)				c1(spec_squadlead:1) c2(spec_marksman:1) c3(spec_mg:1) c4(spec_antitank:1) c5(spec_grenadier:1) c6(spec_ammo:1))
+{"squad_seal_air_con(usa)"
+	("squad_vehicle8" period(mid) min_stage(5) max_stage(99) side(usa) vehicle(uh-1h_sf) cw(0) cp(4) crew1(sup_pilot:4) crew2(spec_squadlead:1) crew3(spec_marksman:1) crew4(spec_mg:1) crew5(spec_antitank:1) crew6(spec_grenadier:1) crew7(spec_rifleman:2) crew8(spec_ammo:1))
+}
 
 ;_________________________________________________
 ;|             inf2                               |
@@ -174,6 +184,11 @@
 {"m45_maxson"
 	("vehicle"  period(mid) min_stage(3) max_stage(99) side(usa) crew(sup_supporter:2) cw(0) cp(2))
 	{cost 200}
+}
+
+{"40_mm_m1"
+	("vehicle"  period(mid) min_stage(3) max_stage(99) side(usa) crew(sup_supporter:4) cw(0) cp(2))
+	{cost 300}
 }
 
 ; AT WEAPONRY
@@ -415,6 +430,11 @@
 
 ;Heavy
 
+{"m26_pershing"
+	("vehicle" period(mid) min_stage(4) max_stage(99) side(usa) crew(sup_tankman:5) cw(0) cp(10))
+	{cost 500}
+}
+
 {"m103"
 	("vehicle" period(mid) min_stage(4) max_stage(99) side(usa) crew(usmc_vehicleman:5) cw(0) cp(14))
 	{cost 900}
@@ -433,4 +453,26 @@
 {"m110"
 	("vehicle" period(mid) min_stage(7) max_stage(99) side(usa) crew(sup_tankman:4) cw(0) cp(14))
 	{cost 1000}
+}
+
+;HElis
+
+{"uh-1h"
+	("vehicle" period(mid) min_stage(4) max_stage(99) side(usa) crew(sup_pilot:4) cw(0) cp(10))
+	{cost 200}
+}
+
+{"uh-1b"
+	("vehicle" period(mid) min_stage(4) max_stage(99) side(usa) crew(sup_pilot:2) cw(0) cp(10))
+	{cost 300}
+}
+
+{"uh-1b_ara"
+	("vehicle" period(mid) min_stage(4) max_stage(99) side(usa) crew(sup_pilot:2) cw(0) cp(10))
+	{cost 400}
+}
+
+{"uh-1b_m22"
+	("vehicle" period(mid) min_stage(4) max_stage(99) side(usa) crew(sup_pilot:2) cw(0) cp(10))
+	{cost 500}
 }

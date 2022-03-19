@@ -319,3 +319,12 @@
 		{button "inf1"}
 	}
 )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; HOTMOD
+
+; 3 different vehicles with 1 type of crew for the first two and 2 for the third; for Soviet conscript MG squad
+(define "squad_3vehicle3"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1) %vehicle ( mp/%side/%period/%crew1) %vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3)"}
+	{button "vehicles"}
+)

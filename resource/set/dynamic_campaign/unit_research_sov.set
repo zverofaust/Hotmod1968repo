@@ -15,52 +15,56 @@
 	{"single_at2(sov)"					requires	"single_at3(sov)"					costs 1 }
 	{"single_at(sov)"					requires	"single_at2(sov)"					costs 1 }
 	
-	{"squad_conscript_ak_con(sov)"		requires	"squad_conscript_con(sov)"			costs 1 }
-	{"squad_border_con(sov)"			requires	"squad_conscript_con(sov)"			costs 1 }
-	{"squad_internal_con(sov)"			requires	"squad_conscript_con(sov)"			costs 1 }
+	{"squad_conscript_ak_con(sov)"		requires	"sov_army"							costs 1 }
+	{"squad_border_con(sov)"			requires	"sov_army"							costs 1 }
+	{"squad_internal_con(sov)"			requires	"sov_army"							costs 1 }
+	{"squad_conscript_at_con(sov)"		requires	"squad_conscript_ak_con(sov)"		costs 1 }
+	{"squad_conscript_mg_con(sov)"		requires	"squad_conscript_ak_con(sov)"		costs 1 }
 	
 	{"squad_border_moto_con(sov)"		requires	"squad_border_con(sov)"				costs 1 }
-	{"squad_conscript_moto_con(sov)"	requires	"squad_conscript_ak_con(sov) btr-152"		costs 0 }
+	{"squad_conscript_moto_con(sov)"	requires	"squad_conscript_ak_con(sov) sov_moto"		costs 0 }
 	
-	{"squad_rifle_con(sov)"				requires	"squad_conscript_con(sov)"			costs 1 }
+	{"squad_rifle_con(sov)"				requires	"sov_army"							costs 2 }
 	{"squad_maneuv_con(sov)"			requires	"squad_rifle_con(sov)"				costs 1 }
 	{"squad_fireteam_con(sov)"			requires	"squad_rifle_con(sov)"				costs 1 }
 	{"squad_rifle_full_con(sov)"		requires	"squad_maneuv_con(sov) squad_fireteam_con(sov)"		costs 2 }
 	{"squad_mg_con(sov)"				requires	"squad_maneuv_con(sov)"				costs 3 }
 	{"squad_shock_con(sov)"				requires	"squad_fireteam_con(sov)"			costs 3 }
 	
-	{"squad_rifle_moto_con(sov)"		requires	"squad_rifle_full_con(sov) btr-152"		costs 0 }
+	{"squad_rifle_moto_con(sov)"		requires	"squad_rifle_full_con(sov) sov_moto"		costs 0 }
 	{"squad_rifle_moto2_con(sov)"		requires	"squad_rifle_moto_con(sov) btr-60pa"	costs 0 }
 	
-	{"squad_shock_moto_con(sov)"		requires	"squad_shock_con(sov) btr-152"		costs 0 }
+	{"squad_shock_moto_con(sov)"		requires	"squad_shock_con(sov) sov_moto"		costs 0 }
 	{"squad_shock_moto2_con(sov)"		requires	"squad_shock_moto_con(sov) btr-60pa"	costs 0 }
 	
-	{"squad_mg_moto_con(sov)"			requires	"squad_mg_con(sov) btr-152"			costs 0 }
+	{"squad_mg_moto_con(sov)"			requires	"squad_mg_con(sov) sov_moto"		costs 0 }
 	{"squad_mg_moto2_con(sov)"			requires	"squad_mg_moto_con(sov) btr-60pa"	costs 0 }
 	
-	{"squad_guards_maneuv_con(sov)"		requires	"squad_fireteam_con(sov)"			costs 2 }
-	{"squad_guards_fireteam_con(sov)"	requires	"squad_fireteam_con(sov)"			costs 2 }
+	{"squad_guards_maneuv_con(sov)"		requires	"sov_guards"						costs 1 }
+	{"squad_guards_fireteam_con(sov)"	requires	"sov_guards"						costs 1 }
 	{"squad_guards_con(sov)"			requires	"squad_guards_fireteam_con(sov) squad_guards_maneuv_con(sov)"	costs 2 }
 	
 	{"squad_guards_moto_con(sov)"		requires	"squad_guards_con(sov) btr-60pa"		costs 0 }
 	{"squad_guards_moto2_con(sov)"		requires	"squad_guards_moto_con(sov) btr-60pb"	costs 0 }
 	{"squad_guards_mech_con(sov)"		requires	"squad_guards_moto2_con(sov) bmp-1"		costs 0 }
 
-	{"squad_vdv_recon_con(sov)"			requires	""									costs 1 }
+	{"squad_vdv_recon_con(sov)"			requires	"sov_vdv"							costs 1 }
 	{"squad_vdv_antitank_con(sov)"		requires	"squad_vdv_recon_con(sov)"			costs 1 }
 	{"squad_vdv_con(sov)"				requires	"squad_vdv_recon_con(sov)"			costs 2 }
-	{"squad_vdv_asu57_con(sov)"			requires	"squad_vdv_con(sov) asu57"		costs 0 }
+	{"squad_vdv_asu57_con(sov)"			requires	"squad_vdv_con(sov) asu57"			costs 0 }
 	{"squad_vdv_asu85_con(sov)"			requires	"squad_vdv_asu57_con(sov) asu-85"		costs 0 }
 	
-	{"squad_banner_con(sov)"			requires	"squad_guards_con(sov)"				costs 4 }
+	{"squad_banner_con(sov)"			requires	"squad_guards_con(sov)"							costs 4 }
 	{"squad_banner_moto_con(sov)"		requires	"squad_banner_con(sov) btr-60pb"				costs 5 }
-	{"squad_banner_mech_con(sov)"		requires	"squad_banner_moto_con(sov) bmp-1"		costs 6 }
+	{"squad_banner_mech_con(sov)"		requires	"squad_banner_moto_con(sov) bmp-1"				costs 6 }
 	
-	{"squad_spz_recon_con(sov)"			requires	"squad_vdv_recon_con(sov)"		costs 2 }
-	{"squad_spz_sabo_con(sov)"			requires	"squad_spz_recon_con(sov)"			costs 2 }
-	{"squad_spz_pioneer_con(sov)"		requires	"squad_spz_sabo_con(sov)"			costs 2 }
-	{"squad_spetsnaz_con(sov)"			requires	"squad_spz_sabo_con(sov)"			costs 4 }
-	{"squad_spetsnaz_bmd1_con(sov)"		requires	"squad_spetsnaz_con(sov) squad_vdv_asu85_con(sov) bmd-1"			costs 5 }
+	{"squad_spz_recon_con(sov)"			requires	"squad_vdv_recon_con(sov)"			costs 1 }
+	{"squad_spz_sabo_con(sov)"			requires	"squad_vdv_recon_con(sov)"			costs 2 }
+	{"squad_spetsnaz_con(sov)"			requires	"squad_vdv_con(sov)"				costs 3 }
+	{"squad_spetsnaz_bmd1_con(sov)"		requires	"squad_spetsnaz_con(sov) bmd-1"		costs 3 }
+	{"squad_spetsnaz_mi4_con(sov)"		requires	"squad_spetsnaz_con(sov)"			costs 5 }
+	
+	{"squad_spz_pioneer_con(sov)"		requires	"sov_vmf"							costs 2 }
 	
 ;---MG---
 	{"dshk_aa_sov"		requires	"sg43_stand_sov"	costs 1}
@@ -72,11 +76,13 @@
 	{"zu-2"			requires	"dshk_aa_sov"		costs 1}
 	{"zpu-4"		requires	"zu-2"				costs 2} 	
 	{"zu-23-2"		requires	"zpu-4"				costs 2}
+	{"37mm_61k_sov"	requires	"zu-2"				costs 2}
 
 ;---AT Guns---
 	;{"d-48"		requires	"d-44"				costs 1}
 	{"t-12"			requires	"76mm_zis3_sov"		costs 2} ;"d-48"
-	{"spg9"			requires	"76mm_zis3_sov"		costs 1} ;"b-10"
+	{"b-10_82mm"	requires	"76mm_zis3_sov"		costs 1}
+	{"spg9"			requires	"b-10_82mm"			costs 1}
 	{"9m14"			requires	"spg9"				costs 2}
 
 ;---Field Guns---
@@ -93,52 +99,58 @@
 	{"203mm_b4_sov"		requires	"d1"				costs 3}
 
 ;---Trucks---
-	{"gaz-51_ammo"		requires	"gaz-51"		costs 1}
-	{"zil-130"			requires	"gaz-51"		costs 1}
-	{"zil-130_ammo"		requires	"gaz-51_ammo zil-130"	costs 0}
-	{"zil-130_eng"		requires	"single_engineer(sov) zil-130"		costs 1}
-	{"zil157_fuel"		requires	"gaz-51_ammo"	costs 1}
-	{"zil131"			requires	"zil-130"		costs 1}
-	{"zil131_ammo"		requires	"zil-130_ammo zil131"	costs 0}
-	{"ural375"			requires	"zil131"		costs 1}
-	{"ural375_ammo"		requires	"zil131_ammo ural375"	costs 0}
-	{"ural375_arty"		requires	"ural375_ammo"	costs 1}
-	{"bm-21_grad"		requires	"ural375_arty"	costs 4}
+	{"gaz-51_ammo"		requires	"gaz-51"						costs 1}
+	{"zil-130"			requires	"gaz-51"						costs 1}
+	{"zil-130_ammo"		requires	"gaz-51_ammo zil-130"			costs 0}
+	{"zil-130_eng"		requires	"single_engineer(sov)"			costs 2}
+	{"zil157_fuel"		requires	"gaz-51_ammo"					costs 1}
+	{"zil131"			requires	"zil-130"						costs 2}
+	{"zil131_ammo"		requires	"zil-130_ammo zil131"			costs 0}
+	{"ural375"			requires	"zil131"						costs 3}
+	{"ural375_ammo"		requires	"zil131_ammo ural375"			costs 0}
+	{"bm-21_grad"		requires	"ural375"						costs 4}
 	
 ;---BTRs---
+
+	{"btr-60pa"		requires	"sov_moto"				costs 1}
+	{"btr-60pb"		requires	"btr-60pa"				costs 2}
 	
-	{"brdm-1"			requires	"btr-40"		costs 1}
-	{"brdm-2"			requires	"brdm-1"		costs 1}
-	{"9p110"			requires	"brdm-1 9m14"	costs 2}
+	{"brdm-1"		requires	""					costs 1}
+	{"brdm-2"		requires	"brdm-1"			costs 2}
+	{"9p110"		requires	"brdm-1 9m14"		costs 3}
 	
-	{"btr-152"			requires	""				costs 1}
-	{"btr-60pa"			requires	"btr-152"		costs 1}
-	{"btr-60pb"			requires	"btr-60pa"		costs 2}
 
 ;---Tanks---
-	{"asu57"			requires	""				costs 1}
+	{"asu57"			requires	"squad_vdv_antitank_con(sov)"	costs 1}
 	{"asu-85"			requires	"asu57"			costs 2}
-	{"bmd-1"			requires	"asu-85"		costs 4}
 	{"pt-76"			requires	""				costs 1}
 	{"t-34-85m"			requires	""				costs 2}
 	{"t-54"				requires	"t-34-85m"		costs 2}
 	{"t-55a"		 	requires	"t-54"			costs 3}
 	{"t-62a"		 	requires	"t-55a"			costs 4}
 	
-	;{"isu-122m"			requires	""				costs 2}
+	;{"isu-122m"		requires	""				costs 2}
 	{"isu-152m"			requires	""				costs 2}
-	{"su100m"			requires	""				costs 2}
+	{"su100m"			requires	"isu-152m"		costs 2}
 	{"su-122-54"		requires	"su100m"		costs 2}
 	
 	{"zsu-57-2"			requires	""					costs 3}
 	{"shilka"		 	requires	"zsu-57-2"			costs 4}
-	{"it-1"		 		requires	"t-62a su-122-54"	costs 3}
+	{"it-1"		 		requires	"t-62a su-122-54"	costs 4}
 	
 	{"is2m"		 		requires	""					costs 2}
 	{"t-10"		 		requires	"is2m"				costs 3}
-	{"bmp-1"		 	requires	"btr-60pb"			costs 3}
+	{"bmp-1"		 	requires	"btr-60pb"			costs 4}
+	{"bmd-1"			requires	"bmp-1"				costs 3}
 	{"t-64"		 		requires	"t-10"				costs 6}
 	{"2s3"		 		requires	"d1"				costs 3}
+
+;---Aircraft---
+
+	{"mil_mi4_unarmed"	requires	""					costs 2}
+	{"mil_mi4"			requires	"mil_mi4_unarmed"	costs 3}
+	{"mil_mi4_heavy"	requires	"mil_mi4"			costs 4}
+	{"mil_mi8"			requires	"mil_mi4_unarmed"	costs 3}
 
 ; ---TECH UPGRADES---
 { tech "defense_level_1"		requires ""											costs 1 }
@@ -150,6 +162,14 @@
 { tech "reinforcement_stage_3"	requires "reinforcement_stage_2"			costs 3 }
 { tech "reinforcement_stage_4"	requires "reinforcement_stage_3"			costs 6 }
 { tech "reinforcement_stage_5"	requires "reinforcement_stage_4"			costs 9 }
+
+; ---DETACHMENTS---
+
+{ tech "sov_army"		requires ""				costs 0 }
+{ tech "sov_moto"		requires ""				costs 5 }
+{ tech "sov_guards"		requires ""				costs 5 }
+{ tech "sov_vdv"		requires ""				costs 5 }
+{ tech "sov_vmf"		requires ""				costs 5 }
 
 {GridWidth 10} ;total with 0-#
 {Positions
@@ -164,167 +184,179 @@
 	{"reinforcement_stage_4"	3 0}
 	{"reinforcement_stage_5"	4 0}
 	
-	
+	{"sov_army"					3 5}
+	{"sov_moto"					0 9}
+	{"sov_guards"				7 7}
+	{"sov_vdv"					2 13}
+	{"sov_vmf"					8 16}
+
+
 
 ;---SQUADS---
 
-	{"single_tankman(sov)"				3 1}
-	{"single_sapperap(sov)"				4 1}
-	{"single_sapperat(sov)"				5 1}
-	{"single_engineer(sov)"				6 1}
-	{"single_medic(sov)"				0 4}
-	{"squad_medic_moto_con(sov)"		0 5}	
-	{"single_mg(sov)"					1 1}
-	{"single_marksman(sov)"				1 3}
-	{"single_sniper(sov)"				2 3}	
-	{"single_flamer(sov)"				0 2}
-	{"single_at3(sov)"					1 2}
-	{"single_at2(sov)"					2 2}
-	{"single_at(sov)"					3 2}
+	{"single_tankman(sov)"				0 1}
+	{"single_sapperap(sov)"				1 1}
+	{"single_sapperat(sov)"				2 1}
+	{"single_engineer(sov)"				3 1}
+	{"single_medic(sov)"				3 4}
+	{"squad_medic_moto_con(sov)"		4 4}	
+	{"single_mg(sov)"					0 3}
+	{"single_marksman(sov)"				3 3}
+	{"single_sniper(sov)"				4 3}	
+	{"single_flamer(sov)"				0 3}
+	{"single_at3(sov)"					0 2}
+	{"single_at2(sov)"					1 2}
+	{"single_at(sov)"					2 2}
 	
-	{"squad_internal_con(sov)"			0 7}
-	{"squad_border_con(sov)"			2 7}
-	{"squad_border_moto_con(sov)"		2 8}
-	{"squad_conscript_con(sov)"			1 6}
-	{"squad_conscript_ak_con(sov)"		1 7}
-	{"squad_conscript_moto_con(sov)"	1 8}
+	{"squad_internal_con(sov)"			0 6}
+	{"squad_border_con(sov)"			1 6}
+	{"squad_border_moto_con(sov)"		1 7}
+	{"squad_conscript_ak_con(sov)"		2 6}
+	{"squad_conscript_at_con(sov)"		2 7}
+	{"squad_conscript_mg_con(sov)"		2 8}
+	{"squad_conscript_moto_con(sov)"	2 9}
 	
-	{"squad_rifle_con(sov)"				2 6}
-	{"squad_maneuv_con(sov)"			3 6}
-	{"squad_fireteam_con(sov)"			5 6}
-	{"squad_mg_con(sov)"				3 7}
-	{"squad_shock_con(sov)"				5 7}
-	{"squad_rifle_full_con(sov)"		4 7}
+	{"squad_rifle_con(sov)"				4 6}
+	{"squad_maneuv_con(sov)"			3 7}
+	{"squad_fireteam_con(sov)"			5 7}
+	{"squad_mg_con(sov)"				3 8}
+	{"squad_shock_con(sov)"				5 8}
+	{"squad_rifle_full_con(sov)"		4 8}
 	
-	{"squad_rifle_moto_con(sov)"		4 8}
-	{"squad_rifle_moto2_con(sov)"		4 9}
+	{"squad_rifle_moto_con(sov)"		4 9}
+	{"squad_rifle_moto2_con(sov)"		4 10}
 	
-	{"squad_shock_moto_con(sov)"		5 8}
-	{"squad_shock_moto2_con(sov)"		5 9}
+	{"squad_shock_moto_con(sov)"		5 9}
+	{"squad_shock_moto2_con(sov)"		5 10}
 	
-	{"squad_mg_moto_con(sov)"			3 8}
-	{"squad_mg_moto2_con(sov)"			3 9}
+	{"squad_mg_moto_con(sov)"			3 9}
+	{"squad_mg_moto2_con(sov)"			3 10}
 	
-	{"squad_guards_maneuv_con(sov)"		6 5}
-	{"squad_guards_fireteam_con(sov)"	6 6}
-	{"squad_guards_con(sov)"			6 7}
+	{"squad_guards_maneuv_con(sov)"		6 8}
+	{"squad_guards_fireteam_con(sov)"	8 8}
+	{"squad_guards_con(sov)"			7 9}
 	
-	{"squad_guards_moto_con(sov)"		6 9}
-	{"squad_guards_moto2_con(sov)"		6 10}
-	{"squad_guards_mech_con(sov)"		6 11}
+	{"squad_guards_moto_con(sov)"		7 10}
+	{"squad_guards_moto2_con(sov)"		7 11}
+	{"squad_guards_mech_con(sov)"		7 12}
 	
-	{"squad_vdv_recon_con(sov)"			0 11}
-	{"squad_vdv_antitank_con(sov)"		0 10}
-	{"squad_vdv_con(sov)"				1 11}
-	{"squad_vdv_asu57_con(sov)"			1 12}
-	{"squad_vdv_asu85_con(sov)"			1 13}
+	{"squad_vdv_recon_con(sov)"			3 13}
+	{"squad_vdv_antitank_con(sov)"		4 13}
+	{"squad_vdv_con(sov)"				4 14}
+	{"squad_vdv_asu57_con(sov)"			5 14}
+	{"squad_vdv_asu85_con(sov)"			6 14}
 	
-	{"squad_banner_con(sov)"			7 7}
-	{"squad_banner_moto_con(sov)"		7 10}
-	{"squad_banner_mech_con(sov)"		7 11}
+	{"squad_banner_con(sov)"			8 9}
+	{"squad_banner_moto_con(sov)"		8 11}
+	{"squad_banner_mech_con(sov)"		8 12}
 	
-	{"squad_spz_recon_con(sov)"			0 12}
-	{"squad_spz_sabo_con(sov)"			0 13}
-	{"squad_spz_pioneer_con(sov)"		2 10}
-	{"squad_spetsnaz_con(sov)"			0 14}
-	{"squad_spetsnaz_bmd1_con(sov)"		1 14}
+	{"squad_spz_recon_con(sov)"			2 14}
+	{"squad_spz_sabo_con(sov)"			3 14}
+	{"squad_spetsnaz_con(sov)"			4 15}
+	{"squad_spetsnaz_bmd1_con(sov)"		0 15}
+	{"squad_spetsnaz_mi4_con(sov)"		4 16}
+	
+	{"squad_spz_pioneer_con(sov)"		7 16}
 
 	
 ;---MG---
-	{"sg43_stand_sov"					3 13}
-	{"dshk_aa_sov"						4 13}
+	{"sg43_stand_sov"					0 18}
+	{"dshk_aa_sov"						1 18}
 
 ;---Mortars---
 
-	{"82mm_bm37_sov"					3 14}
-	{"120mm_pm38_sov"					4 14}
+	{"82mm_bm37_sov"					0 17}
+	{"120mm_pm38_sov"					1 17}
 
 ;---AA---
-	{"zu-2"								5 13}
-	{"zpu-4"							6 13}
-	{"zu-23-2"							7 13}
+	{"zu-2"								2 18}
+	{"zpu-4"							3 18}
+	{"zu-23-2"							4 18}
+	{"zu-23-2"							4 18}
+	{"37mm_61k_sov"						2 19} ;to be replaced by 57mm S-60
 
 ;---AT Guns---
 	
-	{"76mm_zis3_sov"					5 17} ;to be replaced with 85mm D-44
+	{"76mm_zis3_sov"					4 22} ;to be replaced with 85mm D-44
 	;{"d-48"							5 18}
-	{"t-12"								5 19}
-	;{"b-10"							4 18}
-	{"spg9"								3 18}
-	{"9m14"								3 19}
+	{"t-12"								4 24}
+	{"b-10_82mm"						3 23}
+	{"spg9"								2 23}
+	{"9m14"								2 24}
 
 ;---Field Guns---
 	
 
-
 ;---Artillery---
 	
-	{"122mm_m30_sov"					6 17}
-	{"d1"								7 17}
-	{"d30a"								6 18}
-	{"152mm_ml20_sov"					7 16}
-	{"203mm_b4_sov"						8 17}
+	{"122mm_m30_sov"					5 22}
+	{"d1"								6 22}
+	{"d30a"								5 23}
+	{"152mm_ml20_sov"					6 21}
+	{"203mm_b4_sov"						7 22}
 
 ;---Trucks---
 	
-	{"gaz-51"							5 2}
-	{"gaz-51_ammo"						5 3}
-	{"zil-130"							6 2}
-	{"zil-130_ammo"						6 3}
-	{"zil-130_eng"						7 1}
-	{"zil131"							7 2}
-	{"zil131_ammo"						7 3}
-	{"zil157_fuel"						5 4}
-	{"ural375"							8 2}
-	{"ural375_ammo"						8 3}
-	{"ural375_arty"						8 4}
-	{"bm-21_grad"						8 5}
+	{"gaz-51"							7 1}
+	{"gaz-51_ammo"						8 1}
+	{"zil-130"							7 2}
+	{"zil-130_ammo"						8 2}
+	{"zil-130_eng"						4 1}
+	{"zil131"							7 3}
+	{"zil131_ammo"						8 3}
+	{"zil157_fuel"						6 2}
+	{"ural375"							7 4}
+	{"ural375_ammo"						8 4}
+	{"bm-21_grad"						7 5}
 
 ;---Armored Cars---
 	
-	{"btr-152"							8 8}
-	{"btr-60pa"							8 9}
-	{"btr-60pb"							8 10}
+	{"btr-60pa"							0 10}
+	{"btr-60pb"							0 11}
 	
-	{"btr-40"							0 18}
-	{"brdm-1"							0 19}
-	{"brdm-2"							0 20}
-	{"9p110"							2 19}
+	{"brdm-1"							0 26}
+	{"brdm-2"							0 27}
+	{"9p110"							2 26}
 
 ;---Light Tanks---
 	
-	{"pt-76"							8 22}
-	{"bmp-1"							8 11}
+	{"pt-76"							8 27}
+	{"asu57"							5 13}
+	{"asu-85"							6 13}
+	{"bmp-1"							0 12}
+	{"bmd-1"							0 13}
 
 ;---Medium Tanks---
 	
-	{"asu57"							2 12}
-	{"asu-85"							2 13}
-	{"bmd-1"							2 14}
 	;{"isu-122m"						4 21}
-	{"isu-152m"							4 21}
-	{"su100m"							4 22}
-	{"su-122-54"						4 23}
-	{"t-34-85m"							5 21}
-	{"t-54"								5 23}
-	{"t-55a"							5 24}
-	{"t-62a"							5 25}
-	{"t-64"								6 26}
+	{"isu-152m"							4 26}
+	{"su100m"							4 27}
+	{"su-122-54"						4 28}
+	{"t-34-85m"							5 26}
+	{"t-54"								5 28}
+	{"t-55a"							5 29}
+	{"t-62a"							5 30}
+	{"t-64"								6 30}
 	
-	{"it-1"								4 25}
+	{"it-1"								4 30}
 
 ;---Heavy Tanks---
 	
-	{"is2m"								6 21}
-	{"t-10"								6 23}
+	{"is2m"								6 26}
+	{"t-10"								6 28}
 
 ;---Self Propelled Guns---
 		
-	{"zsu-57-2"							7 23}
-	{"shilka"							7 25}	
+	{"zsu-57-2"							7 28}
+	{"shilka"							7 30}	
 		
-	{"2s3"								7 19}
+	{"2s3"								6 24}
 
 ;---Aircraft---
+	
+	{"mil_mi4_unarmed"					1 29}
+	{"mil_mi4"							1 30}
+	{"mil_mi4_heavy"					1 31}
+	{"mil_mi8"							2 29}
 	
 }
