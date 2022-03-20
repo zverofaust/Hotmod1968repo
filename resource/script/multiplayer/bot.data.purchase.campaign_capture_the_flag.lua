@@ -315,8 +315,10 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "zu-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "zpu-4"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "zu-23-2"},
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "37mm_61k_sov"},
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, unit = "76mm_zis3_sov"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "b-10_82mm"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "spg9"},
 				{priority = 0.5, class = UnitClass.ATTank, unit = "t-12"},
 				{priority = 0.5, class = UnitClass.ATTank, unit = "9m14"},
@@ -401,6 +403,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m63_browning"},
 			--Anti_Aircraft
 				{priority = 0.5, class = UnitClass.Vehicle, unit = "m45_maxson"},
+				{priority = 0.5, class = UnitClass.Vehicle, unit = "40_mm_m1"},
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m40"},
 				{priority = 0.5, class = UnitClass.ATTank, unit = "entac"},
@@ -443,6 +446,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "m60a1"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "m728"},
 			--Tanks_heavy
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "m26_pershing"},
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "m103"},
 			--SPG
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "m108"},

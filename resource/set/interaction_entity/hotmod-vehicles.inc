@@ -773,6 +773,12 @@
 	}
 }
 
+{"cckw353_fuel"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
 {"dodge_m37"
 	("kubel_sound")
 }
@@ -817,6 +823,16 @@
 		}
 		{call "spawn_shell"}
 	}	
+}
+
+{"m26_pershing tank"
+	("m26_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
 }
 
 {"m48_patton"
