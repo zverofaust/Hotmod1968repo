@@ -412,7 +412,7 @@
 		{add_view "smoke_flare_red" "smoke" "root"}
 		{view start "smoke"}
 		{impulse up 35 forward 3 rnd_dir 3 com}
-		{delay 15 {spawn "artillery_barrage_105"}}
+		{delay 17 {spawn "artillery_barrage_105"}}
 		{delay 41 {view stop "smoke"}}
 		{delay 41 {delete}}
 	}
@@ -456,7 +456,7 @@
 		{add_view "smoke_flare_red" "smoke" "root"}
 		{view start "smoke"}
 		{impulse up 35 forward 3 rnd_dir 3 com}
-		{delay 30 {spawn "artillery_barrage_rocket"}}
+		{delay 20 {spawn "artillery_barrage_rocket"}}
 		{delay 51 {view stop "smoke"}}
 		{delay 51 {delete}}
 	}
@@ -478,7 +478,7 @@
 		{add_view "smoke_flare_red" "smoke" "root"}
 		{view start "smoke"}
 		{impulse up 35 forward 3 rnd_dir 3 com}
-		{delay 5 {spawn "mortar_barrage_80"}}
+		{delay 2 {spawn "mortar_barrage_80"}}
 		{delay 20 {view stop "smoke"}}
 		{delay 20 {delete}}
 	}
@@ -489,7 +489,7 @@
 		{add_view "smoke_flare_red" "smoke" "root"}
 		{view start "smoke"}
 		{impulse up 35 forward 3 rnd_dir 3 com}
-		{delay 10 {spawn "mortar_barrage_120"}}
+		{delay 3 {spawn "mortar_barrage_120"}}
 		{delay 25 {view stop "smoke"}}
 		{delay 25 {delete}}
 	}
@@ -500,7 +500,7 @@
 		{add_view "smoke_flare_red" "smoke" "root"}
 		{view start "smoke"}
 		{impulse up 35 forward 3 rnd_dir 3 com}
-		{delay 5 {spawn "mortar_barrage_smoke"}}
+		{delay 2 {spawn "mortar_barrage_smoke"}}
 		{delay 25 {view stop "smoke"}}
 		{delay 25 {delete}}
 	}
