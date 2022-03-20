@@ -25,12 +25,18 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
+;//Artillery Strike dummies
+
 {"82mm_bm37_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"120mm_pm38_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"d30a_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"152mm_ml20_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"203mm_b4_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"bm-21_grad_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
+
+;//Air Supports
+
+
 
 
 {"mortar_barrage_smoke_sov"
@@ -71,6 +77,36 @@
 {"artillery_barrage_rocket_sov"
 	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(bm-21_grad_dummy) crew(sup_guncrew:0))
 	{cost 30}{action "airstrike:flare_artillery_rocket"}
+}
+
+{"cas_mi4_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(mil_mi4_airborne) crew(sup_pilot:0))
+	{cost 30}{action "airstrike:flare_bombrun_cas"}
+}
+
+{"cas_mi4_heavy_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:0))
+	{cost 30}{action "airstrike:flare_bombrun_cas"}
+}
+
+{"airstrike_50_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7) crew(sup_pilot:0))
+	{cost 30}{action "airstrike:flare_bombrun_50"}
+}
+
+{"airstrike_100_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7) crew(sup_pilot:0))
+	{cost 30}{action "airstrike:flare_bombrun_100"}
+}
+
+{"airstrike_250_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7) crew(sup_pilot:0))
+	{cost 30}{action "airstrike:flare_bombrun_250"}
+}
+
+{"airstrike_500_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7) crew(sup_pilot:0))
+	{cost 30}{action "airstrike:flare_bombrun_500"}
 }
 
 ;_________________________________________________

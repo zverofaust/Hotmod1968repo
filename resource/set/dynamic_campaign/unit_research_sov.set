@@ -40,7 +40,7 @@
 	{"squad_mg_moto_con(sov)"			requires	"squad_mg_con(sov) sov_moto"		costs 0 }
 	{"squad_mg_moto2_con(sov)"			requires	"squad_mg_moto_con(sov) btr-60pa"	costs 0 }
 	
-	{"squad_guards_maneuv_con(sov)"		requires	"sov_guards"						costs 1 }
+	{"squad_guards_maneuv_con(sov)"		requires	"sov_guards"						costs 0 }
 	{"squad_guards_fireteam_con(sov)"	requires	"sov_guards"						costs 1 }
 	{"squad_guards_con(sov)"			requires	"squad_guards_fireteam_con(sov) squad_guards_maneuv_con(sov)"	costs 2 }
 	
@@ -48,13 +48,13 @@
 	{"squad_guards_moto2_con(sov)"		requires	"squad_guards_moto_con(sov) btr-60pb"	costs 1 }
 	{"squad_guards_mech_con(sov)"		requires	"squad_guards_moto2_con(sov) bmp-1"		costs 1 }
 
-	{"squad_vdv_recon_con(sov)"			requires	"sov_vdv"							costs 1 }
+	{"squad_vdv_recon_con(sov)"			requires	"sov_vdv"							costs 0 }
 	{"squad_vdv_antitank_con(sov)"		requires	"squad_vdv_recon_con(sov)"			costs 1 }
 	{"squad_vdv_con(sov)"				requires	"squad_vdv_recon_con(sov)"			costs 2 }
 	{"squad_vdv_asu57_con(sov)"			requires	"squad_vdv_con(sov) asu57"			costs 0 }
 	{"squad_vdv_asu85_con(sov)"			requires	"squad_vdv_asu57_con(sov) asu-85"		costs 0 }
 	
-	{"squad_banner_con(sov)"			requires	"squad_guards_con(sov)"							costs 4 }
+	{"squad_banner_con(sov)"			requires	"squad_guards_con(sov)"							costs 3 }
 	{"squad_banner_moto_con(sov)"		requires	"squad_banner_con(sov) btr-60pb"				costs 2 }
 	{"squad_banner_mech_con(sov)"		requires	"squad_banner_moto_con(sov) bmp-1"				costs 2 }
 	
@@ -64,7 +64,7 @@
 	{"squad_spetsnaz_bmd1_con(sov)"		requires	"squad_spetsnaz_con(sov) bmd-1"		costs 3 }
 	{"squad_spetsnaz_mi4_con(sov)"		requires	"squad_spetsnaz_con(sov)"			costs 5 }
 	
-	{"squad_spz_pioneer_con(sov)"		requires	"sov_vmf"							costs 2 }
+	{"squad_spz_pioneer_con(sov)"		requires	"sov_vmf"							costs 1 }
 	
 ;---MG---
 	{"dshk_aa_sov"		requires	"sg43_stand_sov"	costs 1}
@@ -101,13 +101,13 @@
 ;---Trucks---
 	{"gaz-51_ammo"		requires	"gaz-51"						costs 1}
 	{"zil-130"			requires	"gaz-51"						costs 1}
-	{"zil-130_ammo"		requires	"gaz-51_ammo zil-130"			costs 0}
+	{"zil-130_ammo"		requires	"zil-130"						costs 2}
 	{"zil-130_eng"		requires	"single_engineer(sov)"			costs 2}
-	{"zil157_fuel"		requires	"gaz-51_ammo"					costs 1}
-	{"zil131"			requires	"zil-130"						costs 2}
-	{"zil131_ammo"		requires	"zil-130_ammo zil131"			costs 0}
-	{"ural375"			requires	"zil131"						costs 3}
-	{"ural375_ammo"		requires	"zil131_ammo ural375"			costs 0}
+	{"zil157_fuel"		requires	"zil-130"						costs 2}
+	{"zil131"			requires	"zil-130"						costs 1}
+	{"zil131_ammo"		requires	"zil131"						costs 2}
+	{"ural375"			requires	"zil131"						costs 2}
+	{"ural375_ammo"		requires	"ural375"						costs 3}
 	{"bm-21_grad"		requires	"ural375"						costs 4}
 	
 ;---BTRs---
@@ -167,9 +167,30 @@
 
 { tech "sov_army"		requires ""				costs 0 }
 { tech "sov_moto"		requires ""				costs 5 }
-{ tech "sov_guards"		requires ""				costs 5 }
+{ tech "sov_guards"		requires "squad_rifle_con(sov)"		costs 5 }
 { tech "sov_vdv"		requires ""				costs 5 }
 { tech "sov_vmf"		requires ""				costs 5 }
+
+{ tech "radio_1_sov"	requires ""				costs 2 }
+{ tech "radio_2_sov"	requires "radio_1_sov"	costs 3 }
+{ tech "radio_3_sov"	requires "radio_2_sov"	costs 5 }
+
+	{"mortar_barrage_smoke_sov"		requires "radio_1_sov"			costs 0}
+	{"mortar_barrage_light_sov"		requires "radio_1_sov"			costs 1}
+	{"mortar_barrage_medium_sov"	requires "radio_1_sov"			costs 2}
+	
+	{"artillery_barrage_smoke_sov"	requires "radio_2_sov"			costs 0}
+	{"artillery_barrage_light_sov"	requires "radio_2_sov"			costs 2}
+	{"artillery_barrage_medium_sov"	requires "artillery_barrage_light_sov"			costs 3}
+	{"artillery_barrage_heavy_sov"	requires "artillery_barrage_medium_sov"			costs 4}
+	{"artillery_barrage_rocket_sov"	requires "artillery_barrage_medium_sov"			costs 4}
+	
+	{"cas_mi4_sov"					requires "radio_3_sov"			costs 2}
+	{"cas_mi4_heavy_sov"			requires "cas_mi4_sov"			costs 2}
+	{"airstrike_50_sov"				requires "radio_3_sov"			costs 2}
+	{"airstrike_100_sov"			requires "airstrike_50_sov"		costs 2}
+	{"airstrike_250_sov"			requires "airstrike_100_sov"	costs 3}
+	{"airstrike_500_sov"			requires "airstrike_250_sov"	costs 5}
 
 {GridWidth 10} ;total with 0-#
 {Positions
@@ -186,9 +207,30 @@
 	
 	{"sov_army"					3 5}
 	{"sov_moto"					0 9}
-	{"sov_guards"				7 7}
+	{"sov_guards"				7 6}
 	{"sov_vdv"					2 13}
 	{"sov_vmf"					8 16}
+	
+	{"radio_1_sov"					1 35}
+	{"mortar_barrage_smoke_sov"		2 35}
+	{"mortar_barrage_light_sov"		3 35}
+	{"mortar_barrage_medium_sov"	4 35}
+	
+	{"radio_2_sov"					1 36}
+	{"artillery_barrage_smoke_sov"	2 36}
+	{"artillery_barrage_light_sov"	3 36}
+	{"artillery_barrage_medium_sov"	4 36}
+	{"artillery_barrage_heavy_sov"	5 36}
+	{"artillery_barrage_rocket_sov"	6 36}
+	
+	{"radio_3_sov"					1 37}
+	
+	{"cas_mi4_sov"					2 37}
+	{"cas_mi4_heavy_sov"			3 37}
+	{"airstrike_50_sov"				4 37}
+	{"airstrike_100_sov"			5 37}
+	{"airstrike_250_sov"			6 37}
+	{"airstrike_500_sov"			7 37}
 
 
 
@@ -232,9 +274,9 @@
 	{"squad_mg_moto_con(sov)"			3 9}
 	{"squad_mg_moto2_con(sov)"			3 10}
 	
-	{"squad_guards_maneuv_con(sov)"		6 8}
-	{"squad_guards_fireteam_con(sov)"	8 8}
-	{"squad_guards_con(sov)"			7 9}
+	{"squad_guards_maneuv_con(sov)"		6 7}
+	{"squad_guards_fireteam_con(sov)"	8 7}
+	{"squad_guards_con(sov)"			7 8}
 	
 	{"squad_guards_moto_con(sov)"		7 10}
 	{"squad_guards_moto2_con(sov)"		7 11}
@@ -246,7 +288,7 @@
 	{"squad_vdv_asu57_con(sov)"			5 14}
 	{"squad_vdv_asu85_con(sov)"			6 14}
 	
-	{"squad_banner_con(sov)"			8 9}
+	{"squad_banner_con(sov)"			8 8}
 	{"squad_banner_moto_con(sov)"		8 11}
 	{"squad_banner_mech_con(sov)"		8 12}
 	

@@ -100,7 +100,7 @@
 	{"m35_ammo"			requires	"m35"				costs 1}
 	{"m35_arty"			requires	"m35_ammo"			costs 2}
 	{"m35_guntruck"		requires	"m35_ammo"			costs 1}
-	{"cckw353_fuel"		requires	"m35"				costs 1}
+	{"cckw353_fuel"		requires	"m35"				costs 2}
 	
 	
 ;TOTAL: 4
@@ -116,7 +116,7 @@
 	{"m114a2"				requires	"m114a1"			costs 2}
 	
 	{"m125"					requires	"m29_mortar"		costs 3}
-	{"m106"					requires	"m30_mortar"		costs 1}
+	{"m106"					requires	"m30_mortar"		costs 3}
 	
 	{"m132_zippo"			requires	"squad_usmc_flame_con(usa)"	costs 2}
 	{"m163"					requires	"m42"				costs 4}
@@ -152,16 +152,16 @@
 	
 ;---SPGs---
 
-	{"m108"					requires	"m101a1"		costs 2}
-	{"m109"					requires	"m114"			costs 3}
-	{"m110"					requires	"m115"			costs 4}
+	{"m108"					requires	"m101a1"		costs 3}
+	{"m109"					requires	"m114"			costs 4}
+	{"m110"					requires	"m115"			costs 5}
 	
 ;---Helis---
 
 	{"uh-1h"				requires	"squad_aircav_recon_con(usa)"		costs 1}
 	{"uh-1b"				requires	"uh-1h"			costs 2}
-	{"uh-1b_ara"			requires	"uh-1b"			costs 2}
-	{"uh-1b_m22"			requires	"uh-1b_ara"		costs 2}
+	{"uh-1b_ara"			requires	"uh-1b"			costs 3}
+	{"uh-1b_m22"			requires	"uh-1b_ara"		costs 4}
 	
 	
 	
@@ -185,6 +185,27 @@
 { tech "usa_acav"		requires ""				costs 5 }
 { tech "usa_usmc"		requires ""				costs 5 }
 
+{ tech "radio_1_usa"	requires ""				costs 2 }
+{ tech "radio_2_usa"	requires "radio_1_usa"	costs 3 }
+{ tech "radio_3_usa"	requires "radio_2_usa"	costs 5 }
+
+	{"mortar_barrage_smoke_usa"		requires "radio_1_usa"			costs 0}
+	{"mortar_barrage_light_usa"		requires "radio_1_usa"			costs 1}
+	{"mortar_barrage_medium_usa"	requires "radio_1_usa"			costs 2}
+	
+	{"artillery_barrage_smoke_usa"	requires "radio_2_usa"			costs 0}
+	{"artillery_barrage_light_usa"	requires "radio_2_usa"			costs 2}
+	{"artillery_barrage_medium_usa"	requires "artillery_barrage_light_usa"			costs 3}
+	{"artillery_barrage_heavy_usa"	requires "artillery_barrage_medium_usa"			costs 4}
+	
+	{"cas_uh1_usa"					requires "radio_3_usa"			costs 1}
+	{"cas_uh1_ara_usa"				requires "cas_uh1_usa"			costs 2}
+	{"cas_uh1_m22_usa"				requires "cas_uh1_usa"			costs 2}
+	{"airstrike_50_usa"				requires "radio_3_usa"			costs 2}
+	{"airstrike_napalm_usa"			requires "airstrike_50_usa"		costs 2}
+	{"airstrike_100_usa"			requires "airstrike_50_usa"		costs 2}
+	{"airstrike_250_usa"			requires "airstrike_100_usa"	costs 4}
+	{"airstrike_500_usa"			requires "airstrike_250_usa"	costs 5}
 
 {GridWidth 10} ;total with 0-#
 {Positions
@@ -203,6 +224,26 @@
 	{"usa_aircav"					0 15}
 	{"usa_acav"						5 15}
 	{"usa_usmc"						1 20}
+	
+	{"radio_1_usa"					6 30}
+	{"mortar_barrage_smoke_usa"		6 31}
+	{"mortar_barrage_light_usa"		6 32}
+	{"mortar_barrage_medium_usa"	6 33}
+	
+	{"radio_2_usa"					7 30}
+	{"artillery_barrage_smoke_usa"	7 31}
+	{"artillery_barrage_light_usa"	7 32}
+	{"artillery_barrage_medium_usa"	7 33}
+	{"artillery_barrage_heavy_usa"	7 34}
+	
+	{"radio_3_usa"					8 30}
+	{"cas_uh1_usa"					8 31}
+	{"cas_uh1_ara_usa"				8 32}
+	{"airstrike_50_usa"				8 33}
+	{"airstrike_napalm_usa"			8 34}
+	{"airstrike_100_usa"			8 35}
+	{"airstrike_250_usa"			8 36}
+	{"airstrike_500_usa"			8 37}
 
 
 ;---SQUADS---
