@@ -22,7 +22,7 @@
 	{"squad_conscript_mg_con(sov)"		requires	"squad_conscript_ak_con(sov)"		costs 1 }
 	
 	{"squad_border_moto_con(sov)"		requires	"squad_border_con(sov)"				costs 1 }
-	{"squad_conscript_moto_con(sov)"	requires	"squad_conscript_ak_con(sov) sov_moto"		costs 0 }
+	{"squad_conscript_moto_con(sov)"	requires	"squad_conscript_ak_con(sov) btr-152"		costs 0 }
 	
 	{"squad_rifle_con(sov)"				requires	"sov_army"							costs 2 }
 	{"squad_maneuv_con(sov)"			requires	"squad_rifle_con(sov)"				costs 1 }
@@ -31,13 +31,13 @@
 	{"squad_mg_con(sov)"				requires	"squad_maneuv_con(sov)"				costs 3 }
 	{"squad_shock_con(sov)"				requires	"squad_fireteam_con(sov)"			costs 3 }
 	
-	{"squad_rifle_moto_con(sov)"		requires	"squad_rifle_full_con(sov) sov_moto"		costs 0 }
+	{"squad_rifle_moto_con(sov)"		requires	"squad_rifle_full_con(sov) btr-152"		costs 0 }
 	{"squad_rifle_moto2_con(sov)"		requires	"squad_rifle_moto_con(sov) btr-60pa"	costs 0 }
 	
-	{"squad_shock_moto_con(sov)"		requires	"squad_shock_con(sov) sov_moto"		costs 0 }
+	{"squad_shock_moto_con(sov)"		requires	"squad_shock_con(sov) btr-152"		costs 0 }
 	{"squad_shock_moto2_con(sov)"		requires	"squad_shock_moto_con(sov) btr-60pa"	costs 0 }
 	
-	{"squad_mg_moto_con(sov)"			requires	"squad_mg_con(sov) sov_moto"		costs 0 }
+	{"squad_mg_moto_con(sov)"			requires	"squad_mg_con(sov) btr-152"		costs 0 }
 	{"squad_mg_moto2_con(sov)"			requires	"squad_mg_moto_con(sov) btr-60pa"	costs 0 }
 	
 	{"squad_guards_maneuv_con(sov)"		requires	"sov_guards"						costs 0 }
@@ -112,10 +112,12 @@
 	
 ;---BTRs---
 
-	{"btr-60pa"		requires	"sov_moto"				costs 1}
+	{"btr-152"		requires	"sov_moto"				costs 0}
+	{"btr-60pa"		requires	"btr-152"				costs 1}
 	{"btr-60pb"		requires	"btr-60pa"				costs 2}
 	
-	{"brdm-1"		requires	""					costs 1}
+	;{"btr-40"		requires	"btr-40"			costs 1}
+	{"brdm-1"		requires	"btr-40"			costs 1}
 	{"brdm-2"		requires	"brdm-1"			costs 2}
 	{"9p110"		requires	"brdm-1 9m14"		costs 3}
 	
@@ -206,7 +208,7 @@
 	{"reinforcement_stage_5"	4 0}
 	
 	{"sov_army"					3 5}
-	{"sov_moto"					0 9}
+	{"sov_moto"					0 8}
 	{"sov_guards"				7 6}
 	{"sov_vdv"					2 13}
 	{"sov_vmf"					8 16}
@@ -245,7 +247,7 @@
 	{"single_mg(sov)"					0 3}
 	{"single_marksman(sov)"				3 3}
 	{"single_sniper(sov)"				4 3}	
-	{"single_flamer(sov)"				0 3}
+	{"single_flamer(sov)"				0 4}
 	{"single_at3(sov)"					0 2}
 	{"single_at2(sov)"					1 2}
 	{"single_at(sov)"					2 2}
@@ -353,9 +355,11 @@
 
 ;---Armored Cars---
 	
+	{"btr-152"							0 9}
 	{"btr-60pa"							0 10}
 	{"btr-60pb"							0 11}
 	
+	{"btr-40"							0 25}
 	{"brdm-1"							0 26}
 	{"brdm-2"							0 27}
 	{"9p110"							2 26}
