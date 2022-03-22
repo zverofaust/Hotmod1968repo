@@ -1,4 +1,4 @@
-{from "pattern gun"			; L/55 "m48_patton"
+{from "90mm_m36"			; M26 Pershing
 	{filling "bullet90_m41"}
 	{fireSound "gun/gun_88"}
 	{fireSoundclose "gun/gun_interior/size3"}
@@ -6,9 +6,9 @@
 	("range_230")
 	{calibre 90}
 
-	("reload time" seconds(8))
+	("reload time" seconds(11))
 
-	("velocity m/s" ap(853) apcr(1249) he(823) heat(1216))
+	("velocity m/s" ap(853) apcr(1021) he(732) heat(1216))
 	("armor health" damage(260))
 	("armor health custom" shell(apcbche) damage(260) filler(137))
 
@@ -18,14 +18,13 @@
 	; M431 Shell
 	("penetration_long" shell(heat) range(220) a(320) b(320) c(320) d(320) e(320))
 	
-	; M332 Shot
-	("penetration_long" shell(apcr) range(230) a(321) b(292) c(265) d(240) e(218))
+	; M304 Shot
+	("penetration_long" shell(apcr) range(230) a(287) b(259) c(234) d(211) e(191))
 	{parameters "apcr" ; 
 		("large_apcr_slope_multiplier")
 	}
 
-
-	("accuracy_direct" r1(0.55) range_ap(230) range_he(230) range_heat(220))
+	("accuracy_direct" r1(0.70) range_ap(230) range_he(230) range_heat(220))
 	
 	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_usa_base"}
 }
