@@ -405,7 +405,7 @@
 			}
 		}
 		
-		{"vehicle.hueyatgm"
+		{"aircraft.hueyatgm"
 			{clip
 				{viewMin		-12	}	; camera rotate upward limit (looking down)
 				{viewMax		20	}	; camera rotate downward limit (looking up)
@@ -451,4 +451,46 @@
 				{offset 2 0 2}
 			}
 		}	
+		
+		{"aircraft.huey"
+			{clip
+				{viewMin		-65}	; camera rotate upward limit (looking down)
+				{viewMax		45	}	; camera rotate downward limit (looking up)
+				{viewNear		0	}
+				{viewFar		-45	}	; desired view angle when zooming out (not correction)
+				{viewcorrection	0	}	; percentage (from distanceMax) after which correction sets in. 80 in this case.
+				{distanceMin	300	}	; camera min distance from object. value / 20 = meters
+				{distanceMax	800	}	; camera max distance from object. value / 20 = meters
+			}
+			{level ;0
+				{linkBone "body"}
+				{faroffset 0 0 80}		; camera position offect at distanceMax
+				{nearoffset 0 0 70}		; camera position offect at distanceMin
+				{hide_crosshair 1}		; hides curser / crosshair
+				{hide_hitmarker 1}		; hides hit indicators 
+				{blur_strength 2}		; blur strength modifier
+				{disable_fow}			; not disabled fog of war
+				{no_grain}				; no film grain (graphics setting)
+				{no_rim_light}			; no rim light (graphics setting)
+			}
+			{level ;1
+				{zoom}
+				{vision_modes_active}
+				{linkBone "body"}
+				{offset 100 10 2}
+				{scope_vignette "/texture/common/environment/lens_effects/vehicle_telescope_blank"}
+				{blur_mask "/texture/common/environment/lens_effects/vehicle_telescope_mask"}
+				{refraction_mask "/texture/common/environment/lens_effects/vehicle_telescope_base_bp"}
+				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_02"}
+				{distance 5}
+				{distanceSet 0}
+				{delta 0}
+				{camera "zoom1.5"}
+				{ManualAccuracyZoom}
+				{blur_strength 10}
+				{disable_fow 1}
+				{no_rim_light}
+				{soundEffect "opentop_vehicle"}
+			}
+		}
 	
