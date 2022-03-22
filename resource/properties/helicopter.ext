@@ -15,7 +15,7 @@ actor
 
 {brain "vehicle" {state "airborne"}}
 
-{simulatorId "airborne"}
+{SimulatorId "airborne"}
 
 {sensor
 	{Visor "main"
@@ -107,24 +107,14 @@ actor
 }
 
 {Chassis "helicopter"
-	{Locomotion
-		{StartTime		3	}
-		{BrakeTime		3	}
-		{StopTime		4	}
-		{SplineRadius	5	}
-		{Slow			60	}
-		{Normal			80	}
-		{Fast			100	}
-		{MaxSpeed		110	}
-		{TurnRadius		15	} 
-	}
 	{FrontSlopeSpeed		5	} ; degree/s
 	{MaxFrontSlope			15	} ; degree
 	{SideSlopeSpeed			25	} ; degree/s
 	{MaxSideSlope			25	} ; degree
 	{MaxElevationSpeed		5	} ; m/s
 	{ElevationAcceleration	3	} ; m/s^2
-	{MaxAltitude			40	} ; m
+	{MaxAltitude			50	} ; m
+	{TravelAltitude			22	} ; m minimum altitude above ground, moving is dynamic
 	{EngineStartupTime		3} ; seconds
 	{DontUseSlope}
 	{Airborne}
@@ -136,32 +126,15 @@ actor
 		{fuel "fuel"}
 	}
 }
-
 {ChassisManager
 	{Current "helicopter"}
 }
-
-(define "locomotion"
-	{StartTime		3	}	; acceleration time from 0 to max. speed, seconds
-	{BrakeTime		3	}	; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
-	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds but less
-	{SplineRadius	5	}	; limit turning radius on the splines, meters
-	{SteerOn		15	}			
-	{SteerOff		15	}
-	{Slow			60	}	; km/h
-	{Normal			80	}
-	{Fast			100	}
-	{MaxSpeed		120	}	; max speed, km/h
-	{TurnRadius		15	}	; turn radius, m
-)
 
 (define "locomotion_transport"
 	{StartTime		3	}	; acceleration time from 0 to max. speed, seconds
 	{BrakeTime		3	}	; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
 	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds but less
 	{SplineRadius	5	}	; limit turning radius on the splines, meters
-	{SteerOn		15	}			
-	{SteerOff		15	}
 	{Slow			60	}	; km/h
 	{Normal			80	}
 	{Fast			100	}
@@ -174,8 +147,6 @@ actor
 	{BrakeTime		3	}	; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
 	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds but less
 	{SplineRadius	5	}	; limit turning radius on the splines, meters
-	{SteerOn		15	}			
-	{SteerOff		15	}
 	{Slow			60	}	; km/h
 	{Normal			80	}
 	{Fast			100	}

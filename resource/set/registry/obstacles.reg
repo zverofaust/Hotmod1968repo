@@ -1,0 +1,355 @@
+;SDL
+(define "vehicle.small.all" 
+	{"vehicle.small"	%cost }
+	{"ba64"				%cost }
+	{"kubel"			%cost }
+	{"goliath"			%cost }
+	{"ketten"			%cost }
+)
+(define "vehicle.large.all" 
+	{"vehicle.large"	%cost }
+	{"gazaaa"			%cost }
+	{"blitz36"			%cost }
+	{"maultier"			%cost }
+)
+(define "armored.all" 
+	{"armored"			%cost }
+	{"m3scout"			%cost }
+	{"sdkfz222"			%cost }
+	{"sdkfz232"			%cost }
+	{"sdkfz251"			%cost }
+	{"sdkfz8"			%cost }
+	{"nkl"				%cost }
+	{"ba10"				%cost }
+)
+(define "tank.light.all" 
+	{"tank.light"		%cost }
+	{"bt"				%cost }
+	{"panzer1"			%cost }
+	{"panzer2"			%cost }
+	{"panzer2l"			%cost }
+	{"panzer38"			%cost }
+	{"su76"				%cost }
+	{"t20"				%cost }
+	{"t26"				%cost }
+	{"t27"				%cost }
+	{"zis30"			%cost }
+	{"t37"				%cost }
+	{"t40"				%cost }
+	{"t60"				%cost }
+	{"t70"				%cost }
+	{"universal"		%cost }
+	{"valentine"		%cost }
+)
+(define "tank.medium.all" 
+	{"tank"				%cost }
+	{"panzer3"			%cost }
+	{"panzer4"			%cost }
+	{"panzer5"			%cost }
+	{"t28"				%cost }
+	{"t34"				%cost }
+)
+(define "tank.heavy.all" 
+	{"elefant"			%cost }
+	{"kv1"				%cost }
+	{"kv2"				%cost }
+	{"churchill"		%cost }
+	{"su100y"			%cost }
+	{"tiger"			%cost }
+	{"tiger2"			%cost }
+)
+(define "marines"
+	{"water"			%cost }
+	{"shallow_water"	%cost }
+	{"shallow_water_0"	%cost }
+	{"deep_water"		%cost }
+	{"deep_water_0"		%cost }
+)
+(define "airborne"
+	{"bf109"			%cost }
+	{"bf110"			%cost }
+	{"ju87"				%cost }
+	{"il2"				%cost }
+)	
+(define "vehicles" 
+	{"cannon.small"			%cost }
+	{"cannon.medium"		%cost }
+	{"cannon.large"			%cost }
+	{"cannon.carried"		%cost }
+	{"cannon.micro"			%cost }
+	{"moto"					%cost }
+	{"amphibia"				%cost }
+	{"railway"				%cost }
+	("vehicle.small.all"	cost(%cost))
+	("vehicle.large.all"	cost(%cost))
+	("armored.all"			cost(%cost))
+	("tank.light.all"		cost(%cost))
+	("tank.medium.all"		cost(%cost))
+	("tank.heavy.all"		cost(%cost))
+)
+
+{obstacles
+	{nothing
+		{flag_skip_impregnable}
+		{"human"			0	}
+		{"human_tpc"		0	}
+		{"human_flying"		0	}
+		{"animal"			0	}
+		("vehicles"	   cost(0)	)
+		("marines"	   cost(0)	)
+		("airborne"	   cost(0)	)
+		{"helicopter"	0	}
+	}
+
+	{fire
+		{flag_damage			}
+		{"human"			1000}
+		{"human_tpc"		1000}
+		{"human_flying"		 0	}
+		{"animal"			1000}
+		("vehicles"		cost(200))
+		("marines"		cost(200))
+		("airborne"		cost(0)	)
+		{"helicopter"	0	}
+	}
+
+	{human
+		{flag_human				}
+		{flag_skip_impregnable	}
+		{"human"			1	}
+		{"human_tpc"		1	}
+		{"human_flying"		0	}
+		{"animal"			-1	}
+		("vehicles"	   cost(5)	)
+		("marines"	   cost(5)	)
+		("airborne"    cost(0)	)
+		{"helicopter"	0	}
+	}
+
+	{human_impassable
+		{flag_human				}
+		{flag_skip_impregnable	}
+		{"human"			-1	}
+		{"human_tpc"		-1	}
+		{"human_flying"		0	}
+		{"animal"			-1	}
+		("vehicles"		cost(5)	)
+		("marines"		cost(5)	)
+		("airborne"		cost(0) )
+		{"helicopter"	0	}
+	}
+
+	{car
+		{"human"			-1	}
+		{"human_tpc"		-1	}
+		{"human_flying"		-1	}
+		{"animal"			-1	}
+		("vehicles"	   cost(-1)	)
+		("marines"	   cost(0)	)
+		("airborne"    cost(0)	)
+		{"helicopter"	0	}
+	}
+
+	{tank
+		{"human"			-1	}
+		{"human_tpc"		-1	}
+		{"human_flying"		-1	}
+		{"animal"			-1	}
+		("vehicles"		cost(-1))
+		("marines"		cost(0)	)
+		("airborne"		cost(0)	)
+		{"helicopter"	0	}
+	}
+
+	{marine
+		{"human"			-1	}
+		{"human_tpc"		-1	}
+		{"human_flying"		-1	}
+		{"animal"			-1	}
+		("vehicles"	   cost(1500))
+		("marines"	   cost(1500))
+		("airborne"	   cost(0)	 )
+		{"helicopter"	0	}
+	}
+
+	{trench_wall
+		{"human"				22	}
+		{"human_tpc"			5	}
+		{"human_flying"			0	}
+		{"animal"				-1	}
+		{"moto"					-1	}
+		("vehicle.small.all" cost(-1))
+		("vehicle.large.all" cost(-1))
+		("armored.all"	   	 cost(50))
+		{"cannon.micro"			100	}
+		{"cannon.carried"		100	}
+		{"cannon.small"			100	}
+		{"cannon.large"			100	}
+		("tank.light.all"		cost(0))
+		("tank.medium.all"		cost(0))
+		("tank.heavy.all"		cost(0))
+		{"amphibia"				0	}
+		{"railway"				0	}
+		("airborne"			cost(0))
+		{"helicopter"	0	}
+	}
+
+	{tree
+		{"human"				-1	}
+		{"human_tpc"			-1	}
+		{"human_flying"			-1	}
+		{"animal"				-1	}
+		{"moto"					-1	}
+		("vehicle.small.all" cost(-1))
+		("vehicle.large.all" cost(-1))
+		("armored.all"	   	 cost(-1))
+		{"cannon.micro"			-1	}
+		{"cannon.carried"		-1	}
+		{"cannon.small"			-1	}
+		{"cannon.large"			-1	}
+		("tank.light.all"	cost(175))
+		("tank.medium.all"	cost(100))
+		("tank.heavy.all"	cost(100))
+		{"amphibia"				100 }
+		{"railway"				0   }
+		("airborne"			cost(0))
+		{"helicopter"	0	}
+	}
+
+	{post
+		{"human"				-1	}
+		{"human_tpc"			-1	}
+		{"human_flying"			-1	}
+		{"animal"				-1	}
+		{"moto"					-1	}
+		("vehicle.small.all" cost(50))
+		("vehicle.large.all" cost(30))
+		("armored.all"	   	 cost(30))
+		{"cannon.micro"			-1	}
+		{"cannon.carried"		-1	}
+		{"cannon.small"			-1	}
+		{"cannon.large"			-1	}
+		("tank.light.all"	cost(25))
+		("tank.medium.all"	cost(10))
+		("tank.heavy.all"	cost(25))
+		{"amphibia"				100 }
+		{"railway"				0   }
+		("airborne"			cost(0))
+		{"helicopter"	0	}
+	}
+
+	{unbreakable
+		{"human"			-1	}
+		{"human_tpc"		-1	}
+		{"human_flying"		-1	}
+		{"animal"			-1	}
+		("vehicles"	   cost(-1)	)
+		("marines"	   cost(-1)	)
+		("airborne"	   cost(0))
+		{"helicopter"	0	}
+	}
+
+	{unbreakable_high
+		{"human"			-1	}
+		{"human_tpc"		-1	}
+		{"human_flying"		-1	}
+		{"animal"			-1	}
+		("vehicles"		cost(-1))
+		("marines"		cost(-1))
+		("airborne"		cost(-1))
+		{"helicopter"		-1	}
+	}
+
+	{cliff
+		{"human"			0	}
+		{"human_tpc"		0	}
+		{"human_flying"		0	}
+		{"animal"			0	}
+		("vehicles"		cost(-1))
+		("marines"		cost(-1))
+		("airborne"		cost(0)	)
+		{"helicopter"	0	}
+	}
+
+	{building
+		{flag_crush_in_battle}
+		{"human"			-1	}
+		{"human_tpc"		-1	}
+		{"human_flying"		-1	}
+		{"animal"			-1	}
+		("vehicles"	   cost(-1)	)
+		("marines"	   cost(0)	)
+		("airborne"    cost(0)	)
+		{"helicopter"	0	}
+	}
+
+	{small_building
+		{"human"				-1	}
+		{"human_tpc"			-1	}
+		{"human_flying"			-1	}
+		{"animal"				-1	}
+		{"moto"					-1	}
+		("vehicle.small.all" cost(-1))
+		("vehicle.large.all" cost(-1))
+		("armored.all"	   	cost(250))
+		{"cannon.micro"			-1	}
+		{"cannon.carried"		-1	}
+		{"cannon.small"			-1	}
+		{"cannon.large"			-1	}
+		("tank.light.all"	cost(175))
+		("tank.medium.all"	cost(100))
+		("tank.heavy.all"	cost(100))
+		{"amphibia"				100 }
+		{"railway"				0   }
+		("airborne"			cost(0) )
+		("marines"	   		cost(0) )
+		{"helicopter"	0	}
+	}
+
+	{construction
+		{"human"				-1	}
+		{"human_tpc"			-1	}
+		{"human_flying"			-1	}
+		{"animal"				-1	}
+		{"moto"					-1	}
+		("vehicle.small.all" cost(100))
+		("vehicle.large.all" cost(100))
+		("armored.all"	   	cost(50))
+		{"cannon.micro"			-1	}
+		{"cannon.carried"		-1	}
+		{"cannon.small"			200	}
+		{"cannon.large"			200	}
+		("tank.light.all"	cost(50))
+		("tank.medium.all"	cost(30))
+		("tank.heavy.all"	cost(30))
+		{"amphibia"				50  }
+		{"railway"				0   }
+		("airborne"			cost(0) )
+		("marines"	   		cost(0)	)
+		{"helicopter"	0	}
+	}
+
+	{stuff
+		{flag_skip_impregnable}
+		{"human"				-1	}
+		{"human_tpc"			-1	}
+		{"human_flying"			0	}
+		{"animal"				-1	}
+		{"moto"					-1	}
+		("vehicle.small.all" cost(40))
+		("vehicle.large.all" cost(40))
+		("armored.all"		cost(40))
+		{"cannon.micro"			-1	}
+		{"cannon.carried"		-1	}
+		{"cannon.small"			150	}
+		{"cannon.large"			150	}
+		("tank.light.all"	cost(30))
+		("tank.medium.all"	cost(15))
+		("tank.heavy.all"	cost(15))
+		{"amphibia"				30  }
+		{"railway"				0   }
+		("airborne"			cost(0) )
+		("marines"	   		cost(0) )
+		{"helicopter"	0	}
+	}
+}

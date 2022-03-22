@@ -212,9 +212,9 @@
 					{call "collide"}
 				}
 			else effector "tree"
-				{if not effector "bush"			;do not crash on bush-like trees with prop "bush"
-					{call "collide"}
-				}
+				;{if not effector "bush"			;do not crash on bush-like trees with prop "bush"
+				;	{call "collide"}
+				;}
 			else velocity 50					;if moving fast itself, crash on every vehicle
 				{if effector "vehicle"
 					{call "collide"}
