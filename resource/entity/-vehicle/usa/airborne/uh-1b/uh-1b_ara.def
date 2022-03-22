@@ -4,7 +4,7 @@
 	(include "/properties/selection/airborne.inc" scale(2.00))
 	(include "/properties/car_crew.ext")
 	{props "td.uh-1h" "helicopter"}
-	{PatherID "bf109"}
+	{PatherID "helicopter"}
 	{targetSelector "helicopter"}
 
 	("helicopter_tier1")
@@ -169,6 +169,16 @@
 	("part" args "propeller_b")
 	("part" args "propeller_b1")
 
+	{Obstacle "in_air"
+        {Obb2
+            {Center 10 0}
+            {Extent 190 160}
+            {Axis -1 0}
+        }
+        {rotate}
+    }
+    {ObstacleId "helicopter" "in_air"}
+	
 	{Weaponry
 		{place "gun"
 			{rotate}
@@ -183,14 +193,6 @@
 	}
 
 	{mass 4309}
-	;{Obstacle "in_air"
-	;	{Obb2
-	;		{Center -10 0}
-	;		{Extent 200 180}
-	;	}
-	;	{rotate}
-	;}
-	;{ObstacleId "helicopter" "in_air"}
 	
 	{Chassis "helicopter"
 		{Locomotion ("locomotion_transport")}

@@ -4,7 +4,7 @@
 	(include "/properties/selection/airborne.inc" scale(2.00))
 	(include "/properties/car_crew.ext")
 	{props "td.uh-1h" "helicopter"}
-	{PatherID "bf109"}
+	{PatherID "helicopter"}
 	{targetclass "helicopter"}
 	{targetSelector "helicopter"}
 
@@ -194,6 +194,16 @@
 	("part" args "propeller_b")
 	("part" args "propeller_b1")
 	
+	{Obstacle "in_air"
+        {Obb2
+            {Center 10 0}
+            {Extent 190 160}
+            {Axis -1 0}
+        }
+        {rotate}
+    }
+    {ObstacleId "helicopter" "in_air"}
+	
 	{extender "inventory"
 		{Box
 			{item "ammo mgun_usa belt" 4000}
@@ -230,15 +240,6 @@
 	}
 
 	{mass 6000}
-
-	;{Obstacle "in_air"
-	;	{Obb2
-	;		{Center -10 0}
-	;		{Extent 200 180}
-	;	}
-	;	{rotate}
-	;}
-	;{ObstacleId "helicopter" "in_air"}
 	
 	{Chassis "helicopter"
 		{Locomotion ("locomotion_transport")}
