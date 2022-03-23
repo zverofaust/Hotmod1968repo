@@ -9,7 +9,7 @@
 	
 	("helicopter_tier2")
 	
-	{PatherID "bf110"}
+	{PatherID "helicopter"}
 	
 	(include "/properties/resupply_hotmod.inc")
 	("truck_ammo_artillery")
@@ -31,15 +31,15 @@
 	
 	
 	
-	;{Obstacle "in_air"
-	;	{Obb2
-	;		{Center -10 0}
-	;		{Extent 220 200}
-	;		{Axis -1 0}
-	;	}
-	;	{rotate}
-	;}
-	;{ObstacleId "helicopter" "in_air"}
+	{Obstacle "in_air"
+		{Obb2
+			{Center -20 0}
+			{Extent 200 160}
+			{Axis -1 0}
+		}
+		{rotate}
+	}
+	{ObstacleId "helicopter" "in_air"}
 
 	;volume/component, thickness
 	("glass" args "window1" 10)
@@ -65,6 +65,16 @@
 	("glass" args "window21" 10)
 	("glass" args "window22" 10)
 	("glass" args "window23" 10)
+	
+	{Obstacle "in_air"
+        {Obb2
+            {Center 10 0}
+            {Extent 190 160}
+            {Axis -1 0}
+        }
+        {rotate}
+    }
+    {ObstacleId "helicopter" "in_air"}
 	
 	{boarder
 		{anm "left"

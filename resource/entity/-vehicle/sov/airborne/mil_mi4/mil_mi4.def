@@ -1,11 +1,9 @@
-{game_entity		;Mi-4AV
+{game_entity		;Mi-4A
 	(include "/properties/helicopter.ext")
 	(include "/properties/shadow/airborn.inc" scale(2.2))
 	(include "/properties/selection/airborne.inc" scale(2.0))
 	(include "/properties/car_crew.ext")
-	{props "helicopter"} ;"wheeled" 
-	{targetSelector "helicopter"}
-	{PatherID "bf109"}
+	
 	
 	("helicopter_tier1")
 	
@@ -73,16 +71,6 @@
 		{component "body"}
 	}
 	
-	;{Obstacle "in_air"
-	;	{Obb2
-	;		{Center -20 0}
-	;		{Extent 200 160}
-	;		{Axis -1 0}
-	;	}
-	;	{rotate}
-	;}
-	;{ObstacleId "helicopter" "in_air"}
-
 	;volume/component, thickness
 	("glass" args "window1" 10)
 	("glass" args "window2" 10)
@@ -102,6 +90,22 @@
 	("glass" args "window16" 10)
 	("glass" args "window17" 10)
 
+	{Obstacle "in_air"
+        {Obb2
+            {Center 10 0}
+            {Extent 190 160}
+            {Axis -1 0}
+        }
+        {rotate}
+    }
+    {ObstacleId "helicopter" "in_air"}
+	
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_rus" 1000}
+		}
+	}
+	
 	{Weaponry
 		{place "gun"
 			{weapon "57mm_ub-16_x4" filled}
@@ -136,10 +140,8 @@
 	;	}
 	}
 
-	{mass 5100}
 	
-	{Chassis "wheel"
-	}
+	{mass 5100}
 	
 	{Chassis "helicopter"
 		{Locomotion ("locomotion_transport")}
