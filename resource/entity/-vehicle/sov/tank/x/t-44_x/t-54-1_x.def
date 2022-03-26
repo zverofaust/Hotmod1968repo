@@ -1,0 +1,229 @@
+{game_entity
+	(include "/properties/tank.ext")
+	;;(include "/properties/shadow/tank.inc"  scale(1.2))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+         ;;{extender "enumerator"}
+	{extension "crew_54.ext"} {collider "tank.medium"} {patherId "t34"} 
+        {props  "medium" "vision_lev04" "muzzle_100mm_105mm" "diesel"}
+	{targetclass "tank_medium"}
+	{targetSelector "tank_medium"}
+	
+        {volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret3"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret4"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 60}
+	}
+	{Volume "mantlet"
+		{tags "mantlet"}
+		{component "mantlet"}
+		{thickness 200}
+	}
+	{Volume "ekran_mantlet"
+		{tags "ekran_body"}
+		{component "ekran_body"}
+		{thickness 60}
+	}
+	{Volume "ekran_body1"
+		{tags "ekran_body"}
+		{component "ekran_body"}
+		{thickness 90}
+	}
+	{Volume "ekran_body2"
+		{tags "ekran_body"}
+		{component "ekran_body"}
+		{thickness 10}
+	}
+	{Volume "ekran_body3"
+		{tags "ekran_body"}
+		{component "ekran_body"}
+		{thickness 10}
+	}
+	{Volume "ekran_body4"
+		{tags "ekran_body"}
+		{component "ekran_body"}
+		{thickness 10}
+	}
+	{Volume "ekran_body5"
+		{tags "ekran_body"}
+		{component "ekran_body"}
+		{thickness 10}
+	}
+	{Volume "ekran_turret1"
+		{tags "ekran_turret"}
+		{component "ekran_turret"}
+		{thickness 120}
+	}
+	{Volume "trackright" {thickness 20}
+	}
+	{Volume "trackleft" {thickness 20}
+	}
+	{Volume "wheelr1"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr2"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr3"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr4"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr5"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr6"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr7"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell1"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell2"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell3"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell4"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell5"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell6"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell7"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+		("tank_medium_tier3" 
+                                     
+                                      turret(200 150 10 15)
+                                      turret2(120 90 120 15)
+                                      turret3(200 150 120 90)
+                                      
+                                      body(120 90 45 15)
+                                  
+                                      gun(60)
+        )
+
+	{volume "engine"
+		{thickness 20
+			{front 20}
+			{rear 20}
+			{top 20}
+			{bottom 20}
+		}
+	}
+	{volume "mantlet"
+		{thickness 200}
+	}
+	
+	{extender "shield"
+			{on}
+	}
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl4" {tags "shield"}}
+	{component "shieldl5" {tags "shield"}}
+	{component "shieldl6" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	{component "shieldr3" {tags "shield"}}
+	{component "shieldr4" {tags "shield"}}
+	{component "shieldr5" {tags "shield"}}
+	{component "shieldr6" {tags "shield"}}
+
+	{extender "inventory"
+			{box
+				;{size 6 11}
+                                {item "bulletrus_100 aphe" 13}
+								{item "bulletrus_100 aphebc" 5}
+                                {item "bulletrus_100 he" 15}
+					{item "ammo mgun_rus dt" 2394}
+			{item "satchel_charge_rus" 1}
+			}
+		}
+		{Weaponry
+		("restore_ik_time")
+			{place "gun"
+				{RestoreIKAfterAim}
+			        {weapon "100mm_d10c" filling "bulletrus_100 aphe" 1}
+				{gunner "gunner"}
+				{charger "charger"}
+                                {foresight "foresight1"}
+				("abm_dymamic"
+					zeroing(3.0)
+					dispersion(0.25)
+				)
+			}
+			{place "mgun"
+				{type "coaxial"}
+				{weapon "dt" filled}
+                                {gunner "gunner"}
+                                {charger "gunner"}
+				{foresight "foresight2"}
+                                ("abm_mgun")
+				{basic}
+			}
+	        }
+
+
+	{mass 32000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(1.3))
+		("mobility_tank"
+			speed(53)  ;---------Max speed when fully accelerated on road, km/h.
+			reverse(10.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(32.0) ;-------Weight in Tonnes.
+			power(520) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(500) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(250) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "t-54-1_x.mdl"}
+}
+
+
