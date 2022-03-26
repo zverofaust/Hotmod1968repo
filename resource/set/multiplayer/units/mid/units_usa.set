@@ -30,10 +30,10 @@
 	{cost 5} {squad_cost_factor 0}
 }
 
-{"m577"
-	("vehicle2"  period(mid) cd(240) ci(300) g(command) side(usa) t(vehicle command) crew1(sup_vehicleman:2) crew2(reg_officer:1) b(strategic) cw(0) cp(4))
-	{cost 5} {squad_cost_factor 0}
-}
+;{"m577"
+;	("vehicle2"  period(mid) cd(240) ci(300) g(command) side(usa) t(vehicle command) crew1(sup_vehicleman:2) crew2(reg_officer:1) b(strategic) cw(0) cp(4))
+;	{cost 5} {squad_cost_factor 0}
+;}
 
 {"mortar_barrage_smoke_usa"
 	("squad_vehicle" side(usa) cd(0) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
@@ -80,6 +80,12 @@
 ; // 10DP M35 Gun Truck
 {"doctrine_vehicle_guntruck(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m35_guntruck) crew(acav_rifleman:3) cw(0) cp(0))
+	("doctrine_t1" cool(60) d(mid_usa_acav) cost(10))
+}
+
+; // 10DP M577 Command Carrier
+{"doctrine_vehicle_m577_acav(usa)"
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(m577) crew1(sup_vehicleman:2) crew2(reg_officer:1) cw(0) cp(0))
 	("doctrine_t1" cool(60) d(mid_usa_acav) cost(10))
 }
 
@@ -174,6 +180,12 @@
 	("doctrine_t1" cool(30) d(mid_usa_tank) cost(10))
 }
 
+; // 10DP M577 Command Carrier
+{"doctrine_vehicle_m577_tank(usa)"
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(m577) crew1(sup_vehicleman:2) crew2(reg_officer:1) cw(0) cp(0))
+	("doctrine_t1" cool(60) d(mid_usa_tank) cost(10))
+}
+
 ; // 25DP M163 VADS
 {"doctrine_vehicle_m163(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m163) crew(sup_tankman:4) cw(0) cp(0))
@@ -186,19 +198,20 @@
 	("doctrine_t1" cool(120) d(mid_usa_tank) cost(15))
 }
 
-; // 25DP M109 Self-Propelled Howitzer
+
+; // 20DP M109 Self-Propelled Howitzer
 {"doctrine_vehicle_m109(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m109) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t1" cool(180) d(mid_usa_tank) cost(25))
 }
 
-; // 35DP M110 Self-Propelled Howitzer
+; // 30DP M110 Self-Propelled Howitzer
 {"doctrine_vehicle_m110(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m110) crew(sup_tankman:5) cw(0) cp(0))
 	("doctrine_t1" cool(240) d(mid_usa_tank) cost(35))
 }
 
-; // 40DP M728 CEV
+; // 30DP M728 CEV
 {"doctrine_vehicle_m728(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m728) crew(acav_engineer:4) cw(0) cp(0))
 	("doctrine_t1" cool(120) d(mid_usa_tank) cost(40))
@@ -301,6 +314,12 @@
 {"doctrine_vehicle_m35_arty(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(m35_arty) crew(sup_guncrew:2) cw(2) cp(0))
 	("doctrine_t1" cool(30) d(mid_usa_artillery) cost(10))
+}
+
+; // 10DP M577 Command Carrier
+{"doctrine_vehicle_m577_artillery(usa)"
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(m577) crew1(sup_vehicleman:2) crew2(reg_officer:1) cw(0) cp(0))
+	("doctrine_t1" cool(60) d(mid_usa_artillery) cost(10))
 }
 
 ; // 5DP M101A1 105mm Howitzer

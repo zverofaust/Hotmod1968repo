@@ -31,10 +31,10 @@
 	{cost 5} {squad_cost_factor 0}
 }
 
-{"brdm-1u"
-	("vehicle2"  period(mid) cd(240) ci(240) g(command) side(sov) t(vehicle command) crew1(sup_supporter:2) crew2(reg_officer:1) b(strategic) cw(0) cp(4))
-	{cost 5} {squad_cost_factor 0}
-}
+;{"brdm-1u"
+;	("vehicle2"  period(mid) cd(240) ci(240) g(command) side(sov) t(vehicle command) crew1(sup_supporter:2) crew2(reg_officer:1) b(strategic) cw(0) cp(4))
+;	{cost 5} {squad_cost_factor 0}
+;}
 
 {"mortar_barrage_smoke_sov"
 	("squad_vehicle" side(sov) cd(60) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
@@ -84,6 +84,12 @@
 {"doctrine_squad_zu23(sov)"
 	("towed_gun_doctrine" side(sov) period(mid) vehicle(gaz-69) crew_v(sup_supporter:2) cannon(zu-23-2) crew_c(sup_supporter:2) cw(0) cp(0))
 	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(10))
+}
+
+; // 10DP 9P122
+{"doctrine_vehicle_9p122(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(9p110) crew(sup_vehicleman:2) cw(0) cp(0))
+	("doctrine_t1" cool(160) d(mid_sov_motostrelki) cost(10))
 }
 
 ; // 15DP Guards Motostrelki Squad in BTR-60PB
@@ -242,6 +248,12 @@
 {"doctrine_paradrop_asu57(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(asu57) crew(vdv_vehicleman:3) cw(0) cp(0))
 	("doctrine_t1" cool(140) d(mid_sov_vdv) cost(6))
+}
+
+; // 8DP BRDM-1U
+{"doctrine_vehicle_brdm1u(sov)"
+	("squad_vehicle2_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(brdm-1u) crew1(sup_supporter:2) crew2(reg_officer:1) cw(2) cp(0))
+	("doctrine_t1" cool(140) d(mid_sov_vdv) cost(10))
 }
 
 ; // 10DP GRU Spetsnaz Assault Pioneer Team, to be mounted in amphibious GAZ-46 when available
@@ -526,10 +538,10 @@
 	{cost 250}
 }
 
-{"9p110"
-	("vehicle" period(mid) cd(180) ci(60) t(vehicle td) side(sov) crew(sup_vehicleman:2) g(vehicle3) b(tanks) cw(0) cp(10))
-	{cost 275}
-}
+;{"9p110"
+;	("vehicle" period(mid) cd(180) ci(60) t(vehicle td) side(sov) crew(sup_vehicleman:2) g(vehicle3) b(tanks) cw(0) cp(10))
+;	{cost 275}
+;}
 
 ;Medium
 

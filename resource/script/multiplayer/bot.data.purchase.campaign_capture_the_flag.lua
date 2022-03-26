@@ -342,6 +342,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.ATTank, unit = "asu57"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "asu-85"},
 			--Tanks_medium
+				{priority = 1.0, class = UnitClass.Tank, unit = "t-44"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "t-54"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "t-55a"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "zsu-57-2"},
