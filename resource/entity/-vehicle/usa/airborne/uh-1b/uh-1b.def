@@ -19,45 +19,29 @@
 			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "doorright"}}
 			{reverse 	{end	"board_big-midcar" -1} {base "doorright" -1}}
 		}
-		{anm "passenger"
-			{forward	{begin 	"board_tank"}	{end "seat_passenger"}}
-			{reverse 	{end	"emit_tank_1_hold"}}
+		{anm "passenger1"
+			{forward	{begin 	"board_body"}	{end "seat_passenger"} {base "doorleft1"}}
+			{reverse 	{end	"emit_tank_1_hold"} {base "doorleft1"}}
 		}
-		{anm "passenger-a"
-			{forward	{end "pose_seat_armor_1"}}
-			{reverse 	{end	"emit_tank_1_hold"}}
-		}
-		{anm "passenger-b"
-			{forward	{end "pose_seat_armor_2"}}
-			{reverse 	{end	"emit_tank_1_hold"}}
-		}
-		{anm "gunner1"
-			{forward	{begin	"board_SdKfz251-1"} {end "seat_passenger"}}
-			{reverse 	{end	"emit_body" 1}}
-		}
-		{anm "passenger-c"
-			{forward	{end "pose_flak30_gunner"}}
-			{reverse 	{end	"emit_tank_1_hold"}}
+		{anm "passenger2"
+			{forward	{begin 	"board_body"}	{end "seat_passenger"} {base "doorright1"}}
+			{reverse 	{end	"emit_tank_1_hold"} {base "doorright1"}}
 		}
 	}
 	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
 	("crew_human" place(commander) bone(commander) door(emit2) animation(commander))
-	("crew_human" place(passenger1) bone(passenger1) door(emit3) animation(passenger-a))
-	("crew_human" place(passenger2) bone(passenger2) door(emit4) animation(passenger-a))
-	("crew_human" place(passenger3) bone(passenger3) door(emit3) animation(passenger-b))
-	("crew_human" place(passenger4) bone(passenger4) door(emit4) animation(passenger-b))
-	("crew_human" place(passenger5) bone(passenger5) door(emit3) animation(passenger-a))
-	("crew_human" place(passenger6) bone(passenger6) door(emit4) animation(passenger-b))
+	("crew_human" place(seat1) bone(seat01) door(emit3) animation(passenger1))
+	("crew_human" place(seat2) bone(seat02) door(emit4) animation(passenger2))
+	("crew_human" place(seat3) bone(seat03) door(emit3) animation(passenger1))
+	("crew_human" place(seat4) bone(seat04) door(emit4) animation(passenger2))
 	
 	{placer
 		{place "driver"		{group "crew"}}
 		{place "commander"	{group "crew"}}
-		{place "passenger1"	{group "passenger"}}
-		{place "passenger2"	{group "passenger"}}
-		{place "passenger3"	{group "passenger"}}
-		{place "passenger4"	{group "passenger"}}
-		{place "passenger5"	{group "passenger"}}
-		{place "passenger6"	{group "passenger"}}
+		{place "seat1"		{group "passenger"}}
+		{place "seat2"		{group "passenger"}}
+		{place "seat3"		{group "passenger"}}
+		{place "seat4"		{group "passenger"}}
 	}
 	
 	{Sensor
