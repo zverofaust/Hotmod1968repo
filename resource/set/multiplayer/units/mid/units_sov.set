@@ -125,6 +125,12 @@
 	("doctrine_t1" cool(30) d(mid_sov_tank) cost(5))
 }
 
+; // 10DP T-55AK
+{"doctrine_vehicle_t55ak(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(t-55ak) crew(sup_tankman:4) b(strategic) cw(0) cp(0))
+	("doctrine_t1" cool(200) d(mid_sov_tank) cost(10))
+}
+
 ; // 15DP ISU-152M Self-Propelled Assault Gun
 {"doctrine_vehicle_isu152m(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(isu-152m) crew(sup_tankman:5) cw(0) cp(0))
@@ -181,10 +187,22 @@
 	("doctrine_t1" cool(120) d(mid_sov_banner) cost(15))
 }
 
+; // 15DP 9K111 Fagot Launcher
+{"doctrine_vehicle_9k111(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(9k111) crew(red_rifleman:2) cw(0) cp(0))
+	("doctrine_t1" cool(200) d(mid_sov_banner) cost(15))
+}
+
 ; // 20DP Red Banner Guards Squad in BMP-1
 {"doctrine_squad_banner_mech(sov)"
 	("squad_vehicle7_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(bmp-1) crew1(grd_vehicleman:2) crew2(red_squadlead:1) crew3(red_mg:1) crew4(red_antitank:1) crew5(red_atassist:1) crew6(red_marksman:1) crew7(red_rifleman:1) cw(2) cp(0))
 	("doctrine_t1" cool(300) d(mid_sov_banner) cost(20))
+}
+
+; // 20DP T-62K
+{"doctrine_vehicle_t62command(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(t-62k) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t1" cool(400) d(mid_sov_banner) cost(20))
 }
 
 ; // 20DP SO-152 (2S3) Self-Propelled Gun
@@ -197,12 +215,6 @@
 {"doctrine_vehicle_shilka(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(shilka) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t1" cool(330) d(mid_sov_banner) cost(25))
-}
-
-; // 30DP T-62K
-{"doctrine_vehicle_t62command(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(t-62k) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(400) d(mid_sov_banner) cost(30))
 }
 
 ; // 50DP T-64A
@@ -520,6 +532,11 @@
 }
 
 ;Medium
+
+;{"t-44"
+;	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(sov) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
+;	{cost 380}
+;}
 
 {"t-54"
 	("vehicle" period(mid) cd(240) ci(60) t(medium tank) side(sov) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))

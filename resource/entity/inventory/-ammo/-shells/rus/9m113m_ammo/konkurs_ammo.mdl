@@ -1,0 +1,91 @@
+;Exported by: caps
+;Date:        Mon Nov 12 13:15:58 2018
+;File:        G:\!_Work\!_Shells\Konkurs\3D\konkurs_missile_004.max
+{Skeleton
+	{bone "rocket"
+		{parameters "ID=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{LODView
+			{VolumeView "rocket.ply"}
+			{VolumeView "rocket_lod1.ply"}
+		}
+		{bone "tail"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-12.4915	0.00488758	-0.000959873
+			}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 2.10341 25.6372}
+	{Bone "rocket"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		0.0444822	-0.0758806	0
+	}
+}
+{Volume "select"
+	{Box 27.3298 8.32201 5.99992}
+	{Bone "rocket"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0.0485313	-0.104952	0.237151
+	}
+}
+{Extender "preview"
+	{"Stuff_primary"
+		{camera
+			{origin 5.85859	140.281	0.254591}
+			{lookat 5.77545	-0.0111844	-0.0306713}
+			{fov 7.35648}
+			{horizon -0.199792}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.0998384	0.131562	0.471937}
+			}
+			{"1"
+				{type directional}
+				{direction -0.232022	-0.353995	-0.266182}
+			}
+			{"2"
+				{type directional}
+				{direction 0.453301	0.0208015	-0.209965}
+			}
+		}
+	}
+	{"Stuff"
+		{camera
+			{origin 0.270093	224.359	0.430744}
+			{lookat 0.156251	-0.00872039	0.0401531}
+			{fov 7.35648}
+			{horizon -0.199792}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.232022	-0.353995	-0.266182}
+			}
+			{"1"
+				{type directional}
+				{direction 0.453301	0.0208015	-0.209965}
+			}
+			{"2"
+				{type directional}
+				{direction -0.0998384	0.131562	0.471937}
+			}
+		}
+	}
+}

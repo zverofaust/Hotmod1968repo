@@ -84,6 +84,7 @@
 	{"b-10_82mm"	requires	"76mm_zis3_sov"		costs 1}
 	{"spg9"			requires	"b-10_82mm"			costs 1}
 	{"9m14"			requires	"spg9"				costs 2}
+	{"9k111"		requires	"9m14"				costs 4}
 
 ;---Field Guns---
 	;{"d-74"		requires	"d-44"				costs 2} ;122mm D-74 Field Gun
@@ -117,7 +118,7 @@
 	{"btr-60pb"		requires	"btr-60pa"				costs 2}
 	
 	;{"btr-40"		requires	"btr-40"			costs 1}
-	{"brdm-1"		requires	"btr-40"			costs 1}
+	{"brdm-1"		requires	""					costs 1}
 	{"brdm-2"		requires	"brdm-1"			costs 2}
 	{"9p110"		requires	"brdm-1 9m14"		costs 3}
 	
@@ -126,8 +127,9 @@
 	{"asu57"			requires	"squad_vdv_antitank_con(sov)"	costs 1}
 	{"asu-85"			requires	"asu57"			costs 2}
 	{"pt-76"			requires	""				costs 1}
-	{"t-34-85m"			requires	""				costs 2}
-	{"t-54"				requires	"t-34-85m"		costs 2}
+	{"t-34-85m"			requires	""				costs 1}
+	{"t-44"				requires	"t-34-85m"		costs 2}
+	{"t-54"				requires	"t-44"			costs 2}
 	{"t-55a"		 	requires	"t-54"			costs 3}
 	{"t-62a"		 	requires	"t-55a"			costs 4}
 	
@@ -325,8 +327,9 @@
 	;{"d-48"							5 18}
 	{"t-12"								4 24}
 	{"b-10_82mm"						3 23}
-	{"spg9"								2 23}
-	{"9m14"								2 24}
+	{"spg9"								3 24}
+	{"9m14"								3 25}
+	{"9k111"							3 26}
 
 ;---Field Guns---
 	
@@ -359,10 +362,10 @@
 	{"btr-60pa"							0 10}
 	{"btr-60pb"							0 11}
 	
-	{"btr-40"							0 25}
-	{"brdm-1"							0 26}
-	{"brdm-2"							0 27}
-	{"9p110"							2 26}
+	;{"btr-40"							0 25}
+	{"brdm-1"							0 23}
+	{"brdm-2"							1 23}
+	{"9p110"							0 25}
 
 ;---Light Tanks---
 	
@@ -379,6 +382,7 @@
 	{"su100m"							4 27}
 	{"su-122-54"						4 28}
 	{"t-34-85m"							5 26}
+	{"t-44"								5 27}
 	{"t-54"								5 28}
 	{"t-55a"							5 29}
 	{"t-62a"							5 30}

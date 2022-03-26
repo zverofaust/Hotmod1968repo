@@ -227,6 +227,7 @@
 	{item "3m11"				"atgm"		"ammo" 1 {value 20}}
 	{item "9m14"				"atgm"		"ammo" 1 {value 15}}
 	{item "3m7"					"atgm"		"ammo" 1 {value 20}}
+	{item "9m111"				"atgm"		"ammo" 1 {value 20}}
 	
 	;// Aircraft Stuff
 	
