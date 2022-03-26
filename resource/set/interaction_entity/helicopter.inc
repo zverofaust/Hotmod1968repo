@@ -22,10 +22,7 @@
 	}
 	
 	{on engine on overload
-		{call "engine_on"}
-	}
-	
-	{on "engine_toggle" overload			;// UI button to toggle engine on/off
+		;{call "engine_on"}
 	}
 	
 	{on bullet_hit
@@ -56,6 +53,11 @@
 	}
 	
 	{on "engine_on"
+		(mod "mp"
+			{if not "engine_started"
+				{set "engine_started" 1}
+			}
+		)
 		{if not "engine_started"
 			{set "engine_started" 1}
 			{play_sound "engine_start"}
@@ -63,17 +65,18 @@
 		else
 			{ani_play "engine_work" loop}
 			{play_sound "engine_work" 1}
-			{delay 0.3 "start_check_altitude" 
-				{call "check_altitude"}
-			}
 		}
 	}
 	
 	{on "check_altitude"
 		{if tagged "dusty"					
-			{view start "spheredust_heli"}	
+			{spawn "spheredust_heli" 
+				{impulse up -35 com}
+			}					
 			{delay 1 
-				{view start "spheredust_heli"}
+				{spawn "spheredust_heli" 
+					{impulse up -35 com}
+				}
 			}																
 			{delay 0.6 "check_altitude"					
 				{call "check_altitude"}					
@@ -324,7 +327,7 @@
 				}
 			}
 		}
-		{call "engine_off"}
+		;{call "engine_off"}
 	}
 	
 	{on "_explosion" overload
