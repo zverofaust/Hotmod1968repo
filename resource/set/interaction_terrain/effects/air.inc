@@ -51,7 +51,7 @@
 			{spawn "shell_smoke"}									; actual smoke and vision volumes
 
 		else stuff "bomb cluster"								; Cluster bomb activation
-			{spawn "ex_air_small"}
+			{spawn "ex_air_small_debris"}
 			
 		else stuff "bomb size1"								; 50-60kg bombs / explosives
 			{start_sound "detonation/50kg_bomb/bkg/" use_position}

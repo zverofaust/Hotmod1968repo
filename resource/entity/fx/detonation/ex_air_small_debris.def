@@ -1,0 +1,310 @@
+{fx
+	{sound "detonation/explosion_small"}
+	{#+ lightview
+		{type point}
+		{animator
+			{scale 1
+				{linear
+					{min 1}
+					{max 0.5}
+				}
+			}
+			{visibility 1
+				{linear
+					{min 1}
+					{max 0}
+				}
+			}
+			{highlight 0xffedb0}
+			{timer
+				{duration 0.53 0.1}
+			}
+		}
+		{radius 100}
+		{effectonground}
+		{offset 0 0 30}
+		{intensity 1}
+		{radiusfalloff 10}
+	}
+	{##+ particleview central
+		{generator
+			{emissionarea
+				{radius 0}
+				{alpha0 0}
+				{alpha1 0}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 0.3}
+			}
+			{timetolive 0.1}
+			{totalparticles 1}
+			{#+ particlesinblock 1}
+		}
+		{mover
+			{damping 0.92}
+			{gravity
+				{value 0.01}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/explosion/exp01"
+					{timer
+						{mode play }
+						{duration 0.3}
+					}
+					{scale 1
+						{linear
+							{min 1}
+							{max 1.5}
+						}
+					}
+					{preturn 90 90}
+					{light 1
+						{linear
+							{min 0.5}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+	}
+	{#+ particleview pieces
+		{entitygenerator
+			{totalparticles 4}
+			{emissionarea
+				{radius 14}
+				{alpha0 30 30}
+				{alpha1 30 30}
+			}
+			{particleinit
+				{speed -17.5 -12.5}
+				{lifetime 5.5 0.5}
+			}
+			{axisz}
+			{entity "#metall1"
+				{## fx "smoke_steel_piece"}
+				{spinx 2.5 2.5}
+				{spiny 2.5 2.5}
+				{spinz 2.5 2.5}
+			}
+			{entity "#metall2"
+				{## fx "smoke_steel_piece"}
+				{spinx 2.5 2.5}
+				{spiny 2.5 2.5}
+				{spinz 2.5 2.5}
+			}
+		}
+	}
+	{#+ particleview sparkles
+		{generator
+			{emissionarea
+				{radius 0}
+				{alpha0 0}
+				{alpha1 90 90}
+				{distributionlaw sphere}
+			}
+			{particleinit
+				{speed 4.5 1.5}
+				{lifetime 0.4 0.1}
+			}
+			{totalparticles 50}
+			{particlesinblock 50}
+			{timetolive 0.1}
+		}
+		{mover
+			{damping 0.96}
+			{gravity
+				{value 0.1}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.3}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/oskolki"
+					{light 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scalex 0.7 0.3
+						{linear
+							{min 1}
+							{max 0.3}
+						}
+					}
+					{scaley 0.04 0.01}
+				}
+				{flags trace }
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview shock
+		{generator
+			{totalparticles 1}
+			{emissionarea
+				{radius 0}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 0.2}
+			}
+			{particlesinblock 1}
+			{timetolive 0.01}
+		}
+		{offset 0 0 10}
+		{visualizer
+			{stage 
+				{sprite "$/flash/flash_shock"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 1
+						{linear
+							{min 0.1}
+							{max 0.5}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.2}
+						}
+					}
+					{preturn 90 90}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview "smoke streaks"
+		{entitygenerator
+			{emissionarea
+				{alpha0 0}
+				{alpha1 75 75}
+				{## distributionlaw sphere}
+			}
+			{particleinit
+				{speed 25 5}
+				{lifetime 0.15 0.05}
+			}
+			{totalparticles 8}
+			{timetolive 1}
+			{entity "fx_piece"
+				{fx "grenade_debris_air"}
+			}
+			{axisz}
+			{particlesinblock 8}
+		}
+	}
+	{##+ particleview smoke
+		{delay 0.1}
+		{generator
+			{emissionarea
+				{radius 0}
+				{alpha0 0}
+				{alpha1 180}
+				{distributionlaw sphere}
+			}
+			{particleinit
+				{speed 2.5 2.5}
+				{lifetime 3.25 0.25}
+			}
+			{timetolive 0.1}
+			{totalparticles 20}
+			{particlesinblock 20}
+		}
+		{mover
+			{damping 0.81}
+			{gravity
+				{value 0.03}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smoke_g04b"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 200}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.25 0.05}
+							{max 0.37 0.03}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.2 0.1}
+							{max 0}
+						}
+					}
+					{highlight 0xff202020}
+				}
+				{sprite "$/smoke/smoke_g04b"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 20}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 50}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.25 0.05}
+							{max 0.37 0.03}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.2}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+	}
+	{spriteview halo
+		{sprite "$/flash/flash_g03"
+			{timer
+				{mode }
+				{duration 0.1}
+			}
+			{scale 0.3}
+			{light 1
+				{linear
+					{min 1}
+					{max 0}
+				}
+			}
+			{highlight 0xffffd181}
+		}
+		{halo}
+		{notifyowner}
+		{autovisible}
+	}
+}
