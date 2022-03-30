@@ -209,7 +209,7 @@
 			{level ;0
 				{linkBone "basis"}
 				{faroffset 0 0 70}
-				{nearoffset -45 0 55}
+				{nearoffset -45 0 75}
 				{camera "zoom1"}
 				{hide_hitmarker 1}
 				{blur_strength 2}
