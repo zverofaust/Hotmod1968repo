@@ -51,6 +51,16 @@
 	{cost 5}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
 }
 
+{"airstrike_100_sov"
+	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike_2x100) crew(sup_pilot:0))
+	{cost 10}{conditions "radio_sov"}{action "airstrike:mig-19_airstrike_2x100"} 
+}
+
+{"airstrike_cluster_sov"
+	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike_2xcluster) crew(sup_pilot:0))
+	{cost 10}{conditions "radio_sov"}{action "airstrike:mig-19_airstrike_2xcluster"} 
+}
+
 {"cas_mi4_sov"
 	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(sup_pilot:2))
 	{cost 15}{conditions "radio_sov"}{action "airstrike:flare_bombrun_cas"} 
@@ -111,11 +121,18 @@
 	{conditions "radio_sov"}{action "airstrike:flare_bombrun_cas"} 
 }
 
-; // 15DP 500kg bomb strike by Su-7
+; // 12DP 4 x Cluster bomb strike by Su-7
+{"airstrike_cluster_motostrelki_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(su-7_airstrike_4xcluster) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_motostrelky) cost(12))
+	{conditions "radio_sov"}{action "airstrike:su-7_airstrike_4xcluster"}
+}
+
+; // 15DP 4 x 500kg bomb strike by Su-7
 {"airstrike_500_motostrelki_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:1) cw(0) cp(0))
+	("strategic_doctrine" side(sov) period(mid) vehicle(su-7_airstrike_4x500) crew(sup_pilot:0) cw(0) cp(0))
 	("doctrine_t1" cool(240) d(mid_sov_motostrelki) cost(15))
-	{conditions "radio_sov"}{action "airstrike:flare_bombrun_500"}
+	{conditions "radio_sov"}{action "airstrike:su-7_airstrike_4x500"}
 }
 
 ;===================================
@@ -161,11 +178,18 @@
 	("doctrine_t1" cool(200) d(mid_sov_tank) cost(20))
 }
 
-; // 12DP 50kg bomb strike by Su-7
-{"airstrike_50_tank_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:1) cw(0) cp(0))
+; // 12DP 2 x 250kg bomb strike by MiG-19
+{"airstrike_250_tank_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(mig-19_airstrike_2x250) crew(sup_pilot:0) cw(0) cp(0))
 	("doctrine_t1" cool(240) d(mid_sov_tank) cost(12))
-	{conditions "radio_sov"}{action "airstrike:flare_bombrun_50"}
+	{conditions "radio_sov"}{action "airstrike:mig-19_airstrike_2x250"}
+}
+
+; // 12DP 4 x Cluster bomb strike by Su-7
+{"airstrike_cluster_tank_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(su-7_airstrike_4xcluster) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_tank) cost(12))
+	{conditions "radio_sov"}{action "airstrike:su-7_airstrike_4xcluster"}
 }
 
 ;===================================
@@ -229,13 +253,19 @@
 	("doctrine_t1" cool(600) d(mid_sov_banner) cost(50))
 }
 
-; // 15DP 500kg bomb strike by Su-7
-{"airstrike_500_banner_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:1) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_sov_banner) cost(15))
-	{conditions "radio_sov"}{action "airstrike:flare_bombrun_500"}
+; // 15DP 2 x 250kg bomb strike by MiG-19
+{"airstrike_250_banner_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(mig-19_airstrike_2x250) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_banner) cost(8))
+	{conditions "radio_sov"}{action "airstrike:mig-19_airstrike_2x250"}
 }
 
+; // 15DP 4 x 4 x WP bomb strike by Su-7
+{"airstrike_wp_banner_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(su-7_airstrike_4xwp) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_banner) cost(15))
+	{conditions "radio_sov"}{action "airstrike:su-7_airstrike_4xwp"}
+}
 
 ;===================================
 ;       	   Deep Penetration
@@ -293,12 +323,20 @@
 	{conditions "radio_sov"}{action "airstrike:flare_bombrun_cas"} 
 }
 
-; // 15DP 100kg bomb strike by Su-7
-{"airstrike_100_vdv_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:1) cw(0) cp(0))
+; // 15DP 4 x WP bomb strike by Su-7
+{"airstrike_wp_vdv_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(su-7_airstrike_4xwp) crew(sup_pilot:0) cw(0) cp(0))
 	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(15))
-	{conditions "radio_sov"}{action "airstrike:flare_bombrun_100"}
+	{conditions "radio_sov"}{action "airstrike:su-7_airstrike_4xwp"}
 }
+
+; // 15DP 6 x 250kg bomb strike by Su-7
+{"airstrike_250_vdv_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(su-7_airstrike_6x250) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(15))
+	{conditions "radio_sov"}{action "airstrike:su-7_airstrike_6x250"}
+}
+
 
 ; ======Tier2======
 
