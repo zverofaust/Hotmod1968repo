@@ -11,6 +11,22 @@
 	)
 }
 
+{"ammocrate_usa"			;//
+	{on spawn
+		{impulse up -5 forward 5 rnd_dir 1 com}
+	}
+	{on ground_hit
+	}
+}
+
+{"ammocrate_sov"			;//
+	{on spawn
+		{impulse up -5 forward 5 rnd_dir 1 com}
+	}
+	{on ground_hit
+	}
+}
+
 {"m56_para"			;// apply these params to m56
 	{on spawn
 		{impulse up -5 forward 5 rnd_dir 1 com}
