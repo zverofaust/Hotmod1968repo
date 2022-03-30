@@ -86,10 +86,18 @@
 	
 	else stuff "bomb size4"								; 500kg+ bomb
 		{spawn "ex_size4_water"}
+	
+	else stuff "bomb size5"								; 500kg+ bomb
+		{spawn "ex_size4_water"}
 		
 	else stuff "bomb napalm"								; Napalm bomb
 			{spawn "ex_size2_water"}
-			{spawn "fuel_die"}
+			{spawn "napalm"}
+			{spawn "crater_small" terrain_texmod}
+	
+	else stuff "bomb wp_bomb"								; White Phosphorous Bomb
+			{spawn "ex_size2_water"}
+			{spawn "ex_wp_bomb"}
 			{spawn "crater_small" terrain_texmod}
 			
 	else stuff "bomb sizenuke"								; W33 'Davy Crockett' Nuclear Warhead
@@ -150,22 +158,30 @@
 		{spawn "ex_he_size6"}
 
 	else stuff "bomb size1"								; 50-60kg bombs / explosives
-		{spawn "ex_he_size2_mud"}
+		{spawn "ex_he_size1_mud"}
 
 	else stuff "bomb size2"								; 100-200kg bombs / explosives
 		{spawn "ex_he_size3_mud"}
 
 	else stuff "bomb size3"								; 250kg+ bomb
-		{spawn "ex_he_size5"}
+		{spawn "ex_he_size4"}
 		
 	else stuff "bomb size4"								; 500kg+ bomb
-		{spawn "ex_he_size6"}
+		{spawn "ex_he_size5"}
 	
+	else stuff "bomb size5"								; 500kg+ bomb
+		{spawn "ex_he_size6"}
+		
 	else stuff "bomb napalm"								; Napalm bomb
 			{spawn "ex_he_size2_mud"}
-			{spawn "fuel_die"}
+			{spawn "napalm"}
 			{spawn "crater_small" terrain_texmod}
 		
+	else stuff "bomb wp_bomb"								; White Phosphorous Bomb
+			{spawn "fuel_die"}
+			{spawn "ex_wp_bomb"}
+			{spawn "crater_small" terrain_texmod}
+			
 	else stuff "bomb sizenuke"								; W33 Davy Crockett
 			{start_sound "detonation/nuke/" use_position}
 			{spawn "expluto"}
@@ -360,22 +376,28 @@
 		else stuff "bomb size1"								; 50-60kg bombs / explosives
 			{start_sound "detonation/50kg_bomb/bkg/" use_position}
 			{spawn "shockwave_sphere"}
-			{spawn "ex_bomb_50kg"}
+			{spawn "ex_he_size1"}
 			{spawn "crater_medium" terrain_texmod}
 
 		else stuff "bomb size2"								; 100-200kg bombs / explosives
 			{start_sound "detonation/100kg_bomb/bkg/" use_position}
 			{spawn "shockwave_sphere"}
-			{spawn "ex_bomb_100kg"}
+			{spawn "ex_he_size3"}
 			{spawn "crater_big" terrain_texmod}
 
 		else stuff "bomb size3"								; 250kg+ bomb
 			{start_sound "detonation/250kg_bomb/bkg/" use_position}
 			{spawn "shockwave_sphere"}
-			{spawn "ex_bomb_250kg"}
+			{spawn "ex_he_size4"}
 			{spawn "crater_massive" terrain_texmod}
 			
 		else stuff "bomb size4"								; 500kg+ bomb
+			{start_sound "detonation/he_size5/bkg/" use_position}
+			{spawn "shockwave_sphere"}
+			{spawn "ex_he_size5"}
+			{spawn "crater_massive" terrain_texmod}
+			
+		else stuff "bomb size5"								; 1000kg+ bomb
 			{start_sound "detonation/he_size5/bkg/" use_position}
 			{spawn "shockwave_sphere"}
 			{spawn "ex_he_size6"}
@@ -384,7 +406,13 @@
 		else stuff "bomb napalm"								; Napalm bomb
 			{start_sound "detonation/he_size5/bkg/" use_position}
 			{spawn "shockwave_sphere"}
+			{spawn "napalm"}
+			{spawn "crater_small" terrain_texmod}
+			
+		else stuff "bomb wp_bomb"								; White Phosphorous Bomb
+			{start_sound "detonation/he_size5/bkg/" use_position}
 			{spawn "fuel_die"}
+			{spawn "ex_wp_bomb"}
 			{spawn "crater_small" terrain_texmod}
 			
 		else stuff "bomb sizenuke"								; W33 Davy Crockett
