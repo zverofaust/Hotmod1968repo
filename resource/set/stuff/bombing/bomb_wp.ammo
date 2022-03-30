@@ -1,0 +1,20 @@
+{from "pattern air_bomb"
+	{entity "bomb_single_napalm"}
+	{tag "wp_bomb"}
+	{mass 100}
+
+	;{damage fire
+	;	{radius 8}
+	;	{heating 10}
+	;	{time 2}
+		;{ground_interaction_radius 0.3} ;// crashes game if used with fire damage
+	;}
+
+	{detonationThickness 1}
+	
+	{damage add blastwave
+		{energy 1.1}
+		{area 8 15}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+}
