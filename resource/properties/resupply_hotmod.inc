@@ -395,10 +395,11 @@
 			("items_artillery_sov")
 			("items_artillery_usa")
 		}
-		{radius 			10}		;// resupply radius in meter
+		{mechanicResources {amount 10}{value 10}}
+		{radius 			6}		;// resupply radius in meter
 		{resupplyPeriod 	2}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				250}	;// max number of resupplies (0 = unlimited)
+		{limit 				100}	;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"

@@ -22,7 +22,7 @@
 	}
 	
 	{on engine on overload
-		;{call "engine_on"}
+		{call "engine_on"}
 	}
 	
 	{on bullet_hit
@@ -192,10 +192,12 @@
 	{on break
 		{if component "body"
 			{spawn "car_die_particle"}
+			{call "fall"}
 		else component "engine"
 			{tags add "engine_brake"}
 			{spawn "car_die_particle"}
 			{view start "smoke2"}
+			{call "fall"}
 			{delay 40 {view stop "smoke2"}}
 			{view start "steam"}
 			{delay 2  {view stop "steam"}}

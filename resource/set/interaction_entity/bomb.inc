@@ -1,144 +1,793 @@
-;/*=========== Bomb Run Types Begin ==========*/
+;/*=========== Bomb Aircraft Animations Begin ==========*/
 
-{"flare_bombrun_cas"			;// Dummy object for non-bomb CAS callins
+{"sound_jet"			;
 	{on spawn
-		{delay 5 {delete}}
+		{link_sound "fly"					"vehicle/airborne/f4_move2"}
+		{play_sound "fly" 1}
 	}
 }
 
-{"flare_bombrun_50"			;// Dummy object that spawns bombrun.
+{"sortie"			;
 	{on spawn
-		{spawn "bombrun_50"}
-		{delay 5 {delete}}
+		{link_sound "bombdrop"				"weapon/shot/mortar/whistle"}
+		{add_view	"nebel_tail"			"engine_afterburner"			"FXSmoke1"}	
+		{add_view	"nebel_tail"			"engine_afterburner2"			"FXSmoke2"}
+		{add_view	"rocket_smoke"			"engine_exhaust"				"FXSmoke1"}
+		{add_view	"rocket_smoke"			"engine_exhaust2"				"FXSmoke2"}			
+		{add_view	"pfaust_tail"			"wingtipr_trail"				"wingtipr"}
+		{add_view	"pfaust_tail"			"wingtipl_trail"				"wingtipl"}
+		{view start "engine_exhaust"}
+		;{view start "wingtipr_trail"}
+		;{view start "wingtipl_trail"}
+		
+		{if rand 0.33	
+			{ani_play "flyin_8" callback}	
+			else rand 0.33			
+			{ani_play "flyin_7" callback}	
+			else rand 0.33	
+			{ani_play "flyin_6" callback}	
+			else rand 0.33
+			{ani_play "flyin_5" callback}	
+			else rand 0.33
+			{ani_play "flyin_4" callback}	
+			else rand 0.33			
+			{ani_play "flyin_3" callback}	
+			else rand 0.33	
+			{ani_play "flyin_2" callback}	
+			else 
+			{ani_play "flyin_1" callback}
+		}
 	}
+	{on animation_end "flyin_1"
+		{ani_play "approach_1" callback}		
+	}
+	{on animation_end "flyin_2"
+		{ani_play "approach_2" callback}		
+	}
+	{on animation_end "flyin_3"
+		{ani_play "approach_3" callback}		
+	}
+	{on animation_end "flyin_4"
+		{ani_play "approach_4" callback}		
+	}
+	{on animation_end "flyin_5"
+		{ani_play "approach_5" callback}		
+	}
+	{on animation_end "flyin_6"
+		{ani_play "approach_6" callback}		
+	}
+	{on animation_end "flyin_7"
+		{ani_play "approach_7" callback}		
+	}
+	{on animation_end "flyin_8"
+		{ani_play "approach_8" callback}		
+	}
+	;// End approach, drop bombs, bug out
+	{on animation_end "approach_1"
+		{call "bomb_drop"}
+		{ani_play "flyout_1" callback}	
+	}
+	{on animation_end "approach_2"
+		{call "bomb_drop"}
+		{ani_play "flyout_2" callback}	
+	}	
+	{on animation_end "approach_3"
+		{call "bomb_drop"}
+		{ani_play "flyout_3" callback}	
+	}	
+	{on animation_end "approach_4"
+		{call "bomb_drop"}
+		{ani_play "flyout_4" callback}	
+	}	
+	{on animation_end "approach_5"
+		{call "bomb_drop"}
+		{ani_play "flyout_5" callback}	
+	}
+	{on animation_end "approach_6"
+		{call "bomb_drop"}
+		{ani_play "flyout_6" callback}	
+	}	
+	{on animation_end "approach_7"
+		{call "bomb_drop"}
+		{ani_play "flyout_7" callback}	
+	}	
+	{on animation_end "approach_8"
+		{call "bomb_drop"}
+		{ani_play "flyout_8" callback}	
+	}
+	{on animation_end "flyout_1"
+		{delete}	
+	}
+	{on animation_end "flyout_2"
+		{delete}	
+	}
+	{on animation_end "flyout_3"
+		{delete}	
+	}
+	{on animation_end "flyout_4"
+		{delete}	
+	}
+	{on animation_end "flyout_5"
+		{delete}	
+	}
+	{on animation_end "flyout_6"
+		{delete}	
+	}
+	{on animation_end "flyout_7"
+		{delete}	
+	}
+	{on animation_end "flyout_8"
+		{delete}	
+	}	
 }
 
-{"flare_bombrun_100"			;// Dummy object that spawns bombrun.
-	{on spawn
-		{spawn "bombrun_100"}
-		{delay 5 {delete}}
-	}
-}
-
-{"flare_bombrun_250"			;// Dummy object that spawns bombrun.
-	{on spawn
-		{spawn "bombrun_250"}
-		{delay 5 {delete}}
-	}
-}
-
-{"flare_bombrun_500"			;// Dummy object that spawns bombrun.
-	{on spawn
-		{spawn "bombrun_500"}
-		{delay 5 {delete}}
-	}
-}
-
-{"flare_bombrun_napalm"			;// Dummy object that spawns bombrun.
-	{on spawn
-		{spawn "bombrun_napalm"}
-		{delay 5 {delete}}
-	}
-}
-
-{"bombrun_50"			;// Flare that spawns timed explosions randomized in area
-	{on spawn
-		{if not tagged "fired"
-			{tags add "fired"}
-			(define "rnd_art_bomb"
-				{delay %delay 0.0
-					{spawn "bomb_single_50" {impulse up -20.5 forward 0 5 rnd_dir 12 com}}
-				}
-			)
-			("rnd_art_bomb" delay(0.01))
-			("rnd_art_bomb" delay(0.02))
-			("rnd_art_bomb" delay(0.03))
-			("rnd_art_bomb" delay(0.04))
-			("rnd_art_bomb" delay(0.05))
-			("rnd_art_bomb" delay(0.06))
-			("rnd_art_bomb" delay(0.07))
-			("rnd_art_bomb" delay(0.08))
-			{hide 1}
+;;;;;;;;;;;;;;;;;;;;// SOVIET AIRSTRIKES
+{"mig-19_airstrike_2x250"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.01 
+			{spawn "bomb_single_250" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 40}
+			}
+		
+		}
+		{delay 0.1 
+			{spawn "bomb_single_250" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 50}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
 		}
 	}
 }
 
-{"bombrun_100"			;// Flare that spawns timed explosions randomized in area
-	{on spawn
-		{if not tagged "fired"
-			{tags add "fired"}
-			(define "rnd_art_bomb"
-				{delay %delay 0.0
-					{spawn "bomb_single_100" {impulse up -20.5 forward 0 5 rnd_dir 10 com}}
-				}
-			)
-			("rnd_art_bomb" delay(0.01))
-			("rnd_art_bomb" delay(0.02))
-			("rnd_art_bomb" delay(0.03))
-			("rnd_art_bomb" delay(0.04))
-			("rnd_art_bomb" delay(0.05))
-			("rnd_art_bomb" delay(0.06))
-			{hide 1}
+{"mig-19_airstrike_2x100"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.01 
+			{spawn "bomb_single_100" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 45}
+			}
+		
+		}
+		{delay 0.1 
+			{spawn "bomb_single_100" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
 		}
 	}
 }
 
-{"bombrun_250"			;// Flare that spawns timed explosions randomized in area
-	{on spawn
-		{if not tagged "fired"
-			{tags add "fired"}
-			(define "rnd_art_bomb"
-				{delay %delay 0.0
-					{spawn "bomb_single_250" {impulse up -20.5 forward 0 5 rnd_dir 8 com}}
-				}
-			)
-			("rnd_art_bomb" delay(0.0))
-			("rnd_art_bomb" delay(0.01))
-			("rnd_art_bomb" delay(0.02))
-			("rnd_art_bomb" delay(0.03))
-			{hide 1}
+{"mig-19_airstrike_2xcluster"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.28 
+			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 60}
+			}
+		
+		}
+		{delay 0.3 
+			{spawn "bomb_single_cluster" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
 		}
 	}
 }
 
-{"bombrun_500"			;// Flare that spawns timed explosions randomized in area
-	{on spawn
-		{if not tagged "fired"
-			{tags add "fired"}
-			(define "rnd_art_bomb"
-				{delay %delay 0.0
-					{spawn "bomb_single_500" {impulse up -20.5 forward 0 5 rnd_dir 6 com}}
-				}
-			)
-			("rnd_art_bomb" delay(0.0))
-			{hide 1}
+
+{"su-7_airstrike_4xcluster"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.26 
+			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.28 
+			{spawn "bomb_single_cluster" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 60}
+			}
+		
+		}
+		{delay 0.3 
+			{spawn "bomb_single_cluster" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.32 
+			{spawn "bomb_single_cluster" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 60}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
+		}
+	}
+}
+{"su-7_airstrike_4x500"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.01 
+			{spawn "bomb_single_500" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 40}
+			}
+		
+		}
+		{delay 0.1 
+			{spawn "bomb_single_500" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 45}
+			}
+		
+		}
+		{delay 0.15 
+			{spawn "bomb_single_500" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 50}
+			}
+		
+		}
+		{delay 0.2 
+			{spawn "bomb_single_500" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
 		}
 	}
 }
 
-{"bombrun_napalm"			;// Flare that spawns timed explosions randomized in area
-	{on spawn
-		{if not tagged "fired"
-			{tags add "fired"}
-			(define "rnd_art_bomb"
-				{delay %delay 0.0
-					{spawn "bomb_single_napalm" {impulse up -20.5 forward 0 5 rnd_dir 7 com}}
-				}
-			)
-			("rnd_art_bomb" delay(0.01))
-			("rnd_art_bomb" delay(0.02))
-			("rnd_art_bomb" delay(0.03))
-			("rnd_art_bomb" delay(0.04))
-			("rnd_art_bomb" delay(0.05))
-			("rnd_art_bomb" delay(0.06))
-			("rnd_art_bomb" delay(0.07))
-			("rnd_art_bomb" delay(0.08))
-			("rnd_art_bomb" delay(0.09))
-			("rnd_art_bomb" delay(1.00))
-			{hide 1}
+{"su-7_airstrike_4xwp"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.01 
+			{spawn "bomb_single_wp" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 40}
+			}
+		
+		}
+		{delay 0.1 
+			{spawn "bomb_single_wp" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 45}
+			}
+		
+		}
+		{delay 0.15 
+			{spawn "bomb_single_wp" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 50}
+			}
+		
+		}
+		{delay 0.2 
+			{spawn "bomb_single_wp" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
 		}
 	}
 }
+
+{"su-7_airstrike_6x250"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.01 
+			{spawn "bomb_single_250" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 37}
+			}
+		
+		}
+		{delay 0.1 
+			{spawn "bomb_single_250" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 42}
+			}
+		
+		}
+		{delay 0.15 
+			{spawn "bomb_single_250" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 47}
+			}
+		
+		}
+		{delay 0.2 
+			{spawn "bomb_single_250" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.22 
+			{spawn "bomb_single_250" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.26 
+			{spawn "bomb_single_250" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
+		}
+	}
+}
+
+;;;;;;;;;;;;;;;;;;;;// US AIRSTRIKES
+
+
+{"f-105_airstrike_8xcluster"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.3 
+			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 37}
+			}
+		
+		}
+		{delay 0.32 
+			{spawn "bomb_single_cluster" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 42}
+			}
+		
+		}
+		{delay 0.35 
+			{spawn "bomb_single_cluster" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 47}
+			}
+		
+		}
+		{delay 0.38 
+			{spawn "bomb_single_cluster" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.41 
+			{spawn "bomb_single_cluster" "hardpoint_5" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.44 
+			{spawn "bomb_single_cluster" "hardpoint_6" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 0.47 
+			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.5 
+			{spawn "bomb_single_cluster" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
+		}
+	}
+}
+
+{"f-105_airstrike_8x250"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.01 
+			{spawn "bomb_single_250" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 37}
+			}
+		
+		}
+		{delay 0.1 
+			{spawn "bomb_single_250" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 42}
+			}
+		
+		}
+		{delay 0.15 
+			{spawn "bomb_single_250" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 47}
+			}
+		
+		}
+		{delay 0.2 
+			{spawn "bomb_single_250" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.22 
+			{spawn "bomb_single_250" "hardpoint_5" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.26 
+			{spawn "bomb_single_250" "hardpoint_6" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 0.3 
+			{spawn "bomb_single_250" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.33 
+			{spawn "bomb_single_250" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
+		}
+	}
+}
+
+{"f-105_airstrike_8x500"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.01 
+			{spawn "bomb_single_500" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 37}
+			}
+		
+		}
+		{delay 0.1 
+			{spawn "bomb_single_500" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 42}
+			}
+		
+		}
+		{delay 0.15 
+			{spawn "bomb_single_500" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 47}
+			}
+		
+		}
+		{delay 0.2 
+			{spawn "bomb_single_500" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.22 
+			{spawn "bomb_single_500" "hardpoint_5" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.26 
+			{spawn "bomb_single_500" "hardpoint_6" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 0.3 
+			{spawn "bomb_single_500" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.33 
+			{spawn "bomb_single_500" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
+		}
+	}
+}
+
+{"f-105_airstrike_8xwp"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.3 
+			{spawn "bomb_single_wp" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 37}
+			}
+		
+		}
+		{delay 0.32 
+			{spawn "bomb_single_wp" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 42}
+			}
+		
+		}
+		{delay 0.35 
+			{spawn "bomb_single_wp" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 47}
+			}
+		
+		}
+		{delay 0.38 
+			{spawn "bomb_single_wp" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.41 
+			{spawn "bomb_single_wp" "hardpoint_5" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.44 
+			{spawn "bomb_single_wp" "hardpoint_6" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 0.47 
+			{spawn "bomb_single_wp" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.5 
+			{spawn "bomb_single_wp" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
+		}
+	}
+}
+
+{"f-105_airstrike_3x1000"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.01 
+			{spawn "bomb_single_1000" "hardpoint_5" x dir_velocity
+				{impulse up -14 dir -5 forward 37}
+			}
+		
+		}
+		{delay 0.15 
+			{spawn "bomb_single_1000" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.3 
+			{spawn "bomb_single_1000" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
+		}
+	}
+}
+
+{"f-105_airstrike_napalm"
+	{on "bomb_drop"
+		{play_sound "bombdrop"}
+		{view start "engine_afterburner"}
+		{view start "engine_afterburner2"}
+		{view start "wingtipr_trail"}
+		{view start "wingtipl_trail"}
+		{delay 0.01 
+			{spawn "bomb_single_napalm" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 37}
+			}
+		
+		}
+		{delay 0.07 
+			{spawn "bomb_single_napalm" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 42}
+			}
+		
+		}
+		{delay 0.11 
+			{spawn "bomb_single_napalm" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 47}
+			}
+		
+		}
+		{delay 0.15 
+			{spawn "bomb_single_napalm" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.19 
+			{spawn "bomb_single_napalm" "hardpoint_5" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.23 
+			{spawn "bomb_single_napalm" "hardpoint_6" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 0.27 
+			{spawn "bomb_single_napalm" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.31 
+			{spawn "bomb_single_napalm" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 0.35 
+			{spawn "bomb_single_napalm" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.38 
+			{spawn "bomb_single_napalm" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 37}
+			}
+		
+		}
+		{delay 0.4 
+			{spawn "bomb_single_napalm" "hardpoint_5" x dir_velocity
+				{impulse up -14 dir -5 forward 44}
+			}
+		
+		}
+		{delay 0.44
+			{spawn "bomb_single_napalm" "hardpoint_6" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+		{delay 2
+			{view stop "wingtipr_trail"}
+			{view stop "wingtipl_trail"}
+		}
+		{delay 5
+			{view stop "engine_afterburner"}
+			{view stop "engine_afterburner2"}
+		}
+	}
+}
+
+
+;;;;;;;;;;;;;;;;;;;;// Other Script
+
 
 {"bomb_single"			;// Settings for all BOMBS that fall to ground
 	{on spawn
@@ -152,5 +801,85 @@
 	}
 	{on "explosion"
 		{stuff_detonate}
+	}
+}
+
+{"submunition"			;// Settings for all submunitions
+	{on ground_hit
+		{call "explosion"}
+	}
+	;{on contact
+	;	{call "explosion"}
+	;}
+	{on "explosion"
+		{stuff_detonate}
+	}
+}
+
+{"bomb_single_cluster"			;// Settings for cluster bombs
+	{on spawn
+		{delay 1
+			{call "explosion"}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+		}
 	}
 }
