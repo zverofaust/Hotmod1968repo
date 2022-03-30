@@ -1,0 +1,33 @@
+{actor
+
+	{brain "vehicle" {state "airborne"}}
+	
+	{Simulation {able 1}}
+	
+	{Extension "f-105_airstrike.mdl"}
+	{props "steel" "vehicle" "f105" "airborne" "vision_lev01_air" "sortie" "airstrike_napalm"}	
+	{targetClass "airborne"}
+	{hearingBias 250.0}	
+	{sensor
+		{visor "view-around"
+            {vision "airborne_around"}
+			{bone "visor"}
+		}		
+		{visor "main"
+			{vision "airborne_main"}
+			{bone "visor"}
+		}		
+		{RecognizeTime 0.01}
+		{InformRange 50 75}
+	}
+	{placer
+		{place "sound"
+			{entity "sound_jet"}
+			{Linkbone "body"}
+			{obstacle disable}
+		}
+	}
+	{lodclass "vehicle_plane"}
+	{constrain none}
+	{fogable never}
+}
