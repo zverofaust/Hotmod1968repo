@@ -347,13 +347,13 @@
 			}
 		
 		}
-		{delay 0.1 
+		{delay 0.15 
 			{spawn "bomb_single_1000" "hardpoint_2" x dir_velocity
 				{impulse up -14 dir -5 forward 47}
 			}
 		
 		}
-		{delay 0.15 
+		{delay 0.3
 			{spawn "bomb_single_1000" "hardpoint_3" x dir_velocity
 				{impulse up -14 dir -5 forward 52}
 			}
