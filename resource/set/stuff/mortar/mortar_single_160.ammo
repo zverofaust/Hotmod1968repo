@@ -1,0 +1,25 @@
+{from "pattern mortar_ammo"
+	{tag "pierce shell size4 he fg 122to128"}
+	{inventory
+		{noView}
+	}
+	{entity "mortar_single_120"}
+
+	("he_heavy")
+
+	{damage blastwave
+		{energy 9.02}
+		{area 0.6 0.8}
+		{ground_interaction_radius 1}
+	}
+	{damage add blastwave
+		{energy 3.02}
+		{area 2.26 3.53}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+	{damage add blastwave
+		{energy 1.874}
+		{area 10.89 15.84}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+}
