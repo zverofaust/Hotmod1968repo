@@ -46,33 +46,6 @@
 	("crew_human" 		place(seat12)	bone(seat12)	door(emit4) animation(passenger)	group(passenger))
 	("crew_human" 		place(seat13)	bone(seat13)	door(emit3) animation(passenger)	group(passenger))
 	("crew_human"		place(seat14)	bone(seat14)	door(emit4) animation(passenger)	group(passenger))
-
-	;volume, component/tag, thickness
-	{Volume "body"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body1"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body2"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body3"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
-	{Volume "body4"
-		{tags "body"}
-		{thickness 10}
-		{component "body"}
-	}
 	
 	{Obstacle "in_air"
 		{Obb2
@@ -85,23 +58,49 @@
 	{ObstacleId "helicopter" "in_air"}
 
 	;volume/component, thickness
-	("glass" args "window1" 10)
-	("glass" args "window2" 10)
-	("glass" args "window3" 10)
-	("glass" args "window4" 10)
-	("glass" args "window5" 10)
-	("glass" args "window6" 10)
-	("glass" args "window7" 10)
-	("glass" args "window8" 10)
-	("glass" args "window9" 10)
-	("glass" args "window10" 10)
-	("glass" args "window11" 10)
-	("glass" args "window12" 10)
-	("glass" args "window13" 10)
-	("glass" args "window14" 10)
-	("glass" args "window15" 10)
-	("glass" args "window16" 10)
-	("glass" args "window17" 10)
+	("glass" args "window1")
+	("glass" args "window2")
+	("glass" args "window3")
+	("glass" args "window4")
+	("glass" args "window5")
+	("glass" args "window6")
+	("glass" args "window7")
+	("glass" args "window8")
+	("glass" args "window9")
+	("glass" args "window10")
+	("glass" args "window11")
+	("glass" args "window12")
+	("glass" args "window13")
+	("glass" args "window14")
+	("glass" args "window15")
+	("glass" args "window16")
+	("glass" args "window17")
+	
+	;main body parts
+	("body" args "body")
+	("body" args "body1")
+	("body" args "body2")
+	("body" args "body3")
+	("body" args "body4")
+	("body" args "body5")
+	
+	;main rotor + blades	
+	("part" args "rotor")
+	("part" args "propeller1")
+	("part" args "propeller2")
+	("part" args "propeller3")
+	("part" args "propeller4")
+
+	;back rotor + blades
+	("part" args "rotor_b")
+	("part" args "propeller_b")
+	("part" args "propeller_b1")
+	("part" args "propeller_b2")
+
+	("wheel" args "wheell1")
+	("wheel" args "wheelr1")
+	("wheel" args "wheell2")
+	("wheel" args "wheelr2")
 	
 	{Obstacle "in_air"
         {Obb2
@@ -162,24 +161,6 @@
 	{Chassis "helicopter"
 		{Locomotion ("locomotion_transport")}
 	}
-
-	;main rotor + blades
-	("part" args "rotor")
-	("part" args "propeller1")
-	("part" args "propeller2")
-	("part" args "propeller3")
-	("part" args "propeller4")
-
-	;back rotor + blades
-	("part" args "rotor_b")
-	("part" args "propeller_b")
-	("part" args "propeller_b1")
-	("part" args "propeller_b2")
-
-	("wheel" args "wheell1")
-	("wheel" args "wheelr1")
-	("wheel" args "wheell2")
-	("wheel" args "wheelr2")
 
 	{Extension "mil_mi4_heavy.mdl"}
 	
