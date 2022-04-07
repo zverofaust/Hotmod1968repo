@@ -154,14 +154,38 @@ actor
 	{TurnRadius		15	}	; turn radius, m
 )
 
+(define "body"
+	{volume %0					;adress volume named %0
+		{tags %0 "body"}		;give it a tag of its name and "body"
+		{component "body"}			;assign component of name body
+		{thickness 5}
+		{able {visible 0}}
+	}
+	{component "body"}				;create component with name %0
+)
+
 (define "part"
 	{volume %0					;adress volume named %0
 		{tags %0 "part"}		;give it a tag of its name and "part"
 		{component %0}			;assign component of name %0 (in case it existed)
-		{thickness 0.5}
+		{thickness 5}
 		{able {visible 0}}
 	}
 	{component %0}				;create component with name %0
+)
+
+(define "glass"
+	{volume %0
+		{thickness 1}
+		{material "glass"}
+		{tags "glass"}
+		{component %0}
+		{able {visible 0}{obstacle 0}}
+	}
+	{component %0
+		{tags "glass"}
+		{RepairOrder 13}
+	}
 )
 
 (define "armor_helicopter"
@@ -181,23 +205,20 @@ actor
 				{pierce {value 4}}
 			}
 		}
-		{setting "wheel"
-			{volumes "wheel*"}
-			{thickness 5}
-			{whole_wound}
-			{threshold
-				{blast 	{value 4}}
-				{pierce {value 4}}
-			}
-		}
 	}
 )
 
-(define "window_volume"
+(define "wheel"
 	{volume "%name"
-		{thickness %thickness}
+		{thickness 5}
 		{able {window}}
 	}
 )
 
-("helicopter_durability" body(200) engine(100) rotor(50) rotor_b(50) part(100))
+("basic_armor" args 99)
+
+("helicopter_durability" body(200) engine(100) rotor(50) rotor_b(50) part(200))
+
+{perks
+	{blastwave_modifier 12.5}
+}

@@ -1,0 +1,118 @@
+;SDL
+actor
+
+(include "armor.ext")
+
+{props "steel" "vehicle" "airborne" "airborne_strike" "vision_lev01_air" "sortie"}
+{obstacleID "none"}
+{Simulation {able 1}}
+{targetClass "airborne_strike"}
+{collider "vehicle"}
+
+{lodclass "vehicle_plane"}
+;{constrain none}
+{fogable never}
+
+{hearingBias 250.0}				;// reduces units ability to hear sound signals. value = meters
+
+{RimLight}
+{NoGroupMesh 1}
+
+{sensor
+	{visor "view-around"
+           {vision "airborne_around"}
+		{bone "visor"}
+	}		
+	{visor "main"
+		{vision "airborne_main"}
+		{bone "visor"}
+	}		
+	{RecognizeTime 0.01}
+	{InformRange 50 75}
+}
+	
+	{brain "vehicle"
+		{state "vehicle"}
+		{const "crush/min_danger_zone_time" 	1}
+		{const "crush/min_danger_zone_length"	1}
+	}
+
+	{component "body"
+		{RepairTime 10}
+		{RepairOrder 0}
+	}
+	
+	{component "engine"
+		{RepairTime 10}
+		{RepairOrder 0}
+	}
+	
+	{component "wing"
+		{RepairTime 10}
+		{RepairOrder 0}
+	}
+
+
+{placer
+	{place "sound"
+		{entity "sound_jet"}
+		{Linkbone "body"}
+		{obstacle disable}
+	}
+}
+
+{volume "fuselage"
+	{tags "fuselage"}
+	{component "body"}
+	{able {visible 0}}
+	{thickness 10}
+}
+	
+(define "body"
+	{volume "%volume%number"
+		%extra
+		{tags %tags}
+		{able {visible 0}}
+		{thickness 5}
+	}
+)
+
+("body" volume(body) number() tags() extra())
+("body" volume(body) number(1) tags() extra())
+("body" volume(body) number(2) tags() extra())
+("body" volume(body) number(3) tags() extra())
+("body" volume(body) number(4) tags() extra())
+("body" volume(body) number(5) tags() extra())
+("body" volume(body) number(6) tags() extra())
+("body" volume(body) number(7) tags() extra())
+("body" volume(body) number(8) tags() extra())
+
+("basic_armor" args 11)
+
+{perks
+	{component "body"
+		{health
+			{hp 100}
+		}
+		{armor_damage_modifier 0.1}
+	}
+	{component "wing"
+		{health
+			{hp 50}
+		}
+		{armor_damage_modifier 0.1}
+	}
+	{component "engine"
+		{health
+			{hp 50}
+		}
+		{armor_damage_modifier 0.1}
+	}
+	{component "part"
+		{health
+			{hp 100}
+		}
+		{armor_damage_modifier 0.1}
+	}
+	{blastwave_modifier 12.5}
+}
