@@ -1,0 +1,30 @@
+;_________________________________________
+; USSR Heavy AT gun
+;=========================================
+
+
+{from "pattern gun"			; L/48 "IS-2"
+	{filling "bulletrus_122_l48"}
+	{fireSound "gun/gun_122_152"}
+	{fireSoundclose "gun/gun_interior/size4"}
+	{reloadSound "interior/large/howitzer_reload_interior"}
+	("range_240")
+	{calibre 122}
+
+	("reload time" seconds(17))
+
+	("velocity m/s" ap(792) apcr(1) he(750) heat(1))
+	("armor health" damage(320))
+	("armor health custom" shell(aphebc) damage(320) filler(211))
+	("armor health custom" shell(aphebc) damage(320) filler(211))
+
+	; BR-471
+	("penetration_long" shell(aphe) range(240) a(205) b(183) c(162) d(144) e(128))  ;RHA
+ ;//("penetration_long" shell(aphe) range(240) a(174) b(158) c(140) d(125) e(111))  ;FHA
+
+	; BR-471B ;issued sometime between Sept. 1944 and Jan. 1945
+	("penetration_long" shell(aphebc) range(240) a(205) b(191) c(178) d(166) e(155))  ;RHA
+ ;//("penetration_long" shell(aphebc) range(240) a(175) b(166) c(155) d(144) e(135))  ;FHA
+
+	("accuracy_direct" r1(0.60) range_ap(340) range_he(340) range_heat(320))
+}

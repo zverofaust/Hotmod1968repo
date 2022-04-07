@@ -489,7 +489,7 @@
 
 (define "range_aircraft_gun"
 	("standard_firing_arc")
-	{range 160 160}
+	{range 220 220}
 	(mod not "mp"
 		{range 275 500}
 		{aimingTolerance 15}
@@ -522,7 +522,7 @@
 
 (define "range_autocannon_12-20"
 	("standard_firing_arc")
-	{range 180 180}
+	{range 240 240}
 	{automatic}
 	{aimingTolerance 3}
 	{SpreadTolerance 0}			;// Zeroing up to 0% needed before fire
@@ -543,7 +543,7 @@
 
 (define "range_autocannon_37-40"
 	("standard_firing_arc")
-	{range 200 200}
+	{range 250 250}
 	{automatic}
 	{aimingTolerance 3}
 	{SpreadTolerance 0}			;// Zeroing up to 0% needed before fire
@@ -563,7 +563,7 @@
 
 (define "range_autocannon_41-57"
 	("standard_firing_arc")
-	{range 220 220}
+	{range 270 270}
 	{automatic}
 	{aimingTolerance 3}
 	{SpreadTolerance 0}			;// Zeroing up to 0% needed before fire
@@ -656,6 +656,21 @@
 	{range 300 300}
 	("direct_settings")
 )
+(define "range_310"
+	("standard_firing_arc")
+	{range 310 310}
+	("direct_settings")
+)
+(define "range_320"
+	("standard_firing_arc")
+	{range 320 320}
+	("direct_settings")
+)
+(define "range_330"
+	("standard_firing_arc")
+	{range 330 330}
+	("direct_settings")
+)
 
 (define "range_atgm"
 	("standard_firing_arc")
@@ -705,7 +720,54 @@
 	{range 210 210}
 	("indirect_settings")
 )
-
+;;//Hotmod Artillery Ranges
+(define "range_250_howitzer"
+	("curved_firing_arc")
+	{range 250 250}
+	("indirect_settings")
+)
+(define "range_300_howitzer"
+	("curved_firing_arc")
+	{range 300 300}
+	("indirect_settings")
+)
+(define "range_400_howitzer"
+	("curved_firing_arc")
+	{range 400 400}
+	("indirect_settings")
+)
+(define "range_500_howitzer"
+	("curved_firing_arc")
+	{range 500 500}
+	("indirect_settings")
+)
+(define "range_600_howitzer"
+	("curved_firing_arc")
+	{range 600 600}
+	("indirect_settings")
+)
+(define "range_700_howitzer"
+	("curved_firing_arc")
+	{range 700 700}
+	("indirect_settings")
+)
+(define "range_800_howitzer"
+	("curved_firing_arc")
+	{range 800 800}
+	("indirect_settings")
+)
+(define "light_artillery"
+	{spreading 1 
+		{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no centre-bias
+		{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than traversely.
+	} 
+	{ZeroingAccuracy 0.9 0.8 0.7 0.6 0.5 0.4}
+	("artillery_firing_arc")
+	{SpreadTolerance 0.85}		;// Zeroing up to 85% needed before fire
+	{DisableRicochet}
+	{traceFreq 0}
+	{unlimitedRangeTPC 0}	;// restrict range in TPC/FPC
+)
 (define "medium_artillery"
 	{spreading 1 
 		{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no centre-bias
