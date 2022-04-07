@@ -645,7 +645,7 @@
 	}
 }
 
-{"f-105_airstrike_napalm"
+{"f-105_8xairstrike_napalm"
 	{on "bomb_drop"
 		{delay 0.01 
 			{spawn "bomb_single_napalm" "hardpoint_1" x dir_velocity
