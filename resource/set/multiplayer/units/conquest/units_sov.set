@@ -34,10 +34,7 @@
 {"203mm_b4_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"bm-21_grad_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 
-;//Air Supports
-
-
-
+;//Artillery Supports
 
 {"mortar_barrage_smoke_sov"
 	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(82mm_bm37_sov_dummy) crew(sup_guncrew:0))
@@ -79,6 +76,8 @@
 	{cost 12}{action "airstrike:flare_artillery_rocket"}
 }
 
+;// Helicopter CAS Runs
+
 {"cas_mi4_sov"
 	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(mil_mi4_airborne) crew(sup_pilot:0))
 	{cost 12}{action "airstrike:flare_bombrun_cas"}
@@ -89,24 +88,46 @@
 	{cost 16}{action "airstrike:flare_bombrun_cas"}
 }
 
-{"airstrike_50_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7) crew(sup_pilot:0))
-	{cost 5}{action "airstrike:flare_bombrun_50"}
+;// Airstrikes
+
+{"airstrike_2xcluster_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 5}{action "airstrike:mig-19_airstrike_2xcluster"}
 }
 
-{"airstrike_100_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7) crew(sup_pilot:0))
-	{cost 10}{action "airstrike:flare_bombrun_100"}
+{"airstrike_2x250_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 5}{action "airstrike:mig-19_airstrike_2x250"}
 }
 
-{"airstrike_250_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7) crew(sup_pilot:0))
-	{cost 15}{action "airstrike:flare_bombrun_250"}
+{"airstrike_4xcluster_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7_airstrike) crew(sup_pilot:0))
+	{cost 8}{action "airstrike:su-7_airstrike_4xcluster"}
 }
 
-{"airstrike_500_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7) crew(sup_pilot:0))
-	{cost 20}{action "airstrike:flare_bombrun_500"}
+{"airstrike_4xwp_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7_airstrike) crew(sup_pilot:0))
+	{cost 8}{action "airstrike:su-7_airstrike_4xwp"}
+}
+
+{"airstrike_4x500_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7_airstrike) crew(sup_pilot:0))
+	{cost 12}{action "airstrike:su-7_airstrike_4x500"}
+}
+
+{"airstrike_6x250_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(su-7_airstrike) crew(sup_pilot:0))
+	{cost 12}{action "airstrike:su-7_airstrike_6x250"}
+}
+
+{"airstrike_8xcluster_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(yak-28_airstrike) crew(sup_pilot:0))
+	{cost 15}{action "airstrike:yak-28_airstrike_8xcluster"}
+}
+
+{"airstrike_3x1000_sov"
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(yak-28_airstrike) crew(sup_pilot:0))
+	{cost 18}{action "airstrike:yak-28_airstrike_3x1000"}
 }
 
 ;_________________________________________________

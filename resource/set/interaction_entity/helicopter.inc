@@ -11,10 +11,10 @@
 	}
 	
 	{on "add_movement_sound"
-		{link_sound "fly"			"vehicle/airborne/uh1h/uh1h_engine_full"}
-		{link_sound "engine_start"	"vehicle/airborne/uh1h/uh1h_engine_start"}
-		{link_sound "engine_work"	"vehicle/airborne/uh1h/uh1h_engine_full"}
-		{link_sound "engine_stop"	"vehicle/airborne/uh1h/uh1h_engine_stop"}
+		{link_sound "fly"					"vehicle/airborne/uh1h/uh1h_engine_full"}
+		{link_sound "engine_start"			"vehicle/airborne/uh1h/uh1h_engine_start"}
+		{link_sound "engine_work"			"vehicle/airborne/uh1h/uh1h_engine_full"}
+		{link_sound "engine_stop"			"vehicle/airborne/uh1h/uh1h_engine_stop"}
 		{link_sound "engine_idle"			"vehicle/airborne/uh1h/uh1h_engine_idle"}
 		{link_sound "engine_full"			"vehicle/airborne/uh1h/uh1h_engine_full"}
 		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h/uh1h_accelerate"}
@@ -30,6 +30,10 @@
 			{bullet_detonate}
 ;			{component break}
 		}
+	}
+	
+	{on blast_hit										;// blast-wave hits any part of entity
+		{vehicle_health_damage_blast}
 	}
 	
 	{on "engine_started"
@@ -150,6 +154,10 @@
 		{vehicle_health_damage_pierce}
 	}
 	
+	{on blast sync								
+		{vehicle_health_damage_blast}
+	}
+	
 	{on "fall"
 		{if not "fall"
 			{set "fall" 1}
@@ -166,8 +174,8 @@
 			{delay 10
 				{view stop "fire"}
 			}
-			{burn volume "body" fx "smoke_aero_big" time 10 fake}
-			{burn volume "engine" fx "smoke_aero_big" time 10 fake}
+			{burn volume "body" fx "smoke_aero_dead_big" time 10 fake}
+			{burn volume "engine" fx "smoke_aero_dead_big" time 10 fake}
 			{delay 10.1
 				{burn volume "body" fx "smoke_black" time 40 10 fake}
 			}

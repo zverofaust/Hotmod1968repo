@@ -31,6 +31,8 @@
 {"m114_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"m115_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 
+;// Artillery Supports
+
 {"mortar_barrage_smoke_usa"
 	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(m29_mortar_dummy) crew(sup_guncrew:0))
 	{cost 1}{action "airstrike:flare_mortar_smoke"}
@@ -66,6 +68,8 @@
 	{cost 12}{action "airstrike:flare_artillery_203"}
 }
 
+;// Helicopter CAS runs
+
 {"cas_uh1_usa"
 	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(uh-1b_airborne) crew(sup_pilot:0))
 	{cost 5}{action "airstrike:flare_bombrun_cas"}
@@ -81,30 +85,54 @@
 	{cost 15}{action "airstrike:flare_bombrun_cas"}
 }
 
-{"airstrike_50_usa"
-	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105) crew(sup_pilot:0))
-	{cost 5}{action "airstrike:flare_bombrun_50"}
+;// Airstrike sorties
+
+{"airstrike_2x500_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 8}{action "airstrike:f-105_airstrike_2x500"}
 }
 
-{"airstrike_100_usa"
-	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105) crew(sup_pilot:0))
-	{cost 10}{action "airstrike:flare_bombrun_100"}
+{"airstrike_4xcluster_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 8}{action "airstrike:f-105_airstrike_4xcluster"}
 }
 
-{"airstrike_250_usa"
-	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105) crew(sup_pilot:0))
-	{cost 15}{action "airstrike:flare_bombrun_250"}
+{"airstrike_8xcluster_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 12}{action "airstrike:f-105_airstrike_8xcluster"}
 }
 
-{"airstrike_500_usa"
-	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105) crew(sup_pilot:0))
-	{cost 20}{action "airstrike:flare_bombrun_500"}
+{"airstrike_8x250_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 15}{action "airstrike:f-105_airstrike_8x250"}
 }
 
-{"airstrike_napalm_usa"
-	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105) crew(sup_pilot:0))
-	{cost 10}{action "airstrike:flare_bombrun_napalm"}
+{"airstrike_8x500_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 20}{action "airstrike:f-105_airstrike_8x500"}
 }
+
+{"airstrike_8xnapalm_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 18}{action "airstrike:f-105_airstrike_8xnapalm"}
+}
+
+{"airstrike_3x1000_usa"
+	("squad_vehicle" side(usa) min_stage(0) max_stage(99) cw(0) cp(5) b(strat) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 18}{action "airstrike:f-105_airstrike_3x1000"}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 ;_________________________________________________
 ;|             inf1                               |

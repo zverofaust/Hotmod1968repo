@@ -37,28 +37,28 @@
 ;}
 
 {"mortar_barrage_smoke_sov"
-	("squad_vehicle" side(sov) cd(60) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) cd(60) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
 	{cost 2}{conditions "radio_sov"}{action "airstrike:flare_mortar_smoke"}
 }
 
 {"mortar_barrage_light_sov"
-	("squad_vehicle" side(sov) cd(120) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) cd(120) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
 	{cost 3}{conditions "radio_sov"}{action "airstrike:flare_mortar_80"}
 }
 
 {"mortar_barrage_medium_sov"
-	("squad_vehicle" side(sov) cd(180) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) cd(180) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(120mm_pm38_sov) crew(sup_guncrew:0))
 	{cost 5}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
 }
 
 {"airstrike_100_sov"
 	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike_2x100) crew(sup_pilot:0))
-	{cost 10}{conditions "radio_sov"}{action "airstrike:mig-19_airstrike_2x100"} 
+	{cost 6}{conditions "radio_sov"}{action "airstrike:mig-19_airstrike_2x100"} 
 }
 
 {"airstrike_cluster_sov"
 	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike_2xcluster) crew(sup_pilot:0))
-	{cost 10}{conditions "radio_sov"}{action "airstrike:mig-19_airstrike_2xcluster"} 
+	{cost 8}{conditions "radio_sov"}{action "airstrike:mig-19_airstrike_2xcluster"} 
 }
 
 {"cas_mi4_sov"
@@ -114,6 +114,13 @@
 	("doctrine_t1" cool(160) d(mid_sov_motostrelki) cost(15))
 }
 
+; // 10DP 160mm Mortar Barrage
+{"mortar_barrage_heavy_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(120mm_pm38_sov) crew(sup_guncrew:0) cw(0) cp(0))
+	("doctrine_strat" cool(200) d(mid_sov_motostrelki) cost(8))
+	{conditions "radio_sov"}{action "airstrike:flare_mortar_160"} 
+}
+
 ; // 15 DP Mi-4 Heavy CAS
 {"cas_mi4_heavy_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:2) cw(0) cp(0))
@@ -124,7 +131,7 @@
 ; // 12DP 4 x Cluster bomb strike by Su-7
 {"airstrike_cluster_motostrelki_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(su-7_airstrike_4xcluster) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_sov_motostrelky) cost(12))
+	("doctrine_t1" cool(240) d(mid_sov_motostrelki) cost(12))
 	{conditions "radio_sov"}{action "airstrike:su-7_airstrike_4xcluster"}
 }
 
@@ -185,11 +192,11 @@
 	{conditions "radio_sov"}{action "airstrike:mig-19_airstrike_2x250"}
 }
 
-; // 12DP 4 x Cluster bomb strike by Su-7
+; // 16DP 8 x Cluster bomb strike by Su-7
 {"airstrike_cluster_tank_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(su-7_airstrike_4xcluster) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_sov_tank) cost(12))
-	{conditions "radio_sov"}{action "airstrike:su-7_airstrike_4xcluster"}
+	("strategic_doctrine" side(sov) period(mid) vehicle(yak-28_airstrike_8xcluster) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_tank) cost(16))
+	{conditions "radio_sov"}{action "airstrike:yak-28_airstrike_8xcluster"}
 }
 
 ;===================================
@@ -267,6 +274,13 @@
 	{conditions "radio_sov"}{action "airstrike:su-7_airstrike_4xwp"}
 }
 
+; // 20DP 3 x 1000kg bomb strike by Yak-28
+{"airstrike_1000_banner_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(yak-28_airstrike_3x1000) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_banner) cost(20))
+	{conditions "radio_sov"}{action "airstrike:yak-28_airstrike_3x1000"}
+}
+
 ;===================================
 ;       	   Deep Penetration
 ;            
@@ -337,6 +351,13 @@
 	{conditions "radio_sov"}{action "airstrike:su-7_airstrike_6x250"}
 }
 
+; // 20DP 3 x 1000kg bomb strike by Yak-28
+{"airstrike_1000_vdv_sov"
+	("strategic_doctrine" side(sov) period(mid) vehicle(yak-28_airstrike_3x1000) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(20))
+	{conditions "radio_sov"}{action "airstrike:yak-28_airstrike_3x1000"}
+}
+
 
 ; ======Tier2======
 
@@ -377,42 +398,42 @@
 {"artillery_barrage_smoke_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
 	("doctrine_strat" cool(120) d(mid_sov_artillery) cost(5))
-	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_smoke"} 
+	{conditions "radio_sov"}{action "airstrike:flare_artillery_smoke"} 
 }
 
 ; // 8DP 122mm Artillery Barrage
 {"artillery_barrage_light_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
 	("doctrine_strat" cool(200) d(mid_sov_artillery) cost(8))
-	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_105"} 
+	{conditions "radio_sov"}{action "airstrike:flare_artillery_105"} 
 }
 
 ; // 12DP 152mm Artillery Barrage
 {"artillery_barrage_medium_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
 	("doctrine_strat" cool(300) d(mid_sov_artillery) cost(12))
-	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_150"} 
+	{conditions "radio_sov"}{action "airstrike:flare_artillery_150"} 
 }
 
 ; // 16DP 203mm Artillery Barrage
 {"artillery_barrage_heavy_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
 	("doctrine_strat" cool(300) d(mid_sov_artillery) cost(16))
-	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_203"} 
+	{conditions "radio_sov"}{action "airstrike:flare_artillery_203"} 
 }
 
 ; // 25DP Rocket Artillery Barrage
 {"artillery_barrage_rocket_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
 	("doctrine_strat" cool(360) d(mid_sov_artillery) cost(16))
-	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_rocket"} 
+	{conditions "radio_sov"}{action "airstrike:flare_artillery_rocket"} 
 }
 
 ; // 35DP Rocket Artillery Barrage
 {"artillery_barrage_rocket_heavy_sov"
 	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
 	("doctrine_strat" cool(360) d(mid_sov_artillery) cost(22))
-	{conditions "radio_sov_artillery"}{action "airstrike:flare_artillery_rocket_heavy"} 
+	{conditions "radio_sov"}{action "airstrike:flare_artillery_rocket_heavy"} 
 }
 
 
