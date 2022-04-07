@@ -1,34 +1,34 @@
 ;Exported by: misan
-;Date:        Tue Mar 29 14:11:47 2022
+;Date:        Sun Apr  3 09:25:21 2022
 ;File:        D:\Cold War\Models\F-105\F-105.max
 {Skeleton
 	{animation
-		{sequence "flyin_1" {speed 0.04}}
-		{sequence "approach_1" {speed 0.1}}
-		{sequence "flyout_1" {speed 0.125}}
-		{sequence "flyin_2" {speed 0.04}}
-		{sequence "approach_2" {speed 0.1}}
-		{sequence "flyout_2" {speed 0.125}}
-		{sequence "flyin_3" {speed 0.04}}
-		{sequence "approach_3" {speed 0.1}}
-		{sequence "flyout_3" {speed 0.125}}
-		{sequence "flyin_4" {speed 0.04}}
-		{sequence "approach_4" {speed 0.1}}
-		{sequence "flyout_4" {speed 0.125}}
-		{sequence "flyin_5" {speed 0.04}}
-		{sequence "approach_5" {speed 0.1}}
-		{sequence "flyout_5" {speed 0.125}}
-		{sequence "flyin_6" {speed 0.04}}
-		{sequence "approach_6" {speed 0.1}}
-		{sequence "flyout_6" {speed 0.125}}
-		{sequence "flyin_7" {speed 0.04}}
-		{sequence "approach_7" {speed 0.1}}
-		{sequence "flyout_7" {speed 0.125}}
-		{sequence "flyin_8" {speed 0.04}}
-		{sequence "approach_8" {speed 0.1}}
-		{sequence "flyout_8" {speed 0.125}}
+		{sequence "flyin_1" {speed 0.05}}
+		{sequence "approach_1" {speed 0.075}}
+		{sequence "flyout_1" {speed 0.1}}
+		{sequence "flyin_2" {speed 0.05}}
+		{sequence "approach_2" {speed 0.075}}
+		{sequence "flyout_2" {speed 0.1}}
+		{sequence "flyin_3" {speed 0.05}}
+		{sequence "approach_3" {speed 0.075}}
+		{sequence "flyout_3" {speed 0.1}}
+		{sequence "flyin_4" {speed 0.05}}
+		{sequence "approach_4" {speed 0.075}}
+		{sequence "flyout_4" {speed 0.1}}
+		{sequence "flyin_5" {speed 0.05}}
+		{sequence "approach_5" {speed 0.075}}
+		{sequence "flyout_5" {speed 0.1}}
+		{sequence "flyin_6" {speed 0.05}}
+		{sequence "approach_6" {speed 0.075}}
+		{sequence "flyout_6" {speed 0.1}}
+		{sequence "flyin_7" {speed 0.05}}
+		{sequence "approach_7" {speed 0.075}}
+		{sequence "flyout_7" {speed 0.1}}
+		{sequence "flyin_8" {speed 0.05}}
+		{sequence "approach_8" {speed 0.05}}
+		{sequence "flyout_8" {speed 0.1}}
 	}
-	{bone "dummy001"
+	{bone "basis"
 		{Orientation
 			1	0	0
 			0	-1	0
@@ -290,5 +290,35 @@
 				{Position -3.48047	0	-54.2338}
 			}
 		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "wingl1"}
+	{Position -18.5615	15.1976	5.50671}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "wingr1"}
+	{Position -18.5615	-15.2369	5.50671}
+}
+{Volume "body"
+	{Cylinder 25.6869 376.781}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-13.8289	0.192438	-23.6024
+	}
+}
+{Volume "fuselage"
+	{Cylinder 27.6869 376.781}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-13.8289	0.192438	-23.6024
 	}
 }

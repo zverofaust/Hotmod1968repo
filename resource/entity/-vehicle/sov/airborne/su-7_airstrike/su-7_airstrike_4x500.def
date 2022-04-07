@@ -1,33 +1,5 @@
-{actor
-
-	{brain "vehicle" {state "airborne"}}
-	
-	{Simulation {able 1}}
-	
+{game_entity
+	(include "/properties/airborne_strike.ext")
 	{Extension "su-7_airstrike.mdl"}
-	{props "steel" "vehicle" "su7" "airborne" "vision_lev01_air" "sortie" "airstrike_4x500"}	
-	{targetClass "airborne"}
-	{hearingBias 250.0}	
-	{sensor
-		{visor "view-around"
-            {vision "airborne_around"}
-			{bone "visor"}
-		}		
-		{visor "main"
-			{vision "airborne_main"}
-			{bone "visor"}
-		}		
-		{RecognizeTime 0.01}
-		{InformRange 50 75}
-	}
-	{placer
-		{place "sound"
-			{entity "sound_jet"}
-			{Linkbone "body"}
-			{obstacle disable}
-		}
-	}
-	{lodclass "vehicle_plane"}
-	{constrain none}
-	{fogable never}
+	{props "su7" "airstrike_4x500"}
 }

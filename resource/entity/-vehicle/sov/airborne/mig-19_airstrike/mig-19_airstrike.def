@@ -1,0 +1,26 @@
+{actor
+
+	{brain "vehicle" {state "airborne"}}
+	
+	{Simulation {able 1}}
+	
+	{Extension "mig-19_airstrike_prop.mdl"}
+	{props "steel" "vehicle" "mig19" "airborne" "vision_lev01_air"}	
+	{targetClass "airborne"}
+	{hearingBias 250.0}	
+	{sensor
+		{visor "view-around"
+            {vision "airborne_around"}
+			{bone "visor"}
+		}		
+		{visor "main"
+			{vision "airborne_main"}
+			{bone "visor"}
+		}		
+		{RecognizeTime 0.01}
+		{InformRange 50 75}
+	}
+	{lodclass "vehicle_plane"}
+	{constrain none}
+	{fogable never}
+}
