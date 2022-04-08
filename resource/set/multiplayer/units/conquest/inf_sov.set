@@ -17,6 +17,16 @@
 )
 {"mp/sov/mid/reg_radioman"			("sov_radioman" side(sov)) {cost 200.0}}
 
+(define "sov_pilot"
+	{tags "mid %side infantry man pilot"}
+	{cp 0}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/sov/mid/sup_pilot"				("sov_pilot" side(sov)) {cost 0.0}} ; Pistol
+
 (define "sov_tankman"
 	{tags "mid %side infantry man"}
 	{cp 1}
@@ -28,7 +38,6 @@
 {"mp/sov/mid/sup_guncrew"			("sov_tankman" side(sov)) {cost 5.0}} ; Makarov Pistol
 {"mp/sov/mid/sup_supporter"			("sov_tankman" side(sov)) {cost 5.0}} ; SKS
 {"mp/sov/mid/sup_tankman"				("sov_tankman" side(sov)) {cost 4.0}} ; Pistol
-{"mp/sov/mid/sup_pilot"				("sov_tankman" side(sov)) {cost 4.0}} ; Pistol
 {"mp/sov/mid/sup_vehicleman"			("sov_tankman" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
 
 (define "sov_basic"
