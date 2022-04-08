@@ -369,7 +369,7 @@
 		{resupply
 			("items_medic")
 		}
-		{radius 			5}		;// resupply radius in meter
+		{radius 			8}		;// resupply radius in meter
 		{resupplyPeriod 	1}		;// resupply period in seconds
 		{regenerationPeriod 2}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				50}		;// max number of resupplies (0 = unlimited)
@@ -396,7 +396,7 @@
 			("items_artillery_usa")
 		}
 		{mechanicResources {amount 10}{value 10}}
-		{radius 			6}		;// resupply radius in meter
+		{radius 			8}		;// resupply radius in meter
 		{resupplyPeriod 	2}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				100}	;// max number of resupplies (0 = unlimited)
@@ -417,7 +417,7 @@
 			("items_light_sov")
 			("items_light_usa")
 		}
-		{radius 			5}		;// resupply radius in meter
+		{radius 			8}		;// resupply radius in meter
 		{resupplyPeriod 	5}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				50}	;// max number of resupplies (0 = unlimited)
@@ -441,7 +441,7 @@
 			("items_heavy_usa")
 			("items_heavy_eng")
 		}
-		{radius 			15}		;// resupply radius in meter
+		{radius 			24}		;// resupply radius in meter
 		{resupplyPeriod 	5}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				250}	;// max number of resupplies (0 = unlimited)
@@ -467,7 +467,7 @@
 			("items_artillery_sov")
 			("items_artillery_usa")
 		}
-		{radius 			15}		;// resupply radius in meter
+		{radius 			24}		;// resupply radius in meter
 		{resupplyPeriod 	10}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				500}	;// max number of resupplies (0 = unlimited)
@@ -494,7 +494,7 @@
 			("items_artillery_usa")
 		}
 		{mechanicResources {amount 10}{value 10}}
-		{radius 			8}		;// resupply radius in meter
+		{radius 			12}		;// resupply radius in meter
 		{resupplyPeriod 	2}		;// resupply period in seconds
 		{regenerationPeriod 3}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				250}	;// max number of resupplies (0 = unlimited)
@@ -520,7 +520,7 @@
 			("items_artillery_sov")
 			("items_artillery_usa")
 		}
-		{radius 			12}			;// resupply radius in meter
+		{radius 			18}			;// resupply radius in meter
 		{resupplyPeriod 	2}			;// resupply period in seconds
 		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				500}		;// max number of resupplies (0 = unlimited)
@@ -546,7 +546,7 @@
 			("items_artillery_sov")
 			("items_artillery_usa")
 		}
-		{radius 			15}			;// resupply radius in meter
+		{radius 			24}			;// resupply radius in meter
 		{resupplyPeriod 	2}			;// resupply period in seconds
 		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				1000}		;// max number of resupplies (0 = unlimited)
@@ -569,7 +569,7 @@
 			("items_artillery_sov")
 			("items_artillery_usa")
 		}
-		{radius 			15}			;// resupply radius in meter
+		{radius 			24}			;// resupply radius in meter
 		{resupplyPeriod 	2}			;// resupply period in seconds
 		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				2000}		;// max number of resupplies (0 = unlimited)
