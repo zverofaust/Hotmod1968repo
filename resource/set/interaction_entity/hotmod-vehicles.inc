@@ -708,6 +708,78 @@
 	("update_rack_event" event(crew out))
 }
 
+{"9p122" ;// can't figure out how to reset turret to 0
+	("ba_sound")
+ 
+	{on spawn
+		{tags add "weapon_down"}
+	}
+	
+	{on "reload"
+		{tags add "reloading"}
+		{ik_enable "turret" 0}
+		{ani_play "weapon_down"}
+		{tags add "weapon_down"}
+		{talk "reload"}
+		{delay 1
+			{call "update_missilerack"}
+			{delay 60
+				{tags remove "reloading"}
+				{talk "reloaded"}
+				{call "update_missilerack"}
+			}
+		}
+	}
+ 
+	{on repair
+		{if component "turret"
+			{call "update_missilerack"}
+		}
+	}
+ 
+	(define "update_missilerack"
+		{if crew_in_place "gunner"
+			{if tagged "reloading"
+				{delay 0.1}
+			else
+				{if work "turret"
+					{if tagged "weapon_down"
+						{ani_play "weapon_up"}
+						{tags remove "weapon_down"}
+						{ik_enable "turret" 1}
+					else
+						{delay 0.1}
+					}
+				else
+					{delay 0.1}
+				}
+			}
+		else
+			{if not tagged "weapon_down"
+				{ani_play "weapon_down"}
+				{tags add "weapon_down"}
+			else
+				{delay 0.1}
+			}
+		}
+	)
+ 
+ 
+	{on "update_missilerack"
+		("update_missilerack" n())
+	}
+	
+	(define "update_rack_event"
+		{on %event
+			{call "update_missilerack"}
+		}
+	)
+	("update_rack_event" event(operatable on))
+	("update_rack_event" event(operatable off))
+	("update_rack_event" event(crew in))
+	("update_rack_event" event(crew out))
+}
+
 {"btr-40"
 	("sdkfz222_sound")
 }
