@@ -52,15 +52,15 @@
 	{Resources
 		{Standard
 			{MP ;// Manpower (generic money)
-				{StartVal 1200}
-				{WinGain "1:300 4:350 6:400 8:500 10:700 12:900 14:1200"} ;// games played : MP gain
-				{LoseGain "1:50"}
+				{StartVal 1000}
+				{WinGain "1:200 4:250 6:30 8:350 10:400 12:600 14:800"} ;// games played : MP gain 
+				{LoseGain "1:100"}
 				{MapRewards	;//Bonus resources on various game types (a game can only be one randomly chosen type). Types: Airfield, Ammodepot, Bonus, Factory, Research.
-					{Airfield	300}
-					{Ammodepot	300}
+					{Airfield	250}
+					{Ammodepot	250}
 					{Bonus		2000}
-					{Factory	800}
-					{Research	800}
+					{Factory	500}
+					{Research	500}
 				}
 			}
 			{SP ;// Special Points (airstrikes)
@@ -68,24 +68,24 @@
 				{WinGain "1:10 5:15 10:20"}
 				{LoseGain "1:5"}
 				{MapRewards
-					{Airfield	50}
+					{Airfield	40}
 				}
 			}
 			{AP ;// Ammo points
-				{StartVal 1200}
-				{WinGain "5:800 10:1600 15:2000"}
-				{LoseGain "1:250"}
+				{StartVal 1000}
+				{WinGain "5:600 10:1000 15:1500"}
+				{LoseGain "1:200"}
 				{MapRewards
 					{Ammodepot	2000}
 					{Factory	1000}
 				}
 			}
 			{RP ;// Research points
-				{StartVal 15}
-				{WinGain 8}
-				{LoseGain 1}
+				{StartVal 10}
+				{WinGain 5}
+				{LoseGain 2}
 				{MapRewards
-					{Bonus		1}
+					{Bonus		2}
 					{Research	10}
 				}
 			}

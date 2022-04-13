@@ -29,7 +29,7 @@
 			}
 		}
 	}
-	{PaybackFactor 0.6}		;// MP paid back when loosing solider, squad or vehicle
+	{PaybackFactor 0.6}		;// MP paid back when loosing soldier, squad or vehicle
 	{SellFactor 0.7}
 	{ScavengedVehicleSellFactor 0.7}		;// captured enemy vehicle 
 	{RiskFactor
@@ -53,22 +53,22 @@
 		{Standard
 			{MP ;// Manpower (generic money)
 				{StartVal 1000}
-				{WinGain "1:200 4:250 6:300 8:350 10:400 12:600 14:800"} ;// games played : MP gain 
+				{WinGain "1:100 4:125 6:150 8:175 10:200 12:300 14:400"} ;// games played : MP gain 
 				{LoseGain "1:100"}
 				{MapRewards	;//Bonus resources on various game types (a game can only be one randomly chosen type). Types: Airfield, Ammodepot, Bonus, Factory, Research.
-					{Airfield	200}
-					{Ammodepot	200}
-					{Bonus		1600}
-					{Factory	700}
-					{Research	600}
+					{Airfield	250}
+					{Ammodepot	250}
+					{Bonus		1500}
+					{Factory	500}
+					{Research	500}
 				}
 			}
 			{SP ;// Special Points (airstrikes)
 				{StartVal 10}
-				{WinGain "1:10 5:15 10:20"}
+				{WinGain "1:5 5:10 10:15"}
 				{LoseGain "1:5"}
 				{MapRewards
-					{Airfield	50}
+					{Airfield	30}
 				}
 			}
 			{AP ;// Ammo points
@@ -76,17 +76,17 @@
 				{WinGain "5:600 10:1000 15:1500"}
 				{LoseGain "1:200"}
 				{MapRewards
-					{Ammodepot	2000}
-					{Factory	1000}
+					{Ammodepot	1500}
+					{Factory	800}
 				}
 			}
 			{RP ;// Research points
-				{StartVal 12}
-				{WinGain 5}
+				{StartVal 10}
+				{WinGain 4}
 				{LoseGain 1}
 				{MapRewards
-					{Bonus		1}
-					{Research	10}
+					{Bonus		2}
+					{Research	8}
 				}
 			}
 			{Budget
