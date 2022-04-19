@@ -337,6 +337,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 2.0, class = UnitClass.Vehicle, unit = "brdm-1"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "9p110"},
+				{priority = 0.5, class = UnitClass.Vehicle, unit = "9p122"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, unit = "pt-76"},	
 				{priority = 1.0, class = UnitClass.ATTank, unit = "asu57"},
@@ -439,6 +440,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "m42"},
 				{priority = 0.75, class = UnitClass.Tank, unit = "m56"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "m50"},
+				{priority = 0.75, class = UnitClass.Tank, unit = "m551"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "m551_acav"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3e8"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m48_patton"},

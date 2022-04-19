@@ -768,6 +768,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "9p122"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "pt-76"},	
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "asu57"},
@@ -823,6 +824,7 @@ Purchases["standard"] = {
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "m132_zippo"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m50"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m56"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m551"},
 			--Tanks_medium
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "m48_patton"},
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "m67_zippo"},
@@ -938,6 +940,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "9p122"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "pt-76"},	
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "asu57"},
@@ -1000,6 +1003,7 @@ Purchases["standard"] = {
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "m132_zippo"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m50"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m56"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m551"},
 			--Tanks_medium
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "m48_patton"},
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "m67_zippo"},
@@ -1205,6 +1209,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "9p122"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "pt-76"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "asu57"},
@@ -1267,6 +1272,8 @@ Purchases["standard"] = {
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "m132_zippo"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m50"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m56"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m551"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m551_acav"},
 			--Tanks_medium
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "m48_patton"},
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "m67_zippo"},
@@ -1387,6 +1394,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "9p122"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "pt-76"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "asu57"},
@@ -1442,6 +1450,8 @@ Purchases["standard"] = {
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "m163"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m50"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m56"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m551"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m551_acav"},
 			--Tanks_medium
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "m48_patton"},
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "m67_zippo"},
@@ -1667,6 +1677,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "9p122"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "pt-76"},	
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "asu57"},
@@ -1722,6 +1733,8 @@ Purchases["standard"] = {
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "m132_zippo"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m50"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m56"},
+				{priority = 0.75, class = UnitClass.Tank, period = "mid", unit = "m551"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "m551_acav"},
 			--Tanks_medium
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "m48_patton"},
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "m67_zippo"},
