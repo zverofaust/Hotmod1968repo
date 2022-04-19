@@ -1,0 +1,48 @@
+{from "pattern gun"			; 152mm Gun-Launcher M81 on M551 Sheridan
+	{filling "bullet152_m81"}
+	{fireSound "gun/gun_122_152_short"}
+	{fireSoundclose "gun/gun_interior/size4"}
+	{reloadSound "interior/large/howitzer_reload_interior"}
+	{calibre 152}
+	{range 400 400} ;// needs to be high for ATGM
+	("reload time" seconds(10))
+	
+	("velocity m/s" ap(530) apcr(1) he(682) heat(682) atgm(240))
+	("armor health" damage(450))
+
+	("penetration_medium" shell(heat) range(190) a(380) b(380) c(380) d(380) e(380))	
+	
+	("accuracy_direct" r1(0.6) range_ap(350) range_he(350) range_heat(330))
+	
+
+	{parameters "he"
+		{cursorReloading "gun_he"}
+		("standard_firing_arc")
+		{range 250 250}
+		("direct_settings")
+		(mod "mp" {unlimitedRangeTPC 0})	;// restrict range in TPC/FPC in multiplayer only
+	}
+	{parameters "heat"
+		{cursorReloading "gun_heat"}
+		("standard_firing_arc")
+		{range 230 230}
+		("direct_settings")
+		("heat_slope_multiplier")
+		(mod "mp" {unlimitedRangeTPC 0})	;// restrict range in TPC/FPC in multiplayer only
+	}
+	{parameters "atgm"
+		{cursorReloading "gun_atgm"}
+		{aimRange 400}										
+		{maxRange 400}	
+		{speed 240} ;320 * 0.75
+		{spreading 2 {SpreadPower 1}}
+		{minRange 10}
+		{gravity 0}
+		("armor health" damage(500))
+		{projectileDamage 500}
+		;("heat_slope_multiplier")
+		(mod "mp" {unlimitedRangeTPC 0})	;// restrict range in TPC/FPC in multiplayer only
+	}
+	
+	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_usa_base"}
+}
