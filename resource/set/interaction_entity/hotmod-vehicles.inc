@@ -933,6 +933,26 @@
 	}	
 }
 
+{"m551"
+	("pz3_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
+{"m551_acav"
+	("pz3_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
 {"m26_pershing tank"
 	("m26_sound")
 	{on "commander_hatch_open" overload
