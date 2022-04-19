@@ -3,11 +3,11 @@
 ;File:        D:\Cold War\Models\ZIL-130\ZIL-130_working.max
 {Skeleton
 	{animation
-		{sequence "start" {speed 0.6}}
-		{sequence "stop" {speed 0.6}}
-		{sequence "hit" {speed 0.6}}
-		{sequence "door_left" {speed 0.6}}
-		{sequence "door_right" {speed 0.6}}
+		{sequence "start" {speed 0.2}}
+		{sequence "stop" {speed 0.2}}
+		{sequence "hit" {speed 0.2}}
+		{sequence "door_left" {speed 0.1}}
+		{sequence "door_right" {speed 0.1}}
 	}
 	{bone "basis"
 		{parameters "SteerMax=25;WheelRadius=0.5;"}
@@ -56,6 +56,10 @@
 				{bone "glass_front"
 					{Position -3.62938	-0.0445997	9.48357}
 					{VolumeView "glass_front.ply"}
+				}
+				{bone "glass_rear"
+					{Position -22.5129	0	8.48369}
+					{VolumeView "glass_rear.ply"}
 				}
 			}
 			{bone "bodyback"
@@ -372,6 +376,16 @@
 		0	0	1
 		-1	0	0
 		1.00551	-0.315289	-0.105732
+	}
+}
+{Volume "glass_rear"
+	{Box 1.10682 7.44587 20.1884}
+	{Bone "glass_rear"}
+	{Matrix34
+		0.996195	0	-0.0871557
+		0.0871557	0	0.996195
+		0	-1	0
+		0.271379	0.00456238	-0.076766
 	}
 }
 {Volume "hole1"

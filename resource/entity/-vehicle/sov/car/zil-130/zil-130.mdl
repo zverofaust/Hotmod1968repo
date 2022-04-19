@@ -1,13 +1,13 @@
 ;Exported by: misan
-;Date:        Fri Jan 28 11:31:33 2022
+;Date:        Tue Apr 19 18:01:27 2022
 ;File:        D:\Cold War\Models\ZIL-130\ZIL-130_working.max
 {Skeleton
 	{animation
-		{sequence "start" {speed 0.6}}
-		{sequence "stop" {speed 0.6}}
-		{sequence "hit" {speed 0.6}}
-		{sequence "door_left" {speed 0.6}}
-		{sequence "door_right" {speed 0.6}}
+		{sequence "start" {speed 0.2}}
+		{sequence "stop" {speed 0.2}}
+		{sequence "hit" {speed 0.2}}
+		{sequence "door_left" {speed 0.1}}
+		{sequence "door_right" {speed 0.1}}
 	}
 	{bone "basis"
 		{parameters "SteerMax=25;WheelRadius=0.5;"}
@@ -57,82 +57,21 @@
 					{Position -3.62938	-0.0445997	9.48357}
 					{VolumeView "glass_front.ply"}
 				}
+				{bone "glass_rear"
+					{Position -22.5129	0	8.48369}
+					{VolumeView "glass_rear.ply"}
+				}
 			}
 			{bone "bodyback"
 				{parameters "id=body;"}
 				{Position -25.7855	-1.36787	8.95902}
 				{VolumeView "bodyback.ply"}
-				{bone "seat10"
-					{Matrix34
-						0.995968	-0.0897134	0
-						0.0897134	0.995968	0
-						0	0	1
-						25.0763	12.2526	1.31437
-					}
-				}
-				{bone "seat11"
-					{Matrix34
-						0.998293	0.0584017	0
-						-0.0584017	0.998293	0
-						0	0	1
-						23.7263	-10.5531	1.31437
-					}
-				}
-				{bone "seat02"
-					{Position -19.4546	0.0431185	1.31437}
-				}
-				{bone "seat05"
-					{Position -1.9034	0.233892	1.31437}
-				}
-				{bone "seat08"
-					{Position 6.58928	13.7043	1.31437}
-				}
-				{bone "seat09"
-					{Matrix34
-						0.999365	0.03562	0
-						-0.03562	0.999365	0
-						0	0	1
-						13.3585	2.71394	1.31437
-					}
-				}
-				{bone "seat03"
-					{Matrix34
-						0.995147	-0.0984013	0
-						0.0984013	0.995147	0
-						0	0	1
-						-26.3224	-12.5479	1.31437
-					}
-				}
-				{bone "seat07"
-					{Matrix34
-						0.997232	-0.074357	0
-						0.074357	0.997232	0
-						0	0	1
-						7.25372	-13.5018	1.31437
-					}
-				}
-				{bone "seat06"
-					{Matrix34
-						0.993586	0.113075	0
-						-0.113075	0.993586	0
-						0	0	1
-						-9.18608	-13.4278	1.31437
-					}
-				}
-				{bone "seat04"
-					{Matrix34
-						0.996942	-0.0781468	0
-						0.0781468	0.996942	0
-						0	0	1
-						-9.91588	9.11759	1.31437
-					}
-				}
 				{bone "seat01"
 					{Matrix34
-						0.993492	0.113902	0
-						-0.113902	0.993492	0
+						0	-1	0
+						1	0	0
 						0	0	1
-						-21.1274	13.8961	1.31437
+						26.6132	14.9909	1.24121
 					}
 				}
 				{bone "fxstop2"
@@ -160,6 +99,94 @@
 						22.8556	-12.3672	-2.7829
 					}
 					{VolumeView "detail1.ply"}
+				}
+				{bone "seat03"
+					{Matrix34
+						0	-1	0
+						1	0	0
+						0	0	1
+						15.7542	14.9909	1.24121
+					}
+				}
+				{bone "seat05"
+					{Matrix34
+						0	-1	0
+						1	0	0
+						0	0	1
+						4.86753	14.9909	1.24121
+					}
+				}
+				{bone "seat07"
+					{Matrix34
+						0	-1	0
+						1	0	0
+						0	0	1
+						-6.05748	14.9909	1.24121
+					}
+				}
+				{bone "seat09"
+					{Matrix34
+						0	-1	0
+						1	0	0
+						0	0	1
+						-17.1259	14.9909	1.24121
+					}
+				}
+				{bone "seat11"
+					{Matrix34
+						0	-1	0
+						1	0	0
+						0	0	1
+						-28.1981	14.9909	1.24121
+					}
+				}
+				{bone "seat02"
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						26.6132	-14.6622	1.24121
+					}
+				}
+				{bone "seat12"
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						-28.1981	-14.6622	1.24121
+					}
+				}
+				{bone "seat10"
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						-17.1259	-14.6622	1.24121
+					}
+				}
+				{bone "seat08"
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						-6.05748	-14.6622	1.24121
+					}
+				}
+				{bone "seat06"
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						4.86753	-14.6622	1.24121
+					}
+				}
+				{bone "seat04"
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						15.7542	-14.6622	1.24121
+					}
 				}
 			}
 			{bone "fxsmoke1"
@@ -411,6 +438,16 @@
 		0	0	1
 		-1	0	0
 		1.00551	-0.315289	-0.105732
+	}
+}
+{Volume "glass_rear"
+	{Box 1.10682 7.44587 20.1884}
+	{Bone "glass_rear"}
+	{Matrix34
+		0.996195	0	-0.0871557
+		0.0871557	0	0.996195
+		0	-1	0
+		0.271379	0.00456238	-0.076766
 	}
 }
 {Volume "hole1"
