@@ -99,7 +99,7 @@
 			{level ;0
 				{linkBone "basis"}
 				{faroffset 0 0 70}
-				{nearoffset -45 0 55}
+				{nearoffset -45 5 55}
 				{camera "zoom1"}
 				{hide_crosshair 1}
 				{hide_hitmarker}
@@ -145,6 +145,64 @@
 				{offset 5 0 2}
 			}
 		}
+		
+		{"vehicle.9p122"
+			{clip
+				{viewMin		-12	}	; camera rotate upward limit (looking down)
+				{viewMax		20	}	; camera rotate downward limit (looking up)
+				{distanceMin	200	}	; camera min distance from object. value / 20 = meters
+				{distanceMax	350	}	; camera max distance from object. value / 20 = meters
+			}
+			{level ;0
+				{linkBone "basis"}
+				{faroffset 0 0 70}
+				{nearoffset -45 0 65}
+				{camera "zoom1"}
+				{hide_crosshair 1}
+				{hide_hitmarker}
+				{blur_strength 2}
+				{disable_fow 1}
+				{no_grain}
+			}
+			{level ;1
+				{zoom}
+				{vision_modes_active}
+				{hide_crosshair 1}
+				{hide_hitmarker}
+				{linkBone "visor1"}
+				{offset 5 0 2}
+				{vignette "/texture/common/environment/lens_effects/zoom_vignette_vehicle_01"}
+				{blur_mask "/texture/common/environment/lens_effects/zoom_vignette_vehicle_01_mask"}
+				{refraction_mask "/texture/common/environment/lens_effects/zoom_vignette_vehicle_01_bp"}
+				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_01"}
+				{distance 5}
+				{distanceSet 0}
+				{delta 0}
+				{camera "zoom1"}
+				{ManualAccuracyZoom}
+				{blur_strength 10}
+				{disable_fow 1}
+				{no_rim_light}
+				{soundEffect "opentop_vehicle"}
+			}
+			{level ;2
+				{camera "zoom1.5"}
+				{offset 5 0 2}
+			}
+			{level ;3
+				{camera "zoom3"}
+				{offset 5 0 2}
+			}
+			{level ;4
+				{camera "zoom6"}
+				{offset 5 0 2}
+			}
+			{level ;5
+				{camera "zoom12"}
+				{offset 5 0 2}
+			}
+		}
+		
 		{"vehicle.brdm1"
 			{clip
 				{viewMin		-20	}	; camera rotate upward limit (looking down)
