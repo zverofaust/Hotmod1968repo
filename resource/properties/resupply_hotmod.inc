@@ -294,6 +294,10 @@
 	{item "bullet120_m58"		"apbc"		"ammo" 1 {value 12}}
 	{item "bullet120_m58"		"heat"		"ammo" 1 {value 16}}
 	
+	{item "bullet152_m81"		"he"		"ammo" 1 {value 10}}
+	{item "bullet152_m81"		"atgm"		"ammo" 1 {value 18}}
+	{item "bullet152_m81"		"heat"		"ammo" 1 {value 18}}
+	
 	{item "bullet165_l9"		"hesh"		"ammo" 1 {value 20}}
 	
 	;// ATGMs
