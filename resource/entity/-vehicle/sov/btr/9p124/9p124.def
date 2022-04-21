@@ -1,0 +1,114 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/shadow/tank.inc" scale(0.8))
+	(include "/properties/selection/vehicle.inc" scale(0.75))
+	{props "tank" "td" "turret" "wheeled" "amphibia" "vision_lev02" "detect_tank_mg"}
+	{extension "9p124.mdl"}
+	{PatherId "amphibia"}
+	{targetclass "armoredcar"}
+	{targetSelector "tank_medium"}
+	
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+	
+	{Extender "detail"
+		{random 0}
+	}
+	
+	(include "crew.ext")
+
+	("armoredcar_tier2")
+
+	{Volume "body1"
+		{thickness 7
+			{front	14}
+		}
+	}
+	{Volume "body2"
+		{thickness 7
+			{front	14}
+		}
+	}
+	{Volume "body3"
+		{thickness 7}
+	}
+	{Volume "body4"
+		{thickness 7}
+	}
+	
+	{volume "turret1"
+		{thickness 15}
+	}
+	
+	{volume "turret2"
+		{thickness 15}
+	}
+	
+	("turret" repair(30))
+	("gun" repair(30) thickness(10))
+	
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("transmission" args "transmission")
+
+	{extender "inventory"
+		{box
+			{item "ammo 3m11 atgm" 4}
+		}
+	}
+ 	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon			"atgm_9m17_x4" filled}
+			{gunner			"gunner"}
+			{charger		"gunner"}
+			{shooter		"shooter"} ;shooter_a
+			{foresight		"foresight1"}
+			{barrels 4}
+			("abm_mgun")
+		}
+	}
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	
+	{mass 5600}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlf") wheelr("wrf") bonel("fxtracel1") boner("fxtracer1"))
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlm") wheelr("wrm") bonel("fxtracel2") boner("fxtracer2"))
+		("mobility_car"
+			speed(80) ;----------------------------------Max speed.
+			speedatmaxturn(18) ;-------------------------Max speed at max turn.
+			reverse(26) ;--------------------------------Max speed in Reverse.
+			weight(7) ;----------------------------------Weight in Tonnes.
+			power(89) ;----------------------------------Horse Power.
+			fuel(90) ;-----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(350) ;---------------------------------Range in Kilometers.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.3}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}	
+	;{bone "gun_rot"
+	;	{limits -5 40}
+	;	{speed2 20}
+	;}
+	{bone "turret"
+		{terminator}
+        {limits -90 90}
+		{speed2 20}
+	}
+}
