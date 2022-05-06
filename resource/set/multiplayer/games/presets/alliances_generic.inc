@@ -18,3 +18,8 @@
 	{armies "sov"}	
 	{icon "/interface/pages/multi/flag_warsaw"}
 }
+;{"Eastpact" 
+;	{title "mp/alliance/eastpact"}
+;	{armies "sov"}	
+;	{icon "/interface/pages/multi/flag_eastpact"}
+;}
