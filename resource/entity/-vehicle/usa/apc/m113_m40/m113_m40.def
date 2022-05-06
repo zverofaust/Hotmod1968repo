@@ -40,9 +40,9 @@
 	}
 	
 	{placer
-		{place "driver"		{visor "driver"}}
-		{place "gunner"		{visor "main"}{sealable}}
-		{place "commander"	{visor "mgun"}{sealable}}
+		{place "driver"		{visor "driver"}{group "crew"}}
+		{place "gunner"		{visor "main"}{group "crew"}{sealable}}
+		{place "commander"	{visor "mgun"}{group "crew"}{sealable}}
 	}
 	
 	{boarder
@@ -70,8 +70,8 @@
 	("seat_human" 	place(driver)  		bone()			door(emit0)  animation(driver) 		group(crew))
 	("seat_human" 	place(commander)  	bone(gunner2)	door(emit3)  animation(gunner) 		group(crew))
 	("seat_human" 	place(gunner)  		bone(gunner)	door(emit3)  animation(gunner)		group(crew))
-	("seat_human" 	place(seat1)  		bone(seat01)	door(emit3)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat2)  		bone(seat02)	door(emit3)  animation(passenger) 	group(passenger))
+	;("seat_human" 	place(seat1)  		bone(seat01)	door(emit3)  animation(passenger) 	group(passenger))
+	;("seat_human" 	place(seat2)  		bone(seat02)	door(emit3)  animation(passenger) 	group(passenger))
 	
 	
 	{extender "inventory"
