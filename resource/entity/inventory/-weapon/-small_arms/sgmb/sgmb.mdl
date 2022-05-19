@@ -1,0 +1,84 @@
+;Exported by: misan
+;Date:        Sat May  7 00:58:31 2022
+;File:        D:\Cold War\Model WIP\Smallarms\SGMB\SGMB.max
+{Skeleton
+	{bone "gun"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "gun.ply"}
+		{bone "magazine"
+			{Matrix34
+				1	0	0
+				0	0	-1
+				0	1	0
+				-2.30915	-0.5607	3.57317
+			}
+			{VolumeView "magazine.ply"}
+			{bone "magazine_lid"
+				{Matrix34
+					1	0	0
+					0	0.984808	0.173648
+					0	-0.173648	0.984808
+					0	-2.79154	2.05545
+				}
+				{VolumeView "magazine_lid.ply"}
+			}
+		}
+		{bone "cover"
+			{Position -1.2859	1.87239	0}
+			{VolumeView "cover.ply"}
+		}
+		{bone "foresight14"
+			{Position 13.0309	1.16997	0}
+		}
+		{bone "belt"
+			{Matrix34
+				0	0	-1
+				0	1	0
+				-1	0	0
+				-1.83303	-0.433421	1.96895
+			}
+			{VolumeView "belt.ply"}
+		}
+		{bone "handle"
+			{Matrix34
+				0	0.766045	0.642788
+				-1	0	0
+				0	-0.642788	0.766045
+				2.59893	0.177962	-0.894926
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0	-1
+				0	1	0
+				1	0	0
+				-2.09147	1.74245	-0.646365
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 22.3262 2.1606 1.4404}
+	{Bone "gun"}
+	{Position 1.85475	0.884254	0.0360496}
+}
+{Volume "magazine"
+	{Box 5.47615 5.51691 1.99168}
+	{Bone "magazine"}
+	{Matrix34
+		0	0	-1
+		0	-1	0
+		-1	0	0
+		-0.035449	-0.047465	0.00770879
+	}
+}
+{Volume "select"
+	{Box 23.7012 5.63066 3.40983}
+	{Bone "gun"}
+	{Position 1.23276	0.982463	0.0436311}
+}
