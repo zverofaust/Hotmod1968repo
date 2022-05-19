@@ -1035,6 +1035,16 @@
 	}
 }
 
+{"m46_patton tank"
+	("m26_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
 {"m48_patton"
 	("pz6_sound")
 }
@@ -1214,7 +1224,7 @@
 		{blastwave c4 5 r0 4 r1 15}
 		{fire radius 5 time 15 heating 10}
 	}
-	("flame_weapon" args gun 60 1 40)
+	("flame_weapon" args gun 80 1 40)
 }
 
 {"m67_zippo"
@@ -1227,7 +1237,7 @@
 		{blastwave c4 5 r0 4 r1 15}
 		{fire radius 5 time 15 heating 10}
 	}
-	("flame_weapon" args gun 60 1 40)
+	("flame_weapon" args gun 80 1 40)
 }
 
 {"m50"
