@@ -14,12 +14,7 @@
 	{extender "enumerator"
 		{digit_folder "cw"}
 	}
-	
-	{volume "body"
-		{tags "body"}
-		{component "body"}
-		{thickness 8}   
-	}
+
 	{volume "body1"
 		{tags "body"}
 		{component "body"}
@@ -29,21 +24,13 @@
 		{tags "body"}
 		{component "body"}
 		{thickness 8}
+		{able {holed}}
 	}
 	{volume "body3"
 		{tags "body"}
 		{component "body"}
 		{thickness 8}
-	}
-	{volume "body4"
-		{tags "body"}
-		{component "body"}
-		{thickness 8}
-	}
-	{volume "body5"
-		{tags "body"}
-		{component "body"}
-		{thickness 8}
+		{able {holed}}
 	}
 	{volume "engine"
 		{thickness 8}
@@ -58,8 +45,6 @@
 
 	(include "crew.ext")
 
-
-	
 	{sensor
 		{visor "mgun"
 			{bone "turret_mgun"}
@@ -67,11 +52,9 @@
 	}
 	
 	{extender "inventory"
-		{weapon "mgun" {mask "mountable"}}
 		{box
-			{item "pk_box" 2000}
+			{item "mgun_rus belt" 2000}
 			{item "satchel_charge_rus" 1}
-			{item "pk" filled {user "mgun"}}
 		}
 	}
 	
@@ -79,7 +62,7 @@
 		("restore_ik_time")
 		{place "mgun"
 			{type 			"aa"}
-			;{weapon			"pk" filled}
+			{weapon			"sgmb" filled}
 			{gunner			"gunner2"}
 			{charger		"gunner2"}
 			{LinkBone		"mgun"}
