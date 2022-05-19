@@ -1,0 +1,93 @@
+{game_entity			;BTR-152U
+	(include "/properties/armoredcar.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "apc" "tank" "wheeled" "multi_board" "explosion_throw_crew" "vision_lev02" "tractor" "tractor_medium" "radio_sov"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "car_bullet"}
+
+	
+	("armoredcar_tier2")
+		
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 12}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 12}
+		{able {holed}}
+	}
+	{volume "engine"
+		{thickness 10}
+	}
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("transmission" args "transmission")
+
+	{extender "inventory"
+		{box
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+	
+	;("crew_gunner")
+	;("passenger_10_human")
+	
+	{placer
+		{place "driver"	{visor "driver"}}
+		{place "commander"	{visor "around"}{group "passenger"}}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_Willis_driver"}{base "open_left"}}
+			{reverse 	{end	"emit_body"}{base "open_left"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar"} {end "seat_Willis_passenger"}{base "open_right"}}
+			{reverse 	{end	"emit_body"}{base "open_right"}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_dodge_bodyback"} {end "seat_passenger"} {base"open_back"}}   
+			{reverse 	{end	"emit_body" 1} {base"open_back"}}
+		}
+	}
+	
+	("crew" place(driver)		bone(driver)	door(emit1)		animation(driver)		visor(driver)	off({sensor}))
+	("crew" place(commander)	bone(commander)	door(emit2)		animation(commander)	visor(none)		off())
+	("crew_human" place(seat1) bone(seat1) door(emit3)  animation(passenger)  off())
+	("crew_human" place(seat2) bone(seat2) door(emit3)  animation(passenger)  off())
+	("crew_human" place(seat3) bone(seat3) door(emit3)  animation(passenger)  off())
+	("crew_human" place(seat4) bone(seat4) door(emit3)  animation(passenger)  off())
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	("wheel" args "wheelright3")
+	("wheel" args "wheelleft3")
+	
+	{mass 8950}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility_car"
+			speed(70) ;----------------------------------Max speed.
+			speedatmaxturn(17) ;-------------------------Max speed at max turn.
+			reverse(22) ;--------------------------------Max speed in Reverse.
+			weight(10.2) ;------------------------------Weight in Tonnes.
+			power(180) ;----------------------------------Horse Power.
+			fuel(290) ;----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(500) ;---------------------------------Range in Kilometers.
+		)
+	}
+	{Extension "btr-152u_gdr.mdl"}
+}
+
+
