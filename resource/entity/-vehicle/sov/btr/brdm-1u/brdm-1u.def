@@ -3,7 +3,7 @@
 	(include "/properties/selection/vehicle.inc"  scale(1.0))
 	(include "/properties/shadow/tank.inc" scale(1.0))
 	(include "/properties/selection/vehicle.inc" scale(1.0))
-	{props 	"command" "tank" "wheeled" "vision_lev02" "amphibia" "tractor" "tractor_light" "radio_sov" "radio_sov_artillery"}
+	{props 	"tank" "wheeled" "vision_lev02" "amphibia" "tractor" "tractor_light" "radio_sov"}
 	{extension "brdm-1u.mdl"}
 	{targetclass "armoredcar"}
 	{targetSelector "car_bullet"}
@@ -14,6 +14,16 @@
 	}
 	
 	(include "crew.ext")
+	
+	{placer
+		{place "gunner2"	{sealable}{visor "mgun"}}
+	}
+	
+	{sensor
+		{visor "mgun"
+			{bone "mgun_rot_turret"}
+		}
+	}
 	
 	("armoredcar_tier1")
 	
@@ -40,9 +50,28 @@
 
 	{extender "inventory"
 		{box
+			{item "mgun_rus belt" 2000}
 			{item "satchel_charge_rus" 1}
 		}
 	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "mgun"
+			{type 			"aa"}
+			{weapon			"sgmb" filled}
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			{LinkBone		"mgun"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+			{ai_in_manual}
+			{basic}
+		}
+	}
+	
+
+
 	
 	("wheel" args "wheelright1")
 	("wheel" args "wheelleft1")
@@ -75,5 +104,17 @@
 		{switch
 			{terrain "water" "deep_water"}
 		}
+	}
+	{bone "turret_mgun"
+        {limits -35 35}
+		{speed2 80}
+	}
+	{bone "mgun_rot" ;mgun horizontal
+		{limits -6 6}
+		{speed2 60}
+	}
+	{bone "mgun" ; mgun vertical
+		{limits -7 20}
+		{speed2 60}
 	}
 }

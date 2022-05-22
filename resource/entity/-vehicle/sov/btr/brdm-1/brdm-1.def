@@ -49,19 +49,17 @@
 	}
 
 	{extender "inventory"
-		{weapon "mgun" {mask "mountable"}}
 		{box
-			{item "pk_box" 2000}
+			{item "mgun_rus belt" 2000}
 			{item "satchel_charge_rus" 1}
-			{item "pk" filled {user "mgun"}}
 		}
 	}
 	
- 	{Weaponry
+	{Weaponry
 		("restore_ik_time")
 		{place "mgun"
 			{type 			"aa"}
-			;{weapon			"pk" filled}
+			{weapon			"sgmb" filled}
 			{gunner			"gunner2"}
 			{charger		"gunner2"}
 			{LinkBone		"mgun"}
@@ -71,6 +69,9 @@
 			{basic}
 		}
 	}
+	
+
+
 	
 	("wheel" args "wheelright1")
 	("wheel" args "wheelleft1")
@@ -104,16 +105,16 @@
 			{terrain "water" "deep_water"}
 		}
 	}
-	{bone "turret"
-        {limits -35 35}
-		{speed2 60}
-	}
-	{bone "mgun_rot"
-		{limits 7 -30}
-		{speed2 60}
-	}
 	{bone "turret_mgun"
-        {limits -4 4}
+        {limits -35 35}
 		{speed2 80}
+	}
+	{bone "mgun_rot" ;mgun horizontal
+		{limits -6 6}
+		{speed2 60}
+	}
+	{bone "mgun" ; mgun vertical
+		{limits -7 20}
+		{speed2 60}
 	}
 }

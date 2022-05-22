@@ -1,0 +1,120 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props 	"tank" "wheeled" "vision_lev02" "amphibia" "tractor" "tractor_light"}
+	{extension "brdm-1_gdr.mdl"}
+	{targetclass "armoredcar"}
+	{targetSelector "car_bullet"}
+	{patherId "amphibia"} 
+	
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+	
+	(include "crew.ext")
+	
+	{placer
+		{place "gunner2"	{sealable}{visor "mgun"}}
+	}
+	
+	{sensor
+		{visor "mgun"
+			{bone "mgun_rot_turret"}
+		}
+	}
+	
+	("armoredcar_tier1")
+	
+	("fuel" args "fuel")
+	("transmission" args "transmission")
+	
+	{volume "body"
+		{thickness 10}
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	
+	{volume "engine"
+		{thickness 15}
+	}
+
+	{extender "inventory"
+		{box
+			{item "mgun_rus belt" 2000}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "mgun"
+			{type 			"aa"}
+			{weapon			"sgmb" filled}
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			{LinkBone		"mgun"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+			{ai_in_manual}
+			{basic}
+		}
+	}
+	
+
+
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	
+	{mass 2500}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlf") wheelr("wrf") bonel("fxtracel1") boner("fxtracer1"))
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlm") wheelr("wrm") bonel("fxtracel2") boner("fxtracer2"))
+		("mobility_car"
+			speed(80) ;----------------------------------Max speed.
+			speedatmaxturn(18) ;-------------------------Max speed at max turn.
+			reverse(26) ;--------------------------------Max speed in Reverse.
+			weight(4) ;----------------------------------Weight in Tonnes.
+			power(89) ;----------------------------------Horse Power.
+			fuel(90) ;-----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(350) ;---------------------------------Range in Kilometers.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.0}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}
+	{bone "turret_mgun"
+        {limits -35 35}
+		{speed2 80}
+	}
+	{bone "mgun_rot" ;mgun horizontal
+		{limits -6 6}
+		{speed2 60}
+	}
+	{bone "mgun" ; mgun vertical
+		{limits -7 20}
+		{speed2 60}
+	}
+}
