@@ -2,7 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm"}
+	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "smoke" "ess"}
 	(include "t-55a.ext")
 	{targetclass "tank_medium"}
 	{targetSelector "tank_medium"}
@@ -53,6 +53,11 @@
 
 	; smokescreen via injecting fuel into the exhaust system possible
 
+	{extender "smokescreen"
+		{cooldown 20}
+		{itemTags "can"}
+	}
+	
 	{extender "inventory"
 		{box
 			{item "ammo bullet100_d10 apds" 25} ; 49 rounds
