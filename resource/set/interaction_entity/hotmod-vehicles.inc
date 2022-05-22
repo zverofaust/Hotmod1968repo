@@ -77,6 +77,47 @@
 
 	;/*=========== Hatch Animation End ===========*/
 }
+	;/*=========== ESS Smoke Instructions ===========*/
+
+{"smoke ess"					;// Emergency Smoke System - Soviet method for creating smokescreens by injecting diesel fuel into hot exhausts
+	{on spawn
+		{add_view "exhaust_dark_big_diesel"			"smoke_ess1"			"fxsmoke1"}
+		{add_view "smoke_cover-up_big"				"smoke_ess1_cover" 		"fxsmoke1"}
+		
+		(define "spawn_volume"
+			{spawn "smoke_volume_%0" offset %1 %2 0
+				{delay %3 {hide 1}}
+			}
+		)
+		
+	}
+	{on "smoke_screen"
+		{view start "smoke_ess1"}
+		{delay 3
+			{view start "smoke_ess1_cover"}
+			("spawn_volume" args cylinder 110 0 84)
+			("spawn_volume" args cylinder -110 0 84)
+			("spawn_volume" args cylinder 0 110 84)
+			("spawn_volume" args cylinder 0 -110 84)
+			("spawn_volume" args cylinder 110 110 84)
+			("spawn_volume" args cylinder -110 -110 84)
+			("spawn_volume" args cylinder -110 110 84)
+			("spawn_volume" args cylinder 110 -110 84)
+		}
+		{delay 5
+			("spawn_volume" args cylinder_sm 220 0 82)
+			("spawn_volume" args cylinder_sm -220 0 82)
+			("spawn_volume" args cylinder_sm 0 220 82)
+			("spawn_volume" args cylinder_sm 0 -220 82)
+		}
+		{delay 60
+			{view stop "smoke_ess1_cover"}
+		}
+		{delay 60
+			{view stop "smoke_ess1"}
+		}
+	}
+}
 
 {"mg_turret"
 	{on spawn
