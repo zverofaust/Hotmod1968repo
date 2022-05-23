@@ -276,6 +276,8 @@
 
 ("flame_fx" tag(range_30)		flame(fx_piece_flame_30))
 ("flame_fx" tag(range_40)		flame(fx_piece_flame_40))
+("flame_fx" tag(range_60)		flame(fx_piece_flame_60))
+("flame_fx" tag(range_80)		flame(fx_piece_flame_80))
 
 
 {"stuff weapon rocketlauncher"

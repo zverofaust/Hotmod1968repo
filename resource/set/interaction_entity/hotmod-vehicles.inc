@@ -1265,7 +1265,7 @@
 		{blastwave c4 5 r0 4 r1 15}
 		{fire radius 5 time 15 heating 10}
 	}
-	("flame_weapon" args gun 80 1 40)
+	("flame_weapon" args gun 160 1 40)
 }
 
 {"m67_zippo"
@@ -1278,7 +1278,7 @@
 		{blastwave c4 5 r0 4 r1 15}
 		{fire radius 5 time 15 heating 10}
 	}
-	("flame_weapon" args gun 80 1 40)
+	("flame_weapon" args gun 160 1 40)
 }
 
 {"m50"
