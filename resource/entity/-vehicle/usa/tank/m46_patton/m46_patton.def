@@ -2,7 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.2))
 	(include "/properties/selection/vehicle.inc" scale(1.2))
-	{props "heavy" "vision_lev05" "muzzle_85mm_93mm_sides" "diesel" "detect_tank_heavy"}
+	{props "heavy" "vision_lev05" "muzzle_85mm_93mm_sides" "detect_tank_heavy"}
 	{Extension "m46_patton.mdl"}
 	(include "m46_patton.ext")
 	{targetclass "tank_heavy"}
@@ -71,9 +71,10 @@
 
 	{extender "inventory"
 		{box
-			{item "ammo bullet90_m41 apcbche" 30} ;60 total
+			{item "ammo bullet90_m41 apcbche" 25} ;70 total
+			{item "ammo bullet90_m41 apcr" 20}
 			{item "ammo bullet90_m41 he" 15}
-			{item "ammo bullet90_m41 sm" 5}
+			{item "ammo bullet90_m41 sm" 10}
 			{item "ammo hmgun_usa" 1200}
 			{item "ammo mgun_usa belt" 2000}
 		}
@@ -82,7 +83,7 @@
 		("restore_ik_time")
 		{place "gun"
 			{RestoreIKAfterAim}
-			{weapon			"90mm_m36" filling "ammo bullet90_m41 apcbche" 1}
+			{weapon			"90mm_m3" filling "ammo bullet90_m41 apbc" 1}
 			{gunner "gunner"}
 			{charger "charger"}
 			("abm_dymamic_td"
@@ -123,14 +124,14 @@
 	{Chassis
 		("tank_trace" fx("tracks_big") step(0.52) len(-0.56))
 		("mobility_tank"
-			speed(48) ;----------Max speed when fully accelerated on road, km/h.
-			reverse(15) ;---------Max speed in reverse on road, km/h.
+			speed(49) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(20) ;---------Max speed in reverse on road, km/h.
 			traverse(25) ;-------Track traverse, per second, in degrees.
 			weight(41.6) ;-------Weight in Tonnes.
 			power(500) ;---------Engine Power, in hp.
-			track(4.0) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			track(4.3) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
 			fuel(520) ;----------Fuel capacity in Litres.
-			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			type(fuel) ;-------Fuel type. (diesel OR fuel)
 			range(160) ;---------Range in km, off-road.
 		)
 	}
