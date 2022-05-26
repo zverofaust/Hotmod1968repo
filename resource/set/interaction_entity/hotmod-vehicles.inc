@@ -1086,6 +1086,16 @@
 	}
 }
 
+{"m47_patton tank"
+	("m26_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
 {"m48_patton"
 	("pz6_sound")
 }
@@ -1397,8 +1407,14 @@
 	}
 }
 
-{"m47g"
-	("pz6_sound")
+{"m47g tank"
+	("m26_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
 }
 
 {"m48g"
