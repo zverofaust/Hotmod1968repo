@@ -12,7 +12,7 @@
 
 	("penetration_medium" shell(heat) range(190) a(380) b(380) c(380) d(380) e(380))	
 	
-	("accuracy_direct" r1(0.6) range_ap(350) range_he(350) range_heat(330))
+	("accuracy_direct" r1(0.8) range_ap(350) range_he(350) range_heat(330))
 	
 
 	{parameters "he"
@@ -42,6 +42,9 @@
 		{projectileDamage 500}
 		;("heat_slope_multiplier")
 		(mod "mp" {unlimitedRangeTPC 0})	;// restrict range in TPC/FPC in multiplayer only
+		{bullet_view "shillelagh"
+			{tail "rocket_smoke_st" "tail"}
+		}
 	}
 	
 	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_usa_base"}
