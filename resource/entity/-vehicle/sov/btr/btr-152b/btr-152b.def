@@ -2,7 +2,7 @@
 	(include "/properties/armoredcar.ext")
 	(include "/properties/shadow/tank.inc" scale(1.0))
 	(include "/properties/selection/vehicle.inc" scale(1.0))
-	{props "apc" "tank" "wheeled" "multi_board" "explosion_throw_crew" "vision_lev02" "tractor" "tractor_medium"}
+	{props "apc" "tank" "wheeled" "multi_board" "explosion_throw_crew" "vision_lev02" "tractor" "tractor_medium" "detect_tank_mg"}
 	{able "emit_passengers_on_enemy"}
 	{targetclass "armoredcar"}
 	{targetSelector "car_bullet"}
@@ -40,15 +40,12 @@
 	{Weaponry
 		("restore_ik_time")
 		{place "mgun"
-			{type 			"aa"}
-			{weapon			"sgmb" filled}
+			{weapon			"dshk" filled}
 			{gunner			"gunner2"}
 			{charger		"gunner2"}
-			{LinkBone		"mgun"}
+			{LinkBone		"mgun_bone"}
 			{LinkAnimation	"off"}
 			("abm_mgun")
-			{ai_in_manual}
-			{basic}
 		}
 	}
 	
@@ -116,18 +113,14 @@
 			range(500) ;---------------------------------Range in Kilometers.
 		)
 	}
-	{Extension "btr-152.mdl"}
+	{Extension "btr-152b.mdl"}
 
-	{bone "turret_mgun"
-        {limits -35 35}
-		{speed2 80}
-	}
-	{bone "mgun_rot" ;mgun horizontal
-		{limits -6 6}
+	{bone "mgun_a_rot2" ; vertical
+		{limits -6 25}
 		{speed2 60}
 	}
-	{bone "mgun" ; mgun vertical
-		{limits -7 20}
+	{bone "mgun_a_rot1" ; horizontal (with gunner)
+        {limits -50 50}
 		{speed2 60}
 	}
 }
