@@ -1,111 +1,68 @@
 ;SDL
 
 	; armor notes
-	; tracks and wheels 30mm
-	; gun 50mm
-	; mud guards 4mm
+	; tracks and wheels 20mm
+	; gun 20mm
+	; track guards 5mm
 
-	{volume "body"			; Hull
+	;durability from properties/armor.ext
+	("tank_medium_tier3")
+	
+	;volume, component/tag
+	
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(20))
+	
+	("shield_tear" args "shield1" 4)	; Mud Guard
+	("shield_tear" args "shield2" 4)	; Mud Guard
+	("shield_tear" args "shield3" 4)	; Mud Guard
+	("shield_tear" args "shield4" 4)	; Mud Guard
+	
+	{volume "body"			; Upper Hull
 		{thickness 90
-			{front 90}		; Nose
-			{top 15}		; Glacis
-			{left 75}		; Lower Nose
-			{rear 45}
-			{bottom 15}
+			{front 90}		; Glacis
+			{rear 30}		; Engine Wall
+			{bottom 0}
 		}
+		{HighHardness}
 	}
-	{volume "engine"		; Hull
-		{thickness 60
-			{front 20}
-			{rear 20}
-			{top 20}
-			{bottom 25}
+	{volume "body1"			; Lower Hull
+		{thickness 90
+			{front 90}		; Glacis
+			{top 0}
+			{rear 30}		; Engine wall
+			{bottom 30}
 		}
-	}
-	{volume "turret"		; Turret Sides
-		{thickness 120
-			{front 120}
-			{left 90}
-			{rear 30}
-			{top 20}
-		}
-	}
-	{volume "turret2"		; Turret Sides
-		{thickness 120
-			{front 120}
-			{left 90}
-			{rear 30}
-			{top 20}
-		}
-	}
-	{volume "turret3"		; Turret Sides
-		{thickness 120
-			{front 120}
-			{left 90}
-			{rear 20}
-			{top 30}
-		}
-	}
-	{volume "turret4"		; Turret Front Glacis
-		{thickness 30
-			{front 20}
-			{left 30}
-			{rear 30}
-			{top 30}
-		}
-	}
-	{volume "turret5"		; Turret Sides And Rear
-		{thickness 120
-			{front 20}
-			{left 90}
-			{rear 75}
-			{top 15}
-		}
-	}
-	{volume "ekran_body1"
-		{thickness 90}
-	}
-	{volume "ekran_body2"
-		{thickness 10}
-	}
-	{volume "ekran_body3"
-		{thickness 10}
-	}
-	{volume "ekran_body4"
-		{thickness 10}
-	}
-	{volume "ekran_body5"
-		{thickness 10}
-	}
-	{volume "mantlet"
-		{thickness 135}
-		{able {holed}}
-		{CastSteel 0.8063}
-	}
-	{volume "ekran_mantlet"
-		{thickness 60}
-		{able {holed}}
-		{CastSteel 0.8063}
-	}
-	{volume "ekran_turret1"
-		{thickness 120}
-	}
-	{volume "trackright"
-		{thickness 20}
-	}
-	{volume "trackleft"
-		{thickness 20}
+		{HighHardness}
 	}
 
-	{component "shieldl1" {tags "cut_part"}}
-	{component "shieldl2" {tags "cut_part"}}
-	{component "shieldl3" {tags "cut_part"}}
-	{component "shieldl4" {tags "cut_part"}}
-	{component "shieldl5" {tags "cut_part"}}
-	{component "shieldl6" {tags "cut_part"}}
-	{component "shieldr1" {tags "cut_part"}}
-	{component "shieldr2" {tags "cut_part"}}
-	{component "shieldr3" {tags "cut_part"}}
-	{component "shieldr4" {tags "cut_part"}}
-	{component "shieldr5" {tags "cut_part"}}
-	{component "shieldr6" {tags "cut_part"}}
+	{volume "turret"		; Turret
+		{thickness 90
+			{front 120}
+			{top 30}
+			{bottom 0}
+			{rear 75}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	
+	{volume "turret2"		; Turret
+		{thickness 90
+			{front 120}
+			{top 0}
+			{bottom 30}
+			{rear 75}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	
+	{volume "engine"		; Hull
+		{thickness 20}
+		{HighHardness}
+	}
