@@ -76,36 +76,8 @@
 		{range %range %range}
 	}
 )
-(define "penetration"  ;// penetration drop curve with decreasing penetration after 250m (2km IRL, 1/8th Scale)
-	{projectileDamageTable {12.5 %a} {62.5 %b} {125 %c} {187.5 %d} {250 %e} {500 (- %e (* 5 (- %a %e)))}} ;// shell penetration over distance
-	
-	
-	{## (* -0.1 %a) (* 0.1 %a) 1} ;// adds variance to shell penetration
-	{## ;// relative armor thickness / penetration ratio , penetration probability
-		1.136	0
-		1.124	1
-		1.099	1
-		1.087	2
-		1.075	4
-		1.064	7
-		1.053	11
-		1.042	16
-		1.031	23
-		1.020	31
-		1.010	40
-		1.000	50
-		0.990	60
-		0.980	69
-		0.971	77
-		0.962	84
-		0.952	89
-		0.943	93
-		0.935	96
-		0.926	98
-		0.917	99
-		0.901	99
-		0.893	100
-	}
+(define "penetration"  ;// penetration drop curve with decreasing penetration after 250m (2km IRL, 1/8th ish Scale)
+	{projectileDamageTable {20 %a} {100 %b} {155 %c} {205 %d} {250 %e} {500 (- %e (* 5 (- %a %e)))}} ;// shell penetration over distance
 )
 
 (define "armor health"
@@ -154,289 +126,312 @@
 ;/*============================== Accuracies ==============================*/
 
 (define "accuracy_indirect" 	;// for indirect units with more than 200m range
-	("curve_indirect" 
-		r1(%r1) 					;// direct fire accuracy
-		r2(%r2) 					;// indirect fire accuracy
+	("curve_indirect"
+		r1(%r1)						;// direct fire accuracy
+		r2(%r2)						;// indirect fire accuracy
 		rmax(%rmax)					;// max range indirect fire accuracy
-		range_ap(%range_ap) 
-		range_he(%range_he) 
-		range_heat(%range_heat) 
-		r0(1.00) 					;// global accuracy
-		  ap50(0.50)   ap100(1.50)   ap150(3.50)   ap200(6.25)
-	    heat50(0.60) heat100(1.75) heat150(3.75) heat200(7.00)
-	) 
+		range_ap(%range_ap)
+		range_he(%range_he)
+		range_heat(%range_heat)
+		r0(1.10)					;// global accuracy
+		  ap50(0.50)   ap100(1.50)   ap140(4.00)   ap200(6.00)
+		heat50(1.20) heat100(3.50) heat140(7.50) heat200(14.00)
+		 he125(0.4)
+	)
 )
 
 (define "curve_indirect"
 	{parameters "ap"
 		("standard_firing_arc")
-		{spreading 
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+		{spreading
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "apc"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "apche"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "aphe"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "apbc"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "apcbc"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "apcbche"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "aphebc"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "aphebc2"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "apcr"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "hvap"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "apds"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "apfsds"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {(+ %range_ap 10) 10}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 10) 10}}
 		}
 	}
 	{parameters "he"
 		{spreading
-			{radiusTable {0 0} {100 (* 0.50 (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {(- %range_he 0.1) (* %rmax %r0)} {(+ %range_he 10) 60}} ; // Anti-farshoot, accuracy goes haywire past max range
+			{radiusTable {0 0} {125 (* %he125 (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {(- %range_he 0.1) (* %rmax %r0)} {(+ %range_he 10) 60}} ; // Anti-farshoot, accuracy goes haywire past max range
 		}
 	}
 	{parameters "sm"
 		{spreading
-			{radiusTable {0 0} {100 (* 0.50 (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {%range_he (* %rmax %r0)} {(* %range_he 10) 60}}
+			{radiusTable {0 0} {125 (* %he125  (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {%range_he (* %rmax %r0)} {(* %range_he 10) 60}}
 		}
 	}
 	{parameters "wp"
 		{spreading
-			{radiusTable {0 0} {100 (* 0.50 (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {%range_he (* %rmax %r0)} {(* %range_he 10) 60}}
+			{radiusTable {0 0} {125 (* %he125  (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {%range_he (* %rmax %r0)} {(* %range_he 10) 60}}
 		}
 	}
 	{parameters "ic"
 		{spreading
-			{radiusTable {0 0} {100 (* 0.50 (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {(- %range_he 0.1) (* %rmax %r0)} {(+ %range_he 10) 60}} ; // Anti-farshoot, accuracy goes haywire past max range
+			{radiusTable {0 0} {125 (* %he125  (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {(- %range_he 0.1) (* %rmax %r0)} {(+ %range_he 10) 60}} ; // Anti-farshoot, accuracy goes haywire past max range
 		}
 	}
 	{parameters "hesh"
 		{spreading
-			{radiusTable {0 0} {100 (* 0.50 (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {(- %range_he 0.1) (* %rmax %r0)} {(+ %range_he 10) 60}} ; // Anti-farshoot, accuracy goes haywire past max range
+			{radiusTable {0 0} {125 (* 0.50 (* %r2 %r0))} {250 (* 2.0 (* %r2 %r0))} {(- %range_he 0.1) (* %rmax %r0)} {(+ %range_he 10) 60}} ; // Anti-farshoot, accuracy goes haywire past max range
 		}
 	}
 	{parameters "heat"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {150 (* %heat150 (* %r1 %r0))} { %range_heat (* (+ (* (/ (- %range_heat 150) (- 200 150)) (- %heat200 %heat150)) %heat150) (* %r1 %r0))} {(+ %range_heat 10) 10}}
+			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {140 (* %heat140 (* %r1 %r0))} { %range_heat (* (+ (* (/ (- %range_heat 140) (- 200 140)) (- %heat200 %heat140)) %heat140) (* %r1 %r0))} {(+ %range_heat 10) 10}}
 		}
 	}
 	{parameters "heata"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {150 (* %heat150 (* %r1 %r0))} { %range_heat (* (+ (* (/ (- %range_heat 150) (- 200 150)) (- %heat200 %heat150)) %heat150) (* %r1 %r0))} {(+ %range_heat 10) 10}}
+			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {140 (* %heat140 (* %r1 %r0))} { %range_heat (* (+ (* (/ (- %range_heat 140) (- 200 140)) (- %heat200 %heat140)) %heat140) (* %r1 %r0))} {(+ %range_heat 10) 10}}
 		}
 	}
 	{parameters "heatb"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {150 (* %heat150 (* %r1 %r0))} { %range_heat (* (+ (* (/ (- %range_heat 150) (- 200 150)) (- %heat200 %heat150)) %heat150) (* %r1 %r0))} {(+ %range_heat 10) 10}}
+			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {140 (* %heat140 (* %r1 %r0))} { %range_heat (* (+ (* (/ (- %range_heat 140) (- 200 140)) (- %heat200 %heat140)) %heat140) (* %r1 %r0))} {(+ %range_heat 10) 10}}
 		}
 	}
 	{parameters "heatc"
 		("standard_firing_arc")
 		{spreading
-			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {150 (* %heat150 (* %r1 %r0))} { %range_heat (* (+ (* (/ (- %range_heat 150) (- 200 150)) (- %heat200 %heat150)) %heat150) (* %r1 %r0))} {(+ %range_heat 10) 10}}
+			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {140 (* %heat140 (* %r1 %r0))} { %range_heat (* (+ (* (/ (- %range_heat 140) (- 200 140)) (- %heat200 %heat140)) %heat140) (* %r1 %r0))} {(+ %range_heat 10) 10}}
 		}
 	}
 )
 
 
 (define "accuracy_direct" ;// Accuracy for direct-fire weaponry
-	("curve_direct" 
-		r1(%r1) 
-		range_ap(%range_ap) 
-		range_he(%range_he) 
-		range_heat(%range_heat) 
-		r0(0.85) 								; // global accuracy
-		apbc50(0.60) apbc100(1.50) apbc150(3.50) apbc200(6.25)
-		  ap50(0.65)   ap100(1.75)   ap150(3.75)   ap200(6.50)
-		  he50(0.80)   he100(2.00)   he150(4.50)   he200(10.50)
-		apcr50(0.70) apcr100(2.00) apcr150(4.00) apcr200(6.75)
-		apds50(1.00) apds100(2.50) apds150(4.50) apds200(8.00)
+	("curve_direct"
+		r1(%r1)
+		range_ap(%range_ap)
+		range_he(%range_he)
+		range_heat(%range_heat)
+		r0(0.50) 								; // global accuracy
+		apbc50(1.50) apbc100(2.50) apbc140(3.50) apbc200(6.00)
+		 apc50(1.50)  apc100(2.75)  apc140(3.75)  apc200(6.75)
+		  ap50(1.50)   ap100(2.75)   ap140(3.75)   ap200(6.50)
+		  he50(1.50)   he100(2.75)   he140(6.00)   he200(12.00)
+		heat50(1.50) heat100(3.00) heat140(4.25) heat200(8.00)
+		apcr50(1.50) apcr100(2.25) apcr140(3.25) apcr200(5.50)
+		hvap50(1.50) hvap100(2.00) hvap140(3.00) hvap200(5.00)
+		apds50(2.00) apds100(3.50) apds140(6.00) apds200(10.00)
 	)
 )
-
+(define "accuracy_direct_arrowhead" ;// Accuracy for direct-fire weaponry, using arrowhead APCR design (early german APCR, all soviet APCR)
+	("curve_direct"
+		r1(%r1)
+		range_ap(%range_ap)
+		range_he(%range_he)
+		range_heat(%range_heat)
+		r0(0.50) 								; // global accuracy
+		apbc50(1.50) apbc100(2.50) apbc140(3.50) apbc200(6.00)
+		 apc50(1.50)  apc100(2.75)  apc140(3.75)  apc200(6.75)
+		  ap50(1.50)   ap100(2.75)   ap140(3.75)   ap200(6.50)
+		  he50(1.50)   he100(2.75)   he140(6.00)   he200(12.00)
+		heat50(1.50) heat100(3.00) heat140(4.25) heat200(8.00)
+		apcr50(1.50) apcr100(2.50) apcr140(3.75) apcr200(6.75)
+		hvap50(1.50) hvap100(2.00) hvap140(3.00) hvap200(5.00)
+		apds50(2.00) apds100(3.50) apds140(6.00) apds200(10.00)
+	)
+)
 (define "accuracy_spg" ;// Accuracy for SPG direct-fire weaponry
-	("curve_direct" 
-		r1(%r1) 
-		range_ap(%range_ap) 
-		range_he(%range_he) 
-		range_heat(%range_heat) 
-		r0(0.85) 								; // global accuracy
-		apbc50(0.60) apbc100(1.50) apbc150(3.50) apbc200(6.25)
-		  ap50(0.65)   ap100(1.75)   ap150(3.75)   ap200(6.50)
-		  he50(0.80)   he100(2.00)   he150(4.00)   he200(7.50)
-		apcr50(0.70) apcr100(2.00) apcr150(4.00) apcr200(6.75)
-		apds50(1.00) apds100(2.50) apds150(4.50) apds200(8.00)
+	("curve_direct"
+		r1(%r1)
+		range_ap(%range_ap)
+		range_he(%range_he)
+		range_heat(%range_heat)
+		r0(0.50) 								; // global accuracy
+		apbc50(1.50) apbc100(2.50) apbc140(3.50) apbc200(6.00)
+		 apc50(1.50)  apc100(2.75)  apc140(3.75)  apc200(6.75)
+		  ap50(1.50)   ap100(2.75)   ap140(3.75)   ap200(6.50)
+		  he50(1.50)   he100(2.75)   he140(4.00)   he200(7.50)
+		heat50(1.50) heat100(3.00) heat140(4.25) heat200(8.00)
+		apcr50(1.50) apcr100(2.25) apcr140(3.25) apcr200(5.50)
+		hvap50(1.50) hvap100(2.00) hvap140(3.00) hvap200(5.00)
+		apds50(2.00) apds100(3.50) apds140(6.00) apds200(10.00)
 	)
 )
 
 (define "curve_direct"	;// the code extrapolates where the accuracy point is for max range, knowing the accuracy for the cannon is defined for 200m
 	{parameters "ap"
-		{spreading 
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {%range_ap 20}}
+		{spreading
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "apc"
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %apc50 (* %r1 %r0))} {100 (* %apc100 (* %r1 %r0))} {140 (* %apc140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apc200 %apc140)) %apc140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "apche"
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %apc50 (* %r1 %r0))} {100 (* %apc100 (* %r1 %r0))} {140 (* %apc140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apc200 %apc140)) %apc140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "aphe"
 		{spreading
-			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {150 (* %ap150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %ap200 %ap150)) %ap150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "apbc"
 		{spreading
-			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {150 (* %apbc150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %apbc200 %apbc150)) %apbc150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {140 (* %apbc140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apbc200 %apbc140)) %apbc140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "apcbc"
 		{spreading
-			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {150 (* %apbc150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %apbc200 %apbc150)) %apbc150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {140 (* %apbc140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apbc200 %apbc140)) %apbc140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "apcbche"
 		{spreading
-			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {150 (* %apbc150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %apbc200 %apbc150)) %apbc150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {140 (* %apbc140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apbc200 %apbc140)) %apbc140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "aphebc"
 		{spreading
-			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {150 (* %apbc150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %apbc200 %apbc150)) %apbc150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {140 (* %apbc140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apbc200 %apbc140)) %apbc140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "aphebc2"
 		{spreading
-			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {150 (* %apbc150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %apbc200 %apbc150)) %apbc150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {140 (* %apbc140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apbc200 %apbc140)) %apbc140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "apcr"
 		{spreading
-			{radiusTable {0 0} {50 (* %apcr50 (* %r1 %r0))} {100 (* %apcr100 (* %r1 %r0))} {150 (* %apcr150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %apcr200 %apcr150)) %apcr150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %apcr50 (* %r1 %r0))} {100 (* %apcr100 (* %r1 %r0))} {140 (* %apcr140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apcr200 %apcr140)) %apcr140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "hvap"
 		{spreading
-			{radiusTable {0 0} {50 (* %apcr50 (* %r1 %r0))} {100 (* %apcr100 (* %r1 %r0))} {150 (* %apcr150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %apcr200 %apcr150)) %apcr150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %hvap50 (* %r1 %r0))} {100 (* %hvap100 (* %r1 %r0))} {140 (* %hvap140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %hvap200 %hvap140)) %hvap140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "apds"
 		{spreading
-			{radiusTable {0 0} {50 (* %apds50 (* %r1 %r0))} {100 (* %apds100 (* %r1 %r0))} {150 (* %apds150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %apds200 %apds150)) %apds150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %apds50 (* %r1 %r0))} {100 (* %apds100 (* %r1 %r0))} {140 (* %apds140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apds200 %apds140)) %apds140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "apfsds"
 		{spreading
-			{radiusTable {0 0} {50 (* %apds50 (* %r1 %r0))} {100 (* %apds100 (* %r1 %r0))} {150 (* %apds150 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 150) (- 200 150)) (- %apds200 %apds150)) %apds150) (* %r1 %r0))} {%range_ap 20}}
+			{radiusTable {0 0} {50 (* %apds50 (* %r1 %r0))} {100 (* %apds100 (* %r1 %r0))} {140 (* %apds140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apds200 %apds140)) %apds140) (* %r1 %r0))} {%range_ap 20}}
 		}
 	}
 	{parameters "he"
 		{spreading
-			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {150 (* %he150 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 150) (- 200 150)) (- %he200 %he150)) %he150) (* %r1 %r0))} {%range_he 20}}
+			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {140 (* %he140 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 140) (- 200 140)) (- %he200 %he140)) %he140) (* %r1 %r0))} {%range_he 20}}
 		}
 	}
 	{parameters "sm"
 		{spreading
-			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {150 (* %he150 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 150) (- 200 150)) (- %he200 %he150)) %he150) (* %r1 %r0))} {%range_he 20}}
+			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {140 (* %he140 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 140) (- 200 140)) (- %he200 %he140)) %he140) (* %r1 %r0))} {%range_he 20}}
 		}
 	}
 	{parameters "wp"
 		{spreading
-			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {150 (* %he150 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 150) (- 200 150)) (- %he200 %he150)) %he150) (* %r1 %r0))} {%range_he 20}}
+			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {140 (* %he140 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 140) (- 200 140)) (- %he200 %he140)) %he140) (* %r1 %r0))} {%range_he 20}}
 		}
 	}
 	{parameters "ic"
 		{spreading
-			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {150 (* %he150 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 150) (- 200 150)) (- %he200 %he150)) %he150) (* %r1 %r0))} {%range_he 20}}
+			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {140 (* %he140 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 140) (- 200 140)) (- %he200 %he140)) %he140) (* %r1 %r0))} {%range_he 20}}
 		}
 	}
 	{parameters "hesh"
 		{spreading
-			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {150 (* %he150 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 150) (- 200 150)) (- %he200 %he150)) %he150) (* %r1 %r0))} {%range_he 20}}
+			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {140 (* %he140 (* %r1 %r0))} { (- %range_he 0.01) (* (+ (* (/ (- %range_he 140) (- 200 140)) (- %he200 %he140)) %he140) (* %r1 %r0))} {%range_he 20}}
 		}
 	}
 	{parameters "heat"
 		{spreading
-			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {150 (* %he150 (* %r1 %r0))} { (- %range_heat 0.01) (* (+ (* (/ (- %range_heat 150) (- 200 150)) (- %he200 %he150)) %he150) (* %r1 %r0))} {%range_heat 20}}
+			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {140 (* %heat140 (* %r1 %r0))} { (- %range_heat 0.01) (* (+ (* (/ (- %range_heat 140) (- 200 140)) (- %heat200 %heat140)) %heat140) (* %r1 %r0))} {%range_heat 20}}
 		}
 	}
 	{parameters "heata"
 		{spreading
-			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {150 (* %he150 (* %r1 %r0))} { (- %range_heat 0.01) (* (+ (* (/ (- %range_heat 150) (- 200 150)) (- %he200 %he150)) %he150) (* %r1 %r0))} {%range_heat 20}}
+			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {140 (* %heat140 (* %r1 %r0))} { (- %range_heat 0.01) (* (+ (* (/ (- %range_heat 140) (- 200 140)) (- %heat200 %heat140)) %heat140) (* %r1 %r0))} {%range_heat 20}}
 		}
 	}
 	{parameters "heatb"
 		{spreading
-			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {150 (* %he150 (* %r1 %r0))} { (- %range_heat 0.01) (* (+ (* (/ (- %range_heat 150) (- 200 150)) (- %he200 %he150)) %he150) (* %r1 %r0))} {%range_heat 20}}
+			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {140 (* %heat140 (* %r1 %r0))} { (- %range_heat 0.01) (* (+ (* (/ (- %range_heat 140) (- 200 140)) (- %heat200 %heat140)) %heat140) (* %r1 %r0))} {%range_heat 20}}
 		}
 	}
 	{parameters "heatc"
 		{spreading
-			{radiusTable {0 0} {50 (* %he50 (* %r1 %r0))} {100 (* %he100 (* %r1 %r0))} {150 (* %he150 (* %r1 %r0))} { (- %range_heat 0.01) (* (+ (* (/ (- %range_heat 150) (- 200 150)) (- %he200 %he150)) %he150) (* %r1 %r0))} {%range_heat 20}}
+			{radiusTable {0 0} {50 (* %heat50 (* %r1 %r0))} {100 (* %heat100 (* %r1 %r0))} {140 (* %heat140 (* %r1 %r0))} { (- %range_heat 0.01) (* (+ (* (/ (- %range_heat 140) (- 200 140)) (- %heat200 %heat140)) %heat140) (* %r1 %r0))} {%range_heat 20}}
 		}
 	}
 )
@@ -483,9 +478,7 @@
 	{spreading {SpreadXYRatio 3}}
 )
 
-
 ;/*============================== RANGES AND SPECIFICS ==============================*/
-
 
 (define "range_aircraft_gun"
 	("standard_firing_arc")
@@ -511,7 +504,6 @@
 		{SpreadXYRatio	0.5}
 		{radiusTable {0 1} {80 2} {130 5} {200 10}}
 	}
-
 	{burst
 		{short 20 5}			;// short burst shots on long distance, rand (+-)shots
 		{long 50 10}			;// long burst shots on short distance, rand (+-)shots
@@ -531,7 +523,6 @@
 		{BurstAccuracy 100 98 95 90 85 80 75 70}
 		{SpreadXYRatio	0.5}
 	}
-
 	{burst
 		{short 2 0.75}			;// short burst shots on long distance, rand (+-)shots
 		{long 5 1}				;// long burst shots on short distance, rand (+-)shots
@@ -552,7 +543,6 @@
 		{BurstAccuracy 100 95 88 82 75 68 55 32}
 		{SpreadXYRatio	0.5}
 	}
-
 	{burst
 		{short 2 0.75}			;// short burst shots on long distance, rand (+-)shots
 		{long 5 1}				;// long burst shots on short distance, rand (+-)shots
@@ -572,7 +562,6 @@
 		{BurstAccuracy 100 95 88 82 75 68 55 32}
 		{SpreadXYRatio	0.5}
 	}
-
 	{burst
 		{short 2 0.75}			;// short burst shots on long distance, rand (+-)shots
 		{long 4 1}				;// long burst shots on short distance, rand (+-)shots
@@ -945,7 +934,7 @@
 (define "apcr_slope_multiplier"  ;use for APCR & HVAP Projectiles 76mm Caliber or below
 	{overmatchFixed
 		{0  1.00	}
-		{10	1.01	}
+		{5	1.01	}
 		{10	1.03	}
 		{15	1.07	}
 		{20	1.13	}
