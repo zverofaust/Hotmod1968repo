@@ -1,9 +1,4 @@
-;_________________________________________
-;  USSR long-barreled Medium AT gun
-;=========================================
-
-
-{from "pattern gun"			; L/52 "t3485"
+{from "pattern gun"			; D-48 85mm Anti-Tank Gun, using different ammunition from ZiS-53-S and other WW2-era 85mms
 	{filling "bullet85_d48"}
 	{fireSound "gun/gun_75_105"}
 	{fireSoundclose "gun/gun_interior/size3"}
@@ -13,7 +8,7 @@
 
 	("reload time" seconds(8))
 
-	("velocity m/s" ap(1040) apcr(1050) he(1010) heat(1))
+	("velocity m/s" ap(1040) apcr(1050) he(1010) heat(800))
 	("armor health" damage(250))
 	("armor health custom" shell(aphe) damage(250) filler(65))
 	("armor health custom" shell(aphebc) damage(250) filler(77))
@@ -23,6 +18,9 @@
 
 	; BR-372
 	("penetration_long" shell(aphebc) range(220) a(245) b(230) c(216) d(202) e(190))  ;RHA
+	
+	; 3BK-7 HEAT
+	("penetration_long" shell(heat) range(200) a(300) b(300) c(300) d(300) e(300))  ;RHA
 
 	; OF-372
 	("accuracy_direct" r1(0.72) range_ap(320) range_he(320) range_heat(300))
