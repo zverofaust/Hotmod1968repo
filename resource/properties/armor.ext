@@ -17,6 +17,13 @@
 		}
 		{volumes "ammo*"}
 	}
+	{setting "rocket"
+		{threshold
+			{blast	{koef (* %0 0.25)}}		;// koef = coefficient. Threshold = koef value x volume effective thickness
+			{pierce {koef 1}}
+		}
+		{volumes "rocket*"}
+	}
 )
 
 (define "basic_armor"
@@ -43,7 +50,9 @@
 		("set_armor" args shield)
 		("set_armor" args armor)
 		("set_armor" args glass)
+		("set_armor" args lamp)
 		("set_armor" args sandbag)
+		("set_armor" args detail)
 		
 		;// Car 
 		("set_armor" args cabin)
@@ -52,6 +61,7 @@
 		;// Cannon
 		("set_armor" args stand)
 		("set_armor" args box) ;// MG ammo box
+		("set_armor" args magazine)	;// MG ammo box
 		
 		;// Airborne
 		("set_armor" args stabilizer)
@@ -115,7 +125,7 @@
 		{component "engine"
 			{health
 				{hp %engine}
-				{hp_broken %engine}	;// destroys component and cannot be repaired
+				{hp_broken (* %engine 1.5)}	;// destroys component and cannot be repaired
 			}
 			("global_damage_mod")
 		}
@@ -179,6 +189,12 @@
 				{hp_broken 1}	;// destroys component and cannot be repaired
 			}
 		}
+		{component tag "lamp"
+			{health
+				{hp 60}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+		}
 		{component tag "shield"
 			{health
 				{hp 100}
@@ -203,6 +219,13 @@
 		{component tag "ammo"
 			{health
 				{hp 170}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+		}
+		{component tag "rocket"
+			{health
+				{hp 100}
 				{hp_broken 1}	;// destroys component and cannot be repaired
 			}
 			("global_damage_mod")
@@ -351,7 +374,7 @@
 		{component "body"
 			{health
 				{hp %body}
-				{hp_broken (* %body 0.5)}
+				{hp_broken (* %body 0.75)}
 			}
 			("global_damage_mod")
 		}
@@ -413,7 +436,7 @@
 		}
 		{component tag "shield"
 			{health
-				{hp 100}
+				{hp %turret}
 				{hp_broken 1}	;// destroys component and cannot be repaired
 			}
 			("global_damage_mod")
@@ -442,6 +465,88 @@
 	}
 )
 
+(define "moto_durability"
+	{perks
+		{component "body"
+			{health
+				{hp %body}
+				{hp_broken (* %body 3)}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+			{armor_damage_modifier 2}
+		}
+		{component "engine"
+			{health
+				{hp %engine}
+				{hp_broken %engine}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+			{armor_damage_modifier 3}
+		}
+		{component tag "wheel"
+			{health
+				{hp 125}
+			}
+			{armor_damage_modifier 5}
+		}
+		{component tag "glass"
+			{health
+				{hp 60}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+		}
+		{component tag "shield"
+			{health
+				{hp 100}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+		}
+		{component tag "cut_part"
+			{health
+				{hp 100}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+		}
+		{component tag "fuel"
+			{health
+				{hp 100}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+			{armor_damage_modifier 3}
+		}
+		{component tag "ammo"
+			{health
+				{hp 100}
+				{hp_broken 1}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+			{armor_damage_modifier 3}
+		}
+	}
+)
+
+(define "bike_durability"
+	{perks
+		{component "body"
+			{health
+				{hp %body}
+				{hp_broken (+ 1500(* %body 5))}	;// destroys component and cannot be repaired
+			}
+			("global_damage_mod")
+			{armor_damage_modifier 2}
+		}
+		{component tag "wheel"
+			{health
+				{hp 125}
+			}
+			{armor_damage_modifier 5}
+		}
+	}
+)
+
 ;/*========================================*/
 ;/*========================================*/
 
@@ -460,30 +565,37 @@
 
 (define "tank_light_tier1"
 	("general_durability" body(200) engine(150) turret(150) mantlet(125) gun(150) track(100))
+	("basic_armor" args 10)
 )
 
 (define "tank_light_tier2"
 	("general_durability" body(250) engine(175) turret(175) mantlet(150) gun(175) track(100))
+	("basic_armor" args 10)
 )
 
 (define "tank_medium_tier1"
 	("general_durability" body(300) engine(200) turret(200) mantlet(175) gun(200) track(120))
+	("basic_armor" args 15)
 )
 
 (define "tank_medium_tier2"
-	("general_durability" body(325) engine(200) turret(200) mantlet(175) gun(200) track(120))
+	("general_durability" body(350) engine(200) turret(225) mantlet(175) gun(200) track(120))
+	("basic_armor" args 15)
 )
 
 (define "tank_medium_tier3"
-	("general_durability" body(350) engine(225) turret(225) mantlet(175) gun(200) track(120))
+	("general_durability" body(425) engine(225) turret(250) mantlet(175) gun(200) track(120))
+	("basic_armor" args 22)
 )
 
 (define "tank_heavy_tier1"
-	("general_durability" body(400) engine(250) turret(250) mantlet(225) gun(225) track(200))
+	("general_durability" body(450) engine(250) turret(275) mantlet(225) gun(225) track(200))
+	("basic_armor" args 22)
 )
 
 (define "tank_heavy_tier2"
-	("general_durability" body(425) engine(250) turret(250) mantlet(225) gun(225) track(200))
+	("general_durability" body(500) engine(250) turret(300) mantlet(225) gun(225) track(200))
+	("basic_armor" args 25)
 )
 
 (define "armor_carried_cannon" ;// MGs and mortars
@@ -501,6 +613,7 @@
 (define "armor_heavy_cannon" ;// howitzers, big towed guns
 	("cannon_durability" body(200) gun(150) wheel(100) shield(300))
 	("cannon_thickness" args 10)
+	("body" repair(90))
 )
 
 (define "fighter_tier1"
