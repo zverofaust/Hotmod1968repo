@@ -76,6 +76,14 @@
 	)
 )
 
+(define "abm_dymamic_mortar"	;for Mortar cannons
+	("accuracy_by_motion"
+		max_linear(5) accuracy_by_linear(0.5)
+		max_angular(8) accuracy_by_angular(0.5)
+		disorder_time(%dispersion) order_time(%zeroing)
+	)
+)
+
 
 ;-----------------------------------------Small--------------------------------
 
