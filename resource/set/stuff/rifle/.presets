@@ -26,6 +26,9 @@
 	("accuracy_rifle_auto")
 	("human health" damage(70))
 	{FiringTimeout 2 0.5}
+	{curve "autorifle"}
+	("recoil_rifle_semi")
+	("ap_7_62_slope_multiplier")
 )
 
 (define "semi_rifle_inter" ;Intermediate power rifle calibers, semi-auto only ;SKS
@@ -45,6 +48,9 @@
 	("accuracy_rifle_auto")
 	("human health" damage(60))
 	{FiringTimeout 2 0.5}
+	{curve "autorifle"}
+	("recoil_rifle_semi")
+	("ap_7_62_slope_multiplier")
 )
 
 (define "battle_rifle" ;full size rifle calibers with full auto capability; FN FAL
@@ -65,9 +71,12 @@
 	("human health" damage(70))
 	{SyncedProjectiles 0}		;// not for automatic weapons
 	{FiringTimeout 2 0.5}
+	{curve "autorifle"}
+	("recoil_rifle_semi")
+	("ap_7_62_slope_multiplier")
 )
 
-(define "auto_rifle"     ;full power rifles in automatic mode ; M14A1
+(define "auto_rifle"     ;full power rifles in automatic mode ; FG42, M14A1
 	{tag "autorifle_sup auto_eject rifle_shell"}
 	{range 155 155}
 	{spreading
@@ -85,6 +94,9 @@
 	("human health" damage(70))
 	{SyncedProjectiles 0}		;// not for automatic weapons
 	{FiringTimeout 2 0.5}
+	{curve "autorifle"}
+	("recoil_fg42")
+	("ap_7_62_slope_multiplier")
 )
 
 (define "assault_rifle" ; Intermediate power fully automatic rifles ; AK series and derivatives, M2 Carbine
@@ -102,6 +114,9 @@
 		{long 5 2}			; burst shots on short distance, rand (+-)shots
 		{rangeKoef 0.5}		; rangeKoef * aimRange = max long burst distance
 	}
+	{curve "autorifle"}
+	("recoil_stg")
+	("ap_7_62_slope_multiplier")
 )
 
 (define "assault_rifle_556" ; Assault rifles firing intermediate 5.56x45mm NATO rounds, or the M2 Carbine ; M16, XM177, M2 Carbine
@@ -119,6 +134,9 @@
 		{long 5 2}			; burst shots on short distance, rand (+-)shots
 		{rangeKoef 0.5}		; rangeKoef * aimRange = max long burst distance
 	}
+	{curve "autorifle"}
+	("recoil_smg_low")
+	("ap_7_62_slope_multiplier")
 )
 
 (define "marksman"
