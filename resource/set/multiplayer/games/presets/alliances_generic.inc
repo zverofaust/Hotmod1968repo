@@ -6,6 +6,7 @@
 ;{"Axis"
 ;	{title "mp/alliance/axis"}
 ;	{armies "ger"}
+;	{armies "fin"}
 ;	{icon "/interface/pages/multi/flag_axis"}
 ;}
 {"Nato"
