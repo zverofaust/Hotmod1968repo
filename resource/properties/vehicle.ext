@@ -133,25 +133,24 @@
 )
 
 (define "gun"
-	("main_weapon" args "gun" %thickness)
-	("main_weapon" args "gun1" %thickness)
-	("main_weapon" args "gun2" %thickness)
-	("main_weapon" args "gun3" %thickness)
-	("main_weapon" args "gun4" %thickness)
-	("main_weapon" args "gun5" %thickness)
-	("main_weapon" args "gun6" %thickness)
+	("main_weapon" args "gun" %thickness gun)
+	("main_weapon" args "gun1" %thickness gun)
+	("main_weapon" args "gun2" %thickness gun)
+	("main_weapon" args "gun3" %thickness gun)
+	("main_weapon" args "gun4" %thickness gun)
+	("main_weapon" args "gun5" %thickness gun)
 
-	("main_weapon" args "barrel" %thickness)
-	("main_weapon" args "barrel1" %thickness)
-	("main_weapon" args "barrel2" %thickness)
-	("main_weapon" args "barrel3" %thickness)
-	("main_weapon" args "barrel4" %thickness)
-	("main_weapon" args "barrel5" %thickness)
-	("main_weapon" args "barrel6" %thickness)
-	("main_weapon" args "barrel7" %thickness)
+	("main_weapon" args "barrel" %thickness gun)
+	("main_weapon" args "barrel1" %thickness gun)
+	("main_weapon" args "barrel2" %thickness gun)
+	("main_weapon" args "barrel3" %thickness gun)
+	("main_weapon" args "barrel4" %thickness gun)
+	("main_weapon" args "barrel5" %thickness gun)
+	("main_weapon" args "barrel6" %thickness gun)
+	("main_weapon" args "barrel7" %thickness gun)
 
-	("main_weapon" args "breach" 2)
-	("main_weapon" args "breech" 2)
+	("main_weapon" args "breach" 2 gun)
+	("main_weapon" args "breech" 2 gun)
 
 	{component "gun"
 		{RepairTime %repair}
@@ -159,6 +158,25 @@
 	}
 )
 
+(define "gun1"
+	("main_weapon" args "barrel11" %thickness gun1)
+	("main_weapon" args "barrel12" %thickness gun1)
+
+	{component "gun1"
+		{RepairTime %repair}
+		{RepairOrder 1}
+	}
+)
+
+(define "gun2"
+	("main_weapon" args "barrel21" %thickness gun2)
+	("main_weapon" args "barrel22" %thickness gun2)
+
+	{component "gun2"
+		{RepairTime %repair}
+		{RepairOrder 1}
+	}
+)
 
 (define "make_component"
 	{volume %0
@@ -179,6 +197,16 @@
 	("make_component" args "body8" "body")
 	("make_component" args "body9" "body")
 	("make_component" args "body10" "body")
+	("make_component" args "body11" "body")
+	("make_component" args "body12" "body")
+	("make_component" args "body13" "body")
+	("make_component" args "body14" "body")
+	("make_component" args "body15" "body")
+	("make_component" args "body16" "body")
+	("make_component" args "body17" "body")
+	("make_component" args "body18" "body")
+	("make_component" args "body19" "body")
+	("make_component" args "body20" "body")
 
 	("make_component" args "standc" "body")
 	("make_component" args "standl" "body")
@@ -233,8 +261,18 @@
 )
 
 (define "aux_turret"
-	("make_component" args "aux_turret1" "aux_turret1")
-	("make_component" args "aux_turret2" "aux_turret2")
+	("make_component" args "aux_turret1"  "aux_turret1")
+	("make_component" args "aux_turret11" "aux_turret1")
+	("make_component" args "aux_turret12" "aux_turret1")
+	("make_component" args "aux_turret2"  "aux_turret2")
+	("make_component" args "aux_turret21" "aux_turret2")
+	("make_component" args "aux_turret22" "aux_turret2")
+	("make_component" args "aux_turret3"  "aux_turret3")
+	("make_component" args "aux_turret31" "aux_turret3")
+	("make_component" args "aux_turret32" "aux_turret3")
+	("make_component" args "aux_turret4"  "aux_turret4")
+	("make_component" args "aux_turret41" "aux_turret4")
+	("make_component" args "aux_turret42" "aux_turret4")
 
 	{component "aux_turret1"
 		{RepairTime %repair} ;45
@@ -243,6 +281,14 @@
 	{component "aux_turret2"
 		{RepairTime %repair} ;45
 		{RepairOrder 6}
+	}
+	{component "aux_turret3"
+		{RepairTime %repair} ;45
+		{RepairOrder 7}
+	}
+	{component "aux_turret4"
+		{RepairTime %repair} ;45
+		{RepairOrder 7}
 	}
 )
 
@@ -367,6 +413,12 @@
 ("holes" volume(hole) number(7))
 ("holes" volume(hole) number(8))
 ("holes" volume(hole) number(9))
+("holes" volume(hole) number(10))
+("holes" volume(hole) number(11))
+("holes" volume(hole) number(12))
+("holes" volume(hole) number(13))
+("holes" volume(hole) number(14))
+("holes" volume(hole) number(15))
 
 
 (define "glass"
@@ -379,6 +431,20 @@
 	}
 	{component %0
 		{tags "glass"}
+		{RepairOrder 13}
+	}
+)
+
+(define "lamp"
+	{volume %0
+		{thickness 0.1}
+		{material "glass"}
+		{tags "lamp"}
+		{component %0}
+		{able {visible 0}{obstacle 0}}
+	}
+	{component %0
+		{tags "lamp"}
 		{RepairOrder 13}
 	}
 )
@@ -463,6 +529,9 @@
 	("track_wheels" args left 13 %thickness)
 	("track_wheels" args left 14 %thickness)
 	("track_wheels" args left 15 %thickness)
+	("track_wheels" args left 16 %thickness)
+	("track_wheels" args left 17 %thickness)
+	("track_wheels" args left 18 %thickness)
 
 	("track_wheels" args right 1 %thickness)
 	("track_wheels" args right 2 %thickness)
@@ -479,6 +548,9 @@
 	("track_wheels" args right 13 %thickness)
 	("track_wheels" args right 14 %thickness)
 	("track_wheels" args right 15 %thickness)
+	("track_wheels" args right 16 %thickness)
+	("track_wheels" args right 17 %thickness)
+	("track_wheels" args right 18 %thickness)
 
 	{component "trackleft"
 		{RepairTime %repair}
@@ -544,6 +616,51 @@
 	}
 )
 
+(define "rocket"
+	{volume %0
+		{thickness 2}
+		{tags "rocket"}
+		{able {visible 0}{obstacle 0}}
+		{component %0}
+	}
+	{component %0
+		{RepairTime 1}
+		{tags "rocket"}
+		{RepairOrder 11}
+	}
+)
 
+(define "armor_tag"
+	{volume %0
+		{tags "armor"}
+	}
+)
+
+("armor_tag" args "armor_plate")
+("armor_tag" args "armor_engine")
+("armor_tag" args "armor_visor1")
+("armor_tag" args "armor_visor2")
+("armor_tag" args "armor_visor3")
+("armor_tag" args "armor")
+("armor_tag" args "armor1")
+("armor_tag" args "armorL1")
+("armor_tag" args "armorR1")
+("armor_tag" args "armor2")
+("armor_tag" args "armorL2")
+("armor_tag" args "armorR2")
+("armor_tag" args "armor3")
+("armor_tag" args "armorL3")
+("armor_tag" args "armorR3")
+("armor_tag" args "armor4")
+("armor_tag" args "armor5")
+("armor_tag" args "armor6")
+("armor_tag" args "armor7")
+("armor_tag" args "armor8")
+("armor_tag" args "armor13")
+("armor_tag" args "armor14")
+("armor_tag" args "armor_mg_port")
+("armor_tag" args "armor_driver")
+("armor_tag" args "armor_mantlet")
+("armor_tag" args "armor_hull")
 ;/*========================================*/
 ;/*========================================*/
