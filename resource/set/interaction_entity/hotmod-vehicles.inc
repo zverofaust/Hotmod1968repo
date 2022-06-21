@@ -1,5 +1,28 @@
 ;/*=========== Hotmod Specifics Begin  ===========*/
 
+;/*===========  Command Vehicle Props  ===========*/
+
+{"radio"
+	(define "update_radio"
+		{if crew_in_place "commander"
+			{tags add "radio_on"}
+			{tags remove "radio_off"}
+		else
+			{tags remove "radio_on"}
+			{tags add "radio_off"}
+		}
+	)
+	(define "update_radio_event"
+		{on %event
+			{call "update_radio"}
+		}
+	)
+	("update_radio_event" event(operatable on))
+	("update_radio_event" event(operatable off))
+	("update_radio_event" event(crew in))
+	("update_radio_event" event(crew out))
+}
+
 {"hatch"
 ;/*===========  Hatch Animation Begin  ===========*/
 
@@ -349,6 +372,10 @@
 }
 
 {"btr-152"
+	("zis5_sound")
+}
+
+{"btr-152u"
 	("zis5_sound")
 }
 
