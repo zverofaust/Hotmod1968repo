@@ -1,0 +1,76 @@
+;SDL
+actor
+(include "abm.inc")
+(include "mobility.inc")
+(include "vehicle.ext")
+(include "armor.ext")
+(include "tank_crew.ext")
+
+{collider "tank.medium"}
+{props "tank" "hatch"}
+{PatherID  "tank"}
+
+("brain_vehicle")
+
+{hearingBias 2.0} 	;// reduces units ability to hear sound signals. value = meters
+
+{sensor
+	{visor "main"
+		{vision "tank_range_250"}
+		{bone "foresight1"}
+	}
+	{Visor "driver"
+		{vision "tank_driver"}
+		{bone "visor2"}
+	}
+	{visor "around"
+		{vision "tank_around"}
+		{bone "visor1"}
+	}
+	{visor "human"
+		{vision "human"}
+		{bone "visor3"}
+	}
+	{visor "none"
+		{vision "none"}
+	}
+	{visor "hearing"
+		{vision "noise_detection"}
+		{bone "basis"}
+	}
+}
+
+{extender "inventory"
+	{box
+		{Size 9 12}
+		{Weight 15000}
+		{item "can" 1}
+		{item "repair_kit" 5}
+	}
+}
+
+{extender "talk"
+	{talker "tank"}
+}
+{able "talk"}
+
+{Chassis "track"
+	; left track must be first
+	{FuelBag
+		{volume 250 }	;// liters
+		{rate   10 }	;// liters per kilometer
+		{remain 250 }
+		{fuel "fuel"}
+	}
+}
+
+("basic_armor" args 99)
+
+("body" repair(130))
+("engine" repair(45))
+("tracks" repair(30) thickness(20))
+
+
+("general_durability" body(250) engine(150) turret(150) mantlet(150) gun(150) track(150))
+
+{perks {blastwave_modifier 6.5}}

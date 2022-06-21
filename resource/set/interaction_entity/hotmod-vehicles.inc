@@ -548,27 +548,51 @@
 	}
 }
 
-{"t-62a tank"
+{"t-62_1972 tank"
 	("t28_sound")
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1.8)
+	}
+	{on fire "gun"
+		{delay 1.5
+			{ani_play "eject"}
+		}
+	}
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
-		{ani_play "mgun_aa" +1.0 resume}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
-		{ani_play "mgun_aa" -1.0 resume}
+	}
+}
+
+{"t-62_1967 tank"
+	("t28_sound")
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1.8)
+	}
+	{on fire "gun"
+		{delay 1.5
+			{ani_play "eject"}
+		}
 	}
 }
 
 {"t-62k tank"
 	("t28_sound")
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1.8)
+	}
+	{on fire "gun"
+		{delay 1.5
+			{ani_play "eject"}
+		}
+	}
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
-		{ani_play "mgun_aa" +1.0 resume}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
-		{ani_play "mgun_aa" -1.0 resume}
 	}
 }
 

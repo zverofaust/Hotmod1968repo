@@ -1,0 +1,52 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 15mm
+	; gun 20mm
+
+	("tank_medium_tier3")
+	
+	;volume, component/tag
+
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+
+	{volume "body1"			; Upper Hull
+		{thickness 79
+			{front 100}		; Glacis
+			{top 30}
+			{rear 10}
+			{bottom 20}
+		}
+		{HighHardness}
+	}
+	{volume "body2"			; Lower Hull
+		{thickness 80
+			{front 100}		; Glacis
+			{top 15}
+			{rear 10}
+			{bottom 20}
+		}
+		{HighHardness}
+	}
+	{volume "turret"		; Turret
+		{thickness 153
+			{front 214}
+			{top 40}
+			{rear 97}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	{volume "turret1"		; Hatch bulge
+		{thickness 153}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	{volume "engine"
+		{thickness 10}
+	}
