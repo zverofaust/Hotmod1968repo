@@ -1,0 +1,37 @@
+{from "pattern rifle"
+	{tag "sniper -shoot_walking -shoot_walking_ai shoot_walking_manual auto_eject rifle_shell"}
+
+	{special
+		{mode aim}
+		{PrepareTime 2}
+		{PrepareCursor "aimed_shot"}
+		{PrepareCursorScene "aimed_shot_scene"}
+		{accuracy 3}
+		{damage 2}
+	}
+
+	{cursor "ironsights/mg"}
+
+	{curve "bullet_sniper"}
+	{range 140 140}
+
+	{spreading
+		{BurstAccuracy 100 90 80 70 60 50}
+	}
+
+	{aimingTolerance 2.5}
+	{RelaxationTime 1.25}
+	("fire rate" rpm(175))
+
+	("human health" damage(70))
+	("penetration" args 6.5 3.5)
+	{FiringTimeout 1.5}
+
+	("accuracy_rifle_auto_sniper")
+
+	{thirdpersonparams inherit "human default"}
+
+	("recoil_sniper_semi")
+	("sway_sniper")
+	("ap_7_62_slope_multiplier")
+}
