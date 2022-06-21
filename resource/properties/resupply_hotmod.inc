@@ -49,6 +49,11 @@
 	{item "hmgun_rus_kpvt"			"ammo" 50 {value 2}}
 	
 ;// Rifle
+	{item "ak47" 					"ammo" 30 {value 2}}
+	{item "ak47" "akm"				"ammo" 30 {value 2}}
+	{item "ak47" "drum"				"ammo" 75 {value 2}}
+	{item "ak47" "rpk"				"ammo" 40 {value 2}}
+	{item "ak47" "type56"			"ammo" 30 {value 2}}
 	{item "akm"						"ammo" 30 {value 2}}
 	{item "sks"						"ammo" 10 {value 2}}
 	{item "svd"						"ammo" 10 {value 2}}
@@ -56,6 +61,7 @@
 ;// AT
 	{item "rpg7"					"ammo" 1  {value 10}}
 	{item "rpg2"					"ammo" 1  {value 10}}
+	{item "rpg2" "type50"			"ammo" 1  {value 10}}
 	
 ;// Grenade
 	
@@ -199,35 +205,41 @@
 	{item "bullet76_d56"		"heat"		"ammo" 1 {value 12}}
 	{item "bullet76_d56"		"he"		"ammo" 1 {value 5}}
 	
-	{item "bullet85_d48"		"aphe"		"ammo" 1 {value 8}}
-	{item "bullet85_d48"		"aphebc"	"ammo" 1 {value 12}}
-	{item "bullet85_d48"		"he"		"ammo" 1 {value 8}}
+	{item "bullet82_b10"		"heat"		"ammo" 1 {value 8}}
+	{item "bullet82_b10"		"he"		"ammo" 1 {value 5}}
 	
-	{item "bullet100_d10"		"aphe"		"ammo" 1 {value 10}}
+	{item "bullet85_d48"		"aphe"		"ammo" 1 {value 6}}
+	{item "bullet85_d48"		"aphebc"	"ammo" 1 {value 8}}
+	{item "bullet85_d48"		"he"		"ammo" 1 {value 6}}
+	{item "bullet85_d48"		"heat"		"ammo" 1 {value 10}}
+	
+	{item "bullet100_d10"		"aphe"		"ammo" 1 {value 8}}
+	{item "bullet100_d10"		"apcr"		"ammo" 1 {value 10}}
 	{item "bullet100_d10"		"aphebc"	"ammo" 1 {value 10}}
 	{item "bullet100_d10"		"he"		"ammo" 1 {value 5}}
-	{item "bullet100_d10"		"heat"		"ammo" 1 {value 10}}
+	{item "bullet100_d10"		"heat"		"ammo" 1 {value 12}}
 	{item "bullet100_d10"		"apds"		"ammo" 1 {value 10}}
 	
-	{item "bullet115_2a20"		"apfsds"		"ammo" 1 {value 15}}
+	{item "bullet115_2a20"		"apfsds"	"ammo" 1 {value 15}}
 	{item "bullet115_2a20"		"he"		"ammo" 1 {value 10}}
 	{item "bullet115_2a20"		"heat"		"ammo" 1 {value 15}}
 	
-	{item "bullet122_d49"		"he"		"ammo" 1 {value 10}}
-	{item "bullet122_d49"		"aphe"		"ammo" 1 {value 10}}
+	{item "bullet122_d49"		"he"		"ammo" 1 {value 8}}
+	{item "bullet122_d49"		"aphe"		"ammo" 1 {value 8}}
+	{item "bullet122_d49"		"aphebc"	"ammo" 1 {value 10}}
 	{item "bullet122_d49"		"apds"		"ammo" 1 {value 15}}
 	{item "bullet122_d49"		"heat"		"ammo" 1 {value 20}}
 	
-	{item "bullet125_2a46"		"apds"		"ammo" 1 {value 15}}
+	{item "bullet125_2a46"		"apfsds"	"ammo" 1 {value 15}}
 	{item "bullet125_2a46"		"he"		"ammo" 1 {value 10}}
 	{item "bullet125_2a46"		"heat"		"ammo" 1 {value 20}}
 	
 	;// ATGMs
 	
-	{item "3m11"				"atgm"		"ammo" 1 {value 20}}
+	{item "3m11"				"atgm"		"ammo" 1 {value 15}}
 	{item "9m14"				"atgm"		"ammo" 1 {value 15}}
-	{item "3m7"					"atgm"		"ammo" 1 {value 20}}
-	{item "9m111"				"atgm"		"ammo" 1 {value 20}}
+	{item "3m7"					"atgm"		"ammo" 1 {value 18}}
+	{item "9m111"				"atgm"		"ammo" 1 {value 25}}
 	
 	;// Aircraft Stuff
 	
@@ -270,13 +282,23 @@
 	{item "bullet40_bofors"		"ap"		"ammo" 4 {value 5}}
 	
 	{item "bullet75_m2"			"he"		"ammo" 1 {value 5}}
-	{item "bullet75_m2"			"heat"		"ammo" 1 {value 5}}
+	{item "bullet75_m2"			"heat"		"ammo" 1 {value 8}}
+	
+	{item "bullet75_m6"			"ap"		"ammo" 1 {value 4}}
+	{item "bullet75_m6"			"apcbche"	"ammo" 1 {value 5}}
+	{item "bullet75_m6"			"he"		"ammo" 1 {value 4}}
+	
+	{item "bullet76_m1a2"		"apcr"		"ammo" 1 {value 5}}
+	{item "bullet76_m1a2"		"ap"		"ammo" 1 {value 5}}
+	{item "bullet76_m1a2"		"he"		"ammo" 1 {value 5}}
+	{item "bullet76_m1a2"		"sm"		"ammo" 1 {value 5}}
 	
 	{item "bullet76_m32"		"apcr"		"ammo" 1 {value 5}}
 	{item "bullet76_m32"		"ap"		"ammo" 1 {value 5}}
 	{item "bullet76_m32"		"he"		"ammo" 1 {value 5}}
 	{item "bullet76_m32"		"sm"		"ammo" 1 {value 5}}
 	
+	{item "bullet90_m41"		"apbc"		"ammo" 1 {value 5}}
 	{item "bullet90_m41"		"apcbche"	"ammo" 1 {value 5}}
 	{item "bullet90_m41"		"apcr"		"ammo" 1 {value 5}}
 	{item "bullet90_m41"		"heat"		"ammo" 1 {value 5}}
