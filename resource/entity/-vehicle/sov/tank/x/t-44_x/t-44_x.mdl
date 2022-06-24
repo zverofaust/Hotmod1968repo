@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Wed Jun  1 14:18:04 2022
+;Date:        Thu Jun 23 18:11:43 2022
 ;File:        D:\Cold War\Model WIP\USSR\t-44\T-44.max
 {Skeleton
 	{bone "basis"
@@ -57,16 +57,38 @@
 					{Position 1.4817	-10.3054	15.8298}
 					{VolumeView "cover2.ply"}
 				}
-				{bone "cover1"
-					{parameters "id=turret;"}
-					{Position -6.01241	6.89337	19.5949}
-					{VolumeView "cover1.ply"}
-				}
 				{bone "fxfire3"
 					{Position -7.81183	7.07568	14.6232}
 				}
 				{bone "fxfire3_2"
 					{Position -4.12005	-10.1436	11.8204}
+				}
+				{bone revolute "commander_rot"
+					{parameters "id=turret;"}
+					{Position -8.08007	6.91147	19.0379}
+					{VolumeView "commander_rot.ply"}
+					{bone "cover1"
+						{parameters "id=turret;"}
+						{Position 2.06766	-0.0180998	0.556999}
+						{VolumeView "cover1.ply"}
+					}
+					{bone revolute "visor1"
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							4.25526	0.127305	1.06199
+						}
+					}
+					{bone revolute "vision_rot"
+						{limits -5 10}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							4.25526	0.127305	1.06199
+						}
+					}
 				}
 			}
 			{bone "shield1"
@@ -116,7 +138,7 @@
 					0	1	0
 					-1	0	0
 					0	0	1
-					-29.5667	29.431	14.4166
+					-29.5667	29.431	15.052
 				}
 			}
 			{bone "headlightl"
@@ -187,6 +209,9 @@
 					-51.5694	22.3065	5.04216
 				}
 				{VolumeView "wheell7.ply"}
+			}
+			{bone "visor2"
+				{Position 30.4887	12.0645	20.687}
 			}
 		}
 		{bone "wheelsl"
@@ -263,13 +288,13 @@
 					{VolumeView "wheell2.ply"}
 				}
 			}
-			{bone "tracel1"
+			{bone "fxtracel1"
 				{Position 35.811	3.49011	-10.2913}
 			}
-			{bone "tracel2"
+			{bone "fxtracel2"
 				{Position -1.29758	3.49011	-10.2913}
 			}
-			{bone "tracel3"
+			{bone "fxtracel3"
 				{Position -37.7547	3.49011	-10.2913}
 			}
 		}
@@ -347,13 +372,13 @@
 					{VolumeView "wheelr6.ply"}
 				}
 			}
-			{bone "tracer3"
+			{bone "fxtracer3"
 				{Position -37.7547	-3.6337	-10.178}
 			}
-			{bone "tracer2"
+			{bone "fxtracer2"
 				{Position -1.29758	-3.6337	-10.178}
 			}
-			{bone "tracer1"
+			{bone "fxtracer1"
 				{Position 35.811	-3.6337	-10.178}
 			}
 		}
@@ -383,3 +408,4 @@
 		}
 	}
 }
+

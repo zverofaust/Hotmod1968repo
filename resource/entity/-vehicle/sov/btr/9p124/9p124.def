@@ -20,6 +20,18 @@
 
 	("armoredcar_tier2")
 
+	{sensor
+		{visor "commander"
+			{vision "tank_commander"}
+			{bone "visor1"}
+		}
+	}
+	
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "gunner"		{visor "around"}}
+	}
+	
 	{Volume "body1"
 		{thickness 7
 			{front	14}
@@ -67,6 +79,14 @@
 			{foresight		"foresight1"}
 			{barrels 4}
 			("abm_mgun")
+		}
+		{place "mgun"
+			{type "commander"}
+			{weapon "commander_vision"}
+			{foresight "vision_rot"}
+			{gunner "gunner"}
+			{basic}
+			{ai_in_manual}
 		}
 	}
 	

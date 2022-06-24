@@ -16,7 +16,7 @@
 	;Crew 4: driver, commander, gunner, loader
 	
 	("crew_4_human")
-	("gunner_visible")
+	("charger_visible")
 
 	{boarder
 		{anm "driver"
@@ -45,12 +45,7 @@
 	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
 	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
 	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
-	
-	{placer
-		{place "driver"		{visor "driver"}}
-		{place "gunner"		{visor "main"}}
-		{place "commander"	{visor "main"}}
-	}
+
 
 	; smokescreen via injecting fuel into the exhaust system possible
 
@@ -88,11 +83,19 @@
 		{place "mgun"		;aa 
 			{type 			"aa"}
 			{weapon			"dshk" filled}
-			{gunner			"commander"}
-			{charger		"commander"}
+			{gunner			"charger"}
+			{charger		"charger"}
 			{LinkBone		"mgun_help"}
 			{LinkAnimation	"off"}
 			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun1"
+			{type "commander"}
+			{weapon "commander_vision"}
+			{foresight "vision_rot"}
+			{gunner "gunner"}
 			{basic}
 			{ai_in_manual}
 		}

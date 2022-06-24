@@ -1,9 +1,9 @@
-{game_entity		;T-62 base
+{game_entity		;T-62 obr. 1972 base
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	(include "t-62k.ext")
-	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "shell_eject" "smoke" "ess" "radio_sov" "radio"}
+	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "shell_eject" "smoke" "ess" "radio_sov"}
 	{targetclass "tank_heavy"}
 	{targetSelector "tank_medium"}
 	{PatherId "t34"}
@@ -46,7 +46,7 @@
 		
 	{extender "inventory"
 		{box
-			{item "ammo bullet115_2a20 apfsds" 10} ; 38 rounds
+			{item "ammo bullet115_2a20 apfsds" 12} ; 40 rounds
 			{item "ammo bullet115_2a20 heat" 6}
 			{item "ammo bullet115_2a20 he" 22}
 			{item "pk_box" 2000}
@@ -79,8 +79,8 @@
 		{place "mgun"		;aa 
 			{type 			"aa"}
 			{weapon			"dshk" filled}
-			{gunner			"commander"}
-			{charger		"commander"}
+			{gunner			"charger"}
+			{charger		"charger"}
 			{LinkBone		"mgun_help"}
 			{LinkAnimation	"off"}
 			("abm_mgun")

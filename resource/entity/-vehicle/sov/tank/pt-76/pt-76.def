@@ -16,7 +16,12 @@
 		{digit_folder "cw"}
 	}
 
-	("crew_3_human")
+	;("crew_3_human")
+	
+	("crew_inside")
+	("crew_human" place(gunner)		door(emit1) door2(emit2) visor(around))
+	("crew_human" place(driver)		door(emit1) door2(emit2) visor(driver))
+	("crew_human" place(charger)	door(emit1) door2(emit2) visor(none))
 	
 	{boarder
 		{anm "driver"
@@ -46,6 +51,7 @@
 	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
 	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
 	
+	
 	{extender "inventory"
 		{box
 			{item "bullet76_d56 he" 22}
@@ -55,7 +61,7 @@
 			{item "satchel_charge_rus" 1}
 		}
 	}
-
+	
 	{Weaponry
 		("restore_ik_time")
 		{place "gun"
@@ -76,6 +82,14 @@
 			{charger "charger"}
 			("abm_mgun")
 			{basic}
+		}
+		{place "mgun1"
+			{type "commander"}
+			{weapon "commander_vision"}
+			{foresight "vision_rot"}
+			{gunner "gunner"}
+			{basic}
+			{ai_in_manual}
 		}
 	}
 

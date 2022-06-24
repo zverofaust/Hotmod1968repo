@@ -44,12 +44,6 @@
 	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
 	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
 	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
-	
-	{placer
-		{place "driver"		{visor "driver"}}
-		{place "gunner"		{visor "main"}}
-		{place "commander"	{visor "main"}}
-	}
 
 	; smokescreen via injecting fuel into the exhaust system possible
 
@@ -88,6 +82,14 @@
 			{charger "charger"}
 			("abm_mgun")
 			{basic}
+		}
+		{place "mgun1"
+			{type "commander"}
+			{weapon "commander_vision"}
+			{foresight "vision_rot"}
+			{gunner "commander"}
+			{basic}
+			{ai_in_manual}
 		}
 	}
 

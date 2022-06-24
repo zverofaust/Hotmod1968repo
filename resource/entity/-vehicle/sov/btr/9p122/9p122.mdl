@@ -321,7 +321,8 @@
 				}
 				{VolumeView "enumerator1.ply"}
 			}
-			{bone revolute "gun_sight"
+			{bone revolute "commander_rot"
+				{limits -140 140}
 				{parameters "ID=body;"}
 				{Position 36.6512	-6.92674	17.2866}
 				{VolumeView "gun_sight.ply"}
@@ -331,6 +332,15 @@
 						0	0	1
 						0	-1	0
 						2.48727	0.289684	2.32807
+					}
+				}
+				{bone revolute "vision_rot"
+					{limits -10 10}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.90596	-0.101809	0.958023
 					}
 				}
 			}

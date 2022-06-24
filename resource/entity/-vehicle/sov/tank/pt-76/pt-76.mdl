@@ -141,6 +141,28 @@
 					{parameters "id=turret;"}
 					{Position 3.60047	0.531777	11.2138}
 					{VolumeView "cover.ply"}
+					{bone revolute "commander_rot"
+						{parameters "id=turret;"}
+						{Position -7.27625	6.29718	0.357857}
+						{VolumeView "commander_rot.ply"}
+						{bone revolute "vision_rot"
+							{limits -8 8}
+							{Matrix34
+								1	0	0
+								0	0	1
+								0	-1	0
+								3.91033	0.0994148	1.20365
+							}
+						}
+						{bone "visor1"
+							{Matrix34
+								1	0	0
+								0	0	1
+								0	-1	0
+								3.91033	0.0994148	1.20365
+							}
+						}
+					}
 				}
 				{bone "at_1"
 					{parameters "id=turret;"}
@@ -165,15 +187,6 @@
 							}
 							{VolumeView "at_a3.ply"}
 						}
-					}
-				}
-				{bone "visor1"
-					{parameters "Voxels=0;"}
-					{Matrix34
-						1	0	0
-						0	1	0
-						0	0	1
-						0.155195	6.84812	12.6664
 					}
 				}
 				{bone "fxfire3"

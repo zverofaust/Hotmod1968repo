@@ -198,14 +198,6 @@
 						}
 					}
 				}
-				{bone "visor1"
-					{Matrix34
-						1	0	0
-						0	0	1
-						0	-1	0
-						10.9108	3.45829	-0.255043
-					}
-				}
 			}
 			{bone "trim_arm1"
 				{parameters "ID=body;"}
@@ -349,14 +341,15 @@
 				}
 			}
 			{bone revolute "commander_rot"
+				{limits -140 140}
 				{parameters "ID=body;"}
 				{Position 32.0915	-6.25984	19.0846}
 				{VolumeView "commander_rot.ply"}
-				{bone revolute "detail1"
+				{bone revolute "spotlight"
 					{parameters "ID=body;"}
 					{Position 1.49267	-0.0307574	0.378391}
 					{VolumeView "detail1.ply"}
-					{bone "fxlight"
+					{bone "visor1"
 						{Matrix34
 							1	0	0
 							0	0	1
@@ -366,6 +359,7 @@
 					}
 				}
 				{bone revolute "vision_rot"
+					{limits -10 10}
 					{Matrix34
 						1	0	0
 						0	0	1

@@ -19,7 +19,6 @@
 				{VolumeView "turret.ply"}
 				{bone revolute "gun_rot"
 					{parameters "ID=gun;"}
-
 					{limits -7 15}
 					{speed 0.01}
 					{Matrix34
@@ -47,15 +46,6 @@
 						}
 					}
 				}
-				{bone "visor1"
-					{parameters "Voxels=0;"}
-					{Matrix34
-						1	0	0
-						0	1	0
-						0	0	1
-						6.66904	8.93194	13.9568
-					}
-				}
 				{bone "fxfire3"
 					{Matrix34
 						0	0	1
@@ -73,20 +63,37 @@
 					}
 					{VolumeView "enumerator2.ply"}
 				}
+				{bone revolute "commander_rot"
+					{parameters "id=turret;"}
+					{Position -10.7656	9.81877	15.136}
+					{VolumeView "commander_rot.ply"}
+					{bone "cover1"
+						{parameters "id=turret;"}
+						{Position 1.93851	0.0231056	2.24844}
+						{VolumeView "cover1.ply"}
+					}
+					{bone "visor1"
+						{Position 5.22759	0.0782299	1.92968}
+					}
+					{bone revolute "vision_rot"
+						{limits -8 8}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							5.2573	0.0437412	1.93008
+						}
+					}
+				}
 				{bone "cover2"
-					{parameters "ID=turret;"}
+					{parameters "id=turret;"}
 					{Matrix34
-						0.998358	0	-0.0572776
-						0.0565616	-0.157628	0.985877
-						-0.00902843	-0.987499	-0.157369
-						-4.60331	-9.69808	13.8463
+						0.999016	0.0072869	-0.0437461
+						0.0443489	-0.163535	0.98554
+						2.75155e-05	-0.986511	-0.163697
+						-4.60238	-9.71012	13.5823
 					}
 					{VolumeView "cover2.ply"}
-				}
-				{bone "cover1"
-					{parameters "ID=turret;"}
-					{Position -8.77955	9.82	17.4545}
-					{VolumeView "cover1.ply"}
 				}
 				{bone "gun2"
 					{parameters "ID=gun;"}
@@ -131,17 +138,11 @@
 				}
 				{bone revolute "at1_a1"
 					{parameters "ID=turret;"}
-					{animation
-						{sequence "repair" {file "turret_r.anm"}}
-					}
 					{speed 0.1}
 					{Position -0.826903	15.6673	10.7035}
 					{VolumeView "at1_a1.ply"}
 					{bone revolute "at1_a2"
 						{parameters "ID=turret;"}
-						{animation
-							{sequence "repair" {file "turret_r.anm"}}
-						}
 						{speed 0.1}
 						{Matrix34
 							0.999728	0.000450166	0.0233291
@@ -152,9 +153,6 @@
 						{VolumeView "at1_a2.ply"}
 						{bone revolute "at1_a3"
 							{parameters "ID=turret;"}
-							{animation
-								{sequence "repair" {file "turret_r.anm"}}
-							}
 							{speed 0.1}
 							{Matrix34
 								0.996454	-0.00207117	0.0841095
@@ -373,9 +371,6 @@
 			}
 			{bone "engine"
 				{parameters "ID=engine;"}
-				{animation
-					{sequence "repair" {file "engine_r.anm"}}
-				}
 				{Position -39.5278	0.841305	11.9011}
 				{VolumeView "engine.ply"}
 			}
