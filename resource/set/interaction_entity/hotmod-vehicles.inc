@@ -423,10 +423,10 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_wind "open" end}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 }
@@ -585,10 +585,10 @@
 			{ani_play "eject"}
 		}
 	}
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_wind "open" end}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 }
@@ -615,10 +615,10 @@
 			{ani_play "eject"}
 		}
 	}
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_wind "open" end}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 }
