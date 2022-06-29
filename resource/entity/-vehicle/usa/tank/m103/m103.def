@@ -15,7 +15,6 @@
 	;Crew: Driver, Commander, gunner, 2 loaders
 	("crew_5_human_2")
 	("gunner_visible")
-	("seat_4_human")
 
 	{boarder
 		{anm "driver"
@@ -32,13 +31,14 @@
 		}
 		{anm "armor"
 			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
-			{reverse {end "emit_tank_2"}}
-		}
-		{anm "armor1"
-			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
-			{reverse {end "emit_body"}}
+			{reverse {end "emit_tank_1"}}
 		}
 	}
+	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
 	
 	{extender "inventory"
 		{box
@@ -55,6 +55,8 @@
 		{place "gun"
 			{RestoreIKAfterAim}
 			{weapon 		"120mm_m58" filling "ammo bullet120_m58 apbc" 1}
+			{gunner 		"gunner"}
+			{charger 		"charger"}
 			("abm_dymamic"
 				zeroing(5)
 				dispersion(0.10)
