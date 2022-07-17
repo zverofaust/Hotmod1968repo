@@ -500,6 +500,33 @@
 	}
 }
 
+{"ot-55"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on spawn
+		{add_view "flamer_fire_tank" "flame" "foresight3"}
+	}
+	{on operatable on
+		{view start "fire"}
+	}
+	{on operatable off
+		{view stop "fire"}
+	}
+	{on "_explosion"
+		{spawn "fuel_die"}
+		{blastwave c4 5 r0 4 r1 15}
+		{fire radius 5 time 15 heating 10}
+	}
+	("flame_weapon" args mgun2 160 3 40)
+}
+
 {"is2m tank"
 	("is_sound")
 }
