@@ -15,16 +15,21 @@
 )
 
 (define "engineer"
+	{fortification}
 	{barricade
 		{"fortifications" "barricade_sq"}
 		{"fortifications" "barricade"}
+		
 		{"fortifications" "barbwire"}
 		{"fortifications" "hedgehog"}
+		
 		{"fortifications" "foxhole"}
 		{"fortifications" "foxhole_big"}
+		{"fortifications" "tank_cover"}
 
 		{"fortifications" "heavy_mg_mg34"}
 		{"fortifications" "heavy_mg_maxim"}
+		{"fortifications" "heavy_mg_maxim_m1910_30"}
 	}
 	{"resources" "1000%"}
 	{"resources_regeneration" "0%"}
