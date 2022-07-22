@@ -159,6 +159,13 @@
 	("spotting" args 1.25)
 }
 
+{"vehicle_scout"							; // 360 Scout Vision on American
+	{uncover 25}
+	{h_fov 360}
+	{v_fov 60}
+	("spotting" args 1)
+}
+
 ;/*=============== Vehicle End ===============*/
 
 ;/*=============== Tank Begin ===============*/
