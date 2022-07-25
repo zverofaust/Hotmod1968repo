@@ -1,0 +1,80 @@
+;Exported by:	 guita
+;Date:			 24.04.2020 10:52:15
+;File:			 D:\Git\3D_Scenes\GoH_3D_vehicles_rus\vehicles\cannon\bm37\82mm_bm37_x.max
+{skeleton
+	{bone revolute "basis"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position -0.1908 	 -0.0255 	 0.6776}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{Position 0.4246 	 -0.046 	 1.0015}
+				{bone "gun_rot"
+					{parameters "id=body;"}
+					{matrix34
+						1 	 0 	 0
+						0 	 0 	 1
+						0 	 -1 	 0
+						0 	 0.046 	 0
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "grip"
+						{parameters "id=body;"}
+						{matrix34
+							1 	 0 	 0
+							0 	 0 	 -1
+							0 	 1 	 0
+							7.822 	 -1.6792 	 0
+						}
+						{VolumeView "grip.ply"}
+					}
+				}
+				{bone "bipod_base"
+					{parameters "id=body;"}
+					{Position 7.822 	 0.046 	 -1.6792}
+					{VolumeView "bipod_base.ply"}
+					{bone "stan_r"
+						{parameters "id=body;"}
+						{matrix34
+							0.4848 	 0 	 -0.8746
+							0 	 1 	 0
+							0.8746 	 0 	 0.4848
+							8.4453 	 0 	 9.7698
+						}
+						{VolumeView "stan_r.ply"}
+					}
+					{bone "stan_l"
+						{parameters "id=body;"}
+						{matrix34
+							0.4848 	 0 	 -0.8746
+							0 	 1 	 0
+							0.8746 	 0 	 0.4848
+							8.4453 	 0 	 9.7698
+						}
+						{VolumeView "stan_l.ply"}
+					}
+					{bone "connector"
+						{parameters "id=body;"}
+						{Position 11.0591 	 -1.9032 	 5.1161}
+						{VolumeView "connector.ply"}
+					}
+					{bone "washer"
+						{parameters "id=body;"}
+						{matrix34
+							0.8746 	 0 	 0.4848
+							0 	 1 	 0
+							-0.4848 	 0 	 0.8746
+							11.3743 	 -0.1377 	 4.544
+						}
+						{VolumeView "washer.ply"}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,97 @@
+;Exported by:	 guita
+;Date:			 07.11.2020 11:49:12
+;File:			 D:\Git\3D_Scenes\GoH_3D_vehicles_rus\vehicles\cannon\120mm_pm38\120mm_pm38_xx.max
+{skeleton
+	{bone revolute "basis"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{matrix34
+				1 	 0 	 0
+				0 	 0.9511 	 -0.309
+				0 	 0.309 	 0.9511
+				0 	 0 	 1.1722
+			}
+			{VolumeView "body.ply"}
+			{bone "part1"
+				{parameters "id=body;"}
+				{matrix34
+					1 	 0 	 0
+					0 	 0.9511 	 0.309
+					0 	 -0.309 	 0.9511
+					0 	 -0.5719 	 1.76
+				}
+				{VolumeView "part1.ply"}
+			}
+			{bone "part2"
+				{parameters "id=body;"}
+				{matrix34
+					1 	 0 	 0
+					0 	 0.9511 	 0.309
+					0 	 -0.309 	 0.9511
+					32.8631 	 -2.1581 	 -0.153
+				}
+				{VolumeView "part2.ply"}
+			}
+		}
+		{bone "part3"
+			{parameters "id=body;"}
+			{Position -23.5583 	 0 	 0.7276}
+			{VolumeView "part3.ply"}
+		}
+	}
+}
+{volume "body1"
+	{polyhedron "body1.vol"}
+	{bone "body"}
+	{matrix34
+		0.9781 	 0 	 -0.2079
+		0 	 1 	 0
+		0.2079 	 0 	 0.9781
+		0.0784 	 0.0641 	 -0.2191
+	}
+}
+{volume "part1"
+	{cylinder 1.84061 36.8437}
+	{bone "part1"}
+	{matrix34
+		-0.2151 	 0.9175 	 -0.3346
+		-0.0527 	 0.3312 	 0.9421
+		0.9752 	 0.2203 	 -0.0229
+		18.4802 	 3.9558 	 -0.3505
+	}
+}
+{volume "part2"
+	{cylinder 0.683256 19.5581}
+	{bone "part2"}
+	{matrix34
+		-0.0661 	 0.1557 	 -0.9856
+		-0.6275 	 0.7615 	 0.1624
+		0.7758 	 0.6292 	 0.0474
+		-11.6705 	 -8.03 	 -1.387
+	}
+}
+{volume "part2a"
+	{cylinder 0.683256 19.5581}
+	{bone "part2"}
+	{matrix34
+		0.0176 	 0.9523 	 -0.3046
+		0.0683 	 0.3028 	 0.9506
+		0.9975 	 -0.0375 	 -0.0597
+		-15.0278 	 1.683 	 -0.764
+	}
+}
+{volume "part3"
+	{polyhedron "part3.vol"}
+	{bone "part3"}
+	{matrix34
+		0.9986 	 -0.0523 	 -0.0027
+		0.0523 	 0.9973 	 0.0523
+		0 	 -0.0523 	 0.9986
+		-7.2003 	 0.3901 	 0.3582
+	}
+}

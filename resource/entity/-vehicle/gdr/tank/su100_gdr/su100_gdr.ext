@@ -1,0 +1,94 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 20mm
+	; gun 20mm
+	; track guards 5mm
+
+	("shield" args "detail9" 20)
+	("shield" args "shieldl1" 5)
+	("shield" args "shieldl2" 5)
+	("shield" args "shieldr1" 5)
+	("shield" args "shieldr2" 5)
+	("shield" args "detail3" 5)
+	("shield" args "detail4" 5)
+	("shield" args "detail6" 5)
+	("shield" args "detail7" 5)
+
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("fuel" args "fuel3")
+	("fuel" args "fuel4")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("transmission" args "transmission")
+
+	{volume "body1"			; Hull
+		{thickness 45
+			{top 75}		; Glacis
+			{rear 10}
+			{bottom 20}
+		}
+		{HighHardness}
+	}
+	{volume "body2"			; Superstructure
+		{thickness 45
+			{front 75}		; Glacis
+			{top 20}
+			{bottom 20}
+		}
+		{HighHardness}
+	}
+	{volume "body3"			; Nose
+		{thickness 45
+			{front 100}
+		}
+		{HighHardness}
+	}
+	{volume "body4"			; Drivers Hatch
+		{thickness 70}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	{volume "engine1"		; Hull
+		{thickness 45
+			{front 10}
+			{bottom 20}
+		}
+		{HighHardness}
+	}
+	{volume "engine2"		; Superstructure
+		{thickness 45
+			{front 10}
+			{top 20}
+			{bottom 20}
+		}
+		{HighHardness}
+	}
+	{volume "mantlet"		; Front mantlet
+		{thickness 75}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	{volume "mantlet2"		; Rear mantlet
+		{thickness 75}
+		{HighHardness}
+	}
+	{volume "cupola"
+		{thickness 45
+			{top 20}
+		}
+		{HighHardness}
+	}
+
+	{component "shieldl1" {tags "cut_part"}}
+	{component "shieldl2" {tags "cut_part"}}
+	{component "shieldr1" {tags "cut_part"}}
+	{component "shieldr2" {tags "cut_part"}}
+	{component "detail3" {tags "cut_part"}}
+	{component "detail4" {tags "cut_part"}}
+	{component "detail6" {tags "cut_part"}}
+	{component "detail7" {tags "cut_part"}}
+	{component "detail9" {tags "cut_part"}}
