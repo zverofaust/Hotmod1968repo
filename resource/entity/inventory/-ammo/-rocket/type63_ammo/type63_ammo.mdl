@@ -1,0 +1,88 @@
+;Exported by: misan
+;Date:        Mon Aug  1 18:06:14 2022
+;File:        D:\Cold War\ModelWIP\China\Type 63 Launcher\Type 63 Rocket.max
+{Skeleton
+	{bone "rocket"
+		{parameters "ID=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "rocket.ply"}
+		{bone "tail"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-0.979926	-0.0302943	0.00158286
+			}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 2.18167 26.2125}
+	{Bone "rocket"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		12.1619	-0.00701648	0.038582
+	}
+}
+{Volume "select"
+	{Cylinder 6.10222 26.4554}
+	{Bone "rocket"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		12.1724	-0.0267518	0.0030404
+	}
+}
+{Extender "preview"
+	{"Stuff_primary"
+		{camera
+			{origin 16.4076	157.084	0.253483}
+			{lookat 13.3244	-0.011039	-0.0317799}
+			{fov 7.35648}
+			{horizon -0.200769}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.0998383	0.131562	0.471937}
+			}
+			{"1"
+				{type directional}
+				{direction -0.232022	-0.353995	-0.266182}
+			}
+			{"2"
+				{type directional}
+				{direction 0.453301	0.0208015	-0.209965}
+			}
+		}
+	}
+	{"Stuff"
+		{camera
+			{origin 0.270082	200.16	0.430744}
+			{lookat 12.156251	-0.00872039	0.0401527}
+			{fov 7.35648}
+			{horizon -0.199792}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.232022	-0.353995	-0.266182}
+			}
+			{"1"
+				{type directional}
+				{direction 0.453301	0.0208015	-0.209965}
+			}
+			{"2"
+				{type directional}
+				{direction -0.0998383	0.131562	0.471937}
+			}
+		}
+	}
+}
