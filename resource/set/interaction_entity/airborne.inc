@@ -689,6 +689,9 @@
 	{on "propeller_stop"		;// called on exlosion and ground_hit
 		{bone hide "propeller1_work"}
 		{bone hide "propeller2_work"}
+		;// Stuff for Helicopter planes
+		{bone hide "engine_work"}
+		{bone hide "rotor_work"}
 	}
 
 	{on "engine_not_run"		;// instantly stops engines. Called on collosiions, ground_hit, crash and sink.

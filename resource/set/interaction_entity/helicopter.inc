@@ -6,7 +6,7 @@
 		{add_view "smoke_black" "smoke_rotor" 		"FXfire2"}
 		{add_view "smoke_black" "smoke_rotor_back" 	"FXfire3"}
 		{add_view "spheredust_heli" "spheredust_heli" "basis"}
-		{add_view "spheredust_heli" "spheredust_heli" "basis"}
+		{add_view "spheredust_heli" "dust" "basis"}
 		{call "init_gun"}
 	}
 	
@@ -21,8 +21,11 @@
 		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h/uh1h_decelerate"}
 	}
 	
-	{on engine on overload
-		{call "engine_on"}
+	{on engine on overload			;// any vehicle moves forward, reverse or preforming neutral turn
+		{if chassis "airborne"
+			{call "engine_started"}		;// turns on engine, for airborne chassis planes when given move order
+			{view start "dust"}
+		}
 	}
 	
 	{on bullet_hit
@@ -43,18 +46,6 @@
 			{stop_sound "engine_stop"}
 		}
 	}
-	{on "engine_stopped"
-		{if "engine_started"
-			{set "engine_started" 0}
-			{ani_stop "engine_work"}
-			{ani_play "engine_stop"}
-			{stop_sound "engine_start"}
-			{stop_sound "uh1h_engine_idle"}
-			{stop_sound "uh1h_engine_full"}
-			{stop_sound "engine_work"}
-			{stop_sound "fly"}
-		}
-	}
 	
 	{on "engine_on"
 		(mod "mp"
@@ -72,15 +63,12 @@
 		}
 	}
 	
+	
 	{on "check_altitude"
 		{if tagged "dusty"					
-			{spawn "spheredust_heli" 
-				{impulse up -35 com}
-			}					
+			{view start "dust"}	
 			{delay 1 
-				{spawn "spheredust_heli" 
-					{impulse up -35 com}
-				}
+				{view start "dust"}	
 			}																
 			{delay 0.6 "check_altitude"					
 				{call "check_altitude"}					
@@ -95,8 +83,6 @@
 	}
 	
 	{on engine off overload
-		{call "engine_stop"}
-		{play_sound "engine_stop"}
 	}
 	
 	{on "engine_stop"
@@ -164,6 +150,7 @@
 			{impulse up 0.1 com}
 			{explosive 1}
 			{call "fall_fx"}
+			{call "engine_stop"}
 		}
 	}
 	
@@ -253,6 +240,7 @@
 	{on "collide"
 		{if  volume "body"
 			{call "explosion"}
+			{call "engine_stop"}
 		else volume "part"
 			{call "tear_part"}
 		}
@@ -338,6 +326,43 @@
 			}
 		}
 		;{call "engine_off"}
+	}
+	
+	{on "engine_off" overload				;// engine toggled off
+		{if not chassis "helicopter"			;// engines can only be toggled when on ground not airborne
+			{if "engine_on"
+				{if operatable
+					;{tags add "engine_turned_off"}
+				}
+				{set "engine_on" 0}
+				{call "engine_stop_sequence"}
+				{set "toggle_delay" 1}			;// stops accidental double click of UI button
+				{delay 5 {set "toggle_delay" 0}}
+				{delay 0.6
+					{chassis_work 0}
+				}
+			}
+		}
+	}
+	
+	{on "engine_stop_sequence"				;// engine 1 shutdown sequence
+		{stop_sound "engine_accelerate"}
+		{stop_sound "engine_decelerate"}
+		{stop_sound "engine_start"}
+		{stop_sound "bkg_plane"}
+		{stop_sound "engine_full"}
+		{stop_sound "engine_idle"}
+		{if "engine_start"
+			{play_sound "engine_stop"}
+		}
+		{delay 0.6
+			{ani_stop "engine_start"}
+			{ani_stop "engine_work"}
+			{if "engine_start"
+				{ani_play "engine_stop"}
+			}
+			{set "engine_start" 0}
+		}
 	}
 	
 	{on "_explosion" overload
