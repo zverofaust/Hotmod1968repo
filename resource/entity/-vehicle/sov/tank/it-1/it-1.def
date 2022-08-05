@@ -8,10 +8,6 @@
 	{targetSelector "tank_heavy"}
 	{PatherId "t34"}
 
-	{extender "enumerator"
-		{digit_folder "cw"}
-	}
-
 	("crew_4_human")
 	
 	{boarder
@@ -93,11 +89,15 @@
 
 	{Extension "it-1.mdl"}
 
-	{bone "turret"			;gun horizontal
+	{bone "turret"			;turret horizontal
 		{speed2 24}			;degree per second
 	}
-	{bone "gun_rot"			;gun vertical
+	{bone "rocket_rot"		;gun vertical
 		{speed2 4}			;degree per second
+		{limits -6 16}		;min down to max up
+	}
+	{bone "mgun_rot"			;gun vertical
+		{speed2 16}			;degree per second
 		{limits -6 16}		;min down to max up
 	}
 }

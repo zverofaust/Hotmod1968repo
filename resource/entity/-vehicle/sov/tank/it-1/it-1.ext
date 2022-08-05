@@ -10,7 +10,6 @@
 
 	("fuel" args "fuel1")
 	("fuel" args "fuel2")
-	("fuel" args "fuel3")
 	("ammo" args "ammo")
 	("transmission" args "transmission")
 	("tracks" repair(30) thickness(15))
@@ -33,16 +32,6 @@
 		}
 		{HighHardness}
 	}
-	{volume "body3"			; Engine Compartment
-		{thickness 80
-			{front 10}		; Engine Wall
-			{top 15}
-			{rear 45}
-			{bottom 20}
-		}
-		{HighHardness}
-	}
-	
 	{volume "turret"		; Turret
 		{thickness 153
 			{front 214}
@@ -52,7 +41,12 @@
 		{HighHardness}
 		{CastSteel 0.8063}
 	}
-	
+	{volume "mantlet"		; Missile Launcher
+		{thickness 50}
+	}
+	{volume "gun"			; Rocket
+		{thickness 50}
+	}
 	{volume "engine"
 		{thickness 10}
 	}
