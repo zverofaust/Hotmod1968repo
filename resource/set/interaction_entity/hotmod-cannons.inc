@@ -1358,6 +1358,26 @@
 
 ;/*=========== SOVIET Cannons  ===========*/
 
+{"37mm_61k_sov"
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
+	}
+
+	{on "spawn_shell_delay_auto" overload
+		("shell_eject_delay_auto" args 0.35) ;// delay cannot be longer than rate of fire else shell ejection is skipped and only played on last shell.
+	}
+
+	{on "cut_parts" overload
+		("cut_part" args "part1" 1)
+		("cut_part" args "part3" 1)
+		("cut_part" args "part4" 1)
+		("cut_part" args "part6" 1)
+		{inherited}
+	}
+
+	("cannon_small")
+}
+
 {"zu-2"				
 	{on "init_gun" overload
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
@@ -1595,6 +1615,18 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
+}
+
+{"m192"
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
+	}
+
+	{on "spawn" 
+		{ani_play "spawn"}
+	}
+
+	("cannon_small")
 }
 
 ;/*=========== Hotmod Specifics End  ===========*/
