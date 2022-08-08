@@ -1,106 +1,62 @@
-;Exported by: rowen
-;Date:        Tue May 21 16:18:20 2019
-;File:        H:\!_Work\!_weapon_export\3D\sks.max
+;Exported by: misan
+;Date:        Fri Aug  5 10:21:09 2022
+;File:        D:\Cold War\ModelWIP\Smallarms\SKS by Artyrom\SKS.max
 {Skeleton
+	{animation
+		{sequence "recoil" {speed 0.7}}
+	}
 	{bone "sks"
-		{parameters "ID=mgun;"}
-		{Matrix34
+		{Orientation
 			1	0	0
 			0	-1	0
 			0	0	1
-			-2   0   0
 		}
-		{VolumeView "sks.ply"}
-		{bone "foresight12"
+		{LODView
+			{VolumeView "sks.ply"}
+			{VolumeView "sks_lod1.ply"}
+			{VolumeView "sks_lod2.ply"}
+		}
+		{bone "bolt"
 			{Matrix34
 				1	0	0
-				0	0.996195	0.0871556
-				0	-0.0871556	0.996195
-				15.7763	1.15685	0.10121
+				0	0	-1
+				0	1	0
+				3.54032	1.52083	0.245636
 			}
+			{LODView
+				{VolumeView "bolt.ply"}
+				{VolumeView "bolt_lod1.ply"}
+				{VolumeView "bolt_lod2.ply"}
+			}
+		}
+		{bone "foresight12"
+			{Position 13.2063	1.2085	0}
 		}
 		{bone "fxshell"
 			{Matrix34
-				0	-0.992547	0.121861
-				-1	1.0683e-05	1.26051e-05
-				-1.3813e-05	-0.121861	-0.992547
-				4.51078	1.46624	0.378282
+				0	0.573576	0.819152
+				0	0.819152	-0.573576
+				-1	0	0
+				3.48148	1.4109	0.243429
 			}
 		}
 		{bone "handle"
-			{parameters "Voxels=0;"}
 			{Matrix34
-				1	0	0
-				0	0.0871567	-0.996195
-				0	0.996195	0.0871567
-				5.90951	1.80442	0.388984
+				0	1	0
+				0	0	-1
+				-1	0	0
+				7.02945	1.8604	-0.0361176
 			}
 		}
 	}
 }
 {Volume "body"
-	{Box 19.2426 2.9529 1.26739}
+	{Box 17.1334 3.53941 0.621716}
 	{Bone "sks"}
-	{Matrix34
-		1	0	0
-		0	0.996195	0.0871559
-		0	-0.0871559	0.996195
-		5.39471	0.365716	0.251687
-	}
+	{Position 3.58774	0.0635844	0.00879785}
 }
 {Volume "select"
-	{Box 20.8156 3.20268 0.885033}
+	{Box 21.0779 7.21689 1.60375}
 	{Bone "sks"}
-	{Matrix34
-		1	0	0
-		0	0.996195	0.0871556
-		0	-0.0871556	0.996195
-		5.56477	0.288306	0.0695711
-	}
-}
-{Extender "preview"
-	{"Stuff_primary"
-		{camera
-			{origin 5.24641	2.61428	56.2492}
-			{lookat 5.24642	-1.18697	0.343378}
-			{fov 23.9132}
-			{horizon 5.6734}
-		}
-		{lights
-			{"0"
-				{type point}
-				{position 5.31957	11.5858	1.97242}
-			}
-			{"1"
-				{type point}
-				{position 14.4487	-4.21781	20.9278}
-			}
-			{"2"
-				{type directional}
-				{direction 0.000725109	0.384215	-0.319967}
-			}
-		}
-	}
-	{"Stuff"
-		{camera
-			{origin 4.966	2.01423	56.5044}
-			{lookat 4.966	-0.600332	0.282483}
-			{fov 23.9132}
-			{horizon 7.67376}
-		}
-		{lights
-			{"0"
-				{type point}
-				{position 16.2903	-6.89525	19.1877}
-			}
-			{"1"
-				{type directional}
-				{direction -0.00294092	0.393034	-0.309056}
-			}
-			{"2"
-				{type point}
-				{position 5.31957	5.02393	1.65797}
-			}
-		}
-	}
+	{Position 3.88494	-0.341707	0.0328947}
 }
