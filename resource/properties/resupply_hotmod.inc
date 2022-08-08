@@ -325,6 +325,7 @@
 	;// ATGMs
 	{item "mgm32a"				"atgm"		"ammo" 1 {value 15}}
 	{item "agm22"				"atgm"		"ammo" 1 {value 15}}
+	{item "mim23"				"sam"		"ammo" 1 {value 20}}
 	
 	;// Aircraft Stuff
 	

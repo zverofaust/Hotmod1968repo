@@ -13,15 +13,15 @@
 	{maxRange 800}										;//	Maximum fire range for player in direct control.
 	{minRange 50}										;//	Minimum fire range for player in direct control.
 	{gravity 0}
-	{spreading 2 {SpreadPower 1}}                 	    ;//	Skews the distribution of shells more biased toward the centre (>1) or away (<1)
+	{spreading 0 {SpreadPower 0}}                 	    ;//	Skews the distribution of shells more biased toward the centre (>1) or away (<1)
 	("reload time" seconds(5))							;// Shell reload or full magazine reload in autoloaders 
 	("velocity m/s" ap(100) apcr(100) he(100) heat(100));// Muzzle velocity in m/s	
-	{Spreading 10}
-	{SpreadTolerance 10}
-	{ZeroingAccuracy 10}								;// Measure in degrees of IK error when AI is allowed to shoot
+	{Spreading 0}
+	{SpreadTolerance 1}
+	{ZeroingAccuracy 1}								;// Measure in degrees of IK error when AI is allowed to shoot
 	{projectileDamageThreshold 0.5}						;// Damages lower than armor * threshold are ignored
 	("human health" damage(2500))						;// Damage to human health
-	{LockFireDistanceTime 0}							;// Time that AIM is allowed to be out of range for before firing is disabled
+	{LockFireDistanceTime 0.5}							;// Time that AIM is allowed to be out of range for before firing is disabled
 
 	{cursor "blank"}							;// rts cursor
 	{crosshair "blank"}						;// TPC crosshair
