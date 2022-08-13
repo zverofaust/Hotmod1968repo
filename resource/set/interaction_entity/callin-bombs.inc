@@ -364,16 +364,22 @@
 
 ;;;;;;;;;;;;;;;;;;;;// US AIRSTRIKES
 
-{"f-105_airstrike_2x500"
+{"a4e"
+	{on spawn
+		{ani_play "gear_up"}
+	}
+}
+
+{"a-4e_airstrike_2x250"
 	{on "bomb_drop"
 		{delay 0.2 
-			{spawn "bomb_single_500" "hardpoint_1" x dir_velocity
+			{spawn "bomb_single_250" "hardpoint_1" x dir_velocity
 				{impulse up -14 dir -5 forward 51}
 			}
 		
 		}
 		{delay 0.22 
-			{spawn "bomb_single_500" "hardpoint_2" x dir_velocity
+			{spawn "bomb_single_250" "hardpoint_2" x dir_velocity
 				{impulse up -14 dir -5 forward 55}
 			}
 		
@@ -381,7 +387,24 @@
 	}
 }
 
-{"f-105_airstrike_4xcluster"
+{"a-4e_airstrike_2xnapalm"
+	{on "bomb_drop"
+		{delay 0.2 
+			{spawn "bomb_single_napalm" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.22 
+			{spawn "bomb_single_napalm" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+	}
+}
+
+{"a-4e_airstrike_4xcluster"
 	{on "bomb_drop"
 		{delay 0.35 
 			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
@@ -404,6 +427,52 @@
 		{delay 0.44 
 			{spawn "bomb_single_cluster" "hardpoint_4" x dir_velocity
 				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+	}
+}
+
+{"a-4e_airstrike_4xnapalm"
+	{on "bomb_drop"
+		{delay 0.35 
+			{spawn "bomb_single_napalm" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 47}
+			}
+		
+		}
+		{delay 0.38 
+			{spawn "bomb_single_napalm" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.41 
+			{spawn "bomb_single_napalm" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.44 
+			{spawn "bomb_single_napalm" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+	}
+}
+
+{"f-105_airstrike_2x500"
+	{on "bomb_drop"
+		{delay 0.2 
+			{spawn "bomb_single_500" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.22 
+			{spawn "bomb_single_500" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
 			}
 		
 		}
