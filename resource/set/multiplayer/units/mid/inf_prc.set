@@ -1,0 +1,180 @@
+;SDL
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+(define "prc_radioman"
+	{tags "mid %side infantry man signaller"}
+	{cp 10}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.2}
+)
+;{"mp/prc/mid/reg_radioman"			("prc_radioman" side(prc)) {cost 200.0}}
+
+(define "prc_basic"
+	{tags "mid %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/prc/mid/sup_guncrew"			("prc_basic" side(prc)) {cost 3.0}} ; Mosin
+{"mp/prc/mid/sup_supporter"			("prc_basic" side(prc)) {cost 3.0}} ; Mosin
+{"mp/prc/mid/sup_pilot"				("prc_basic" side(prc)) {cost 5.0}} ; Pistol
+{"mp/prc/mid/sup_tankman"			("prc_basic" side(prc)) {cost 4.0}} ; PPsh
+{"mp/prc/mid/sup_vehicleman"		("prc_basic" side(prc)) {cost 4.0}} ; PPsh
+{"mp/prc/mid/mil_rifle1"			("prc_basic" side(prc)) {cost 3.0}} ; Mosin-Nagant
+{"mp/prc/mid/mil_rifle2"			("prc_basic" side(prc)) {cost 5.0}} ; SKS
+{"mp/prc/mid/mil_mg"				("prc_basic" side(prc)) {cost 20.0}} ; DP
+{"mp/prc/mid/mil_grenadier"			("prc_basic" side(prc)) {cost 12.0}} ; Mosin & RPG-43
+{"mp/prc/mid/mil_squadlead"			("prc_basic" side(prc)) {cost 13.0}} ; SKS
+
+
+(define "prc_regular"
+	{tags "mid %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 1.0}
+	{score_factor 0.05}
+)
+{"mp/prc/mid/reg_atassist"			("prc_regular" side(prc)) {cost 12.0}} ; SKS & RPG-2 Ammo
+{"mp/prc/mid/reg_mg"				("prc_regular" side(prc)) {cost 30.0}} ; RPD
+{"mp/prc/mid/reg_mgassist"			("prc_regular" side(prc)) {cost 12.0}} ; SKS + PK Ammo
+{"mp/prc/mid/reg_rifle"				("prc_regular" side(prc)) {cost 10.0}} ; SKS
+{"mp/prc/mid/reg_smg"				("prc_regular" side(prc)) {cost 8.0}} ; PPSh
+{"mp/prc/mid/reg_assault"			("prc_regular" side(prc)) {cost 14.0}} ; PPSh & RPG-43
+{"mp/prc/mid/reg_squadlead"			("prc_regular" side(prc)) {cost 25.0}} ; AKM
+
+(define "prc_regular_advanced"
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.05}
+)
+
+{"mp/prc/mid/reg_antitank"			("prc_regular" side(prc)) {cost 35.0}} ; SKS & RPG-2
+{"mp/prc/mid/reg_marksman"			("prc_regular" side(prc)) {cost 35.0}} ; Mosin-Nagant
+{"mp/prc/mid/reg_flamer"			("prc_regular" side(prc)) {cost 45.0}} ; RKO
+{"mp/prc/mid/reg_engineer"			("prc_regular" side(prc)) {cost 25.0}} ; PPsh
+{"mp/prc/mid/reg_scout"				("prc_regular" side(prc)) {cost 20.0}} ; PPsh
+
+(define "prc_vdv"
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 3.0}
+	{score_factor 0.05}
+)
+{"mp/prc/mid/vdv_antitank"			("prc_vdv" side(prc)) {cost 60.0}} ; AKMS & RPG-7
+{"mp/prc/mid/vdv_atassist"			("prc_vdv" side(prc)) {cost 20.0}} ; AKM
+{"mp/prc/mid/vdv_marksman"			("prc_vdv" side(prc)) {cost 65.0}} ; SVD
+{"mp/prc/mid/vdv_lightmg"			("prc_vdv" side(prc)) {cost 50.0}} ; PK
+{"mp/prc/mid/vdv_lightmgassist"		("prc_vdv" side(prc)) {cost 20.0}} ; AKM
+{"mp/prc/mid/vdv_rifleman"			("prc_vdv" side(prc)) {cost 17.0}} ; AKM
+{"mp/prc/mid/vdv_reg_senior"		("prc_vdv" side(prc)) {cost 22.0}} ; AKM
+{"mp/prc/mid/vdv_squadlead"			("prc_vdv" side(prc)) {cost 30.0}} ; AKM
+{"mp/prc/mid/vdv_vehicleman"		("prc_vdv" side(prc)) {cost 15.0}} ; AKMS
+
+(define "prc_guards"
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+{"mp/prc/mid/grd_antitank"			("prc_guards" side(prc)) {cost 60.0}} ; AKMS & RPG-7
+{"mp/prc/mid/grd_atassist"			("prc_guards" side(prc)) {cost 20.0}} ; AKM
+{"mp/prc/mid/grd_marksman"			("prc_guards" side(prc)) {cost 65.0}} ; SVD
+{"mp/prc/mid/grd_mg"				("prc_guards" side(prc)) {cost 50.0}} ; PK
+{"mp/prc/mid/grd_mgassist"			("prc_guards" side(prc)) {cost 20.0}} ; AKM
+{"mp/prc/mid/grd_rifleman"			("prc_guards" side(prc)) {cost 17.0}} ; AKM
+{"mp/prc/mid/grd_reg_senior"		("prc_guards" side(prc)) {cost 22.0}} ; AKM
+{"mp/prc/mid/grd_squadlead"			("prc_guards" side(prc)) {cost 30.0}} ; AKM
+{"mp/prc/mid/grd_vehicleman"		("prc_guards" side(prc)) {cost 15.0}} ; AKMS
+
+(define "prc_vmf"
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+
+(define "prc_banner"
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+{"mp/prc/mid/red_antitank"			("prc_banner" side(prc)) {cost 65.0}} ; AKMS & RPG-7
+{"mp/prc/mid/red_atassist"			("prc_banner" side(prc)) {cost 25.0}} ; AKM
+{"mp/prc/mid/red_marksman"			("prc_banner" side(prc)) {cost 70.0}} ; SVD
+{"mp/prc/mid/red_mg"				("prc_banner" side(prc)) {cost 55.0}} ; PK
+{"mp/prc/mid/red_mgassist"			("prc_banner" side(prc)) {cost 25.0}} ; AKM
+{"mp/prc/mid/red_rifleman"			("prc_banner" side(prc)) {cost 22.0}} ; AKM
+{"mp/prc/mid/red_senior"			("prc_banner" side(prc)) {cost 27.0}} ; AKM
+{"mp/prc/mid/red_squadlead"			("prc_banner" side(prc)) {cost 35.0}} ; AKM
+{"mp/prc/mid/red_flamer"			("prc_banner" side(prc)) {cost 65.0}} ; RKO
+
+(define "prc_spetsnaz"
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/prc/mid/spz_squadlead"	("prc_spetsnaz" side(prc)) {cost 50.0}} ; AKMS(S), Binos
+{"mp/prc/mid/spz_rifleman"	("prc_spetsnaz" side(prc)) {cost 35.0}} ; AKMS(S)
+{"mp/prc/mid/spz_mg"		("prc_spetsnaz" side(prc)) {cost 80.0}} ; PK MG
+{"mp/prc/mid/spz_antitank"	("prc_spetsnaz" side(prc)) {cost 90.0}} ; RPG-7
+{"mp/prc/mid/spz_marksman"	("prc_spetsnaz" side(prc)) {cost 100.0}} ; SVD-63
+{"mp/prc/mid/spz_demo"		("prc_spetsnaz" side(prc)) {cost 80.0}} ; Satchel Charges
+{"mp/prc/mid/spz_spotter"	("prc_spetsnaz" side(prc)) {cost 45.0}} ; AKMS(S), Binos
+
+(define "prc_medic"
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor -0.2}
+)
+{"mp/prc/mid/reg_medic"			("prc_medic" side(prc)) {cost 40.0}}
+
+
+(define "prc_officer"
+	{tags "mid %side infantry man officer"}
+	{cp 8}
+	{basic}
+	{breed}
+	{cw 5}
+	{score_factor 0.2}
+)
+{"mp/prc/mid/reg_officer"		("prc_officer" side(prc)) {cost 65.0}} ; Pistol; High-value reg_officer target.
+
+
+(define "prc_sniper"
+	{tags "mid %side infantry man sniper"}
+	{cp 8}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/prc/mid/spz_sniper"		("prc_sniper" side(prc)) {cost 150.0}} ; Mosin-Nagant PU
