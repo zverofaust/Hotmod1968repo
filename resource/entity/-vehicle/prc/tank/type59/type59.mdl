@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Fri Jun  3 20:49:35 2022
+;Date:        Thu Jun 23 22:30:04 2022
 ;File:        D:\Cold War\Model WIP\USSR\T-55\T-54A.max
 {Skeleton
 	{animation
@@ -7,8 +7,8 @@
 		{sequence "stop" {speed 0.15}}
 		{sequence "hit" {speed 0.3}}
 		{sequence "fire" {speed 0.2}}
-		{sequence "open" {speed 0.3}}
 		{sequence "open1" {speed 0.3}}
+		{sequence "open" {speed 0.3}}
 		{sequence "open_commander" {speed 0.2}}
 		{sequence "open_gunner" {speed 0.2}}
 	}
@@ -69,58 +69,16 @@
 						}
 						{VolumeView "mgun_rot.ply"}
 						{bone "mgun_help"
-							{Matrix34
-								0.996195	0	-0.087156
-								0	1	0
-								0.087156	0	0.996195
-								-6.85412	0.687298	0.721932
-							}
 						}
 					}
 					{bone "gunner2"
-						{Matrix34
-							0.988978	0.00863069	0.147809
-							-0.0087267	0.999962	0
-							-0.147804	-0.0012899	0.989016
-							-2.682512	0.55225	9.5414
-						}
+						{Position 0	0	-15.2835}
 					}
-				}
-				{bone "cover1"
-					{parameters "id=turret;"}
-					{Position -8.76145	9.82501	17.358}
-					{VolumeView "cover1.ply"}
 				}
 				{bone "detail2"
 					{parameters "id=turret;"}
 					{Position -29.334	11.3493	7.33138}
 					{VolumeView "detail2.ply"}
-				}
-				{bone "mantlet"
-					{parameters "id=gun;"}
-					{Position 20.8	-0.958939	6.2375}
-					{VolumeView "mantlet.ply"}
-				}
-				{bone revolute "gun_rot"
-					{Matrix34
-						1	0	0
-						0	0	1
-						0	-1	0
-						20.5063	-0.657098	5.11978
-					}
-					{bone "gun"
-						{parameters "id=gun;"}
-						{Matrix34
-							1	0	0
-							0	0	-1
-							0	1	0
-							45.5982	-0.0441666	0.0120621
-						}
-						{VolumeView "gun.ply"}
-						{bone "foresight1"
-							{Position 37.3772	0.00531435	-0.00957489}
-						}
-					}
 				}
 				{bone revolute "foresight5"
 					{Matrix34
@@ -135,6 +93,55 @@
 				}
 				{bone "fxfire3_2"
 					{Position -12.5646	-9.18966	14.4598}
+				}
+				{bone revolute "commander_rot"
+					{parameters "id=turret;"}
+					{Position -10.7656	9.81877	14.1371}
+					{VolumeView "commander_rot.ply"}
+					{bone "cover1"
+						{parameters "id=turret;"}
+						{Position 2.00416	0.00624275	3.22089}
+						{VolumeView "cover1.ply"}
+					}
+					{bone "visor1"
+						{Position 4.8871	0.055172	2.82802}
+					}
+					{bone revolute "vision_rot"
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							4.8871	0.055172	2.86499
+						}
+					}
+				}
+				{bone revolute "gun_rot"
+					{parameters "id=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						20.8	-0.958939	6.2375
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "id=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							45.3044	-1.16187	-0.28978
+						}
+						{VolumeView "gun.ply"}
+						{bone "foresight1"
+							{Position 37.3772	0.00531435	-0.00957489}
+						}
+					}
+				}
+				{bone "mantlet_cover"
+					{parameters "id=gun;"}
+					{Position 20.8	-0.958939	6.2375}
+					{VolumeView "mantlet_cover.ply"}
 				}
 			}
 			{bone "droptank2"
@@ -193,6 +200,9 @@
 					0	-1	0
 					-43.9568	0.856313	0.0247803
 				}
+			}
+			{bone "visor2"
+				{Position 41.9688	14.3574	11.5043}
 			}
 		}
 		{bone "emit1"
@@ -498,7 +508,7 @@
 		0	0	1
 		0	1	0
 		-1	0	0
-		0.353664	1.10834	-0.0236626
+		0.0599098	-0.00937271	-0.3255
 	}
 }
 {Volume "ram"
