@@ -1433,14 +1433,14 @@
 }
 
 {"m56_para"
-	("pz3_sound")
+	("pz2_sound")
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
 }
 
 {"m110"
-	("pz2_sound")
+	("pz3_sound")
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 5)
 	}
@@ -1566,7 +1566,66 @@
 }
 
 
+;/*=========== GDR Vehicles BEGIN  ===========*/
+
+{"btr-40_gdr"
+	("sdkfz222_sound")
+}
+
 ;/*=========== PRC Vehicles BEGIN  ===========*/
+
+{"nj-130 car"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
+{"nj-130_ammo car"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
+{"btr-40_type55"
+	("sdkfz222_sound")
+}
+
+{"yw531 tank"
+	("bt_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open1" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open1" -1.0 resume}
+	}
+}
+
+{"su76_prc tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t70/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t70/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t70/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t70/full"}
+		{link_sound "exhaust"			"vehicle/engine/t70/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t70"}
+		{link_sound "rotate_turret"		"vehicle/turret/gun/gun_horizontal"}
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 0.4 0.3)
+	}
+}
+
+{"su100_prc tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/gun/gun_horizontal"}
+	}
+}
 
 {"type59 tank"
 	{on "add_movement_sound" overload
