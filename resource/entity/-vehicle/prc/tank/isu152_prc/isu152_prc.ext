@@ -1,0 +1,77 @@
+;SDL
+	
+	;notes
+	;tracks and wheels 30mm
+	;gun 30mm
+	;external fuel 5mm
+
+	("tank_heavy_tier1")
+
+	("shield_part" args "detail1" 120 "body")	;// 30 + 90
+	("shield_part" args "detail2" 120 "body")	;// 30 + 90
+	("shield_part" args "detail3" 120 "body")	;// 30 + 90
+	("shield_tear" args "detail4" 5)
+	("shield_tear" args "detail5" 5)
+	("shield_tear" args "detail6" 5)
+	("shield_tear" args "detail7" 5)
+
+	("tracks" repair(30) thickness(30))
+	("gun" repair(30) thickness(30))
+
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("transmission" args "transmission")
+
+	{volume "body1"			; Hull
+		{thickness 90
+			{front 90}
+			{top 60}
+			{bottom 20}
+			{rear 60}
+		}
+	}
+	{volume "body2"			; Superstructure
+		{thickness 75
+			{front 90}
+			{top 30}
+			{bottom 20}
+			{rear 60}
+		}
+	}
+	{volume "body3"			; Superstructure nose
+		{thickness 65}
+	}
+	{volume "engine1"		; Hull
+		{thickness 90
+			{front 20}
+			{top 30}
+			{bottom 20}
+			{rear 60}
+		}
+	}
+	{volume "engine2" 		; Superstructure
+		{thickness 75
+			{front 20}
+			{top 30}
+			{bottom 20}
+			{rear 60}
+		}
+	}
+	{volume "mantlet1"
+		{thickness 100}
+		{CastSteel 0.8063}
+	}
+	{volume "mantlet2"
+		{thickness 100}
+		{CastSteel 0.8063}
+	}
+	{volume "hatch_right1"
+		{thickness 30}
+	}
+	{volume "hatch_right2"
+		{thickness 30}
+	}

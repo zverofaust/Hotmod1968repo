@@ -1,0 +1,113 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc" scale(1.2))
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{props "td" "heavy" "-turret" "vision_lev06" "muzzle_150mm_155mm_sides" "diesel" "detect_spg"}
+	{extension "isu152_prc.mdl"}
+	(include "isu152_prc.ext")
+	{targetclass "tank_heavy"}
+	{targetSelector "tank_spg"}
+	{PatherId "kv1"}
+	{collider "tank.heavy"}
+
+	{extender "enumerator"
+		{digit_folder "ru1"}
+	}
+
+	{sensor
+		{visor "main"
+			{vision "tank_range_210"}
+		}
+	}
+
+	("crew_5_human_2")
+	("gunner_visible")
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_kv2_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse {end "emit_tank_2_hold"}}
+		}
+		{anm "left"
+			{forward {begin "board_Kv-85"} {end "seat_isu152_gunner2"}}
+			{reverse {end "emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_Kv-85"} {end "seat_isu152_gunner2"}}
+			{reverse {end "emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward {begin "board_HighArmor"} {end "seat_armor"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward {begin "board_HighArmor"} {end "seat_armor"}}
+			{reverse {end "emit_body"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor1))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+
+
+	{extender "inventory"
+		{box
+			{item "bulletrus_152 aphe" 6}		; 20 rounds
+			{item "bulletrus_152 he" 13}
+			{item "satchel_charge_rus" 1}
+			{item "ammo hmgun_rus" 750}			;15 drum boxes
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "152mm_ml20a" filling "bulletrus_152 he" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic_td"
+				zeroing(4.0)
+				dispersion(0.25)
+			)
+		}
+		{place "mgun"
+			{type "aa"}
+			{weapon "dshk" filled}
+			{gunner "commander"}
+			{charger "commander"}
+			{LinkBone "mgun_bone"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 46000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(0.98))
+		("mobility_tank"
+			speed(38) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(11.7) ;---------Max speed in reverse on road, km/h.
+			traverse(25) ;-------Track traverse, per second, in degrees.
+			weight(46.0) ;-------Weight in Tonnes.
+			power(520) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(520) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(120) ;---------Range in km, off-road.
+		)
+	}
+
+	{bone "gun_rot"
+		{limits -3 20}
+		{speed2 4}
+	}
+	{bone "turret"
+		{limits -3 7}
+		{speed2 4}
+	}
+}

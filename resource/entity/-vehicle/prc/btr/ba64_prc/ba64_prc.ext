@@ -1,0 +1,39 @@
+;SDL
+
+	; armor notes
+
+	("armoredcar_tier1")
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+
+	("turret" repair(50))
+
+	("fuel" args "fuel")
+	("transmission" args "transmission")
+
+	{volume "body"			; Hull
+		{thickness 9
+			{top 6}
+			{front 15}
+			{rear 6}
+			{bottom 4}
+		}
+	}
+	{volume "engine"
+		{thickness 9
+			{top 6}
+			{front 9}		; Nose
+			{rear 4}
+			{bottom 4}
+		}
+	}
+	{volume "turret"		; Turret 
+		{thickness 10}
+		{able {holed}}
+	}
+	{volume "hole1"
+		{tags "sticky"}
+	}
