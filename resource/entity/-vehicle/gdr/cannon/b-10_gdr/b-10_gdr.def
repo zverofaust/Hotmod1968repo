@@ -1,0 +1,95 @@
+{game_entity 
+	(include "/properties/cannon.ext")
+	(include "/properties/shadow/tank.inc" scale(0.6))
+	{props "recoilless" "cannon_small" "wheeled" "vision_lev01_can" "muzzle_37mm_47mm" "detect_atgun_small" "cannon_sandbag_small" "trailer" "trailer_light"}
+	{Extension "b-10_gdr.mdl"}
+	{collider "cannon_small"}
+	{targetclass "cannon_small"}
+	{targetSelector "cannon_small"}
+	
+	("gun" repair(30) thickness(10))
+	
+	("armor_light_cannon")
+	
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+	
+	("crew_wheeled_cannon")
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_lg40_gunner" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_lg40_commander" 10}}
+		}
+		{anm "driver1"
+			{forward {end "Cannon_lg40_driver1" 10}}
+		}
+		{anm "driver2"
+			{forward {end "Cannon_lg40_driver2" 10}}
+		}
+		{anm "seat1"	;// gunner
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"	;// charger
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet82_b10 heat" 10}
+			{item "bullet82_b10 he" 5}
+			{item "sandbag_vehicle" 1}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon	"82mm_b10" filling "ammo bullet82_b10 heat" 1}
+			{gunner "gunner"}
+            {charger "commander"}
+			{RestoreIKAfterAim}
+			{Rotate}
+			{basic}
+			("abm_dymamic_gun"
+				zeroing(1.50)
+				dispersion(0.4)
+			)
+		
+		}
+	}
+	
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "Cannon_lg40_driver1" "Cannon_lg40_driver2"}
+			{aim "Cannon_lg40_gunlayer" ""}
+			{fire  "" ""}
+			{reload  "" "Cannon_lg40_charger"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+;		{rotate_ik_Limit 0}
+	}
+	
+	{mass 120}
+	{Chassis "track"
+		("car_trace" fx("tracewheel05a") step(0.14) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility_cannon"
+			speed(14) ;----------------------------------Max speed.
+			weight(120) ;---------------------------------Weight in Kilograms.
+		)
+	}
+
+	{bone "basis"
+		{speed2 9}
+	}
+	{bone "turret"
+		{limits -30 30}
+		{speed2 16}
+	}
+	{bone "gun_rot"
+		{limits -15 20}
+	}
+}
