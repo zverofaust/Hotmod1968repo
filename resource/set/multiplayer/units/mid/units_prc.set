@@ -32,17 +32,17 @@
 }
 
 {"mortar_barrage_smoke_prc"
-	("squad_vehicle" side(prc) cd(60) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
+	("squad_vehicle" side(prc) cd(60) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_prc) crew(sup_guncrew:0))
 	{cost 2}{conditions "radio_prc"}{action "airstrike:flare_mortar_smoke"}
 }
 
 {"mortar_barrage_light_prc"
-	("squad_vehicle" side(prc) cd(120) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
+	("squad_vehicle" side(prc) cd(120) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_prc) crew(sup_guncrew:0))
 	{cost 3}{conditions "radio_prc"}{action "airstrike:flare_mortar_80"}
 }
 
 {"mortar_barrage_medium_prc"
-	("squad_vehicle" side(prc) cd(180) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(120mm_pm38_sov) crew(sup_guncrew:0))
+	("squad_vehicle" side(prc) cd(180) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(120mm_pm38_prc) crew(sup_guncrew:0))
 	{cost 5}{conditions "radio_prc"}{action "airstrike:flare_mortar_120"}
 }
 
@@ -62,12 +62,29 @@
 
 
 ;===================================
-;       ??????????
+;       Mechanized
 ;         
 ;===================================
 
 ; ======Tier1======
 
+; // 10DP Mechanized Rifle Squad in YW531
+{"doctrine_squad_mech(prc)"
+	("squad_vehicle7_doctrine" side(prc) period(mid) g(doctrine_lvl1) vehicle(yw531) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_mg:1) crew4(reg_antitank:1) crew5(reg_atassist:1) crew6(reg_grenadier:2) crew7(reg_rifle:2) cw(2) cp(0))
+	("doctrine_t1" cool(200) d(mid_prc_tank) cost(10))
+}
+
+; // 10DP IS-2
+{"doctrine_vehicle_t10(prc)"
+	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(is2_prc) crew(sup_tankman:5) cw(0) cp(0))
+	("doctrine_t1" cool(100) d(mid_prc_tank) cost(10))
+}
+
+; // 15DP ISU-152
+{"doctrine_vehicle_t10(prc)"
+	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(isu152_prc) crew(sup_tankman:5) cw(0) cp(0))
+	("doctrine_t1" cool(130) d(mid_prc_tank) cost(15))
+}
 
 ;===================================
 ;        ?????????????
@@ -83,13 +100,19 @@
 ;|________________________________________________|
 
 
-("squad_with4types" side(prc) name(squad_militia)			period(mid) cd(0) ci(0) g(squad_1) c1(con_squadlead:1) c2(con_mg:1) c3(con_antitank:1) c4(con_rifleman:5)																			b(inf1) t())
-("squad_with6types" side(prc) name(squad_rifle)				period(mid) cd(0) ci(20) g(squad_2) c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_antitank:1) c5(reg_atassist:1) c6(reg_rifleman:3)							b(inf1) t())
-("squad_with4types" side(prc) name(squad_assault)			period(mid) cd(0) ci(30) g(squad_3) c1(reg_squadlead:1) c2(reg_smg:2) c3(reg_grenadier:2) c4(reg_assault:3) b(inf1) t())
+("squad_with3types" side(prc) name(squad_militia)			period(mid) cd(0) ci(0) g(squad_1) c1(mil_squadlead:1) c2(mil_mg:1) c3(mil_rifleman:6)                    											b(inf1) t())
+("squad_with4types" side(prc) name(squad_militia_assault)	period(mid) cd(0) ci(0) g(squad_1) c1(mil_squadlead:1) c2(mil_grenadier:3) c3(mil_smg:2) c4(mil_rifleman2:2)	 	 								b(inf1) t())
+("squad_with6types" side(prc) name(squad_rifle)				period(mid) cd(0) ci(20) g(squad_2) c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_antitank:1) c5(reg_atassist:1) c6(reg_rifleman:3)    b(inf1) t())
+("squad_with5types" side(prc) name(squad_autorifle)			period(mid) cd(0) ci(20) g(squad_2) c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_grenadier:2) c5(reg_rifleman2:4)	                    b(inf1) t())
+("squad_with6types" side(prc) name(squad_guards)			period(mid) cd(0) ci(20) g(squad_2) c1(grd_squadlead:1) c2(grd_mg:1) c3(grd_mgassist:1) c4(grd_antitank:1) c5(grd_atassist:1) c6(grd_rifleman:3)	b(inf1) t())
 
-{"squad_conscript_moto(prc)"
-	("squad_vehicle7" period(mid) cd(0) ci(15) side(prc) t(vehicle) vehicle(yw531) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_mg:1) crew4(reg_antitank:1) crew5(reg_atassist:1) crew6(reg_grenadier:2) crew6(reg_rifle:2) b(inf1) cw(2) cp(4)){squad_cost_factor 1}
-}
+;{"squad_rifle_moto(prc)"
+;	("squad_vehicle7" period(mid) cd(0) ci(15) side(prc) t(vehicle) vehicle(nj-130) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_mg:1) crew4(reg_antitank:1) crew5(reg_atassist:1) crew6(reg_grenadier:2) crew7(reg_rifle:2) b(inf1) cw(2) cp(4)){squad_cost_factor 1}
+;}
+
+;{"squad_autorifle_moto(prc)"
+;	("squad_vehicle5" period(mid) cd(0) ci(15) side(prc) t(vehicle) vehicle(nj-130) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_mg:1) crew4(reg_grenadier:2) crew5(reg_rifleman2:2) b(inf1) cw(2) cp(4)){squad_cost_factor 1}
+;}
 
 ;_________________________________________________
 ;|             inf2                               |
@@ -100,7 +123,7 @@
 ("squad_with1types" 	side(prc) name(single_supporter)		period(mid) cd(0)   ci(60)  g(single_rifle)				c1(sup_supporter:2) 							b(inf2) t())
 ("squad_with2types"		side(prc) name(single_scout)			period(mid) cd(0)   ci(30)  g(single_scout)				c1(reg_scout:1) 								b(inf2) t())
 ("squad_with2types"		side(prc) name(single_mg)				period(mid) cd(0)   ci(0)   g(single_mg)				c1(reg_mg:1) c2(reg_mgassist:1)					b(inf2) t())
-("squad_with1types" 	side(prc) name(single_lat)				period(mid) cd(0)   ci(60)  g(single_lat)				c1(reg_grenadier:2) 									b(inf2) t())
+("squad_with1types" 	side(prc) name(single_lat)				period(mid) cd(0)   ci(60)  g(single_lat)				c1(reg_grenadier:2) 							b(inf2) t())
 ("squad_with2types" 	side(prc) name(single_at)				period(mid) cd(0)   ci(60)  g(single_at)				c1(reg_antitank:1) c2(reg_atassist:1)			b(inf2) t())
 ;("squad_with2types" 	side(prc) name(single_sniper)			period(mid) cd(0)   ci(60)  g(single_sniper)			c1(spz_sniper:1) c2(spz_spotter:1)				b(inf2) t(sniper))
 ("squad_with1types" 	side(prc) name(single_flamer)			period(mid) cd(0)   ci(60)  g(single_reg_flamer)		c1(reg_flamer:1) 								b(inf2) t(flamer))
@@ -159,6 +182,11 @@
 ;	{cost 100} {conditions "supply"}{action "inf_crate_prc"} 
 ;}
 
+{"gaz67_prc"
+	("vehicle"  period(mid) cd(0) ci(5) g(wheel1) side(prc) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 5}
+}
+
 {"gaz-704"
 	("vehicle"  period(mid) cd(0) ci(5) g(supply) side(prc) t(vehicle supply) crew(sup_supporter:0) b(vehicles) cw(0) cp(2))
 	{cost 75}
@@ -175,7 +203,7 @@
 }
 
 {"yw531"
-	("vehicle"  period(mid) cd(0) ci(5) g(wheel2) side(prc) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(4))
+	("vehicle"  period(mid) cd(0) ci(5) g(wheel2) side(prc) t(vehicle) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(4))
 	{cost 100}
 }
 
@@ -186,26 +214,36 @@
 
 ;LIGHT
 
+{"ba64_prc"
+	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(prc) crew(sup_vehicleman:2) g(wheel3) b(tanks) cw(0) cp(3))
+	{cost 50}
+}
+
 {"btr40_type55"
-	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(prc) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(5))
+	("vehicle" period(mid) cd(10) ci(15) t(vehicle apc) side(prc) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(4))
 	{cost 75}
 }
 
 {"su76_prc"
-	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(prc) crew(sup_tankman:4) g(light1) b(tanks) cw(0) cp(12))
+	("vehicle" period(mid) cd(100) ci(20) t(medium tank) side(prc) crew(sup_tankman:4) g(light1) b(tanks) cw(0) cp(6))
 	{cost 190}
 }
 
 ;Medium
 
+{"t-34-85_prc"
+	("vehicle" period(mid) cd(120) ci(30) t(medium tank) side(prc) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(8))
+	{cost 280}
+}
+
 {"su100_prc"
-	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(prc) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
-	{cost 350}
+	("vehicle" period(mid) cd(180) ci(45) t(medium tank) side(prc) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(10))
+	{cost 330}
 }
 
 {"type59"
 	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(prc) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
-	{cost 390}
+	{cost 375}
 }
 
 ;_________________________________________________
