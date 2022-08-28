@@ -335,6 +335,7 @@ Purchases["campaign_capture_the_flag"] = {
 			
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, unit = "brdm-1"},
+				{priority = 0.5, class = UnitClass.Vehicle, unit = "btr-40a"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "9p110"},
 				{priority = 0.5, class = UnitClass.Vehicle, unit = "9p122"},

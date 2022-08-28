@@ -192,6 +192,7 @@ Purchases["standard"] = {
 			--Howitzers
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "btr-40a"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "pt-76"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "asu57"},
@@ -384,6 +385,7 @@ Purchases["standard"] = {
 				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_sov"},
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "btr-40a"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
 			--Tanks_light
@@ -542,6 +544,7 @@ Purchases["standard"] = {
 			--Howitzers
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "btr-40a"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
 			--Tanks_light
@@ -768,6 +771,7 @@ Purchases["standard"] = {
 				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_sov"},
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "btr-40a"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "9p122"},
@@ -941,6 +945,7 @@ Purchases["standard"] = {
 				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "d30a"},
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "btr-40a"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "9p122"},
@@ -1211,6 +1216,7 @@ Purchases["standard"] = {
 				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "d30a"},
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "btr-40a"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "9p122"},
@@ -1397,6 +1403,7 @@ Purchases["standard"] = {
 			--Howitzers
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "btr-40a"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "9p122"},
@@ -1682,6 +1689,7 @@ Purchases["standard"] = {
 			--Howitzers
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "btr-40a"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "9p110"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "9p122"},

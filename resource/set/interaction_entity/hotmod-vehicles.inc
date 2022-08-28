@@ -993,6 +993,32 @@
 	("sdkfz222_sound")
 }
 
+{"btr-40a"
+	("sdkfz222_sound")
+	{on "init_gun"
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
+		{add_view "zenit_gilz"			"shell"			"FXshell00"}
+		{add_view "zenit_gilz"			"shell"			"FXshell01"}
+		{call "update_gun"}
+	}
+	{on fire "mgun1" overload
+		(define "fire_barrel"
+			name "%0"
+				{call "fire_barrel%0"}
+				{view start "flashbarrel%0"}
+				{ani_play "fire%0"}
+				{delay 0.2
+					{view pause "flashbarrel%0"}
+				}
+		)
+		{if	("fire_barrel" args 00)
+		else ("fire_barrel" args 01)
+		}
+		{call "spawn_shell"}
+	}
+}
+
 {"brdm-1"
 	("sdkfz222_sound")
 }
