@@ -131,4 +131,25 @@
 	}
 )
 
+(define "wp"								;// All White Phosphorus Shells
+	{damage fire
+		{radius (- (* %cal 0.05) 1.5)}
+		{heating 10}
+		{time 0.5}
+	}
+	{damage blastwave
+		{energy 1.5}
+		{area (* %cal 0.03) (* %cal 0.05)}
+		{ground_interaction_radius 0.2}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+(define "smoke_blast"						;// All cannon Smoke Shells
+	{damage blastwave
+		{energy 1.5}
+		{area (* %cal 0.03) (* %cal 0.05)}
+		{ground_interaction_radius 0.2}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
 ;/*----------------------*/
