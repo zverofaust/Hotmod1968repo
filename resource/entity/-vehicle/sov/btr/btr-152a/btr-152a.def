@@ -1,0 +1,135 @@
+{game_entity			;BTR-152A
+	(include "/properties/armoredcar.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props 	"tank" "turret" "with_gun" "wheeled" "vision_lev02" "muzzle_kpvt"}
+	{targetclass "armoredcar"}
+	{targetSelector "car_bullet"}
+	
+	("armoredcar_tier2")
+		
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 12}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 12}
+		{able {holed}}
+	}
+	{volume "engine"
+		{thickness 10}
+	}
+	
+	{volume "turret"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 10}
+	}
+	{volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	{volume "gun1"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	{volume "gun2"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("transmission" args "transmission")
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_rus_kpvt" 2000}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+ 	{Weaponry
+		("restore_ik_time")
+		{place "mgun1"
+			{type "aa"}
+			{weapon "kpv_x2" filled}
+			{foresight "foresight4"}
+			{charger "charger"}
+			{Barrels 2}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	
+	{placer
+		{place "driver"	{visor "driver"}}
+		{place "gunner"	{visor "main"}}
+		{place "commander"	{visor "none"}}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_Willis_driver"}{base "open_left"}}
+			{reverse 	{end	"emit_body"}{base "open_left"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar"} {end "seat_Willis_passenger"}{base "open_right"}}
+			{reverse 	{end	"emit_body"}{base "open_right"}}
+		}
+		{anm "gunner"
+			{forward	{begin "board_body"} {end "aagun_61k_charger"}}
+			{reverse	{end "emit_body" 1} {base "open_back"}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_dodge_bodyback"} {end "seat_passenger"} {base"open_back"}}   
+			{reverse 	{end	"emit_body" 1} {base"open_back"}}
+		}
+	}
+	
+	("crew" place(driver)		bone(driver)	door(emit1)		animation(driver)		visor(driver)	off({sensor}))
+	("crew" place(gunner)		bone(gunner)	door(emit3)		animation(gunner)		visor(main)		off())
+	("crew" place(commander)	bone(commander)	door(emit2)		animation(commander)	visor(none)		off())
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	("wheel" args "wheelright3")
+	("wheel" args "wheelleft3")
+	
+	{mass 8950}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility_car"
+			speed(70) ;----------------------------------Max speed.
+			speedatmaxturn(17) ;-------------------------Max speed at max turn.
+			reverse(22) ;--------------------------------Max speed in Reverse.
+			weight(10.2) ;------------------------------Weight in Tonnes.
+			power(180) ;----------------------------------Horse Power.
+			fuel(290) ;----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(500) ;---------------------------------Range in Kilometers.
+		)
+	}
+	{Extension "btr-152a.mdl"}
+
+	{bone "turret"
+		{speed2 24}
+	}
+	{bone "gun_rot" ;mgun horizontal
+		{limits 3 -80}
+		{speed2 42}
+	}
+}
+
