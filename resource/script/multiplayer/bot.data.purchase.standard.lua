@@ -1207,6 +1207,7 @@ Purchases["standard"] = {
 			--Automatic_weaponry
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "dshk_aa_sov"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "zpu-4"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "57mm_s-60"},
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, unit = "b-10_82mm"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "spg9"},
