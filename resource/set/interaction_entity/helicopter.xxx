@@ -1,29 +1,31 @@
 {"helicopter"
 	{on spawn
 		{link_sound	"fall" "vehicle/airborne/fw_deep"}
-		{link_sound "false_start"		"vehicle/airborne/false_start"}
-		
+
 		{add_view "smoke_black" "smoke_engine" 		"FXfire1"}
 		{add_view "smoke_black" "smoke_rotor" 		"FXfire2"}
 		{add_view "smoke_black" "smoke_rotor_back" 	"FXfire3"}
+		{add_view "spheredust_heli" "spheredust_heli" "basis"}
+		{add_view "spheredust_heli" "dust" "basis"}
 		{call "init_gun"}
 	}
 	
 	{on "add_movement_sound"
-		{link_sound "fly"			"vehicle/airborne/helicopter/helicopter_work2" 	}
-		{link_sound "engine_start"	"vehicle/airborne/helicopter/helicopter_start" 	}
-		{link_sound "engine_work"	"vehicle/airborne/helicopter/helicopter_work2" 	}
-		{link_sound "engine_stop"	"vehicle/airborne/helicopter/helicopter_stop" 	}
+		{link_sound "fly"					"vehicle/airborne/uh1h/uh1h_engine_full"}
+		{link_sound "engine_start"			"vehicle/airborne/uh1h/uh1h_engine_start"}
+		{link_sound "engine_work"			"vehicle/airborne/uh1h/uh1h_engine_full"}
+		{link_sound "engine_stop"			"vehicle/airborne/uh1h/uh1h_engine_stop"}
+		{link_sound "engine_idle"			"vehicle/airborne/uh1h/uh1h_engine_idle"}
+		{link_sound "engine_full"			"vehicle/airborne/uh1h/uh1h_engine_full"}
+		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h/uh1h_accelerate"}
+		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h/uh1h_decelerate"}
 	}
 	
-	{on engine on overload
-		{if chassis "helicopter"
-			{call "engine_on"}	
+	{on engine on overload			;// any vehicle moves forward, reverse or preforming neutral turn
+		{if chassis "airborne"
+			{call "engine_started"}		;// turns on engine, for airborne chassis planes when given move order
+			{view start "dust"}
 		}
-	}
-	
-	{on engine off overload
-		{call "engine_off"}	
 	}
 	
 	{on bullet_hit
@@ -33,83 +35,60 @@
 		}
 	}
 	
-	{on "engine_toggle" overload			;// UI button to toggle engine on/off
-		{if operatable
-			{if not work "engine"
-				{if "engine_on"
-					{call "engine_switch"}
-				else
-					{play_sound "false_start"}
-				}
-			else
-				{call "engine_switch"}
-			}
+	{on blast_hit										;// blast-wave hits any part of entity
+		{vehicle_health_damage_blast}
+	}
+	
+	{on "engine_started"
+		{if not "engine_started"
+			{set "engine_started" 1}
+			{ani_stop "engine_stop"}
+			{stop_sound "engine_stop"}
 		}
 	}
 	
-	{on "engine_switch"
-		{if "toggle_delay"
-			{play_sound "false_start"}
-		else "engine_on"
-			{call "engine_off"}
+	{on "engine_on"
+		(mod "mp"
+			{if not "engine_started"
+				{set "engine_started" 1}
+			}
+		)
+		{if not "engine_started"
+			{set "engine_started" 1}
+			{play_sound "engine_start"}
+			{ani_play "engine_start" callback}
 		else
-			{call "engine_on"}
+			{ani_play "engine_work" loop}
+			{play_sound "engine_work" 1}
 		}
 	}
 	
-	{on accelerate on overload} ;// stops extra interaction calls from vehicle.inc
-
-	{on accelerate off overload} ;// stops extra interaction calls from vehicle.inc
 	
-	{on "engine_on" overload
-		{if not "engine_on"
-			{if altitude 0.5   ;// check altitude
-				{chassis_work 1}
-				{set "engine_on" 1}
-				{tags remove "engine_turned_off"}
-				{ani_play "engine_work" loop}
-				{play_sound "engine_work" 1}
-			else
-				{chassis_work 0}
-				{set "engine_on" 1}
-				{ani_stop "engine_stop"}
-				{stop_sound "engine_stop"}
-				{play_sound "engine_start"}
-				{ani_play "engine_start" callback}
-				{set "toggle_delay" 1}
-				{delay 5 {set "toggle_delay" 0}}
+	{on "check_altitude"
+		{if tagged "dusty"					
+			{view start "dust"}	
+			{delay 1 
+				{view start "dust"}	
+			}																
+			{delay 0.6 "check_altitude"					
+				{call "check_altitude"}					
 			}
+		else	
 		}
 	}
-	
-	{on "engine_off" overload				;// engine toggled off
-		{if altitude 0.5		;// if altitude above 0.5, do nothing
-			{tags add "altitude"}
-		else                    ;// if altitude lower than 0.5, turn engine off as normal
-			{if "engine_on"
-				{if operatable
-					;{tags add "engine_turned_off"}
-				}
-				{tags remove "altitude"}
-				{set "engine_on" 0}
-				{ani_stop "engine_work"}
-				{ani_play "engine_stop"}
-				{stop_sound "engine_work"}
-				{stop_sound "fly"}
-				{play_sound "engine_stop"}
-				{set "toggle_delay" 1}			;// stops accidental double click of UI button
-				{delay 5 {set "toggle_delay" 0}}
-				{delay 0.6
-					{chassis_work 0}
-				}
-			}	
-		}
+		
+	{on animation_end "engine_start"
+		{ani_play "engine_work" loop}
+		{play_sound "engine_work" 1}
 	}
 	
-	{on "engine_stop"            ;//immediately kill engine, such as on death
+	{on engine off overload
+	}
+	
+	{on "engine_stop"
 		{kill_delay "engine_stopped"}
-		{if "engine_on"
-			{set "engine_on" 0}
+		{if "engine_started"
+			{set "engine_started" 0}
 			{ani_stop "engine_start"}
 			{ani_stop "engine_work"}
 			{ani_play "engine_stop"}
@@ -121,60 +100,42 @@
 		}
 	}
 	
-	{on move on overload                  ;//vehicle moves forward or reverse
-		{if not chassis "helicopter"
-			{if not "landing"
-				{if "engine_on"
-				}
-			}
-		else
-			{call "water_check"}		;//checks water level if spawning in air over water
-		}
-	}
-	
-	{on animation_end "engine_start"
-		{chassis_work 1}
-		{ani_play "engine_work" loop}
-		{play_sound "engine_work" 1}
-	}
-
-	
 	{on "update_moveable" overload
-		{tags add "update_move"}
-			{delay 5 {tags remove "update_move"}}
-		{if chassis "airborne"
+		{if chassis "helicopter"
 			{call "check_work_mover"}
+		}
+		{if not work "engine"
+			{view start "smoke_engine"}
+		else
+			{view stop "smoke_engine"}
+		}
+		{if not work "rotor"
+			{view start "smoke_rotor"}
+		else
+			{view stop "smoke_rotor"}
+		}
+		{if not work "rotor_b"
+			{view start "smoke_rotor_back"}
+		else
+			{view stop "smoke_rotor_back"}
 		}
 		{inherited}
 	}
 	
 	{on "check_work_mover" overload
-		{if broken "engine"
-				{movement_limit slow}
-				{tags add "move_slow"}
-			else broken "rotor"
-				{movement_limit slow}
-				{tags add "move_slow"}
-			else broken "rotor_b"
-				{movement_limit slow}
-				{tags add "move_slow"}
-			else broken "body"
-				{movement_limit normal}
-				{tags add "move_norma1"}
-			else
-				{movement_limit fast}
-				{tags add "move_fast"}
-			}
-	}
-
-	{on operatable off
-		{if not tagged "engine_turned_off" ;// stops engine off sequence from occuring if engine is already turned off.
-			{if not chassis "helicopter"
-				{call "engine_off"}
-			}
+		{if broken "rotor"
+			{movement_limit slow}
+		else broken "rotor_b"
+			{movement_limit slow}
+		else broken "body"
+			{movement_limit slow}
+		else broken "engine"
+			{movement_limit slow}
+		else
+			{movement_limit fast}
 		}
 	}
-	
+
 	{on pierce sync
 		{vehicle_health_damage_pierce}
 	}
@@ -188,8 +149,8 @@
 			{set "fall" 1}
 			{impulse up 0.1 com}
 			{explosive 1}
-			{play_sound "fall"}
 			{call "fall_fx"}
+			{call "engine_stop"}
 		}
 	}
 	
@@ -200,8 +161,8 @@
 			{delay 10
 				{view stop "fire"}
 			}
-			{burn volume "body" fx "smoke_aero_big" time 10 fake}
-			{burn volume "engine" fx "smoke_aero_big" time 10 fake}
+			{burn volume "body" fx "smoke_aero_dead_big" time 10 fake}
+			{burn volume "engine" fx "smoke_aero_dead_big" time 10 fake}
 			{delay 10.1
 				{burn volume "body" fx "smoke_black" time 40 10 fake}
 			}
@@ -223,12 +184,10 @@
 		}
 	}
 
-	{on break overload
-		{if not tagged "destroyed"
-			{call "update_moveable"}
-		}
+	{on break
 		{if component "body"
 			{spawn "car_die_particle"}
+			{call "fall"}
 		else component "engine"
 			{tags add "engine_brake"}
 			{spawn "car_die_particle"}
@@ -253,9 +212,9 @@
 					{call "collide"}
 				}
 			else effector "tree"
-				{if not effector "bush"			;do not crash on bush-like trees with prop "bush"
-					{call "collide"}
-				}
+				;{if not effector "bush"			;do not crash on bush-like trees with prop "bush"
+				;	{call "collide"}
+				;}
 			else velocity 50					;if moving fast itself, crash on every vehicle
 				{if effector "vehicle"
 					{call "collide"}
@@ -281,6 +240,7 @@
 	{on "collide"
 		{if  volume "body"
 			{call "explosion"}
+			{call "engine_stop"}
 		else volume "part"
 			{call "tear_part"}
 		}
@@ -365,6 +325,44 @@
 				}
 			}
 		}
+		;{call "engine_off"}
+	}
+	
+	{on "engine_off" overload				;// engine toggled off
+		{if not chassis "airborne"			;// engines can only be toggled when on ground not airborne
+			{if "engine_on"
+				{if operatable
+					;{tags add "engine_turned_off"}
+				}
+				{set "engine_on" 0}
+				{call "engine_stop_sequence"}
+				{set "toggle_delay" 1}			;// stops accidental double click of UI button
+				{delay 5 {set "toggle_delay" 0}}
+				{delay 0.6
+					{chassis_work 0}
+				}
+			}
+		}
+	}
+	
+	{on "engine_stop_sequence"				;// engine 1 shutdown sequence
+		{stop_sound "engine_accelerate"}
+		{stop_sound "engine_decelerate"}
+		{stop_sound "engine_start"}
+		{stop_sound "bkg_plane"}
+		{stop_sound "engine_full"}
+		{stop_sound "engine_idle"}
+		{if "engine_start"
+			{play_sound "engine_stop"}
+		}
+		{delay 0.6
+			{ani_stop "engine_start"}
+			{ani_stop "engine_work"}
+			{if "engine_start"
+				{ani_play "engine_stop"}
+			}
+			{set "engine_start" 0}
+		}
 	}
 	
 	{on "_explosion" overload
@@ -448,87 +446,18 @@
 	}
 }
 
-(define "helicopter2_sound"
+(define "helicopter_sound"
 	{on "add_movement_sound"
-		{link_sound "fly"			"vehicle/airborne/helicopter/helicopter_work1" 	}
-		{link_sound "engine_start"	"vehicle/airborne/helicopter/helicopter_start" 	}
-		{link_sound "engine_work"	"vehicle/airborne/helicopter/helicopter_work1" 	}
-		{link_sound "engine_stop"	"vehicle/airborne/helicopter/helicopter_stop" 	}
+		{link_sound "fly"			"vehicle/airborne/uh1h/uh1h_engine_full"}
+		{link_sound "engine_start"	"vehicle/airborne/uh1h/uh1h_engine_start"}
+		{link_sound "engine_work"	"vehicle/airborne/uh1h/uh1h_engine_full"}
+		{link_sound "engine_stop"	"vehicle/airborne/uh1h/uh1h_engine_stop"}
+		{link_sound "engine_idle"			"vehicle/airborne/uh1h/uh1h_engine_idle"}
+		{link_sound "engine_full"			"vehicle/airborne/uh1h/uh1h_engine_full"}
+		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h/uh1h_accelerate"}
+		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h/uh1h_decelerate"}
 	}
 )
-
-{"ah-64_apache"
-	{on spawn
-		{bone hide "detail_hellfire_l"}
-		{bone hide "detail_hellfire_r"}
-	}
-}
-
-{"mil_mi35"
-	("helicopter2_sound")
-	{on spawn
-		{bone hide "ataka_l"}
-		{bone hide "ataka_r"}
-	}
-}
-
-{"mil_mi35_uaf"
-	("helicopter2_sound")
-	{on spawn
-		{bone hide "ataka_l"}
-		{bone hide "ataka_r"}
-	}
-}
-
-{"mil_mi35_reb"
-	("helicopter2_sound")
-	{on spawn
-		{bone hide "ataka_l"}
-		{bone hide "ataka_r"}
-	}
-}
-
-{"mil_mi17"
-	("helicopter2_sound")
-}
-
-{"mil_mi17_uaf"
-	("helicopter2_sound")
-}
-
-{"mil_mi17_reb"
-	("helicopter2_sound")
-}
-
-{"mil_mi17_mg"
-	("helicopter2_sound")
-}
-
-{"mil_mi17_mg_uaf"
-	("helicopter2_sound")
-}
-
-{"mil_mi17_mg_reb"
-	("helicopter2_sound")
-}
-
-{"tiger"
-	{on spawn
-		{bone hide "pars_l"}
-		{bone hide "pars_r"}
-	}
-}
-
-{"tiger_heavy"
-	{on spawn
-		{bone hide "hydra_l"}
-		{bone hide "hydra_r"}
-	}
-}
-
-{"ka-52"
-	{on spawn
-		{bone hide "scallion_l"}
-		{bone hide "scallion_r"}
-	}
+{"uh-1h"
+	("helicopter_sound")
 }
