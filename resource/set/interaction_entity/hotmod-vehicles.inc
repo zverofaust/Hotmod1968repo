@@ -219,6 +219,18 @@
 	("t70_sound")
 }
 
+{"btr-50p tank"
+	("t70_sound")
+}
+
+{"btr-50p_zis2 tank"
+	("t70_sound")
+}
+
+{"btr-50p_zis3 tank"
+	("t70_sound")
+}
+
 {"asu-85 tank"
 	("t70_sound")
 }
@@ -368,6 +380,14 @@
 }
 
 {"bm-21_grad car"
+	("zis5_sound")
+}
+
+{"bm-13-17m car"
+	("zis5_sound")
+}
+
+{"bm-31m car"
 	("zis5_sound")
 }
 
@@ -1218,7 +1238,17 @@
 	}
 }
 
-{"m48_patton"
+{"m48"
+	("pz6_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
+{"m48a1"
 	("pz6_sound")
 }
 
