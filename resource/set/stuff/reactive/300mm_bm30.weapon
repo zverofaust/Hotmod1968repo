@@ -1,0 +1,33 @@
+;_________________________________________
+; Soviet Heavy Rocket Artillery
+;=========================================
+
+
+{from "pattern reactive"		; "bm31_12"
+	{filling "ammo 300mm_bm30" 12}
+	{fireSound "reactive/katy_burst/"}
+	{calibre 300}
+
+	("rocket_artillery")
+
+	{spreading
+		{radiusTable
+			{0 0}
+			{100 10}
+			{200 20}
+			{384.99 45} ;// max range
+			{450 100}
+			{500 200}
+		}
+	}
+
+	{burst
+		{min 12}
+		{noaiming}
+	}
+	{gravity 2.4}
+
+	{range 385 385}
+	("velocity" mps(245))
+	("reload time" seconds(230))
+}
