@@ -1294,6 +1294,10 @@
 	("pz5_sound")
 }
 
+{"m60a1e2"
+	("pz5_sound")
+}
+
 {"m728"
 	("pz5_sound")
 	{on spawn 

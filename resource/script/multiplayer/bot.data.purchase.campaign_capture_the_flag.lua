@@ -357,7 +357,7 @@ Purchases["campaign_capture_the_flag"] = {
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "t-10"},
 			--SPG
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "2s3"},
+				;{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "2s3"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bm-21_grad"}
 			},
 			["usa"] = {--United States
@@ -453,6 +453,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.Tank, unit = "m67_zippo"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m48a3"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m60a1"},
+				{priority = 0.25, class = UnitClass.Tank, unit = "m60a1e2"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "m728"},
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "m26_pershing"},
