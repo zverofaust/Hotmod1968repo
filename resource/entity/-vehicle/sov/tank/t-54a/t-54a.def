@@ -24,11 +24,11 @@
 			{reverse {end "emit_t34_hold"} {base "close_driver"}}
 		}
 		{anm "left"
-			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
 			{reverse {end "emit_tank_1_hold"}}
 		}
 		{anm "right"
-			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
 			{reverse {end "emit_tank_1_hold"}}
 		}
 		{anm "armor"
@@ -95,7 +95,7 @@
 			{type "commander"}
 			{weapon "commander_vision"}
 			{foresight "vision_rot"}
-			{gunner "gunner"}
+			{gunner "commander"}
 			{basic}
 			{ai_in_manual}
 		}
@@ -125,5 +125,8 @@
 	{bone "gun_rot"			;gun vertical
 		{speed2 4}			;degree per second
 		{limits -5 18}		;min down to max up
+	}
+	{bone "mgun_rot"			;gun vertical
+		{limits -8 30}		;min down to max up
 	}
 }
