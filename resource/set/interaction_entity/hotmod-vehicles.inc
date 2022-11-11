@@ -443,10 +443,10 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
-	{on "charger_hatch_open" overload
-		{ani_wind "open" end}
+	{on "commander_hatch_open" overload
+		{ani_play "open" 1.0 resume}
 	}
-	{on "charger_hatch_close" overload
+	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 }
@@ -632,11 +632,13 @@
 			{ani_play "eject"}
 		}
 	}
-	{on "charger_hatch_open" overload
+	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
 	}
-	{on "charger_hatch_close" overload
+	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
 	}
 }
 
@@ -662,11 +664,13 @@
 			{ani_play "eject"}
 		}
 	}
-	{on "charger_hatch_open" overload
+	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
 	}
-	{on "charger_hatch_close" overload
+	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
 	}
 }
 
@@ -1708,10 +1712,10 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
-	{on "charger_hatch_open" overload
-		{ani_wind "open" end}
+	{on "commander_hatch_open" overload
+		{ani_play "open" 1.0 resume}
 	}
-	{on "charger_hatch_close" overload
+	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 }
@@ -1745,12 +1749,10 @@
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
 	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
-		{ani_play "mgun_aa" +1.0 resume}
+		{ani_play "open" 1.0 resume}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
-		{ani_play "mgun_aa" -1.0 resume}
 	}
 }
 
@@ -1828,7 +1830,7 @@
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
 	{on "commander_hatch_open" overload
-		{ani_wind "open2" end}
+		{ani_play "open2" 1.0 resume}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open2" -1.0 resume}
@@ -1858,7 +1860,7 @@
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
 	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
+		{ani_play "open" 1.0 resume}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
