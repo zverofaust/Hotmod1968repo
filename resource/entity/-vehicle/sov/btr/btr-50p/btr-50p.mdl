@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Thu Oct 27 07:27:41 2022
+;Date:        Thu Nov 10 12:12:10 2022
 ;File:        D:\Cold War\ModelWIP\USSR\BTR 50\BTR-50b.max
 {Skeleton
 	{animation
@@ -182,6 +182,9 @@
 				{VolumeView "mgun_mount.ply"}
 				{bone revolute "turret_mgun"
 					{Position -0.217171	0.12402	0.452568}
+					{bone "gunner2"
+						{Position -13.7957	0.0334939	4.8147}
+					}
 					{bone revolute "mgun_rot"
 						{Position 0.0217457	0.0622867	0.102901}
 						{VolumeView "mgun_rot.ply"}
@@ -193,9 +196,6 @@
 								-1.53564	-0.186306	4.74747
 							}
 							{VolumeView "mgun.ply"}
-						}
-						{bone "gunner2"
-							{Position -12.7957	0.0334939	4.8147}
 						}
 					}
 				}
@@ -586,6 +586,16 @@
 	{Polyhedron "hole1.vol"}
 	{Bone "body"}
 	{Position 22.2283	0	4.08023}
+}
+{Volume "ram"
+	{Polyhedron "ram.vol"}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		74.9774	-0.384241	3.72529
+	}
 }
 {Volume "trackleft"
 	{Polyhedron "trackleft.vol"}
