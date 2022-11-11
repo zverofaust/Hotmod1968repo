@@ -115,9 +115,9 @@
 	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(15))
 }
 
-; // 15DP 9P122
-{"doctrine_vehicle_9p122(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(9p122) crew(sup_vehicleman:2) cw(0) cp(0))
+; // 15DP 9P124
+{"doctrine_vehicle_9p124(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(9p124) crew(sup_vehicleman:2) cw(0) cp(0))
 	("doctrine_t1" cool(160) d(mid_sov_motostrelki) cost(15))
 }
 
@@ -171,20 +171,26 @@
 
 ; // 5DP Ural 375 Heavy Ammo
 {"doctrine_vehicle_ural_ammo(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(ural375_ammo) crew(sup_supporter:1) cw(2) cp(0))
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(ural375_ammo) crew(sup_supporter:1) cw(2) cp(0))
 	("doctrine_t1" cool(30) d(mid_sov_tank) cost(5))
 }
 
-; // 15DP ZSU-57-2
-{"doctrine_vehicle_shilka(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(zsu-57-2) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(160) d(mid_sov_tank) cost(12))
+; // 5DP Conscript Platoon in BTR-50P
+{"doctrine_platoon_conscript_mech(sov)"
+	("squad_2vehicle10_doctrine" side(sov) period(mid) vehicle(btr-50p) crew1(sup_vehicleman:2) crew2(con_squadlead:2) crew3(con_mg:2) crew4(con_antitank:2) crew5(con_rifleman:6) crew6(sup_vehicleman:2) crew7(con_squadlead:1) crew8(con_antitank2:2) crew9(con_rifleman:6) crew10(con_rifleman2:3)cw(2) cp(0))
+	("doctrine_t1" cool(60) d(mid_sov_tank) cost(5))
 }
 
 ; // 10DP TO-55
 {"doctrine_vehicle_ot55(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(ot-55) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t1" cool(180) d(mid_sov_tank) cost(10))
+}
+
+; // 25DP IT-1 ATGM Tank Destroyer
+{"doctrine_vehicle_it1(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(it-1) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t1" cool(200) d(mid_sov_tank) cost(25))
 }
 
 ; // 12DP ISU-152M Self-Propelled Assault Gun
@@ -199,9 +205,9 @@
 	("doctrine_t1" cool(200) d(mid_sov_tank) cost(16))
 }
 
-; // 16DP T-62 obr 1967
+; // 15DP T-55K Command Tank
 {"doctrine_vehicle_t62(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(t-62_1967) crew(sup_tankman:4) cw(0) cp(0))
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(t-55k) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t1" cool(200) d(mid_sov_tank) cost(16))
 }
 
@@ -243,10 +249,10 @@
 	("doctrine_t1" cool(300) d(mid_sov_banner) cost(20))
 }
 
-; // 25DP IT-1 ATGM Tank Destroyer
-{"doctrine_vehicle_it1(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(it-1) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(200) d(mid_sov_banner) cost(25))
+; // 15DP 9P122
+{"doctrine_vehicle_9p122(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(9p122) crew(grd_vehicleman:2) cw(0) cp(0))
+	("doctrine_t1" cool(160) d(mid_sov_banner) cost(15))
 }
 
 ; // 25DP ZSU-23-4
@@ -391,12 +397,6 @@
 {"doctrine_vehicle_b4(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(203mm_b4_sov) crew(sup_guncrew:5) cw(0) cp(0))
 	("doctrine_t1" cool(360) d(mid_sov_artillery) cost(30))
-}
-
-; // 10DP 9P124
-{"doctrine_vehicle_9p124(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(9p124) crew(sup_vehicleman:2) cw(0) cp(0))
-	("doctrine_t1" cool(160) d(mid_sov_artillery) cost(10))
 }
 
 ; // 15DP BM-21 Grad
@@ -632,17 +632,17 @@
 
 ;Medium
 
-{"t-44"
-	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(sov) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
-	{cost 380}
-}
+;{"t-44" ;to be replaced with T-44M in mid period
+;	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(sov) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
+;	{cost 380}
+;}
 
 {"t-54a"
 	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(sov) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
 	{cost 390}
 }
 
-{"t-54"
+{"t-54" ;t-54b
 	("vehicle" period(mid) cd(240) ci(60) t(medium tank) side(sov) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
 	{cost 420}
 }
@@ -662,10 +662,10 @@
 	{cost 600}
 }
 
-;{"t-62_1967"
-;	("vehicle" period(mid) cd(300) ci(240) t(medium tank mbt) side(sov) crew(sup_tankman:4) g(medium2) b(tanks) cw(0) cp(20))
-;	{cost 625}
-;}
+{"t-62_1967"
+	("vehicle" period(mid) cd(300) ci(240) t(medium tank mbt) side(sov) crew(sup_tankman:4) g(medium2) b(tanks) cw(0) cp(20))
+	{cost 625}
+}
 
 ;_________________________________________________
 ;|        		 AI ONLY for purchase             |
@@ -701,7 +701,7 @@
 
 {"t-10"
 	("vehicle" period(mid) cd(300) ci(240) t(heavy) side(sov) crew(sup_tankman:4) cw(0) cp(20))
-	{cost 700}{not_for_player_sale 1}
+	{cost 600}{not_for_player_sale 1}
 }
 
 {"shilka"
