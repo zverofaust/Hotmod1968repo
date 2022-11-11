@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Thu Nov 10 04:47:42 2022
+;Date:        Thu Nov 10 12:14:01 2022
 ;File:        D:\Cold War\ModelWIP\USA\m60a2\m60a2.max
 {Skeleton
 	{animation
@@ -174,11 +174,10 @@
 					}
 				}
 				{bone "ir_spotlight"
-					{parameters "id=turret;"}
 					{Position 12.0664	12.2953	10.2713}
 					{VolumeView "ir_spotlight.ply"}
 					{bone "ir_glass"
-						{parameters "id=turret;"}
+						{parameters "id=irglass;"}
 						{Position 7.2442	11.3649	2.10473}
 						{VolumeView "ir_glass.ply"}
 					}
@@ -711,6 +710,16 @@
 		0	1	0
 		-1	0	0
 		15.8726	0.0589447	0.0829467
+	}
+}
+{Volume "ram"
+	{Polyhedron "ram.vol"}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		74.5411	0.320544	14.7044
 	}
 }
 {Volume "shield"

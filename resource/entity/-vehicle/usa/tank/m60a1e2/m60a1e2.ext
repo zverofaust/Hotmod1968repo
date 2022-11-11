@@ -11,6 +11,7 @@
 	;volume, component/tag
 	
 	("make_component" args "turret_mg" "turret_mg")
+	("glass" args "ir_glass" 1)
 	
 	("fuel" args "fuel1")
 	("fuel" args "fuel2")
@@ -20,6 +21,14 @@
 	("transmission" args "transmission")
 	("tracks" repair(30) thickness(15))
 	("turret_mg" repair(30))
+	
+	{volume "trackr"		
+		{Able {Holed}}
+	}
+	
+	{volume "trackl"		
+		{Able {Holed}}
+	}
 	
 	{volume "body1"			; Front Hull
 		{thickness 74
