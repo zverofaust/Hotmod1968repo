@@ -56,12 +56,12 @@
 }
 
 {"airstrike_250_usa" ;by A-4E currently, to be replaced by A-1
-	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_2x250) crew(sup_pilot:0))
+	("squad_vehicle" side(usa) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_2x250) crew(sup_pilot:0))
 	{cost 8}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_2x250"} 
 }
 
 {"airstrike_napalm_usa" ;by A-4E currently, to be replaced by A-1
-	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_2xnapalm) crew(sup_pilot:0))
+	("squad_vehicle" side(usa) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_2xnapalm) crew(sup_pilot:0))
 	{cost 6}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_2xnapalm"} 
 }
 
@@ -125,10 +125,10 @@
 }
 
 ; // 10DP M35 Gun Truck
-{"doctrine_vehicle_guntruck(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m35_guntruck) crew(acav_rifleman:3) cw(0) cp(0))
-	("doctrine_t1" cool(60) d(mid_usa_acav) cost(10))
-}
+;{"doctrine_vehicle_guntruck(usa)"
+;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m35_guntruck) crew(acav_rifleman:3) cw(0) cp(0))
+;	("doctrine_t1" cool(60) d(mid_usa_acav) cost(10))
+;}
 
 ; // 10DP M577 Command Carrier
 {"doctrine_vehicle_m577_acav(usa)"
@@ -164,6 +164,18 @@
 {"doctrine_vehicle_m551acav(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m551_acav) crew(acav_vehicleman:4) cw(0) cp(0))
 	("doctrine_t1" cool(240) d(mid_usa_acav) cost(20))
+}
+
+; // 20DP M109 Self-Propelled Howitzer
+{"doctrine_vehicle_m109_acav(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m109) crew(acav_vehicleman:4) cw(0) cp(0))
+	("doctrine_t1" cool(180) d(mid_usa_acav) cost(20))
+}
+
+; // 20DP UH-1B Huey Gunship
+{"doctrine_vehicle_uh1b(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1b) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t1" cool(120) d(mid_usa_acav) cost(20))
 }
 
 ; // 8 DP Cluster bomb strike by A-4E
@@ -235,6 +247,12 @@
 	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
 }
 
+; // 20 DP UH-1B Airborne Rocket Artillery (ARA)
+{"doctrine_vehicle_uh1b_ara(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1b_ara) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t1" cool(180) d(mid_usa_air) cost(10))
+}
+
 ; // 15 DP Huey ARA CAS
 {"cas_uh1_ara_usa"
 	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_ara_airborne) crew(sup_pilot:2) cw(0) cp(0))
@@ -296,13 +314,13 @@
 ; // 20DP M109 Self-Propelled Howitzer
 {"doctrine_vehicle_m109(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m109) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(180) d(mid_usa_tank) cost(25))
+	("doctrine_t1" cool(180) d(mid_usa_tank) cost(20))
 }
 
 ; // 30DP M110 Self-Propelled Howitzer
 {"doctrine_vehicle_m110(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m110) crew(sup_tankman:5) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_tank) cost(35))
+	("doctrine_t1" cool(240) d(mid_usa_tank) cost(30))
 }
 
 ; // 30DP M728 CEV
