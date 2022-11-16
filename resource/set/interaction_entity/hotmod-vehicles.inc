@@ -223,12 +223,26 @@
 	("t70_sound")
 }
 
+{"btr-50pvmf tank"
+	("t70_sound")
+}
+
 {"btr-50p_zis2 tank"
 	("t70_sound")
 }
 
 {"btr-50p_zis3 tank"
 	("t70_sound")
+}
+
+{"btr-50pk tank"
+	("t70_sound")
+	{on "gunner2_hatch_open" overload
+		{ani_wind "open_hatches" end}
+	}
+	{on "gunner2_hatch_close" overload
+		{ani_play "open_hatches" -1.0 resume}
+	}
 }
 
 {"asu-85 tank"
