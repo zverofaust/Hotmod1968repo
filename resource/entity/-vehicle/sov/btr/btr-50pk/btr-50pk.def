@@ -1,0 +1,153 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "apc" "light" "multi_board" "vision_lev04" "amphibia" "diesel" "tractor" "tractor_light"}
+	{Extension "btr-50pk.mdl"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "tank_zenite"}
+	
+	(include "/properties/resupply_hotmod.inc")
+	("apc_ammo")
+	
+	{patherId "amphibia"}
+	
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+	
+	{volume "body1"			; Hull Bottom
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+	}
+	{volume "body2"			; Hull Nose
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+	}
+	{volume "body3"			; Hull Superstructure
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+	}
+	{volume "body4"			; Hull Engine deck
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+	}
+	("fuel" args "fuel")
+	("ammo" args "ammo")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+	{volume "engine" {thickness 10}}
+	
+	{placer
+		{place "driver"		{visor "driver"}{group "crew"}}
+		{place "gunner2"	{visor "mgun"}}
+		{place "commander"	{visor "mgun"}{group "crew"}{sealable}}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_Willis_driver"}}
+			{reverse {end	"emit_tank_2_hold"}}
+		}
+		{anm "gunner"
+			{forward	{begin "board_Is-2"} {end "seat_isu152_gunner2"}}
+			{reverse	{end	"emit_tank_2_hold"}}
+		}
+		{anm "commander"
+			{forward	{begin "board_Is-2"} {end "seat_Willis_passenger"}}
+			{reverse	{end	"emit_tank_2_hold"}}
+		}
+		{anm "passenger"
+			{forward	{begin "board_Is-2"} {end "seat_passenger"}}
+			{reverse	{end	"emit_tank_2_hold"}}
+		}
+	}
+	("seat_human" 	place(driver)  		bone(driver)	door(emit1)  animation(driver) 		group(crew))
+	("seat_human" 	place(gunner2)  	bone(gunner2)	door(emit2)  animation(gunner) 		group(crew))
+	("seat_human" 	place(commander)  	bone(commander)	door(emit1)  animation(commander) 	group(crew))
+	("seat_human" 	place(seat1)  		bone(seat01)	door(emit2)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat2)  		bone(seat02)	door(emit4)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat3)  		bone(seat03)	door(emit2)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat4)  		bone(seat04)	door(emit4)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat5) 		bone(seat05)	door(emit2)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat6)  		bone(seat06)	door(emit4)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat7)  		bone(seat07)	door(emit2)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat8) 		bone(seat08)	door(emit4)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat9)  		bone(seat09)	door(emit3)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat10) 		bone(seat10)	door(emit3)  animation(passenger) 	group(passenger))
+	("seat_human" 	place(seat11) 		bone(seat11)	door(emit3)  animation(passenger) 	group(passenger))
+	
+	{extender "inventory"
+		{box
+			{item "mgun_rus belt" 2000}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "mgun"
+			{type 			"aa"}
+			{weapon			"sgmb" filled}
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			{LinkBone		"mgun"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+			{ai_in_manual}
+			{basic}
+		}
+	}
+	
+	{mass 14500}	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(50) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(32) ;-------Track traverse, per second, in degrees.
+			weight(14.5) ;-------Weight in Tonnes.
+			power(240) ;---------Engine Power, in hp.
+			track(3.2) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(400) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(400) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}
+	
+	{bone "mgun_rot" ; vertical
+		{limits -6 6}
+		{speed2 60}
+	}
+	{bone "turret_mgun" ; horizontal (with gunner)
+        {limits -45 45}
+		{speed2 60}
+	}
+	{bone "mgun" ; also vertical?
+        {limits -16 35}
+		{speed2 60}
+	}
+	
+}
+
