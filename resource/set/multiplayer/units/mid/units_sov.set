@@ -103,16 +103,10 @@
 	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(10))
 }
 
-; // 10DP D-30 122mm Howitzer
-;{"doctrine_vehicle_d-30a(sov)"
-;	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:4) cw(0) cp(0))
-;	("doctrine_t1" cool(180) d(mid_sov_motostrelki) cost(7))
-;}
-
 ; // 12DP Guards Motostrelki Squad in BTR-60PB
 {"doctrine_squad_guards_moto(sov)"
 	("squad_vehicle8_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(btr-60pb) crew1(sup_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(0))
-	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(15))
+	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(12))
 }
 
 ; // 15DP 9P124
@@ -163,22 +157,22 @@
 }
 
 ;===================================
-;        Heavy Tank Brigade
+;        Heavy Independent Tank Brigade
 ;
 ;===================================
 
 ; ======Tier1======
 
-; // 5DP Ural 375 Heavy Ammo
-{"doctrine_vehicle_ural_ammo(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(ural375_ammo) crew(sup_supporter:1) cw(2) cp(0))
-	("doctrine_t1" cool(30) d(mid_sov_tank) cost(5))
-}
-
 ; // 5DP Conscript Platoon in BTR-50P
 {"doctrine_platoon_conscript_mech(sov)"
 	("squad_2vehicle10_doctrine" side(sov) period(mid) vehicle(btr-50p) crew1(sup_vehicleman:2) crew2(con_squadlead:2) crew3(con_mg:2) crew4(con_antitank:2) crew5(con_rifleman:6) crew6(sup_vehicleman:2) crew7(con_squadlead:1) crew8(con_antitank2:2) crew9(con_rifleman:6) crew10(con_rifleman2:3)cw(2) cp(0))
 	("doctrine_t1" cool(60) d(mid_sov_tank) cost(5))
+}
+
+; // 10DP Guards Motostrelki Squad in BTR-60PB
+{"doctrine_squad_guards_btr50(sov)"
+	("squad_vehicle8_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(btr-50pk) crew1(sup_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(0))
+	("doctrine_t1" cool(80) d(mid_sov_tank) cost(10))
 }
 
 ; // 10DP TO-55
@@ -233,9 +227,15 @@
 }
 
 ;===================================
-;        Red Banner Guards Tank Brigade
+;        Red Banner Guards Combined Arms Brigade
 ;
 ;===================================
+
+; // 5DP Ural 375 Heavy Ammo
+{"doctrine_vehicle_ural_ammo(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(ural375_ammo) crew(sup_supporter:1) cw(2) cp(0))
+	("doctrine_t1" cool(30) d(mid_sov_banner) cost(5))
+}
 
 ; // 8DP GRU Spetsnaz Demolition Team
 {"doctrine_squad_spz_demo(sov)"
@@ -247,6 +247,12 @@
 {"doctrine_squad_guards_mech(sov)"
 	("squad_vehicle7_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(bmp-1) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_atassist:1) crew6(grd_marksman:1) crew7(grd_rifleman:1) cw(2) cp(0))
 	("doctrine_t1" cool(300) d(mid_sov_banner) cost(20))
+}
+
+; // 25DP GRU Spetsnaz Assault Squad
+{"doctrine_squad_spz_mi6(sov)"
+	("squad_vehicle7_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(mil_mi4) crew1(sup_pilot:2) crew2(spz_squadlead:1) crew3(spz_mg:1) crew4(spz_antitank:1) crew5(spz_marksman:1) crew6(spz_demo:1) crew7(spz_rifleman:2)cw(2) cp(0))
+	("doctrine_t1" cool(200) d(mid_sov_banner) cost(25))
 }
 
 ; // 15DP 9P122
@@ -280,16 +286,29 @@
 
 ; ======Tier1======
 
-; // 6DP 23mm ZU-2 Towed by GAZ-69 Jeep
-{"doctrine_squad_zu2(sov)"
-	("towed_gun_doctrine" side(sov) period(mid) vehicle(gaz-69) crew_v(vdv_rifleman:2) cannon(zu-2) crew_c(vdv_rifleman:2) cw(0) cp(0))
-	("doctrine_t1" cool(60) d(mid_sov_vdv) cost(6))
+; // 5 DP Ammo Paradrop
+{"doctrine_airdrop_ammo(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_strat" cool(60) d(mid_sov_vdv) cost(5))
+	{action "airstrike:ammocrate_sov"} 
 }
 
 ; // 6DP GRU Spetsnaz Infiltration Team
 {"doctrine_squad_spzteam(sov)"
-	("squad_with3types_doctrine" side(sov) period(mid) g(doctrine_lvl1) c1(spz_squadlead:1) c2(spz_sniper:1) c3(spz_spotter:1) c(spz_antitank:1))
+	("squad_with4types_doctrine" side(sov) period(mid) g(doctrine_lvl1) c1(spz_squadlead:1) c2(spz_sniper:1) c3(spz_spotter:1) c4(spz_rifleman:1))
 	("doctrine_t1" cool(120) d(mid_sov_vdv) cost(6))
+}
+
+; // 10DP GRU Spetsnaz Assault Pioneer Team, to be mounted in amphibious GAZ-46 when available
+{"doctrine_squad_spz_pioneer(sov)"
+	("squad_vehicle3_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(gaz-69spz) crew1(spz_squadlead:1) crew2(spz_demo:2) crew3(spz_antitank:1) cw(2) cp(0))
+	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(10))
+}
+
+; // 6DP 23mm ZU-2 Towed by GAZ-69 Jeep
+{"doctrine_squad_zu2(sov)"
+	("towed_gun_doctrine" side(sov) period(mid) vehicle(gaz-69) crew_v(vdv_rifleman:2) cannon(zu-2) crew_c(vdv_rifleman:2) cw(0) cp(0))
+	("doctrine_t1" cool(60) d(mid_sov_vdv) cost(6))
 }
 
 ; // 8DP 76mm GP Mountain Gun Towed by GAZ-69 Jeep
@@ -298,22 +317,23 @@
 	("doctrine_t1" cool(120) d(mid_sov_vdv) cost(8))
 }
 
+; // 6DP ASU-57
+;{"doctrine_paradrop_asu57(sov)"
+;	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(asu57) crew(vdv_vehicleman:3) cw(0) cp(0))
+;	("doctrine_t1" cool(140) d(mid_sov_vdv) cost(6))
+;}
+
 ; // 6DP Air-Dropped ASU-57
 {"doctrine_paradrop_asu57(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(asu57) crew(vdv_vehicleman:3) cw(0) cp(0))
-	("doctrine_t1" cool(140) d(mid_sov_vdv) cost(6))
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_strat" cool(60) d(mid_sov_vdv) cost(5))
+	{action "airstrike:paradrop_asu57_dummy"} 
 }
 
 ; // 10DP 3 x B-10 fire support battery
 {"doctrine_squad_b10(sov)"
 	("squad_3vehicle_doctrine" side(sov) period(mid) vehicle(b-10_82mm) crew(vdv_rifleman:2) cw(0) cp(0))
 	("doctrine_t1" cool(180) d(mid_sov_vdv) cost(10))
-}
-
-; // 10DP GRU Spetsnaz Assault Pioneer Team, to be mounted in amphibious GAZ-46 when available
-{"doctrine_squad_spz_pioneer(sov)"
-	("squad_vehicle3_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(gaz-69spz) crew1(spz_squadlead:1) crew2(spz_demo:2) crew3(spz_antitank:1) cw(2) cp(0))
-	("doctrine_t1" cool(240) d(mid_sov_vdv) cost(10))
 }
 
 ; // 15DP 9P110
@@ -467,6 +487,9 @@
 {"squad_rifle_moto(sov)"
 	("squad_vehicle7" period(mid) cd(0) ci(30) side(sov) t(vehicle) vehicle(btr-60pa) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_lmgassist:1) crew6(reg_atassist:1) crew7(reg_rifleman:3) b(inf1) cw(2) cp(9)){squad_cost_factor 1}
 }
+{"squad_rifle_mech(sov)"
+	("squad_vehicle7" period(mid) cd(0) ci(30) side(sov) t(vehicle) vehicle(btr-50pk) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_lmgassist:1) crew6(reg_atassist:1) crew7(reg_rifleman:3) b(inf1) cw(2) cp(9)){squad_cost_factor 1}
+}
 {"squad_guards_moto(sov)"
 	("squad_vehicle8" period(mid) cd(120) ci(60) side(sov) t(vehicle) vehicle(btr-60pa) crew1(sup_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) b(inf1) cw(2) cp(13)){squad_cost_factor 1}
 }
@@ -593,7 +616,7 @@
 	{cost 80}
 }
 
-{"btr-50p"
+{"btr-50pk"
 	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(sov) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
 	{cost 90}
 }
@@ -677,6 +700,10 @@
 
 {"squad_guards_mech_ai(sov)"
 	("squad_vehicle8" period(mid) cd(120) ci(60) side(sov) t(vehicle) vehicle(bmp-1) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(13)){squad_cost_factor 1}{not_for_player_sale 1}
+}
+
+{"squad_guards_mech_btr50_ai(sov)"
+	("squad_vehicle8" period(mid) cd(120) ci(60) side(sov) t(vehicle) vehicle(btr-50pk) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(13)){squad_cost_factor 1}{not_for_player_sale 1}
 }
 
 {"asu57"
