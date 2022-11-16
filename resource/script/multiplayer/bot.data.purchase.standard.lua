@@ -180,7 +180,9 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_moto(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(sov)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_mech(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto_ai(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_mech_btr50_ai(sov)"},
 				
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid", unit = "single_at(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "single_mg(sov)"},
@@ -370,6 +372,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_moto(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_mech(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto(sov)"},
 				
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid", unit = "single_at(sov)"},
@@ -755,6 +758,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_moto(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_mech(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto(sov)"},
 				
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid", unit = "single_at(sov)"},
@@ -928,6 +932,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_moto(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_mech(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto_ai(sov)"},
 				
@@ -1199,9 +1204,11 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_moto(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_mech(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto_ai(sov)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_mech_ai(sov)"},
+				{priority = 0.25, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_mech_ai(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_mech_btr50_ai(sov)"},
 				
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid", unit = "single_at(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "single_mg(sov)"},
@@ -1393,6 +1400,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_moto(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_mech(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto_ai(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_mech_ai(sov)"},
@@ -1680,6 +1688,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_moto(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_moto(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_mech(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_moto_ai(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_mech_ai(sov)"},
