@@ -1,0 +1,87 @@
+;Exported by: misan
+;Date:        Thu Nov 17 11:54:20 2022
+;File:        D:\Cold War\ModelWIP\USA\M416\M416_xx.max
+{Skeleton
+	{bone "basis"
+		{parameters "WheelRadius=0.33;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				2.12641	-0.0021467	0.570934
+			}
+			{VolumeView "body.ply"}
+			{bone "shieldr"
+				{parameters "id=body;"}
+				{Position 0.0158024	-12.9279	4.08353}
+				{VolumeView "shieldr.ply"}
+			}
+			{bone "armature"
+				{parameters "id=body;"}
+				{Position 20.8608	-4.56539	3.18558}
+				{VolumeView "armature.ply"}
+				{bone "link1"
+					{Matrix34
+						-1	0	0
+						0	-1	0
+						0	0	1
+						16.9039	4.57431	2.06087
+					}
+				}
+			}
+			{bone "shieldl"
+				{parameters "id=body;"}
+				{Position 0.0158031	12.9279	4.08353}
+				{VolumeView "shieldl.ply"}
+			}
+			{bone "seat1"
+				{Matrix34
+					0.984808	-0.173648	0
+					0.173648	0.984808	0
+					0	0	1
+					12.5622	-8.16848	16.7306
+				}
+			}
+			{bone "seat2"
+				{Matrix34
+					0.984808	0.173648	0
+					-0.173648	0.984808	0
+					0	0	1
+					12.6167	6.41585	16.7306
+				}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		16.5997	0.0883618	5.18827
+	}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		16.5997	0.0883618	15.6662
+	}
+}
+{Volume "body3"
+	{Polyhedron "body3.vol"}
+	{Bone "body"}
+	{Position 25.981	-0.0695787	2.21446}
+}

@@ -40,10 +40,10 @@
 {"asu57_para"			;// apply these params to asu57
 	{on spawn
 		{impulse up -5 forward 5 rnd_dir 1 com}
-		;{spawn "paratrooper_attach"}
+		{spawn "paratrooper_attach"}
 	}
 	{on ground_hit
-		{spawn "paratrooper_attach"}
+		;{spawn "paratrooper_attach"}
 	}
 }
 
@@ -59,8 +59,11 @@
 
 {"paratrooper_attach"			;// Parachute
 	{on spawn
-		;{ani_play "flight"}
-		{ani_play "landing"}
+		{ani_play "flight" callback}
+		;{ani_play "landing"}
+	}
+	{on animation_end "flight"
+		{ani_play "landing" callback}	
 		{delay 5 {delete}}
 	}
 }
