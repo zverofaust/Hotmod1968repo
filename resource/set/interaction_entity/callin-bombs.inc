@@ -479,6 +479,35 @@
 	}
 }
 
+{"f-105_airstrike_4xcluster"
+	{on "bomb_drop"
+		{delay 0.35 
+			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 47}
+			}
+		
+		}
+		{delay 0.38 
+			{spawn "bomb_single_cluster" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.41 
+			{spawn "bomb_single_cluster" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.44 
+			{spawn "bomb_single_cluster" "hardpoint_4" x dir_velocity
+				{impulse up -14 dir -5 forward 58}
+			}
+		
+		}
+	}
+}
+
 {"f-105_airstrike_8xcluster"
 	{on "bomb_drop"
 		{delay 0.3 

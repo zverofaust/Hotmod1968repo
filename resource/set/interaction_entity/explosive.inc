@@ -22,11 +22,17 @@
 		{if mined
 			{tags add "mine_planted"}
 			{volumes "body1" disable all}
-			{volumes "body" enable select touch contact contact_ground blast}
+			{volumes "body1" enable blast}
+			{volumes "body" enable select touch contact}
+			{volumes "body" disable blast}
+
+		else tagged "grounded"
+			{volumes "body1" enable blast}
+
 		else
 			{tags remove "mine_planted"}
-			{volumes "body" disable all}
 			{volumes "body1" enable select touch contact contact_ground blast}
+			{volumes "body" disable all}
 		}
 	}
 	{on blast_hit
@@ -47,12 +53,28 @@
 	}
 }
 
-{"mine antipersonnel"
-	{on contact
+{"mine grenade"
+	{on contact overload
 		{if mine_effector "human"
 			{call "explosion"}
+		else mine_effector "tank"
+			{if mined
+				{volumes disable contact}
+				{delay 0.50
+					{call "explosion"}
+				}
+			}
 		else mine_effector "vehicle"
-			{call "explosion"}
+			{if mined
+				{volumes disable contact}
+				{delay 0.20
+					{call "explosion"}
+				}
+			}
+		else mine_effector "mine_exploder"
+			{delay 0
+				{call "explosion"}
+			}
 		else mine_effector "animal"
 			{call "explosion"}
 		}
@@ -148,6 +170,7 @@
 	}
 	{on spawn
 		{if air
+			{impulse up 0.01 rnd_dir 3 com}
 			{ani_play "start"}
 			{delay 1
 				{volumes enable contact}
@@ -276,4 +299,50 @@
 	}
 }
 
+{"balloon"
+	{##on break_armor
+		{if name "blast"
+			{if min_energy 3
+				{bullet_detonate}
+				{if stuff_filled "flame_thrower" 5
+					{call "explosion"}
+				}
+			}
+		}
+	}
+	{##on "explosion"
+		{if not "explosioned"
+			{set "explosioned" 1}
+			{spawn "fuel_die"}
+			{blastwave c4 10 r0 1 r1 1.5}
+			{fire radius 6 time 2 heating 6}
+			{delete}
+		}
+	}
+}
+
 ;/*=========== Contaniers End ==========*/
+
+;/*=========== Special Begin ==========*/
+
+{"smoke activate"			;// ammo for vehicle smoke lauchers (50mm mortar smoke) that is not a grenade. Arms entity for detation specifically when launched from vehicle.
+	{on "activate"			;// called via spawn through tank-main on "smoke_screen" event
+		{tags add "activated"}
+		{volumes "body" disable contact}
+		{delay 0.1
+			{volumes "body" enable contact}
+		}
+	}
+	{on ground_hit
+		{if tagged "activated"
+			{stuff_detonate}
+		}
+	}
+	{on contact
+		{if tagged "activated"
+			{stuff_detonate}
+		}
+	}
+}
+
+;/*=========== Special End ==========*/

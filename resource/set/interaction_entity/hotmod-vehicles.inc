@@ -563,6 +563,14 @@
 
 {"is2m tank"
 	("is_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
 }
 
 {"isu-122m tank"
@@ -1776,6 +1784,10 @@
 	("gaz_sound")
 }
 
+{"gaz67a_prc"
+	("gaz_sound")
+}
+
 {"nj-130 car"
 	("studebaker_sound")
 	("animation_sound" args "open_left")
@@ -1786,6 +1798,22 @@
 	("studebaker_sound")
 	("animation_sound" args "open_left")
 	("animation_sound" args "open_right")
+}
+
+{"ca-30 car"
+	("zis5_sound")
+}
+
+{"ca-30_ammo car"
+	("zis5_sound")
+}
+
+{"ca-30_eng car"
+	("zis5_sound")
+}
+
+{"ca-30_fuel car"
+	("zis5_sound")
 }
 
 {"ba64_prc"
@@ -1883,6 +1911,14 @@
 
 {"is2_prc tank"
 	("is_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
 }
 
 {"isu152_prc tank"
