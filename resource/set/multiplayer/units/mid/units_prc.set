@@ -140,7 +140,7 @@
 ("squad_with2types"		side(prc) name(single_mg)				period(mid) cd(0)   ci(0)   g(single_mg)				c1(reg_mg:1) c2(reg_mgassist:1)					b(inf2) t())
 ("squad_with1types" 	side(prc) name(single_lat)				period(mid) cd(0)   ci(60)  g(single_lat)				c1(reg_grenadier:2) 							b(inf2) t())
 ("squad_with2types" 	side(prc) name(single_at)				period(mid) cd(0)   ci(60)  g(single_at)				c1(reg_antitank:1) c2(reg_atassist:1)			b(inf2) t())
-;("squad_with2types" 	side(prc) name(single_sniper)			period(mid) cd(0)   ci(60)  g(single_sniper)			c1(spz_sniper:1) c2(spz_spotter:1)				b(inf2) t(sniper))
+;("squad_with2types" 	side(prc) name(single_sniper)			period(mid) cd(0)   ci(60)  g(single_sniper)			c1(spc_sniper:1) c2(spc_spotter:1)				b(inf2) t(sniper))
 ("squad_with1types" 	side(prc) name(single_flamer)			period(mid) cd(0)   ci(60)  g(single_reg_flamer)		c1(reg_flamer:1) 								b(inf2) t(flamer))
 ("squad_with1types" 	side(prc) name(single_medic)			period(mid) cd(0)   ci(60)  g(single_medic)				c1(reg_medic:1) 								b(inf2) t(medic))
 ("squad_with1types" 	side(prc) name(single_engineer)			period(mid) cd(90)  ci(90)  g(single_engineer)			c1(reg_engineer:2) 								b(inf2) t(engineer))
@@ -297,4 +297,14 @@
 {"squad_masswave_ai(prc)"
 	("squad_with3types" side(prc) name(squad_masswave)			period(mid) cd(0) ci(0) g(squad_1) c1(mil_squadlead:1) c2(mil_mg:1) c3(mil_rifleman:6) b() t())
 	{squad_cost_factor 0.1}{not_for_player_sale 1}
+}
+
+{"is2_prc"
+	("vehicle" period(mid) cd(300) ci(240) t(heavy) side(prc) crew(sup_tankman:4) cw(0) cp(20))
+	{cost 450}{not_for_player_sale 1}
+}
+
+{"isu152_prc"
+	("vehicle" period(mid) cd(300) ci(240) t(heavy) side(prc) crew(sup_tankman:5) cw(0) cp(20))
+	{cost 650}{not_for_player_sale 1}
 }
