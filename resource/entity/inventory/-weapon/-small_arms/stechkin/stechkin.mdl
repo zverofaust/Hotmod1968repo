@@ -1,0 +1,102 @@
+;Exported by: misan
+;Date:        Sun Nov 20 13:28:32 2022
+;File:        D:\Cold War\ModelWIP\Smallarms\Stechkin\Stechkin from Scratch.max
+{Skeleton
+	{bone "stechkin"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "stechkin.ply"}
+		{bone "magazine"
+			{Position -0.0744031	-0.339356	-0.00218144}
+		}
+		{bone "foresight3"
+			{Position 3.0305	1.02941	0}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.642788	0.766044
+				0	0.766044	-0.642788
+				-1	0	0
+				0.721937	1.12037	0
+			}
+		}
+		{bone "handle"
+			{Matrix34
+				0	1	0
+				0	0	-1
+				-1	0	0
+				0.91588	1.01117	0
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 4.06695 2.7609 0.369437}
+	{Bone "stechkin"}
+	{Position 1.04456	-0.0555752	0.00797656}
+}
+{Volume "magazine"
+	{Box 0.490985 2.10422 0.245492}
+	{Bone "stechkin"}
+	{Matrix34
+		0.994127	-0.108224	0
+		0.108224	0.994127	0
+		0	0	1
+		-0.0371751	-0.324951	-0.00127839
+	}
+}
+{Volume "select"
+	{Box 6.59322 5.37745 1.21577}
+	{Bone "stechkin"}
+	{Position 0.890258	0.0488889	-0.0280223}
+}
+{Extender "preview"
+	{"Stuff"
+		{camera
+			{origin 1.60589	0.349181	8.34838}
+			{lookat 1.61715	0.0947201	-0.270207}
+			{fov 33.3985}
+			{horizon -2.52817}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 1.32538	19.198	17.0167}
+			}
+			{"1"
+				{type directional}
+				{direction -0.0661586	0.445415	-0.217321}
+			}
+			{"2"
+				{type point}
+				{position 2.04615	-8.25477	-29.5931}
+			}
+		}
+	}
+	{"Stuff_primary"
+		{camera
+			{origin 1.59921	0.500348	13.4689}
+			{lookat 1.61715	0.0947201	-0.270207}
+			{fov 33.3985}
+			{horizon -2.52809}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.0661586	0.445415	-0.217321}
+			}
+			{"1"
+				{type point}
+				{position 1.32538	19.198	17.0167}
+			}
+			{"2"
+				{type point}
+				{position 2.04615	-8.25477	-29.5931}
+			}
+		}
+	}
+}
