@@ -84,7 +84,7 @@
 				{vision_modes_active}
 				{hide_crosshair 1}
 				{linkBone "visor1"}
-				{offset 15 0 2}
+				{offset 40 0 2}
 				{scope_vignette "/texture/common/environment/lens_effects/vehicle_telescope_blank"}
 				{blur_mask "/texture/common/environment/lens_effects/vehicle_telescope_mask"}
 				{refraction_mask "/texture/common/environment/lens_effects/vehicle_telescope_base_bp"}
@@ -101,7 +101,7 @@
 			}
 			{level ;2
 				{camera "zoom4"}
-				{offset 15 0 2}
+				{offset 40 0 2}
 			}
 		}
 		
