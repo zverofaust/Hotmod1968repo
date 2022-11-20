@@ -121,6 +121,9 @@
 	{item "grenade" "anm8_smoke" 			1  {value 5}}
 )
 
+(define "items_light_prc"
+)
+
 (define "items_light_generic"
 ;// flame
 	{item "flame_thrower"			"ammo" 10 {value 10}}
@@ -345,6 +348,15 @@
 	;{item "x279mm_m388"					"ammo" 1 {value 500}} ;// resupply only possible by purchasing M388 reloads individually
 )
 
+(define "items_heavy_prc"
+)
+
+(define "items_artillery_prc"
+
+	{item "rocket107_type63"				"ammo" 1 {value 15}}
+	
+)
+
 (define "items_heavy_eng"
 	{item "bulleteng_40"		"ap"		"ammo" 2 {value 5}}
 	{item "bulleteng_40"		"apcbc"		"ammo" 2 {value 5}}
@@ -416,11 +428,14 @@
 			("items_light_generic")
 			("items_light_sov")
 			("items_light_usa")
+			("items_light_prc")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_heavy_prc")
 			("items_artillery_sov")
 			("items_artillery_usa")
+			("items_artillery_prc")
 		}
 		{mechanicResources {amount 10}{value 10}}
 		{radius 			8}		;// resupply radius in meter
@@ -443,6 +458,7 @@
 			("items_light_generic")
 			("items_light_sov")
 			("items_light_usa")
+			("items_light_prc")
 		}
 		{radius 			8}		;// resupply radius in meter
 		{resupplyPeriod 	5}		;// resupply period in seconds
@@ -464,9 +480,11 @@
 			("items_light_generic")
 			("items_light_sov")
 			("items_light_usa")
+			("items_light_prc")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_heavy_prc")
 		}
 		{radius 			24}		;// resupply radius in meter
 		{resupplyPeriod 	5}		;// resupply period in seconds
@@ -488,11 +506,14 @@
 			("items_light_generic")
 			("items_light_sov")
 			("items_light_usa")
+			("items_light_prc")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_heavy_prc")
 			("items_artillery_sov")
 			("items_artillery_usa")
+			("items_artillery_prc")
 		}
 		{radius 			24}		;// resupply radius in meter
 		{resupplyPeriod 	10}		;// resupply period in seconds
@@ -514,11 +535,14 @@
 			("items_light_generic")
 			("items_light_sov")
 			("items_light_usa")
+			("items_light_prc")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_heavy_prc")
 			("items_artillery_sov")
 			("items_artillery_usa")
+			("items_artillery_prc")
 		}
 		{mechanicResources {amount 10}{value 10}}
 		{radius 			12}		;// resupply radius in meter
@@ -541,11 +565,14 @@
 			("items_light_generic")
 			("items_light_sov")
 			("items_light_usa")
+			("items_light_prc")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_heavy_prc")
 			("items_artillery_sov")
 			("items_artillery_usa")
+			("items_artillery_prc")
 		}
 		{radius 			18}			;// resupply radius in meter
 		{resupplyPeriod 	2}			;// resupply period in seconds
@@ -567,11 +594,14 @@
 			("items_light_generic")
 			("items_light_sov")
 			("items_light_usa")
+			("items_light_prc")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_heavy_prc")
 			("items_artillery_sov")
 			("items_artillery_usa")
+			("items_artillery_prc")
 		}
 		{radius 			24}			;// resupply radius in meter
 		{resupplyPeriod 	2}			;// resupply period in seconds
@@ -593,8 +623,10 @@
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
+			("items_heavy_prc")
 			("items_artillery_sov")
 			("items_artillery_usa")
+			("items_artillery_prc")
 		}
 		{radius 			24}			;// resupply radius in meter
 		{resupplyPeriod 	2}			;// resupply period in seconds
