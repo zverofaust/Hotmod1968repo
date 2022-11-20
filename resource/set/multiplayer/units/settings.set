@@ -20,6 +20,9 @@
 ; {research_stage 4} corresponds to research stage of dynamic campaign
 ; {squad_cost_factor 1} - adds the cost of the crew / the cost of the squad members with this factor
 ; scf() - adds the cost of the crew / the cost of the squad members with this factor
+; {score_factor 0.05} - when the unit is killed, it will have an impact on the MP score of 0.05*Cost. This only works if {squad_cost_factor 1}. With a fixed cost for the squad such (= scf 0), you need to adjust the scores of the individual units manually
+; {score 20} - when the unit is killed, it will have an impact on the MP score of 20
+; {round_multiple 5.0} - the cost of the unit is rounded up or down to this multiple
 
 ;/////////////////////////////////////////////////////////////////////
 
@@ -33,8 +36,6 @@
 	{tags "all %t"}
 	{group "%g"}
 	{button "%b"}
-	{cw %cw}
-	{cp %cp}
 )
 
 ; emplacements
