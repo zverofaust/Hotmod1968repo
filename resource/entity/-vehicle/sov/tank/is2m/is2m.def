@@ -10,21 +10,30 @@
 	{collider "tank.heavy"}
 
 	{extender "enumerator"
-		{digit_folder "cw"}
+		{digit_folder "ru1"}
+	}
+
+	{sensor
+		{visor "main"
+			{vision "tank_range_220"}
+		}
+		{visor "back"
+			{vision "tank_back"}
+			{bone "foresight6"}
+		}
 	}
 
 	("crew_4_human")
-
-	;("gunner_visible")
+	("gunner_visible")
 	("crew_human" place(charger) door(emit1) door2(emit2) visor(back))
 
 	{boarder
 		{anm "left"
-			{forward {begin "board_Kv-85"} {end "seat_m7_mgunner"}}
+			{forward {begin "board_Kv-85"} {end "seat_isu152_gunner2"}}
 			{reverse {end "emit_tank_2_hold"}}
 		}
 		{anm "right"
-			{forward {begin "board_Is-2"} {end "seat_m7_mgunner"}}
+			{forward {begin "board_Is-2"} {end "seat_isu152_gunner2"}}
 			{reverse {end "emit_tank_2_hold"}}
 		}
 		{anm "armor"
@@ -37,13 +46,6 @@
 		}
 	}
 
-	{sensor
-		{visor "back"
-			{vision "tank_back"}
-			{bone "foresight6"}
-		}
-	}
-
 	("seat_human" place(seat1) bone(seat01) door(emit3) animation(armor1))
 	("seat_human" place(seat2) bone(seat02) door(emit4) animation(armor))
 	("seat_human" place(seat3) bone(seat03) door(emit5) animation(armor))
@@ -52,11 +54,11 @@
 	{extender "shield" {on}}
 
 	{extender "inventory"
-		{weapon "mgun" {mask "mountable"}}
 		{box
 			{item "bulletrus_122_l48 aphebc" 9}		;28 rounds
 			{item "bulletrus_122_l48 he" 18}
 			{item "ammo mgun_rus dt" 3276}			;55 drums
+			{item "ammo hmgun_rus ap" 750}		;15 drum boxes
 		}
 	}
 
@@ -68,8 +70,8 @@
 			{gunner "gunner"}
 			{charger "charger"}
 			("abm_dymamic"
-				zeroing(7.5)
-				dispersion(0.01)
+				zeroing(3.5)
+				dispersion(0.20)
 			)
 		}
 		{place "mgun2"
@@ -77,7 +79,7 @@
 			{weapon "dt" filling "ammo mgun_rus dt" 63}
 			{foresight "foresight5"}
 			{gunner "gunner"}
-			{charger "commander"}
+			{charger "charger"}
 			("abm_mgun")
 			{basic}
 		}
@@ -87,6 +89,17 @@
 			{foresight "foresight6"}
 			{gunner "charger"}
 			{charger "charger"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun"
+			{type "aa"}
+			{weapon "dshk" filled}
+			{gunner "commander"}
+			{charger "commander"}
+			{LinkBone "mgun_bone"}
+			{LinkAnimation "off"}
 			("abm_mgun")
 			{basic}
 			{ai_in_manual}
@@ -115,5 +128,8 @@
 	}
 	{bone "turret"
 		{speed2 8}
+	}
+	{bone "turret_mgun_aa"
+		{speed2 50}
 	}
 }

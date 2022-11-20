@@ -9,6 +9,10 @@
 	("shield_part" args "shield1" 130 "body")	;// 30 + 100
 	("shield_part" args "shield2" 130 "body")	;// 30 + 100
 	("shield_part" args "shield3" 130 "body")	;// 30 + 100
+	("shield_tear" args "detail1" 5)
+	("shield_tear" args "detail2" 5)
+	("shield_tear" args "detail3" 5)
+	("shield_tear" args "detail4" 5)
 
 	("tracks" repair(30) thickness(30))
 	("gun" repair(30) thickness(30))
@@ -65,14 +69,19 @@
 		}
 		{HighHardness}
 	}
-	{volume "turret"
+	{volume "turret1"
 		{thickness 100
 			{top 30}
 		}
 		{HighHardness}
 		{CastSteel 0.8063}
 	}
-	{volume "turret2"
+	{volume "turret2"		; Rear Turret MG
+		{thickness 100}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	{volume "turret3"
 		{thickness 100
 			{front 110}
 		}

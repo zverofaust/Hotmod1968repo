@@ -1,6 +1,6 @@
-;Exported by:	 ART
-;Date:			 07.06.2021 15:12:17
-;File:			 E:\Autodesk\Low poly\freelance\Carlos\Tanks\IS-2\Export\IS-2_x (2015).max
+;Exported by:	 TigerF
+;Date:			 25.10.2022 15:45:22
+;File:			 D:\GOH\3dsmax9_saves\scenes\GoH_3D_vehicles_rus\vehicles\tank_heavy\is2\IS2_45_x.max
 {skeleton
 	{bone "basis"
 		{orientation
@@ -452,7 +452,12 @@
 				}
 				{bone revolute "turret_mgun_aa"
 					{parameters "id=turret;"}
-					{Position -10.9406 	 9.5073 	 21.7502}
+					{matrix34
+						-1 	 0 	 0
+						0 	 -1 	 0
+						0 	 0 	 1
+						-10.9406 	 9.5073 	 21.7502
+					}
 					{LODView
 						{VolumeView "turret_mgun_aa.ply"}
 						{VolumeView "turret_mgun_aa_lod1.ply"}
@@ -471,6 +476,34 @@
 						{LODView
 							{VolumeView "cover2.ply"}
 							{VolumeView "cover2_lod1.ply"}
+						}
+					}
+					{bone revolute "mgun_a_rot1"
+						{parameters "id=turret;"}
+						{limits -5 5}
+						{matrix34
+							-1 	 0 	 0
+							0 	 -1 	 0
+							0 	 0 	 1
+							-6.1161 	 0.3376 	 5.5323
+						}
+						{LODView
+							{VolumeView "mgun_a_rot1.ply"}
+							{VolumeView "mgun_a_rot1_lod1.ply"}
+						}
+						{bone revolute "mgun_a_rot2"
+							{parameters "id=turret;"}
+							{limits -13 50}
+							{matrix34
+								1 	 0 	 0
+								0 	 0 	 1
+								0 	 -1 	 0
+								-2.0987 	 -0.6266 	 1.6696
+							}
+							{LODView
+								{VolumeView "mgun_a_rot2.ply"}
+								{VolumeView "mgun_a_rot2_lod1.ply"}
+							}
 						}
 					}
 				}

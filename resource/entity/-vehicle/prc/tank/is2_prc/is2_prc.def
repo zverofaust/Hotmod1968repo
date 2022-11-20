@@ -15,7 +15,7 @@
 
 	{sensor
 		{visor "main"
-			{vision "tank_range_240"}
+			{vision "tank_range_220"}
 		}
 		{visor "back"
 			{vision "tank_back"}
@@ -24,17 +24,16 @@
 	}
 
 	("crew_4_human")
-
-	;("gunner_visible")
+	("gunner_visible")
 	("crew_human" place(charger) door(emit1) door2(emit2) visor(back))
 
 	{boarder
 		{anm "left"
-			{forward {begin "board_Kv-85"} {end "seat_m7_mgunner"}}
+			{forward {begin "board_Kv-85"} {end "seat_isu152_gunner2"}}
 			{reverse {end "emit_tank_2_hold"}}
 		}
 		{anm "right"
-			{forward {begin "board_Is-2"} {end "seat_m7_mgunner"}}
+			{forward {begin "board_Is-2"} {end "seat_isu152_gunner2"}}
 			{reverse {end "emit_tank_2_hold"}}
 		}
 		{anm "armor"
@@ -55,11 +54,11 @@
 	{extender "shield" {on}}
 
 	{extender "inventory"
-		{weapon "mgun" {mask "mountable"}}
 		{box
 			{item "bulletrus_122_l48 aphebc" 9}		;28 rounds
 			{item "bulletrus_122_l48 he" 18}
 			{item "ammo mgun_rus dt" 3276}			;55 drums
+			{item "ammo hmgun_rus ap" 750}		;15 drum boxes
 		}
 	}
 
@@ -80,7 +79,7 @@
 			{weapon "dt" filling "ammo mgun_rus dt" 63}
 			{foresight "foresight5"}
 			{gunner "gunner"}
-			{charger "commander"}
+			{charger "charger"}
 			("abm_mgun")
 			{basic}
 		}
@@ -90,6 +89,17 @@
 			{foresight "foresight6"}
 			{gunner "charger"}
 			{charger "charger"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun"
+			{type "aa"}
+			{weapon "dshk" filled}
+			{gunner "commander"}
+			{charger "commander"}
+			{LinkBone "mgun_bone"}
+			{LinkAnimation "off"}
 			("abm_mgun")
 			{basic}
 			{ai_in_manual}
@@ -118,5 +128,8 @@
 	}
 	{bone "turret"
 		{speed2 8}
+	}
+	{bone "turret_mgun_aa"
+		{speed2 50}
 	}
 }

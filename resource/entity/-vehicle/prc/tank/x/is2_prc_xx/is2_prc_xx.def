@@ -1,37 +1,94 @@
 {game_entity
 	{extension "is2_prc_xx.mdl"}
 	(include "/properties/vehicle_xx.ext")
+
 	{volume "barrel1"
+		{thickness 30}
 		{able {obstacle 0} {visible 0}}
 	}
-	{volume "body1"
+	{volume "body1"		; Hull
+		{thickness 90
+			{front 100}
+			{rear 25}
+			{bottom 25}
+		}
+		{HighHardness}
 	}
-	{volume "body2"
+	{volume "body2"		; Glacis
+		{thickness 90
+			{front 100}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
 	}
-	{volume "body3"
+	{volume "body3"		; Superstructure
+		{thickness 100
+			{front 100}
+			{top 30}
+			{right 130}	; Cheeks for both sides
+			{rear 25}
+			{bottom 25}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
 	}
 	{volume "engine1"
+		{thickness 90
+			{front 25}
+			{rear 60}
+			{bottom 25}
+		}
+		{HighHardness}
 	}
 	{volume "engine2"
+		{thickness 90
+			{front 25}
+			{top 30}
+			{rear 60}
+			{bottom 25}
+		}
+		{HighHardness}
 	}
-	{volume "mantlet"
+	{volume "turret1"
+		{thickness 100
+			{top 30}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
 	}
-	{volume "part1"
+	{volume "turret2"		; Rear Turret MG
+		{thickness 100}
+		{HighHardness}
+		{CastSteel 0.8063}
 	}
-	{volume "part2"
+	{volume "turret3"
+		{thickness 100
+			{front 110}
+		}
+		{HighHardness}
+	}
+	{volume "cupola"
+		{thickness 90
+			{top 30}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
 	}
 	{volume "part3"
+		{thickness 5}
 	}
 	{volume "part4"
+		{thickness 5}
 	}
 	{volume "part5"
+		{thickness 30}
 	}
 	{volume "part6"
+		{thickness 5}
 	}
-	{volume "trackleft"
+	{volume "part7"
+		{thickness 5}
 	}
-	{volume "trackright"
-	}
-	{volume "turret"
-	}
+
+	("tracks" thickness(30))
 }

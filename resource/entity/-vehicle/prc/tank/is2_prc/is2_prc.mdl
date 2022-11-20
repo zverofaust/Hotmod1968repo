@@ -1,6 +1,6 @@
-;Exported by:	 guita
-;Date:			 05.07.2022 23:01:35
-;File:			 D:\Git\3D_Scenes\GoH_3D_vehicles_rus\vehicles\tank_heavy\is2\IS-2.max
+;Exported by:	 TigerF
+;Date:			 25.10.2022 15:30:39
+;File:			 D:\GOH\3dsmax9_saves\scenes\GoH_3D_vehicles_rus\vehicles\tank_heavy\is2\IS2_45.max
 {skeleton
 	{animation
 		{sequence "start" {speed 0.7}}
@@ -9,6 +9,7 @@
 		{sequence "hit" {speed 0.5}}
 		{sequence "open" {speed 0.6}{resume}{events {2 "hatch_heavy"}}}
 		{sequence "open_gunner" {speed 0.6}{resume}{events {2 "hatch_heavy"}}}
+		{sequence "mgun_aa" {speed 0.7}{resume}}
 	}
 	{bone "basis"
 		{orientation
@@ -46,9 +47,10 @@
 				}
 				{bone revolute "turret_mgun_aa"
 					{parameters "id=turret;"}
+					{terminator}
 					{matrix34
-						1 	 0 	 0
-						0 	 1 	 0
+						-1 	 0 	 0
+						0 	 -1 	 0
 						0 	 0 	 1
 						-10.9406 	 9.5073 	 21.643
 					}
@@ -82,14 +84,43 @@
 							{VolumeView "cover2_lod1.ply"}
 						}
 					}
-					{bone revolute "mgun_aa_rot"
-						{limits -10 60}
-						{speed 0.015}
+					{bone revolute "mgun_a_rot1"
+						{parameters "id=turret;"}
+						{limits -5 5}
 						{matrix34
 							-1 	 0 	 0
+							0 	 -1 	 0
 							0 	 0 	 1
-							0 	 1 	 0
-							-6.1379 	 0.3676 	 3.4839
+							-6.1161 	 0.3376 	 5.6394
+						}
+						{LODView
+							{VolumeView "mgun_a_rot1.ply"}
+							{VolumeView "mgun_a_rot1_lod1.ply"}
+						}
+						{bone "gunner2"
+							{matrix34
+								0.9848 	 0 	 0.1736
+								0 	 1 	 0
+								-0.1736 	 0 	 0.9848
+								-7.505 	 0.4187 	 0.5419
+							}
+						}
+						{bone revolute "mgun_a_rot2"
+							{parameters "id=turret;"}
+							{limits -11 85}
+							{matrix34
+								0.866 	 0 	 0.5
+								-0.5 	 0 	 0.866
+								0 	 -1 	 0
+								-2.0987 	 -0.6266 	 1.6696
+							}
+							{LODView
+								{VolumeView "mgun_a_rot2.ply"}
+								{VolumeView "mgun_a_rot2_lod1.ply"}
+							}
+							{bone "mgun_bone"
+								{Position -3.1256 	 0.0003 	 -0.5967}
+							}
 						}
 					}
 				}
@@ -223,22 +254,12 @@
 				}
 				{bone "enumerator2"
 					{parameters "id=turret;"}
-					{matrix34
-						-0.995 	 0.0997 	 0
-						-0.0934 	 -0.932 	 0.3503
-						0.0349 	 0.3486 	 0.9366
-						-8.6682 	 -19.182 	 9.4244
-					}
+					{Position -7.9198 	 -19.4688 	 9.0993}
 					{VolumeView "enumerator2.ply"}
 				}
 				{bone "enumerator"
 					{parameters "id=turret;"}
-					{matrix34
-						1 	 0 	 0
-						0 	 0.9976 	 0.0699
-						0 	 -0.0699 	 0.9976
-						-4.9631 	 21.9264 	 8.0368
-					}
+					{Position -6.5068 	 21.1186 	 8.7581}
 					{VolumeView "enumerator.ply"}
 				}
 				{bone "fxfire3"
@@ -460,14 +481,6 @@
 					53.96 	 0.0545 	 5.9999
 				}
 			}
-			{bone "fxlight"
-				{matrix34
-					1 	 0 	 0.0073
-					-0.0073 	 0 	 1
-					0 	 -1 	 0
-					55.7269 	 9.6579 	 8.5016
-				}
-			}
 			{bone "headlightl"
 				{matrix34
 					1 	 0 	 0.0073
@@ -545,14 +558,6 @@
 					-37.3351 	 -0.5029 	 8.4796
 				}
 			}
-			{bone "link2"
-				{matrix34
-					-1 	 0 	 -0.0079
-					-0.0079 	 0 	 1
-					0 	 1 	 0
-					-64.3036 	 -11.2764 	 -8.2576
-				}
-			}
 			{bone "engine"
 				{parameters "id=engine;"}
 				{Position 0 	 0 	 0}
@@ -560,9 +565,6 @@
 					{VolumeView "engine.ply"}
 					{VolumeView "engine_lod1.ply"}
 				}
-			}
-			{bone "internals"
-				{Position 2.669 	 -0.1075 	 -21.7728}
 			}
 			{bone "shield2"
 				{parameters "id=shield2;"}
@@ -602,6 +604,24 @@
 					{VolumeView "shield3.ply"}
 					{VolumeView "shield3_lod1.ply"}
 				}
+			}
+			{bone "fuel2"
+				{Position 52.2049 	 -16.5075 	 -3.0931}
+			}
+			{bone "ammo3"
+				{Position 35.4118 	 -14.3215 	 -4.5823}
+			}
+			{bone "ammo2"
+				{Position 35.6874 	 8.3843 	 -4.5823}
+			}
+			{bone "fuel1"
+				{Position 52.2049 	 6.5154 	 -3.0931}
+			}
+			{bone "transmission"
+				{Position -53.7194 	 -15.3274 	 -6.9156}
+			}
+			{bone "ammo1"
+				{Position 9.9399 	 -0.1396 	 -7.9235}
 			}
 		}
 		{bone "wheelsr"
@@ -957,32 +977,32 @@
 }
 {volume "ammo1"
 	{box 22.6378 2.92506 11.5249}
-	{bone "internals"}
+	{bone "ammo1"}
 	{matrix34
 		0 	 1 	 0
 		-0.0032 	 0 	 1
 		1 	 0 	 0.0032
-		13.0334 	 -0.0321 	 13.8677
+		5.7624 	 0 	 0.0183
 	}
 }
 {volume "ammo2"
 	{box 7.87402 11.811 5.90551}
-	{bone "internals"}
+	{bone "ammo2"}
 	{matrix34
 		-1 	 0 	 0
 		0 	 0 	 1
 		0 	 1 	 0
-		33.0185 	 11.4445 	 17.1905
+		0 	 2.9528 	 0
 	}
 }
 {volume "ammo3"
 	{box 7.87402 11.811 5.90551}
-	{bone "internals"}
+	{bone "ammo3"}
 	{matrix34
 		-1 	 0 	 0
 		0 	 0 	 1
 		0 	 1 	 0
-		32.7428 	 -11.2613 	 17.1905
+		0 	 2.9528 	 0
 	}
 }
 {volume "ammo4"
@@ -1045,7 +1065,7 @@
 		18.4229 	 0.0003 	 6.9151
 	}
 }
-{volume "breach"
+{volume "breech"
 	{box 12.3425 8.85827 29.2913}
 	{bone "gun_rot"}
 	{matrix34
@@ -1059,6 +1079,46 @@
 	{polyhedron "cupola.vol"}
 	{bone "turret"}
 	{Position -10.9682 	 9.5051 	 16.293}
+}
+{volume "detail1"
+	{cylinder 3.72496 20.2678}
+	{bone "detail1"}
+	{matrix34
+		0 	 1 	 0
+		0 	 0 	 1
+		1 	 0 	 0
+		0 	 0.0073 	 -0.2052
+	}
+}
+{volume "detail2"
+	{cylinder 3.72496 20.2678}
+	{bone "detail2"}
+	{matrix34
+		0 	 1 	 0
+		0 	 0 	 1
+		1 	 0 	 0
+		0 	 0.0074 	 -0.2052
+	}
+}
+{volume "detail3"
+	{cylinder 3.72496 20.2678}
+	{bone "detail3"}
+	{matrix34
+		0 	 -1 	 0
+		0 	 0 	 1
+		-1 	 0 	 0
+		0 	 0.0073 	 -0.2052
+	}
+}
+{volume "detail4"
+	{cylinder 3.72496 20.2678}
+	{bone "detail4"}
+	{matrix34
+		0 	 -1 	 0
+		0 	 0 	 1
+		-1 	 0 	 0
+		0 	 0.0139 	 -0.2052
+	}
 }
 {volume "engine1"
 	{polyhedron "engine1.vol"}
@@ -1082,22 +1142,22 @@
 }
 {volume "fuel1"
 	{polyhedron "fuel1.vol"}
-	{bone "internals"}
+	{bone "fuel1"}
 	{matrix34
 		-1 	 0 	 0
 		0 	 0 	 1
 		0 	 1 	 0
-		49.5359 	 6.6229 	 18.6797
+		0 	 0 	 0
 	}
 }
 {volume "fuel2"
 	{polyhedron "fuel2.vol"}
-	{bone "internals"}
+	{bone "fuel2"}
 	{matrix34
 		-1 	 0 	 0
 		0 	 0 	 1
 		0 	 1 	 0
-		49.5359 	 -16.4001 	 18.6797
+		0 	 0 	 0
 	}
 }
 {volume "hole1"
@@ -1182,7 +1242,7 @@
 		-1 	 0.0047 	 -0.0001
 		-0.0047 	 -1 	 0
 		-0.0001 	 0 	 1
-		0.0398 	 -0.0716 	 -0.4219
+		0.0399 	 -0.0716 	 -0.4219
 	}
 }
 {volume "trackleft2"
@@ -1397,26 +1457,31 @@
 }
 {volume "transmission"
 	{cylinder 6.32417 31.3434}
-	{bone "internals"}
+	{bone "transmission"}
 	{matrix34
 		-1 	 0 	 0
 		0 	 0 	 1
 		0 	 1 	 0
-		-56.3883 	 0.4518 	 14.8572
+		0 	 15.6717 	 0
 	}
+}
+{volume "turret1"
+	{polyhedron "turret1.vol"}
+	{bone "turret"}
+	{Position -0.0661 	 -0.0435 	 8.276}
 }
 {volume "turret2"
 	{polyhedron "turret2.vol"}
 	{bone "turret"}
-	{matrix34
-		0.0032 	 0 	 -1
-		-1 	 0 	 -0.0032
-		0 	 1 	 0
-		25.8913 	 -5.9988 	 7.7173
-	}
+	{Position -25.8218 	 10.2616 	 10.2905}
 }
-{volume "turret"
-	{polyhedron "turret.vol"}
-	{bone "turret"}
-	{Position -0.0661 	 -0.0435 	 8.276}
+{volume "turret3"
+	{polyhedron "turret3.vol"}
+	{bone "gun_rot"}
+	{matrix34
+		0.0032 	 -1 	 0
+		-1 	 -0.0032 	 0
+		0 	 0 	 -1
+		0.6536 	 0.0696 	 8.0316
+	}
 }
