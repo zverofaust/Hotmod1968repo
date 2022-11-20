@@ -34,7 +34,7 @@
 	{volume "turret" {thickness 10}}
 	{volume "gun" {thickness 10}}
 	
-	("crew_driver")
+	("crew_3_human_2_extended")
    
 	(define "crew"
 		{placer
@@ -48,33 +48,30 @@
 	
 	{boarder
 		{anm "driver"
-			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open1"}}
 			{reverse {end "emit_tank_1_hold"}}
 		}
 		{anm "right"
-			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
-			{reverse {end "emit_tank_1_hold"}}
+			{forward	{begin	"board_body"} {end ""} {base "doorleft"}}
+			{reverse	{end	"board_body" -1} {base "doorleft"}}
 		}
 		{anm "left"
-			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
-			{reverse {end "emit_tank_1_hold"}}
+			{forward	{begin	"board_body"} {end ""} {base "doorleft"}}
+			{reverse	{end	"board_body" -1} {base "doorleft"}}
 		}
 		{anm "charger"
-			{forward	{begin	"board_body"} {end "pose_mortar_commander"} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end ""} {base "doorleft"}}
 			{reverse	{end	"board_body" -1} {base "doorleft"}}
 		}
 		{anm "gunner"
-			{forward	{begin	"board_body"} {end "pose_mortar_gunner"} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end ""} {base "doorleft"}}
 			{reverse	{end	"board_body" -1} {base "doorleft"}}
 		}
 		{anm "commander"
-			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end ""} {base "doorleft"}}
 			{reverse	{end	"board_body" -1} {base "doorleft"}}
 		}
 	}
-	("crew_driver" 	place(driver)  	  bone()				door(emit0)  animation(driver) 			group(crew))
-	("crew" 		place(gunner)    bone()					door(emit2)  animation(gunner)			group(crew))
-	("crew" 		place(charger)    bone()				door(emit2)  animation(commander) 		group(crew))
 	
 	
 
@@ -92,7 +89,7 @@
 			{RestoreIKAfterAim}
 			{weapon "m10-8" filled}
 			{gunner "gunner"}
-			{charger "charger"}
+			{charger "gunner"}
 			("abm_dymamic"
 				zeroing(2.0)
 				dispersion(0.15)
@@ -103,7 +100,7 @@
 			{weapon			"browning_m19a4" filled}
 			{foresight "foresight5"}
 			{gunner "gunner"}
-			{charger "charger"}
+			{charger "gunner"}
 			("abm_mgun")
 			{basic}
 		}
