@@ -20,6 +20,7 @@
 	{parameters "apche"		("global velocity" gv(%ap))}
 	{parameters "aphe"		("global velocity" gv(%ap))}
 	{parameters "apbc"		("global velocity" gv(%ap))}
+	{parameters "apbche"	("global velocity" gv(%ap))}
 	{parameters "apcbc"		("global velocity" gv(%ap))}
 	{parameters "apcbche"	("global velocity" gv(%ap))}
 	{parameters "aphebc"	("global velocity" gv(%ap))}
@@ -60,24 +61,24 @@
 
 (define "penetration_long"
 	{parameters "%shell" ;// for units with higher range than 205, polynomial curve to simulate closer range engagements
-		{projectileDamageTable {20 %a} {100 %b} {155 %c} {205 %d} {%range (+ (* (/ (- 250 %range) (- 250 200)) (- %d %e)) %e)} {(+ %range 20) 0} }
+		{projectileDamageTable {10 (+ %a (+ 1.3 (/ (- %a %b) 4.4)))} {30 %a} {100 %b} {155 %c} {205 %d} {%range (+ (* (/ (- 250 %range) (- 250 200)) (- %d %e)) %e)} {(+ %range 20) 0} }
 		{range %range %range}
 	}
 )
 (define "penetration_medium"
 	{parameters "%shell" ;// for units with higher range than 155 and lower 205, polynomial curve to simulate closer range engagements
-		{projectileDamageTable {20 %a} {100 %b} {155 %c} {%range (+ (* (/ (- 205 %range) (- 205 155)) (- %c %d)) %d)} {(+ %range 20) 0} }
+		{projectileDamageTable {10 (+ %a (+ 1.3 (/ (- %a %b) 4.4)))} {30 %a} {100 %b} {155 %c} {%range (+ (* (/ (- 205 %range) (- 205 155)) (- %c %d)) %d)} {(+ %range 20) 0} }
 		{range %range %range}
 	}
 )
 (define "penetration_short"
 	{parameters "%shell" ;// for units with higher range than 100 and lower than 155, polynomial curve to simulate closer range engagements
-		{projectileDamageTable {20 %a} {100 %b} {%range (+ (* (/ (- 155 %range) (- 155 100)) (- %b %c)) %c)} {(+ %range 20) 0} }
+		{projectileDamageTable {10 (+ %a (+ 1.3 (/ (- %a %b) 4.4)))} {30 %a} {100 %b} {%range (+ (* (/ (- 155 %range) (- 155 100)) (- %b %c)) %c)} {(+ %range 20) 0} }
 		{range %range %range}
 	}
 )
 (define "penetration"  ;// penetration drop curve with decreasing penetration after 250m (2km IRL, 1/8th ish Scale)
-	{projectileDamageTable {20 %a} {100 %b} {155 %c} {205 %d} {250 %e} {500 (- %e (* 5 (- %a %e)))}} ;// shell penetration over distance
+	{projectileDamageTable {10 (+ %a (+ 1.3 (/ (- %a %b) 4.4)))} {30 %a} {100 %b} {155 %c} {205 %d} {250 %e} {500 (- %e (* 5 (- %a %e)))}} ;// shell penetration over distance
 )
 
 (define "armor health"
@@ -112,11 +113,6 @@
 		{minimumDamageModifier (- (+ 29 (+ %damage (+ (* 0.35 %filler ) (* 0.0000000075 (* %filler (* %filler %filler))))))  (* 0.00009 (* %filler %filler)))} ; //Filler defined in grams of TNT
 	}
 )
-
-
-
-
-
 (define "human health"		;// Damage to human health
 	{healthDamage (* 1 %damage)}
 )
@@ -133,7 +129,9 @@
 		range_ap(%range_ap)
 		range_he(%range_he)
 		range_heat(%range_heat)
+		falloff(0.05)
 		r0(1.10)					;// global accuracy
+		r01(0.5)					;// global accuracy direct
 		  ap50(0.50)   ap100(1.50)   ap140(4.00)   ap200(6.00)
 		heat50(1.20) heat100(3.50) heat140(7.50) heat200(14.00)
 		 he125(0.4)
@@ -277,6 +275,7 @@
 		range_ap(%range_ap)
 		range_he(%range_he)
 		range_heat(%range_heat)
+		falloff(0.15)
 		r0(0.50) 								; // global accuracy
 		apbc50(1.50) apbc100(2.50) apbc140(3.50) apbc200(6.00)
 		 apc50(1.50)  apc100(2.75)  apc140(3.75)  apc200(6.75)
@@ -294,6 +293,7 @@
 		range_ap(%range_ap)
 		range_he(%range_he)
 		range_heat(%range_heat)
+		falloff(0.15)
 		r0(0.50) 								; // global accuracy
 		apbc50(1.50) apbc100(2.50) apbc140(3.50) apbc200(6.00)
 		 apc50(1.50)  apc100(2.75)  apc140(3.75)  apc200(6.75)
@@ -311,6 +311,7 @@
 		range_ap(%range_ap)
 		range_he(%range_he)
 		range_heat(%range_heat)
+		falloff(0.15)
 		r0(0.50) 								; // global accuracy
 		apbc50(1.50) apbc100(2.50) apbc140(3.50) apbc200(6.00)
 		 apc50(1.50)  apc100(2.75)  apc140(3.75)  apc200(6.75)
@@ -322,7 +323,6 @@
 		apds50(2.00) apds100(3.50) apds140(6.00) apds200(10.00)
 	)
 )
-
 (define "curve_direct"	;// the code extrapolates where the accuracy point is for max range, knowing the accuracy for the cannon is defined for 200m
 	{parameters "ap"
 		{spreading
@@ -347,6 +347,11 @@
 	{parameters "apbc"
 		{spreading
 			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {140 (* %apbc140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apbc200 %apbc140)) %apbc140) (* %r1 %r0))} {%range_ap 20}}
+		}
+	}
+	{parameters "apbche"
+		{spreading
+			{radiusTable {0 0} {50 (* %apbc50 (* %r1 %r0))} {100 (* %apbc100 (* %r1 %r0))} {140 (* %apbc140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apbc200 %apbc140)) %apbc140) (* %r1 %r0))} {(+ %range_ap 50) 10}}
 		}
 	}
 	{parameters "apcbc"
@@ -858,7 +863,6 @@
 		{90		99.0000		0.00000	}
 	}
 )
-
 (define "apc_slope_multiplier" ;use for APC & APCBC Projectiles
 	{overmatchCalibre
 		{0		0.1			0.0225	}
@@ -906,7 +910,6 @@
 		{90		99.0000		0.0000	}
 	}
 )
-
 (define "apbc_slope_multiplier_original"  ;for USSR APBC & APHEBC Projectiles
 	{overmatchCalibre
 		{0		0.1			0.01555	}
@@ -930,7 +933,506 @@
 		{90		99.000		0.00000	}
 	}
 )
-
+(define "ap_20_slope_multiplier" ;use for 20-25mm AP Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.381		0.15	}
+		{30		1.657		0.29	}
+		{40		1.95		0.295	}
+		{50		2.92		0.39	}
+		{60		3.965		0.325	}
+		{65		5.47		0.46	}
+		{70		7.58		0.46	}
+		{75		11.52		0.46	}
+		{80		20.85		0.46	}
+		{85		57.4		0.46	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_37_slope_multiplier_800ms" ;use for 37mm AP Projectiles with <800 m/s
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.174		-0.005	}
+		{30		1.301		-0.038	}
+		{40		1.503		-0.038	}
+		{50		1.946		-0.029	}
+		{55		2.221		-0.039	}
+		{60		2.575		-0.053	}
+		{65		3.062		-0.053	}
+		{70		3.783		-0.053	}
+		{75		4.965		-0.053	}
+		{80		7.29		-0.053	}
+		{85		14.05		-0.053	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_37_slope_multiplier_700ms" ;use for 37mm AP Projectiles with >800 m/s
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.201		-0.049	}
+		{30		1.301		-0.09	}
+		{40		1.506		-0.077	}
+		{50		1.893		-0.028	}
+		{55		2.175		-0.079	}
+		{60		2.51		-0.145	}
+		{65		2.926		-0.145	}
+		{70		3.54		-0.145	}
+		{75		4.527		-0.145	}
+		{80		6.405		-0.145	}
+		{85		11.59		-0.145	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "apc_37_slope_multiplier" ;use for 37mm APC Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.159		-0.12	}
+		{30		1.374		-0.222	}
+		{40		1.596		-0.254	}
+		{45		1.91		-0.20	}
+		{50		2.485		0.111	}
+		{55		3.172		0.318	}
+		{60		3.875		0.376	}
+		{65		9.75		1.25	}
+		{70		9.96		1.11	}
+		{75		20.3		1.21	}
+		{80		49.0		1.20	}
+		{85		232.5		1.215	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_40_slope_multiplier" ;use for 40-47mm AP Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.05		0.00	}
+		{30		1.167		0.01	}
+		{40		1.683		0.33	}
+		{50		1.958		0.30	}
+		{60		3.77		0.79	}
+		{65		5.22		0.79	}
+		{70		7.79		0.79	}
+		{75		13.03		0.79	}
+		{80		26.92		0.79	}
+		{85		93.05		0.79	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_57_slope_multiplier" ;use for 50-57mm AP Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.1765		0.09	}
+		{30		1.276		0.062	}
+		{40		1.664		0.116	}
+		{50		2.102		-0.097	}
+		{60		2.569		-0.292	};
+		{65		2.795		-0.281	};
+		{70		3.181		-0.263	};
+		{75		3.681		-0.247	};
+		{80		4.995		-0.247	};
+		{85		8.42		-0.247	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "apc_57_slope_multiplier" ;use for 50-57mm APC Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.045		0.039	}
+		{30		1.23		0.07	}
+		{45		1.928		0.063	}
+		{50		2.156		0.066	}
+		{60		3.264		0.352	}
+		{65		3.69		0.32	}
+		{70		6.637		0.81	}
+		{75		9.22		0.79	}
+		{80		19.05		0.79	}
+		{85		66.6		0.795	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_75_slope_multiplier" ;use for 75mm AP Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.044		0.006	}
+		{20		1.203		0.009	}
+		{30		1.471		0.02	}
+		{40		1.611		0.018	}
+		{50		2.167		0.025	}
+		{55		2.417		0.031	}
+		{60		2.761		0.035	}
+		{65		3.21		0.075	};
+		{70		4.077		0.136	};
+		{75		5.405		0.20	};
+		{80		8.79		0.20	};
+		{85		20.2		0.20	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "apc_75_ger_slope_multiplier" ;use for 75mm german APC Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.067		0.091	}
+		{30		1.107		0.307	}
+		{40		1.455		0.16	}
+		{45		1.713		0.113	}
+		{50		1.898		0.08	}
+		{55		2.145		0.07	}
+		{60		2.635		0.085	}
+		{65		3.095		0.16	};
+		{70		4.125		0.30	};
+		{75		5.99		0.46	};
+		{80		10.77		0.456	};
+		{85		29.66		0.458	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "apc_75_slope_multiplier" ;use for low velocity 75mm APC Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.03		0.00	}
+		{20		1.1255		0.018	}
+		{30		1.272		0.065	}
+		{45		1.855		0.189	}
+		{50		2.064		0.24	}
+		{55		2.587		0.25	}
+		{60		3.182		0.24	};
+		{65		4.022		0.34	};
+		{70		6.255		0.538	};
+		{75		11.16		0.77	};
+		{80		22.88		0.77	};
+		{85		77.85		0.769	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_76_slope_multiplier" ;use for 76mm AP Projectiles or high velocity 75mm
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.044		0.002	}
+		{20		1.20		0.009	}
+		{30		1.252		0.007	}
+		{40		1.601		0.019	}
+		{50		2.152		0.03	}
+		{55		2.383		0.019	}
+		{60		2.545		0.019	}
+		{65		2.905		0.058	};
+		{70		3.605		0.124	};
+		{75		4.657		0.19	};
+		{80		7.545		0.19	};
+		{85		17.25		0.191	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "apc_76_slope_multiplier" ;use for 76-77mm APC Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.044		-0.025	}
+		{20		1.064		0.17	}
+		{30		1.179		0.42	}
+		{40		1.508		0.24	}
+		{45		1.791		0.171	}
+		{50		1.95		0.10	}
+		{60		2.68		0.077	}
+		{65		3.121		0.137	};
+		{70		4.298		0.31	};
+		{75		6.62		0.517	};
+		{80		12.23		0.516	};
+		{85		35.12		0.518	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_85_slope_multiplier" ;use for 85 aphe Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.027		0.002	}
+		{20		1.117		0.003	}
+		{30		1.294		0.01	}
+		{45		1.685		0.025	}
+		{50		1.875		0.014	}
+		{55		2.115		0.037	}
+		{60		2.486		0.054	}
+		{65		2.87		0.10	}
+		{70		3.645		0.18	}
+		{75		4.852		0.261	}
+		{80		8.10		0.262	}
+		{85		19.47		0.263	}
+		{90		99.0000		0.0000	}
+	}
+)
+(define "apbc_90_t33_slope_multiplier" ;use for 90mm hardend APBC Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.0055		0.145	}
+		{30		1.2935		0.085	}
+		{55		1.78		-0.528	}
+		{60		1.918		-0.485	}
+		{65		2.113		-0.385	}
+		{70		2.382		-0.255	}
+		{75		3.058		-0.105	}
+		{80		4.465		-0.045	}
+		{85		10.265		-0.005	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_90_slope_multiplier" ;use for 88-94mm AP Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.049		-0.001	}
+		{20		1.2177		0.004	}
+		{30		1.513		0.11	}
+		{45		1.658		0.023	}
+		{55		1.997		0.03	}
+		{60		2.446		0.012	}
+		{65		2.778		0.051	};
+		{70		3.413		0.115	};
+		{75		4.37		0.181	};
+		{80		7.052		0.181	};
+		{85		16.0		0.181	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "apc_90_slope_multiplier" ;use for 88-94mm APC Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.04		-0.005	}
+		{20		1.1555		-0.027	}
+		{30		1.217		0.078	}
+		{40		1.552		0.105	}
+		{45		1.83		0.088	}
+		{50		2.135		0.087	}
+		{55		2.435		0.092	}
+		{60		2.785		0.10	}
+		{65		3.347		0.219	};
+		{70		4.79		0.455	};
+		{75		8.115		0.766	};
+		{80		16.61		0.766	};
+		{85		56.45		0.766	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_100_slope_multiplier" ;use for 100mm AP Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.0285		0.004	}
+		{20		1.1285		0.009	}
+		{30		1.3153		0.04	}
+		{45		1.6935		-0.001	}
+		{50		1.871		-0.007	}
+		{55		2.108		0.004	}
+		{60		2.461		0.004	}
+		{65		2.799		0.051	};
+		{70		3.469		0.133	};
+		{75		4.516		0.22	};
+		{80		7.407		0.22	};
+		{85		17.255		0.22	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_105_slope_multiplier" ;use for + - 105mm AP Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.04		0.01	}
+		{20		1.164		0.025	}
+		{30		1.248		0.027	}
+		{45		1.721		0.12	}
+		{50		1.99		0.14	}
+		{55		2.323		0.14	}
+		{60		2.704		0.11	}
+		{65		3.31		0.11	}
+		{70		4.24		0.11	}
+		{75		5.835		0.11	}
+		{80		9.13		0.109	}
+		{85		19.70		0.109	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_122_slope_multiplier" ;use for 122mm AP Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.025		0.007	}
+		{20		1.118		0.009	}
+		{30		1.2955		0.031	}
+		{45		1.6945		0.046	}
+		{50		1.8915		0.053	}
+		{55		2.143		0.062	}
+		{60		2.524		0.062	}
+		{65		2.954		0.126	};
+		{70		3.877		0.24	};
+		{75		5.462		0.367	};
+		{80		9.51		0.367	};
+		{85		24.53		0.367	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "apc_128_slope_multiplier" ;use for 128mm APC Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.02		-0.007	}
+		{20		1.11		-0.009	}
+		{30		1.286		-0.032	}
+		{45		1.76		-0.02	}
+		{55		2.0775		-0.043	}
+		{60		2.239		-0.03	}
+		{65		2.559		0.078	};
+		{70		3.327		0.295	};
+		{75		4.969		0.587	};
+		{80		9.455		0.587	};
+		{85		28.46		0.588	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_152_slope_multiplier" ;use for 152mm AP Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.02		-0.003	}
+		{20		1.0673		-0.004	}
+		{30		1.2368		-0.015	}
+		{45		1.593		-0.03	}
+		{50		1.779		-0.007	}
+		{55		1.975		-0.021	}
+		{60		2.297		-0.021	}
+		{65		2.406		0.069	};
+		{70		3.23		0.192	};
+		{75		4.698		0.331	};
+		{80		8.06		0.331	};
+		{85		20.28		0.331	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_155_slope_multiplier" ;use for 155mm AP, APBC Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.0225		0.01	}
+		{20		1.0915		0.042	}
+		{30		1.1885		0.15	}
+		{45		1.446		-0.38	}
+		{60		1.7785		-0.295	}
+		{65		2.0775		-0.17	};
+		{70		3.039		0.145	};
+		{75		6.61		0.743	};
+		{80		13.4		0.743	};
+		{85		44.85		0.743	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "apbc_45_slope_multiplier" ;use for 45 aphebc Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{30		1.129		0.075	}
+		{45		1.38		0.175	}
+		{50		1.555		0.21	}
+		{55		1.807		0.302	}
+		{60		2.13		0.351	}
+		{65		2.726		0.352	}
+		{70		3.687		0.352	}
+		{75		5.44		0.352	}
+		{80		9.41		0.352	}
+		{85		24.02		0.352	}
+		{90		99.0000		0.0000	}
+	}
+)
+(define "apbc_57_slope_multiplier" ;use for 57 aphebc Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{30		1.147		0.055	}
+		{45		1.387		0.144	}
+		{50		1.546		0.175	}
+		{55		1.764		0.225	}
+		{60		2.08		0.302	}
+		{65		2.634		0.299	}
+		{70		3.52		0.299	}
+		{75		5.115		0.299	}
+		{80		8.68		0.301	}
+		{85		21.38		0.301	}
+		{90		99.0000		0.0000	}
+	}
+)
+(define "apbc_76_slope_multiplier" ;use for 76 aphebc Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{30		1.143		-0.01	}
+		{45		1.405		0.059	}
+		{50		1.564		0.075	}
+		{55		1.81		0.124	}
+		{60		2.218		0.224	}
+		{65		2.79		0.23	}
+		{70		3.67		0.23	}
+		{75		5.225		0.23	}
+		{80		8.605		0.23	}
+		{85		20.2		0.23	}
+		{90		99.0000		0.0000	}
+	}
+)
+(define "apbc_85_slope_multiplier" ;use for 85 aphebc Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.016		0.004	}
+		{20		1.068		0.011	}
+		{30		1.169		0.021	}
+		{45		1.444		0.028	}
+		{50		1.623		0.033	}
+		{55		1.857		0.023	}
+		{60		2.253		0.031	}
+		{65		2.663		0.119	}
+		{70		3.617		0.28	}
+		{75		5.48		0.478	}
+		{80		9.98		0.478	}
+		{85		27.81		0.478	}
+		{90		99.0000		0.0000	}
+	}
+)
+(define "apbc_100_slope_multiplier" ;use for 100 aphebc Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.0135		0.008	}
+		{20		1.055		0.037	}
+		{30		1.132		0.102	}
+		{45		1.428		0.712	}
+		{50		1.684		0.749	}
+		{55		2.072		0.863	}
+		{60		2.679		0.985	}
+		{65		3.376		0.985	}
+		{70		4.742		0.985	}
+		{75		6.866		0.985	}
+		{80		15.36		0.985	}
+		{85		61.1		0.988	}
+		{90		99.0000		0.0000	}
+	}
+)
+(define "apbc_122_slope_multiplier" ;use for 122 aphebc Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.015		0.008	}
+		{20		1.0655		0.035	}
+		{30		1.154		0.121	}
+		{45		1.377		0.102	}
+		{50		1.575		0.171	}
+		{55		1.93		0.377	}
+		{60		3.022		0.864	}
+		{65		3.755		0.864	}
+		{70		5.167		0.864	}
+		{75		7.312		0.864	}
+		{80		15.57		0.864	}
+		{85		56.7		0.864	}
+		{90		99.0000		0.0000	}
+	}
+)
+(define "apbc_152_slope_multiplier" ;use for 152 aphebc Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.013		-0.015	}
+		{20		1.0365		-0.125	}
+		{30		1.141		0.04	}
+		{45		1.383		0.117	}
+		{50		1.561		0.18	}
+		{55		1.82		0.266	}
+		{60		2.221		0.38	}
+		{65		2.856		0.38	}
+		{70		3.886		0.38	}
+		{75		5.78		0.38	}
+		{80		10.115		0.38	}
+		{85		26.34		0.38	}
+		{90		99.0000		0.0000	}
+	}
+)
 (define "apcr_slope_multiplier"  ;use for APCR & HVAP Projectiles 76mm Caliber or below
 	{overmatchFixed
 		{0  1.00	}
@@ -954,7 +1456,6 @@
 		{90 99		}
 	}
 )
-
 (define "large_apcr_slope_multiplier"  ;use for APCR & HVAP Projectiles above 76mm Caliber
 	{overmatchFixed
 		{0  1.00	}
@@ -978,7 +1479,91 @@
 		{90 99		}
 	}
 )
-
+(define "apcr_50_slope_multiplier" ;use for 50-57mm APCR Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.242		-0.098	}
+		{30		1.476		-0.106	}
+		{40		1.905		-0.042	}
+		{50		2.669		-0.102	}
+		{55		3.245		-0.158	}
+		{60		3.857		-0.207	}
+		{65		4.458		-0.206	}
+		{70		5.326		-0.205	}
+		{75		6.70		-0.204	}
+		{80		9.325		-0.198	}
+		{85		16.63		-0.187	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "apcr_75_slope_multiplier" ;use for 75-76mm APCR Projectiles ;75mm APCR kwk40
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.1985		-0.059	}
+		{30		1.3825		-0.02	}
+		{40		1.884		0.003	}
+		{50		2.718		-0.045	}
+		{55		3.34		-0.067	}
+		{60		4.06		-0.09	}
+		{65		4.80		-0.088	}
+		{70		5.905		-0.084	}
+		{75		7.732		-0.079	}
+		{80		11.485		-0.066	}
+		{85		24.0		-0.028	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "hvap_76_slope_multiplier" ;use for 76mm HVAP Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.203		-0.061	}
+		{30		1.359		-0.01	}
+		{40		1.838		0.027	}
+		{50		2.709		-0.029	}
+		{55		3.339		-0.058	}
+		{60		4.066		-0.085	}
+		{65		4.811		-0.0819	}
+		{70		5.915		-0.079	}
+		{75		7.753		-0.073	}
+		{80		11.49		-0.06	}
+		{85		23.97		-0.019	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "apcr_88_slope_multiplier" ;use for 85-90mm APCR Projectiles ;88mm APCR kwk36
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.2192		-0.077	}
+		{30		1.3455		0.025	}
+		{40		1.855		0.015	}
+		{50		2.738		0.025	}
+		{55		3.397		-0.02	}
+		{60		4.133		-0.063	}
+		{65		4.917		-0.059	}
+		{70		6.105		-0.052	}
+		{75		8.12		-0.042	}
+		{80		12.365		-0.022	}
+		{85		28.43		0.045	}
+		{90		99.0000		0.00000	}
+	}
+)
+(define "hvap_90_slope_multiplier" ;use for 90mm HVAP Projectiles
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{20		1.167		-0.034	}
+		{30		1.3147		-0.0269	}
+		{45		2.2817		-0.22	}
+		{50		2.738		-0.299	}
+		{55		3.2915		-0.402	}
+		{60		3.774		-0.341	}
+		{65		4.50		-0.27	}
+		{70		5.67		-0.191	}
+		{75		7.443		-0.1	}
+		{80		11.781		-0.01	}
+		{85		25.299		0.02	}
+		{90		99.0000		0.00000	}
+	}
+)
 (define "apds_slope_multiplier"  ;for APDS Projectiles
 	{overmatchFixed
 		{0  1.00	}
@@ -1031,5 +1616,583 @@
 	{overmatchSlope
 		{0  1}
 		{90 1}
+	}
+)
+(define "20-76_slope_multipliers"
+	{parameters "ap"
+		("ap_slope_multiplier")
+	}
+	{parameters "apc"
+		("apc_slope_multiplier")
+	}
+	{parameters "apche"
+		("apc_slope_multiplier")
+	}
+	{parameters "apbc"
+		("apbc_slope_multiplier")
+	}
+	{parameters "aphe"
+		("ap_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_slope_multiplier")
+	}
+	{parameters "aphebc"
+		("apbc_slope_multiplier")
+	}
+	{parameters "aphebc2"
+		("apbc_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_slope_multiplier")
+	}
+	{parameters "hvap"
+		("apcr_slope_multiplier")
+	}
+	{parameters "apds"
+		("apds_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		("heat_slope_multiplier")
+	}
+)
+(define "85-155_slope_multipliers"
+	{parameters "ap"
+		("ap_slope_multiplier")
+	}
+	{parameters "apc"
+		("apc_slope_multiplier")
+	}
+	{parameters "apche"
+		("apc_slope_multiplier")
+	}
+	{parameters "apbc"
+		("apbc_slope_multiplier")
+	}
+	{parameters "aphe"
+		("ap_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_slope_multiplier")
+	}
+	{parameters "aphebc"
+		("apbc_slope_multiplier")
+	}
+	{parameters "aphebc2"
+		("apbc_slope_multiplier")
+	}
+	{parameters "apcr"
+		("large_apcr_slope_multiplier")
+	}
+	{parameters "hvap"
+		("large_apcr_slope_multiplier")
+	}
+	{parameters "apds"
+		("apds_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		("heat_slope_multiplier")
+	}
+)
+(define "20_slope_multipliers"
+	{parameters "ap"
+		("ap_20_slope_multiplier")
+	}
+	{parameters "apbc"
+		("ap_20_slope_multiplier")
+	}
+	{parameters "aphe"
+		("ap_20_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_slope_multiplier")
+	}
+)
+(define "37_slope_multipliers"
+	{parameters "ap"
+		("ap_37_slope_multiplier_700ms")
+	}
+	{parameters "apbc"
+		("ap_37_slope_multiplier_700ms")
+	}
+	{parameters "aphe"
+		("ap_37_slope_multiplier_700ms")
+	}
+	{parameters "apc"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apche"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_50_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		("heat_slope_multiplier")
+	}
+)
+(define "37_slope_multipliers_800ms"
+	{parameters "ap"
+		("ap_37_slope_multiplier_800ms")
+	}
+	{parameters "apbc"
+		("ap_37_slope_multiplier_800ms")
+	}
+	{parameters "aphe"
+		("ap_37_slope_multiplier_800ms")
+	}
+	{parameters "apc"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apche"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_50_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		("heat_slope_multiplier")
+	}
+)
+(define "40_slope_multipliers"
+	{parameters "ap"
+		("ap_40_slope_multiplier")
+	}
+	{parameters "apbc"
+		("ap_40_slope_multiplier")
+	}
+	{parameters "aphe"
+		("ap_40_slope_multiplier")
+	}
+	{parameters "apc"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apche"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_37_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_50_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		("heat_slope_multiplier")
+	}
+)
+(define "57_slope_multipliers"
+	{parameters "ap"
+		("ap_57_slope_multiplier")
+	}
+	{parameters "apbc"
+		("ap_57_slope_multiplier")
+	}
+	{parameters "aphe"
+		("ap_57_slope_multiplier")
+	}
+	{parameters "apc"
+		("apc_57_slope_multiplier")
+	}
+	{parameters "apche"
+		("apc_57_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_57_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_57_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_50_slope_multiplier")
+	}
+	{parameters "apds"
+		("apds_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		("heat_slope_multiplier")
+	}
+)
+(define "75_ger_slope_multipliers"
+	{parameters "apche"
+		("apc_75_ger_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_75_ger_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_75_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		("heat_slope_multiplier")
+	}
+)
+(define "75_slope_multipliers"
+	{parameters "ap"
+		("ap_75_slope_multiplier")
+	}
+	{parameters "apbc"
+		("ap_75_slope_multiplier")
+	}
+	{parameters "aphe"
+		("ap_75_slope_multiplier")
+	}
+	{parameters "apc"
+		("apc_75_slope_multiplier")
+	}
+	{parameters "apche"
+		("apc_75_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_75_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_75_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_75_slope_multiplier")
+	}
+	{parameters "hvap"
+		("hvap_76_slope_multiplier")
+	}
+	{parameters "apds"
+		("apds_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		("heat_slope_multiplier")
+	}
+)
+(define "76_slope_multipliers"
+	{parameters "ap"
+		("ap_76_slope_multiplier")
+	}
+	{parameters "apbc"
+		("ap_76_slope_multiplier")
+	}
+	{parameters "aphe"
+		("ap_76_slope_multiplier")
+	}
+	{parameters "apc"
+		("apc_76_slope_multiplier")
+	}
+	{parameters "apche"
+		("apc_76_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_76_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_76_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_75_slope_multiplier")
+	}
+	{parameters "hvap"
+		("hvap_76_slope_multiplier")
+	}
+	{parameters "apds"
+		("apds_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		("heat_slope_multiplier")
+	}
+)
+(define "90_slope_multipliers"
+	{parameters "ap"
+		("ap_90_slope_multiplier")
+	}
+	{parameters "apbc"
+		("ap_90_slope_multiplier")
+	}
+	{parameters "aphe"
+		("ap_90_slope_multiplier")
+	}
+	{parameters "apc"
+		("apc_90_slope_multiplier")
+	}
+	{parameters "apche"
+		("apc_90_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_90_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_90_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_88_slope_multiplier")
+	}
+	{parameters "hvap"
+		("hvap_90_slope_multiplier")
+	}
+	{parameters "apds"
+		("apds_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		("heat_slope_multiplier")
+	}
+)
+(define "105_slope_multipliers"
+	{parameters "ap"
+		("ap_105_slope_multiplier")
+	}
+	{parameters "apbc"
+		("ap_105_slope_multiplier")
+	}
+	{parameters "aphe"
+		("ap_105_slope_multiplier")
+	}
+	{parameters "apc"
+		("apc_90_slope_multiplier")
+	}
+	{parameters "apche"
+		("apc_90_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_90_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_90_slope_multiplier")
+	}
+	{parameters "apcr"
+		("large_apcr_slope_multiplier")
+	}
+	{parameters "hvap"
+		("large_apcr_slope_multiplier")
+	}
+	{parameters "apds"
+		("apds_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
+		("heat_slope_multiplier")
+	}
+)
+(define "128_slope_multipliers"
+	{parameters "aphe"
+		("ap_122_slope_multiplier")
+	}
+	{parameters "apche"
+		("apc_128_slope_multiplier")
+	}
+	{parameters "apcbche"
+		("apc_128_slope_multiplier")
+	}
+)
+
+(define "45_rus_slope_multipliers"
+	{parameters "aphe"
+		("ap_40_slope_multiplier")
+	}
+	{parameters "aphebc"
+		("apbc_45_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_50_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+)
+(define "57_rus_slope_multipliers"
+	{parameters "aphe"
+		("ap_57_slope_multiplier")
+	}
+	{parameters "apbc"
+		("apbc_57_slope_multiplier")
+	}
+	{parameters "aphebc"
+		("apbc_57_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_50_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+)
+(define "76_rus_slope_multipliers"
+	{parameters "aphe"
+		("ap_75_slope_multiplier")
+	}
+	{parameters "apbc"
+		("apbc_76_slope_multiplier")
+	}
+	{parameters "aphebc"
+		("apbc_76_slope_multiplier")
+	}
+	{parameters "aphebc2"
+		("apbc_76_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_75_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+)
+(define "85_rus_slope_multipliers"
+	{parameters "aphe"
+		("ap_85_slope_multiplier")
+	}
+	{parameters "aphebc"
+		("apbc_85_slope_multiplier")
+	}
+	{parameters "apcr"
+		("apcr_88_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+)
+(define "100_rus_slope_multipliers"
+	{parameters "aphe"
+		("ap_100_slope_multiplier")
+	}
+	{parameters "aphebc"
+		("apbc_100_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+)
+(define "122_rus_slope_multipliers"
+	{parameters "aphe"
+		("ap_122_slope_multiplier")
+	}
+	{parameters "aphebc"
+		("apbc_122_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+)
+(define "152_rus_slope_multipliers"
+	{parameters "aphe"
+		("ap_152_slope_multiplier")
+	}
+	{parameters "aphebc"
+		("apbc_152_slope_multiplier")
+	}
+	{parameters "heat"
+		("heat_slope_multiplier")
 	}
 )
