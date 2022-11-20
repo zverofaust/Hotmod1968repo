@@ -36,6 +36,14 @@
 			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open2"}}
 			{reverse {end "emit_tank_1_hold"} {base "open2"}}
 		}
+		{anm "left"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
 		{anm "armor"
 			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
 			{reverse {end "emit_tank_2"}}
@@ -45,11 +53,6 @@
 			{reverse {end "emit_body"}}
 		}
 	}
-	
-	("seat_human" 	place(driver) 		bone() 				door(emit1)  				animation(gunner))
-	("seat_human" 	place(gunner) 		bone() 				door(emit1)  				animation(gunner))
-	("seat_human" 	place(charger) 		bone() 				door(emit1)  				animation(gunner))
-	("seat_human" 	place(commander) 	bone(gunner2) 		door(emit2)  				animation(commander))
 	
 	{extender "inventory"
 		{box
