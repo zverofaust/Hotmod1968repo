@@ -1,0 +1,125 @@
+;Exported by: misan
+;Date:        Fri Nov 18 18:17:52 2022
+;File:        D:\Cold War\ModelWIP\Smallarms\Uzi MP2\mp2a1.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.3}}
+		{sequence "bipod_open" {speed 0.3}}
+	}
+	{bone "mp2a1"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "mp2a1.ply"}
+		{bone "magazine"
+			{Position 0.0891698	-1.37169	0}
+			{VolumeView "magazine.ply"}
+		}
+		{bone "slide"
+			{Position 1.25712	1.88269	0}
+			{VolumeView "slide.ply"}
+		}
+		{bone "stock1"
+			{Position -3.38957	1.03333	0}
+			{VolumeView "stock1.ply"}
+			{bone "stock2"
+				{Position 2.10886	-0.340744	0}
+				{VolumeView "stock2.ply"}
+			}
+		}
+		{bone "bolt"
+			{Position 0.122566	1.57912	0}
+			{VolumeView "bolt.ply"}
+		}
+		{bone "foresight11"
+			{Position 4.69599	0.965184	0.0297503}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.573576	0.819152
+				0	0.819152	-0.573576
+				-1	0	0
+				-0.0420281	1.64397	0.27318
+			}
+		}
+		{bone "handle"
+			{Matrix34
+				0	1	0
+				0	0	-1
+				-1	0	0
+				0.163109	1.84719	-0.00622511
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 7.9733 3.72608 0.833809}
+	{Bone "mp2a1"}
+	{Position 0.736207	-0.0218818	0.0058763}
+}
+{Volume "magazine"
+	{Box 0.506681 2.50577 0.285584}
+	{Bone "magazine"}
+	{Matrix34
+		1.16448	0	0
+		0	1.16448	0
+		0	0	1.16448
+		0.0099858	0.490462	0.00270531
+	}
+}
+{Volume "select"
+	{Box 9.9536 7.24372 1.25071}
+	{Bone "mp2a1"}
+	{Position 0.318325	0.0936925	0.655107}
+}
+{Extender "preview"
+	{"stuff_primary"
+		{camera
+			{origin 3.99822	0.860935	21.3252}
+			{lookat 4.0212	0.623447	1.3304}
+			{fov 45}
+			{horizon 5.5274}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position -2.33204	-0.477748	1.33739}
+			}
+			{"1"
+				{type point}
+				{position 8.63624	-1.21635	1.30826}
+			}
+			{"2"
+				{type directional}
+				{direction 0.00821002	-0.0186623	-0.499584}
+				{ambient 0xffffff}
+			}
+		}
+	}
+	{"stuff"
+		{camera
+			{origin 3.99816	0.861121	21.3564}
+			{lookat 4.02114	0.623633	1.3304}
+			{fov 45}
+			{horizon 5.52751}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 8.64014	-1.21454	1.30826}
+			}
+			{"1"
+				{type point}
+				{position -2.34358	-0.485007	1.33739}
+			}
+			{"2"
+				{type directional}
+				{direction 0.00821002	-0.0186623	-0.499584}
+				{ambient 0xffffff}
+			}
+		}
+	}
+}

@@ -1,0 +1,120 @@
+;Exported by: misan
+;Date:        Fri Nov 18 18:23:34 2022
+;File:        D:\Cold War\ModelWIP\Smallarms\G3\G3 Rigged.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.3}}
+	}
+	{bone "g3"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "g3.ply"}
+		{bone "bolt"
+			{Position 6.12569	2.0037	-0.22862}
+			{VolumeView "bolt.ply"}
+		}
+		{bone "magazine"
+			{Position 2.80867	0.0418826	-0.0269056}
+			{VolumeView "magazine.ply"}
+		}
+		{bone "handle"
+			{Matrix34
+				0	1	0
+				0	0	-1
+				-1	0	0
+				4.14226	2.14839	-0.0417089
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.573576	0.819152
+				0	0.819152	-0.573576
+				-1	0	0
+				2.64724	1.79026	0.281112
+			}
+		}
+		{bone "foresight12"
+			{Position 12.592	1.46629	0}
+		}
+	}
+}
+{Volume "body"
+	{Box 16.0368 3.18547 0.621716}
+	{Bone "g3"}
+	{Matrix34
+		1.1548	0	0
+		0	1.1548	0
+		0	0	1.1548
+		3.33098	0.605915	0.0101598
+	}
+}
+{Volume "magazine"
+	{Box 1.13468 2.3329 0.38271}
+	{Bone "magazine"}
+	{Matrix34
+		1.1548	0	0
+		0	1.1548	0
+		0	0	1.1548
+		0.0541353	-0.030202	-0.0102394
+	}
+}
+{Volume "select"
+	{Box 21.0779 7.21689 1.60375}
+	{Bone "g3"}
+	{Matrix34
+		1.1548	0	0
+		0	1.1548	0
+		0	0	1.1548
+		3.67417	-0.394603	0.0379866
+	}
+}
+{Extender "preview"
+	{"Stuff_primary"
+		{camera
+			{origin 4.10815	-1.42376	60.7903}
+			{lookat 4.10816	-0.338038	0.238621}
+			{fov 23.9132}
+			{horizon -174.325}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 6.52529	11.1585	2.97468}
+			}
+			{"1"
+				{type point}
+				{position 15.6544	-6.23703	20.4806}
+			}
+			{"2"
+				{type directional}
+				{direction 0.000725109	0.410639	-0.285263}
+			}
+		}
+	}
+	{"Stuff"
+		{camera
+			{origin 2.86974	-2.41751	60.7383}
+			{lookat 2.86974	-0.122068	0.229086}
+			{fov 23.9132}
+			{horizon -172.326}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 17.496	-8.75263	18.5138}
+			}
+			{"1"
+				{type directional}
+				{direction -0.00294092	0.418475	-0.273625}
+			}
+			{"2"
+				{type point}
+				{position 6.52529	4.64902	2.08953}
+			}
+		}
+	}
+}
