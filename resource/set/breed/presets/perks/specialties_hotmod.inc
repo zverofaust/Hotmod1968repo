@@ -88,10 +88,18 @@
 )
 
 (define "recon"		;// recon soldiers
+	{"stealth"}
 	{"health" "160%"}
 	{"stamina" "175%"}
 	{"stamina_regeneration" "110%"}
 	("recon_vision")
+)
+
+(define "guerilla"	;// Irregular Guerillas
+	{"stealth"}
+	{"speed" 1.15}
+	{"stamina" "200%"}
+	{"stamina_regeneration" "110%"}
 )
 
 (define "tank_commander"	;// Tank Commander
