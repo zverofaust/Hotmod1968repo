@@ -462,6 +462,45 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "m108"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "m109"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "m110"}
+			},
+			["prc"] = {--Peoples Republic of China
+			--Infantry
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_assault(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_antitank(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_ambush(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(prc)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_autorifle(prc)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_guards(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_guards_assault(prc)"},
+				
+				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid", unit = "single_at(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "single_mg(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "single_sniper(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "single_flamer(prc)"},
+			--Automatic_weaponry
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "dshk_aa_prc"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "zpu-4_prc"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "37mm_61k_prc"},
+			--AT_Weapons
+				{priority = 2.0, class = UnitClass.ATTank, unit = "b-10_prc"},
+			--Howitzers
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
+			--Wheel_vehicles
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "ba64_prc"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
+			--Tanks_light
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+			--Tanks_medium
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type59"},
+			--Tanks_heavy
+				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
+				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "isu152_prc"}
+			--SPG
 			}
 		}
 	}
