@@ -93,13 +93,13 @@
 
 ; // 10DP 23mm ZU-23-2 towed by GAZ-51 light truck
 {"doctrine_squad_zu23(sov)"
-	("towed_gun_doctrine" side(sov) period(mid) vehicle(gaz-51) crew_v(sup_supporter:2) cannon(zu-23-2) crew_c(sup_supporter:2) cw(0) cp(0))
+	("towed_gun_doctrine" side(sov) period(mid) vehicle(gaz-51) crew_v(sup_supporter:1) cannon(zu-23-2) crew_c(sup_supporter:2) cw(0) cp(0))
 	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(10))
 }
 
 ; // 10DP 100mm T-12 towed by ZIL-157 truck
 {"doctrine_squad_t12(sov)"
-	("towed_gun_doctrine" side(sov) period(mid) vehicle(zil-157) crew_v(sup_supporter:2) cannon(t-12) crew_c(sup_supporter:4) cw(0) cp(0))
+	("towed_gun_doctrine" side(sov) period(mid) vehicle(zil-157) crew_v(sup_supporter:1) cannon(t-12) crew_c(sup_supporter:4) cw(0) cp(0))
 	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(10))
 }
 
@@ -109,16 +109,16 @@
 	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(12))
 }
 
-; // 15DP 9P124
+; // 15DP 9P124 ; 9P124 Tank Destroyer with 4 x AT-2 ATGMs
 {"doctrine_vehicle_9p124(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(9p124) crew(sup_vehicleman:2) cw(0) cp(0))
 	("doctrine_t1" cool(160) d(mid_sov_motostrelki) cost(15))
 }
 
-; // 15DP BM-21 Grad
-{"doctrine_vehicle_grad(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(bm-21_grad) crew(sup_supporter:2) cw(0) cp(0))
-	("doctrine_t1" cool(160) d(mid_sov_motostrelki) cost(15))
+; // 15DP BM-13-17M Katyusha on ZIL-157; to be replaced by BM-14N
+{"doctrine_vehicle_bm14(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(bm-13-17m) crew(sup_supporter:2) cw(0) cp(0))
+	("doctrine_t1" cool(160) d(mid_sov_motostrelki) cost(20))
 }
 
 ; // 10DP 160mm Mortar Barrage
@@ -307,13 +307,13 @@
 
 ; // 6DP 23mm ZU-2 Towed by GAZ-69 Jeep
 {"doctrine_squad_zu2(sov)"
-	("towed_gun_doctrine" side(sov) period(mid) vehicle(gaz-69) crew_v(vdv_rifleman:2) cannon(zu-2) crew_c(vdv_rifleman:2) cw(0) cp(0))
+	("towed_gun_doctrine" side(sov) period(mid) vehicle(gaz-69) crew_v(vdv_rifleman:1) cannon(zu-2) crew_c(vdv_rifleman:2) cw(0) cp(0))
 	("doctrine_t1" cool(60) d(mid_sov_vdv) cost(6))
 }
 
 ; // 8DP 76mm GP Mountain Gun Towed by GAZ-69 Jeep
 {"doctrine_squad_gp1958(sov)"
-	("towed_gun_doctrine" side(sov) period(mid) vehicle(gaz-69) crew_v(vdv_rifleman:2) cannon(gp1958) crew_c(vdv_rifleman:4) cw(0) cp(0))
+	("towed_gun_doctrine" side(sov) period(mid) vehicle(gaz-69) crew_v(vdv_rifleman:1) cannon(gp1958) crew_c(vdv_rifleman:4) cw(0) cp(0))
 	("doctrine_t1" cool(120) d(mid_sov_vdv) cost(8))
 }
 
@@ -410,19 +410,25 @@
 ; // 10DP ML-20 152mm Howitzer
 {"doctrine_vehicle_ml20(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(152mm_ml20_sov) crew(sup_guncrew:4) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_sov_artillery) cost(20))
+	("doctrine_t1" cool(240) d(mid_sov_artillery) cost(10))
 }
 
-; // 20DP B-4M 203mm Howitzer
+; // 15DP B-4M 203mm Howitzer
 {"doctrine_vehicle_b4(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(203mm_b4_sov) crew(sup_guncrew:5) cw(0) cp(0))
-	("doctrine_t1" cool(360) d(mid_sov_artillery) cost(30))
+	("doctrine_t1" cool(360) d(mid_sov_artillery) cost(15))
 }
 
-; // 15DP BM-21 Grad
-{"doctrine_vehicle_grad_artillery(sov)"
+; // 18DP BM-21 Grad
+{"doctrine_vehicle_grad(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(bm-21_grad) crew(sup_supporter:2) cw(0) cp(0))
-	("doctrine_t1" cool(160) d(mid_sov_artillery) cost(15))
+	("doctrine_t1" cool(160) d(mid_sov_artillery) cost(18))
+}
+
+; // 25DP BM-31, to be replaced with BM-24
+{"doctrine_vehicle_bm24(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(bm-31m) crew(sup_supporter:2) cw(0) cp(0))
+	("doctrine_t1" cool(180) d(mid_sov_artillery) cost(25))
 }
 
 ; // 5DP 122mm Smoke Barrage
@@ -606,10 +612,10 @@
 	{cost 250}
 }
 
-{"btr-40"
-	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(sov) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(4))
-	{cost 50}
-}
+;{"btr-40" ; No need for this in Mid period really
+;	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(sov) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(4))
+;	{cost 50}
+;}
 
 {"btr-152"
 	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(sov) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
