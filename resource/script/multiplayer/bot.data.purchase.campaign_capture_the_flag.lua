@@ -353,11 +353,11 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.ATTank, unit = "it-1"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "shilka"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "t-62a"},
-				{priority = 1.0, class = UnitClass.HeavyTank, unit = "t-64"},
+				--{priority = 1.0, class = UnitClass.HeavyTank, unit = "t-64"},
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "t-10"},
 			--SPG
-				;{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "2s3"},
+				--{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "2s3"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bm-21_grad"}
 			},
 			["usa"] = {--United States
