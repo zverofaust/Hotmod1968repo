@@ -160,6 +160,12 @@
 	("doctrine_t1" cool(120) d(mid_usa_acav) cost(20))
 }
 
+; // 15DP M106 Self-Propelled Heavy Mortar
+{"doctrine_vehicle_m106(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m106) crew(acav_vehicleman:4) cw(0) cp(0))
+	("doctrine_t1" cool(120) d(mid_usa_tank) cost(15))
+}
+
 ; // 20DP M132 Zippo
 {"doctrine_vehicle_m132(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m132_zippo) crew(acav_vehicleman:3) cw(0) cp(0))
@@ -310,12 +316,17 @@
 	("doctrine_t1" cool(180) d(mid_usa_tank) cost(25))
 }
 
-; // 15DP M108 Self-Propelled Howitzer
-{"doctrine_vehicle_m108(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m108) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(120) d(mid_usa_tank) cost(15))
+; // 40DP M60A1E2 'Starship' pre-production
+{"doctrine_vehicle_m60a1e2(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m60a1e2) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t1" cool(120) d(mid_usa_tank) cost(40))
 }
 
+; // 30DP M728 CEV
+{"doctrine_vehicle_m728(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m728) crew(acav_engineer:4) cw(0) cp(0))
+	("doctrine_t1" cool(120) d(mid_usa_tank) cost(30))
+}
 
 ; // 20DP M109 Self-Propelled Howitzer
 {"doctrine_vehicle_m109(usa)"
@@ -327,18 +338,6 @@
 {"doctrine_vehicle_m110(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m110) crew(sup_tankman:5) cw(0) cp(0))
 	("doctrine_t1" cool(240) d(mid_usa_tank) cost(30))
-}
-
-; // 30DP M728 CEV
-{"doctrine_vehicle_m728(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m728) crew(acav_engineer:4) cw(0) cp(0))
-	("doctrine_t1" cool(120) d(mid_usa_tank) cost(30))
-}
-
-; // 40DP M60A1E2 'Starship' pre-production
-{"doctrine_vehicle_m60a1e2(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m60a1e2) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(120) d(mid_usa_tank) cost(40))
 }
 
 ; // 15 DP Huey M22 CAS
@@ -683,11 +682,6 @@
 	{cost 350}
 }
 
-{"m106"
-	("vehicle"  period(mid) cd(120) ci(60) g(light2) side(usa) t(vehicle mortar apc) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
-	{cost 450}
-}
-
 {"m41"
 	("vehicle" period(mid) cd(60) ci(60) t(light tank) side(usa) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(10))
 	{cost 275}
@@ -715,6 +709,10 @@
 	{cost 650}
 }
 
+{"m108"
+	("vehicle"  period(mid) cd(80) ci(120) g(light2) side(usa) t(vehicle artillery apc) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 550}
+}
 
 ;_________________________________________________
 ;|        		 AI ONLY for purchase             |
