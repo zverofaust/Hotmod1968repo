@@ -18,8 +18,8 @@
 
 	{placer
 		{place "driver"		{visor "driver"}}
-		{place "commander"	{visor "commander"}}
-		{place "gunner4"	{visor "mgun"}{sealable}}
+		{place "commander"	{visor "scout"}}
+		;{place "gunner4"	{visor "mgun"}{sealable}}
 	}
 	
 	{boarder
@@ -41,18 +41,19 @@
 		}
 	}
 	
-	("crew_driver" 	place(driver) 		bone() 					door(emit1)  	visor(driver))
-	("crew_human" 	place(commander) 	bone() 					door(emit3)  	visor(main))
-	("crew_human_visible_anm" 	place(gunner4) 	bone(gunner4) 	door(emit3)  	visor(mgun)			anm_left(gunner4) anm_right(gunner4))
+	("crew_inside")
+	("crew_human" place(driver)		door(emit1) door2(emit2) visor(driver))
+	("crew_human" place(commander)	door(emit1) door2(emit2) visor(scout))
+	("crew_human" place(charger)	door(emit1) door2(emit2) visor(around))
 
 	{sensor
-		{visor "mgun"
-			{vision "human"}
-			{bone "mgun2_rot"}
-		}
+		;{visor "mgun"
+		;	{vision "human"}
+		;	{bone "mgun2_rot"}
+		;}
 		{visor "scout"
 			{vision "vehicle_scout"}
-			{bone "visor1"}
+			{bone "turret"}
 		}
 	}
 	
@@ -61,7 +62,7 @@
 	{extender "inventory"
 		{box
 			{item "ammo hmgun_usa" 1000}
-			{item "ammo mgun_usa belt" 2000}
+			;{item "ammo mgun_usa belt" 2000}
 			{item "m72_law weapon" filled}
 			{item "m72_law weapon" filled}
 			{item "m72_law weapon" filled}
@@ -73,21 +74,21 @@
 		{place "mgun"
 			{weapon			"browning_m2" filled}
 			{gunner			"commander"}
-			{charger		"commander"}
+			{charger		"charger"}
 			{LinkBone		"mgun_help"}
 			{LinkAnimation	"off"}
 			("abm_mgun")
 		}
-		{place "mgun2"
-			{weapon "browning_m19a4" filled}
-			{gunner "gunner4"}
-			{charger "gunner4"}
-			;{foresight "foresight5"}
-			{LinkBone		"mgun2_help"}
-			{LinkAnimation	"off"}
-			{basic}
-			{ai_in_manual}
-		}
+		;{place "mgun2"
+		;	{weapon "browning_m19a4" filled}
+		;	{gunner "gunner4"}
+		;	{charger "gunner4"}
+		;	;{foresight "foresight5"}
+		;	{LinkBone		"mgun2_help"}
+		;	{LinkAnimation	"off"}
+		;	{basic}
+		;	{ai_in_manual}
+		;}
 	}
 
 	{mass 6800}
@@ -125,16 +126,16 @@
 	{bone "turret"
 		{speed2 35}
 	}
-	{bone "mgun_rot"
-		{limits -10 25}
-		{speed2 55}
-	}
-	{bone "mgun_rot_h"
-		{limits -5 5}
-		{speed2 75}
-	}
-	{bone "mgun_turret"
-		{limits -35 65}
-		{speed2 40}
-	}
+	;{bone "mgun_rot"
+	;	{limits -10 25}
+	;	{speed2 55}
+	;}
+	;{bone "mgun_rot_h"
+	;	{limits -5 5}
+	;	{speed2 75}
+	;}
+	;{bone "mgun_turret"
+	;	{limits -35 65}
+	;	{speed2 40}
+	;}
 }
