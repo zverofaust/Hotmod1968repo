@@ -10,12 +10,23 @@
 	
 	;volume, component/tag
 	
+	("shield" args "skirtl1" 5)
+	("shield" args "skirtl2" 5)
+	("shield" args "skirtl3" 5)
+	("shield" args "skirtl4" 5)
+	("shield" args "skirtr1" 5)
+	("shield" args "skirtr2" 5)
+	("shield" args "skirtr3" 5)
+	("shield" args "skirtr4" 5)
+	
 	("fuel" args "fuel1")
 	("fuel" args "fuel2")
 	("ammo" args "ammo1")
 	("ammo" args "ammo2")
 	("transmission" args "transmission")
 	("tracks" repair(30) thickness(15))
+	{volume "trackleft" {able {holed}}}
+	{volume "trackright" {able {holed}}}
 	
 	{volume "body1"			; Upper Hull
 		{thickness 35
@@ -60,3 +71,12 @@
 		{HighHardness}
 		{CastSteel 0.8063}
 	}
+	
+	{component "skirtl1" {tags "cut_part"}}
+	{component "skirtl2" {tags "cut_part"}}
+	{component "skirtl3" {tags "cut_part"}}
+	{component "skirtl4" {tags "cut_part"}}
+	{component "skirtr1" {tags "cut_part"}}
+	{component "skirtr2" {tags "cut_part"}}
+	{component "skirtr3" {tags "cut_part"}}
+	{component "skirtr4" {tags "cut_part"}}

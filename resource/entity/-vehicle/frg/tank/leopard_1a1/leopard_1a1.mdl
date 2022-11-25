@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Wed Aug  3 08:54:08 2022
+;Date:        Fri Nov 25 08:35:04 2022
 ;File:        D:\Cold War\ModelWIP\West Germany\Leopard 1\Leopard Take 2.max
 {Skeleton
 	{animation
@@ -404,6 +404,11 @@
 					{Position -28.5787	-0.379729	14.3378}
 					{VolumeView "detail4.ply"}
 				}
+				;{bone "detail9"
+				;	{parameters "id=turret;"}
+				;	{Position 14.1608	-4.11571	15.2975}
+				;	{VolumeView "detail9.ply"}
+				;}
 				{bone "detail5"
 					{parameters "id=turret;"}
 					{Position -28.5787	-0.379729	14.3378}
@@ -702,6 +707,56 @@
 			{bone "fxfire4"
 				{Position 8.94686	0.138345	20.2057}
 			}
+			{bone "skirt_left"
+				{parameters "id=body;"}
+				{Position -0.473129	30.8516	19.7512}
+				{VolumeView "skirt_left.ply"}
+				{bone "skirtl1"
+					{parameters "id=skirtl1;"}
+					{Position 57.3133	0.127434	3.40824}
+					{VolumeView "skirtl1.ply"}
+				}
+				{bone "skirtl2"
+					{parameters "id=skirtl2;"}
+					{Position 57.3133	0.127434	3.40824}
+					{VolumeView "skirtl2.ply"}
+				}
+				{bone "skirtl3"
+					{parameters "id=skirtl3;"}
+					{Position 57.3133	0.127434	3.40824}
+					{VolumeView "skirtl3.ply"}
+				}
+				{bone "skirtl4"
+					{parameters "id=skirtl4;"}
+					{Position 57.3133	0.127434	3.40824}
+					{VolumeView "skirtl4.ply"}
+				}
+			}
+			{bone "skirt_right"
+				{parameters "id=body;"}
+				{Position -0.473129	-30.8806	19.7512}
+				{VolumeView "skirt_right.ply"}
+				{bone "skirtr1"
+					{parameters "id=skirtr1;"}
+					{Position 57.3133	-0.127453	3.40825}
+					{VolumeView "skirtr1.ply"}
+				}
+				{bone "skirtr2"
+					{parameters "id=skirtr2;"}
+					{Position 57.3133	-0.127453	3.40825}
+					{VolumeView "skirtr2.ply"}
+				}
+				{bone "skirtr3"
+					{parameters "id=skirtr3;"}
+					{Position 57.3133	-0.127453	3.40825}
+					{VolumeView "skirtr3.ply"}
+				}
+				{bone "skirtr4"
+					{parameters "id=skirtr4;"}
+					{Position 57.3133	-0.127453	3.40825}
+					{VolumeView "skirtr4.ply"}
+				}
+			}
 		}
 		{bone "emit2"
 			{Matrix34
@@ -796,6 +851,26 @@
 		-15.1096	0.0380266	-0.231106
 	}
 }
+{Volume "hole1"
+	{Box 94.3665 5.45702 12.1119}
+	{Bone "wheelsr"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		6.42826	-5.34384	1.79796
+	}
+}
+{Volume "hole2"
+	{Box 94.3665 5.45702 12.1119}
+	{Bone "wheelsl"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		6.42826	5.45063	1.79796
+	}
+}
 {Volume "mantlet"
 	{Polyhedron "mantlet.vol"}
 	{Bone "gun_rot"}
@@ -804,6 +879,106 @@
 		-0.000401346	-1	0
 		-1	0.000401346	0
 		1.64956	-0.981163	0.357357
+	}
+}
+{Volume "skirtl1"
+	{Polyhedron "skirtl1.vol"}
+	{Bone "skirtl1"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-20.7706	0.30064	-5.69815
+	}
+}
+{Volume "skirtl2"
+	{Polyhedron "skirtl2.vol"}
+	{Bone "skirtl2"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-49.9585	0.30064	-5.69815
+	}
+}
+{Volume "skirtl3"
+	{Polyhedron "skirtl3.vol"}
+	{Bone "skirtl3"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-80.4587	0.30064	-5.69815
+	}
+}
+{Volume "skirtl4"
+	{Box 16.0936 6.77625 0.507329}
+	{Bone "skirtl4"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-103.757	0.0335784	-3.88212
+	}
+}
+{Volume "skirtr1"
+	{Polyhedron "skirtr1.vol"}
+	{Bone "skirtr1"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-20.7706	0.205383	-5.69816
+	}
+}
+{Volume "skirtr2"
+	{Polyhedron "skirtr2.vol"}
+	{Bone "skirtr2"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-49.9585	0.205383	-5.69816
+	}
+}
+{Volume "skirtr3"
+	{Polyhedron "skirtr3.vol"}
+	{Bone "skirtr3"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-80.4587	0.205383	-5.69816
+	}
+}
+{Volume "skirtr4"
+	{Box 16.0936 6.77625 0.507329}
+	{Bone "skirtr4"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-103.757	-0.0616784	-3.88213
+	}
+}
+{Volume "trackleft"
+	{Polyhedron "trackleft.vol"}
+	{Bone "wheelsl"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		6.90695	4.9629	-3.55957
+	}
+}
+{Volume "trackright"
+	{Polyhedron "trackright.vol"}
+	{Bone "wheelsr"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		6.90695	-5.0149	-3.55957
 	}
 }
 {Volume "transmission"
