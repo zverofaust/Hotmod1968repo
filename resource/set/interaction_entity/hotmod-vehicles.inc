@@ -1589,6 +1589,10 @@
 	}
 }
 
+{"spz_123"
+	("pz2_sound")
+}
+
 {"m47g tank"
 	("m26_sound")
 	{on "commander_hatch_open" overload
