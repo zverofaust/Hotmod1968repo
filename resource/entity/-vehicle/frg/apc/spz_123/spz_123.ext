@@ -1,0 +1,56 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 15mm
+	; gun 20mm
+	; track guards 5mm
+
+	;durability from properties/armor.ext
+	("tank_light_tier2")
+	
+	;volume, component/tag
+	
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo")
+	;("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+	
+	{volume "body1"			; Lower Hull
+		{thickness 15
+			{front 30}		; Glacis
+			{top 0}
+			{rear 15}
+			{bottom 15}
+		}
+	}
+
+	{volume "body2"			; Front Upper Hull
+		{thickness 30
+			{front 30}		; Glacis
+			{top 10}
+			{rear 0}
+			{bottom 0}
+		}
+	}
+	
+	{volume "body3"			; Back Upper hull
+		{thickness 30
+			{front 0}		; Glacis
+			{top 15}
+			{rear 15}
+			{bottom 0}
+		}
+	}
+	
+	{volume "turret"		; Turret
+		{thickness 15}
+	}
+	
+	{volume "mantlet"		; Turret
+		{thickness 15}
+	}
+	
+	{volume "engine"		; Engine
+		{thickness 15}
+	}
