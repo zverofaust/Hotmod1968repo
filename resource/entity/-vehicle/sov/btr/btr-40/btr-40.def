@@ -44,9 +44,16 @@
 	;Crew: driver, commander, 6 passengers
 
 	(include "crew.ext")
-
+	
+	{placer
+		{place "driver"		{visor "driver"}{group "crew"}}
+		{place "gunner2"	{visor "mgun"}}
+		{place "commander"	{visor "human"}}
+	}
+	
 	{sensor
 		{visor "mgun"
+			{vision "human"}
 			{bone "turret_mgun"}
 		}
 	}
