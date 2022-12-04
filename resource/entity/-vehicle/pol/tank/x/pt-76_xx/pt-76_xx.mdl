@@ -1,0 +1,215 @@
+;Exported by: pk
+;Date:        Wed Feb 06 22:40:56 2019
+;File:        E:\Chris setup\my\pt76\PT_76_xx_export.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.99863	0.00243521	-0.0522722
+				-0.000608908	0.99939	0.0349258
+				0.0523254	-0.0348461	0.998022
+				-2.99213	0	17.4738
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{speed 0.01}
+				{Matrix34
+					0.974333	-0.224943	-0.00872654
+					0.224951	0.97437	0
+					0.00850293	-0.0019628	0.999962
+					14.7188	0.134571	15.5998
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -7 15}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						18.2291	-0.000356674	5.16631
+					}
+					{bone "gun"
+						{parameters "id=gun;"}
+						{Orientation
+							1	0	0
+							0	0	-1
+							0	1	0
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "part1"
+					{parameters "id=turret;"}
+					{Matrix34
+						-0.382683	0	-0.92388
+						0	1	0
+						0.92388	0	-0.382683
+						3.60047	0.531777	11.2138
+					}
+					{VolumeView "part1.ply"}
+				}
+				{bone "gun2"
+					{parameters "id=gun;"}
+					{Position 18.2291	-0.000352859	5.16631}
+					{VolumeView "gun2.ply"}
+				}
+				{bone "mgun"
+					{parameters "ID=mgun;"}
+					{Position 0	0	0}
+					{VolumeView "mgun.ply"}
+				}
+			}
+			{bone revolute "wheelr8"
+				{parameters "ID=trackright;Radius=0.24;"}
+				{Matrix34
+					-0.966019	-0.258245	0.0108173
+					0.00726208	0.0147168	0.999865
+					-0.25837	0.965967	-0.0123413
+					-52.3794	-27.1225	-7.23775
+				}
+				{VolumeView "wheelr8.ply"}
+			}
+			{bone revolute "wheell8"
+				{Matrix34
+					-0.996858	-0.0752068	0.0248802
+					0.0111734	0.177451	0.984066
+					-0.0784235	0.981252	-0.176053
+					-52.3794	27.2962	-7.23775
+				}
+			}
+			{bone "engine"
+				{parameters "ID=engine;"}
+				{VolumeView "engine.ply"}
+			}
+		}
+		{bone "wheelsr"
+			{parameters "wheelsR;"}
+			{Position -2.98966	0	17.4738}
+			{VolumeView "wheelsr.ply"}
+			{bone "trackr"
+				{parameters "ID=trackRight;"}
+				{Position 0.0372124	-27.1352	-9.43793}
+				{VolumeView "trackr.ply"}
+			}
+		}
+		{bone "wheelsl"
+			{parameters "wheelsL;"}
+			{Position -2.98966	0	17.4738}
+			{VolumeView "wheelsl.ply"}
+			{bone "trackl"
+				{parameters "ID=trackLeft;"}
+				{Position 0.0372124	27.3312	-9.43793}
+				{VolumeView "trackl.ply"}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		32.6383	-2.79342	8.82092
+	}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		1.56533	0.838381	-1.08007
+	}
+}
+{Volume "crew"
+	{Box 44.5877 31.2801 12.9492}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	1	0
+		0	0	1
+		13.6087	0.333058	1.96114
+	}
+}
+{Volume "engine"
+	{Box 53.9211 44.1934 12.2748}
+	{Bone "engine"}
+	{Position -36.3212	0	8.87812}
+}
+{Volume "gun"
+	{Cylinder 2.17039 50.8079}
+	{Bone "gun"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		26.2754	0.0581917	0.0786515
+	}
+}
+{Volume "inventory"
+	{Box 24.987 11.7922 8.21523}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	1	0
+		0	0	1
+		5.46177	-8.2495	0.0108714
+	}
+}
+{Volume "mantlet"
+	{Polyhedron "mantlet.vol"}
+	{Bone "turret"}
+	{Matrix34
+		0.999997	0	0.00229979
+		0	1	0
+		-0.00229978	0	0.999997
+		15.6621	-0.15639	-0.0864716
+	}
+}
+{Volume "part1"
+	{Box 27.3584 14.5099 2.18842}
+	{Bone "part1"}
+	{Matrix34
+		0.00599163	-0.999982	0
+		-0.999982	-0.00599184	0
+		0	0	-1
+		-7.41163	0.243696	0.304876
+	}
+}
+{Volume "trackleft"
+	{Polyhedron "trackleft.vol"}
+	{Bone "wheelsl"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		5.6973	27.3312	-6.57064
+	}
+}
+{Volume "trackright"
+	{Polyhedron "trackright.vol"}
+	{Bone "wheelsr"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		5.6973	-27.1352	-6.57064
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Position 0.0919094	0	-0.0858574}
+}

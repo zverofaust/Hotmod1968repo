@@ -1,0 +1,112 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(1.2))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{props "td" "light" "-turret" "mantlet" "vision_lev03" "muzzle_85mm_93mm_sides" "diesel"}
+	(include "asu-85.ext")
+	{targetclass "tank_light"}
+	{targetSelector "tank_light"}
+	{PatherId "t34"}
+	
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+	
+	("crew_4_human")
+	
+	{boarder
+		{anm "left"
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open1"}}
+			{reverse {end "emit_tank_1_hold"} {base "open1"}}
+		}
+		{anm "armor"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_body"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+	("seat_human" place(seat5) bone(seat05) door(emit7)  animation(armor))
+	("seat_human" place(seat6) bone(seat06) door(emit8)  animation(armor1))
+	("seat_human" place(seat7) bone(seat07) door(emit1)  animation(armor))
+	("seat_human" place(seat8) bone(seat08) door(emit2)  animation(armor1))
+
+	{sensor
+		{visor "main"
+			{bone "visor1"}
+		}
+		{visor "around"
+			{bone "visor"}
+		}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet85_d48 aphe" 10}		; 40 rounds
+			{item "bullet85_d48 aphebc" 5}
+			{item "bullet85_d48 heat" 5}
+			{item "bullet85_d48 he" 22}
+			{item "ammo mgun_rus belt" 2000}		;
+			{item "satchel_charge_rus" 1}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "85mm_d-70" filling "bullet85_d48 aphe" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic_td"
+				zeroing(5)
+				dispersion(0.1)
+			)
+		}
+		{place "mgun2"		;coax
+			{weapon			"sgmt" filled}
+			{foresight		"foresight5"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 15500}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
+		("mobility_tank"
+			speed(45) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(15.5) ;-------Weight in Tonnes.
+			power(210) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(400) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(230) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "asu-85.mdl"}
+
+	{bone "mantlet"
+		{limits -15 4}
+		{speed2 5}
+	}
+	
+	{bone "turret"
+		{limits -15 15}
+		{speed2 6}
+	}
+}
