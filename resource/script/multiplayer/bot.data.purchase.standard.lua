@@ -501,6 +501,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type62_lt"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
@@ -657,6 +658,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type62_lt"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
@@ -820,6 +822,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type62_lt"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
@@ -970,6 +973,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type62_lt"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
@@ -1120,6 +1124,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type62_lt"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
