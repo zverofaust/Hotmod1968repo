@@ -80,10 +80,16 @@
 	("doctrine_t1" cool(200) d(mid_prc_tank) cost(10))
 }
 
-; // 15DP Type 63 MRL towed by NJ-130
+; // 10DP Type 63 MRL
 {"doctrine_vehicle_type63mrl(prc)"
-	("towed_gun_doctrine" side(prc) period(mid) vehicle(nj-130) crew_v(sup_supporter:1) cannon(type63_mrl) crew_c(sup_supporter:4) cw(0) cp(0))
-	("doctrine_t1" cool(120) d(mid_prc_tank) cost(15))
+	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(type63_mrl) crew(sup_supporter:4) cw(0) cp(0))
+	("doctrine_t1" cool(100) d(mid_prc_tank) cost(10))
+}
+
+; // 10DP Type 62 Light Tank
+{"doctrine_vehicle_type62lt(prc)"
+	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(type62_lt) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t1" cool(100) d(mid_prc_tank) cost(10))
 }
 
 ; // 10DP IS-2
@@ -249,13 +255,13 @@
 
 ;LIGHT
 
-{"ba64_prc"
-	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(prc) crew(sup_vehicleman:2) g(wheel3) b(tanks) cw(0) cp(2))
-	{cost 55}
-}
+;{"ba64_prc"
+;	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(prc) crew(sup_vehicleman:2) g(wheel3) b(tanks) cw(0) cp(2))
+;	{cost 55}
+;}
 
 {"btr-40_type55"
-	("vehicle" period(mid) cd(10) ci(15) t(vehicle apc) side(prc) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(3))
+	("vehicle" period(mid) cd(10) ci(15) t(vehicle apc) side(prc) crew(sup_vehicleman:2) g(wheel3) b(tanks) cw(0) cp(3))
 	{cost 75}
 }
 
@@ -297,6 +303,11 @@
 {"squad_masswave_ai(prc)"
 	("squad_with3types" side(prc) name(squad_masswave)			period(mid) cd(0) ci(0) g(squad_1) c1(mil_squadlead:1) c2(mil_mg:1) c3(mil_rifleman:6) b() t())
 	{squad_cost_factor 0.1}{not_for_player_sale 1}
+}
+
+{"type62_lt"
+	("vehicle" period(mid) cd(300) ci(240) t(heavy) side(prc) crew(sup_tankman:4) cw(0) cp(15))
+	{cost 500}{not_for_player_sale 1}
 }
 
 {"is2_prc"

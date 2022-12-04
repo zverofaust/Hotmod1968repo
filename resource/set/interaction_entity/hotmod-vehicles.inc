@@ -1865,6 +1865,24 @@
 	}
 }
 
+{"type62_lt tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/pz4/start"}
+		{link_sound "engine_stop"		"vehicle/engine/pz4/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/pz4/idle"}
+		{link_sound "engine_full"		"vehicle/engine/pz4/full"}
+		{link_sound "exhaust"			"vehicle/engine/pz4/exhaust"}
+		{link_sound "move"				"vehicle/tracks/pz4"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "open2" 1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open2" -1.0 resume}
+	}
+}
+
 {"type58_tank tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
