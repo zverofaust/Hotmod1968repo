@@ -139,12 +139,11 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATTank, unit = "b-10_prc"},
 			--Howitzers
 			--Wheel_vehicles
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "ba64_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"}	
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su100_prc"}
 			--Tanks_heavy
 			--SPG
 			}
@@ -256,10 +255,9 @@ Purchases["standard"] = {
 			--Howitzers
 				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
 			--Wheel_vehicles
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "ba64_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
-				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 2, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
@@ -350,17 +348,16 @@ Purchases["standard"] = {
 			--Howitzers
 				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
 			--Wheel_vehicles
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "ba64_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su100_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type59"},
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
+				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "isu152_prc"}
 			--SPG
 			}
@@ -497,18 +494,17 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
 			--Wheel_vehicles
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "ba64_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type62_lt"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su100_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type59"},
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
+				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "isu152_prc"}
 			--SPG
 			}
@@ -654,18 +650,17 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
 			--Wheel_vehicles
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "ba64_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type62_lt"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su100_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type59"},
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
+				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "isu152_prc"}
 			--SPG
 			}
@@ -818,10 +813,9 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
 			--Wheel_vehicles
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "ba64_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type62_lt"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
@@ -829,7 +823,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su100_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type59"},
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
+				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "isu152_prc"}
 			--SPG
 			}
@@ -969,18 +963,17 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
 			--Wheel_vehicles
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "ba64_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type62_lt"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
 				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su100_prc"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type59"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type59"},
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
+				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "isu152_prc"}
 			--SPG
 			}
@@ -1120,18 +1113,17 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
 			--Wheel_vehicles
-				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "ba64_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type62_lt"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su100_prc"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type59"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type59"},
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
+				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "isu152_prc"}
 			--SPG
 			}
