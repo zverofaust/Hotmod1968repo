@@ -1,3 +1,114 @@
-{game_entity
+{game_entity		;
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc"  scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{props "td" "light" "vision_lev04" "muzzle_75mm_76mm"}
+	(include "m50.ext")
+	{targetclass "tank_light"}
+	{targetSelector "tank_heavy"}
+	{patherId "zis30"}
+
+	("crew_3_human")
+	
+	;("shield" args "shield" 6)
+	;{extender "shield" {on}}
+	
+	
+	{extender "enumerator"
+		{digit_folder "nato"}
+	}
+	
+	{sensor
+		{visor "main"
+			{vision "tank_main-l"}
+			{bone "foresight"}
+		}
+	}
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_LowTank_left"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_driver"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+	
+	{extender "inventory"
+		{box	
+			{item "ammo bullet106_m40 he" 6}
+			{item "ammo bullet106_m40 heat" 12}
+			{item "ammo mgun_usa belt" 1000}
+		}
+	}
+	
+	{Weaponry
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "106mm_m40_x6" filling "ammo bullet106_m40 heat" 6}
+			{gunner			"gunner"}
+			{charger		"charger"}
+			{foresight "foresight"}
+			{Rotate}
+			{Barrels 6}
+			("abm_dymamic"
+				zeroing(7.5)
+				dispersion(0.01)
+			)
+			
+		}
+		{place "mgun"
+			{type 			"aa"}
+			{weapon "browning_m19a4" filled}
+			{gunner			"gunner"}
+			{charger		"gunner"}
+			{foresight "foresight14"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 8600}
+
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(48) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(34) ;-------Track traverse, per second, in degrees.
+			weight(8.6) ;-------Weight in Tonnes.
+			power(145) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(100) ;----------Fuel capacity in Litres.
+			type(fuel) ;-------Fuel type. (diesel OR fuel)
+			range(185) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+
 	{Extension "m50.mdl"}
+
+	{bone "mgun"	;top mgun vertical
+		{speed 0.025}
+		{limits -10 5}
+	}
+	{bone "turret"	;top mgun vertical
+		{speed2 12}
+		{limits -40 40}
+	}
+	{bone "mgun_rot"		;top mgun horiz
+		{limits -1 1}
+		{speed 0.025}
+	}
+
 }
