@@ -1,0 +1,14 @@
+{from "122mm_a19"			; L/53 "D-74" Field Gun
+	("reload time" seconds(16))
+
+	("velocity m/s" ap(800) apcr(1) he(275) heat(560)) ; // Real HE 515m/s
+	
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(0.60) 				; // Accuracy radius for direct-fire munitions
+		r2(6) 					; // Accuracy radius for indirect fire
+		rmax(38) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(250) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(230) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(545)			; // Range after which accuracy drops to prevent farshooting.
+	)
+}
