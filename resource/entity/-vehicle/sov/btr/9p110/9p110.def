@@ -18,13 +18,27 @@
 
 	("armoredcar_tier1")
 	
-	("fuel" args "fuel")
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo")
 	("transmission" args "transmission")
 	
-	{volume "body"
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
 		{thickness 10}
 	}
-	{volume "body1"
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	{volume "body4"
 		{tags "body"}
 		{component "body"}
 		{thickness 10}
@@ -35,12 +49,20 @@
 	}
 	
 	{volume "turret"
-		{thickness 15}
+		{tags "turret"}
+		{component "turret"}
+		{thickness 10}
 	}
+	{volume "gun"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 10}
+	}
+	
 
 	("armoredcar_tier1")
 	
-	("turret" repair(40))
+	("turret" repair(30))
 
 	{extender "inventory"
 		{box

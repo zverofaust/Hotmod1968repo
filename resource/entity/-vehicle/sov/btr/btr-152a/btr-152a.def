@@ -90,6 +90,10 @@
 			{forward	{begin "board_body"} {end "aagun_61k_charger"}}
 			{reverse	{end "emit_body" 1} {base "open_back"}}
 		}
+		{anm "charger"
+			{forward	{begin "board_body"} {end "pose_squat_empty"}}
+			{reverse	{end "emit_body" 1} {base "open_back"}}
+		}	
 		{anm "passenger"
 			{forward	{begin	"board_dodge_bodyback"} {end "seat_passenger"} {base"open_back"}}   
 			{reverse 	{end	"emit_body" 1} {base"open_back"}}
@@ -98,6 +102,7 @@
 	
 	("crew" place(driver)		bone(driver)	door(emit1)		animation(driver)		visor(driver)	off({sensor}))
 	("crew" place(gunner)		bone(gunner)	door(emit3)		animation(gunner)		visor(main)		off())
+	("crew" place(charger)		bone(charger)	door(emit3)		animation(charger)		visor(none)		off())
 	("crew" place(commander)	bone(commander)	door(emit2)		animation(commander)	visor(none)		off())
 	
 	("wheel" args "wheelright1")
