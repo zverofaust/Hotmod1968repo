@@ -1029,6 +1029,17 @@
 	}
 	("cannon_big")
 }
+
+{"122mm_d30a"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
+}
+
 {"122mm_a19"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.5 0.3)
@@ -1047,6 +1058,17 @@
 
 	("cannon_big")
 }
+
+{"d-74"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
+}
+
 {"152mm_ml20"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.5 0.3)
@@ -1063,6 +1085,16 @@
 		{inherited}
 	}
 
+	("cannon_big")
+}
+
+{"d-20"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
 	("cannon_big")
 }
 
