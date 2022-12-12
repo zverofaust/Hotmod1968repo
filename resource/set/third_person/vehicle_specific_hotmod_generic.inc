@@ -199,6 +199,73 @@
 				{soundEffect "opentop_vehicle"}
 			}
 		}
+		{"gun.fieldgun"          ; half artillery, half atgun
+			{clip
+				{viewMin		-15	}	; camera rotate upward limit (looking down)
+				{viewMax		50	}	; camera rotate downward limit (looking up)
+				{distanceMin	200	}	; camera min distance from object. value / 20 = meters
+				{distanceMax	300	}	; camera max distance from object. value / 20 = meters
+			}
+			{level ;0
+				{linkBone "basis"}
+				{faroffset 0 0 50}
+				{nearoffset -20 0 40}
+				{camera "zoom1"}
+				{hide_hitmarker 1}
+				{blur_strength 2}
+				{disable_fow 0}
+				{no_grain}
+			}
+			{level ;1
+				{zoom}
+				{vision_modes_active}
+				{linkBone "visor"}
+				{hide_crosshair 1}
+				{scope_vignette "/texture/common/environment/lens_effects/vehicle_telescope_blank"}
+				{blur_mask "/texture/common/environment/lens_effects/vehicle_telescope_mask"}
+				{refraction_mask "/texture/common/environment/lens_effects/vehicle_telescope_base_bp"}
+				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_02"}
+				{distance 18}
+				{distanceSet 0}
+				{delta 0}
+				{offset 15 0 2}
+				{camera "zoom1.5"}
+				{ManualAccuracyZoom}
+				{blur_strength 5}
+				{disable_fow 0}
+				{no_rim_light}
+				{soundEffect "opentop_vehicle"}
+			}
+			{level ;2
+				{zoom}
+				{vision_modes_active}
+				{vignette "/texture/common/environment/lens_effects/zoom_vignette_artillery_01"}
+				{blur_mask "/texture/common/environment/lens_effects/zoom_vignette_infantry_01_mask"}
+				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_01"}
+				{refraction_mask "/texture/common/environment/lens_effects/zoom_vignette_artillery_bp"}
+				{distance 18}
+				{distanceset 1}
+				{delta 0}
+				{linkBone "gun"}
+				{offset -300 0 300}
+				{gunnerviewoff 1}
+				{camera "zoom1.5"}
+				{ManualAccuracyZoom}
+				{blur_strength 10}
+				{disable_fow 1}
+				{no_rim_light}
+				{soundEffect "opentop_vehicle"}
+			}
+			{level ;3
+				{camera "zoom3.5"}
+				{offset 0 0 800}
+			}
+			{level ;4
+				{camera "zoom4"}
+				{offset 500 0 1200}
+				{distanceset 500}
+			}
+		}
 		{"tank.spaag"
 			{clip
 				{viewMin		-12	}	; camera rotate upward limit (looking down)

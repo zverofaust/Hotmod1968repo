@@ -1059,6 +1059,16 @@
 	("cannon_big")
 }
 
+{"d-44"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 6 1.5 14)
+	}
+	("cannon_big")
+}
+
 {"d-74"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
