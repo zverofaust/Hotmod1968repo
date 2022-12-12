@@ -1,0 +1,43 @@
+{from "pattern gun"			; D-44
+	{filling "bulletrus_85"}
+	{fireSound "gun/gun_75_105"}
+	{fireSoundclose "gun/gun_interior/size3"}
+	{reloadSound "interior/large/medium_reload_interior"}
+	("light_artillery")
+	{calibre 85}
+	
+	{range 500 500}
+
+	("reload time" seconds(6))
+
+	("velocity m/s" ap(792) apcr(1050) he(285) heat(792))
+	("armor health" damage(230))
+	("armor health custom" shell(aphe) damage(230) filler(65))
+	("armor health custom" shell(aphebc) damage(230) filler(160))
+
+	; BR-365K
+	("penetration_long" shell(aphe) range(210) a(148) b(126) c(106) d(90) e(77))  ;RHA
+ ;//("penetration_long" shell(aphe) range(210) a(131) b(116) c(100) d(85) e(73))  ;FHA
+
+	; BR-365P
+	("penetration_long" shell(apcr) range(210) a(175) b(136) c(100) d(73) e(54))
+	
+	; 3BK-2 HEAT
+	("penetration_long" shell(heat) range(190) a(225) b(225) c(225) d(225) e(225))  ;RHA
+	
+	
+	{parameters "apcr"; BR-365P
+		("large_apcr_slope_multiplier")
+	}
+
+	("accuracy_indirect"		; // Applies logic for accuracy of indirect weapons over 200m
+		r1(0.75) 				; // Accuracy radius for direct-fire munitions
+		r2(6) 					; // Accuracy radius for indirect fire
+		rmax(14) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(190) 			; // Range after which accuracy drops to prevent farshooting
+		range_heat(190) 		; // Range after which accuracy drops to prevent farshooting
+		range_he(360)			; // Range after which accuracy drops to prevent farshooting
+	)
+	
+	;{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_rus_tsh16"}
+}
