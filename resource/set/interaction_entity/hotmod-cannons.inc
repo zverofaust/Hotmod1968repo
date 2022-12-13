@@ -1059,26 +1059,6 @@
 	("cannon_big")
 }
 
-{"d-44"
-	{on "spawn_shell_delay" overload
-		("shell_eject_delay" args 2 0.3)
-	}
-	{on "reload_delay" overload
-		("reload_delay" args 6 1.5 14)
-	}
-	("cannon_big")
-}
-
-{"d-74"
-	{on "spawn_shell_delay" overload
-		("shell_eject_delay" args 2 0.3)
-	}
-	{on "reload_delay" overload
-		("reload_delay" args 14 1.5 14)
-	}
-	("cannon_big")
-}
-
 {"152mm_ml20"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.5 0.3)
@@ -1095,16 +1075,6 @@
 		{inherited}
 	}
 
-	("cannon_big")
-}
-
-{"d-20"
-	{on "spawn_shell_delay" overload
-		("shell_eject_delay" args 2 0.3)
-	}
-	{on "reload_delay" overload
-		("reload_delay" args 14 1.5 14)
-	}
 	("cannon_big")
 }
 
@@ -1517,6 +1487,21 @@
 	("cannon_small")
 }
 
+{"b-10_82mm"			
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1)
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{call "spawn_shell"}
+	}
+	("cannon_small")
+}
+
 {"spg9"			
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1)
@@ -1564,6 +1549,37 @@
 	}
 	("cannon_big")
 }
+
+{"d-44"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 6 1.5 14)
+	}
+	("cannon_big")
+}
+
+{"d-74"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 6 1.5 14)
+	}
+	("cannon_big")
+}
+
+{"d-20"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
+}
+
 {"152mm_ml20_sov"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.5 0.3)
@@ -1668,6 +1684,115 @@
 		{ani_play "spawn"}
 	}
 
+	("cannon_small")
+}
+
+;/*=========== PRC Cannons  ===========*/
+
+{"b-10_prc"			
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1)
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{call "spawn_shell"}
+	}
+	("cannon_small")
+}
+
+{"d1_prc"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
+}
+
+{"m30_prc"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
+}
+
+{"d-44_prc"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 6 1.5 14)
+	}
+	("cannon_big")
+}
+
+{"d-74_prc"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 6 1.5 14)
+	}
+	("cannon_big")
+}
+
+{"d-20_prc"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
+}
+
+{"zpu-4"				
+	{on "init_gun" overload
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel02"	"shooter02"}
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel03"	"shooter03"}
+		{add_view "zenit_gilz"			"shell"			"FXshell00"}
+		{add_view "zenit_gilz"			"shell"			"FXshell01"}
+		{add_view "zenit_gilz"			"shell"			"FXshell02"}
+		{add_view "zenit_gilz"			"shell"			"FXshell03"}
+		{call "update_gun"}
+	}
+	{on fire "mgun" overload
+		{play_sound "bkg_mg"}
+		{if  name "00"
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		}
+		{if  name "01"
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
+		{if  name "02"
+			{view start "flashbarrel02"}
+			{delay 0.2
+				{view pause "flashbarrel02"}
+			}
+		}
+		{if  name "03"
+			{view start "flashbarrel03"}
+			{delay 0.2
+				{view pause "flashbarrel03"}
+			}
+		}
+	}
 	("cannon_small")
 }
 

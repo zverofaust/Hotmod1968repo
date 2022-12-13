@@ -227,12 +227,19 @@
 	("t70_sound")
 }
 
-{"btr-50p_zis2 tank"
+{"btr-50_zis2 tank"
 	("t70_sound")
 }
 
-{"btr-50p_zis3 tank"
+{"btr-50_zis3 tank"
 	("t70_sound")
+}
+
+{"btr-50_d44 tank"
+	("t70_sound")
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1)
+	}
 }
 
 {"btr-50pk tank"
