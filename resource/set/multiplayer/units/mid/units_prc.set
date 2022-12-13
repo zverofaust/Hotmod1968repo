@@ -62,7 +62,7 @@
 
 
 ;===================================
-;       Mechanized
+;       Mechanized "Northern/Catalogue A" Army
 ;         
 ;===================================
 
@@ -80,9 +80,9 @@
 	("doctrine_t1" cool(200) d(mid_prc_tank) cost(10))
 }
 
-; // 10DP Type 63 MRL
-{"doctrine_vehicle_type63mrl(prc)"
-	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(type63_mrl) crew(sup_supporter:4) cw(0) cp(0))
+; // 10DP Type 60 Field Gun (D-74)
+{"doctrine_vehicle_type60gun(prc)"
+	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(d-74_prc) crew(sup_supporter:4) cw(0) cp(0))
 	("doctrine_t1" cool(100) d(mid_prc_tank) cost(10))
 }
 
@@ -104,13 +104,18 @@
 	("doctrine_t1" cool(130) d(mid_prc_tank) cost(15))
 }
 
+; // 20DP BM-31
+{"doctrine_vehicle_bm31(prc)"
+	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(bm-31m_prc) crew(sup_supporter:2) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_prc_tank) cost(20))
+}
+
 ;===================================
-;        ?????????????
+;        Light "Southern/Catalogue ???" Army
 ;
 ;===================================
 
 ; ======Tier1======
-
 
 
 ;_________________________________________________
@@ -178,12 +183,6 @@
 	{cost 150}
 }
 
-{"bs3_prc"
-	("vehicle" period(mid) cd(30) ci(30) t(cannon antitank) side(prc) crew(sup_supporter:4)  g(empl2) b(empl) cw(4) cp(4))
-	{cost 200}
-}
-
-
 ;HOWITZERS
 {"82mm_bm37_prc"
 	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(prc) crew(sup_supporter:2) g(empl4) b(empl) cw(0) cp(6))
@@ -194,9 +193,24 @@
 	{cost 350}
 }
 
+{"d-44_prc"
+	("vehicle" period(mid) cd(15) ci(30) t(cannon antitank) side(prc) crew(sup_supporter:4)  g(empl2) b(empl) cw(4) cp(4))
+	{cost 150}
+}
+
+;{"bs3_prc"
+;	("vehicle" period(mid) cd(30) ci(30) t(cannon antitank) side(prc) crew(sup_supporter:4)  g(empl2) b(empl) cw(4) cp(4))
+;	{cost 200}
+;}
+
 {"m30_prc"
 	("vehicle" period(mid) cd(180) ci(60) t(cannon) side(prc) crew(sup_supporter:4) g(empl4) b(empl) cw(0) cp(10))
 	{cost 425}
+}
+
+{"type63_mrl"
+	("vehicle" period(mid) cd(260) ci(160) t(cannon) side(prc) crew(sup_supporter:4) g(empl4) b(empl) cw(0) cp(10))
+	{cost 500}
 }
 
 ;_________________________________________________
