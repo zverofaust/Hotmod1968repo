@@ -1,0 +1,142 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "td" "light" "-turret" "vision_lev04" "shell_eject" "muzzle_85mm_93mm_sides" "amphibia" "diesel" "detect_td_light"}
+	{Extension "btr-50_d44.mdl"}
+	{targetclass "tank_light"}
+	{targetSelector "tank_medium"}
+	
+	{patherId "amphibia"}
+	
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+	
+	{volume "body1"			; Hull Bottom
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+	}
+	{volume "body2"			; Hull Nose
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+	}
+	{volume "body3"			; Hull Superstructure
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+		{able {holed}}
+	}
+	{volume "body4"			; Hull Engine deck
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+	}
+	("fuel" args "fuel")
+	("ammo" args "ammo")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+	{volume "engine" {thickness 10}}
+	
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_Willis_driver"}}
+			{reverse {end	"emit_tank_2_hold"}}
+		}
+		{anm "gunner"
+			{forward	{begin "board_Is-2"} {end "pose_new_cannon_gunner_fire"}}
+			{reverse	{end	"emit_tank_2_hold"}}
+		}
+		{anm "charger"
+			{forward	{begin "board_Is-2"} {end "pose_new_cannon_charger_fire"}}
+			{reverse	{end	"emit_tank_2_hold"}}
+		}
+		{anm "commander"
+			{forward	{begin "board_Is-2"} {end "seat_Willis_passenger"}}
+			{reverse	{end	"emit_tank_2_hold"}}
+		}
+		{anm "passenger"
+			{forward	{begin "board_Is-2"} {end "seat_passenger"}}
+			{reverse	{end	"emit_tank_2_hold"}}
+		}
+		{anm "left"
+			{forward {begin "board_tank_left"} {end "pose_pak40_gunlayer" 10}}
+			{reverse {end "emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_tank_right"} {end "pose_pak40_charger" 10}}
+			{reverse {end "emit_tank_2_hold"}}
+		}
+	}	
+	("crew_human_visible_anm"	place(driver) 	 door(emit1) door2(emit2) visor(driver) anm_left(driver) anm_right(driver))
+	("crew_human_visible_anm"	place(commander) door(emit1) door2(emit2) visor(around) anm_left(commander)  anm_right(commander))
+	("crew_human_visible_anm"	place(gunner) 	 door(emit3) visor(main)   anm_left(left)   anm_right(left))
+	("crew_human_visible_anm"	place(charger) 	 door(emit4) visor(none)   anm_left(right)   anm_right(right))
+	
+	{extender "inventory"
+		{box
+			{item "bulletrus_85 aphe" 15}
+			{item "bulletrus_85 he" 30}
+			{item "bulletrus_85 heat" 15}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "85mm_d-44" filling "bulletrus_85 he" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic_td"
+				zeroing(2.5)
+				dispersion(0.50)
+			)
+		}
+	}
+	
+	{mass 14500}	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(50) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(32) ;-------Track traverse, per second, in degrees.
+			weight(14.5) ;-------Weight in Tonnes.
+			power(240) ;---------Engine Power, in hp.
+			track(3.2) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(400) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(400) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}
+	
+	{bone "gun_rot"
+		{limits -3 45}
+		{speed2 8}
+	}
+	{bone "turret"
+		{speed2 15}
+		{limits -20 20}
+	}
+	
+}
