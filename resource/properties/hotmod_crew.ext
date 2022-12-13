@@ -49,3 +49,17 @@
 		{link "%door2" "%place" {anm "right"} {forward putoff} {reverse puton}}
 	}
 )
+
+(define "seat_passenger"
+	{placer
+		{place "%place" {group "passenger"} {LinkBone "%bone"}}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{door "%door3"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		{link "%door3" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)

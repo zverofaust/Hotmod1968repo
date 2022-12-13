@@ -48,12 +48,14 @@
 	("tracks" repair(30) thickness(15))
 	{volume "engine" {thickness 10}}
 	
+	(include "/properties/hotmod_crew.ext")
+	
 	{placer
 		{place "driver"		{visor "driver"}{group "crew"}}
 		{place "gunner2"	{visor "mgun"}}
-		{place "commander"	{visor "mgun"}{group "crew"}{sealable}}
-		{place "gunner3"	{visor "mgun"}}
-		{place "gunner4"	{visor "mgun"}}
+		{place "commander"	{visor "main"}{group "crew"}{sealable}}
+		{place "gunner3"	{visor "mgun2"}}
+		{place "gunner4"	{visor "mgun3"}}
 	}
 	
 	{boarder
@@ -74,20 +76,37 @@
 			{reverse	{end	"emit_tank_2_hold"}}
 		}
 	}
-	("seat_human" 	place(driver)  		bone(driver)	door(emit1)  animation(driver) 		group(crew))
-	("seat_human" 	place(gunner2)  	bone(gunner2)	door(emit2)  animation(gunner) 		group(crew))
-	("seat_human" 	place(commander)  	bone(commander)	door(emit1)  animation(commander) 	group(crew))
-	("seat_human" 	place(gunner3)  	bone(gunner3)	door(emit2)  animation(gunner) 		group(passenger))
-	("seat_human" 	place(gunner4)  	bone(gunner4)	door(emit4)  animation(gunner) 		group(passenger))
-	("seat_human" 	place(seat3)  		bone(seat03)	door(emit2)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat4)  		bone(seat04)	door(emit4)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat5) 		bone(seat05)	door(emit2)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat6)  		bone(seat06)	door(emit4)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat7)  		bone(seat07)	door(emit2)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat8) 		bone(seat08)	door(emit4)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat9)  		bone(seat09)	door(emit3)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat10) 		bone(seat10)	door(emit3)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat11) 		bone(seat11)	door(emit3)  animation(passenger) 	group(passenger))
+	("crew_human_visible_anm"			place(driver) 	 door(emit1) door2(emit2) visor(driver) anm_left(driver) anm_right(driver))
+	("crew_human_visible_anm"			place(commander) door(emit1) door2(emit2) visor(around) anm_left(commander)  anm_right(commander))
+	("crew_human_visible_anm"			place(gunner2) 	 door(emit1) door2(emit2) visor(mgun)   anm_left(gunner)   anm_right(gunner))
+	("crew_human_visible_anm"			place(gunner3) 	 door(emit2) door2(emit4) visor(mgun2)   anm_left(gunner)   anm_right(gunner))
+	("crew_human_visible_anm"			place(gunner4) 	 door(emit2) door2(emit4) visor(mgun3)   anm_left(gunner)   anm_right(gunner))
+	("seat_passenger" 	place(seat1)  		bone(seat01)	door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat2)  		bone(seat02)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat3)  		bone(seat03)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat4)  		bone(seat04)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat5) 		bone(seat05)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat6)  		bone(seat06)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat7)  		bone(seat07)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat8) 		bone(seat08)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat9)  		bone(seat09)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat10) 		bone(seat10)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat11) 		bone(seat11)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	
+	{sensor
+		{visor "mgun"
+			{vision "human"}
+			{bone "mgun"}
+		}
+		{visor "mgun2"
+			{vision "human"}
+			{bone "mgun2"}
+		}
+		{visor "mgun3"
+			{vision "human"}
+			{bone "mgun3"}
+		}
+	}
 	
 	{extender "inventory"
 		{box
