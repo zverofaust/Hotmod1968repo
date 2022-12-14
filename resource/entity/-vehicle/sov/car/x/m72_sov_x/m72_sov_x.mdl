@@ -1,0 +1,214 @@
+;Exported by:	 TigerF
+;Date:			 22.05.2022 22:35:12
+;File:			 D:\PROGRAMS\3ds_max\3dsmax9_saves\scenes\GoH_3D_vehicles_ger\vehicles\car\BMW r-71\m72_x.max
+{skeleton
+	{bone "basis"
+		{parameters "steermax=25;wheelradius=0.32;"}
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}{speed 0.7}}
+			}
+			{Position -1.7778 	 -0.1552 	 7.9451}
+			{VolumeView "body.ply"}
+			{bone "engine"
+				{parameters "id=engine;"}
+				{animation
+					{sequence "break" {file "engine_b.anm"}{speed 0.7}}
+				}
+				{Position 3.3275 	 0.4717 	 -0.3719}
+				{VolumeView "engine.ply"}
+			}
+			{bone "fuel"
+				{parameters "id=body;"}
+				{Position 3.4897 	 0.1617 	 7.3096}
+				{VolumeView "fuel.ply"}
+			}
+			{bone revolute "steer"
+				{parameters "id=body;"}
+				{matrix34
+					-0.9227 	 0 	 -0.3855
+					0 	 1 	 0
+					0.3855 	 0 	 -0.9227
+					10.0679 	 0.1617 	 8.4391
+				}
+				{VolumeView "steer.ply"}
+			}
+			{bone revolute "detail1"
+				{parameters "id=body;"}
+				{matrix34
+					0.9925 	 0 	 0.1219
+					-0.1219 	 0 	 0.9925
+					0 	 -1 	 0
+					-17.4276 	 -12.722 	 8.7712
+				}
+				{VolumeView "detail1.ply"}
+			}
+			{bone "detail2"
+				{parameters "id=body;"}
+				{Position 11.7077 	 -12.6537 	 2.9379}
+				{VolumeView "detail2.ply"}
+			}
+			{bone revolute "mgun_rot1"
+				{parameters "id=body;"}
+				{limits -15 15}
+				{Position 14.3964 	 -12.7709 	 6.1385}
+				{VolumeView "mgun_rot1.ply"}
+				{bone revolute "mgun_rot2"
+					{parameters "id=body;"}
+					{limits -20 16}
+					{matrix34
+						0.9744 	 0 	 0.225
+						-0.225 	 0 	 0.9744
+						0 	 -1 	 0
+						0 	 0 	 0.72
+					}
+					{VolumeView "mgun_rot2.ply"}
+					{bone "mgun"
+						{matrix34
+							0.9986 	 0.0523 	 0
+							-0.0523 	 0.9986 	 0
+							0 	 0 	 1
+							-11.8908 	 5.2902 	 -0.0131
+						}
+					}
+				}
+			}
+		}
+		{bone "pivot_back"
+			{Position -14.3684 	 -10.3325 	 6.6951}
+			{bone prizmatic "suspension_r2"
+				{limits -0.08 0.08}
+				{speed 0.09}
+				{Position 2.2925 	 -11.7538 	 0}
+				{bone revolute "wheelr2"
+					{parameters "id=wheelright2;"}
+					{matrix34
+						1 	 0 	 0
+						0 	 0 	 -1
+						0 	 1 	 0
+						0 	 0 	 0
+					}
+					{VolumeView "wheelr2.ply"}
+				}
+			}
+			{bone prizmatic "suspension_l2"
+				{limits -0.08 0.08}
+				{speed 0.09}
+				{Position 0 	 10.3393 	 0}
+				{bone revolute "wheell2"
+					{parameters "id=wheelleft2;"}
+					{matrix34
+						1 	 0 	 0
+						0 	 0 	 -1
+						0 	 1 	 0
+						0 	 0 	 0
+					}
+					{VolumeView "wheell2.ply"}
+				}
+			}
+			{bone "susp_back"
+				{parameters "id=body;"}
+				{Position -0.3214 	 9.9586 	 -0.0149}
+				{VolumeView "susp_back.ply"}
+			}
+			{bone "sidecar_susp"
+				{parameters "id=body;"}
+				{Position 0.9542 	 -2.0231 	 -0.3264}
+				{VolumeView "sidecar_susp.ply"}
+			}
+		}
+		{bone "pivot_front"
+			{Position 14.2461 	 -10.7383 	 6.6951}
+			{bone revolute "steerl1"
+				{matrix34
+					-0.9227 	 0 	 -0.3855
+					0 	 1 	 0
+					0.3855 	 0 	 -0.9227
+					-5.956 	 10.7448 	 9.6891
+				}
+				{bone prizmatic "suspension_l1"
+					{limits -0.08 0.08}
+					{speed 0.09}
+					{matrix34
+						-0.9939 	 0 	 -0.1102
+						0 	 1 	 0
+						0.1102 	 0 	 -0.9939
+						-1.7608 	 0.0003 	 11.2362
+					}
+					{bone revolute "wheell1"
+						{parameters "id=wheelleft1;"}
+						{matrix34
+							0.8746 	 0 	 -0.4848
+							-0.4848 	 0 	 -0.8746
+							0 	 1 	 0
+							0 	 0 	 0
+						}
+						{VolumeView "wheell1.ply"}
+					}
+				}
+			}
+			{bone revolute "steerr1"
+				{matrix34
+					-0.9227 	 0 	 -0.3855
+					0 	 1 	 0
+					0.3855 	 0 	 -0.9227
+					-5.956 	 -11.1819 	 9.6891
+				}
+				{bone prizmatic "suspension_r1"
+					{limits -0.08 0.08}
+					{speed 0.09}
+					{matrix34
+						-0.9939 	 0 	 -0.1102
+						0 	 1 	 0
+						0.1102 	 0 	 -0.9939
+						-1.7608 	 0.0003 	 11.2362
+					}
+					{bone revolute "wheelr1"
+						{parameters "id=wheelright1;"}
+						{orientation
+							0.8746 	 0 	 -0.4848
+							-0.4848 	 0 	 -0.8746
+							0 	 1 	 0
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{volume "wheelleft1"
+	{cylinder 6.29921 2.52815}
+	{bone "wheell1"}
+	{matrix34
+		1 	 0 	 0
+		0 	 -1 	 0
+		0 	 0 	 -1
+		0 	 0 	 -0.0372
+	}
+}
+{volume "wheelleft2"
+	{cylinder 6.29921 2.52815}
+	{bone "wheell2"}
+	{matrix34
+		1 	 0 	 0
+		0 	 -1 	 0
+		0 	 0 	 -1
+		0 	 0 	 0
+	}
+}
+{volume "wheelright2"
+	{cylinder 6.29921 2.52815}
+	{bone "wheelr2"}
+	{matrix34
+		1 	 0 	 0
+		0 	 -1 	 0
+		0 	 0 	 -1
+		0 	 0 	 0
+	}
+}
