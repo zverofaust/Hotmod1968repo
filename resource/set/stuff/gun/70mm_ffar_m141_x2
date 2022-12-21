@@ -1,5 +1,5 @@
 {from "pattern gun"	 ;
-	{filling "70mm_ffar" 14}
+	{filling "70mm_ffar" 2} ;14
 	{fillingVisible "detail_a"}
 	{fireSound "reactive/rocket_burst/"}
 	{reloadSound "tank/reload_medium"}
@@ -9,7 +9,7 @@
 	
 
 	("fire rate" rpm(600))
-	("reload time" seconds(14))
+	("reload time" seconds(1))
 
 	("velocity m/s" ap(1) apcr(1) he(739) heat(1))
 	("armor health" damage(175))
@@ -18,7 +18,11 @@
 		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
 	}
 
-	("accuracy_direct" r1(5.0) range_ap(300) range_he(300) range_heat(270))
+	{burst
+		{min 2}
+	}
+	
+	("accuracy_direct" r1(2.0) range_ap(300) range_he(300) range_heat(270))
 	
 	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_rus_hmg"}
 }

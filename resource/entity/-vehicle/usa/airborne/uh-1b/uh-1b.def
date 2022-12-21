@@ -95,15 +95,33 @@
     }
     {ObstacleId "helicopter" "in_air"}
 	
+	{extender "inventory"
+		{box
+            {item "ammo 70mm_ffar" 12}
+			{item "ammo mgun_usa belt" 2000}
+        }
+    }
+	
 	{Weaponry
 		{place "mgun2"
 			{rotate}
-			{weapon			"m134_x2" filled}
-			{barrels 		2}
+			{weapon			"m134_b" filled}
+			;{barrels 		2}
 			{gunner			"driver"}
 			{charger		"driver"}
-			{foresight		"foresight1"}
+			{foresight		"foresight4"}
 			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun"
+			{rotate}
+			{weapon			"m134_a" filled}
+			;{barrels 		2}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{foresight		"foresight5"}
+			{basic}
+			{ai_in_manual}
 		}
 		{place "gun"
 			{rotate}
@@ -129,6 +147,22 @@
 
 	{Extension "uh-1b.mdl"}
 
+	{bone "m134d"			;miniguns: right/left
+		{speed 0.025}
+		{limits -15 15}
+	}
+	{bone "m134d001"			;miniguns: right/left
+		{speed 0.025}
+		{limits -15 15}
+	}
+	{bone "foresight5"			;miniguns: right/left
+		{speed 0.025}
+		{limits -35 35}
+	}
+	{bone "foresight4"			;miniguns: right/left
+		{speed 0.025}
+		{limits -35 35}
+	}
 	{bone "mgun_rot_h"			;miniguns: right/left
 		{speed 0.025}
 		{limits -35 35}
