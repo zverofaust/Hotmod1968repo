@@ -1,26 +1,23 @@
-{game_entity		;T-55 base
+{game_entity		;T-62 base
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "smoke" "ess"}
-	(include "t-55a.ext")
-	{targetclass "tank_medium"}
+	(include "t-62_1967.ext")
+	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "shell_eject" "smoke" "ess"}
+	{targetclass "tank_heavy"}
 	{targetSelector "tank_medium"}
 	{PatherId "t34"}
-	
 
 	{extender "enumerator"
 		{digit_folder "cw"}
 	}
-
-	;Crew 4: driver, commander, gunner, loader
 	
 	("crew_4_human")
 
 	{boarder
 		{anm "driver"
-			{forward {begin "board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
-			{reverse {end "emit_t34_hold"} {base "close_driver"}}
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
 		}
 		{anm "left"
 			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
@@ -39,40 +36,28 @@
 			{reverse {end "emit_body"}}
 		}
 	}
-
-	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
-	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
-	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
-	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
 	
-	{placer
-		{place "driver"		{visor "driver"}}
-		{place "gunner"		{visor "main"}}
-		{place "commander"	{visor "main"}}
-	}
-
-	; smokescreen via injecting fuel into the exhaust system possible
-
-	{extender "smokescreen"
-		{cooldown 20}
-		{itemTags "can"}
-	}
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
 	
 	{extender "inventory"
 		{box
-			{item "ammo bullet100_d10 aphe" 9} ; 43 rounds
-			{item "ammo bullet100_d10 apds" 6} ; 
-			{item "ammo bullet100_d10 heat" 6}
-			{item "ammo bullet100_d10 he" 22}
-			{item "ammo mgun_rus belt" 2000}		;4 boxes
+			{item "ammo bullet115_2a20 apfsds" 8} ; 40 rounds
+			{item "ammo bullet115_2a20 heat" 8}
+			{item "ammo bullet115_2a20 he" 24}
+			{item "pk_box" 2000}
+			{item "ammo hmgun_rus" 1000}
 			{item "satchel_charge_rus" 1}
 		}
 	}
+	
 	{Weaponry
 		("restore_ik_time")
 		{place "gun"
 			{RestoreIKAfterAim}
-			{weapon			"100mm_d-10t2s" filling "ammo bullet100_d10 aphe" 1}
+			{weapon			"115mm_2a20" filling "ammo bullet115_2a20 apfsds" 1}
 			{gunner "gunner"}
 			{charger "charger"}
 			("abm_dymamic_stabilised"
@@ -99,29 +84,29 @@
 		}
 	}
 
-	{mass 36000}
+	{mass 37000}
 	{Chassis
 		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
 		("mobility_tank"
-			speed(51)  ;---------Max speed when fully accelerated on road, km/h.
+			speed(50)  ;---------Max speed when fully accelerated on road, km/h.
 			reverse(9.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
 			traverse(36) ;-------Track traverse, per second, in degrees.
-			weight(36.0) ;-------Weight in Tonnes.
-			power(500) ;---------Engine Power, in hp.
+			weight(37.0) ;-------Weight in Tonnes.
+			power(581) ;---------Engine Power, in hp.
 			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
-			fuel(580) ;----------Fuel capacity in Litres.
+			fuel(960) ;----------Fuel capacity in Litres.
 			type(diesel) ;-------Fuel type. (diesel OR fuel)
-			range(300) ;---------Range in km, off-road.
+			range(450) ;---------Range in km, off-road.
 		)
 	}
 
-	{Extension "t-55a.mdl"}
+	{Extension "t-62_1967.mdl"}
 
 	{bone "turret"			;gun horizontal
 		{speed2 24}			;degree per second
-	}	
+	}
 	{bone "gun_rot"			;gun vertical
 		{speed2 4}			;degree per second
-		{limits -5 18}		;min down to max up
+		{limits 6 -16}		;min down to max up
 	}
 }

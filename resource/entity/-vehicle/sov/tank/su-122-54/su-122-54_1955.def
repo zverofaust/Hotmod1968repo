@@ -1,29 +1,32 @@
-{game_entity		;T-55 base
-	(include "/properties/tank.ext")
-	(include "/properties/shadow/tank.inc"  scale(1.3))
-	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "smoke" "ess"}
-	(include "t-55a.ext")
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc" scale(1.2))
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{props "td" "medium" "-turret" "mg_turret" "mantlet" "vision_lev03" "muzzle_122mm_128mm_sides" "diesel"}
+	(include "su-122-54.ext")
+	{targetclass "tank" "ap fg bullet"}
 	{targetclass "tank_medium"}
-	{targetSelector "tank_medium"}
+	{targetSelector "tank_heavy"}
 	{PatherId "t34"}
-	
 
 	{extender "enumerator"
 		{digit_folder "cw"}
 	}
 
-	;Crew 4: driver, commander, gunner, loader
+	{extender "shield"{on}}
 	
-	("crew_4_human")
+	;volume, component/tag
 
+	
+	("crew_5_human")
+	
 	{boarder
 		{anm "driver"
-			{forward {begin "board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
-			{reverse {end "emit_t34_hold"} {base "close_driver"}}
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open"}}
+			{reverse {end "emit_t34_hold"} {base "open"}}
 		}
 		{anm "left"
-			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open"}}
 			{reverse {end "emit_tank_1_hold"}}
 		}
 		{anm "right"
@@ -45,55 +48,60 @@
 	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
 	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
 	
-	{placer
-		{place "driver"		{visor "driver"}}
-		{place "gunner"		{visor "main"}}
-		{place "commander"	{visor "main"}}
+	("tank_medium_tier3")
+	
+	{sensor
+		{visor "mgun"
+			{vision "tank_main-l"}
+			{bone "mgun"}
+		}
 	}
 
-	; smokescreen via injecting fuel into the exhaust system possible
-
-	{extender "smokescreen"
-		{cooldown 20}
-		{itemTags "can"}
-	}
+	;{placer
+	;	{place "driver"		{visor "driver"}}
+	;	{place "gunner"		{visor "main"}}
+	;	{place "commander"	{visor "mgun"}}
+	;	{place "charger"	{visor "around"}}
+	;	{place "charger2"	{visor "none"}}
+	;}
 	
 	{extender "inventory"
 		{box
-			{item "ammo bullet100_d10 aphe" 9} ; 43 rounds
-			{item "ammo bullet100_d10 apds" 6} ; 
-			{item "ammo bullet100_d10 heat" 6}
-			{item "ammo bullet100_d10 he" 22}
-			{item "ammo mgun_rus belt" 2000}		;4 boxes
-			{item "satchel_charge_rus" 1}
+			{item "ammo bullet122_d49 aphe"	17}
+			{item "ammo bullet122_d49 he"	18}
+			{item "ammo hmgun_rus_kpvt" 700}
 		}
 	}
+
 	{Weaponry
 		("restore_ik_time")
 		{place "gun"
 			{RestoreIKAfterAim}
-			{weapon			"100mm_d-10t2s" filling "ammo bullet100_d10 aphe" 1}
+			{Rotate}
+			{weapon			"122mm_d-49" filling "ammo bullet122_d49 aphe" 1}
 			{gunner "gunner"}
 			{charger "charger"}
-			("abm_dymamic_stabilised"
+			("abm_dymamic_td"
 				zeroing(5)
 				dispersion(0.1)
 			)
 		}
 		{place "mgun2"
 			{type "coaxial"}
-			{weapon "pkt" filled}
+			{weapon "kpvt" filled}
 			{foresight "foresight5"}
 			{gunner "gunner"}
 			{charger "gunner"}
 			("abm_mgun")
 			{basic}
 		}
-		{place "mgun1"
-			{type "commander"}
-			{weapon "commander_vision"}
-			{foresight "vision_rot"}
-			{gunner "commander"}
+		{place "mgun" ;copula mount
+			{type "aa"}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+			{weapon "kpvt" filled}
+			{foresight "foresight3"}
+			("abm_mgun")
 			{basic}
 			{ai_in_manual}
 		}
@@ -115,13 +123,15 @@
 		)
 	}
 
-	{Extension "t-55a.mdl"}
+	{Extension "su-122-54.mdl"}
 
-	{bone "turret"			;gun horizontal
-		{speed2 24}			;degree per second
-	}	
-	{bone "gun_rot"			;gun vertical
-		{speed2 4}			;degree per second
-		{limits -5 18}		;min down to max up
+	{bone "turret_mg"
+		;{limits -30 180}
+		{speed2 25}
+		{terminator}
+	}
+	{bone "mgun"
+		{limits -60 5}
+		{speed2 25}
 	}
 }
