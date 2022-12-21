@@ -1,8 +1,8 @@
 ; == TEST MODE ==
-(define "test_mid"
+(define "test_early"
 	{common
 		{unitset
-			{value "mid^conquestonly|doctrineonly"}
+			{value "early^conquestonly|doctrineonly"}
 		}
 		{commandPoints "*=%cp"}
 		{unitLimits ""}
@@ -14,18 +14,18 @@
 	}
 	{bots
 		(include "global_parameters/bots_generic.inc")
-		("deploy_bots" period("mid"))
+		("deploy_bots" period("early"))
 	}
 )
 
 ;------------------------------------------------------------------------------------------------------------
 {presets
-	{"s:test_mid"
+	{"s:test_early"
 		{gameMode "test"}
-		{unitMode "mid"}
+		{unitMode "early"}
 		{specMode "all_normal"}
-		{apply "only_roster_mid"}
-		("test_mid"				start(50000) finish(50000) doctrine(1000) cp(1000))
+		{apply "only_roster_early"}
+		("test_early"			start(50000) finish(50000) doctrine(1000) cp(1000))
 	}
 ;------------------------------------------------------------------------------------------------------------
 }
