@@ -268,7 +268,8 @@
 	
 	;// Hotmod Stuff
 	
-	{item "rocket122_9m22u"					"ammo" 1 {value 10}}	
+	{item "rocket122_9m22u"					"ammo" 1 {value 10}}
+	{item "rocket140_bm14"					"ammo" 1 {value 10}}	
 	{item "bullet122_2a18"		"he"		"ammo" 1 {value 10}}
 	{item "bullet122_2a18"		"heat"		"ammo" 1 {value 20}}
 )
