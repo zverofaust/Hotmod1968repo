@@ -1827,6 +1827,14 @@
 	("zis5_sound")
 }
 
+{"bm-13-17m_prc car"
+	("zis5_sound")
+}
+
+{"bm-31m_prc car"
+	("zis5_sound")
+}
+
 {"ba64_prc"
 	("ba_sound")
 }
