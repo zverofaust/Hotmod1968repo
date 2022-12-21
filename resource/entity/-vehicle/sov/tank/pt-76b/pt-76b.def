@@ -10,7 +10,7 @@
 	
 	("tank_light_tier1")
 
-	(include "pt-76.ext")
+	(include "pt-76b.ext")
 	
 	{extender "enumerator"
 		{digit_folder "cw"}
@@ -54,9 +54,10 @@
 	
 	{extender "inventory"
 		{box
-			{item "bullet76_d56 he" 25}
-			{item "bullet76_d56 apcr" 16}		;41 rounds
-			{item "ammo mgun_rus belt" 1000}
+			{item "bullet76_d56 he" 22}
+			{item "bullet76_d56 apcr" 13}		;41 rounds
+			{item "bullet76_d56 heat" 6}
+			{item "pk_box" 1000}		;4 boxes
 			{item "satchel_charge_rus" 1}
 		}
 	}
@@ -68,14 +69,14 @@
 			{weapon "76mm_d56t" filling "bullet76_d56 he" 1}
 			{gunner "gunner"}
 			{charger "charger"}
-			("abm_dymamic"
+			("abm_dymamic_stabilised"
 				zeroing(5)
 				dispersion(0.1)
 			)
 		}
 		{place "mgun2"
 			{type "coaxial"}
-			{weapon "sgmt" filled}
+			{weapon "pkt" filled}
 			{foresight "foresight5"}
 			{gunner "gunner"}
 			{charger "charger"}
@@ -120,7 +121,7 @@
 		}
 	}
 
-	{Extension "pt-76.mdl"}
+	{Extension "pt-76b.mdl"}
 
 	{bone "turret"			;gun horizontal
 		{speed2 24}			;degree per second
