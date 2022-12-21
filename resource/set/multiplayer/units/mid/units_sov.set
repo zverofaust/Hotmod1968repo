@@ -205,7 +205,7 @@
 
 ; // 16DP T-10M
 {"doctrine_vehicle_t10(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(t-10) crew(sup_tankman:4) cw(0) cp(0))
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(t-10m) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t1" cool(200) d(mid_sov_tank) cost(16))
 }
 
@@ -569,10 +569,10 @@
 	{cost 150}
 }
 
-;{"t-12"
-;	("vehicle" period(mid) cd(60) ci(60) t(cannon antitank) side(sov) crew(sup_supporter:4)  g(empl2) b(empl) cw(4) cp(6))
-;	{cost 175}
-;}
+{"d-44" ;
+	("vehicle" period(mid) cd(30) ci(30) t(cannon antitank) side(sov) crew(sup_supporter:4)  g(empl2) b(empl) cw(4) cp(6))
+	{cost 150}
+}
 
 {"9m14"
 	("vehicle" period(mid) cd(60) ci(120) t(cannon atgm) side(sov) crew(sup_supporter:2)  g(empl3) b(empl) cw(4) cp(12))
@@ -639,10 +639,10 @@
 	{cost 250}
 }
 
-;{"btr-40" ; No need for this in Mid period really
-;	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(sov) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(4))
-;	{cost 50}
-;}
+{"btr-40" ; No need for this in Mid period really
+	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(sov) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(4))
+	{cost 50}
+}
 
 {"btr-152"
 	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(sov) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
@@ -682,7 +682,7 @@
 	{cost 175}
 }
 
-{"pt-76"
+{"pt-76b"
 	("vehicle" period(mid) cd(0) ci(30) t(light tank) side(sov) crew(sup_tankman:3) g(tank1) b(tanks) cw(0) cp(10))
 	{cost 250}
 }
@@ -699,7 +699,7 @@
 	{cost 390}
 }
 
-{"t-54" ;t-54b
+{"t-54b"
 	("vehicle" period(mid) cd(240) ci(60) t(medium tank) side(sov) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
 	{cost 420}
 }
@@ -760,7 +760,7 @@
 	{cost 600}{not_for_player_sale 1}
 }
 
-{"t-10"
+{"t-10m"
 	("vehicle" period(mid) cd(300) ci(240) t(heavy) side(sov) crew(sup_tankman:4) cw(0) cp(20))
 	{cost 600}{not_for_player_sale 1}
 }
@@ -770,10 +770,10 @@
 	{cost 700}{not_for_player_sale 1}
 }
 
-{"t-64"
-	("vehicle" period(mid) cd(300) ci(240) t(mbt heavy) side(sov) crew(sup_tankman:3) cw(0) cp(20))
-	{cost 1000}{not_for_player_sale 1}
-}
+;{"t-64"
+;	("vehicle" period(mid) cd(300) ci(240) t(mbt heavy) side(sov) crew(sup_tankman:3) cw(0) cp(20))
+;	{cost 1000}{not_for_player_sale 1}
+;}
 
 {"bm-21_grad"
 	("vehicle" period(mid) cd(300) ci(240) t(vehicle artillery heavyart) side(sov) crew(sup_tankman:2) cw(0) cp(20))
