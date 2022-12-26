@@ -40,8 +40,8 @@ Purchases["standard"] = {
 			["prc"] = {--Soviet Union
 			--Infantry
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_assault(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_antitank(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_antitank(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_ambush(prc)"},
 				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_autorifle(prc)"},
@@ -123,8 +123,8 @@ Purchases["standard"] = {
 			["prc"] = {--Peoples Republic of China
 			--Infantry
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_assault(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_antitank(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_antitank(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_ambush(prc)"},
 				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_autorifle(prc)"},
@@ -235,8 +235,8 @@ Purchases["standard"] = {
 			["prc"] = {--Peoples Republic of China
 			--Infantry
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_assault(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_antitank(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_antitank(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_ambush(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(prc)"},
 				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_autorifle(prc)"},
@@ -328,8 +328,8 @@ Purchases["standard"] = {
 			["prc"] = {--Peoples Republic of China
 			--Infantry
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_assault(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_antitank(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_antitank(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_ambush(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(prc)"},
 				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_autorifle(prc)"},
@@ -470,8 +470,8 @@ Purchases["standard"] = {
 			["prc"] = {--Peoples Republic of China
 			--Infantry
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_assault(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_antitank(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_antitank(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_ambush(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(prc)"},
 				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_autorifle(prc)"},
@@ -626,8 +626,8 @@ Purchases["standard"] = {
 			["prc"] = {--Peoples Republic of China
 			--Infantry
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_assault(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_antitank(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_antitank(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_ambush(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(prc)"},
 				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_autorifle(prc)"},
@@ -787,8 +787,8 @@ Purchases["standard"] = {
 			["prc"] = {--Peoples Republic of China
 			--Infantry
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_assault(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_antitank(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_antitank(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_ambush(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(prc)"},
 				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_autorifle(prc)"},
@@ -937,8 +937,8 @@ Purchases["standard"] = {
 			["prc"] = {--Peoples Republic of China
 			--Infantry
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_assault(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_antitank(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_antitank(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_ambush(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(prc)"},
 				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_autorifle(prc)"},
@@ -1087,8 +1087,8 @@ Purchases["standard"] = {
 			["prc"] = {--Peoples Republic of China
 			--Infantry
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_assault(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_antitank(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscript_antitank(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_militia_ambush(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(prc)"},
 				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_autorifle(prc)"},
