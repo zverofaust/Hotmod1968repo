@@ -33,6 +33,46 @@
 		}
 	}
 	
+	{on "insertion"			;// UI button to toggle insertion
+		{chassis_work 0}
+		{able select 0}
+		{ani_play "lower" callback}
+	}
+	
+	{on animation_end "lower"
+		{delay 0.5
+			{with_linked_entity "attach"
+				{unlink}
+				{impulse up 0.1 com}
+			}
+			{delay 0.2
+				{with_linked_entity "seat01"
+					{unlink}
+				}
+				{with_linked_entity "seat02"
+					{unlink}
+				}
+				{delay 0.4
+					{with_linked_entity "seat03"
+						{unlink}
+					}
+					{with_linked_entity "seat04"
+						{unlink}
+					}
+					{ani_play "pause" callback}
+				}
+			}
+		}			
+	}
+	
+	{on animation_end "pause"
+		{ani_play "bug_out" callback}
+	}
+	
+	{on animation_end "bug_out"
+		{delete}	
+	}
+	
 	{on "engine_toggle" overload			;// UI button to toggle engine on/off
 		{if operatable
 			{if not work "engine"
@@ -253,9 +293,9 @@
 					{call "collide"}
 				}
 			else effector "tree"
-				{if not effector "bush"			;do not crash on bush-like trees with prop "bush"
-					{call "collide"}
-				}
+				;{if not effector "bush"			;do not crash on bush-like trees with prop "bush"
+				;	{call "collide"}
+				;}
 			else velocity 50					;if moving fast itself, crash on every vehicle
 				{if effector "vehicle"
 					{call "collide"}
@@ -369,6 +409,13 @@
 	
 	{on "_explosion" overload
 		{kill_crew}
+		{with_linked_entity "attach"
+			{unlink}
+			{impulse up 0.1 com}
+		}
+		{ani_stop "lower"}
+		{ani_stop "pause"}
+		{ani_stop "bug_out"}
 		{able select 0}
 		{clear_inventory}
 		{call "die"}

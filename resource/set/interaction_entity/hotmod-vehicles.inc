@@ -420,6 +420,14 @@
 	("zis5_sound")
 }
 
+{"btr-60p"
+	("sdkfz234_sound")
+}
+
+{"btr-60pvmf"
+	("sdkfz234_sound")
+}
+
 {"btr-60pa"
 	("sdkfz234_sound")
 	{on "commander_hatch_open" overload

@@ -1,5 +1,33 @@
+{"flare_helitransport_ammo"	
+	{on spawn
+		{add_view "smoke_flare_red" "smoke" "root"}
+		{view start "smoke"}
+		{impulse up 5 forward 3 rnd_dir 3 com}
+		{delay 5 {spawn "uh-1d_transport"}}
+		{delay 20 {view stop "smoke"}}
+		{delay 20 {delete}}
+	}
+}
+
 {"heli_transport"			;
 	{on spawn
+		{if rand 0.33	
+			{ani_play "rdir_8" callback}	
+			else rand 0.33			
+			{ani_play "rdir_7" callback}	
+			else rand 0.33	
+			{ani_play "rdir_6" callback}	
+			else rand 0.33
+			{ani_play "rdir_5" callback}	
+			else rand 0.33
+			{ani_play "rdir_4" callback}	
+			else rand 0.33			
+			{ani_play "rdir_3" callback}	
+			else rand 0.33	
+			{ani_play "rdir_2" callback}	
+			else 
+			{ani_play "rdir_1" callback}
+		}
 		{delay 1
 			{ani_play "flyin" callback}
 			{bone hide "propeller"}
@@ -15,6 +43,9 @@
 	;// End approach, drop cargo
 	{on animation_end "approach"
 		{ani_play "dropoff" callback}	
+		{with_linked_entity "attach"
+			{unlink}
+		}
 		{delay 0.2
 			{bone hide "crate"}
 			{bone hide "line1"}
