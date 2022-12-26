@@ -3,79 +3,101 @@ Purchases["campaign_capture_the_flag"] = {
 	{
 		Repeat = 0, --infinite
 		Units = {
-			["frg"] = {--Federal Republic of Germany - aka West Germany
-			--Infantry Singles
-	
-			--Infantry Squads
-				
-			--Cannons
-			
-			--HMGs
-				
-			--Anti_Aircraft
-			
-			--Anti_Tank
-			
-			--Mortars
-				
-			--Infantry_Support
-				
-			--Artillery
-			
-			--Rocket_Artillery
-			
-
-			--Wheel_vehicles
-				
-			--Tanks_light
-				
-			--Tanks_medium
-
-			--Tanks_heavy
-
-			--SPG
-			
-			},
 			["sov"] = {--Soviet Union
 			--Infantry
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_interior_con(sov)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_border_con(sov)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_border_moto_con(sov)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_con(sov)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_ak_con(sov)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_moto_con(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_marksman_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_scout_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sniper_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sapperap_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sapperat_early(sov)"},
 				
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_maneuv_con(sov)"},
-				{priority = 2.0, class = UnitClass.ATInfantry, unit = "squad_fireteam_con(sov)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_rifle_con(sov)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_rifle_full_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_lmg_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_conscript_rpg_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_full_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_moto_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_mech_con_early(sov)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_lmg_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_rifle_rpg_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_full_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_mech_con_early(sov)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_lmg_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_guards_rpg_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_full_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_moto_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_mech_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_mech2_con_early(sov)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_shock_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_shock_moto_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_shock_mech_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_shock_mech2_con_early(sov)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_recon_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_vdv_hunter_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_assault_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_vdv_asu57_con(sov)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spz_recon_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_spz_demo_con_early(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spz_scout_moto_con_early(sov)"},
+				
+				
+				
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_maneuv_con(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_conscript_fireteam_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_full_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_moto_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_moto2_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_mech_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_mech2_con(sov)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_maneuv_con(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_fireteam_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_con(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto_con(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto2_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_mech_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_mech2_con(sov)"},
 				
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_recon_con(sov)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_vdv_antitank_con(sov)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_con(sov)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_asu57_con(sov)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_vdv_asu85_con(sov)"},
-				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_maneuv_con(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_guards_fireteam_con(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_shock_con(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_moto_con(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_moto2_con(sov)"},
-				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_guards_mech_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_mech_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_mech2_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_shock_moto_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_shock_moto2_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_shock_mech_con(sov)"},
 				
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_banner_con(sov)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_banner_moto_con(sov)"},
-				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_banner_mech_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_recon_con(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_vdv_hunter_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_asu85_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_vdv_bmd1_con(sov)"},
 				
-				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_spz_recon_con(sov)"},
-				{priority = 0.5, class = UnitClass.ATInfantry, unit = "squad_spz_sabo_con(sov)"},
-				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_spz_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spz_recon_con(sov)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_spz_sabo_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spz_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spz_asu85_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spz_bmd1_con(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spz_scout_moto_con(sov)"},
 				
 				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at(sov)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at2(sov)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at3(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_marksman(sov)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_scout(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sniper(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer(sov)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sapperap(sov)"},
@@ -246,6 +268,26 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_scout(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sniper(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer(prc)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_militia_patrol_con_early(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_militia_con_early(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_militia_assault_con_early(prc)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_con_early(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_lmg_con_early(prc)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_conscript_rpg_con_early(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_conscript_full_con_early(prc)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_con_early(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_lmg_con_early(prc)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_rifle_rpg_con_early(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_full_con_early(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_assault_con_early(prc)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_lmg_con_early(prc)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_guards_rpg_con_early(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_full_con_early(prc)"},
+				
 			--Automatic_weaponry
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "sg43_stand_prc"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "dshk_aa_prc"},
@@ -280,6 +322,39 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 2.0, class = UnitClass.HeavyTank, unit = "is2_prc"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "isu152_prc"}
 			--SPG
+			},
+			["frg"] = {--Federal Republic of Germany - aka West Germany
+			--Infantry Singles
+	
+			--Infantry Squads
+				
+			--Cannons
+			
+			--HMGs
+				
+			--Anti_Aircraft
+			
+			--Anti_Tank
+			
+			--Mortars
+				
+			--Infantry_Support
+				
+			--Artillery
+			
+			--Rocket_Artillery
+			
+
+			--Wheel_vehicles
+				
+			--Tanks_light
+				
+			--Tanks_medium
+
+			--Tanks_heavy
+
+			--SPG
+			
 			}
 		}
 	}
