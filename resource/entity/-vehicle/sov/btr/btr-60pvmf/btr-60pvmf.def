@@ -1,0 +1,163 @@
+{game_entity			;BTR-60P
+	(include "/properties/armoredcar.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "apc" "tank" "wheeled" "multi_board" "explosion_throw_crew" "vision_lev02" "amphibia"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "car_bullet"}
+
+	(include "/properties/resupply_hotmod.inc")
+	("apc_ammo")
+	
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+	
+	("armoredcar_tier2")
+	
+	("solid_wheel" args "wheelr1")
+	("solid_wheel" args "wheell1")
+	("solid_wheel" args "wheelr2")
+	("solid_wheel" args "wheell2")
+	("solid_wheel" args "wheelr3")
+	("solid_wheel" args "wheell3")
+	("solid_wheel" args "wheelr4")
+	("solid_wheel" args "wheell4")
+	
+	{volume "body1"
+		{thickness 7
+			{front	11}
+		}
+	}
+	{volume "body2"
+		{thickness 7
+			{front	11}
+		}
+		{able {holed}}
+	}
+	{volume "body3"
+		{thickness 7
+			{front	11}
+		}
+	}
+	
+	("fuel" args "fuel")
+	("transmission" args "transmission")
+	
+	{volume "engine"		
+		{thickness 10}
+	}
+
+	{extender "inventory"
+		{box
+			{item "mgun_rus belt" 2000}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "mgun"
+			{type 			"aa"}
+			{weapon			"sgmb" filled}
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			{LinkBone		"mgun"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+			{ai_in_manual}
+			{basic}
+		}
+	}
+	
+	;("crew_gunner")
+	;("passenger_10_human")
+	
+	(include "/properties/hotmod_crew.ext")
+	
+	{placer
+		{place "driver"	{visor "driver"}}
+		{place "gunner2"	{visor "mgun"}}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_Willis_driver"}{base "open_left"}}
+			{reverse 	{end	"emit_body"}{base "open_left"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar"} {end "seat_Willis_passenger"}{base "open_right"}}
+			{reverse 	{end	"emit_body"}{base "open_right"}}
+		}
+		{anm "gunner2"
+			{forward	{begin	"board_big-midcar"} {end "seat_isu152_gunner2"}{base "open_right"}}
+			{reverse 	{end	"emit_body"}{base "open_right"}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_dodge_bodyback"} {end "seat_passenger"} {base"open_back"}}   
+			{reverse 	{end	"emit_body" 1} {base"open_back"}}
+		}
+	}
+	
+	("crew" place(driver)		bone(driver)	door(emit1)	door2(emit2)	animation(driver)		visor(driver)	off({sensor}))
+	("crew" place(gunner2)		bone(gunner2)	door(emit1)	door2(emit2)		animation(gunner2)		visor(none)		off())
+	("crew" place(commander)	bone(commander)	door(emit1)	door2(emit2)		animation(commander)	visor(none)		off())
+	("seat_passenger" 	place(seat1)  		bone(seat01)	door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat2)  		bone(seat02)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat3)  		bone(seat03)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat4)  		bone(seat04)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat5) 		bone(seat05)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat6)  		bone(seat06)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat7)  		bone(seat07)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat8) 		bone(seat08)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat9)  		bone(seat09)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat10) 		bone(seat10)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat11) 		bone(seat11)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat12) 		bone(seat12)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat13) 		bone(seat13)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	("seat_passenger" 	place(seat14) 		bone(seat14)	door(emit3) door2(emit4)  animation(passenger) 	group(passenger))
+	
+	{mass 9500}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility_car"
+			speed(70) ;----------------------------------Max speed.
+			speedatmaxturn(17) ;-------------------------Max speed at max turn.
+			reverse(22) ;--------------------------------Max speed in Reverse.
+			weight(9.5) ;------------------------------Weight in Tonnes.
+			power(180) ;----------------------------------Horse Power.
+			fuel(290) ;----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(500) ;---------------------------------Range in Kilometers.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}	
+	{Extension "btr-60pvmf.mdl"}
+
+	{bone "turret_mgun"
+        {limits -45 45}
+		{speed2 80}
+	}
+	{bone "mgun_rot" ;mgun horizontal
+		{limits -6 6}
+		{speed2 60}
+	}
+	{bone "mgun" ; mgun vertical
+		{limits -7 20}
+		{speed2 60}
+	}
+}
+

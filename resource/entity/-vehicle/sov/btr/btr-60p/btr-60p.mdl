@@ -28,7 +28,6 @@
 			}
 		}
 		{bone "emit4"
-			{parameters "Group=crew;"}
 			{Matrix34
 				0	1	0
 				-1	0	0
@@ -37,7 +36,6 @@
 			}
 		}
 		{bone "emit3"
-			{parameters "Group=crew;"}
 			{Matrix34
 				0	-1	0
 				1	0	0
@@ -46,7 +44,6 @@
 			}
 		}
 		{bone "emit2"
-			{parameters "Group=commander;"}
 			{Matrix34
 				0	1	0
 				-1	0	0
@@ -485,6 +482,19 @@
 				{Position -2.03039	-22.631	8.42027}
 				{VolumeView "detail5.ply"}
 			}
+			{bone "detail6"
+				{Position -6.43957	0.524954	21.1761}
+				{VolumeView "detail6.ply"}
+			}
+			{bone "detail7"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					-36.8265	16.4417	20.3259
+				}
+				{VolumeView "detail7.ply"}
+			}
 			{bone "at1"
 				{Matrix34
 					1	-0.000195439	-0.000365823
@@ -570,38 +580,22 @@
 				}
 				{VolumeView "doorright1.ply"}
 			}
-			{bone revolute "mgun_rot_turret"
-				{parameters "ID=body;"}
-				{limits -20 20}
-				{speed 0.03}
-				{Position 48.4157	-0.162606	19.2562}
-				{VolumeView "mgun_rot_turret.ply"}
-				{bone revolute "mgun_rot"
-					{parameters "ID=body;"}
-					{limits -20 30}
-					{speed 0.03}
-					{Matrix34
-						1	0	0
-						0	0	1
-						0	-1	0
-						0.0979347	0	1.06588
-					}
-					{VolumeView "mgun_rot.ply"}
-					{bone "mgun_hlp"
-						{Matrix34
-							0.999848	0	0.0174522
-							0	1	0
-							-0.0174524	0	0.999848
-							-7.6827	-0.743046	-0.853656
-						}
-					}
+			{bone revolute "turret_mgun"
+				{Position 45.8157	-0.162606	20.8562}
+				{bone "gunner2"
+					{Position -13.2957	0.0334939	4.8147}
 				}
-				{bone "gunner"
-					{Matrix34
-						0.965926	0.258819	0
-						-0.258819	0.965926	0
-						0	0	1
-						-15.6862	0.161772	-20.5074
+				{bone revolute "mgun_rot"
+					{Position 0.0217457	0.0622867	0.102901}
+					{VolumeView "mgun_rot.ply"}
+					{bone revolute "mgun"
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							-1.53564	-0.186306	4.74747
+						}
+						{VolumeView "mgun.ply"}
 					}
 				}
 			}
@@ -739,16 +733,6 @@
 		51.3781	0.70331	-8.18013
 	}
 }
-{Volume "crew"
-	{Box 25.4637 16.0649 50.792}
-	{Bone "body"}
-	{Matrix34
-		0	-1	0
-		0	0	1
-		-1	0	0
-		1.71812	0.39294	2.87678
-	}
-}
 {Volume "engine2"
 	{Polyhedron "engine2.vol"}
 	{Bone "engine"}
@@ -769,7 +753,7 @@
 	{Bone "engine"}
 	{Position 1.68042	0.00463899	3.8839}
 }
-{Volume "inventory"
+{Volume "fuel"
 	{Box 6.70315 7.87746 24.0683}
 	{Bone "body"}
 	{Matrix34
@@ -823,4 +807,9 @@
 	{Cylinder 11.7747 7.16138}
 	{Bone "wheelr4"}
 	{Position 0	0	-0.142368}
+}
+{Volume "hole1"
+	{Box 73.9302 30.1027 24.2062}
+	{Bone "body"}
+	{Position 4.10909	0	9.41767}
 }
