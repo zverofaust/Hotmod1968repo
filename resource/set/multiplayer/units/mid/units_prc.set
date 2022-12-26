@@ -76,7 +76,7 @@
 
 ; // 10DP Mechanized Guards Rifle Squad in YW531
 {"doctrine_squad_mech(prc)"
-	("squad_vehicle6_doctrine" side(prc) period(mid) g(doctrine_lvl1) vehicle(yw531) crew1(sup_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_atassist:1) crew6(grd_rifleman:4) cw(2) cp(0))
+	("squad_vehicle6_doctrine" side(prc) period(mid) g(doctrine_lvl1) vehicle(yw531) crew1(sup_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_lmg:1) crew4(grd_antitank:1) crew5(grd_atassist:1) crew6(grd_rifleman:4) cw(2) cp(0))
 	("doctrine_t1" cool(200) d(mid_prc_tank) cost(10))
 }
 
@@ -129,22 +129,17 @@
 ;|________________________________________________|
 
 
-("squad_with3types" side(prc) name(squad_militia)			period(mid) cd(0) ci(0) g(squad_1) c1(mil_squadlead:1) c2(mil_mg:1) c3(mil_rifleman:6)                    											b(inf1) t())
-("squad_with4types" side(prc) name(squad_militia_assault)	period(mid) cd(0) ci(0) g(squad_1) c1(mil_squadlead:1) c2(mil_grenadier:3) c3(mil_smg:2) c4(mil_rifleman2:2)										b(inf1) t())
-("squad_with2types" side(prc) name(squad_militia_antitank)	period(mid) cd(0) ci(0) g(squad_1) c1(mil_squadlead:1) c2(mil_grenadier:3)																			b(inf1) t())
-("squad_with3types" side(prc) name(squad_militia_ambush)	period(mid) cd(0) ci(0) g(squad_1) c1(mil_squadlead:1) c2(mil_mg:2) c3(mil_smg:1)		 	 														b(inf1) t())
+("squad_with3types" side(prc) name(squad_militia)			period(mid) cd(0) ci(0) g(squad_1) c1(mil_squadlead:1) c2(mil_mg:1) c3(mil_rifleman:6)                    											b(inf1) t())																		b(inf1) t())
+("squad_with3types" side(prc) name(squad_militia_ambush)	period(mid) cd(0) ci(0) g(squad_1) c1(mil_squadlead:1) c2(mil_mg:3) c3(mil_smg:4)		 	 														b(inf1) t())
+
+("squad_with6types" side(prc) name(squad_conscript)			period(mid) cd(0) ci(20) g(squad_2) c1(con_squadlead:1) c2(con_mg:1) c3(con_mgassist:1) c4(con_antitank:1) c5(con_atassist:1) c6(con_rifleman:3)    b(inf1) t())
+("squad_with4types" side(prc) name(squad_conscript_antitank)	period(mid) cd(0) ci(20) g(squad_2) c1(con_squadlead:1) c2(con_antitank:3) c3(con_atassist:3) c4(con_assault:1)    								b(inf1) t())
+
 ("squad_with6types" side(prc) name(squad_rifle)				period(mid) cd(0) ci(20) g(squad_2) c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_antitank:1) c5(reg_atassist:1) c6(reg_rifleman:3)    b(inf1) t())
 ("squad_with5types" side(prc) name(squad_autorifle)			period(mid) cd(0) ci(20) g(squad_2) c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_grenadier:2) c5(reg_rifleman2:4)	                    b(inf1) t())
 ("squad_with6types" side(prc) name(squad_guards)			period(mid) cd(0) ci(20) g(squad_2) c1(grd_squadlead:1) c2(grd_mg:1) c3(grd_mgassist:1) c4(grd_antitank:1) c5(grd_atassist:1) c6(grd_rifleman:3)	b(inf1) t())
 ("squad_with4types" side(prc) name(squad_guards_assault)	period(mid) cd(0) ci(20) g(squad_2) c1(grd_squadlead:1) c2(grd_antitank:3) c3(grd_atassist:2) c4(grd_flamer:3)										b(inf1) t())
 
-;{"squad_rifle_moto(prc)"
-;	("squad_vehicle7" period(mid) cd(0) ci(15) side(prc) t(vehicle) vehicle(nj-130) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_mg:1) crew4(reg_antitank:1) crew5(reg_atassist:1) crew6(reg_grenadier:2) crew7(reg_rifle:2) b(inf1) cw(2) cp(4)){squad_cost_factor 1}
-;}
-
-;{"squad_autorifle_moto(prc)"
-;	("squad_vehicle5" period(mid) cd(0) ci(15) side(prc) t(vehicle) vehicle(nj-130) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_mg:1) crew4(reg_grenadier:2) crew5(reg_rifleman2:2) b(inf1) cw(2) cp(4)){squad_cost_factor 1}
-;}
 
 ;_________________________________________________
 ;|             inf2                               |
