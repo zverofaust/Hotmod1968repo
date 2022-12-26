@@ -36,17 +36,17 @@
 ;}
 
 {"mortar_barrage_smoke_usa"
-	("squad_vehicle" side(usa) cd(0) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
+	("squad_vehicle" side(usa) cd(0) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
 	{cost 2}{conditions "radio_usa"}{action "airstrike:flare_mortar_smoke"}
 }
 
 {"mortar_barrage_light_usa"
-	("squad_vehicle" side(usa) cd(0) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
+	("squad_vehicle" side(usa) cd(0) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
 	{cost 3}{conditions "radio_usa"}{action "airstrike:flare_mortar_80"}
 }
 
 {"mortar_barrage_medium_usa"
-	("squad_vehicle" side(usa) cd(0) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(d30a) crew(sup_guncrew:0))
+	("squad_vehicle" side(usa) cd(0) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(m30_mortar) crew(sup_guncrew:0))
 	{cost 5}{conditions "radio_usa"}{action "airstrike:flare_mortar_120"}
 }
 
@@ -222,11 +222,10 @@
 ;			
 ;===================================
 
-; // 5 DP Ammo Paradrop
-{"doctrine_airdrop_ammo(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(f-105) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_strat" cool(60) d(mid_usa_air) cost(5))
-	{action "airstrike:ammocrate_usa"} 
+; // 3DP Ammo Drop from UH-1D
+{"doctrine_vehicle_heliammo(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h_transport_supplies) crew(sup_pilot:4) cw(2) cp(0))
+	("doctrine_t1" cool(15) d(mid_usa_air) cost(3))
 }
 
 ; // 10DP Airmobile Infantry Squad in UH-1D
@@ -244,26 +243,32 @@
 ; // 20DP Airmobile Ranger Squad in UH-1D
 {"doctrine_squad_ranger_huey(usa)"
 	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
-	("doctrine_t1" cool(180) d(mid_usa_air) cost(20))
+	("doctrine_t2" cool(180) d(mid_usa_air) cost(20))
 }
 
-; // 7DP Air-Dropped M56 Scorpion
-{"doctrine_paradrop_m56(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m56) crew(aircav_vehicleman:3) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_air) cost(7))
+; // 5DP Air-Dropped M151 with M40
+{"doctrine_vehicle_m151_m40(usa)"
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(uh-1h_transport_m151_m40) crew1(sup_pilot:4) crew2(aircav_rifleman:3) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_usa_air) cost(8))
 }
 
-; // 15DP Air-Dropped M56 Scorpion
+; // 8DP Air-Dropped M56 Scorpion
+{"doctrine_vehicle_m56(usa)"
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(ch-47_transport_m56) crew1(sup_pilot:4) crew2(aircav_vehicleman:3) cw(0) cp(0))
+	("doctrine_t1" cool(240) d(mid_usa_air) cost(8))
+}
+
+; // 15DP Air-Dropped M551 Sheridan
 {"doctrine_vehicle_m551(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m551) crew(aircav_vehicleman:4) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_air) cost(15))
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(ch-47_transport_m551) crew1(sup_pilot:4) crew2(aircav_vehicleman:4) cw(0) cp(0))
+	("doctrine_t2" cool(240) d(mid_usa_air) cost(15))
 }
 
 ; // 10 DP Chinook Transport/Supply
-{"doctrine_vehicle_chinook(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ch-47_chinook_mg) crew(sup_pilot:4) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
-}
+;{"doctrine_vehicle_chinook(usa)"
+;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ch-47_chinook_mg) crew(sup_pilot:4) cw(0) cp(0))
+;	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
+;}
 
 ; // 20 DP UH-1B Airborne Rocket Artillery (ARA)
 {"doctrine_vehicle_uh1b_ara(usa)"
