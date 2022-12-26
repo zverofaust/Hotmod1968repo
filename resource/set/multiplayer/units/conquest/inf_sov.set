@@ -25,7 +25,16 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/sov/mid/sup_pilot"				("sov_pilot" side(sov)) {cost 0.0}} ; Pistol
+(define "sov_pilot_early"
+	{tags "early %side infantry man pilot"}
+	{cp 0}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/sov/early/sup_pilot"				("sov_pilot" side(sov)) {cost 0.0}} ; Pistol
+{"mp/sov/mid/sup_pilot"					("sov_pilot" side(sov)) {cost 0.0}} ; Pistol
 
 (define "sov_tankman"
 	{tags "mid %side infantry man"}
@@ -35,12 +44,27 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/sov/mid/sup_guncrew"			("sov_tankman" side(sov)) {cost 5.0}} ; Makarov Pistol
-{"mp/sov/mid/sup_supporter"			("sov_tankman" side(sov)) {cost 5.0}} ; SKS
+(define "sov_tankman_early"
+	{tags "early %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/sov/early/sup_guncrew"				("sov_tankman_early" side(sov)) {cost 5.0}} ; Makarov Pistol
+{"mp/sov/early/sup_supporter"			("sov_tankman_early" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/early/sup_tankman"				("sov_tankman_early" side(sov)) {cost 4.0}} ; Pistol
+{"mp/sov/early/sup_vehicleman"			("sov_tankman_early" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
+{"mp/sov/early/vdv_vehicleman"			("sov_tankman_early" side(sov)) {cost 15.0}} ; 
+{"mp/sov/early/grd_vehicleman"			("sov_tankman_early" side(sov)) {cost 15.0}} ;
+ 
+{"mp/sov/mid/sup_guncrew"				("sov_tankman" side(sov)) {cost 5.0}} ; Makarov Pistol
+{"mp/sov/mid/sup_supporter"				("sov_tankman" side(sov)) {cost 5.0}} ; SKS
 {"mp/sov/mid/sup_tankman"				("sov_tankman" side(sov)) {cost 4.0}} ; Pistol
 {"mp/sov/mid/sup_vehicleman"			("sov_tankman" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
-{"mp/sov/mid/vdv_vehicleman"		("sov_tankman" side(sov)) {cost 15.0}} ; AKMS
-{"mp/sov/mid/grd_vehicleman"		("sov_tankman" side(sov)) {cost 15.0}} ; AKMS
+{"mp/sov/mid/vdv_vehicleman"			("sov_tankman" side(sov)) {cost 15.0}} ;
+{"mp/sov/mid/grd_vehicleman"			("sov_tankman" side(sov)) {cost 15.0}} ; 
 
 (define "sov_basic"
 	{tags "mid %side infantry man lvl1"}
@@ -50,20 +74,47 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
+(define "sov_basic_early"
+	{tags "early %side infantry man lvl1"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/sov/early/con_rifleman"		("sov_basic_early" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/early/con_mg"				("sov_basic_early" side(sov)) {cost 30.0}} ; DP/RP-46
+{"mp/sov/early/con_lmg"				("sov_basic_early" side(sov)) {cost 30.0}} ; RPD
+{"mp/sov/early/con_atgren"			("sov_basic_early" side(sov)) {cost 20.0}} ; RKG-2
+{"mp/sov/early/con_antitank"		("sov_basic_early" side(sov)) {cost 30.0}} ; RPG-2
+{"mp/sov/early/con_squadlead"		("sov_basic_early" side(sov)) {cost 15.0}} ; AK-47
+{"mp/sov/early/con_marksman"		("sov_basic_early" side(sov)) {cost 15.0}} ; Mosin-Nagant
+{"mp/sov/early/brd_rifleman"		("sov_basic_early" side(sov)) {cost 7.5}} ; SKS
+{"mp/sov/early/brd_mg"				("sov_basic_early" side(sov)) {cost 32.0}} ; DP/RP-46
+{"mp/sov/early/brd_antitank"		("sov_basic_early" side(sov)) {cost 25.0}} ; RPG-2
+{"mp/sov/early/brd_squadlead"		("sov_basic_early" side(sov)) {cost 18.0}} ; SKS
+{"mp/sov/early/brd_senior"			("sov_basic_early" side(sov)) {cost 10.0}} ; SKS
+{"mp/sov/early/mvd_rifleman"		("sov_basic_early" side(sov)) {cost 4.0}} ; Mosin
+{"mp/sov/early/mvd_mg"				("sov_basic_early" side(sov)) {cost 20.0}} ; DP
+{"mp/sov/early/mvd_antitank"		("sov_basic_early" side(sov)) {cost 15.0}} ; Mosin/RKG-2
+{"mp/sov/early/mvd_squadlead"		("sov_basic_early" side(sov)) {cost 12.0}} ; PPsh
+
 {"mp/sov/mid/con_rifleman"			("sov_basic" side(sov)) {cost 5.0}} ; SKS
-{"mp/sov/mid/con_rifleman2"			("sov_basic" side(sov)) {cost 7.5}} ; AKM
+{"mp/sov/mid/con_rifleman2"			("sov_basic" side(sov)) {cost 7.5}} ; AK47
 {"mp/sov/mid/con_mg"				("sov_basic" side(sov)) {cost 30.0}} ; RPD
-{"mp/sov/mid/con_antitank"			("sov_basic" side(sov)) {cost 17.0}} ; SKS & RPG-43
-{"mp/sov/mid/con_antitank2"			("sov_basic" side(sov)) {cost 30.0}} ; AKM & RPG-2
+{"mp/sov/mid/con_mg2"				("sov_basic" side(sov)) {cost 30.0}} ; RPK
+{"mp/sov/mid/con_atgren"			("sov_basic" side(sov)) {cost 20.0}} ; SKS & RKG-2
+{"mp/sov/mid/con_antitank"			("sov_basic" side(sov)) {cost 30.0}} ; AK47 & RPG-2
 {"mp/sov/mid/con_squadlead"			("sov_basic" side(sov)) {cost 15.0}} ; AKM
-{"mp/sov/mid/brd_rifleman"			("sov_basic" side(sov)) {cost 7.5}} ; AKM
+{"mp/sov/mid/con_marksman"			("sov_basic" side(sov)) {cost 15.0}} ; Mosin Scope
+{"mp/sov/mid/brd_rifleman"			("sov_basic" side(sov)) {cost 7.5}} ; SKS
 {"mp/sov/mid/brd_mg"				("sov_basic" side(sov)) {cost 32.0}} ; RPD
-{"mp/sov/mid/brd_antitank"			("sov_basic" side(sov)) {cost 25.0}} ; PPs-43 + RPG-43
-{"mp/sov/mid/brd_squadlead"			("sov_basic" side(sov)) {cost 18.0}} ; AKM
-{"mp/sov/mid/brd_senior"			("sov_basic" side(sov)) {cost 10.0}} ; AKM
+{"mp/sov/mid/brd_antitank"			("sov_basic" side(sov)) {cost 25.0}} ; SKS + RPG-2
+{"mp/sov/mid/brd_squadlead"			("sov_basic" side(sov)) {cost 18.0}} ; AK47
+{"mp/sov/mid/brd_senior"			("sov_basic" side(sov)) {cost 10.0}} ; AK47
 {"mp/sov/mid/mvd_rifleman"			("sov_basic" side(sov)) {cost 4.0}} ; SKS
 {"mp/sov/mid/mvd_mg"				("sov_basic" side(sov)) {cost 20.0}} ; RPD
-{"mp/sov/mid/mvd_antitank"			("sov_basic" side(sov)) {cost 15.0}} ; PPs-43 + RPG-43
+{"mp/sov/mid/mvd_antitank"			("sov_basic" side(sov)) {cost 15.0}} ; SKS + RPG-43
 {"mp/sov/mid/mvd_squadlead"			("sov_basic" side(sov)) {cost 12.0}} ; SKS
 
 
@@ -75,9 +126,34 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/sov/mid/reg_antitank3"			("sov_regular" side(sov)) {cost 15.0}} ; AKM & RPG-43 Grenades
+(define "sov_regular_early"
+	{tags "early %side infantry man lvl1 lvl2"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/sov/early/reg_atassist"			("sov_regular_early" side(sov)) {cost 15.0}} ; SKS & RPG-2 Ammo
+{"mp/sov/early/reg_atassist_ak47"		("sov_regular_early" side(sov)) {cost 15.0}} ; AK47 & RPG-7 Ammo
+{"mp/sov/early/reg_atgren"				("sov_regular_early" side(sov)) {cost 25.0}} ; SKS & RKG-2
+{"mp/sov/early/reg_lmg"					("sov_regular_early" side(sov)) {cost 35.0}} ; RPD
+{"mp/sov/early/reg_lmgassist"			("sov_regular_early" side(sov)) {cost 15.0}} ; SKS & RPD Ammo
+{"mp/sov/early/reg_lmgassist_ak47"		("sov_regular_early" side(sov)) {cost 15.0}} ; AK47 & RPD Ammo
+{"mp/sov/early/reg_mg"					("sov_regular_early" side(sov)) {cost 45.0}} ; DP/RP-46
+{"mp/sov/early/reg_mgassist"			("sov_regular_early" side(sov)) {cost 15.0}} ; SKS/RP-46 Ammo
+{"mp/sov/early/reg_mgassist_ak47"		("sov_regular_early" side(sov)) {cost 15.0}} ; AK47/RP-46 Ammo
+{"mp/sov/early/reg_rifleman"			("sov_regular_early" side(sov)) {cost 12.0}} ; SKS
+{"mp/sov/early/reg_rifleman_ak47"		("sov_regular_early" side(sov)) {cost 13.0}} ; AK47
+{"mp/sov/early/reg_senior"				("sov_regular_early" side(sov)) {cost 16.0}} ; AK47
+{"mp/sov/early/reg_squadlead"			("sov_regular_early" side(sov)) {cost 25.0}} ; AK47
+{"mp/sov/early/reg_sapper-ap"			("sov_regular_early" side(sov)) {cost 25.0}} ; SKS
+{"mp/sov/early/reg_sapper-at"			("sov_regular_early" side(sov)) {cost 25.0}} ; SKS
+{"mp/sov/early/reg_ammo"				("sov_regular_early" side(sov)) {cost 35.0}} ; SKS
+
 {"mp/sov/mid/reg_atassist"			("sov_regular" side(sov)) {cost 15.0}} ; AKM & RPG-7 Ammo
 {"mp/sov/mid/reg_atassist2"			("sov_regular" side(sov)) {cost 15.0}} ; AKM & RPG-2 Ammo
+{"mp/sov/mid/reg_atgren"			("sov_regular" side(sov)) {cost 25.0}} ; AKM + RKG-2
 {"mp/sov/mid/reg_lmg"				("sov_regular" side(sov)) {cost 35.0}} ; RPK
 {"mp/sov/mid/reg_lmgassist"			("sov_regular" side(sov)) {cost 15.0}} ; AKM
 {"mp/sov/mid/reg_mg"				("sov_regular" side(sov)) {cost 45.0}} ; PK
@@ -87,6 +163,7 @@
 {"mp/sov/mid/reg_squadlead"			("sov_regular" side(sov)) {cost 25.0}} ; AKM
 {"mp/sov/mid/reg_sapper-ap"			("sov_regular" side(sov)) {cost 25.0}} ; AKM
 {"mp/sov/mid/reg_sapper-at"			("sov_regular" side(sov)) {cost 25.0}} ; AKM
+{"mp/sov/mid/reg_ammo"				("sov_regular" side(sov)) {cost 35.0}} ; AKM + Ammo bag
 
 (define "sov_regular_advanced"
 	{tags "mid %side infantry man lvl2"}
@@ -96,12 +173,24 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
+(define "sov_regular_advanced_early"
+	{tags "early %side infantry man lvl2"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/sov/early/reg_antitank"			("sov_regular_advanced_early" side(sov)) {cost 40.0}} ; SKS & RPG-2
+{"mp/sov/early/reg_antitank_ak47"		("sov_regular_advanced_early" side(sov)) {cost 42.0}} ; AK47 & RPG-2
+{"mp/sov/early/reg_marksman"			("sov_regular_advanced_early" side(sov)) {cost 50.0}} ; Mosin-Nagant PU
+{"mp/sov/early/reg_engineer"			("sov_regular_advanced_early" side(sov)) {cost 12.0}} ; SKS
 
-{"mp/sov/mid/reg_antitank"			("sov_regular" side(sov)) {cost 50.0}} ; AKMS & RPG-7
-{"mp/sov/mid/reg_antitank2"			("sov_regular" side(sov)) {cost 40.0}} ; AKMS & RPG-2
-{"mp/sov/mid/reg_marksman"			("sov_regular" side(sov)) {cost 50.0}} ; SVD
-{"mp/sov/mid/reg_flamer"			("sov_regular" side(sov)) {cost 50.0}} ; RKO
-{"mp/sov/mid/reg_engineer"			("sov_regular" side(sov)) {cost 12.0}} ; SKS
+{"mp/sov/mid/reg_antitank"			("sov_regular_advanced" side(sov)) {cost 50.0}} ; AKMS & RPG-7
+{"mp/sov/mid/reg_antitank2"			("sov_regular_advanced" side(sov)) {cost 40.0}} ; AKMS & RPG-2
+{"mp/sov/mid/reg_marksman"			("sov_regular_advanced" side(sov)) {cost 50.0}} ; SVD
+{"mp/sov/mid/reg_flamer"			("sov_regular_advanced" side(sov)) {cost 50.0}} ; RKO
+{"mp/sov/mid/reg_engineer"			("sov_regular_advanced" side(sov)) {cost 12.0}} ; SKS
 
 (define "sov_vdv"
 	{tags "mid %side infantry man lvl2 lvl3"}
@@ -111,13 +200,29 @@
 	{cw 3.0}
 	{score_factor 0.05}
 )
+(define "sov_vdv_early"
+	{tags "early %side infantry man lvl2 lvl3"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 3.0}
+	{score_factor 0.05}
+)
+{"mp/sov/early/vdv_antitank"			("sov_vdv_early" side(sov)) {cost 60.0}} ; AK47 & RPG-2
+{"mp/sov/early/vdv_atassist"			("sov_vdv_early" side(sov)) {cost 20.0}} ; AK47
+{"mp/sov/early/vdv_lmg"					("sov_vdv_early" side(sov)) {cost 50.0}} ; RPD
+{"mp/sov/early/vdv_lmgassist"			("sov_vdv_early" side(sov)) {cost 20.0}} ; AK47
+{"mp/sov/early/vdv_rifleman"			("sov_vdv_early" side(sov)) {cost 17.0}} ; AK47
+{"mp/sov/early/vdv_reg_senior"			("sov_vdv_early" side(sov)) {cost 22.0}} ; AK47
+{"mp/sov/early/vdv_squadlead"			("sov_vdv_early" side(sov)) {cost 30.0}} ; AK47
+
 {"mp/sov/mid/vdv_antitank"			("sov_vdv" side(sov)) {cost 60.0}} ; AKMS & RPG-7
 {"mp/sov/mid/vdv_atassist"			("sov_vdv" side(sov)) {cost 20.0}} ; AKM
 {"mp/sov/mid/vdv_marksman"			("sov_vdv" side(sov)) {cost 65.0}} ; SVD
 {"mp/sov/mid/vdv_lightmg"			("sov_vdv" side(sov)) {cost 50.0}} ; PK
 {"mp/sov/mid/vdv_lightmgassist"		("sov_vdv" side(sov)) {cost 20.0}} ; AKM
 {"mp/sov/mid/vdv_rifleman"			("sov_vdv" side(sov)) {cost 17.0}} ; AKM
-{"mp/sov/mid/vdv_reg_senior"			("sov_vdv" side(sov)) {cost 22.0}} ; AKM
+{"mp/sov/mid/vdv_reg_senior"		("sov_vdv" side(sov)) {cost 22.0}} ; AKM
 {"mp/sov/mid/vdv_squadlead"			("sov_vdv" side(sov)) {cost 30.0}} ; AKM
 
 (define "sov_guards"
@@ -128,10 +233,30 @@
 	{cw 4.0}
 	{score_factor 0.05}
 )
+(define "sov_guards_early"
+	{tags "early %side infantry man lvl2 lvl3"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+
+{"mp/sov/early/grd_antitank"			("sov_guards_early" side(sov)) {cost 60.0}} ; AK47 & RPG-2
+{"mp/sov/early/grd_atassist"			("sov_guards_early" side(sov)) {cost 20.0}} ; AK47
+{"mp/sov/early/grd_marksman"			("sov_guards_early" side(sov)) {cost 65.0}} ; Mosin-Nagant PU
+{"mp/sov/early/grd_lmg"					("sov_guards_early" side(sov)) {cost 50.0}} ; RPD
+{"mp/sov/early/grd_flamer"				("sov_guards_early" side(sov)) {cost 60.0}} ; RPO
+{"mp/sov/early/grd_lmgassist"			("sov_guards_early" side(sov)) {cost 20.0}} ; AK47
+{"mp/sov/early/grd_rifleman"			("sov_guards_early" side(sov)) {cost 17.0}} ; AK47
+{"mp/sov/early/grd_senior"				("sov_guards_early" side(sov)) {cost 22.0}} ; AK47
+{"mp/sov/early/grd_squadlead"			("sov_guards_early" side(sov)) {cost 30.0}} ; AK47
+
 {"mp/sov/mid/grd_antitank"			("sov_guards" side(sov)) {cost 60.0}} ; AKMS & RPG-7
 {"mp/sov/mid/grd_atassist"			("sov_guards" side(sov)) {cost 20.0}} ; AKM
 {"mp/sov/mid/grd_marksman"			("sov_guards" side(sov)) {cost 65.0}} ; SVD
 {"mp/sov/mid/grd_mg"				("sov_guards" side(sov)) {cost 50.0}} ; PK
+{"mp/sov/mid/grd_flamer"			("sov_guards" side(sov)) {cost 60.0}} ; RPO
 {"mp/sov/mid/grd_mgassist"			("sov_guards" side(sov)) {cost 20.0}} ; AKM
 {"mp/sov/mid/grd_rifleman"			("sov_guards" side(sov)) {cost 17.0}} ; AKM
 {"mp/sov/mid/grd_senior"			("sov_guards" side(sov)) {cost 22.0}} ; AKM
@@ -165,13 +290,30 @@
 {"mp/sov/mid/red_flamer"			("sov_banner" side(sov)) {cost 65.0}} ; RKO
 
 (define "sov_spetsnaz"
-	{tags "mid %side infantry man lvl3"}
+	{tags "mid %side infantry man lvl3 lvl4"}
 	{cp 1}
 	{basic}
 	{breed}
 	{cw 2}
 	{score_factor 0.05}
 )
+(define "sov_spetsnaz_early"
+	{tags "early %side infantry man lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+
+{"mp/sov/early/spz_squadlead"			("sov_spetsnaz_early" side(sov)) {cost 50.0}} ; AK47
+{"mp/sov/early/spz_rifleman"			("sov_spetsnaz_early" side(sov)) {cost 35.0}} ; AK47
+{"mp/sov/early/spz_mg"					("sov_spetsnaz_early" side(sov)) {cost 80.0}} ; RPD
+{"mp/sov/early/spz_antitank"			("sov_spetsnaz_early" side(sov)) {cost 90.0}} ; AK47 & RPG-2
+{"mp/sov/early/spz_marksman"			("sov_spetsnaz_early" side(sov)) {cost 100.0}} ; Mosin-Nagant
+{"mp/sov/early/spz_demo"				("sov_spetsnaz_early" side(sov)) {cost 80.0}} ; AK47 & Satchel Charges
+{"mp/sov/early/spz_spotter"				("sov_spetsnaz_early" side(sov)) {cost 45.0}} ; AK47, Binos
+
 {"mp/sov/mid/spz_squadlead"			("sov_spetsnaz" side(sov)) {cost 50.0}} ; AKMS(S), Binos
 {"mp/sov/mid/spz_rifleman"			("sov_spetsnaz" side(sov)) {cost 35.0}} ; AKMS(S)
 {"mp/sov/mid/spz_mg"				("sov_spetsnaz" side(sov)) {cost 80.0}} ; PK MG
@@ -218,4 +360,14 @@
 	{cw 2}
 	{score_factor 0.05}
 )
+(define "sov_sniper_early"
+	{tags "early %side infantry man sniper lvl3"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+
+{"mp/sov/early/spz_sniper"		("sov_sniper_early" side(sov)) {cost 150.0}} ; Mosin-Nagant PU
 {"mp/sov/mid/spz_sniper"		("sov_sniper" side(sov)) {cost 150.0}} ; Mosin-Nagant PU

@@ -27,52 +27,52 @@
 
 ;//Artillery Strike dummies
 
-{"82mm_bm37_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 2} {cost 0} {not_for_sale 1}}
-{"120mm_pm38_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 2} {cost 0} {not_for_sale 1}}
-{"d30a_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
-{"152mm_ml20_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 6} {cost 0} {not_for_sale 1}}
-{"203mm_b4_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 6} {cost 0} {not_for_sale 1}}
-{"bm-21_grad_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
+;{"82mm_bm37_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 2} {cost 0} {not_for_sale 1}}
+;{"120mm_pm38_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 2} {cost 0} {not_for_sale 1}}
+;{"d30a_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
+;{"152mm_ml20_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 6} {cost 0} {not_for_sale 1}}
+;{"203mm_b4_sov_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 6} {cost 0} {not_for_sale 1}}
+;{"bm-21_grad_dummy" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
 
 ;//Artillery Supports
 
 {"mortar_barrage_smoke_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(82mm_bm37_sov_dummy) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
 	{cost 1}{action "airstrike:flare_mortar_smoke"}
 }
 
 {"mortar_barrage_light_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(82mm_bm37_sov_dummy) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
 	{cost 1}{action "airstrike:flare_mortar_80"}
 }
 
 {"mortar_barrage_medium_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(120mm_pm38_sov_dummy) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(120mm_pm38_sov) crew(sup_guncrew:0))
 	{cost 2}{action "airstrike:flare_mortar_120"}
 }
 
 {"artillery_barrage_smoke_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d30a_dummy) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d30a) crew(sup_guncrew:0))
 	{cost 2}{action "airstrike:flare_artillery_smoke"}
 }
 
 {"artillery_barrage_light_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d30a_dummy) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d30a) crew(sup_guncrew:0))
 	{cost 5}{action "airstrike:flare_artillery_105"}
 }
 
 {"artillery_barrage_medium_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(152mm_ml20_sov_dummy) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d-20) crew(sup_guncrew:0))
 	{cost 8}{action "airstrike:flare_artillery_150"}
 }
 
 {"artillery_barrage_heavy_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(203mm_b4_sov_dummy) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(203mm_b4_sov) crew(sup_guncrew:0))
 	{cost 12}{action "airstrike:flare_artillery_203"}
 }
 
 {"artillery_barrage_rocket_sov"
-	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(bm-21_grad_dummy) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(bm-21_grad) crew(sup_guncrew:0))
 	{cost 12}{action "airstrike:flare_artillery_rocket"}
 }
 
@@ -130,6 +130,14 @@
 	{cost 18}{action "airstrike:yak-28_airstrike_3x1000"}
 }
 
+;// OTHER OFFMAP Supports
+
+{"paradrop_asu57"
+	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(su-7_airstrike) crew(sup_pilot:0))
+	{cost 3}{action "airstrike:flare_paradrop_asu57"}
+}
+
+
 ;_________________________________________________
 ;|             inf1                               |
 ;|________________________________________________|
@@ -137,25 +145,25 @@
 ;;;EARLY Period
 ("squad_with4types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_conscript_con_early)		c1(con_squadlead:1) c2(con_mg:1) c3(con_atgren:1) c4(con_rifleman:5))
 ("squad_with3types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_conscript_lmg_con_early)	c1(con_squadlead:1) c2(con_lmg:1) c3(con_rifleman:2))
-("squad_with3types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_conscript_rpg_con_early)	c1(con_squadlead:1) c2(con_antitank:1) c3(con_rifleman:2))
-("squad_with4types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_conscript_full_con_early) c1(con_squadlead:1) c2(con_antitank:1) c3(con_lmg:1) c4(con_rifleman:5))
+("squad_with3types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_conscript_rpg_con_early)	c1(con_squadlead:1) c2(con_atgren:1) c3(con_rifleman:2))
+("squad_with4types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_conscript_full_con_early) c1(con_squadlead:1) c2(con_atgren:1) c3(con_lmg:1) c4(con_rifleman:5))
 {"squad_conscript_moto_con_early(sov)" 
-	("squad_vehicle5"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-152) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_lmg:1) crew4(con_antitank:1) crew5(con_rifleman:5))
+	("squad_vehicle5"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-152) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_lmg:1) crew4(con_atgren:1) crew5(con_rifleman:5))
 }
 {"squad_conscript_mech_con_early(sov)" 
-	("squad_vehicle5"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-50p) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_lmg:1) crew4(con_antitank:1) crew5(con_rifleman:5))
+	("squad_vehicle5"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-50p) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_lmg:1) crew4(con_atgren:1) crew5(con_rifleman:5))
 }
 
 ("squad_with6types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_rifle_con_early)			c1(reg_squadlead:1) c2(reg_senior:1) c3(reg_mg:1) c4(reg_mgassist:1) c5(reg_atgren:1) c6(reg_rifleman:3))
 ("squad_with4types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_rifle_lmg_con_early)		c1(reg_senior:1) c2(reg_lmg:1) c3(reg_lmgassist:1) c4(reg_rifleman_ak47:1))
 ("squad_with4types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_rifle_rpg_con_early)		c1(reg_senior:1) c2(reg_antitank:1) c3(reg_atassist:1) c4(reg_rifleman_ak47:1))
-("squad_with6types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_rifle_full_con_early)	c1(reg_squadlead:1) c2(reg_senior:1) c3(reg_lmg:1) c4(reg_lmgassist:1) c5(reg_antitank:1) c6(reg_atassist:1) c7(reg_rifleman_ak47:1))
+("squad_with7types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_rifle_full_con_early)	c1(reg_squadlead:1) c2(reg_senior:1) c3(reg_lmg:1) c4(reg_lmgassist_ak47:1) c5(reg_antitank:1) c6(reg_atassist_ak47:1) c7(reg_rifleman_ak47:2))
 
 {"squad_rifle_moto_con_early(sov)" 
-	("squad_vehicle8"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-152) cw(0) cp(4) crew1(sup_supporter:2) crew2(reg_squadlead:1) crew3(reg_senior:1) crew4(reg_lmg:1) crew5(reg_lmgassist:1) crew6(reg_antitank:1) crew7(reg_atassist:1) crew8(reg_rifleman_ak47:2))
+	("squad_vehicle8"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-152) cw(0) cp(4) crew1(sup_supporter:2) crew2(reg_squadlead:1) crew3(reg_senior:1) crew4(reg_lmg:1) crew5(reg_lmgassist_ak47:1) crew6(reg_antitank:1) crew7(reg_atassist_ak47:1) crew8(reg_rifleman_ak47:2))
 }
 {"squad_rifle_mech_con_early(sov)" 
-	("squad_vehicle8"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-50p) cw(0) cp(4) crew1(sup_supporter:2) crew2(reg_squadlead:1) crew3(reg_senior:1) crew4(reg_lmg:1) crew5(reg_lmgassist:1) crew6(reg_antitank:1) crew7(reg_atassist:1) crew8(reg_rifleman_ak47:2))
+	("squad_vehicle8"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-50p) cw(0) cp(4) crew1(sup_supporter:2) crew2(reg_squadlead:1) crew3(reg_senior:1) crew4(reg_lmg:1) crew5(reg_lmgassist_ak47:1) crew6(reg_antitank:1) crew7(reg_atassist_ak47:1) crew8(reg_rifleman_ak47:2))
 }
 
 ("squad_with4types_conquest" side(sov) period(early) min_stage(0) max_stage(99) name(squad_internal_con_early)		c1(mvd_squadlead:1) c2(mvd_mg:1) c3(mvd_antitank:1) c4(mvd_rifleman:5))
@@ -204,7 +212,7 @@
 	("squad_vehicle6"		 side(sov) period(early) min_stage(4) max_stage(99) vehicle(asu57) cw(0) cp(4) crew1(vdv_vehicleman:3) crew2(vdv_squadlead:1) crew3(vdv_lmg:1) crew4(vdv_lmgassist:1) crew5(vdv_marksman:1) crew6(vdv_rifleman:1))
 }
 
-{"squad_spetsnaz_scout_con_early(sov)" 
+{"squad_spz_scout_moto_con_early(sov)" 
 	("squad_vehicle2"		 side(sov) period(mid) min_stage(8) max_stage(99) vehicle(m72) cw(0) cp(4) 		crew1(spz_rifleman:2) crew2(spz_squadlead:1))
 }
 
@@ -225,22 +233,22 @@
 ("squad_with4types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_internal_con)		c1(mvd_squadlead:1) c2(mvd_mg:1) c3(mvd_antitank:1) c4(mvd_rifleman:5))
 ("squad_with3types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_internal_at_con)		c1(mvd_squadlead:1) c2(mvd_antitank:5) c3(mvd_rifleman:2))
 
-("squad_with4types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_conscript_con)			c1(con_squadlead:1) c2(con_mg:1) c3(con_antitank:1) c4(con_rifleman2:5))
+("squad_with4types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_conscript_con)			c1(con_squadlead:1) c2(con_mg:1) c3(con_atgren:1) c4(con_rifleman2:5))
 ("squad_with4types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_conscript_maneuv_con)	c1(con_squadlead:1) c2(con_mg2:1) c3(con_marksman:1) c4(con_rifleman2:1))
-("squad_with3types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_conscript_fireteam_con)	c1(con_squadlead:1) c2(con_antitank2:1) c3(con_rifleman2:2))
-("squad_with5types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_conscript_full_con)		c1(con_squadlead:1) c2(con_mg2:1) c3(con_antitank2:1) c4(con_marksman:1) c5(con_rifleman2:4))
+("squad_with3types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_conscript_fireteam_con)	c1(con_squadlead:1) c2(con_antitank:1) c3(con_rifleman2:2))
+("squad_with5types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_conscript_full_con)		c1(con_squadlead:1) c2(con_mg2:1) c3(con_antitank:1) c4(con_marksman:1) c5(con_rifleman2:4))
 
 {"squad_conscript_moto_con(sov)" 
-	("squad_vehicle6"		 side(sov) period(mid) min_stage(1) max_stage(99) vehicle(btr-152) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_mg2:1) crew4(con_antitank2:1) crew5(con_marksman:1) crew6(con_rifleman2:4))
+	("squad_vehicle6"		 side(sov) period(mid) min_stage(1) max_stage(99) vehicle(btr-152) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_mg2:1) crew4(con_antitank:1) crew5(con_marksman:1) crew6(con_rifleman2:4))
 }
 {"squad_conscript_mech_con(sov)" 
-	("squad_vehicle6"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-50p) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_mg2:1) crew4(con_antitank2:1) crew5(con_marksman:1) crew6(con_rifleman2:4))
+	("squad_vehicle6"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-50p) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_mg2:1) crew4(con_antitank:1) crew5(con_marksman:1) crew6(con_rifleman2:4))
 }
 {"squad_conscript_moto2_con(sov)" 
-	("squad_vehicle6"		 side(sov) period(mid) min_stage(1) max_stage(99) vehicle(btr-60pa) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_mg2:1) crew4(con_antitank2:1) crew5(con_marksman:1) crew6(con_rifleman2:4))
+	("squad_vehicle6"		 side(sov) period(mid) min_stage(1) max_stage(99) vehicle(btr-60pa) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_mg2:1) crew4(con_antitank:1) crew5(con_marksman:1) crew6(con_rifleman2:4))
 }
 {"squad_conscript_mech2_con(sov)" 
-	("squad_vehicle6"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-50pk) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_mg2:1) crew4(con_antitank2:1) crew5(con_marksman:1) crew6(con_rifleman2:4))
+	("squad_vehicle6"		 side(sov) period(early) min_stage(1) max_stage(99) vehicle(btr-50pk) cw(0) cp(4) crew1(sup_supporter:2) crew2(con_squadlead:1) crew3(con_mg2:1) crew4(con_antitank:1) crew5(con_marksman:1) crew6(con_rifleman2:4))
 }
 
 
@@ -249,12 +257,9 @@
 ("squad_with3types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_fireteam_con)	c1(reg_senior:1) c2(reg_antitank:1) c3(reg_atassist:2) c4(reg_rifleman:1))
 ("squad_with7types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_rifle_con)		c1(reg_squadlead:1) c2(reg_antitank:1) c3(reg_atassist:1) c4(reg_lmg:1) c5(reg_lmgassist:1) c6(reg_marksman:1) c7(reg_rifleman:2))
 {"squad_rifle_moto_con(sov)" 
-	("squad_vehicle8"		 side(sov) period(mid) min_stage(1) max_stage(99) vehicle(btr-152) cw(0) cp(4) crew1(sup_supporter:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_marksman:1) crew6(reg_lmgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2))
-}
-{"squad_rifle_moto2_con(sov)" 
 	("squad_vehicle8"		 side(sov) period(mid) min_stage(1) max_stage(99) vehicle(btr-60pa) cw(0) cp(4) crew1(sup_supporter:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_marksman:1) crew6(reg_lmgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2))
 }
-{"squad_rifle_moto3_con(sov)" 
+{"squad_rifle_moto2_con(sov)" 
 	("squad_vehicle8"		 side(sov) period(mid) min_stage(1) max_stage(99) vehicle(btr-60pb) cw(0) cp(4) crew1(sup_supporter:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_marksman:1) crew6(reg_lmgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2))
 }
 {"squad_rifle_mech_con(sov)" 
@@ -311,19 +316,19 @@
 
 ("squad_with4types_conquest" side(sov) period(mid) min_stage(3) max_stage(99) name(squad_spz_recon_con)				c1(spz_squadlead:1) c2(spz_marksman:1) c3(spz_antitank:1) c4(spz_spotter:1))
 ("squad_with3types_conquest" side(sov) period(mid) min_stage(4) max_stage(99) name(squad_spz_sabo_con)				c1(spz_squadlead:1) c2(spz_demo:1) c3(spz_antitank:2))
-("squad_with6types_conquest" side(sov) period(mid) min_stage(6) max_stage(99) name(squad_spetsnaz_con)				c1(spz_squadlead:1) c2(spz_mg:1) c3(spz_antitank:1) c4(spz_marksman:1) c5(spz_demo:1) c6(spz_rifleman:3))
-{"squad_spetsnaz_asu85_con(sov)" 
+("squad_with6types_conquest" side(sov) period(mid) min_stage(6) max_stage(99) name(squad_spz_con)					c1(spz_squadlead:1) c2(spz_mg:1) c3(spz_antitank:1) c4(spz_marksman:1) c5(spz_demo:1) c6(spz_rifleman:3))
+{"squad_spz_asu85_con(sov)" 
 	("squad_vehicle7"		 side(sov) period(mid) min_stage(10) max_stage(99) vehicle(asu-85) cw(0) cp(4) 			crew1(vdv_vehicleman:2) crew2(spz_squadlead:1) crew3(spz_marksman:1) crew4(spz_antitank:1) crew5(spz_demo:1) crew6(spz_mg:1) crew7(spz_rifleman:3))
 }
-{"squad_spetsnaz_mi4_con(sov)" 
-	("squad_vehicle7"		 side(sov) period(mid) min_stage(8) max_stage(99) vehicle(mil_mi4) cw(0) cp(4) 		crew1(sup_pilot:2) crew2(spz_squadlead:1) crew3(spz_marksman:1) crew4(spz_antitank:2) crew5(spz_demo:1) crew6(spz_mg:1) crew7(spz_rifleman:1))
+{"squad_spz_mi4_con(sov)" 
+	("squad_vehicle7"		 side(sov) period(mid) min_stage(8) max_stage(99) vehicle(mil_mi4) cw(0) cp(4) 			crew1(sup_pilot:2) crew2(spz_squadlead:1) crew3(spz_marksman:1) crew4(spz_antitank:2) crew5(spz_demo:1) crew6(spz_mg:1) crew7(spz_rifleman:1))
 }
-{"squad_spetsnaz_bmd1_con(sov)" 
+{"squad_spz_bmd1_con(sov)" 
 	("squad_vehicle7"		 side(sov) period(mid) min_stage(10) max_stage(99) vehicle(bmd-1) cw(0) cp(4) 			crew1(vdv_vehicleman:2) crew2(spz_squadlead:1) crew3(spz_marksman:1) crew4(spz_antitank:1) crew5(spz_demo:1) crew6(spz_mg:1) crew7(spz_rifleman:1))
 }
 
-{"squad_spetsnaz_scout_con(sov)" 
-	("squad_vehicle2"		 side(sov) period(mid) min_stage(8) max_stage(99) vehicle(m72_sov) cw(0) cp(4) 		crew1(spz_rifleman:2) crew2(spz_squadlead:1))
+{"squad_spz_scout_moto_con(sov)" 
+	("squad_vehicle2"		 side(sov) period(mid) min_stage(8) max_stage(99) vehicle(m72_sov) cw(0) cp(4) 			crew1(spz_rifleman:2) crew2(spz_squadlead:1))
 }
 ;;; VMF
 
@@ -567,6 +572,16 @@
 	{cost 90}
 }
 
+{"btr-50p"
+	("vehicle"  period(mid) min_stage(3) max_stage(99) side(sov) crew(sup_vehicleman:2) cw(0) cp(4))
+	{cost 90}
+}
+
+{"btr-50pk"
+	("vehicle"  period(mid) min_stage(3) max_stage(99) side(sov) crew(sup_vehicleman:2) cw(0) cp(4))
+	{cost 110}
+}
+
 {"btr-60pa"
 	("vehicle"  period(mid) min_stage(4) max_stage(99) side(sov) crew(sup_vehicleman:2) cw(0) cp(5))
 	{cost 100}
@@ -630,7 +645,7 @@
 
 {"pt-76"
 	("vehicle" period(mid) min_stage(2) max_stage(99) side(sov) crew(sup_tankman:3) cw(0) cp(4))
-	{cost 225}
+	{cost 200}
 }
 
 {"pt-76b"
