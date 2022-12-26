@@ -5,7 +5,7 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["frg"] = {--Federal Republic of Germany - aka West Germany
 			--Infantry Singles
-
+	
 			--Infantry Squads
 				
 			--Cannons
@@ -99,11 +99,14 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "82mm_bm37_sov"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "120mm_pm38_sov"},
 			--Infantry_Support
-				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "gp1958"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "d-44"},
 			--Artillery
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "d-74"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "d1"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "d-20"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "d-44"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "d30a"},
-			--	{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "152mm_ml20_sov"},
-			--	{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "203mm_b4_sov"},
 			--Rocket_Artillery
 			
 			--Wheel_vehicles
@@ -238,28 +241,29 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["prc"] = {--Peoples Republic of China
 			--Infantry
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_militia(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_militia_assault(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_militia_antitank(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_militia_ambush(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle(prc)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_autorifle(prc)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_guards(prc)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_assault(prc)"},
-				
 				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_scout(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sniper(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer(prc)"},
 			--Automatic_weaponry
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "sg43_stand_prc"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "dshk_aa_prc"},
 				{priority = 1.0, class = UnitClass.AATank, unit = "zpu-4_prc"},
 				{priority = 1.0, class = UnitClass.AATank, unit = "37mm_61k_prc"},
 			--AT_Weapons
+				{priority = 2.0, class = UnitClass.ATTank, unit = "76mm_zis3_prc"},
 				{priority = 2.0, class = UnitClass.ATTank, unit = "b-10_prc"},
+				{priority = 2.0, class = UnitClass.ATTank, unit = "bs3_prc"},
+			--Infantry_Support
+				{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "d-44_prc"},
 			--Howitzers
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "82mm_bm37_prc"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "120mm_pm38_prc"},
+				--{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "m30_prc"},
+				--{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "d-74_prc"},
+				--{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "d1_prc"},
+			--Rocket_Artillery	
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type63_mrl"},
 			--Wheel_vehicles
 				{priority = 0.5, class = UnitClass.Tank, unit = "ba64_prc"},
@@ -270,10 +274,11 @@ Purchases["campaign_capture_the_flag"] = {
 			--Tanks_medium
 				{priority = 1.5, class = UnitClass.Tank, unit = "t-34-85_prc"},	
 				{priority = 1.5, class = UnitClass.Tank, unit = "type58_tank"},
+				{priority = 1.5, class = UnitClass.ATTank, unit = "su100_prc"},	
 				{priority = 1.0, class = UnitClass.Tank, unit = "type59"},
 			--Tanks_heavy
 				{priority = 2.0, class = UnitClass.HeavyTank, unit = "is2_prc"},
-				{priority = 1.0, class = UnitClass.HeavyTank, unit = "isu152_prc"}
+				{priority = 1.0, class = UnitClass.ATTank, unit = "isu152_prc"}
 			--SPG
 			}
 		}
