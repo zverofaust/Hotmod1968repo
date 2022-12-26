@@ -17,13 +17,17 @@
 	("gunner_visible")
 	
 	{boarder
-		{anm "commander"
-			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open"}}
-			{reverse {end "emit_tank_1_hold"} {base "open"}}
+		{anm "driver"
+			{forward {begin "board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse {end "emit_t34_hold"} {base "close_driver"}}
 		}
-		{anm "gunner"
-			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open1"}}
-			{reverse {end "emit_tank_1_hold"} {base "open1"}}
+		{anm "left"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
 		}
 		{anm "armor"
 			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
@@ -35,7 +39,6 @@
 		}
 	}	
 	
-	("seat_human" 	place(commander) 	bone(gunner2) 		door(emit2)  				animation(commander))
 	
 	{placer
 		{place "driver"		{visor "driver"}}
