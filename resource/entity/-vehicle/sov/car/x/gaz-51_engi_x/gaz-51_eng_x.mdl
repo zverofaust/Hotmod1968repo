@@ -1,0 +1,355 @@
+;Exported by: pk
+;Date:        Thu Mar 28 11:16:51 2019
+;File:        E:\Chris models\gaz-51\gaz51_ammo_export.max
+{Skeleton
+	{bone "basis"
+		{parameters "SteerMax=25;WheelRadius=0.46;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone revolute "pivot_back"
+			{Position -26.2181	0.0148638	8.97846}
+			{bone "fxtracel2"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					0	14.9728	-8.96654
+				}
+			}
+			{bone "fxtracer2"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					0	-14.8752	-8.96654
+				}
+			}
+			{bone prizmatic "suspension_l2"
+				{limits -0.3 0.1}
+				{Position 0	14.9728	0}
+				{bone revolute "wheell2"
+					{parameters "ID=wheelleft2;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0	0	0
+					}
+					{VolumeView "wheell2.ply"}
+				}
+			}
+			{bone prizmatic "suspension_r2"
+				{limits -0.3 0.1}
+				{Position 0	-14.8752	0}
+				{bone revolute "wheelr2"
+					{parameters "ID=wheelright2;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0	0	0
+					}
+					{VolumeView "wheelr2.ply"}
+				}
+			}
+		}
+		{bone "pivot_front"
+			{Position 38.4321	0.000766686	12.0777}
+			{bone revolute "steer_r1"
+				{Matrix34
+					-1	0	0
+					0	1	0
+					0	0	-1
+					0	-15.0458	-3.12949
+				}
+				{bone "fxtracer1"
+					{Matrix34
+						1	0	0
+						0	-1	0
+						0	0	-1
+						0	0.333319	8.94884
+					}
+				}
+				{bone prizmatic "suspension_r1"
+					{limits -0.3 0.1}
+					{Matrix34
+						1	0	0
+						0	-1	0
+						0	0	-1
+						-0.135704	0	-0.223425
+					}
+					{bone revolute "wheelr1"
+						{parameters "ID=wheelright1;"}
+						{Matrix34
+							-1	0	0
+							0	0	-1
+							0	-1	0
+							0.135704	0	-0.223425
+						}
+						{VolumeView "wheelr1.ply"}
+					}
+				}
+			}
+			{bone revolute "steer_l1"
+				{Matrix34
+					-1	0	0
+					0	1	0
+					0	0	-1
+					0	15.0683	-3.12949
+				}
+				{bone "fxtracel1"
+					{Matrix34
+						1	0	0
+						0	-1	0
+						0	0	-1
+						0	-0.940566	8.96274
+					}
+				}
+				{bone prizmatic "suspension_l1"
+					{limits -0.3 0.1}
+					{Matrix34
+						1	0	0
+						0	-1	0
+						0	0	-1
+						-0.135715	0	-0.223423
+					}
+					{bone revolute "wheell1"
+						{parameters "ID=wheelleft1;"}
+						{Matrix34
+							-1	0	0
+							0	0	-1
+							0	-1	0
+							0.135715	0	-0.223424
+						}
+						{VolumeView "wheell1.ply"}
+					}
+				}
+			}
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "repair" {file "body_r.anm"} {speed 0.9}}
+			}
+			{Position -3.11518	0.354326	30.8089}
+			{VolumeView "body.ply"}
+			{bone "visor1"
+				{Matrix34
+					0.999974	-0.00727677	0
+					0.00727677	0.999974	0
+					0	0	1
+					20.6499	6.51667	3.2015
+				}
+			}
+			{bone "headlightr"
+				{Matrix34
+					0.999974	0	0.00727647
+					-0.00727647	0	0.999974
+					0	-1	0
+					51.9792	-11.2978	-10.7982
+				}
+			}
+			{bone "headlightl"
+				{Matrix34
+					0.999974	0	0.00727647
+					-0.00727647	0	0.999974
+					0	-1	0
+					51.9792	10.5071	-10.7982
+				}
+			}
+			{bone "fxstop2"
+				{Matrix34
+					-0.999974	0	-0.00727647
+					-0.00727647	0	0.999974
+					0	1	0
+					-51.8922	13.5702	-13.2905
+				}
+			}
+			{bone "fxstop1"
+				{Matrix34
+					-0.999974	0	-0.00727647
+					-0.00727647	0	0.999974
+					0	1	0
+					-51.8923	-14.2861	-13.2647
+				}
+			}
+			{bone "fxlight"
+				{Matrix34
+					0.999974	0	0.00727647
+					-0.00727647	0	0.999974
+					0	-1	0
+					60.9106	-0.368018	-10.7426
+				}
+			}
+			{bone "fxsmoke1"
+				{matrix34
+					-0.879 	 -0.4724 	 -0.0641
+					-0.4703 	 0.8813 	 -0.0463
+					0.0784 	 -0.0106 	 -0.9969
+					-8.1726 	 -13.4905 	 -22.7938
+				}
+			}
+			{bone "driver"
+				{Matrix34
+					0.999974	0	0.00727647
+					0	1	0
+					-0.00727647	0	0.999974
+					21.5097	3.63765	-17.2765
+				}
+			}
+			{bone "commander"
+				{Matrix34
+					0.999974	0	0.00727647
+					0	1	0
+					-0.00727647	0	0.999974
+					21.5712	-5.57471	-17.2354
+				}
+			}
+			{bone "fxfire1"
+				{Matrix34
+					0	0	1
+					0	1	0
+					-1	0	0
+					41.8466	-0.0535808	-2.65561
+				}
+			}
+			{bone "link2"
+				{Matrix34
+					-0.999974	0	-0.00727647
+					-0.00727647	0	0.999974
+					0	1	0
+					-47.5012	-0.403977	-18.0295
+				}
+			}
+			{bone "doorleft"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					31.8654	13.0365	-8.0237
+				}
+				{VolumeView "doorleft.ply"}
+				{bone "glass_doorleft"
+					{Orientation
+						-1	0	0
+						0	-1	0
+						0	0	1
+					}
+					{VolumeView "glass_doorleft.ply"}
+				}
+			}
+			{bone "doorright"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					31.8654	-13.7452	-8.0237
+				}
+				{VolumeView "doorright.ply"}
+				{bone "glass_doorright"
+					{Orientation
+						-1	0	0
+						0	-1	0
+						0	0	1
+					}
+					{VolumeView "glass_doorright.ply"}
+				}
+			}
+			{bone "glass_back"
+				{Position 11.9781	-0.354326	2.69038}
+				{VolumeView "glass_back.ply"}
+			}
+			{bone "glass_front"
+				{Position 29.5386	-0.35432	4.50663}
+				{VolumeView "glass_front.ply"}
+			}
+			{bone "steer_b"
+				{Matrix34
+					0	-1	0
+					0.422617	0	0.906308
+					-0.906308	0	0.422617
+					26.2771	6.55662	-0.97366
+				}
+				{bone revolute "steer_hand"
+					{parameters "ID=body;"}
+					{Position 0	0	1.54133}
+					{VolumeView "steer_hand.ply"}
+				}
+			}
+			{bone "engine"
+				{parameters "ID=engine;"}
+				{animation
+					{sequence "repair" {file "engine_r.anm"}}
+				}
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					34.6746	4.94649	0.666958
+				}
+				{VolumeView "engine.ply"}
+			}
+			{bone "logs"
+				{parameters "id=body;"}
+				{Matrix34
+					-0.0754791	0.86273	0.5
+					-0.0435777	0.498097	-0.866025
+					-0.996195	-0.0871557	0
+					-22.8055	-13.5796	1.08447
+				}
+				{VolumeView "logs.ply"}
+			}
+			{bone "box"
+				{parameters "id=body;"}
+				{Matrix34
+					0	1	0
+					-1	0	0
+					0	0	1
+					-43.1396	5.23614	-9.12037
+				}
+				{VolumeView "box.ply"}
+			}
+			{bone "barbwire"
+				{parameters "id=body;"}
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					-6.3093	8.50944	1.15986
+				}
+				{VolumeView "barbwire.ply"}
+			}
+			{bone "pickaxe"
+				{parameters "id=body;"}
+				{Matrix34
+					1	0	0
+					0	0.573576	-0.819152
+					0	0.819152	0.573576
+					-13.5053	-15.4101	-1.21173
+				}
+				{VolumeView "pickaxe.ply"}
+			}
+		}
+		{bone "emit1"
+			{parameters "Group=driver;"}
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				10.338	31.677	0
+			}
+		}
+		{bone "emit2"
+			{parameters "Group=commander;"}
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				10.338	-31.7089	0
+			}
+		}
+	}
+}
