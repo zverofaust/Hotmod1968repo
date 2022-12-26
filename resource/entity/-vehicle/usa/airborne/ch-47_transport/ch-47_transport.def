@@ -3,16 +3,13 @@
 	(include "/properties/shadow/airborn.inc" scale(2.2))
 	(include "/properties/selection/airborne.inc" scale(2.00))
 	(include "/properties/car_crew.ext")
-	{props "helicopter" "supply" "multi_board" "-insertion"} ;"wheeled" 
+	{props "helicopter" "insertion"} ;"wheeled" 
 	{targetclass "helicopter"}
 	{targetSelector "helicopter"}
 	
 	("helicopter_tier2")
 	
 	{PatherID "helicopter"}
-	
-	(include "/properties/resupply_hotmod.inc")
-	("truck_ammo_artillery")
 	
 	;volume, component/tag, thickness
 	{Volume "body" {tags "body"} {thickness 10} {component "body"} }
@@ -56,23 +53,17 @@
 	("crew_human"		place(seat02)	bone(seat02)	door(emit4) animation(passenger)	group(passenger))
 	("crew_human"		place(seat03)	bone(seat03)	door(emit3) animation(passenger)	group(passenger))
 	("crew_human"		place(seat04)	bone(seat04)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human"		place(seat05)	bone(seat05)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat06)	bone(seat06)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human"		place(seat07)	bone(seat07)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat08)	bone(seat08)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human"		place(seat09)	bone(seat09)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat10)	bone(seat10)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human"		place(seat11)	bone(seat11)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human" 		place(seat12)	bone(seat12)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human" 		place(seat13)	bone(seat13)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat14)	bone(seat14)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human" 		place(seat15)	bone(seat15)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat16)	bone(seat16)	door(emit4) animation(passenger)	group(passenger))
+	
 	
 
 	{Placer
 		{place "gunner1"	{visor "mgun1"}}
 		{place "gunner2"	{visor "mgun2"}}
+		{place "attach"
+			{Linkbone "attach"}
+			{entity "m56"}
+			{handlebone "basis"}
+		}
 	}
 
 	{Sensor
@@ -168,7 +159,7 @@
 	("wheel" args "wheer1")
 	("wheel" args "wheer2")
 
-	{Extension "ch-47_chinook_mg.mdl"}
+	{Extension "ch-47_transport.mdl"}
 	
 	{bone "mgun_rot_h_left"			;mgun left: right/left
 		{speed 0.05}
