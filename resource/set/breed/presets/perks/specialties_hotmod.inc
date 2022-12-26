@@ -21,11 +21,12 @@
 	{"speed" 1.2}
 	{"stamina" "300%"}
 	{"health" "250%"}
-	{"aimedshot"}			;// Silenced Nagant Pistol
+	{"aimedshot"}			
 )
 
-(define "ranger"			;// US Special Forces
+(define "ranger"			;// US Army Rangers
 	{"stamina" "400%"}
+	{"speed" 1.2}
 	{"telescope"}
 	{"vision" human_elite}
 )
@@ -50,19 +51,18 @@
 
 (define "acav"		;// US Armored Cavalry
 	{"health" "300%"}
-	{"stamina" "150%"}
 	{"stamina_regeneration" "125%"}
 )
 
 (define "guards"		;// Soviet Guards
-	{"health" "300%"}
+	{"health" "250%"}
 	{"stamina" "150%"}
 	{"stamina_regeneration" "125%"}
 )
 
 (define "redbanner"		;// Soviet Red Banner Guards
-	{"health" "400%"}
-	{"health_regeneration" "125%"}
+	{"health" "350%"}
+	{"health_regeneration" "150%"}
 	{"stamina" "200%"}
 	{"stamina_regeneration" "125%"}
 )
@@ -79,7 +79,7 @@
 	{"stamina" "90%"}
 )
 
-(define "border"			;// KGB Border Troops, relatively elite but poorly equipped
+(define "border"			;// KGB Border Troops, relatively skilled but poorly equipped
 	{"stealth"}
 	{"speed" 1.1}
 	{"stamina" "150%"}
@@ -95,7 +95,7 @@
 	("recon_vision")
 )
 
-(define "guerilla"	;// Irregular Guerillas
+(define "militia"	;// Irregular Militia, armed citizenry, etc
 	{"stealth"}
 	{"speed" 1.15}
 	{"stamina" "200%"}
