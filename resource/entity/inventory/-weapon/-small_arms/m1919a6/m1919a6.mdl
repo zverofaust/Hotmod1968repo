@@ -1,0 +1,97 @@
+;Exported by: misan
+;Date:        Tue Dec 27 11:58:35 2022
+;File:        D:\Cold War\ModelWIP\Smallarms\M1919A6\m1616a6.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.3}}
+		{sequence "bipod_open" {speed 0.3}}
+	}
+	{bone "m1919a6"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "m1919a6.ply"}
+		{bone "bolt"
+			{Position 5.78694	1.09618	0.446112}
+			{VolumeView "bolt.ply"}
+		}
+		{bone "foresight14"
+			{Position 23.8008	0.770779	-0.0508244}
+		}
+		{bone "handle"
+			{Matrix34
+				0	-1	0
+				0	0	1
+				-1	0	0
+				8.68487	1.85885	-0.0177176
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.258821	0.965925
+				0	0.965925	-0.258821
+				-1	0	0
+				8.16192	1.49902	0.786938
+			}
+		}
+		{bone "stand_l"
+			{Position 19.3223	0.352104	-0.820166}
+			{VolumeView "stand_l.ply"}
+		}
+		{bone "stand_r"
+			{Position 19.3223	0.352104	0.774376}
+			{VolumeView "stand_r.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 29.9514 3.15003 2.68036}
+	{Bone "m1919a6"}
+	{Position 8.28056	0.706909	-0.0177175}
+}
+{Volume "select"
+	{Box 39.1527 11.1865 5.05413}
+	{Bone "m1919a6"}
+	{Position 7.26151	0.463574	-0.0177175}
+}
+{Extender "preview"
+	{"stuff"
+		{camera
+			{origin 8.64512	-3.15696	40.3885}
+			{lookat 8.64512	-1.5681	23.1935}
+			{fov 45}
+			{horizon 180}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 5.32112	-8.18883	32.4909}
+			}
+			{"1"
+				{type point}
+				{position 5.32111	11.6044	38.3819}
+			}
+		}
+	}
+	{"stuff_primary"
+		{camera
+			{origin 8.39131	-3.10666	40.2466}
+			{lookat 8.25283	-1.52384	23.0515}
+			{fov 45}
+			{horizon 180}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position -0.99344	-8.14313	32.4259}
+			}
+			{"1"
+				{type point}
+				{position -2.71854	11.5748	38.3168}
+			}
+		}
+	}
+}
