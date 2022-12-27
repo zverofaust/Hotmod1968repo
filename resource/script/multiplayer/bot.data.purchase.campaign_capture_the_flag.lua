@@ -160,15 +160,37 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["usa"] = {--United States
 			--Infantry
+				
+				-- Early	
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at_early(usa)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_grenadier_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg_early(usa)"},
+			
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_con_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_natguard_con_early(usa)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_con_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fireteamap_con_early(usa)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_fireteamat_con_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_full_con_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_weapon_con_early(usa)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_marksman_usmc_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sniper_usmc_early(usa)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_usmc_fireteam_con_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_con_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_mg_con_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_flame_con_early(usa)"},
+			
+				-- Mid
 				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at(usa)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at2(usa)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_lat2(usa)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_lat(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_marksman(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sniper(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer(usa)"},
-				
-				
+	
+		
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_m14_con(usa)"},
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_fireteamAP_con(usa)"},
@@ -238,7 +260,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "m24_chaffee"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m41"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m42"},
-				{priority = 0.75, class = UnitClass.Tank, unit = "m56"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "m56"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "m50"},
 				{priority = 0.75, class = UnitClass.Tank, unit = "m551"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "m551_acav"},
