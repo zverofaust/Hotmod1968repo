@@ -17,17 +17,15 @@
 )
 {"mp/usa/mid/sup_radioman"			("usa_radioman" side(usa)) {cost 200.0}}
 
-(define "usa_pilot"
-	{tags "mid %side infantry man"}
-	{cp 0}
+(define "usa_supporter_early"
+	{tags "early %side infantry man"}
+	{cp 1}
 	{basic}
 	{breed}
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/usa/mid/sup_pilot"				("usa_pilot" side(usa)) {cost 0.0}} ; M3
-
-(define "usa_tankman"
+(define "usa_supporter"
 	{tags "mid %side infantry man"}
 	{cp 1}
 	{basic}
@@ -35,15 +33,34 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/usa/mid/sup_guncrew"			("usa_tankman" side(usa)) {cost 5.0}} ; Pistol
-{"mp/usa/mid/sup_supporter"			("usa_tankman" side(usa)) {cost 5.0}} ; M1
-{"mp/usa/mid/sup_tankman"			("usa_tankman" side(usa)) {cost 4.0}} ; M3
-{"mp/usa/mid/sup_vehicleman"		("usa_tankman" side(usa)) {cost 4.0}} ; M3
-{"mp/usa/mid/aircav_vehicleman"		("usa_tankman" side(usa)) {cost 15.0}} ; M16
-{"mp/usa/mid/acav_vehicleman"		("usa_tankman" side(usa)) {cost 15.0}} ; M16
-{"mp/usa/mid/usmc_vehicleman"		("usa_tankman" side(usa)) {cost 13.0}} ; M3
-{"mp/usa/mid/usmc_guncrew"			("usa_tankman" side(usa)) {cost 13.0}} ; M3
+{"mp/usa/early/sup_pilot"			("usa_supporter_early" side(usa)) {cost 0.0}} ; M3
+{"mp/usa/early/sup_guncrew"			("usa_supporter_early" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/early/sup_supporter"		("usa_supporter_early" side(usa)) {cost 5.0}} ; M1
+{"mp/usa/early/sup_tankman"			("usa_supporter_early" side(usa)) {cost 4.0}} ; M3
+{"mp/usa/early/sup_vehicleman"		("usa_supporter_early" side(usa)) {cost 4.0}} ; M3
+{"mp/usa/early/aircav_vehicleman"	("usa_supporter_early" side(usa)) {cost 15.0}} ; M2
+{"mp/usa/early/acav_vehicleman"		("usa_supporter_early" side(usa)) {cost 15.0}} ; M2
+{"mp/usa/early/usmc_vehicleman"		("usa_supporter_early" side(usa)) {cost 13.0}} ; M3
+{"mp/usa/early/usmc_guncrew"		("usa_supporter_early" side(usa)) {cost 13.0}} ; M3
 
+{"mp/usa/mid/sup_pilot"				("usa_supporter" side(usa)) {cost 0.0}} ; M3
+{"mp/usa/mid/sup_guncrew"			("usa_supporter" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/mid/sup_supporter"			("usa_supporter" side(usa)) {cost 5.0}} ; M1
+{"mp/usa/mid/sup_tankman"			("usa_supporter" side(usa)) {cost 4.0}} ; M3
+{"mp/usa/mid/sup_vehicleman"		("usa_supporter" side(usa)) {cost 4.0}} ; M3
+{"mp/usa/mid/aircav_vehicleman"		("usa_supporter" side(usa)) {cost 15.0}} ; M16
+{"mp/usa/mid/acav_vehicleman"		("usa_supporter" side(usa)) {cost 15.0}} ; M16
+{"mp/usa/mid/usmc_vehicleman"		("usa_supporter" side(usa)) {cost 13.0}} ; M3
+{"mp/usa/mid/usmc_guncrew"			("usa_supporter" side(usa)) {cost 13.0}} ; M3
+
+(define "usa_basic_early"
+	{tags "early %side infantry man lvl1"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
 (define "usa_basic"
 	{tags "mid %side infantry man lvl1"}
 	{cp 1}
@@ -52,6 +69,19 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
+{"mp/usa/early/rsv_antitank"		("usa_basic_early" side(usa)) {cost 40.0}} ; M1
+{"mp/usa/early/rsv_rifleman"		("usa_basic_early" side(usa)) {cost 5.0}} ; M1
+{"mp/usa/early/rsv_rifleman2"		("usa_basic_early" side(usa)) {cost 5.0}} ; M14
+{"mp/usa/early/rsv_autorifle"		("usa_basic_early" side(usa)) {cost 15.0}} ; BAR
+{"mp/usa/early/rsv_squadlead"		("usa_basic_early" side(usa)) {cost 15.0}} ; M2
+{"mp/usa/early/rsv_grenadier"		("usa_basic_early" side(usa)) {cost 25.0}} ; M1 w/ M31 HEAT Grenade Launcher
+{"mp/usa/early/nat_antitank"		("usa_basic_early" side(usa)) {cost 40.0}} ; M1
+{"mp/usa/early/nat_rifleman"		("usa_basic_early" side(usa)) {cost 7.5}} ; M1
+{"mp/usa/early/nat_autorifle"		("usa_basic_early" side(usa)) {cost 18.5}} ; BAR
+{"mp/usa/early/nat_squadlead"		("usa_basic_early" side(usa)) {cost 20.0}} ; M2
+{"mp/usa/early/nat_teamlead"		("usa_basic_early" side(usa)) {cost 12.0}} ; M2
+{"mp/usa/early/nat_grenadier"				("usa_basic_early" side(usa)) {cost 30.0}} ; M1 w/ M31 HEAT Grenade Launcher
+
 {"mp/usa/mid/rsv_rifleman"			("usa_basic" side(usa)) {cost 5.0}} ; M1
 {"mp/usa/mid/rsv_rifleman2"			("usa_basic" side(usa)) {cost 5.0}} ; M14
 {"mp/usa/mid/rsv_autorifle"			("usa_basic" side(usa)) {cost 15.0}} ; BAR
@@ -63,7 +93,14 @@
 {"mp/usa/mid/nat_teamlead"			("usa_basic" side(usa)) {cost 12.0}} ; M14
 {"mp/usa/mid/nat_lat"				("usa_basic" side(usa)) {cost 30.0}} ; M1 w/ M31 HEAT Grenade Launcher
 
-
+(define "usa_regular_early"
+	{tags "early %side infantry man lvl1 lvl2"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
 (define "usa_regular"
 	{tags "mid %side infantry man lvl1 lvl2"}
 	{cp 1}
@@ -72,6 +109,20 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
+{"mp/usa/early/reg_atassist"		("usa_regular_early" side(usa)) {cost 13.0}} ; M14 & M67 Ammo
+{"mp/usa/early/reg_atassist_m14"	("usa_regular_early" side(usa)) {cost 13.0}} ; M14 & M67 Ammo
+{"mp/usa/early/reg_autorifle"		("usa_regular_early" side(usa)) {cost 18.0}} ; BAR
+{"mp/usa/early/reg_autorifle_m14"	("usa_regular_early" side(usa)) {cost 22.0}} ; M14A1
+{"mp/usa/early/reg_grenadier"		("usa_regular_early" side(usa)) {cost 50.0}} ; M1 Garand & M7 Rifle Grenade
+{"mp/usa/early/reg_mg"				("usa_regular_early" side(usa)) {cost 45.0}} ; M1916A6
+{"mp/usa/early/reg_mgassist"		("usa_regular_early" side(usa)) {cost 13.0}} ; M1 & M1919A6 Ammo
+{"mp/usa/early/reg_mgassist_m14"	("usa_regular_early" side(usa)) {cost 13.0}} ; M14 & M1919A6 Ammo
+{"mp/usa/early/reg_rifleman"		("usa_regular_early" side(usa)) {cost 10.0}} ; M1
+{"mp/usa/early/reg_rifleman_m14"	("usa_regular_early" side(usa)) {cost 10.0}} ; M14
+{"mp/usa/early/reg_teamlead"		("usa_regular_early" side(usa)) {cost 14.0}} ; M2
+{"mp/usa/early/reg_squadlead"		("usa_regular_early" side(usa)) {cost 25.0}} ; M2
+
+
 {"mp/usa/mid/reg_atassist"			("usa_regular" side(usa)) {cost 13.0}} ; M14 & M67 Ammo
 {"mp/usa/mid/reg_atassist_m16"		("usa_regular" side(usa)) {cost 13.0}} ; M14 & M67 Ammo
 {"mp/usa/mid/reg_atassist2"			("usa_regular" side(usa)) {cost 13.0}} ; M14 & M20 Ammo
@@ -90,6 +141,14 @@
 {"mp/usa/mid/reg_squadlead"			("usa_regular" side(usa)) {cost 25.0}} ; M14
 {"mp/usa/mid/reg_squadlead_m16"		("usa_regular" side(usa)) {cost 25.0}} ; M14
 
+(define "usa_regular_advanced_early"
+	{tags "early %side infantry man lvl2"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
 (define "usa_regular_advanced"
 	{tags "mid %side infantry man lvl2"}
 	{cp 1}
@@ -98,6 +157,12 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
+{"mp/usa/early/reg_antitank"		("usa_regular_early" side(usa)) {cost 50.0}} ; M3 + M20 Super Bazooka
+{"mp/usa/early/reg_marksman"		("usa_regular_early" side(usa)) {cost 50.0}} ; M1C
+{"mp/usa/early/reg_flamer"			("usa_regular" side(usa)) {cost 50.0}} ; ?
+{"mp/usa/early/reg_engineer"		("usa_regular" side(usa)) {cost 35.0}} ; M2
+{"mp/usa/early/reg_sapper-ap"		("usa_regular" side(usa)) {cost 30.0}} ; M2
+{"mp/usa/early/reg_sapper-at"		("usa_regular" side(usa)) {cost 40.0}} ; M2
 
 {"mp/usa/mid/reg_antitank"			("usa_regular" side(usa)) {cost 50.0}} ; M3 + M67
 {"mp/usa/mid/reg_antitank_m16"		("usa_regular" side(usa)) {cost 50.0}} ; M16 + M67
@@ -108,6 +173,14 @@
 {"mp/usa/mid/reg_sapper-ap"			("usa_regular" side(usa)) {cost 30.0}} ; M2
 {"mp/usa/mid/reg_sapper-at"			("usa_regular" side(usa)) {cost 40.0}} ; M2
 
+(define "usa_aircav_early"
+	{tags "early %side infantry man lvl2 lvl3"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 3.0}
+	{score_factor 0.05}
+)
 (define "usa_aircav"
 	{tags "mid %side infantry man lvl2 lvl3"}
 	{cp 1}
@@ -116,6 +189,14 @@
 	{cw 3.0}
 	{score_factor 0.05}
 )
+{"mp/usa/early/aircav_marksman"			("usa_aircav_early" side(usa)) {cost 65.0}} ; M1C
+{"mp/usa/early/aircav_autorifle"		("usa_aircav_early" side(usa)) {cost 30.0}} ; M14A1
+{"mp/usa/early/aircav_grenadier"		("usa_aircav_early" side(usa)) {cost 45.0}} ; M7 Rifle Grenade
+{"mp/usa/early/aircav_rifleman"			("usa_aircav_early" side(usa)) {cost 17.0}} ; M2
+{"mp/usa/early/aircav_teamlead"			("usa_aircav_early" side(usa)) {cost 22.0}} ; M2
+{"mp/usa/early/aircav_squadlead"		("usa_aircav_early" side(usa)) {cost 30.0}} ; M2
+
+
 {"mp/usa/mid/aircav_marksman"			("usa_aircav" side(usa)) {cost 65.0}} ; M1C
 {"mp/usa/mid/aircav_mg"					("usa_aircav" side(usa)) {cost 55.0}} ; M60
 {"mp/usa/mid/aircav_mgassist"			("usa_aircav" side(usa)) {cost 20.0}} ; M16
@@ -125,6 +206,14 @@
 {"mp/usa/mid/aircav_teamlead"			("usa_aircav" side(usa)) {cost 22.0}} ; M16
 {"mp/usa/mid/aircav_squadlead"			("usa_aircav" side(usa)) {cost 30.0}} ; M16
 
+(define "usa_acav_early"
+	{tags "early %side infantry man lvl2 lvl3"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
 (define "usa_acav"
 	{tags "mid %side infantry man lvl2 lvl3"}
 	{cp 1}
@@ -133,6 +222,16 @@
 	{cw 4.0}
 	{score_factor 0.05}
 )
+{"mp/usa/early/acav_antitank"		("usa_acav_early" side(usa)) {cost 60.0}} ; M3 + M20
+{"mp/usa/early/acav_atassist"		("usa_acav_early" side(usa)) {cost 20.0}} ; M2
+{"mp/usa/early/acav_marksman"		("usa_acav_early" side(usa)) {cost 65.0}} ; M1C
+{"mp/usa/early/acav_grenadier"		("usa_acav_early" side(usa)) {cost 50.0}} ; M1 + M7
+{"mp/usa/early/acav_autorifle"		("usa_acav_early" side(usa)) {cost 30.0}} ; M14A1
+{"mp/usa/early/acav_rifleman"		("usa_acav_early" side(usa)) {cost 17.0}} ; M14
+{"mp/usa/early/acav_teamlead"		("usa_acav_early" side(usa)) {cost 22.0}} ; M14
+{"mp/usa/early/acav_squadlead"		("usa_acav_early" side(usa)) {cost 30.0}} ; M14
+{"mp/usa/early/acav_engineer"		("usa_acav_early" side(usa)) {cost 30.0}} ; M2
+
 {"mp/usa/mid/acav_antitank"			("usa_acav" side(usa)) {cost 60.0}} ; M16 + M67
 {"mp/usa/mid/acav_atassist"			("usa_acav" side(usa)) {cost 20.0}} ; M16
 {"mp/usa/mid/acav_lat"				("usa_acav" side(usa)) {cost 30.0}} ; M16 + M72 LAW
@@ -143,6 +242,16 @@
 {"mp/usa/mid/acav_rifleman"			("usa_acav" side(usa)) {cost 17.0}} ; M16
 {"mp/usa/mid/acav_teamlead"			("usa_acav" side(usa)) {cost 22.0}} ; M16
 {"mp/usa/mid/acav_squadlead"		("usa_acav" side(usa)) {cost 30.0}} ; M16
+{"mp/usa/mid/acav_engineer"			("usa_acav" side(usa)) {cost 30.0}} ; M16
+
+(define "usa_usmc_early"
+	{tags "early %side infantry man lvl2 lvl3"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
 
 (define "usa_usmc"
 	{tags "mid %side infantry man lvl2 lvl3"}
@@ -152,6 +261,16 @@
 	{cw 4.0}
 	{score_factor 0.05}
 )
+{"mp/usa/early/usmc_ammo"			("usa_usmc_early" side(usa)) {cost 25.0}} ; M1 + M20 & BAR Ammo
+{"mp/usa/early/usmc_antitank"		("usa_usmc_early" side(usa)) {cost 55.0}} ; M3 + M20
+{"mp/usa/early/usmc_atassist"		("usa_usmc_early" side(usa)) {cost 18.0}} ; M2 + M20 ammo
+{"mp/usa/early/usmc_marksman"		("usa_usmc_early" side(usa)) {cost 60.0}} ; M1C
+{"mp/usa/early/usmc_grenadier"		("usa_usmc_early" side(usa)) {cost 50.0}} ; M7 Rifle Grenade
+{"mp/usa/early/usmc_rifleman"		("usa_usmc_early" side(usa)) {cost 17.0}} ; M11
+{"mp/usa/early/usmc_autorifle"		("usa_usmc_early" side(usa)) {cost 32.0}} ; BAR
+{"mp/usa/early/usmc_teamlead"		("usa_usmc_early" side(usa)) {cost 20.0}} ; M2
+{"mp/usa/early/usmc_squadlead"		("usa_usmc_early" side(usa)) {cost 30.0}} ; M2
+{"mp/usa/early/usmc_spotter"		("usa_usmc_early" side(usa)) {cost 27.0}} ; M2
 
 {"mp/usa/mid/usmc_ammo"				("usa_usmc" side(usa)) {cost 25.0}} ; M14 + M20 & M60 ammo
 {"mp/usa/mid/usmc_antitank"			("usa_usmc" side(usa)) {cost 55.0}} ; M14 + M20
@@ -167,6 +286,14 @@
 {"mp/usa/mid/usmc_squadlead"		("usa_usmc" side(usa)) {cost 30.0}} ; M14
 {"mp/usa/mid/usmc_spotter"			("usa_usmc" side(usa)) {cost 27.0}} ; M14
 
+(define "usa_rangers_early"
+	{tags "early %side infantry man lvl3"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
 (define "usa_rangers"
 	{tags "mid %side infantry man lvl3"}
 	{cp 1}
@@ -175,6 +302,15 @@
 	{cw 2}
 	{score_factor 0.05}
 )
+{"mp/usa/early/rng_squadlead"	("usa_rangers_early" side(usa)) {cost 40.0}} ; M2
+{"mp/usa/early/rng_rifleman"	("usa_rangers_early" side(usa)) {cost 25.0}} ; M2
+{"mp/usa/early/rng_grenadier"	("usa_rangers_early" side(usa)) {cost 35.0}} ; M2 + M7
+{"mp/usa/early/rng_mg"			("usa_rangers_early" side(usa)) {cost 65.0}} ; M1919A6
+{"mp/usa/early/rng_antitank"	("usa_rangers_early" side(usa)) {cost 75.0}} ; M2 + M20 Super Bazooka
+{"mp/usa/early/rng_marksman"	("usa_rangers_early" side(usa)) {cost 80.0}} ; M1C
+{"mp/usa/early/rng_demo"		("usa_rangers_early" side(usa)) {cost 60.0}} ; M2 + Satchel Charges
+{"mp/usa/early/rng_spotter"		("usa_rangers_early" side(usa)) {cost 35.0}} ; M2, Binos
+
 {"mp/usa/mid/rng_squadlead"	("usa_rangers" side(usa)) {cost 40.0}} ; XM177E2 + XM148
 {"mp/usa/mid/rng_rifleman"	("usa_rangers" side(usa)) {cost 25.0}} ; M16 + M72
 {"mp/usa/mid/rng_grenadier"	("usa_rangers" side(usa)) {cost 35.0}} ; XM177E2 + XM148
@@ -184,6 +320,14 @@
 {"mp/usa/mid/rng_demo"		("usa_rangers" side(usa)) {cost 60.0}} ; Satchel Charges
 {"mp/usa/mid/rng_spotter"	("usa_rangers" side(usa)) {cost 35.0}} ; M16, Binos
 
+(define "usa_specops_early"
+	{tags "early %side infantry man lvl3"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
 (define "usa_specops"
 	{tags "mid %side infantry man lvl3"}
 	{cp 1}
@@ -201,6 +345,14 @@
 {"mp/usa/mid/spec_demo"			("usa_specops" side(usa)) {cost 80.0}} ; Satchel Charges
 {"mp/usa/mid/spec_spotter"		("usa_specops" side(usa)) {cost 45.0}} ; M16, Binos
 
+(define "usa_medic_early"
+	{tags "early %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor -0.2}
+)
 (define "usa_medic"
 	{tags "mid %side infantry man"}
 	{cp 1}
@@ -209,6 +361,9 @@
 	{cw 0.5}
 	{score_factor -0.2}
 )
+{"mp/usa/early/reg_medic"			("usa_medic_early" side(usa)) {cost 40.0}}
+{"mp/usa/early/usmc_corpsman"		("usa_medic_early" side(usa)) {cost 55.0}}
+
 {"mp/usa/mid/reg_medic"			("usa_medic" side(usa)) {cost 40.0}}
 {"mp/usa/mid/usmc_corpsman"		("usa_medic" side(usa)) {cost 55.0}}
 
@@ -223,7 +378,14 @@
 )
 {"mp/usa/mid/reg_officer"		("usa_officer" side(usa)) {cost 65.0}} ; Pistol; High-value officer target.
 
-
+(define "usa_sniper_early"
+	{tags "early %side infantry man sniper lvl3"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
 (define "usa_sniper"
 	{tags "mid %side infantry man sniper lvl3"}
 	{cp 1}
@@ -232,6 +394,9 @@
 	{cw 2}
 	{score_factor 0.05}
 )
+{"mp/usa/early/rng_sniper"		("usa_sniper_early" side(usa)) {cost 130.0}} ; M1903A4
+{"mp/usa/early/usmc_sniper"		("usa_sniper_early" side(usa)) {cost 130.0}} ; M1C
+
 {"mp/usa/mid/spec_sniper"		("usa_sniper" side(usa)) {cost 150.0}} ; M1903A4
 {"mp/usa/mid/rng_sniper"		("usa_sniper" side(usa)) {cost 130.0}} ; M1903A4
 {"mp/usa/mid/usmc_sniper"		("usa_sniper" side(usa)) {cost 130.0}} ; M1C

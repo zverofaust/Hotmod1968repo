@@ -64,6 +64,14 @@
 
 ;//////// THE FOLLOWING SETTINGS CREATE SQUADS WHICH NEED OWN ICONS/////////////
 
+; special squad setup for offmap supports
+(define "offmap_support"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew )"}
+	{button "vehicles"}
+	{squad_cost_factor 0}
+)
+
 ; squad setup for vehicle, 1 crew
 (define "squad_vehicle"
 	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
