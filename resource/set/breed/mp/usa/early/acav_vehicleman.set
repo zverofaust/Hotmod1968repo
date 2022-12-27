@@ -1,29 +1,32 @@
 {breed
 	{behaviour soldier}
 	{skin "usa_crewman1"}
-	{portrait "usa_tankman"}
+	{portrait "usa_acav"}
 	{icon "tech"}
 	{icon_priority 0}
 	{nationality usa}
 	{armors
-		{head usa_tankhelm}
+		{head usa_tankhelm_acav}
 	}
 	{perks
 		(include "ability.inc")
-		("tankman")
+		("smg_skill_rank_3")
+		("acav")
 	}
 	{veterancy
 		(include "ability.inc")
-		("veterancy_lvl_0")
+		("veterancy_lvl_3")
 	}
 	{inventory
-		{item "m3_v2" filled}
+		{item "m3" filled}
 		{item "m3 ammo" 120}
-
+		
+		{item "m26 grenade" 1.25 0.5}
 		{item "anm8_smoke grenade" 0.25 0.5}
 
-		{item "bandage_usa" 2.5 0.5}
-		
+		{item "bandage_usa" 3.5 0.5}
+		{item "shovel_usa"}
+
 		{in_hands 0}
 	}
 }
