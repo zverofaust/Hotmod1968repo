@@ -99,7 +99,27 @@
 	("ap_7_62_slope_multiplier")
 )
 
-(define "assault_rifle" ; Intermediate power fully automatic rifles ; AK series and derivatives, M2 Carbine
+(define "carbine_rifle" ; Low-power carbine rifle cartridge, specifically the .30 Carbine for the M1/M2 Carbine
+	{tag "autorifle_sup auto_eject"}
+	{range 100 100}
+
+	{Automatic}
+	("accuracy_rifle_auto")
+	{LockFireDistanceTime 0.5}
+	("human health" damage(50))
+	{SyncedProjectiles 0}		;// not for automatic weapons
+	{FiringTimeout 1.75 0.5}
+	{burst
+		{short 2 1}			; burst shots on long distance, rand (+-)shots
+		{long 5 2}			; burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.5}		; rangeKoef * aimRange = max long burst distance
+	}
+	{curve "autorifle"}
+	("recoil_smg_low")
+	("ap_7_62_slope_multiplier")
+)
+
+(define "assault_rifle" ; Intermediate power fully automatic rifles ; AK series and derivatives
 	{tag "autorifle_sup auto_eject"}
 	{range 130 130}
 
@@ -119,7 +139,7 @@
 	("ap_7_62_slope_multiplier")
 )
 
-(define "assault_rifle_556" ; Assault rifles firing intermediate 5.56x45mm NATO rounds, or the M2 Carbine ; M16, XM177, M2 Carbine
+(define "assault_rifle_556" ; Assault rifles firing intermediate 5.56x45mm NATO rounds; M16, XM177
 	{tag "autorifle_sup auto_eject"}
 	{range 120 120}
 
