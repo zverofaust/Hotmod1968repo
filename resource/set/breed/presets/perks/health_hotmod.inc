@@ -7,7 +7,7 @@
 ;/*=========== Standard Presets Begin ===========*/
 
 (define "health_rank_1"		;// concripts or replacement soldiers
-	{"health" "80%"}
+	{"health" "125%"}
 	{"health_regeneration" "5%"}
 	{"stamina" "75%"}
 	{"stamina_regeneration" "75%"}

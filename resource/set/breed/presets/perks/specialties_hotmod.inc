@@ -75,7 +75,7 @@
 
 (define "basic"			;// Reservists & Conscripts with only basic training
 	{"speed" 0.9}
-	{"health" "90%"}
+	{"health" "100%"}
 	{"stamina" "90%"}
 )
 
