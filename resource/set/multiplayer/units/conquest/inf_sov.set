@@ -331,6 +331,14 @@
 {"mp/sov/mid/red_senior"			("sov_spetsnaz" side(sov)) {cost 30.0}} ; AKM
 {"mp/sov/mid/red_squadlead"			("sov_spetsnaz" side(sov)) {cost 40.0}} ; AKM
 
+(define "sov_medic_early"
+	{tags "early %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor -0.2}
+)
 (define "sov_medic"
 	{tags "mid %side infantry man"}
 	{cp 1}
@@ -339,6 +347,7 @@
 	{cw 0.5}
 	{score_factor -0.2}
 )
+{"mp/sov/early/reg_medic"		("sov_medic_early" side(sov)) {cost 40.0}}
 {"mp/sov/mid/reg_medic"			("sov_medic" side(sov)) {cost 40.0}}
 
 
