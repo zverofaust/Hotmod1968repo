@@ -56,6 +56,7 @@
 	{item "ak47" "type56"			"ammo" 30 {value 2}}
 	{item "akm"						"ammo" 30 {value 2}}
 	{item "sks"						"ammo" 10 {value 2}}
+	{item "sks"	"type56"			"ammo" 10 {value 2}}
 	{item "svd"						"ammo" 10 {value 2}}
 	
 ;// AT
@@ -116,12 +117,14 @@
 
 ;// Grenade
 	{item "40mm_grenade" "he"		 "ammo" 1  {value 5}}
-	{item "m31_grenade" "heat"	 		 "ammo" 1  {value 5}}
+	{item "m31_grenade" "heat"	 	 "ammo" 1  {value 5}}
 	{item "grenade" "m67" 					1  {value 5}}
 	{item "grenade" "anm8_smoke" 			1  {value 5}}
 )
 
 (define "items_light_prc"
+	;// Rifle
+	{item "mosin"					"ammo" 10 {value 2}}
 )
 
 (define "items_light_generic"
