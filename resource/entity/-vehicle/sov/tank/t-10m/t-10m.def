@@ -3,7 +3,7 @@
 	(include "/properties/shadow/tank.inc" scale(1.2))
 	(include "/properties/selection/vehicle.inc" scale(1.2))
 	(include "t-10m.ext")
-	{props "heavy" "vision_lev05" "muzzle_122mm_128mm_sides" "diesel" "detect_tank_heavy"}
+	{props "heavy" "vision_lev05" "muzzle_122mm_128mm_sides" "diesel" "detect_tank_heavy" "smoke" "ess"}
 	{targetclass "tank_heavy"}
 	{targetSelector "tank_heavy"}
 	{collider "tank.heavy"}
@@ -40,10 +40,10 @@
 	
 	{extender "inventory"
 		{box
-			{item "ammo bullet122_d49 aphe"	10}
-			{item "ammo bullet122_d49 apds"	5}
-			{item "ammo bullet122_d49 heat"	5}
-			{item "ammo bullet122_d49 he"	10}
+			{item "ammo bullet122_m62 apcbc"	10}
+			{item "ammo bullet122_m62 apds"	5}
+			{item "ammo bullet122_m62 heat"	5}
+			{item "ammo bullet122_m62 he"	10}
 			{item "ammo hmgun_rus_kpvt" 800}
 		}
 	}
@@ -51,7 +51,7 @@
 		("restore_ik_time")
 		{place "gun"
 			{RestoreIKAfterAim}
-			{weapon			"122mm_m-62-t2" filling "ammo bullet122_d49 aphe" 1}
+			{weapon			"122mm_m-62-t2" filling "ammo bullet122_m62 apcbc" 1}
 			{gunner "gunner"}
 			{charger "charger"}
 			("abm_dymamic_stabilised"
@@ -73,8 +73,7 @@
 			{weapon			"kpv" filled}
 			{gunner			"commander"}
 			{charger		"commander"}
-			{LinkBone		"mgun_help"}
-			{LinkAnimation	"off"}
+			{foresight 		"foresight3"}
 			("abm_mgun")
 			{basic}
 			{ai_in_manual}
@@ -105,5 +104,10 @@
 	{bone "gun_rot"			;gun vertical
 		{speed2 4}			;degree per second
 		{limits -5 20}		;min down to max up
+	}
+	
+	{bone "mgun_rot"			;gun vertical
+		{speed2 12}			;degree per second
+		{limits -8 50}		;min down to max up
 	}
 }

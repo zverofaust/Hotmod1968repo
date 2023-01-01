@@ -142,6 +142,49 @@
 	}
 }
 
+{"smoke bdsh"					;// Soviet droppable smoke bombs
+	{on spawn
+		{add_view "exhaust_dark_big_diesel"			"smoke_1"			"smokebomb1"}
+		{add_view "smoke_cover-up_big"				"smoke_1_cover" 	"smokebomb1"}
+		{add_view "exhaust_dark_big_diesel"			"smoke_2"			"smokebomb2"}
+		{add_view "smoke_cover-up_big"				"smoke_2_cover" 	"smokebomb2"}
+		
+		(define "spawn_volume"
+			{spawn "smoke_volume_%0" offset %1 %2 0
+				{delay %3 {hide 1}}
+			}
+		)
+		
+	}
+	{on "smoke_screen"
+		{view start "smoke_1"}
+		{bone cut "smokebomb1"}
+		{delay 3
+			{view start "smoke_1_cover"}
+			("spawn_volume" args cylinder 110 0 84)
+			("spawn_volume" args cylinder -110 0 84)
+			("spawn_volume" args cylinder 0 110 84)
+			("spawn_volume" args cylinder 0 -110 84)
+			("spawn_volume" args cylinder 110 110 84)
+			("spawn_volume" args cylinder -110 -110 84)
+			("spawn_volume" args cylinder -110 110 84)
+			("spawn_volume" args cylinder 110 -110 84)
+		}
+		{delay 5
+			("spawn_volume" args cylinder_sm 220 0 82)
+			("spawn_volume" args cylinder_sm -220 0 82)
+			("spawn_volume" args cylinder_sm 0 220 82)
+			("spawn_volume" args cylinder_sm 0 -220 82)
+		}
+		{delay 60
+			{view stop "smoke_ess1_cover"}
+		}
+		{delay 60
+			{view stop "smoke_ess1"}
+		}
+	}
+}
+
 {"mg_turret"
 	{on spawn
 		{call "update_mg_turret"}
@@ -728,7 +771,19 @@
 	}
 }
 
-{"t-10 tank"
+{"t-10m tank"
+	("is_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+}
+
+{"t-10m_1957 tank"
 	("is_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
