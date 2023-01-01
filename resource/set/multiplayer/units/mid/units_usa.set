@@ -51,8 +51,8 @@
 }
 
 {"cas_uh1_usa"
-	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:2))
-	{cost 10}{conditions "radio_usa"}{action "airstrike:flare_bombrun_cas"} 
+	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
+	{cost 10}{conditions "radio_usa"}{action "airstrike:dummy_cas"} 
 }
 
 {"airstrike_250_usa" ;by A-4E currently, to be replaced by A-1
@@ -278,9 +278,9 @@
 
 ; // 15 DP Huey ARA CAS
 {"cas_uh1_ara_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_ara_airborne) crew(sup_pilot:2) cw(0) cp(0))
+	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_ara_airborne) crew(sup_pilot:1) cw(0) cp(0))
 	("doctrine_strat" cool(180) d(mid_usa_air) cost(15))
-	{conditions "radio_usa"}{action "airstrike:flare_bombrun_cas"} 
+	{conditions "radio_usa"}{action "airstrike:dummy_cas"} 
 }
 
 ; // 8DP 4 x cluster bomb strike by A-4E
@@ -353,9 +353,9 @@
 
 ; // 15 DP Huey M22 CAS
 {"cas_uh1_m22_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_m22_airborne) crew(sup_pilot:2) cw(0) cp(0))
+	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_m22_airborne) crew(sup_pilot:1) cw(0) cp(0))
 	("doctrine_strat" cool(180) d(mid_usa_tank) cost(15))
-	{conditions "radio_usa"}{action "airstrike:flare_bombrun_cas"} 
+	{conditions "radio_usa"}{action "airstrike:dummy_cas"} 
 }
 
 ; // 10DP 4 x napalm bomb strike by A-4E
@@ -434,9 +434,9 @@
 
 ; // 15 DP Huey Maxwell CAS; to be replaced by CH-34 with TK-1 subsystem
 {"cas_uh1_maxwell_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_maxwell_airborne) crew(sup_pilot:2) cw(0) cp(0))
+	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_maxwell_airborne) crew(sup_pilot:1) cw(0) cp(0))
 	("doctrine_strat" cool(180) d(mid_usa_usmc) cost(15))
-	{conditions "radio_usa"}{action "airstrike:flare_bombrun_cas"} 
+	{conditions "radio_usa"}{action "airstrike:dummy_cas"} 
 }
 
 ; // 15DP 8 x 250kg bomb strike by F-105 (A-4)
@@ -799,11 +799,11 @@
 }
 
 {"uh-1b_airborne"
-	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(vehicle light) crew(sup_pilot:2) cw(0) cp(6))
+	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(vehicle light) crew(sup_pilot:1) cw(0) cp(6))
 	{cost 650}{not_for_player_sale 1}
 }
 
 {"uh-1b_ara_airborne"
-	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(vehicle light) crew(sup_pilot:2) cw(0) cp(6))
+	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(vehicle light) crew(sup_pilot:1) cw(0) cp(6))
 	{cost 800}{not_for_player_sale 1}
 }

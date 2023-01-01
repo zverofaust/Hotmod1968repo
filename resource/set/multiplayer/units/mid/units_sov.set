@@ -57,8 +57,8 @@
 }
 
 {"cas_mi4_sov"
-	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(sup_pilot:2))
-	{cost 15}{conditions "radio_sov"}{action "airstrike:flare_bombrun_cas"} 
+	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(sup_pilot:1))
+	{cost 15}{conditions "radio_sov"}{action "airstrike:dummy_cas"} 
 }
 
 ;_________________________________________________
@@ -140,9 +140,9 @@
 
 ; // 15 DP Mi-4 Heavy CAS
 {"cas_mi4_heavy_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:2) cw(0) cp(0))
+	("strategic_doctrine" side(sov) period(mid) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:1) cw(0) cp(0))
 	("doctrine_strat" cool(180) d(mid_sov_motostrelki) cost(15))
-	{conditions "radio_sov"}{action "airstrike:flare_bombrun_cas"} 
+	{conditions "radio_sov"}{action "airstrike:dummy_cas"} 
 }
 
 ; // 12DP 4 x Cluster bomb strike by Su-7
@@ -367,9 +367,9 @@
 
 ; // 20 DP Mi-4 Heavy CAS
 {"cas_mi4_heavy_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:2) cw(0) cp(0))
+	("strategic_doctrine" side(sov) period(mid) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:1) cw(0) cp(0))
 	("doctrine_strat" cool(120) d(mid_sov_vdv) cost(20))
-	{conditions "radio_sov"}{action "airstrike:flare_bombrun_cas"} 
+	{conditions "radio_sov"}{action "airstrike:dummy_cas"} 
 }
 
 ; // 15DP 4 x WP bomb strike by Su-7
@@ -782,11 +782,11 @@
 }
 
 {"mil_mi4_airborne"
-	("vehicle" period(mid) cd(300) ci(240) t(vehicle helicopter airborne) side(sov) crew(sup_pilot:2) cw(0) cp(20))
+	("vehicle" period(mid) cd(300) ci(240) t(vehicle helicopter airborne) side(sov) crew(sup_pilot:1) cw(0) cp(20))
 	{cost 900}{not_for_player_sale 1}
 }
 
 {"mil_mi4_heavy_airborne"
-	("vehicle" period(mid) cd(300) ci(240) t(vehicle helicopter airborne) side(sov) crew(sup_pilot:2) cw(0) cp(20))
+	("vehicle" period(mid) cd(300) ci(240) t(vehicle helicopter airborne) side(sov) crew(sup_pilot:1) cw(0) cp(20))
 	{cost 1300}{not_for_player_sale 1}
 }

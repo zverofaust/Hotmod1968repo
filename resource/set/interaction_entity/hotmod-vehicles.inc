@@ -262,6 +262,11 @@
 	("t70_sound")
 }
 
+{"pt-76b tank"
+	("t70_sound")
+}
+
+
 {"btr-50p tank"
 	("t70_sound")
 }
