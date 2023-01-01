@@ -1,20 +1,13 @@
-{from "pattern gun"			; 122mm D-49 (D-25TA) L/48 on "SU-122-54"
-	{filling "bullet122_d49"}
-	{fireSound "gun/gun_122_152"}
-	{fireSoundclose "gun/gun_interior/size4"}
-	{reloadSound "interior/large/howitzer_reload_interior"}
+{from "122mm_d25"			; 122mm D-49 (D-25TA) L/48 on "SU-122-54"
 	("range_380")
-	{calibre 122}
 
 	("reload time" seconds(14))
 
 	("velocity m/s" ap(795) apcr(1400) he(800) heat(820))
-	("armor health" damage(350))
-	("armor health custom" shell(aphebc) damage(350) filler(246))
-	("armor health custom" shell(aphebc) damage(350) filler(246))
+	("armor health custom" shell(apcbc) damage(350) filler(192))
 
-	; BR-471
-	("penetration_long" shell(aphe) range(280) a(205) b(183) c(162) d(144) e(128))  ;RHA
+	; BR-471D APCBC
+	("penetration_long" shell(apcbc) range(280) a(230) b(215) c(200) d(186) e(173))  ;RHA
 
 	; 3BM-7 APDS
 	("penetration_long" shell(apds) range(280) a(299) b(291) c(272) d(253) e(249))  ;RHA
