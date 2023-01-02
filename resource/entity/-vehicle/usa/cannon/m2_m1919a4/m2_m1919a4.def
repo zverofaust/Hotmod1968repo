@@ -12,17 +12,17 @@
 			{forward {end "lie_take_item_end" 10}}
 		}
 		{anm "driver1"
-			{forward {end "mgun_browning_driver_r"}}
+			{forward {end "mgun_browning_driver_l"}}
 		}
 		{anm "driver2"
-			{forward {end "mgun_browning_driver_l"}}
+			{forward {end "mgun_browning_driver_r"}}
 		}
 	}
 
 	{extender "cannon"
 		{animation
 		;// "gunner" "commander"
-			{move "mgun_browning_driver_r" "mortar_driver_l"}
+			{move "mgun_browning_driver_l" "mgun_browning_driver_r" }
 			{fire  "" ""}
 			{aim "" ""}
 			{reload "lie_fire_pistol" "lie_take_item_end"}
@@ -41,9 +41,9 @@
 			{weapon "browning_m19a4" filled}
 			{LinkAnimation	"off"}
 			{gunner "gunner"}
-			{charger "gunner"}
+			{charger "commander"}
 			;{foresight "foresight3"}
-			{LinkBone		"mgun_z"}
+			{LinkBone		"helper"}
 			{LinkAnimation	"off"}
 			("abm_mgun")
 		}
