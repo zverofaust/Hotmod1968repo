@@ -144,45 +144,88 @@
 
 {"smoke bdsh"					;// Soviet droppable smoke bombs
 	{on spawn
-		{add_view "exhaust_dark_big_diesel"			"smoke_1"			"smokebomb1"}
-		{add_view "smoke_cover-up_big"				"smoke_1_cover" 	"smokebomb1"}
-		{add_view "exhaust_dark_big_diesel"			"smoke_2"			"smokebomb2"}
-		{add_view "smoke_cover-up_big"				"smoke_2_cover" 	"smokebomb2"}
-		
-		(define "spawn_volume"
-			{spawn "smoke_volume_%0" offset %1 %2 0
-				{delay %3 {hide 1}}
-			}
-		)
-		
+		{add_view "exhaust_dark_big_diesel"			"smoke_bdsh"			"root"}
+		{add_view "smoke_cover-up_big"				"smoke_bdsh_cover" 		"root"}
+		{tags add "smoke0"}		
 	}
+	
+	
 	{on "smoke_screen"
-		{view start "smoke_1"}
-		{bone cut "smokebomb1"}
-		{delay 3
-			{view start "smoke_1_cover"}
-			("spawn_volume" args cylinder 110 0 84)
-			("spawn_volume" args cylinder -110 0 84)
-			("spawn_volume" args cylinder 0 110 84)
-			("spawn_volume" args cylinder 0 -110 84)
-			("spawn_volume" args cylinder 110 110 84)
-			("spawn_volume" args cylinder -110 -110 84)
-			("spawn_volume" args cylinder -110 110 84)
-			("spawn_volume" args cylinder 110 -110 84)
-		}
-		{delay 5
-			("spawn_volume" args cylinder_sm 220 0 82)
-			("spawn_volume" args cylinder_sm -220 0 82)
-			("spawn_volume" args cylinder_sm 0 220 82)
-			("spawn_volume" args cylinder_sm 0 -220 82)
-		}
-		{delay 60
-			{view stop "smoke_ess1_cover"}
-		}
-		{delay 60
-			{view stop "smoke_ess1"}
+		{if tagged "smoke0"
+			{tags add "smoke1"}
+			{tags remove "smoke0"}
+			{tear "piece_large_steel" bone "smokebomb1"
+				{impulse up -1 dir -5 forward -2}
+				{add_view "exhaust_dark_big_diesel"			"smoke_bdsh"			"root"}
+				{add_view "smoke_cover-up_big"				"smoke_bdsh_cover" 		"root"}
+				{view start "smoke_bdsh"}
+				{view start "smoke_bdsh_cover"}
+				{delay 60
+					{view stop "smoke_bdsh"}
+					{view stop "smoke_bdsh_cover"}
+				}
+			}
+		else tagged "smoke1"
+			{tags add "smoke2"}
+			{tags remove "smoke1"}
+			{tear "piece_large_steel" bone "smokebomb2"
+				{impulse up -1 dir -5 forward -2}
+				{add_view "exhaust_dark_big_diesel"			"smoke_bdsh"			"root"}
+				{add_view "smoke_cover-up_big"				"smoke_bdsh_cover" 		"root"}
+				{view start "smoke_bdsh"}
+				{view start "smoke_bdsh_cover"}
+				{delay 60
+					{view stop "smoke_bdsh"}
+					{view stop "smoke_bdsh_cover"}
+				}
+			}
+		else ;//do nothing
 		}
 	}
+	
+	(define "drop_bdsh"
+		{on "smokebomb"
+			{if tagged "smoke0"
+				{tags add "smoke1"}
+				{tags remove "smoke0"}
+				{tear "piece_large_steel" bone "smokebomb1"
+					{impulse up -1 dir -5 forward -2}
+					{view start "smoke_bdsh"}
+					{view start "smoke_bdsh_cover"}
+					{delay 60
+						{view stop "smoke_bdsh"}
+						{view stop "smoke_bdsh_cover"}
+					}
+				}
+			else tagged "smoke1"
+				{tags add "smoke2"}
+				{tags remove "smoke1"}
+				{tear "piece_large_steel" bone "smokebomb2"
+					{impulse up -1 dir -5 forward -2}
+					{view start "smoke_bdsh"}
+					{view start "smoke_bdsh_cover"}
+					{delay 60
+						{view stop "smoke_bdsh"}
+						{view stop "smoke_bdsh_cover"}
+					}
+				}
+			else ;//do nothing
+			}
+		}
+	)
+	
+		{on "smokebomb2"
+			{tear "piece_large_steel" bone "smokebomb2"
+				{impulse up -1 dir -5 forward -2}
+				{view start "smoke_bdsh"}
+				{view start "smoke_bdsh_cover"}
+				{delay 60
+					{view stop "smoke_bdsh"}
+					{view stop "smoke_bdsh_cover"}
+				}
+			}
+		}
+	)
 }
 
 {"mg_turret"
