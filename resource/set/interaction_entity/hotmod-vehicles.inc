@@ -782,6 +782,18 @@
 	}
 }
 
+{"t-62_1962 tank"
+	("t28_sound")
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1.8)
+	}
+	{on fire "gun"
+		{delay 1.5
+			{ani_play "eject"}
+		}
+	}
+}
+
 {"t-62k tank"
 	("t28_sound")
 	{on "spawn_shell_delay" overload
