@@ -26,12 +26,12 @@
 ;|________________________________________________|
 
 {"m151_prc77"
-	("vehicle2"  period(mid) cd(120) ci(200) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(reg_officer:1) b(strategic) cw(0) cp(2))
+	("vehicle2"  period(mid) cd(120) ci(200) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
 	{cost 5} {squad_cost_factor 0}
 }
 
 ;{"m577"
-;	("vehicle2"  period(mid) cd(240) ci(300) g(command) side(usa) t(vehicle command) crew1(sup_vehicleman:2) crew2(reg_officer:1) b(strategic) cw(0) cp(4))
+;	("vehicle2"  period(mid) cd(240) ci(300) g(command) side(usa) t(vehicle command) crew1(sup_vehicleman:2) crew2(sup_supporter:1) b(strategic) cw(0) cp(4))
 ;	{cost 5} {squad_cost_factor 0}
 ;}
 
@@ -144,7 +144,7 @@
 
 ; // 10DP M577 Command Carrier
 {"doctrine_vehicle_m577_acav(usa)"
-	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(m577) crew1(sup_vehicleman:2) crew2(reg_officer:1) cw(0) cp(0))
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(m577) crew1(sup_vehicleman:2) crew2(sup_supporter:1) cw(0) cp(0))
 	("doctrine_t1" cool(60) d(mid_usa_acav) cost(10))
 }
 
@@ -317,7 +317,7 @@
 
 ; // 10DP M577 Command Carrier
 {"doctrine_vehicle_m577_tank(usa)"
-	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(m577) crew1(sup_vehicleman:2) crew2(reg_officer:1) cw(0) cp(0))
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(m577) crew1(sup_vehicleman:2) crew2(sup_supporter:1) cw(0) cp(0))
 	("doctrine_t1" cool(60) d(mid_usa_tank) cost(10))
 }
 
@@ -466,7 +466,7 @@
 
 ; // 10DP M577 Command Carrier
 {"doctrine_vehicle_m577_artillery(usa)"
-	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(m577) crew1(sup_vehicleman:2) crew2(reg_officer:1) cw(0) cp(0))
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(m577) crew1(sup_vehicleman:2) crew2(sup_supporter:1) cw(0) cp(0))
 	("doctrine_t1" cool(60) d(mid_usa_artillery) cost(10))
 }
 
@@ -569,6 +569,7 @@
 ("squad_with1types" 	side(usa) name(single_flamer)			period(mid) cd(0)   ci(60)  g(single_flamer)			c1(reg_flamer:1) 								b(inf2) t(flamer))
 ("squad_with1types" 	side(usa) name(single_medic)			period(mid) cd(0)   ci(60)  g(single_medic)				c1(reg_medic:1) 								b(inf2) t(reg_medic))
 ("squad_with1types" 	side(usa) name(single_engineer)			period(mid) cd(90)  ci(60)  g(single_engineer)			c1(reg_engineer:2) 								b(inf2) t(engineer))
+("squad_with1types" 	side(usa) name(single_officer)			period(mid) cd(120)  ci(120)  g(single_officer)			c1(reg_officer:1) 								b(inf2) t(officer))
 
 ;_________________________________________________
 ;|                  Emplacements                  |

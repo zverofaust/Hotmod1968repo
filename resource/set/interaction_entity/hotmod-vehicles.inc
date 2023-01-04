@@ -1704,6 +1704,10 @@
 
 ;/*=========== FRG Vehicles BEGIN  ===========*/
 
+{"munga4"
+	("kubel_sound")
+}
+
 {"m113g tank"
 	("pz38_sound")
 	{on "commander_hatch_open" overload

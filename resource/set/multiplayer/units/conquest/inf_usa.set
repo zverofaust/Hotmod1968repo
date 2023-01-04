@@ -7,6 +7,14 @@
 ; Check ../settings.set for syntax instructions!!
 ;//////////////////////////////////////////////////
 
+(define "usa_radioman_early"
+	{tags "early %side infantry man signaller"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.2}
+)
 (define "usa_radioman"
 	{tags "mid %side infantry man signaller"}
 	{cp 1}
@@ -15,7 +23,8 @@
 	{cw 2}
 	{score_factor 0.2}
 )
-{"mp/usa/mid/sup_radioman"			("usa_radioman" side(usa)) {cost 200.0}}
+{"mp/usa/mid/sup_radioman"			("usa_radioman" side(usa)) {cost 50.0}}
+{"mp/usa/early/sup_radioman"		("usa_radioman_early" side(usa)) {cost 50.0}}
 
 (define "usa_supporter_early"
 	{tags "early %side infantry man"}
@@ -367,16 +376,24 @@
 {"mp/usa/mid/reg_medic"			("usa_medic" side(usa)) {cost 40.0}}
 {"mp/usa/mid/usmc_corpsman"		("usa_medic" side(usa)) {cost 55.0}}
 
-
-(define "usa_officer"
-	{tags "mid %side infantry man officer"}
-	{cp 1}
+(define "usa_officer_early"
+	{tags "early %side infantry man officer"}
+	{cp -25}
 	{basic}
 	{breed}
 	{cw 5}
 	{score_factor 0.2}
 )
-{"mp/usa/mid/reg_officer"		("usa_officer" side(usa)) {cost 65.0}} ; Pistol; High-value officer target.
+(define "usa_officer"
+	{tags "mid %side infantry man officer"}
+	{cp -25}
+	{basic}
+	{breed}
+	{cw 5}
+	{score_factor 0.2}
+)
+{"mp/usa/mid/reg_officer"		("usa_officer" side(usa)) {cost 165.0}} ; Pistol; High-value officer target.
+{"mp/usa/early/reg_officer"		("usa_officer_early" side(usa)) {cost 165.0}} ; Pistol; High-value officer target.
 
 (define "usa_sniper_early"
 	{tags "early %side infantry man sniper lvl3"}

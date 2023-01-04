@@ -7,15 +7,24 @@
 ; Check ../settings.set for syntax instructions!!
 ;//////////////////////////////////////////////////
 
-(define "sov_radioman"
-	{tags "mid %side infantry man signaller"}
-	{cp 10}
+(define "sov_radioman_early"
+	{tags "early %side infantry man signaller"}
+	{cp 2}
 	{basic}
 	{breed}
 	{cw 2}
 	{score_factor 0.2}
 )
-{"mp/sov/mid/reg_radioman"			("sov_radioman" side(sov)) {cost 200.0}}
+(define "sov_radioman"
+	{tags "mid %side infantry man signaller"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.2}
+)
+{"mp/sov/mid/reg_radioman"			("sov_radioman" side(sov)) {cost 50.0}}
+{"mp/sov/early/reg_radioman"			("sov_radioman_early" side(sov)) {cost 50.0}}
 
 (define "sov_basic"
 	{tags "mid %side infantry man"}

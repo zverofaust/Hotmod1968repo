@@ -7,6 +7,14 @@
 ; Check ../settings.set for syntax instructions!!
 ;//////////////////////////////////////////////////
 
+(define "prc_radioman_early"
+	{tags "early %side infantry man signaller"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.2}
+)
 (define "prc_radioman"
 	{tags "mid %side infantry man signaller"}
 	{cp 10}
@@ -15,7 +23,8 @@
 	{cw 2}
 	{score_factor 0.2}
 )
-;{"mp/prc/mid/reg_radioman"			("prc_radioman" side(prc)) {cost 200.0}}
+{"mp/prc/early/reg_radioman"		("prc_radioman" side(prc)) {cost 50.0}}
+{"mp/prc/mid/reg_radioman"			("prc_radioman" side(prc)) {cost 50.0}}
 
 (define "prc_basic"
 	{tags "mid %side infantry man"}
