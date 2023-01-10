@@ -12,6 +12,7 @@
 {"Nato"
 	{title "mp/alliance/nato"}
 	{armies "usa"}
+	{armies "frg"}
 	{icon "/interface/pages/multi/flag_nato"}
 }
 {"Warsaw" 
