@@ -247,7 +247,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m151_m1919"},
 				{priority = 0.5, class = UnitClass.Vehicle, unit = "m151_m2"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m151_m40"},
-				{priority = 0.5, class = UnitClass.ATTank, unit = "m35_guntruck"},
+				{priority = 0.5, class = UnitClass.Vehicle, unit = "m35_guntruck"},
 			--APCs/BTRs
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m113_m40"},
 				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "m125"},
