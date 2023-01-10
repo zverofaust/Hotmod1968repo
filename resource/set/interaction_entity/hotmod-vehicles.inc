@@ -259,9 +259,9 @@
 		{link_sound "engine_start"		"vehicle/engine/m4a3/start"}
 		{link_sound "engine_stop"		"vehicle/engine/m4a3/stop"}
 		{link_sound "engine_idle"		"vehicle/engine/m4a3/idle"}
-		{link_sound "engine_full"		"vehicle/engine/pz4/full"}
-		{link_sound "exhaust"			"vehicle/engine/pz4/exhaust"}
-		{link_sound "move"			"vehicle/tracks/m4a2"}
+		{link_sound "engine_full"		"vehicle/engine/m4a3/full"}
+		{link_sound "exhaust"			"vehicle/engine/m4a3/exhaust"}
+		{link_sound "move"				"vehicle/tracks/m4a2"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
 )
@@ -271,9 +271,10 @@
 		{link_sound "engine_stop"		"vehicle/engine/m24/stop"}
 		{link_sound "engine_idle"		"vehicle/engine/m24/idle"}
 		{link_sound "engine_full"		"vehicle/engine/m24/full"}
-		{link_sound "exhaust"			"vehicle/engine/hetzer/exhaust"}
-		{link_sound "move"			"vehicle/tracks/m24"}
+		{link_sound "exhaust"			"vehicle/engine/m24/exhaust"}
+		{link_sound "move"				"vehicle/tracks/m24"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+		{link_sound "rotate_gun" 		"vehicle/turret/gun/gun_vertical"}
 	}
 )
 (define "us_halftrack_sound"
@@ -283,8 +284,20 @@
 		{link_sound "engine_idle"		"vehicle/engine/us_halftrack/idle"}
 		{link_sound "engine_full"		"vehicle/engine/us_halftrack/full"}
 		{link_sound "exhaust"			"vehicle/engine/sdkfz251/exhaust"}
-		{link_sound "move"			"vehicle/tracks/m3a1"}
-		{link_sound "rotate_turret" 		"vehicle/turret/gun/gun_horizontal"}
+		{link_sound "move"				"vehicle/tracks/m3a1"}
+		{link_sound "rotate_turret" 	"vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" 		"vehicle/turret/gun/gun_vertical"}
+	}
+)
+(define "m10_sound"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/m4/start"}
+		{link_sound "engine_stop"		"vehicle/engine/m4/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/m4/idle"}
+		{link_sound "engine_full"		"vehicle/engine/m4/full"}
+		{link_sound "exhaust"			"vehicle/engine/m4/exhaust"}
+		{link_sound "move"				"vehicle/tracks/m4"}
+		{link_sound "rotate_turret" 	"vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" 		"vehicle/turret/gun/gun_vertical"}
 	}
 )
@@ -295,8 +308,9 @@
 		{link_sound "engine_idle"		"vehicle/engine/m26/idle"}
 		{link_sound "engine_full"		"vehicle/engine/m26/full"}
 		{link_sound "exhaust"			"vehicle/engine/m26/exhaust"}
-		{link_sound "move"			"vehicle/tracks/m26"}
+		{link_sound "move"				"vehicle/tracks/m26"}
 		{link_sound "rotate_turret"		"vehicle/turret/hydraulic/hydraulic_heavy"}
+		{link_sound "rotate_gun" 		"vehicle/turret/gun/gun_vertical"}
 	}
 )
 ;/*=========== SOVIET Vehicles  ===========*/
@@ -1310,6 +1324,44 @@
 	("kubel_sound")
 }
 
+{"m16gmc tank" 
+	("us_halftrack_sound")
+	{on spawn
+		{link_sound "bkg_hmg" "weapon/shot/bkg/gun/hmg/"}
+		{add_view "flash_gun_hmg_dshk"			"flashbarrel00"	"shooter00"}
+		{add_view "flash_gun_hmg_dshk"			"flashbarrel01"	"shooter01"}
+		{add_view "flash_gun_hmg_dshk"			"flashbarrel02"	"shooter02"}
+		{add_view "flash_gun_hmg_dshk"			"flashbarrel03"	"shooter03"}
+		{add_view "zenit_gilz"			"shell"			"FXshell1"}
+		{add_view "zenit_gilz"			"shell"			"FXshell2"}
+		{add_view "zenit_gilz"			"shell"			"FXshell3"}
+		{add_view "zenit_gilz"			"shell"			"FXshell4"}
+	}
+	{on fire "mgun1" overload
+		(define "fire_barrel"
+			name "%0"
+				{call "fire_barrel%0"}
+				{view start "flashbarrel%0"}
+				{ani_play "fire%0"}
+				{delay 0.2
+					{view pause "flashbarrel%0"}
+				}
+		)
+		{if	("fire_barrel" args 00)
+		else ("fire_barrel" args 01)
+		else ("fire_barrel" args 02)
+		else ("fire_barrel" args 03)
+		}
+		{play_sound "bkg_hmg"}
+		{ani_play "recoil"}
+		{call "spawn_shell"}
+	}
+}
+
+{"m16gmc tank" 
+	("us_halftrack_sound")
+}
+
 {"m41"
 	("pz3_sound")
 	{on "commander_hatch_open" overload
@@ -1682,6 +1734,10 @@
 	}
 }
 
+{"m36gmc tank"
+	("m10_sound")
+}
+
 {"m4a3e8 tank"
 	("m4a3_sound")
 	{on "commander_hatch_open" overload
@@ -1721,6 +1777,10 @@
 			{ani_play "open_driver" -1.0}
 		}	
 	}
+}
+
+{"spz_112"
+	("pz1_sound")
 }
 
 {"spz_123"
