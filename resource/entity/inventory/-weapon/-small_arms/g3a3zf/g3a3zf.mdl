@@ -1,0 +1,111 @@
+;Exported by: misan
+;Date:        Sat Jan  7 17:32:42 2023
+;File:        D:\Cold War\ModelWIP\Smallarms\G3 by Artyom\G3.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.3}}
+	}
+	{bone "g3a3zf"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "g3a3zf.ply"}
+		{bone "magazine"
+			{Position 3.1853	-0.184392	-0.0027373}
+			{VolumeView "magazine.ply"}
+		}
+		{bone "handle"
+			{Matrix34
+				0	1	0
+				0	0	-1
+				-1	0	0
+				3.9013	2.13064	-0.0459009
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.573576	0.819152
+				0	0.819152	-0.573576
+				-1	0	0
+				2.96579	1.84215	0.196366
+			}
+		}
+		{bone "foresight12"
+			{Position 12.8206	1.43108	-0.00978329}
+		}
+		{bone "bolt"
+			{Position 5.35515	1.75437	-0.168329}
+			{VolumeView "bolt.ply"}
+		}
+		{bone "scope"
+			{Matrix34
+				1	0	0
+				0	1	0
+				0	0	-1
+				-0.460478	0.497246	0.105483
+			}
+			{VolumeView "scope.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 18.9234 3.69514 0.621716}
+	{Bone "g3a3zf"}
+	{Position 3.39148	0.492878	-0.000985354}
+}
+{Volume "magazine"
+	{Box 1.31623 2.63617 0.43771}
+	{Bone "magazine"}
+	{Matrix34
+		0.996195	0.0871557	0
+		-0.0871557	0.996195	0
+		0	0	1
+		0.0304906	0.091413	-0.0117116
+	}
+}
+{Volume "select"
+	{Box 21.0779 7.21689 1.60375}
+	{Bone "g3a3zf"}
+	{Position 3.51419	0.519983	0.0231116}
+}
+{Extender "preview"
+	{"stuff_primary"
+		{camera
+			{origin 3.47322	-0.725203	23.1392}
+			{lookat 3.47322	-0.648993	4.54399}
+			{fov 45}
+			{horizon 9.99857}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position -2.2519	5.23186	14.0043}
+			}
+			{"1"
+				{type point}
+				{position 9.17434	-4.91805	2.54271}
+			}
+		}
+	}
+	{"stuff"
+		{camera
+			{origin 3.43872	-1.45566	23.6}
+			{lookat 3.43617	-0.927288	4.16649}
+			{fov 45}
+			{horizon -179.239}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position -1.14729	-5.52105	1.87936}
+			}
+			{"1"
+				{type point}
+				{position 8.62873	4.25297	8.28459}
+			}
+		}
+	}
+}
