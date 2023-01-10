@@ -1,0 +1,105 @@
+{game_entity		;SPz 12-3 Lang
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	(include "spz_112.ext")
+	{props "ifv" "light" "vision_lev04" "muzzle_20mm_25mm_auto" "diesel" "smoke" "nwg"}
+	{targetclass "tank_light"}
+	{targetSelector "tank_zenite"}
+	{PatherId "t70"}
+
+	("crew_3_human_2_extended")
+
+	{extender "shield" {on}}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse {end "emit_t34_hold"} {base "open_driver"}}
+		}
+		{anm "left"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"} {base "open_turret"}}
+			{reverse {end "emit_tank_2"} {base "open_turret"}}
+		}
+		{anm "right"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"} {base "open_turret"}}
+			{reverse {end "emit_body"} {base "open_turret"}}
+		}
+		{anm "back"
+			{forward {begin "board_ba-20m"} {end "pose_seat_armor_1"} {base "open_back"}}
+			{reverse {end "emit_body"} {base "open_back"}}
+		}
+	}
+	
+	(include "/properties/hotmod_crew.ext")
+	("passenger_invisible_back" place(seat1)		door(emit3) door2(emit4) animation(back))
+	("passenger_invisible_back" place(seat2)		door(emit3) door2(emit4) animation(back))
+	
+	{extender "smokescreen"
+		{cooldown 5}
+		{itemTags "grenade nbk39"}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet20_hs820 ap" 200}		
+			{item "bullet20_hs820 he" 200}
+			{item "ammo mgun_ger belt" 1950}		
+			;{item "geballteladung_3kg" 1}
+			{item "nbk39 grenade" 6}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "20mm_hs820" filling "bullet20_hs820 ap" 100}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_dymamic_autocannon"
+				zeroing(4)
+				dispersion(0.15)
+			)
+		}
+		{place "mgun"
+			{type "coaxial"}
+			{weapon "mg42_tank" filled}
+			{foresight "foresight3"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 14600}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
+		("mobility_tank"
+			speed(58)  ;---------Max speed when fully accelerated on road, km/h.
+			reverse(9.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(14.6) ;-------Weight in Tonnes.
+			power(220) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(330) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(250) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "spz_112.mdl"}
+
+	{bone "turret"			;gun horizontal
+		{speed2 24}			;degree per second
+	}
+	{bone "gun_rot"			;gun vertical
+		{speed2 12}			;degree per second
+		{limits 30 -4}		;min down to max up
+	}
+}
