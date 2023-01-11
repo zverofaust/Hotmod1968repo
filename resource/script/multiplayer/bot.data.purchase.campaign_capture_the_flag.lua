@@ -350,33 +350,42 @@ Purchases["campaign_capture_the_flag"] = {
 	
 			--Infantry Squads
 				
-			--Cannons
-			
 			--HMGs
-				
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "mg3_lafette"},
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "m63g"},
 			--Anti_Aircraft
-			
+				{priority = 0.5, class = UnitClass.Vehicle, unit = "m45g"},
+				{priority = 0.5, class = UnitClass.Vehicle, unit = "40mm_bofors_l70_frg"},
 			--Anti_Tank
-			
+				{priority = 1.0, class = UnitClass.ATTank, unit = "m40g"},
 			--Mortars
-				
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "m29g_mortar"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "m30g_mortar"},
 			--Infantry_Support
-				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m116g"},
 			--Artillery
-			
+				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "m101g"},
+			--	{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "m114g"},
+			--	{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "m115g"},	
 			--Rocket_Artillery
-			
-
-			--Wheel_vehicles
-				
+			--Wheel_vehicles	
+			--APCs/BTRs
+				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "m125g"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "spz_112"},
 			--Tanks_light
-				
+				{priority = 1.0, class = UnitClass.Tank, unit = "m41g"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "m42g"},
 			--Tanks_medium
-
+				{priority = 1.0, class = UnitClass.Tank, unit = "m47g"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "m48g"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "m48a2c"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "leopard_1"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "leopard_1a1"},
 			--Tanks_heavy
-
 			--SPG
-			
+				{priority = 0.5, class = UnitClass.Tank, unit = "m108g"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "m109g"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "m110g"}
 			}
 		}
 	}
