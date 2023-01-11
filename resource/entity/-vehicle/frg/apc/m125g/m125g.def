@@ -1,0 +1,147 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "spg" "light" "multi_board" "vision_lev04" "amphibia" "diesel" "muzzle_75mm_76mm" "mortar"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "cannon_howitzer"}
+	
+	{patherId "amphibia"}
+	
+	{volume "body"			; Hull
+		{able {holed}}
+		{thickness 13		; 
+			{front 13}
+			{top 8}		; 
+			{rear 13}
+			{bottom 8}
+		}
+	}
+	
+	("fuel" args "fuel")
+	("ammo" args "ammo")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+	{volume "engine" {thickness 10}}
+	{volume "hole1" {able clear {hole}{touch 1}}}
+	
+	("crew_driver")
+   
+	(define "crew"
+		{placer
+			{place "%place" {LinkBone "%bone"} {group "crew"} {visor "%visor"}}
+		}
+		{boarder
+			{door "%door"}
+			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		}
+	)
+	
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "left"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_body"} {end "pose_mortar_commander"} {base "doorleft"}}
+			{reverse	{end	"board_body" -1} {base "doorleft"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_body"} {end "pose_mortar_gunner"} {base "doorleft"}}
+			{reverse	{end	"board_body" -1} {base "doorleft"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "doorleft"}}
+			{reverse	{end	"board_body" -1} {base "doorleft"}}
+		}
+	}
+	("crew_driver" 	place(driver)  	  bone(driver)				door(emit0)  animation(driver) 		group(crew))
+	("crew" 		place(commander)  bone(gunner2)				door(emit2)  animation(commander) 		group(crew))
+	("crew" 		place(gunner)    bone(gunner)				door(emit2)  animation(gunner)		group(crew))
+	("crew" 		place(charger)    bone(charger)				door(emit2)  animation(charger) 		group(crew))
+	;("seat_human" 	place(charger2)   bone(seat02)				door(emit2)  animation(gunner) 		group(crew))
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_usa" 1000}
+			{item "ammo mortarusa_81 he" 80}
+			{item "ammo mortarusa_81 sm" 30}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "weapon 81mm_m29" filling "ammo mortarusa_81 he" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			{basic}
+			("abm_dymamic_mortar"
+				zeroing(3.0)	; // time it takes to aim until the reticle shrinks. Bigger values, more control.
+				dispersion(1)   ; // time it takes to distort the reticle when you move the gun (how abrupt it loses zeroing). Bigger values, more control.
+			)
+		}
+		{place "mgun"
+			{weapon			"browning_m2" filled}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{LinkBone		"mgun"}
+			{LinkAnimation	"off"}
+			{basic}
+			{ai_in_manual}
+			("abm_mgun")
+		}
+	}
+
+	{mass 14500}	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(60) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(12);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(10.4) ;-------Weight in Tonnes.
+			power(212) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(250) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(480) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}
+	
+	{Extension "m125g.mdl"}
+	
+	;{bone "gun"
+	;	{limits -25 8}
+	;	{speed 0.007}
+	;}
+	
+	{bone "foresight"
+		{limits -20 25}
+	}
+	{bone "turret_mgun"
+		;{limits -80 80}
+		{speed2 64}
+	}
+
+
+}

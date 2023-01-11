@@ -1,0 +1,88 @@
+;Exported by: misan
+;Date:        Sun Oct 27 20:10:55 2019
+;File:        D:\Cold War\Models\M29 Mortar\m29mortaranim.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+				{parameters "ID=body;"}
+				{Position 0.270233	-0.00432232	0.0674958}
+				{VolumeView "body.ply"}
+				{bone revolute "turret"
+					{limits -90 90}
+					{speed 0.0025}
+					{parameters "ID=gun_rot;"}
+					{Position -0.00932103	0	0}
+					{bone "gun_rot"
+						{parameters "ID=body;"}
+						{Position 0	0	0.491498}
+						{VolumeView "gun.ply"}
+						{bone "stan"
+							{parameters "ID=body;"}
+							{Position 9.71665	0	14.6488}
+							{VolumeView "stan.ply"}
+						}
+						{bone revolute "foresight"
+							{Matrix34
+								0.5	0	0.866025
+								-0.866025	0	0.500001
+								0	-1	0
+								11.0467	0.002141	20.2432
+							}
+						}
+						{bone "gun"
+							{orientation
+								1 	 0 	 0
+								0 	 0 	 -1
+								0 	 1 	 0
+							}
+						}	
+					}
+					{bone "handle1"
+						{Position 13.9859	4.11081	0}
+					}
+					{bone "handle2"
+						{Position 13.8406	-3.42562	0}
+					}
+					{bone "visor"
+						{Position 5.30908	10.9101	14.133}
+					}
+					{bone "visor1"
+						{Position 5.30908	-11.5941	14.133}
+					}
+				}
+			}
+		{bone "emit1"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-12.1227	26.8046	0
+			}
+		}
+		{bone "emit2"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-12.1227	-32.2458	0
+			}
+		}
+		{bone "driver2"
+			{Position -14.9548	0.0588913	0}
+		}
+		{bone "driver1"
+			{Position 10.9576	-5.06054	0}
+		}
+		{bone "commander"
+			{Position -6.14469	-12.0387	2.37896}
+		}
+		{bone "gunner"
+			{Position -5.63631	10.62	2.55384}
+		}
+	}
+}

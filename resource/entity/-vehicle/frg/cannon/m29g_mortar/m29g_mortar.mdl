@@ -1,0 +1,105 @@
+;Exported by: misan
+;Date:        Tue Nov 30 11:46:46 2021
+;File:        D:\Cold War\Models\M29 Mortar\m29mortaranim.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.3}}
+		{sequence "recoil" {speed 0.3}}
+	}
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone revolute "turret"
+			{parameters "ID=gun_rot;"}
+			{Position -0.00932103	0	0}
+			{bone "handle1"
+				{Position 13.9859	4.11081	0}
+			}
+			{bone "handle2"
+				{Position 13.8406	-3.42562	0}
+			}
+			{bone "driver2"
+				{Position -14.9548	0.0588913	0}
+			}
+			{bone "driver1"
+				{Position 10.9576	-5.06054	0}
+			}
+			{bone "commander"
+				{Position -6.14469	-12.0387	2.37896}
+			}
+			{bone "gunner"
+				{Position 2.4275	10.62	2.55384}
+			}
+			{bone "body"
+				{parameters "ID=body;"}
+				{Position 0.270233	-0.00432232	0.0674958}
+				{VolumeView "body.ply"}
+				{bone "gun"
+					{parameters "ID=body;"}
+					{Position 0	0	0.491498}
+					{VolumeView "gun.ply"}
+					{bone "stan"
+						{parameters "ID=body;"}
+						{Position 9.71665	0	14.6488}
+						{VolumeView "stan.ply"}
+					}
+					{bone revolute "foresight"
+						{Matrix34
+							0.422618	0	0.906308
+							0.906308	0	-0.422618
+							0	1	0
+							11.0027	-0.0370082	23.5716
+						}
+					}
+				}
+			}
+			{bone "visor"
+				{Position 5.30908	10.9101	14.133}
+			}
+		}
+		{bone "emit2"
+			{Position -6.15401	-13.3396	2.37896}
+		}
+		{bone "emit1"
+			{Position -1.20357	15.4197	2.55384}
+		}
+	}
+}
+{obstacle "close"
+	{obb2
+		{center 11.1426 -0.123855}
+		{extent 13.5409 3.92167}
+		{axis 1 0}
+	}
+	{rotate}
+	{Tags "close"}
+}
+{obstacle "open"
+	{polygon2
+		{radius 0}
+		{vertex 22.1737 -7.02942}
+		{vertex 22.1737 7.56678}
+		{vertex -2.46316 3.19722}
+		{vertex -2.37019 -2.65986}
+	}
+	{rotate}
+	{Tags "open"}
+}
+{Volume "select"
+	{Box 24.3586 16.4967 24.0463}
+	{Bone "basis"}
+	{Position 6.07491	0	12.0232}
+}
+{Volume "body"
+	{Cylinder 4.94305 0.919466}
+	{Bone "body"}
+	{Position 0.0172925	0.112367	0.392237}
+}
+{Volume "gun"
+	{Polyhedron "gun.vol"}
+	{Bone "gun"}
+	{Position -0.351083	0.122407	-0.558994}
+}
