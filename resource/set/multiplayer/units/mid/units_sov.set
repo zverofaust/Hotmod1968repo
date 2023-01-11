@@ -27,37 +27,37 @@
 
 
 {"gaz-69a" ; Default radio jeep
-	("vehicle2"  period(mid) cd(120) ci(200) g(command) side(sov) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
+	("vehicle2"  period(mid) cd(120) ci(120) g(command) side(sov) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
 	{cost 5} {squad_cost_factor 0}
 }
 
 {"mortar_barrage_smoke_sov"
-	("squad_vehicle" side(sov) cd(60) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
 	{cost 2}{conditions "radio_sov"}{action "airstrike:flare_mortar_smoke"}
 }
 
 {"mortar_barrage_light_sov"
-	("squad_vehicle" side(sov) cd(120) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
 	{cost 3}{conditions "radio_sov"}{action "airstrike:flare_mortar_80"}
 }
 
 {"mortar_barrage_medium_sov"
-	("squad_vehicle" side(sov) cd(180) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(120mm_pm38_sov) crew(sup_guncrew:0))
+	("squad_vehicle" side(sov) cd(0) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(120mm_pm38_sov) crew(sup_guncrew:0))
 	{cost 5}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
 }
 
 {"airstrike_100_sov"
-	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike_2x100) crew(sup_pilot:0))
+	("squad_vehicle" side(sov) cd(0) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike_2x100) crew(sup_pilot:0))
 	{cost 6}{conditions "radio_sov"}{action "airstrike:mig-19_airstrike_2x100"} 
 }
 
 {"airstrike_cluster_sov"
-	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike_2xcluster) crew(sup_pilot:0))
+	("squad_vehicle" side(sov) cd(0) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike_2xcluster) crew(sup_pilot:0))
 	{cost 8}{conditions "radio_sov"}{action "airstrike:mig-19_airstrike_2xcluster"} 
 }
 
 {"cas_mi4_sov"
-	("squad_vehicle" side(sov) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(sup_pilot:1))
+	("squad_vehicle" side(sov) cd(00) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(sup_pilot:1))
 	{cost 15}{conditions "radio_sov"}{action "airstrike:dummy_cas"} 
 }
 

@@ -26,42 +26,37 @@
 ;|________________________________________________|
 
 {"m151_prc77"
-	("vehicle2"  period(mid) cd(120) ci(200) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
+	("vehicle2"  period(mid) cd(120) ci(120) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
 	{cost 5} {squad_cost_factor 0}
 }
 
-;{"m577"
-;	("vehicle2"  period(mid) cd(240) ci(300) g(command) side(usa) t(vehicle command) crew1(sup_vehicleman:2) crew2(sup_supporter:1) b(strategic) cw(0) cp(4))
-;	{cost 5} {squad_cost_factor 0}
-;}
-
 {"mortar_barrage_smoke_usa"
-	("squad_vehicle" side(usa) cd(0) ci(0) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
+	("squad_vehicle" side(usa) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
 	{cost 2}{conditions "radio_usa"}{action "airstrike:flare_mortar_smoke"}
 }
 
 {"mortar_barrage_light_usa"
-	("squad_vehicle" side(usa) cd(0) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
+	("squad_vehicle" side(usa) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
 	{cost 3}{conditions "radio_usa"}{action "airstrike:flare_mortar_80"}
 }
 
 {"mortar_barrage_medium_usa"
-	("squad_vehicle" side(usa) cd(0) ci(120) period(mid) cw(0) cp(5) b(strategic) vehicle(m30_mortar) crew(sup_guncrew:0))
+	("squad_vehicle" side(usa) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(m30_mortar) crew(sup_guncrew:0))
 	{cost 5}{conditions "radio_usa"}{action "airstrike:flare_mortar_120"}
 }
 
 {"cas_uh1_usa"
-	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
+	("squad_vehicle" side(usa) cd(0) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
 	{cost 10}{conditions "radio_usa"}{action "airstrike:dummy_cas"} 
 }
 
 {"airstrike_250_usa" ;by A-4E currently, to be replaced by A-1
-	("squad_vehicle" side(usa) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_2x250) crew(sup_pilot:0))
+	("squad_vehicle" side(usa) cd(0) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_2x250) crew(sup_pilot:0))
 	{cost 8}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_2x250"} 
 }
 
 {"airstrike_napalm_usa" ;by A-4E currently, to be replaced by A-1
-	("squad_vehicle" side(usa) cd(60) ci(120) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_2xnapalm) crew(sup_pilot:0))
+	("squad_vehicle" side(usa) cd(0) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_2xnapalm) crew(sup_pilot:0))
 	{cost 6}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_2xnapalm"} 
 }
 
