@@ -76,19 +76,25 @@
 
 ; // 10DP Panzergrenadiers in MTW M113
 {"doctrine_squad_panzergren(frg)"
-	("squad_vehicle8_doctrine" side(frg) period(mid) g(doctrine_lvl1) vehicle(m113g) crew1(sup_tankman:2) crew2(reg_squadlead:1) crew3(reg_teamlead:1) crew4(reg_mg:1) crew5(reg_mgassist:1) crew6(reg_rifleman:4) crew7(reg_atassist:1) crew8(reg_antitank:1) cw(2) cp(0))
+	("squad_vehicle8_doctrine" side(frg) period(mid) g(doctrine_lvl1) vehicle(m113g) crew1(pzg_vehicleman:2) crew2(pzg_squadlead:1) crew3(pzg_teamlead:1) crew4(pzg_mg:1) crew5(pzg_mgassist:1) crew6(pzg_rifleman:4) crew7(pzg_atassist:1) crew8(pzg_antitank:1) cw(2) cp(0))
 	("doctrine_t1" cool(60) d(mid_frg_pzgren) cost(10))
 }
 
 ; // 15DP Panzergrenadiers in SPz 12-3 Lang
 {"doctrine_squad_panzergren_hs30(frg)"
-	("squad_vehicle6_doctrine" side(frg) period(mid) g(doctrine_lvl1) vehicle(spz_123) crew1(sup_tankman:3) crew2(reg_teamlead:1) crew3(reg_mg:1) crew4(reg_mgassist:1) crew5(reg_atassist:1) crew6(reg_antitank:1) cw(2) cp(0))
+	("squad_vehicle6_doctrine" side(frg) period(mid) g(doctrine_lvl1) vehicle(spz_123) crew1(pzg_vehicleman:3) crew2(pzg_teamlead:1) crew3(pzg_mg:1) crew4(pzg_mgassist:1) crew5(pzg_atassist:1) crew6(pzg_antitank:1) cw(2) cp(0))
 	("doctrine_t1" cool(120) d(mid_frg_pzgren) cost(15))
 }
 
 ; // 20DP Leopard 1A1
 {"doctrine_vehicle_leopard1a1(frg)"
 	("squad_vehicle_doctrine" side(frg) period(mid) vehicle(leopard_1a1) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t1" cool(120) d(mid_frg_pzgren) cost(20))
+}
+
+; // 20DP M109G
+{"doctrine_vehicle_m109g(frg)"
+	("squad_vehicle_doctrine" side(frg) period(mid) vehicle(m109g) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t1" cool(120) d(mid_frg_pzgren) cost(20))
 }
 
@@ -133,12 +139,12 @@
 ;|________________________________________________|
 
 ;AUTOMATIC WEAPONRY
-{"m63_browning"
+{"m63g"
 	("vehicle" period(mid) cd(0) ci(30) t(cannon antiair) side(frg) crew(sup_supporter:2)  g(empl1) b(empl) cw(0) cp(4))
 	{cost 100}
 }
 
-{"m45_maxson"
+{"m45g"
 	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(frg) crew(sup_supporter:2)  g(empl2) b(empl) cw(0) cp(6))
 	{cost 200}
 }
@@ -149,7 +155,7 @@
 }
 
 ; AT WEAPONRY
-{"m40"
+{"m40g"
 	("vehicle" period(mid) cd(0) ci(30) t(cannon) side(frg) crew(sup_supporter:4)  g(empl3) b(empl) cw(4) cp(4))
 	{cost 150}
 }
@@ -160,17 +166,17 @@
 }
 
 ;HOWITZERS
-{"m29_mortar"
+{"m29g_mortar"
 	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(frg) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(6))
 	{cost 225}
 }
 
-{"m30_mortar"
+{"m30g_mortar"
 	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(frg) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(8))
 	{cost 325}
 }
 
-{"m101a1"
+{"m101g"
 	("vehicle" period(mid) cd(120) ci(120) t(cannon) side(frg) crew(sup_supporter:4) g(empl6) b(empl) cw(0) cp(8))
 	{cost 375}
 }
@@ -180,7 +186,7 @@
 ;|               Support vehicles                 |
 ;|________________________________________________|
 
-{"m416"
+{"m416frg"
 	("vehicle"  period(mid) cd(0) ci(5) g(supply) side(frg) t(vehicle supply) crew(sup_supporter:0) b(vehicles) cw(0) cp(2))
 	{cost 75}
 }
@@ -212,7 +218,7 @@
 
 {"m113g"
 	("vehicle"  period(mid) cd(60) ci(30) g(apc) side(frg) t(vehicle transport apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
-	{cost 90}
+	{cost 95}
 }
 
 ;_________________________________________________
@@ -231,19 +237,19 @@
 	{cost 250}
 }
 
-{"m125"
+{"m125g"
 	("vehicle"  period(mid) cd(60) ci(60) g(light2) side(frg) t(vehicle mortar apc) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
 	{cost 350}
 }
 
-{"m41"
+{"m41g"
 	("vehicle" period(mid) cd(60) ci(60) t(light tank) side(frg) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(10))
 	{cost 275}
 }
 
 ;Medium
 
-{"m42"
+{"m42g"
 	("vehicle" period(mid) cd(240) ci(120) t(light antiair) side(frg) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(15))
 	{cost 500}
 }
@@ -263,7 +269,7 @@
 	{cost 650}
 }
 
-{"m108"
+{"m108g"
 	("vehicle"  period(mid) cd(80) ci(120) g(light2) side(frg) t(vehicle artillery apc) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
 	{cost 550}
 }
@@ -273,15 +279,15 @@
 ;|________________________________________________|
 
 {"squad_rifle_mech_ai(frg)"
-	("squad_vehicle8" period(mid) cd(0) ci(15) side(frg) t(vehicle) vehicle(m113g) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_teamlead:1) crew4(reg_mg:1) crew5(reg_antitank:1) crew6(reg_mgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2) cw(2) cp(10)){squad_cost_factor 1}{not_for_player_sale 1}
+	("squad_vehicle8" period(mid) cd(0) ci(15) side(frg) t(vehicle) vehicle(m113g) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_teamlead:1) crew4(reg_mg:1) crew5(reg_antitank:1) crew6(reg_mgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2) cw(2) cp(8)){squad_cost_factor 1}{not_for_player_sale 1}
 }
 
 {"squad_pzgren_mech_ai(frg)"
-	("squad_vehicle8" period(mid) cd(0) ci(15) side(frg) t(vehicle) vehicle(m113g) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_teamlead:1) crew4(reg_mg:1) crew5(reg_antitank:1) crew6(reg_mgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2) cw(2) cp(10)){squad_cost_factor 1}{not_for_player_sale 1}
+	("squad_vehicle8" period(mid) cd(0) ci(0) side(frg) t(vehicle) vehicle(m113g) crew1(pzg_vehicleman:2) crew2(pzg_squadlead:1) crew3(pzg_teamlead:1) crew4(pzg_mg:1) crew5(pzg_mgassist:1) crew6(pzg_rifleman:4) crew7(pzg_atassist:1) crew8(pzg_antitank:1) cw(2) cp(10)){squad_cost_factor 1}{not_for_player_sale 1}
 }
 
 {"squad_pzgren_mech2_ai(frg)"
-	("squad_vehicle8" period(mid) cd(0) ci(15) side(frg) t(vehicle) vehicle(spz_123) crew1(sup_vehicleman:3) crew2(pzgren_squadlead:1) crew3(pzgren_mg:1) crew4(pzgren_antitank:1) crew5(pzgren_mgassist:1) crew7(pzgren_atassist:1) cw(2) cp(10)){squad_cost_factor 1}{not_for_player_sale 1}
+	("squad_vehicle8" period(mid) cd(0) ci(15) side(frg) t(vehicle) vehicle(spz_123) crew1(sup_vehicleman:3) crew2(pzgren_squadlead:1) crew3(pzgren_mg:1) crew4(pzgren_antitank:1) crew5(pzgren_mgassist:1) crew7(pzgren_atassist:1) cw(2) cp(14)){squad_cost_factor 1}{not_for_player_sale 1}
 }
 
 
