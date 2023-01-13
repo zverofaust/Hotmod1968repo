@@ -148,7 +148,7 @@ Purchases["standard"] = {
 			--AT_Weapons
 			--Howitzers
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m116_packhow"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m29_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m29_mortar"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m1919"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m2"},
@@ -178,7 +178,7 @@ Purchases["standard"] = {
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "b-10_prc"},
 			--Howitzers
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
@@ -209,12 +209,13 @@ Purchases["standard"] = {
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "m40g"},
 			--Mortars
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
 			--Infantry_Support
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
 			--Rocket_Artillery
 			--Wheel_vehicles	
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
 			--Tanks_light
@@ -250,7 +251,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "b-10_82mm"},
 				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "spg9"},
 			--Howitzers
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_sov"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_sov"},
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "btr-40a"},
@@ -288,7 +289,7 @@ Purchases["standard"] = {
 			--AT_Weapons
 				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "m40"},
 			--Howitzers
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m29_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m29_mortar"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m1919"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m2"},
@@ -329,7 +330,7 @@ Purchases["standard"] = {
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "b-10_prc"},
 			--Howitzers
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
@@ -364,8 +365,8 @@ Purchases["standard"] = {
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "m40g"},
 			--Mortars
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
 			--Infantry_Support
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
@@ -374,6 +375,7 @@ Purchases["standard"] = {
 			--	{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m115g"},	
 			--Rocket_Artillery
 			--Wheel_vehicles	
+			{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
 			--Tanks_light
@@ -501,8 +503,8 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "b-10_82mm"},
 				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "spg9"},
 			--Howitzers
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_sov"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_sov"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_sov"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_sov"},
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "btr-40a"},
@@ -547,9 +549,9 @@ Purchases["standard"] = {
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m40"},
 			--Howitzers
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m29_mortar"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m30_mortar"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m98_howtar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m29_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m30_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m98_howtar"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m116_packhow"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m1919"},
@@ -603,8 +605,8 @@ Purchases["standard"] = {
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "b-10_prc"},
 			--Howitzers
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
@@ -646,8 +648,8 @@ Purchases["standard"] = {
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "m40g"},
 			--Mortars
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
 			--Infantry_Support
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
@@ -656,9 +658,10 @@ Purchases["standard"] = {
 			--	{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m115g"},	
 			--Rocket_Artillery
 			--Wheel_vehicles	
+			{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
 				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m106g"},
-				{priority =1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
@@ -700,8 +703,8 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "b-10_82mm"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "spg9"},
 			--Howitzers
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_sov"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_sov"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_sov"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_sov"},
 				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "d30a"},
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
@@ -752,9 +755,9 @@ Purchases["standard"] = {
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m40"},
 			--Howitzers
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m29_mortar"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m30_mortar"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m98_howtar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m29_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m30_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m98_howtar"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m116_packhow"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m1919"},
@@ -810,8 +813,8 @@ Purchases["standard"] = {
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "b-10_prc"},
 			--Howitzers
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
@@ -852,8 +855,8 @@ Purchases["standard"] = {
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "m40g"},
 			--Mortars
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
 			--Infantry_Support
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
@@ -862,6 +865,7 @@ Purchases["standard"] = {
 			--	{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m115g"},	
 			--Rocket_Artillery
 			--Wheel_vehicles	
+			{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
 				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m106g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
@@ -871,8 +875,8 @@ Purchases["standard"] = {
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
 			--Tanks_heavy
 			--SPG
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m108g"},
@@ -910,9 +914,9 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "b-10_82mm"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "spg9"},
 			--Howitzers
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_sov"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_sov"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "d30a"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_sov"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_sov"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "d30a"},
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "brdm-1"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "btr-40a"},
@@ -962,9 +966,9 @@ Purchases["standard"] = {
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m40"},
 			--Howitzers
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m29_mortar"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m30_mortar"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m98_howtar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m29_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m30_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "m98_howtar"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "m116_packhow"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "m151_m1919"},
@@ -1024,8 +1028,8 @@ Purchases["standard"] = {
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "b-10_prc"},
 			--Howitzers
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
@@ -1067,8 +1071,8 @@ Purchases["standard"] = {
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "m40g"},
 			--Mortars
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
 			--Infantry_Support
 				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
@@ -1077,17 +1081,18 @@ Purchases["standard"] = {
 			--	{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m115g"},	
 			--Rocket_Artillery
 			--Wheel_vehicles	
+			{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
 				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m106g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
 			--Tanks_heavy
 			--SPG
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m108g"},
@@ -1226,9 +1231,6 @@ Purchases["standard"] = {
 			--AT_Weapons
 				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "b-10_prc"},
 			--Howitzers
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
@@ -1269,28 +1271,23 @@ Purchases["standard"] = {
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "m40g"},
 			--Mortars
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
 			--Infantry_Support
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
-				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m101g"},
-			--	{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m114g"},
-			--	{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m115g"},	
 			--Rocket_Artillery
 			--Wheel_vehicles	
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
 				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m106g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "leopard_1a1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1a1"},
 			--Tanks_heavy
 			--SPG
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m108g"},
@@ -1430,9 +1427,9 @@ Purchases["standard"] = {
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "b-10_prc"},
 			--Howitzers
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "82mm_bm37_prc"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "120mm_pm38_prc"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "type63_mrl"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "btr-40_type55"},
 			--Tanks_light
@@ -1473,16 +1470,17 @@ Purchases["standard"] = {
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "m40g"},
 			--Mortars
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
 			--Infantry_Support
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m101g"},
 			--	{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m114g"},
 			--	{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m115g"},	
 			--Rocket_Artillery
 			--Wheel_vehicles	
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
 				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m106g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
@@ -1493,8 +1491,8 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "leopard_1a1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1a1"},
 			--Tanks_heavy
 			--SPG
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m108g"},
