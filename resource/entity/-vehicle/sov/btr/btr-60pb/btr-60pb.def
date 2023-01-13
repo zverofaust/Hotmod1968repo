@@ -11,17 +11,28 @@
 	(include "/properties/resupply_hotmod.inc")
 	("apc_ammo")
 	
-	{patherId "amphibia"}
+	{patherId "amphibia"} 
 	
- 	;Crew: driver, gunner, 8 passengers
-	(include "crew.ext")
+ 	;Crew: driver, commander, 8 passengers
 
+	("crew_human" place(driver)		bone()		door(emit1) animation(driver) group(crew))
+	("crew_human" place(gunner)		bone()		door(emit2) animation(gunner) group(crew))
+	
+	(include "/properties/hotmod_crew.ext")
+	("passenger_invisible" place(seat1)		door(emit1) door2(emit2))
+	("passenger_invisible" place(seat2)		door(emit3) door2(emit4))
+	("passenger_invisible" place(seat3)		door(emit1) door2(emit2))
+	("passenger_invisible" place(seat4)		door(emit3) door2(emit4))
+	("passenger_invisible" place(seat5)		door(emit1) door2(emit2))
+	("passenger_invisible" place(seat6)		door(emit3) door2(emit4))
+	("passenger_invisible" place(seat7)		door(emit1) door2(emit2))
+	("passenger_invisible" place(seat8)		door(emit3) door2(emit4))
+	
+	
 	{placer
 		{place "driver"	{visor "driver"}}
 		{place "gunner"	{visor "main"}}
-		{place "passenger1"	{visor "around"}{group "passenger"}}
 	}
-
 
 	{extender "enumerator"
 		{digit_folder "cw"}
@@ -63,8 +74,8 @@
 			speed(70) ;----------------------------------Max speed.
 			speedatmaxturn(17) ;-------------------------Max speed at max turn.
 			reverse(22) ;--------------------------------Max speed in Reverse.
-			weight(10.2) ;-------------------------------Weight in Tonnes.
-			power(180) ;---------------------------------Horse Power.
+			weight(10.2) ;------------------------------Weight in Tonnes.
+			power(180) ;----------------------------------Horse Power.
 			fuel(290) ;----------------------------------Fuel capacity in Litres.
 			type(fuel) ;---------------------------------Fuel type.
 			range(500) ;---------------------------------Range in Kilometers.
@@ -82,8 +93,11 @@
 			{terrain "water" "deep_water"}
 		}
 	}	
-	
 	{Extension "btr-60pb.mdl"}
+	
+	{bone "gun_rot"			;vertical gun movement
+		{limits -5 30}		;min up to max down
+	}
 }
 
 

@@ -16,10 +16,6 @@
 	("solid_wheel" args "wheelr4")
 	("solid_wheel" args "wheell4")
 	
-	("turret" repair(50))
-	("mantlet" repair(30))
-	("gun" repair(30) thickness(10))
-	
     {volume "body"
 		{thickness 7
 			{front	11}
@@ -46,19 +42,20 @@
 		}
 	}
 	{volume "body5"
-		{thickness 7
-		}
+		{thickness 7}
+	}
+	
+	{volume "turret"
+		{thickness 7}
+	}
+	
+	{volume "gun"
+		{thickness 10}
+		{component "turret"}
 	}
 	
 	("fuel" args "fuel")
 	("transmission" args "transmission")
-	
-	{volume "turret"
-		{thickness 8
-			{front 14.5}
-			{top 5.5}
-		}
-	}
 	
 	{volume "engine"		
 		{thickness 10}

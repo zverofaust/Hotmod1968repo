@@ -1805,6 +1805,16 @@
 	("pz6b_sound")
 }
 
+{"leopard_1"
+	("pz6b_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open1" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open1" -1.0 resume}
+	}
+}
+
 {"leopard_1a1"
 	("pz6b_sound")
 	{on "commander_hatch_open" overload
