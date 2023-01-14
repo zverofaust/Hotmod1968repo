@@ -34,8 +34,11 @@
 		{"grenade at" {ground}}								; anti-tank grenades
 		{"ammo rifle_grenade_at"}							; rifle grenade HEAT ammo
 		{"shell heat_high" {ground} {enable_for_user 0}}	; cannon HEAT ammo (penetration > 150mm)
+		{"shell heat_high" {enable_for_user 0}}				; cannon HEAT ammo (penetration > 150mm)
 		{"shell heat_medium" {ground} {enable_for_user 0}}	; cannon HEAT ammo (penetration 100-150mm)
+		{"shell heat_medium" {enable_for_user 0}}			; cannon HEAT ammo (penetration 100-150mm)
 		{"shell heat_low" {ground} {enable_for_user 0}}		; cannon HEAT ammo (penetration < 100mm)
+		{"shell heat_low" {enable_for_user 0}}				; cannon HEAT ammo (penetration < 100mm)
 		{"ptr"}												; anti-tank rifle ammo
 		{"sharp_edge"}										; thrown knives
 		{"rocketselector"}									; rocket artillery
@@ -58,9 +61,9 @@
 		{"glass ic"}										; flame shell (Ampulomet glass ball)
 		{"grenade at"}										; anti-tank grenades
 		{"ammo rifle_grenade_at"}							; rifle grenade HEAT ammo
-		{"shell heat_high" {ground} {enable_for_user 0}}	; cannon HEAT ammo (penetration > 150mm)
-		{"shell heat_medium" {ground} {enable_for_user 0}}	; cannon HEAT ammo (penetration 100-150mm)
-		{"shell heat_low" {ground} {enable_for_user 0}}		; cannon HEAT ammo (penetration < 100mm)
+		{"shell heat_high" {enable_for_user 0}}				; cannon HEAT ammo (penetration > 150mm)
+		{"shell heat_medium" {enable_for_user 0}}			; cannon HEAT ammo (penetration 100-150mm)
+		{"shell heat_low" {enable_for_user 0}}				; cannon HEAT ammo (penetration < 100mm)
 		{"ptr"}												; anti-tank rifle ammo
 		{"sharp_edge"}										; thrown knives
 		{"rocketselector"}									; rocket artillery
@@ -71,7 +74,13 @@
 	{human													; -TARGET CLASS-
 		{"flame"}											; ammo for flamethrowers
 		{"mortar he" {ground}}								; HE mortar ammo
+		{"mortar all_he" {ground}}							; HE mortar ammo
+		{"mortar all_he"}	
 		{"bomb"}											; aircraft bombs
+		{"shell all_he" {ground} {enable_for_user 0}}		; cannon HE ammo (AI ONLY)
+		{"shell all_he"{enable_for_user 0}}					; cannon HE ammo (AI ONLY)
+		{"shell all_he" {ground} {ready_for_shot}}			; cannon HE ammo (ONLY IF ALREADY LOADED)
+		{"shell all_he" {ready_for_shot}}					; cannon HE ammo (ONLY IF ALREADY LOADED)
 		{"shell he" {ground} {enable_for_user 0}}			; cannon HE ammo (AI ONLY)
 		{"shell he" {ground} {ready_for_shot}}				; cannon HE ammo (ONLY IF ALREADY LOADED)
 		{"ammo rifle_grenade"}								; rifle grenade HE ammo
@@ -84,8 +93,11 @@
 		{"grenade at" {ground}}								; anti-tank grenades
 		{"ammo rifle_grenade_at"}							; rifle grenade HEAT ammo
 		{"shell heat_high" {ground} {enable_for_user 0}}	; cannon HEAT ammo (penetration > 150mm)
+		{"shell heat_high" {enable_for_user 0}}				; cannon HEAT ammo (penetration > 150mm)
 		{"shell heat_medium" {ground} {enable_for_user 0}}	; cannon HEAT ammo (penetration 100-150mm)
+		{"shell heat_medium" {enable_for_user 0}}			; cannon HEAT ammo (penetration 100-150mm)
 		{"shell heat_low" {ground} {enable_for_user 0}}		; cannon HEAT ammo (penetration < 100mm)
+		{"shell heat_low" {enable_for_user 0}}				; cannon HEAT ammo (penetration < 100mm)
 		{"ptr"}												; anti-tank rifle ammo
 		{"sharp_edge"}										; thrown knives
 		{"rocketselector"}									; rocket artillery
