@@ -2,6 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.0))
 	(include "/properties/selection/vehicle.inc" scale(1.0))
+	(include "m132_zippo.ext")
 	{props "light" "multi_board" "vision_lev04" "amphibia" "diesel" "flame"}
 	{able "emit_passengers_on_enemy"}
 	{targetclass "armoredcar"}
@@ -9,14 +10,6 @@
 	
 	{patherId "amphibia"}
 	
-	{volume "body"			; Hull
-		{thickness 13		; 
-			{front 13}
-			{top 8}		; 
-			{rear 13}
-			{bottom 8}
-		}
-	}
 	{volume "body1"			; Hull
 		{thickness 13		; 
 			{front 13}
@@ -25,8 +18,17 @@
 			{bottom 8}
 		}
 	}
+	{volume "body2"			; Hull
+		{thickness 13		; 
+			{front 13}
+			{top 8}		; 
+			{rear 13}
+			{bottom 8}
+		}
+	}
 
-	("fuel" args "fuel")
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
 	("ammo" args "ammo")
 	("transmission" args "transmission")
 	("tracks" repair(30) thickness(15))
@@ -48,28 +50,28 @@
 	
 	{boarder
 		{anm "driver"
-			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open1"}}
-			{reverse {end "emit_tank_1_hold"}}
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_driver"}}
 		}
 		{anm "right"
-			{forward	{begin	"board_body"} {end ""} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end ""} {base "open_turret"}}
+			{reverse	{end	"board_body" -1} {base "open_turret"}}
 		}
 		{anm "left"
-			{forward	{begin	"board_body"} {end ""} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end ""} {base "open_turret"}}
+			{reverse	{end	"board_body" -1} {base "open_turret"}}
 		}
 		{anm "charger"
-			{forward	{begin	"board_body"} {end ""} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end ""} {base "open_turret"}}
+			{reverse	{end	"board_body" -1} {base "open_turret"}}
 		}
 		{anm "gunner"
-			{forward	{begin	"board_body"} {end ""} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end ""} {base "open_turret"}}
+			{reverse	{end	"board_body" -1} {base "open_turret"}}
 		}
 		{anm "commander"
-			{forward	{begin	"board_body"} {end ""} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end ""} {base "open_turret"}}
+			{reverse	{end	"board_body" -1} {base "open_turret"}}
 		}
 	}
 	
