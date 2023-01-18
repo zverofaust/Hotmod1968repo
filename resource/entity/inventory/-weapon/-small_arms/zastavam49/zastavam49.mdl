@@ -1,0 +1,117 @@
+;Exported by: misan
+;Date:        Wed Jan 18 07:51:19 2023
+;File:        D:\Cold War\ModelWIP\Smallarms\Zastava M49\m49.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.3}}
+	}
+	{bone "m49"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "m49.ply"}
+		{bone "bolt"
+			{Position 4.03784	1.03409	-0.0477051}
+			{VolumeView "bolt.ply"}
+		}
+		{bone "foresight11"
+			{Matrix34
+				1	0	0
+				0	1	0
+				0	0	1
+				10.2361	1.01058	-0.009782
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.573576	0.819152
+				0	0.819152	-0.573576
+				-1	0	0
+				4.55388	1.28619	-0.263415
+			}
+		}
+		{bone "handle"
+			{Matrix34
+				0	1	0
+				0	0	-1
+				-1	0	0
+				3.15378	1.59298	-0.0459006
+			}
+		}
+		{bone "magazine"
+			{Position 4.49266	0.10555	-0.0477045}
+			{VolumeView "magazine.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 15.328 3.69514 0.621716}
+	{Bone "m49"}
+	{Matrix34
+		1	0	0
+		0	1	0
+		0	0	1
+		2.44573	-0.339625	-0.000985891
+	}
+}
+{Volume "magazine"
+	{Box 0.835454 4.19468 0.487348}
+	{Bone "magazine"}
+	{Matrix34
+		0.96819	0.250218	0
+		-0.250218	0.96819	0
+		0	0	1
+		0.31767	-1.49751	0.0183408
+	}
+}
+{Volume "select"
+	{Box 17.2839 6.44108 1.60375}
+	{Bone "m49"}
+	{Matrix34
+		1	0	0
+		0	1	0
+		0	0	1
+		2.28735	-0.41283	0.0231114
+	}
+}
+{Extender "preview"
+	{"stuff"
+		{camera
+			{origin 2.7194	-0.701924	20.8643}
+			{lookat 2.71685	-0.173545	1.43088}
+			{fov 45}
+			{horizon -179.239}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position -1.1473	-5.52104	-0.876842}
+			}
+			{"1"
+				{type point}
+				{position 8.62874	4.25297	5.52839}
+			}
+		}
+	}
+	{"stuff_primary"
+		{camera
+			{origin 2.45996	-2.7687	20.315}
+			{lookat 2.45996	0.139675	-0.720501}
+			{fov 45}
+			{horizon -170.002}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 9.17433	-4.66757	-0.275639}
+			}
+			{"1"
+				{type point}
+				{position -2.25189	5.48233	11.186}
+			}
+		}
+	}
+}
