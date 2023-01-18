@@ -2,6 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.0))
 	(include "/properties/selection/vehicle.inc" scale(1.0))
+	(include "m113_acav.ext")
 	{props "apc" "light" "multi_board" "vision_lev04" "amphibia" "diesel"}
 	{able "emit_passengers_on_enemy"}
 	{targetclass "armoredcar"}
@@ -12,45 +13,11 @@
 
 	{patherId "amphibia"}
 	
-	{volume "body"			; Hull
-		{able {holed}}
-		{thickness 13		; 
-			{front 13}
-			{top 8}		; 
-			{rear 13}
-			{bottom 8}
-		}
-	}
-	
-	("fuel" args "fuel")
-	("ammo" args "ammo")
-	("transmission" args "transmission")
-	("tracks" repair(30) thickness(15))
-	{volume "engine" {thickness 10}}
-	{volume "hole1" {able clear {hole}{touch 1}}}
-	
-	("shield" args "shield" 10)
-	("shield" args "shield2" 10)
-	("shield" args "turret_mgun1" 10)
-	("shield" args "turret_mgun2" 10)
-	
-	{volume "shield"
-		{component "shield"}
-		{tags "shield"}
-	}
-	
-	{component "shield"}
-
-	{extender "shield"
-		{on}	
-	}
-	
 	{placer
 		{place "driver"		{visor "driver"}{group "crew"}}
-		;{place "gunner"	{visor "main"}}
 		{place "commander"	{visor "mgun"}{group "crew"}{sealable}}
-		{place "gunner3"	{visor "mgun"}{sealable}}
-		{place "gunner4"	{visor "mgun"}{sealable}}
+		{place "gunner3"	{visor "mgun"}{group "passenger"}{sealable}}
+		{place "gunner4"	{visor "mgun"}{group "passenger"}{sealable}}
 	}
 	
 	{boarder
@@ -66,31 +33,25 @@
 			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
 			{reverse {end "emit_tank_1_hold"}}
 		}
-		{anm "back"
-			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
-		}
 		{anm "passenger"
-			{forward	{begin	"board_body"} {end "seat_passenger"} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
-		}
-		{anm "gunner"
-			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "open_ramp"}}
+			{reverse	{end	"board_body" -1} {base "open_ramp"}}
 		}
 	}
-	("seat_human" 	place(driver)  		bone()					door(emit0)  animation(driver) 		group(crew) 		visor(driver))
-	("seat_human" 	place(commander)  	bone(gunner2)			door(emit3)  animation(gunner) 		group(crew) 		visor(around))
-	("seat_human" 	place(gunner3)  	bone(gunner3)			door(emit3)  animation(gunner)		group(passenger))
-	("seat_human" 	place(gunner4)  	bone(gunner4)			door(emit3)  animation(gunner) 		group(passenger))
-	("seat_human" 	place(seat1)  		bone(seat01)			door(emit3)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat2)  		bone(seat02)			door(emit3)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat3)  		bone(seat03)			door(emit3)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat4) 		bone(seat04)			door(emit3)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat5)  		bone(seat05)			door(emit3)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat6)  		bone(seat06)			door(emit3)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat7)  		bone(seat07)			door(emit3)  animation(passenger) 	group(passenger))
-	("seat_human" 	place(seat8) 		bone(seat08)			door(emit3)  animation(passenger) 	group(passenger))
+	("crew_driver" 															   door(emit0) door2(emit1) door3(emit2) 					group(crew))
+	("crew_open" place(commander) 		bone(gunner2) visorbone(mgun_rot)      door(emit1) door2(emit2) anm_left(left) anm_right(right) group(crew))
+	("crew_open" place(gunner3) 		bone(gunner3) visorbone(mgun_turret_l) door(emit3) door2(emit4) anm_left(passenger) anm_right(passenger) 			group(passenger))
+	("crew_open" place(gunner4) 		bone(gunner4) visorbone(mgun_turret_r) door(emit3) door2(emit4) anm_left(passenger) anm_right(passenger) 			group(passenger))
+	
+	(include "/properties/hotmod_crew.ext")
+	("passenger_invisible_back" 	place(seat1) 			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	("passenger_invisible_back" 	place(seat2)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	("passenger_invisible_back" 	place(seat3)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	("passenger_invisible_back" 	place(seat4)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	("passenger_invisible_back" 	place(seat5)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	("passenger_invisible_back" 	place(seat6)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	("passenger_invisible_back" 	place(seat7)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	("passenger_invisible_back" 	place(seat8)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
 
 	{extender "inventory"
 		{weapon "mgun2" {mask "mountable"}}
@@ -108,14 +69,14 @@
 			{weapon			"browning_m2" filled}
 			{gunner			"commander"}
 			{charger		"commander"}
-			{LinkBone		"mgun"}
+			{LinkBone		"mgun_help"}
 			{LinkAnimation	"off"}
 			("abm_mgun")
 		}
 		{place "mgun2"
 			{gunner			"gunner3"}
 			{charger		"gunner3"}
-			{LinkBone		"mgun1"}
+			{LinkBone		"mgun_help_l"}
 			{LinkAnimation	"off"}
 			{basic}
 			{ai_in_manual}
@@ -123,7 +84,7 @@
 		{place "mgun3"
 			{gunner			"gunner4"}
 			{charger		"gunner4"}
-			{LinkBone		"mgun2"}
+			{LinkBone		"mgun_help_r"}
 			{LinkAnimation	"off"}
 			{basic}
 			{ai_in_manual}
@@ -160,32 +121,43 @@
 	
 	{Extension "m113_acav.mdl"}
      
-	{bone "turret"
-		{limits -80 80}
-		{speed2 42}
+	{bone "turret"			;gun vertical
+		{speed2 28}			;degree per second
+		{limits 80 -80}
 	}
-	{bone "mgun_rot1"
-		{limits -15 17}
+	
+	{bone "mgun_rot"			;gun vertical
+		{speed2 40}			;degree per second
+		{limits 30 -10}		;min down to max up
+	}
+	
+	{bone "mgun_turret"			;gun vertical
+		{speed2 44}			;degree per second
+		{limits 4 -4}		;min down to max up
+	}
+	
+	{bone "mgun_turret_r" ;mgun3/gunner4, gunner attach point
+		{limits 45 -10}
+		{speed2 44}
+	}
+	{bone "mgun_turret2_r" ;gun & shield attach
+		{limits 15 -15}
 		{speed2 64}
 	}
-	{bone "mgun_rot2"
-		{limits -15 17}
+	{bone "mgun_turret_l" ;mgun2/gunner3, gunner attach point
+		{limits 10 -45}
+		{speed2 44}
+	}
+	{bone "mgun_turret2_l" ;gun & shield attach
+		{limits 15 -15}
 		{speed2 64}
 	}
-	{bone "turret_mgun1"
-		{limits -45 45}
+	{bone "mgun_rot_r"
+		{limits 45 -15}
 		{speed2 64}
 	}
-	{bone "turret_mgun2"
-		{limits -45 45}
-		{speed2 64}
-	}
-	{bone "turret_mgun1b"
-		{limits -25 25}
-		{speed2 64}
-	}
-	{bone "turret_mgun2b"
-		{limits -25 25}
+	{bone "mgun_rot_l"
+		{limits 45 -15}
 		{speed2 64}
 	}
 }
