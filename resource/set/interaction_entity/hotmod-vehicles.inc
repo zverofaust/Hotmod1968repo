@@ -50,6 +50,8 @@
 	{on "gunner2_hatch_close"
 		{ani_play "mgun_aa" -1.0 resume}
 	}
+	{on "gunner3_hatch_open"}
+	{on "gunner3_hatch_close"}
 	{on "gunner4_hatch_open"}
 	{on "gunner4_hatch_close"}
 	{on "commander_hatch_open"}
@@ -80,6 +82,7 @@
 				{call "event_with_crew"}
 			}
 			("places" args gunner2)
+			("places" args gunner3)
 			("places" args gunner4)
 			("places" args commander)
 			("places" args charger)
@@ -102,7 +105,7 @@
 }
 	;/*=========== ESS Smoke Instructions ===========*/
 
-{"smoke ess"					;// Emergency Smoke System - Soviet method for creating smokescreens by injecting diesel fuel into hot exhausts
+{"smoke ess"					;// Emergency Smoke System - Smokescreen created by injecting diesel fuel into hot exhausts. TODO: Use up a bit of fuel every time.
 	{on spawn
 		{add_view "exhaust_dark_big_diesel"			"smoke_ess1"			"fxsmoke1"}
 		{add_view "smoke_cover-up_big"				"smoke_ess1_cover" 		"fxsmoke1"}
@@ -1537,6 +1540,21 @@
 	("pz38_sound")
 }
 
+{"m113 tank"
+	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "open_turret" resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open_turret" -1.0 resume}
+	}
+	{on "driver_hatch_open"
+		{delay 3
+			{ani_play "open_driver" -1.0}
+		}	
+	}
+}
+
 {"m113a1 tank"
 	("pz38_sound")
 	{on "commander_hatch_open" overload
@@ -1566,6 +1584,18 @@
 	}
 	{on "driver_hatch_open"
 		{ani_wind "open_driver" end}
+	}
+	{on "gunner3_hatch_open" overload
+		{ani_play "open_top" resume}
+	}
+	{on "gunner3_hatch_close" overload
+		{ani_play "open_top" -1.0 resume}
+	}
+	{on "gunner4_hatch_open" overload
+		{ani_play "open_top" resume}
+	}
+	{on "gunner4_hatch_close" overload
+		{ani_play "open_top" -1.0 resume}
 	}
 }
 {"m113_acav_m40 tank"
