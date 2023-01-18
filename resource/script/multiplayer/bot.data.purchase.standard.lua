@@ -731,7 +731,7 @@ Purchases["standard"] = {
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "t-10m"},
 			--SPG
-				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid", unit = "2s3"},
+				--{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid", unit = "2s3"},
 				{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid", unit = "bm-21_grad"}
 			},
 			["usa"] = {--United States
@@ -942,7 +942,7 @@ Purchases["standard"] = {
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "t-10m"},
 			--SPG
-				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid", unit = "2s3"},
+				--{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid", unit = "2s3"},
 				{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid", unit = "bm-21_grad"}
 			},
 			["usa"] = {--United States
@@ -1152,7 +1152,7 @@ Purchases["standard"] = {
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "t-10m"},
 			--SPG
-				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid", unit = "2s3"},
+				--{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid", unit = "2s3"},
 				{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid", unit = "bm-21_grad"}
 			},
 			["usa"] = {--United States
@@ -1347,7 +1347,7 @@ Purchases["standard"] = {
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "t-10m"},
 			--SPG
-				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid", unit = "2s3"},
+				--{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid", unit = "2s3"},
 				{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid", unit = "bm-21_grad"}
 			},
 			["usa"] = {--United States
