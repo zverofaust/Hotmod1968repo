@@ -1586,16 +1586,32 @@
 		{ani_wind "open_driver" end}
 	}
 	{on "gunner3_hatch_open" overload
-		{ani_play "open_top" resume}
+		{if crew_in_place "gunner4"
+			;nothing
+		else
+			{ani_play "open_top" resume}
+		}
 	}
 	{on "gunner3_hatch_close" overload
-		{ani_play "open_top" -1.0 resume}
+		{if crew_in_place "gunner4"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+		}
 	}
 	{on "gunner4_hatch_open" overload
-		{ani_play "open_top" resume}
+		{if crew_in_place "gunner3"
+			;nothing
+		else
+			{ani_play "open_top" resume}
+		}
 	}
 	{on "gunner4_hatch_close" overload
-		{ani_play "open_top" -1.0 resume}
+		{if crew_in_place "gunner3"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+		}
 	}
 }
 {"m113_acav_m40 tank"
