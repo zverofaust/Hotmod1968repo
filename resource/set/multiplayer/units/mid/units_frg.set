@@ -114,7 +114,7 @@
 ("squad_with4types" side(frg) name(squad_lrrp)				period(mid) cd(0) ci(60) g(squad_6) c1(frn_squadlead:1) c2(frn_mg:1) c3(frn_lat:1) c4(frn_marksman:1)												b(inf1) t())
 
 {"squad_rifle_mech(frg)"
-	("squad_vehicle8" period(mid) cd(0) ci(0) side(frg) t(vehicle) vehicle(m113g) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_mg:1) crew4(reg_mgassist:1) crew5(reg_antitank:1) crew6(reg_atassist:1) crew7(reg_rifleman:4) crew8(reg_teamlead:1)		b(inf1) cw(2) cp(8)){squad_cost_factor 1}
+	("squad_vehicle8" period(mid) cd(0) ci(0) side(frg) t(vehicle) vehicle(m113g_early) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_mg:1) crew4(reg_mgassist:1) crew5(reg_antitank:1) crew6(reg_atassist:1) crew7(reg_rifleman:4) crew8(reg_teamlead:1)		b(inf1) cw(2) cp(8)){squad_cost_factor 1}
 }
 
 ;_________________________________________________
@@ -214,6 +214,11 @@
 {"m35_ammo"
 	("vehicle"  period(mid) cd(60) ci(60) g(supply2) side(frg) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
 	{cost 200}
+}
+
+{"m113g_early"
+	("vehicle"  period(mid) cd(60) ci(30) g(apc) side(frg) t(vehicle transport apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	{cost 85}
 }
 
 {"m113g"

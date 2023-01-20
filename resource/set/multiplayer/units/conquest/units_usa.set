@@ -136,17 +136,41 @@
 ;|________________________________________________|
 ;;;EARLY Period
 
-;;;EARLY Period
+("squad_with2types_conquest"	side(usa) name(single_mg_early)			period(early) min_stage(0) max_stage(15) c1(reg_mg:1) c2(reg_mgassist:1)				) ;M1919A6 MG
+("squad_with2types_conquest" 	side(usa) name(single_at_early)			period(early) min_stage(0) max_stage(15) c1(reg_antitank:1) c2(reg_atassist:1)		) ;M20 Super Bazooka
+("squad_with1types_conquest" 	side(usa) name(single_grenadier_early)	period(early) min_stage(0) max_stage(15) c1(reg_grenadier:2) 							) ;M7 Rifle Grenade
+
+
+;// BASIC SQUADS
+("squad_with3types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_reservist_con_early) 		c1(rsv_squadlead:1) c2(rsv_autorifle:2) c3(rsv_rifleman:7))
+("squad_with4types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_natguard_con_early) 			c1(nat_squadlead:1) c2(nat_autorifle:2) c3(nat_rifleman:4) c4(nat_grenadier:2))
+
+;// REGULAR SQUADS
+("squad_with5types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_rifle_con_early)				c1(reg_squadlead:1) c2(reg_rifleman:8) c3(reg_teamlead:1))
+("squad_with4types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_fireteamap_con_early)		c1(reg_teamlead:1) c2(reg_autorifle:1) c3(reg_grenadier:1) c4(reg_rifleman:2))
+("squad_with4types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_fireteamat_con_early)		c1(reg_teamlead:1) c2(reg_antitank:1) c3(reg_rifleman:2) c4(reg_atassist:1))
+("squad_with5types_conquest" side(usa) period(early) min_stage(2) max_stage(15) name(squad_rifle_full_con_early)		c1(reg_squadlead:1) c2(reg_autorifle:2) c3(reg_grenadier:2) c4(reg_rifleman:6) c5(reg_teamlead:1))
+("squad_with6types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_weapon_con_early)			c1(reg_squadlead:1) c2(reg_mg:2) c3(reg_mgassist:2) c4(reg_antitank:2) c5(reg_atassist:2) c6(reg_teamlead:1))
+
+
 
 ;// BASIC SQUADS
 
 ;// REGULAR SQUADS
 
-; ACAV
+;// ACAV
 
-; Air Cavalry
+;// Air Cavalry
 
-; USMC
+;// USMC
+;("squad_with1types_conquest" side(usa) period(early) min_stage(1) max_stage(15) name(single_corpsman_early)			 c1(usmc_corpsman:1))
+("squad_with2types_conquest" side(usa) period(early) min_stage(1) max_stage(15) name(single_marksman_usmc_early)		c1(usmc_marksman:1) c2(usmc_spotter:1))
+("squad_with2types_conquest" side(usa) period(early) min_stage(5) max_stage(15) name(single_sniper_usmc_early)			c1(usmc_sniper:1)   c2(usmc_spotter:1))
+("squad_with4types_conquest" side(usa) period(early) min_stage(2) max_stage(15) name(squad_usmc_fireteam_con_early)		c1(usmc_teamlead:1) c2(usmc_autorifle:1) c3(usmc_grenadier:1) c4(usmc_rifleman:1))
+("squad_with5types_conquest" side(usa) period(early) min_stage(4) max_stage(15) name(squad_usmc_con_early)				c1(usmc_squadlead:1) c2(usmc_teamlead:3) c3(usmc_autorifle:3) c4(usmc_grenadier:3) c5(usmc_rifleman:2))
+("squad_with4types_conquest" side(usa) period(early) min_stage(5) max_stage(15) name(squad_usmc_mg_con_early)			c1(usmc_squadlead:1) c2(usmc_teamlead:1) c3(usmc_mg:3) c4(usmc_mgassist:7))
+("squad_with5types_conquest" side(usa) period(early) min_stage(6) max_stage(15) name(squad_usmc_flame_con_early)		c1(usmc_squadlead:1) c2(usmc_flamer:3) c3(usmc_grenadier:2) c4(usmc_autorifle:3) c5(usmc_rifleman:3))
+
 
 ;;;MID Period
 ;// BASIC SQUADS
@@ -626,30 +650,3 @@
 	("vehicle" period(mid) min_stage(15) max_stage(99) side(usa) crew(sup_pilot:2) cw(0) cp(10))
 	{cost 500}
 }
-
-;;;EARLY Period basic shit
-
-("squad_with2types_conquest"	side(usa) name(single_mg_early)			period(early) min_stage(0) max_stage(15) c1(reg_mg:1) c2(reg_mgassist:1)				) ;M1919A6 MG
-("squad_with2types_conquest" 	side(usa) name(single_at_early)			period(early) min_stage(0) max_stage(15) c1(reg_antitank:1) c2(reg_atassist:1)		) ;M20 Super Bazooka
-("squad_with1types_conquest" 	side(usa) name(single_grenadier_early)	period(early) min_stage(0) max_stage(15) c1(reg_grenadier:2) 							) ;M7 Rifle Grenade
-
-
-;// BASIC SQUADS
-("squad_with3types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_reservist_con_early) 		c1(rsv_squadlead:1) c2(rsv_autorifle:2) c3(rsv_rifleman:7))
-("squad_with4types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_natguard_con_early) 			c1(nat_squadlead:1) c2(nat_autorifle:2) c3(nat_rifleman:4) c4(nat_grenadier:2))
-
-;// REGULAR SQUADS
-("squad_with5types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_rifle_con_early)				c1(reg_squadlead:1) c2(reg_rifleman:8) c3(reg_teamlead:1))
-("squad_with4types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_fireteamap_con_early)		c1(reg_teamlead:1) c2(reg_autorifle:1) c3(reg_grenadier:1) c4(reg_rifleman:2))
-("squad_with4types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_fireteamat_con_early)		c1(reg_teamlead:1) c2(reg_antitank:1) c3(reg_rifleman:2) c4(reg_atassist:1))
-("squad_with5types_conquest" side(usa) period(early) min_stage(2) max_stage(15) name(squad_rifle_full_con_early)		c1(reg_squadlead:1) c2(reg_autorifle:2) c3(reg_grenadier:2) c4(reg_rifleman:6) c5(reg_teamlead:1))
-("squad_with6types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_weapon_con_early)			c1(reg_squadlead:1) c2(reg_mg:2) c3(reg_mgassist:2) c4(reg_antitank:2) c5(reg_atassist:2) c6(reg_teamlead:1))
-
-; USMC
-;("squad_with1types_conquest" side(usa) period(early) min_stage(1) max_stage(15) name(single_corpsman_early)			 	c1(usmc_corpsman:1))
-("squad_with2types_conquest" side(usa) period(early) min_stage(1) max_stage(15) name(single_marksman_usmc_early)		c1(usmc_marksman:1) c2(usmc_spotter:1))
-("squad_with2types_conquest" side(usa) period(early) min_stage(5) max_stage(15) name(single_sniper_usmc_early)			c1(usmc_sniper:1)   c2(usmc_spotter:1))
-("squad_with4types_conquest" side(usa) period(early) min_stage(2) max_stage(15) name(squad_usmc_fireteam_con_early)		c1(usmc_teamlead:1) c2(usmc_autorifle:1) c3(usmc_grenadier:1) c4(usmc_rifleman:1))
-("squad_with5types_conquest" side(usa) period(early) min_stage(4) max_stage(15) name(squad_usmc_con_early)				c1(usmc_squadlead:1) c2(usmc_teamlead:3) c3(usmc_autorifle:3) c4(usmc_grenadier:3) c5(usmc_rifleman:2))
-("squad_with4types_conquest" side(usa) period(early) min_stage(5) max_stage(15) name(squad_usmc_mg_con_early)			c1(usmc_squadlead:1) c2(usmc_teamlead:1) c3(usmc_mg:3) c4(usmc_mgassist:7))
-("squad_with5types_conquest" side(usa) period(early) min_stage(6) max_stage(15) name(squad_usmc_flame_con_early)		c1(usmc_squadlead:1) c2(usmc_flamer:3) c3(usmc_grenadier:2) c4(usmc_autorifle:3) c5(usmc_rifleman:3))
