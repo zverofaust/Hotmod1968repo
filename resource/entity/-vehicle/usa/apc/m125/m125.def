@@ -2,41 +2,20 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.0))
 	(include "/properties/selection/vehicle.inc" scale(1.0))
+	(include "m125.ext")
 	{props "spg" "light" "multi_board" "vision_lev04" "amphibia" "diesel" "muzzle_75mm_76mm" "mortar"}
 	{able "emit_passengers_on_enemy"}
 	{targetclass "armoredcar"}
 	{targetSelector "cannon_howitzer"}
 	
 	{patherId "amphibia"}
-	
-	{volume "body"			; Hull
-		{able {holed}}
-		{thickness 13		; 
-			{front 13}
-			{top 8}		; 
-			{rear 13}
-			{bottom 8}
-		}
+
+	{placer
+		{place "driver"		{visor "driver"}{group "crew"}}
+		{place "commander"	{visor "mgun"}{group "crew"}{sealable}}
+		{place "gunner3"		{group "crew"}}
+		{place "charger"	{group "crew"}}
 	}
-	
-	("fuel" args "fuel")
-	("ammo" args "ammo")
-	("transmission" args "transmission")
-	("tracks" repair(30) thickness(15))
-	{volume "engine" {thickness 10}}
-	{volume "hole1" {able clear {hole}{touch 1}}}
-	
-	("crew_driver")
-   
-	(define "crew"
-		{placer
-			{place "%place" {LinkBone "%bone"} {group "crew"} {visor "%visor"}}
-		}
-		{boarder
-			{door "%door"}
-			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
-		}
-	)
 	
 	{boarder
 		{anm "driver"
@@ -51,25 +30,24 @@
 			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
 			{reverse {end "emit_tank_1_hold"}}
 		}
-		{anm "charger"
-			{forward	{begin	"board_body"} {end "pose_mortar_commander"} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
+		{anm "passenger"
+			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "open_ramp"}}
+			{reverse	{end	"board_body" -1} {base "open_ramp"}}
 		}
 		{anm "gunner"
-			{forward	{begin	"board_body"} {end "pose_mortar_gunner"} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end "pose_mortar_gunner"} {base "open_ramp"}}
+			{reverse	{end	"board_body" -1} {base "open_ramp"}}
 		}
-		{anm "commander"
-			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
+		{anm "charger"
+			{forward	{begin	"board_body"} {end "pose_mortar_120sgrw42_commander"} {base "open_ramp"}}
+			{reverse	{end	"board_body" -1} {base "open_ramp"}}
 		}
 	}
-	("crew_driver" 	place(driver)  	  bone(driver)				door(emit0)  animation(driver) 		group(crew))
-	("crew" 		place(commander)  bone(gunner2)				door(emit2)  animation(commander) 		group(crew))
-	("crew" 		place(gunner)    bone(gunner)				door(emit2)  animation(gunner)		group(crew))
-	("crew" 		place(charger)    bone(charger)				door(emit2)  animation(charger) 		group(crew))
-	;("seat_human" 	place(charger2)   bone(seat02)				door(emit2)  animation(gunner) 		group(crew))
-
+	("crew_driver" 															   	door(emit0) door2(emit1) door3(emit2) 					group(crew))
+	("crew_open" place(commander) 		bone(gunner2) visorbone(mgun_rot)      	door(emit1) door2(emit2) anm_left(left) anm_right(right) group(crew))
+	("crew_open" place(gunner3) 		bone(gunner) visorbone() 				door(emit3) door2(emit4) anm_left(gunner) anm_right(gunner) 			group(crew))
+	("crew_open" place(charger) 		bone(charger) visorbone()				door(emit3) door2(emit4) anm_left(charger) anm_right(charger) 			group(crew))
+	
 	{extender "inventory"
 		{box
 			{item "ammo hmgun_usa" 1000}
@@ -80,7 +58,7 @@
 	{Weaponry
 		{place "gun"
 			{weapon "weapon 81mm_m29" filling "ammo mortarusa_81 he" 1}
-			{gunner "gunner"}
+			{gunner "gunner3"}
 			{charger "charger"}
 			{basic}
 			("abm_dymamic_mortar"
@@ -92,7 +70,7 @@
 			{weapon			"browning_m2" filled}
 			{gunner			"commander"}
 			{charger		"commander"}
-			{LinkBone		"mgun"}
+			{LinkBone		"mgun_help"}
 			{LinkAnimation	"off"}
 			{basic}
 			{ai_in_manual}
@@ -130,17 +108,27 @@
 	
 	{Extension "m125.mdl"}
 	
-	;{bone "gun"
-	;	{limits -25 8}
-	;	{speed 0.007}
-	;}
-	
 	{bone "foresight"
+		{speed2 24}
 		{limits -20 25}
 	}
-	{bone "turret_mgun"
-		;{limits -80 80}
-		{speed2 64}
+	
+	{bone "turret"			;gun vertical
+		{speed2 28}			;degree per second
+	}
+	
+	{bone "mgun_rot"			;gun vertical
+		{speed2 40}			;degree per second
+		{limits 30 -10}		;min down to max up
+	}
+	
+	{bone "mgun_turret"			;gun vertical
+		{speed2 44}			;degree per second
+		{limits 4 -4}		;min down to max up
+	}
+	
+	{bone "mortar_turret"			;gun vertical
+		{speed2 24}			;degree per second
 	}
 
 

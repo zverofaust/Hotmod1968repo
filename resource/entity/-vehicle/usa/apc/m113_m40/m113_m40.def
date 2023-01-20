@@ -2,6 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.0))
 	(include "/properties/selection/vehicle.inc" scale(1.0))
+	(include "m113_m40.ext")
 	{props "light" "td" "multi_board" "vision_lev04" "amphibia" "diesel" "muzzle_75mm_76mm"}
 	{able "emit_passengers_on_enemy"}
 	{targetclass "armoredcar"}
@@ -9,40 +10,10 @@
 	
 	{patherId "amphibia"}
 	
-	{volume "body"			; Hull
-		{able {holed}}
-		{thickness 13		; 
-			{front 13}
-			{top 8}		; 
-			{rear 13}
-			{bottom 8}
-		}
-	}
-	
-	("fuel" args "fuel")
-	("ammo" args "ammo")
-	("transmission" args "transmission")
-	("tracks" repair(30) thickness(15))
-	{volume "engine" {thickness 10}}
-	{volume "hole1" {able clear {hole}{touch 1}}}
-	{volume "turret" {thickness 10}}
-	{volume "gun" {thickness 15}}
-	
-	{volume "shield"
-		{component "shield"}
-		{tags "shield"}
-	}
-	
-	{component "shield"}
-
-	{extender "shield"
-		{on}	
-	}
-	
 	{placer
 		{place "driver"		{visor "driver"}{group "crew"}}
-		{place "gunner"		{visor "main"}{group "crew"}{sealable}}
 		{place "commander"	{visor "mgun"}{group "crew"}{sealable}}
+		{place "gunner"		{visor "mgun"}{group "crew"}{sealable}}
 	}
 	
 	{boarder
@@ -58,26 +29,32 @@
 			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
 			{reverse {end "emit_tank_1_hold"}}
 		}
-		{anm "gunner"
-			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
-		}
 		{anm "passenger"
-			{forward	{begin	"board_body"} {end "seat_passenger"} {base "doorleft"}}
-			{reverse	{end	"board_body" -1} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "open_ramp"}}
+			{reverse	{end	"board_body" -1} {base "open_ramp"}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_body"} {end "pose_mortar_120sgrw42_commander"} {base "open_ramp"}}
+			{reverse	{end	"board_body" -1} {base "open_ramp"}}
 		}
 	}
-	("seat_human" 	place(driver)  		bone()			door(emit0)  animation(driver) 		group(crew))
-	("seat_human" 	place(commander)  	bone(gunner2)	door(emit3)  animation(gunner) 		group(crew))
-	("seat_human" 	place(gunner)  		bone(gunner)	door(emit3)  animation(gunner)		group(crew))
-	;("seat_human" 	place(seat1)  		bone(seat01)	door(emit3)  animation(passenger) 	group(passenger))
-	;("seat_human" 	place(seat2)  		bone(seat02)	door(emit3)  animation(passenger) 	group(passenger))
+	("crew_driver" 															   	door(emit0) door2(emit1) door3(emit2) 								group(crew))
+	("crew_open" place(commander) 		bone(gunner2) 	visorbone(mgun_rot)     door(emit1) door2(emit2) anm_left(left) anm_right(right) 			group(crew))
+	("crew_open" place(gunner) 			bone(gunner) 	visorbone(rcl_gun) 		door(emit3) door2(emit4) anm_left(passenger) anm_right(passenger) 	group(crew))
+	("crew_open" place(charger) 		bone(charger) 	visorbone() 			door(emit3) door2(emit4) anm_left(charger) anm_right(charger) 		group(crew))
+	
+	;(include "/properties/hotmod_crew.ext")
+	;("passenger_invisible_back" 	place(seat1) 			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	;("passenger_invisible_back" 	place(seat2)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	;("passenger_invisible_back" 	place(seat3)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	;("passenger_invisible_back" 	place(seat4)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	;("passenger_invisible_back" 	place(seat5)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
+	;("passenger_invisible_back" 	place(seat6)			door(emit3) door2(emit4) animation(passenger) 	group(passenger))
 	
 	
 	{extender "inventory"
 		{box
 			{item "ammo hmgun_usa" 1250}
-			{item "ammo m60_box" 	2000}
 			{item "ammo bullet106_m40 he" 8}
 			{item "ammo bullet106_m40 heat" 12}
 		}
@@ -85,22 +62,22 @@
 	
 	{Weaponry
 		{place "gun"
-			{weapon			"106mm_m40" filling "ammo bullet106_m40 he" 1}
+			{weapon			"106mm_m40" filling "ammo bullet106_m40 heat" 1}
 			{gunner "gunner"}
-            {charger "gunner"}
+            {charger "charger"}
 			{foresight "foresight1"}
 			{RestoreIKAfterAim}
 			{Rotate}
 			("abm_dymamic"
-				zeroing(7.5)
-				dispersion(0.01)
+				zeroing(5.0)
+				dispersion(0.40)
 			)
 		}
-		{place "mgun"
+		{place "mgun1"
 			{weapon			"browning_m2" filled}
 			{gunner			"commander"}
 			{charger		"commander"}
-			{LinkBone		"mgun"}
+			{LinkBone		"mgun_help"}
 			{LinkAnimation	"off"}
 			{basic}
 			{ai_in_manual}
@@ -138,20 +115,26 @@
 	
 	{Extension "m113_m40.mdl"}
      
-	{bone "turret"
-		{limits -60 20}
+	{bone "turret"			;gun vertical
+		{speed2 28}			;degree per second
+		{limits -90 180}
+	}
+	
+	{bone "mgun_rot"			;gun vertical
+		{speed2 40}			;degree per second
+		{limits 30 -10}		;min down to max up
+	}
+	
+	{bone "mgun_turret"			;gun vertical
+		{speed2 44}			;degree per second
+		{limits 4 -4}		;min down to max up
+	}
+	
+	{bone "rcl_turret1"
 		{speed2 24}
 	}
-	{bone "gun_rot"
-		{limits 5 -15}
+	
+	{bone "rcl_turret2"
 		{speed2 24}
-	}
-	{bone "mgun_rot"
-		{limits -7 7}
-		{speed2 64}
-	}
-	{bone "turret_mgun"
-		{limits -45 179}
-		{speed2 64}
 	}
 }
