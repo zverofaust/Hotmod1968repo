@@ -1420,7 +1420,7 @@
 }
 
 {"m26_pershing tank"
-	("m26_sound")
+	("pz6_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -1430,7 +1430,7 @@
 }
 
 {"m46_patton tank"
-	("m26_sound")
+	("pz6_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -1440,7 +1440,7 @@
 }
 
 {"m47_patton tank"
-	("m26_sound")
+	("pz6_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -1548,11 +1548,6 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open_turret" -1.0 resume}
 	}
-	{on "driver_hatch_open"
-		{delay 3
-			{ani_play "open_driver" -1.0}
-		}	
-	}
 }
 
 {"m113a1 tank"
@@ -1563,11 +1558,6 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
-	{on "driver_hatch_open"
-		{delay 3
-			{ani_play "open_driver" -1.0}
-		}	
-	}
 }
 
 {"m163 tank"
@@ -1577,17 +1567,14 @@
 {"m113_acav tank"
 	("pz38_sound")
 	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
+		{ani_play "open_turret" resume}
 	}
 	{on "commander_hatch_close" overload
-		{ani_play "open" -1.0 resume}
-	}
-	{on "driver_hatch_open"
-		{ani_wind "open_driver" end}
+		{ani_play "open_turret" -1.0 resume}
 	}
 	{on "gunner3_hatch_open" overload
 		{if crew_in_place "gunner4"
-			;nothing
+			{ani_play "open_top" resume}
 		else
 			{ani_play "open_top" resume}
 		}
@@ -1601,7 +1588,7 @@
 	}
 	{on "gunner4_hatch_open" overload
 		{if crew_in_place "gunner3"
-			;nothing
+			{ani_play "open_top" resume}
 		else
 			{ani_play "open_top" resume}
 		}
@@ -1614,6 +1601,7 @@
 		}
 	}
 }
+
 {"m113_acav_m40 tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/hetzer/start"}
@@ -1626,15 +1614,41 @@
 		{link_sound "rotate_gun"		"vehicle/turret/cannon/small/cannon_small_vertical"}
 	}
 	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
+		{ani_play "open_turret" resume}
 	}
 	{on "commander_hatch_close" overload
-		{ani_play "open" -1.0 resume}
+		{ani_play "open_turret" -1.0 resume}
 	}
-	{on "driver_hatch_open"
-		{ani_wind "open_driver" end}
+	{on "gunner3_hatch_open" overload
+		{if crew_in_place "gunner4"
+			{ani_play "open_top" resume}
+		else
+			{ani_play "open_top" resume}
+		}
+	}
+	{on "gunner3_hatch_close" overload
+		{if crew_in_place "gunner4"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+		}
+	}
+	{on "gunner4_hatch_open" overload
+		{if crew_in_place "gunner3"
+			{ani_play "open_top" resume}
+		else
+			{ani_play "open_top" resume}
+		}
+	}
+	{on "gunner4_hatch_close" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+		}
 	}
 }
+
 {"m113_m40 tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/hetzer/start"}
@@ -1647,31 +1661,121 @@
 		{link_sound "rotate_gun"		"vehicle/turret/cannon/small/cannon_small_vertical"}
 	}
 	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
+		{ani_play "open_turret" resume}
 	}
 	{on "commander_hatch_close" overload
-		{ani_play "open" -1.0 resume}
+		{ani_play "open_turret" -1.0 resume}
 	}
-	{on "driver_hatch_open"
-		{ani_wind "open_driver" end}
+	{on "gunner_hatch_open" overload
+		{if crew_in_place "charger"
+			{ani_play "open_top" resume}
+		else
+			{ani_play "open_top" resume}
+		}
+	}
+	{on "gunner_hatch_close" overload
+		{if crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+		}
+	}
+	{on "charger_hatch_open" overload
+		{if crew_in_place "gunner"
+			{ani_play "open_top" resume}
+		else
+			{ani_play "open_top" resume}
+		}
+	}
+	{on "charger_hatch_close" overload
+		{if crew_in_place "gunner"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+		}
 	}
 }
+
 {"m125"
 	("pz38_sound")
+	
 	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
+		{ani_play "open" resume}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+	
+	{on "gunner3_hatch_open" overload
+		{if crew_in_place "charger"
+			{ani_play "open_top" resume}
+		else
+			{ani_play "open_top" resume}
+		}
+	}
+	{on "gunner3_hatch_close" overload
+		{if crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+		}
+	}
+	{on "charger_hatch_open" overload
+		{if crew_in_place "gunner3"
+			{ani_play "open_top" resume}
+		else
+			{ani_play "open_top" resume}
+		}
+	}
+	{on "charger_hatch_close" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+		}
+	}
 }
+
 {"m106"
 	("pz38_sound")
 	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
+		{ani_play "open" resume}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+	
+	{on "gunner3_hatch_open" overload
+		{if crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_top" resume}
+			{ani_play "weapon_up" resume}
+		}
+	}
+	{on "gunner3_hatch_close" overload
+		{if crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+			{ani_play "weapon_down" resume}
+		}
+	}
+	{on "charger_hatch_open" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else
+			{ani_play "open_top" resume}
+			{ani_play "weapon_up" resume}
+		}
+	}
+	{on "charger_hatch_close" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+			{ani_play "weapon_down" resume}
+		}
 	}
 }
 
@@ -1813,15 +1917,20 @@
 {"m113g tank"
 	("pz38_sound")
 	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
+		{ani_play "open_turret" resume}
 	}
 	{on "commander_hatch_close" overload
-		{ani_play "open" -1.0 resume}
+		{ani_play "open_turret" -1.0 resume}
 	}
-	{on "driver_hatch_open"
-		{delay 3
-			{ani_play "open_driver" -1.0}
-		}	
+}
+
+{"m113g_early tank"
+	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "open_turret" resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open_turret" -1.0 resume}
 	}
 }
 
@@ -1834,7 +1943,7 @@
 }
 
 {"m47g tank"
-	("m26_sound")
+	("pz6_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
