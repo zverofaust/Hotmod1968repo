@@ -9,12 +9,19 @@
 	("tracks" repair(30) thickness(15))
 	("gun" repair(30) thickness(15))
 
-	("ammo" args "ammo1")
-	("ammo" args "ammo2")
+	("ammo" args "ammo")
 	("fuel" args "fuel")
 	("transmission" args "transmission")
 
-	{volume "body"			; Lower Hull
+	{volume "body1"			; Lower Hull
+		{thickness 19
+			{front 44.5}
+			{top 8}		; 
+			{rear 32}
+			{bottom 25}
+		}
+	}
+	{volume "body2"			; Lower Hull
 		{thickness 19
 			{front 44.5}
 			{top 8}		; 
@@ -27,4 +34,8 @@
 	}
 	{volume "turret"
 		{thickness 20}
+		{able {holed}}
+	}
+	{volume "hole1"
+		{tags "sticky"}
 	}

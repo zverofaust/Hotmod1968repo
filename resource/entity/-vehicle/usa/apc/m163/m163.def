@@ -14,8 +14,6 @@
 		{digit_folder "nato"}
 	}
 
-	;("crew_3_human_3")
-
 	{placer
 		{place "driver"		{visor "driver"}}
 		{place "commander"	{visor "around"}}
@@ -24,28 +22,24 @@
 	}
 	
 	{boarder
-		{anm "left"
-			{forward 	{begin "board_sd232_driver"}	{base "doorleft"}}
-			{reverse 	{end "board_sd232_driver" -1} {base "doorleft"}}
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
 		}
 		{anm "right"
-			{forward 	{begin "board_sd232_driver"}	{base "doorleft"}}
-			{reverse 	{end "board_sd232_driver" -1} {base "doorleft"}}
+			{forward	{begin	"board_body"} {end "seat_commander_hatch"} {base "open_ramp"}}
+			{reverse	{end	"board_body" -1} {base "open_ramp"}}
 		}
-		{anm "gunner"
-			{forward 	{begin "board_sd232_driver"} {end "seat_commander_hatch"} {base "doorleft"}}
-			{reverse	{end "board_sd232_driver" -1} {base "doorleft"}}
-		}
-		{anm "driver"
-			{forward	{begin	"board_middlearmor"} {base ""}}
-			{reverse	{end "emit_tank_2_hold"} {base ""}}
+		{anm "left"
+			{forward	{begin	"board_body"} {end "seat_commander_hatch"} {base "open_ramp"}}
+			{reverse	{end	"board_body" -1} {base "open_ramp"}}
 		}
 	}
 	
-	("crew_driver" 	place(driver) 		bone() 					door(emit1)  	visor(driver))
-	("crew_human" 	place(commander) 	bone() 					door(emit3)  	visor(around))
-	("crew_human" 	place(charger) 		bone() 					door(emit3)  	visor(none))
-	("crew_human_visible_anm" 	place(gunner) 	bone(gunner) 	door(emit3)  	visor(main)			anm_left(gunner) anm_right(gunner))
+	("crew_driver" 															   	door(emit0)  															group(crew))
+	("crew_human" place(commander) 												door(emit3) door2(emit4) anm_left(left) anm_right(right) 				group(crew))
+	("crew_open" place(gunner) 			bone(gunner) visorbone() 				door(emit3) door2(emit4) anm_left(left) anm_right(right) 				group(crew))
+	("crew_human" place(charger) 												door(emit3) door2(emit4) anm_left(left) anm_right(right) 				group(crew))
 
 	
 	{extender "inventory"
