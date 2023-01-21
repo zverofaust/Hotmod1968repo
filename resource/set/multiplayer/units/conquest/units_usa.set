@@ -134,15 +134,15 @@
 ;_________________________________________________
 ;|             inf1                               |
 ;|________________________________________________|
+
 ;;;EARLY Period
 
-("squad_with2types_conquest"	side(usa) name(single_mg_early)			period(early) min_stage(0) max_stage(15) c1(reg_mg:1) c2(reg_mgassist:1)				) ;M1919A6 MG
-("squad_with2types_conquest" 	side(usa) name(single_at_early)			period(early) min_stage(0) max_stage(15) c1(reg_antitank:1) c2(reg_atassist:1)		) ;M20 Super Bazooka
-("squad_with1types_conquest" 	side(usa) name(single_grenadier_early)	period(early) min_stage(0) max_stage(15) c1(reg_grenadier:2) 							) ;M7 Rifle Grenade
-
-
 ;// BASIC SQUADS
-("squad_with3types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_reservist_con_early) 		c1(rsv_squadlead:1) c2(rsv_autorifle:2) c3(rsv_rifleman:7))
+("squad_with3types_conquest" side(usa) period(early) min_stage(0) max_stage(5) name(squad_reservist_basic_con_early) 		c1(rsv_squadlead:1) c2(rsv_grenadier:1) c3(rsv_rifleman:8))
+("squad_with3types_conquest" side(usa) period(early) min_stage(0) max_stage(5) name(squad_reservist_autorifle_con_early) 	c1(rsv_squadlead:1)  c2(rsv_autorifle:2) c3(rsv_rifleman:2))
+("squad_with3types_conquest" side(usa) period(early) min_stage(0) max_stage(5) name(squad_reservist_antitank_con_early) 	c1(rsv_squadlead:1)  c2(rsv_antitank:2) c3(rsv_rifleman:2))
+("squad_with3types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_reservist_con_early) 			c1(rsv_squadlead:1) c2(rsv_autorifle:2) c3(rsv_rifleman:7))
+
 ("squad_with4types_conquest" side(usa) period(early) min_stage(0) max_stage(15) name(squad_natguard_con_early) 			c1(nat_squadlead:1) c2(nat_autorifle:2) c3(nat_rifleman:4) c4(nat_grenadier:2))
 
 ;// REGULAR SQUADS
@@ -170,6 +170,14 @@
 ("squad_with5types_conquest" side(usa) period(early) min_stage(4) max_stage(15) name(squad_usmc_con_early)				c1(usmc_squadlead:1) c2(usmc_teamlead:3) c3(usmc_autorifle:3) c4(usmc_grenadier:3) c5(usmc_rifleman:2))
 ("squad_with4types_conquest" side(usa) period(early) min_stage(5) max_stage(15) name(squad_usmc_mg_con_early)			c1(usmc_squadlead:1) c2(usmc_teamlead:1) c3(usmc_mg:3) c4(usmc_mgassist:7))
 ("squad_with5types_conquest" side(usa) period(early) min_stage(6) max_stage(15) name(squad_usmc_flame_con_early)		c1(usmc_squadlead:1) c2(usmc_flamer:3) c3(usmc_grenadier:2) c4(usmc_autorifle:3) c5(usmc_rifleman:3))
+
+
+;// OTHER Squads
+
+{"squad_engineer_moto_con_early(usa)" 
+	("squad_vehicle"		 side(usa) period(early) min_stage(4) max_stage(15) vehicle(dodge_m37_eng) cw(0) cp(4) 		crew(reg_engineer:2) )
+}
+
 
 
 ;;;MID Period
@@ -270,26 +278,30 @@
 ;|             inf2                               |
 ;|________________________________________________|
 
-("squad_with1types_conquest" 	side(usa) name(single_tankman)			period(early) min_stage(1) max_stage(99) c1(sup_tankman:3)							) ;M3 Greasegun
-("squad_with1types_conquest" 	side(usa) name(single_supporter)		period(early) min_stage(1) max_stage(99) c1(sup_supporter:2)						) ;M1 Garand
-("squad_with2types_conquest"	side(usa) name(single_mg)				period(early) min_stage(0) max_stage(99) c1(reg_mg:1) c2(reg_mgassist:1)			) ;M1919A6
-("squad_with1types_conquest" 	side(usa) name(single_riflegren)		period(early) min_stage(0) max_stage(99) c1(reg_riflegren:2) 						) ;M7 Rifle Grenade with M31 HEAT Grenade
-("squad_with2types_conquest" 	side(usa) name(single_at)				period(early) min_stage(1) max_stage(99) c1(reg_antitank:1) c2(reg_atassist:1)		) ;M20 Super Bazooka
-("squad_with1types_conquest" 	side(usa) name(single_marksman)			period(early) min_stage(2) max_stage(99) c1(reg_marksman:1)							) ;M1C Garand
-("squad_with1types_conquest" 	side(usa) name(single_flamer)			period(early) min_stage(4) max_stage(99) c1(reg_flamer:1)							) 
-("squad_with1types_conquest" 	side(usa) name(single_medic)			period(early) min_stage(0) max_stage(99) c1(reg_medic:1)							) ;M2 Carbine
-("squad_with1types_conquest" 	side(usa) name(single_sapperap)			period(early) min_stage(0) max_stage(99) c1(reg_sapper-ap:2)						) ;M2 Carbine
-("squad_with1types_conquest" 	side(usa) name(single_sapperat)			period(early) min_stage(0) max_stage(99) c1(reg_sapper-at:2)						) ;M2 Carbine	
-("squad_with1types_conquest" 	side(usa) name(single_engineer)			period(early) min_stage(0) max_stage(99) c1(reg_engineer:2)							) ;M2 Carbine
+("squad_with1types_conquest" 	side(usa) name(single_tankman_early)	period(early) min_stage(1) max_stage(10) c1(sup_tankman:3)							) ;M3 Greasegun
+("squad_with1types_conquest" 	side(usa) name(single_supporter_early)	period(early) min_stage(1) max_stage(10) c1(sup_supporter:2)						) ;M1 Garand
+("squad_with1types_conquest"	side(usa) name(single_autorifle_early)	period(early) min_stage(0) max_stage(10) c1(reg_autorifle:2) 						) ;BAR
+("squad_with2types_conquest"	side(usa) name(single_mg_early)			period(early) min_stage(0) max_stage(15) c1(reg_mg:1) c2(reg_mgassist:1)			) ;M1919A6
+("squad_with1types_conquest" 	side(usa) name(single_riflegren_early)	period(early) min_stage(0) max_stage(10) c1(reg_riflegren:2) 						) ;M7 Rifle Grenade with M31 HEAT Grenade
+("squad_with2types_conquest" 	side(usa) name(single_at_early)			period(early) min_stage(1) max_stage(15) c1(reg_antitank:1) c2(reg_atassist:1)		) ;M20 Super Bazooka
+("squad_with1types_conquest" 	side(usa) name(single_scout_early)		period(early) min_stage(0) max_stage(20) c1(reg_scout:1)							) ;M2 Carbine
+("squad_with1types_conquest" 	side(usa) name(single_marksman_early)	period(early) min_stage(2) max_stage(10) c1(reg_marksman:1)							) ;M1C Garand
+("squad_with2types_conquest" 	side(usa) name(single_sniper_early)		period(early) min_stage(2) max_stage(10) c1(rng_sniper:1) c1(rng_spotter:1)			) ;M1903A4
+("squad_with1types_conquest" 	side(usa) name(single_flamer_early)		period(early) min_stage(4) max_stage(10) c1(reg_flamer:1)							) 
+("squad_with1types_conquest" 	side(usa) name(single_medic_early)		period(early) min_stage(0) max_stage(10) c1(reg_medic:1)							) ;M2 Carbine
+("squad_with1types_conquest" 	side(usa) name(single_sapperap_early)	period(early) min_stage(0) max_stage(10) c1(reg_sapper-ap:2)						) ;M2 Carbine
+("squad_with1types_conquest" 	side(usa) name(single_sapperat_early)	period(early) min_stage(0) max_stage(10) c1(reg_sapper-at:2)						) ;M2 Carbine	
+("squad_with1types_conquest" 	side(usa) name(single_engineer_early)	period(early) min_stage(0) max_stage(12) c1(reg_engineer:2)							) ;M2 Carbine
 
-("squad_with1types_conquest" 	side(usa) name(single_tankman)			period(mid) min_stage(1) 	max_stage(99) c1(sup_tankman:3)								) ;M3 Greasegun
-("squad_with1types_conquest" 	side(usa) name(single_supporter)		period(mid) min_stage(1) 	max_stage(99) c1(sup_supporter:2)							) ;M1 Garand
-("squad_with2types_conquest"	side(usa) name(single_mg)				period(mid) min_stage(11) 	max_stage(99) c1(reg_mg:1) c2(reg_mgassist:1)				) ;M60 GPMG
+("squad_with1types_conquest" 	side(usa) name(single_tankman)			period(mid) min_stage(10) 	max_stage(99) c1(sup_tankman:3)								) ;M3 Greasegun
+("squad_with1types_conquest" 	side(usa) name(single_supporter)		period(mid) min_stage(10) 	max_stage(99) c1(sup_supporter:2)							) ;M1 Garand
+("squad_with2types_conquest"	side(usa) name(single_mg)				period(mid) min_stage(10) 	max_stage(99) c1(reg_mg:1) c2(reg_mgassist:1)				) ;M60 GPMG
 ("squad_with2types_conquest" 	side(usa) name(single_at)				period(mid) min_stage(10) 	max_stage(99) c1(reg_antitank:1) c2(reg_atassist:1)			) ;M20 Super Bazooka
 ("squad_with2types_conquest" 	side(usa) name(single_at2)				period(mid) min_stage(12) 	max_stage(99) c1(reg_antitank2:1) c2(reg_atassist2:1)		) ;M67 RCL
 ("squad_with1types_conquest" 	side(usa) name(single_lat)				period(mid) min_stage(13) 	max_stage(99) c1(reg_lat:2) 								) ;M72 LAW
-("squad_with1types_conquest" 	side(usa) name(single_marksman)			period(mid) min_stage(2) 	max_stage(99) c1(reg_marksman:1)							) ;M1C Garand
-("squad_with1types_conquest" 	side(usa) name(single_flamer)			period(mid) min_stage(4) 	max_stage(99) c1(reg_flamer:1)								) 
+("squad_with1types_conquest" 	side(usa) name(single_scout)			period(mid) min_stage(15) 	max_stage(99) c1(reg_scout:1)								) ;M16A1
+("squad_with1types_conquest" 	side(usa) name(single_marksman)			period(mid) min_stage(10) 	max_stage(99) c1(reg_marksman:1)							) ;M1C Garand
+("squad_with1types_conquest" 	side(usa) name(single_flamer)			period(mid) min_stage(10) 	max_stage(99) c1(reg_flamer:1)								) 
 ("squad_with1types_conquest" 	side(usa) name(single_medic)			period(mid) min_stage(10) 	max_stage(99) c1(reg_medic:1)								) ;M2 Carbine
 ("squad_with1types_conquest" 	side(usa) name(single_sapperap)			period(mid) min_stage(10) 	max_stage(99) c1(reg_sapper-ap:2)							) ;M2 Carbine
 ("squad_with1types_conquest" 	side(usa) name(single_sapperat)			period(mid) min_stage(10) 	max_stage(99) c1(reg_sapper-at:2)							) ;M2 Carbine	
@@ -313,11 +325,6 @@
 {"m45_maxson"
 	("vehicle"  period(mid) min_stage(3) max_stage(20) side(usa) crew(sup_supporter:2) cw(0) cp(2))
 	{cost 200}
-}
-
-{"40_mm_m1"
-	("vehicle"  period(mid) min_stage(5) max_stage(15) side(usa) crew(sup_supporter:4) cw(0) cp(2))
-	{cost 300}
 }
 
 ; AT WEAPONRY
@@ -350,7 +357,7 @@
 }
 
 {"m98_howtar"
-	("vehicle"  period(mid) min_stage(15) max_stage(35) side(usa) crew(usmc_guncrew:4) cw(0) cp(2))
+	("vehicle"  period(mid) min_stage(15) max_stage(25) side(usa) crew(usmc_guncrew:4) cw(0) cp(2))
 	{cost 350}
 }
 
