@@ -145,6 +145,19 @@
 	}
 }
 
+{"smoke 8shot"					;// NATO 8-shot smoke launchers
+	{on "smoke_screen"
+		("smoke_shot" args "nbk39" smoke_shot1 -17 0.5 0 20)
+		("smoke_shot" args "nbk39" smoke_shot4 -17 0.5 0.1 20)
+		("smoke_shot" args "nbk39" smoke_shot2 -17 0.5 0.2 20)
+		("smoke_shot" args "nbk39" smoke_shot5 -17 0.5 0.3 20)
+		("smoke_shot" args "nbk39" smoke_shot3 -17 0.5 0.4 20)
+		("smoke_shot" args "nbk39" smoke_shot6 -17 0.5 0.5 20)
+		("smoke_shot" args "nbk39" smoke_shot7 -17 0.5 0.6 20)
+		("smoke_shot" args "nbk39" smoke_shot8 -17 0.5 0.7 20)
+	}
+}
+
 {"smoke bdsh"					;// Soviet droppable smoke bombs
 	{on spawn
 		{add_view "exhaust_dark_big_diesel"			"smoke_bdsh"			"root"}
