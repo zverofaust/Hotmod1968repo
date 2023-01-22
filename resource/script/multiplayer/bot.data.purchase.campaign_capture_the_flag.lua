@@ -360,7 +360,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m40g"},
 			--Mortars
 				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "m29g_mortar"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "m30g_mortar"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "120mm_krh40_frg"},
 			--Infantry_Support
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m116g"},
 			--Artillery
