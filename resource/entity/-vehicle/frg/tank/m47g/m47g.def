@@ -2,7 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.2))
 	(include "/properties/selection/vehicle.inc" scale(1.2))
-	{props "medium" "vision_lev05" "muzzle_85mm_93mm_sides" "diesel"}
+	{props "medium" "vision_lev05" "muzzle_85mm_93mm_sides" "diesel" "smoke" "8shot"}
 	{Extension "m47g.mdl"}
 	(include "m47g.ext")
 	{targetclass "tank_medium"}
@@ -65,6 +65,11 @@
 		{link "emit2" "gunner2" {anm "right"} {forward putoff} {reverse puton}}
 	}
 
+	{extender "smokescreen"
+		{cooldown 20}
+		{itemTags "grenade nbk39"}
+	}
+	
 	{extender "inventory"
 		{box
 			{item "ammo bullet90_m41 apcbche" 20} ;71 total
@@ -73,6 +78,7 @@
 			{item "ammo bullet90_m41 sm" 4}
 			{item "ammo hmgun_usa" 1200}
 			{item "ammo mgun_usa belt" 2000}
+			{item "nbk39 grenade" 1}
 		}
 	}
 	{Weaponry

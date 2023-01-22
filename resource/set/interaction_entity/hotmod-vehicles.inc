@@ -1955,6 +1955,16 @@
 	("pz2_sound")
 }
 
+{"m47frg tank"
+	("pz6_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
 {"m47g tank"
 	("pz6_sound")
 	{on "commander_hatch_open" overload

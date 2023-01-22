@@ -1,14 +1,14 @@
 ;Exported by: misan
-;Date:        Thu May 26 12:35:42 2022
-;File:        D:\Cold War\Model WIP\USA\M46 47\M47.max
+;Date:        Sun Jan 22 07:26:22 2023
+;File:        D:\Cold War\ModelWIP\USA\M46 47\M47g.max
 {Skeleton
 	{animation
 		{sequence "start" {speed 0.15}}
 		{sequence "stop" {speed 0.15}}
-		{sequence "hit" {speed 0.2}}
-		{sequence "fire" {speed 0.2}}
-		{sequence "open2" {speed 0.1}{resume} {events {2 "hatch_medium"}}}
-		{sequence "open" {speed 0.3}{resume} {events {2 "hatch_medium"}}}
+		{sequence "hit" {speed 0.3}}
+		{sequence "fire" {speed 0.3}}
+		{sequence "open2" {speed 0.1}}
+		{sequence "open" {speed 0.3}}
 	}
 	{bone "basis"
 		{Orientation
@@ -93,20 +93,89 @@
 				{bone "enumerator1"
 					{Matrix34
 						1	0	0
-						0	-0.510841	0.859675
-						0	-0.859675	-0.510841
-						1.23672	19.1377	9.52134
+						0	-0.186007	0.982548
+						0	-0.982548	-0.186007
+						-6.27679	17.1481	15.1515
 					}
 					{VolumeView "enumerator1.ply"}
 				}
 				{bone "enumerator2"
 					{Matrix34
-						-0.998973	-0.0451956	-0.00319399
-						-0.0231454	0.448445	0.893511
-						-0.0389504	0.892667	-0.44903
-						1.23672	-19.7494	9.52134
+						-0.990675	0.13446	-0.0219952
+						-0.0177901	0.0323963	0.999317
+						0.135081	0.990389	-0.0297021
+						-10.522	-19.0921	14.4019
 					}
 					{VolumeView "enumerator2.ply"}
+				}
+				{bone "smoke_launchers"
+					{parameters "id=turret;"}
+					{Position 14.8344	0.0467084	12.2621}
+					{VolumeView "smoke_launchers.ply"}
+					{bone "smoke_shot1"
+						{Matrix34
+							-0.798636	0	-0.601815
+							0	-1	0
+							-0.601815	0	0.798636
+							5.28727	13.3338	1.60413
+						}
+					}
+					{bone "smoke_shot2"
+						{Matrix34
+							-0.798636	0	-0.601815
+							0	-1	0
+							-0.601815	0	0.798636
+							5.28727	-13.2159	1.60413
+						}
+					}
+					{bone "smoke_shot3"
+						{Matrix34
+							-0.781183	-0.166046	-0.601815
+							0.207912	-0.978148	0
+							-0.588664	-0.125124	0.798636
+							3.28229	15.4803	1.60413
+						}
+					}
+					{bone "smoke_shot4"
+						{Matrix34
+							-0.781183	0.166046	-0.601815
+							-0.207912	-0.978148	0
+							-0.588664	0.125124	0.798636
+							3.28229	-15.3794	1.60413
+						}
+					}
+					{bone "smoke_shot5"
+						{Matrix34
+							-0.735148	-0.312052	-0.601815
+							0.390731	-0.920505	0
+							-0.553974	-0.235148	0.798636
+							0.271706	17.1184	1.60413
+						}
+					}
+					{bone "smoke_shot6"
+						{Matrix34
+							-0.72959	0.324834	-0.601815
+							-0.406737	-0.913545	0
+							-0.549785	0.24478	0.798636
+							0.244129	-17.0418	1.60413
+						}
+					}
+					{bone "smoke_shot8"
+						{Matrix34
+							-0.698502	0.387186	-0.601815
+							-0.48481	-0.87462	0
+							-0.526359	0.291766	0.798636
+							-3.1373	-17.8059	1.60413
+						}
+					}
+					{bone "smoke_shot7"
+						{Matrix34
+							-0.717809	-0.350099	-0.601815
+							0.438371	-0.898794	0
+							-0.540908	-0.263818	0.798636
+							-3.02869	17.8897	1.60413
+						}
+					}
 				}
 			}
 			{bone "engine"

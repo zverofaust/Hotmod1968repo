@@ -376,11 +376,12 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "m41g"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m42g"},
 			--Tanks_medium
+				{priority = 0.5, class = UnitClass.Tank, unit = "m47frg"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m47g"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m48g"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "m48g"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m48a2c"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "leopard_1"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "leopard_1a1"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "leopard_1a1"},
 			--Tanks_heavy
 			--SPG
 				{priority = 0.5, class = UnitClass.Tank, unit = "m108g"},
