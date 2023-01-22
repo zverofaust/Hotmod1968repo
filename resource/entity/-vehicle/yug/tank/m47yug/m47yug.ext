@@ -1,0 +1,65 @@
+	;notes
+	;tracks and wheels 30mm
+	;gun 30mm
+
+	("tank_medium_tier2")
+	
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+	
+	{Volume "body1"  ;hull top
+		{component "body"}
+		{tags "body"}
+		{thickness 76
+			{front 102}		
+			{top 22}		
+			{rear 51}
+			{bottom 0}
+		}
+		{HighHardness}
+	}
+	{Volume "body2"   ;hull bottom
+		{component "body"}
+		{tags "body"}
+		{thickness 76
+			{top 0}		
+			{rear 51}
+			{bottom 22}
+		}
+		{HighHardness}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 76
+			{front 121}		
+			{top 25}		
+			{bottom 25}
+		}
+		{HighHardness}
+	}
+	{Volume "mantlet"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 68}
+		{HighHardness}
+	}
+	{Volume "engine"
+		{thickness 20}
+		{HighHardness}
+	}
+	{Volume "trackleft"
+		{able {holed}}
+	}
+	{Volume "trackright"
+		{able {holed}}
+	}
+	
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")

@@ -77,14 +77,13 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle(frg)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_rifle_mech(frg)"},
 			--HMGs
-				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "mg3_lafette"},
+				{priority = 0.25, class = UnitClass.Vehicle, period = "mid", unit = "mg3_lafette"},
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "m63g"},
 			--Anti_Aircraft
 			--Anti_Tank
 			--Mortars
-				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"}
 			--Infantry_Support
-				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"}
 			--Artillery
 			--Rocket_Artillery
 			--Wheel_vehicles	
@@ -211,7 +210,6 @@ Purchases["standard"] = {
 			--Mortars
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
 			--Infantry_Support
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
 			--Rocket_Artillery
 			--Wheel_vehicles	
@@ -368,7 +366,6 @@ Purchases["standard"] = {
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
 			--Infantry_Support
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m101g"},
 			--	{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m114g"},
@@ -651,7 +648,6 @@ Purchases["standard"] = {
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
 			--Infantry_Support
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m101g"},
 			--	{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m114g"},
@@ -858,7 +854,6 @@ Purchases["standard"] = {
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
 			--Infantry_Support
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m101g"},
 			--	{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m114g"},
@@ -1074,7 +1069,6 @@ Purchases["standard"] = {
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
 			--Infantry_Support
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m101g"},
 			--	{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m114g"},
@@ -1473,7 +1467,6 @@ Purchases["standard"] = {
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m29g_mortar"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "120mm_krh40_frg"},
 			--Infantry_Support
-				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m116g"},
 			--Artillery
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m101g"},
 			--	{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m114g"},
