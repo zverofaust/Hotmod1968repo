@@ -31,26 +31,18 @@
 ;// RADIO & OFFMAP SUPPORTS
 
 	{ tech "radio_1_usa"			requires ""									costs 2 position 5 15}
-	{"artillery_barrage_smoke_usa"	requires "radio_1_usa"						costs 0 position 6 31}
-	{"mortar_barrage_light_usa"		requires "radio_1_usa"						costs 1 position 6 32}
-	{"mortar_barrage_medium_usa"	requires "radio_1_usa"						costs 2 position 6 33}
-	{"cas_uh1_usa"					requires "radio_1_usa"						costs 2 position 6 34}
+	{"artillery_barrage_smoke_usa"	requires "radio_1_usa"						costs 0 position 6 15}
+	{"paradrop_supply_usa"			requires "radio_1_usa"						costs 1 position 7 15}
+	{"mortar_barrage_light_usa"		requires "radio_1_usa"						costs 1 position 8 15}
+	{"mortar_barrage_medium_usa"	requires "radio_1_usa"						costs 2 position 9 15}
 	
 	{ tech "radio_2_usa"			requires "radio_1_usa"						costs 3 position 5 16}
-	{"artillery_barrage_light_usa"	requires "radio_2_usa"						costs 2 position 7 31}
-	{"artillery_barrage_medium_usa"	requires "artillery_barrage_light_usa"		costs 3 position 7 32}
-	{"artillery_barrage_heavy_usa"	requires "artillery_barrage_medium_usa"		costs 4 position 7 33}
-	{"cas_uh1_ara_usa"				requires "radio_2_usa"						costs 3 position 7 34}
-	{"airstrike_4xcluster_usa"		requires "radio_2_usa"						costs 2 position 7 35}
-	{"airstrike_2x500_usa"			requires "radio_2_usa"						costs 3 position 7 36}
+	{"artillery_barrage_light_usa"	requires "radio_2_usa"						costs 2 position 6 16}
+	{"artillery_barrage_medium_usa"	requires "artillery_barrage_light_usa"		costs 3 position 7 16}
+	{"artillery_barrage_heavy_usa"	requires "artillery_barrage_medium_usa"		costs 4 position 8 16}
+	{"airstrike_4xcluster_usa"		requires "radio_2_usa"						costs 2 position 10 16}
+	{"airstrike_2x500_usa"			requires "radio_2_usa"						costs 3 position 11 16}
 	
-	{ tech "radio_3_usa"			requires "radio_2_usa"						costs 5 position 4 33}
-	{"cas_uh1_m22_usa"				requires "radio_3_usa"						costs 3 position 8 31}
-	{"airstrike_8xcluster_usa"		requires "radio_3_usa"						costs 3 position 8 32}
-	{"airstrike_8xnapalm_usa"		requires "radio_3_usa"						costs 4 position 8 33}
-	{"airstrike_8x250_usa"			requires "radio_3_usa"						costs 4 position 8 34}
-	{"airstrike_8x500_usa"			requires "radio_3_usa"						costs 5 position 8 35}
-	{"airstrike_3x1000_usa"			requires "radio_3_usa"						costs 6 position 8 36}
 	
 ;//---SQUADS---
 
@@ -70,125 +62,196 @@
 {"squad_engineer_moto_con_early(usa)"		requires "single_engineer_early(usa)"		costs 2  position 8 1}
 
 
-;{"squad_reservist_basic_con_early(usa)"		requires ""					costs 1  position 0 3}
-{"squad_reservist_autorifle_con_early(usa)"		requires ""					costs 1  position 1 3}
-{"squad_reservist_antitank_con_early(usa)"		requires ""					costs 1  position 1 4}
-{"squad_reservist_con_early(usa)"				requires ""					costs 1  position 1 5}
+;{"squad_reservist_basic_con_early(usa)"		requires ""												costs 1  position 0 3}
+{"squad_reservist_autorifle_con_early(usa)"		requires "usa_inf_early"								costs 1  position 1 3}
+{"squad_reservist_antitank_con_early(usa)"		requires "squad_reservist_autorifle_con_early(usa)"		costs 1  position 1 4}
+{"squad_reservist_con_early(usa)"				requires "squad_reservist_antitank_con_early(usa)"		costs 1  position 1 5}
 
-{"squad_natguard_con_early(usa)"			requires ""					costs 99  position 55 55}
+{"squad_natguard_con_early(usa)"			requires "usa_inf_early"					costs 1  position 0 4}
 
-{"squad_rifle_con_early(usa)"				requires ""					costs 99  position 55 55}
-{"squad_fireteamap_con_early(usa)"			requires ""					costs 99  position 55 55}
-{"squad_fireteamat_con_early(usa)"			requires ""					costs 99  position 55 55}
-{"squad_rifle_full_con_early(usa)"			requires ""					costs 99  position 55 55}
-{"squad_rifle_m14_con_early(usa)"			requires ""					costs 99  position 55 55}
+{"squad_rifle_con_early(usa)"				requires "usa_inf_early"														costs 1  position 2 3}
+{"squad_fireteamap_con_early(usa)"			requires "squad_rifle_con_early(usa)"											costs 1  position 3 3}
+{"squad_fireteamat_con_early(usa)"			requires "squad_rifle_con_early(usa)"											costs 2  position 2 4}
+{"squad_rifle_full_con_early(usa)"			requires "squad_fireteamap_con_early(usa) squad_fireteamat_con_early(usa)"		costs 0  position 3 4}
+{"squad_weapon_con_early(usa)"				requires "squad_fireteamat_con_early(usa)"										costs 2  position 3 5}
 
-{"squad_weapon_con_early(usa)"				requires ""					costs 99  position 55 55}
-{"squad_weapon_m14_con_early(usa)"			requires ""					costs 99  position 55 55}
 
-{"single_marksman_usmc_early(usa)"			requires ""					costs 99  position 55 55}
-{"single_sniper_usmc_early(usa)"			requires ""					costs 99  position 55 55}
 
-{"squad_usmc_fireteam_con_early(usa)"		requires ""					costs 99  position 55 55}
-{"squad_usmc_con_early(usa)"				requires ""					costs 99  position 55 55}
-{"squad_usmc_mg_con_early(usa)"				requires ""					costs 99  position 55 55}
-{"squad_usmc_flame_con_early(usa)"			requires ""					costs 99  position 55 55}
+{"squad_usmc_fireteam_con_early(usa)"		requires "usa_usmc_early"								costs 0  position 8 7}
+{"single_sniper_usmc_early(usa)"			requires "squad_usmc_fireteam_con_early(usa)"			costs 2  position 9 6}
+{"squad_usmc_con_early(usa)"				requires "squad_usmc_fireteam_con_early(usa)"			costs 2  position 9 7}
+{"squad_usmc_mg_con_early(usa)"				requires "squad_usmc_con_early(usa)"					costs 2  position 8 8}
+{"squad_usmc_flame_con_early(usa)"			requires "squad_usmc_con_early(usa)"					costs 2  position 10 7}
+
+{"squad_air_recon_con_early(usa)"			requires "usa_aircav_early"						costs 0  position 7 3}
+{"squad_air_fireteam_con_early(usa)"		requires "squad_air_recon_con_early(usa)"		costs 2  position 8 3}
+{"squad_air_con_early(usa)"					requires "squad_air_fireteam_con_early(usa)"	costs 3  position 9 3}
+{"squad_air_m14_con_early(usa)"				requires "squad_air_con_early(usa)"				costs 2  position 10 3}
+
+{"squad_ranger_recon_con_early(usa)"		requires "squad_air_recon_con_early(usa)"			costs 2  position 7 4}
+{"squad_ranger_demo_con_early(usa)"			requires "squad_ranger_recon_con_early(usa)"		costs 3  position 7 5}
+{"squad_ranger_weapon_con_early(usa)"		requires "squad_ranger_recon_con_early(usa)"		costs 3  position 6 4}
+
 	
 ;//---MG---
 	
-	{"m2_m1919a4"		requires	""					costs 0 position 0 30}
-	{"m63_browning"		requires	""					costs 1 position 1 30}
+	;{"m2_m1919a4"		requires	""						costs 0 position 0 30}
+	{"m63_browning"		requires	"usa_artillery_early"	costs 1 position 0 9}
 
 ;//---Mortars---
 	
-	{"m29_mortar"		requires	""					costs 0 position 5 25}
-	{"m30_mortar"		requires	""					costs 2 position 6 25}
-	{"m98_howtar"		requires	"" 					costs 1 position 1 21}
+	;{"m29_mortar"		requires	""						costs 0 position 5 25}
+	{"m30_mortar"		requires	"usa_artillery_early"	costs 2 position 1 9}
 	
 ;//---AA---
 
-	{"m45_maxson"		requires	""					costs 2 position 2 30}
-	{"40_mm_m1"			requires	""					costs 2 position 4 30}
+	{"m45_maxson"		requires	"m63_browning"		costs 2 position 0 8}
+	{"40_mm_m1"			requires	"m45_maxson"		costs 2 position 1 8}
 
 ;//---AT Guns---
 	
-	{"m40"				requires	""		costs 1 position 2 25}
-	{"entac"			requires	""				costs 2 position 3 25}
+	{"m40"				requires	"usa_artillery_early"	 costs 3 position 0 12}
 	
 ;//---Artillery---
 
-	{"m116_packhow"		requires	""					costs 0 position 0 25}
-	{"m101a1"			requires	""		costs 2 position 0 26}
-	{"m114"				requires	""			costs 3 position 2 26}
-	{"m115"				requires	""				costs 4 position 3 26}
-	{"m-28"				requires	""				costs 20 position 5 28}
-	{"m416_m388"		requires	""				costs 10 position 6 28}
+	{"m116_packhow"		requires	"usa_artillery_early"				costs 0 position 1 10}
+	{"m101a1"			requires	"m116_packhow"						costs 2 position 2 11}
+	{"m114"				requires	"m101a1"							costs 3 position 3 11}
+	{"m115"				requires	"m114"								costs 4 position 4 11}
+	{"m59_longtom"		requires	"m101a1"							costs 4 position 2 10}
+	{"m-28"				requires	"m59_longtom"						costs 20 position 3 9}
+	{"m416_m388"		requires	"m-28"								costs 0 position 4 9}
 
 ;---Trucks---
 	
-	{"dodge_m37"		requires	""					costs 1 position 7 1}
-	{"dodge_m37_ammo"	requires	""					costs 1 position 8 1}
-	{"dodge_m37_eng"	requires	""					costs 1 position 4 5}
-	{"m151_m2"			requires	""					costs 1 position 1 31}
-	{"m151_m40"			requires	""					costs 2 position 2 24}
-	{"m35"				requires	""			costs 1 position 7 3}
-	{"m35_ammo"			requires	""				costs 1 position 8 3}
-	{"m35_arty"			requires	""			costs 2 position 8 5}
-	{"m35_guntruck"		requires	""			costs 1 position 8 4}
-	{"cckw353_fuel"		requires	""				costs 2 position 6 3}
+	{"dodge_m37"		requires	"usa_trucks_early"					costs 0 position 10 10}
+	{"dodge_m37_ammo"	requires	"dodge_m37"							costs 1 position 11 10}
+	{"dodge_m37_eng"	requires	"single_engineer_early(usa)"		costs 2 position 8 1}
+	{"m35"				requires	"dodge_m37"							costs 2 position 10 11}
+	{"m35_ammo"			requires	"m35"								costs 2 position 11 11}
+	{"m35_arty"			requires	"m35"								costs 4 position 11 12}
+	{"cckw353_fuel"		requires	"m35"								costs 2 position 9 11}
 
 ;---BTRs (aka M113s)---
 
-	{"m113"					requires	""					costs 1 position 4 7}
-	{"m113_acav"			requires	""			costs 2 position 6 16}
-	{"m113_acav_m40"		requires	""			costs 1 position 7 16}
-	
-	{"m114a1"				requires	""			costs 0 position 6 15}
-	{"m114a2"				requires	""			costs 4 position 7 15}
-	
-	{"m125"					requires	""		costs 3 position 5 26}
-	{"m106"					requires	""		costs 4 position 6 26}
-	
-	{"m132_zippo"			requires	""	costs 3 position 4 23}
-	{"m163"					requires	""				costs 6 position 4 38}
+	{"m16gmc"			requires	"usa_afv_early"						costs 2 position 7 10}	
 	
 ;//---Light Tanks---
 	
-	{"m24_chaffee"			requires	""								costs 1 position 3 33}
-	{"m41"					requires	""					costs 1 position 3 34}
-	{"m56"					requires	""							costs 1 position 3 35}
-	{"m42"					requires	""					costs 1 position 4 35}
-	{"m50"					requires	""							costs 2 position 3 36}
-	{"m551"					requires	""							costs 3 position 3 38}
-	{"m551_acav"			requires	""					costs 4 position 8 16}
+	{"m24_chaffee"			requires	"usa_tanks_early"					costs 0 position 0 15}
+	{"m41_early"			requires	"m24_chaffee"						costs 1 position 1 15}
+	{"m41"					requires	"m41_early"							costs 2 position 2 15}
+	{"m56"					requires	"squad_air_con_early(usa)"			costs 2 position 9 4}
+	{"m42"					requires	"usa_tanks_early"					costs 3 position 1 14}
+	{"m50"					requires	"squad_usmc_flame_con_early(usa)"		costs 2 position 11 7}
 
 ;//---Medium Tanks---
 	
-	{"m4a3e8"				requires	""					costs 2 position 2 33}
-	{"m46_patton"			requires	""	costs 3 position 1 34}
-	{"m47_patton"			requires	""		costs 3 position 1 35}
-	{"m48"					requires	""		costs 4 position 1 36}
-	{"m48a1"				requires	""				costs 3 position 1 37}
-	{"m48a3"				requires	""				costs 4 position 1 38}
-	{"m67_zippo"			requires	""		costs 3 position 5 23}
-	{"m60a1"				requires	""				costs 5 position 1 39}
-	{"m60a1e2"				requires	""				costs 10 position 1 40}
-	{"m728"					requires	""				costs 6 position 0 38}
+	{"m4a3e8"				requires	"usa_tanks_early"					costs 2 position 0 16}
+	{"m36gmc"				requires	"m4a3e8"							costs 2 position 1 16}
+	{"m26_pershing"			requires	"usa_tanks_early"					costs 3 position 0 17}
+	{"m46_patton"			requires	"m26_pershing"						costs 1 position 1 17}
+	{"m47_patton"			requires	"m46_patton"						costs 2 position 2 17}
+	{"m48"					requires	"m47_patton"						costs 2 position 3 17}
+	{"m48a1"				requires	"m48"								costs 1 position 4 17}
+	{"m48a3"				requires	"m48a1"								costs 2 position 5 17}
+	{"m67_zippo"			requires	"m48"								costs 3 position 3 17}
 	
 ;---Heavy Tanks---
 
-	{"m26_pershing"			requires	""					costs 2 position 0 33}
-	{"m103"					requires	""		costs 3 position 0 36}
+	{"m103"					requires	"m48"								costs 3 position 3 16}
 	
 ;---SPGs---
-
-	{"m108"					requires	""		costs 3 position 1 28}
-	{"m109"					requires	""			costs 4 position 2 28}
-	{"m110"					requires	""			costs 5 position 3 28}
 	
 ;---Helis---
 
-	{"uh-1h"				requires	""		costs 2 position 2 15}
-	{"uh-1b"				requires	""			costs 3 position 3 15}
-	{"uh-1b_ara"			requires	""			costs 5 position 3 16}
-	{"uh-1b_m22"			requires	""		costs 5 position 3 17}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
+;;;;;;       MID ERA (1960s)        ;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+	;// DOCTRINE TECHS
+	{ tech "usa_era_mid"				requires "usa_inf_early usa_aircav_early usa_usmc_early usa_artillery_early usa_tanks_early usa_afv_early usa_trucks_early"	costs 0  position 5 18}
+	
+	{ tech "usa_inf_mid"				requires "usa_era_mid"							costs 5  position 0 19}
+	{ tech "usa_aircav_mid"				requires "usa_era_mid"							costs 5  position 6 22}
+	{ tech "usa_usmc_mid"				requires "usa_era_mid"							costs 5  position 6 26}
+	{ tech "usa_acav_mid"				requires "usa_era_mid"							costs 5  position 0 26}
+	{ tech "usa_artillery_mid"			requires "usa_era_mid"							costs 5  position 1 29}
+	{ tech "usa_tanks_mid"				requires "usa_era_mid"							costs 5  position 0 31}
+	{ tech "usa_afv_mid"				requires "usa_era_mid"							costs 2  position 5 29}
+	{ tech "usa_trucks_mid"				requires "usa_era_mid"							costs 2  position 11 29}
+	{ tech "usa_heli_mid"				requires "usa_era_mid"							costs 5  position 6 32}
+	
+;// RADIO & OFFMAP SUPPORTS
+	
+	{ tech "radio_3_usa"			requires "radio_2_usa"						costs 5 position 2 34}
+	{"cas_uh1_usa"					requires "radio_3_usa"						costs 2 position 3 34}
+	{"cas_uh1_ara_usa"				requires "radio_3_usa"						costs 3 position 4 34}
+	{"cas_uh1_m22_usa"				requires "radio_3_usa"						costs 3 position 5 34}
+	{"airstrike_8xcluster_usa"		requires "radio_3_usa"						costs 3 position 6 34}
+	{"airstrike_8xnapalm_usa"		requires "radio_3_usa"						costs 4 position 7 34}
+	{"airstrike_8x250_usa"			requires "radio_3_usa"						costs 4 position 8 34}
+	{"airstrike_8x500_usa"			requires "radio_3_usa"						costs 5 position 9 34}
+	{"airstrike_3x1000_usa"			requires "radio_3_usa"						costs 6 position 10 34}
+	
+	
+;//---MG---
+
+;//---Mortars---
+	
+	{"m98_howtar"		requires	"usa_usmc_mid" 				costs 1 position 6 25}
+	
+;//---AA---
+
+;//---AT Guns---
+	
+	{"entac"			requires	"usa_artillery_mid"			costs 2 position 2 29}
+	
+;//---Artillery---
+
+;---Trucks---
+	
+	{"m151_m2"			requires	"usa_afv_mid"			costs 0 position 5 30}
+	{"m151_m40"			requires	"m151_m2"				costs 2 position 5 31}
+	{"m35_guntruck"		requires	"m151_m2"				costs 2 position 6 31}
+
+;---BTRs (aka M113s)---
+
+	{"m113"					requires	"usa_afv_mid"		costs 1 position 6 29}
+	{"m113_acav"			requires	"usa_acav_mid"		costs 2 position 3 26.5}
+	{"m113_acav_m40"		requires	"m113_acav"			costs 1 position 3 28}
+	
+	{"m114a1"				requires	"usa_afv_mid"		costs 2 position 6 30}
+	{"m114a2"				requires	"m114a1"			costs 3 position 7 30}
+	
+	{"m125"					requires	"m113"				costs 3 position 7 29}
+	{"m106"					requires	"m125"				costs 4 position 8 29}
+	
+	{"m132_zippo"			requires	"m113_acav_m40"		costs 3 position 4 28}
+	{"m163"					requires	"usa_tanks_mid"		costs 5 position 1 31}
+	
+;//---Light Tanks---
+	
+	{"m551"					requires	"usa_tanks_mid"		costs 3 position 0 32}
+	{"m551_acav"			requires	"m113_acav_m40"		costs 4 position 1 28}
+
+;//---Medium Tanks---
+	
+	{"m60a1"				requires	"usa_tanks_mid"		costs 4 position 1 33}
+	{"m60a1e2"				requires	"m60a1"				costs 10 position 2 33}
+	{"m728"					requires	"m60a1"				costs 6 position 1 34}
+	
+;---Heavy Tanks---
+	
+;---SPGs---
+
+	{"m108"					requires	"usa_tanks_mid usa_artillery_mid"	costs 0 position 1 30}
+	{"m109"					requires	"m108"								costs 3 position 2 30}
+	{"m110"					requires	"m109"								costs 5 position 3 30}
+	
+;---Helis---
+
+	{"uh-1h"				requires	"usa_heli_mid"		costs 2 position 6 33}
+	{"uh-1b"				requires	"usa_heli_mid"		costs 3 position 7 33}
+	{"uh-1b_ara"			requires	"uh-1b"				costs 5 position 8 33}
+	{"uh-1b_m22"			requires	"uh-1b_ara"			costs 5 position 9 32}
