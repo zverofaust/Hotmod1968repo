@@ -1,0 +1,119 @@
+{game_entity		;M108
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{props "spg" "medium" "turret_rotator" "vision_lev06""muzzle_150mm_155mm_sides" "diesel" "detect_spg"}
+	(include "m109_acav.ext")
+	{targetclass "tank_light"}
+	{targetSelector "tank_spg"}
+	{PatherId "t34"}
+	
+	{extender "enumerator"
+		{digit_folder "nato"}
+	}
+
+	;Crew 6: driver, commander, two gunners, two loaders
+	("crew_4_human")
+	("gunner_visible")
+	
+	{boarder
+		{anm "driver"
+			{forward {begin "board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse {end "emit_t34_hold"} {base "close_driver"}}
+		}
+		{anm "left"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_body"}}
+		}
+	}	
+	
+
+	
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "gunner"		{visor "main"}}
+		{place "commander"	{visor "mgun"}{sealable}}
+	}
+
+	{sensor
+		{visor "mgun"
+			{vision "human"}
+			{bone "mgun_rot"}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet155_m1 he" 28}
+			{item "ammo hmgun_usa" 500}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "155mm_m126" filling "bullet155_m1 he" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic"
+				zeroing(5.0)
+				dispersion(0.25)
+			)
+		}
+		{place "mgun"		;aa
+			{weapon 		"browning_m2" filled}
+			{gunner 		"commander"}
+			{charger 		"commander"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 23586}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(56) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(10);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(23.5) ;-------Weight in Tonnes.
+			power(520) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(830) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(360) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "m109_acav.mdl"}
+
+	{bone "turret"			;gun horizontal
+		{speed2 8}			;degree per second
+	}
+	{bone "gun_rot"			;gun vertical
+		{speed2 6}			;degree per second
+		{limits -3 75}		;min down to max up
+	}
+	{bone "mgun_rot"			;gun vertical
+		{speed2 40}			;degree per second
+		{limits -14 30}		;min down to max up
+	}
+	{bone "mgun_shield"
+		{limits -15 15}
+	}
+}
