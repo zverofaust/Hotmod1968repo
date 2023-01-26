@@ -9,11 +9,13 @@
 
 (define "frg_radioman_early"
 	{tags "early %side infantry man signaller"}
-	{cp 2}
+	{cp 1}
 	{basic}
 	{breed}
 	{cw 2}
 	{score_factor 0.2}
+	{research_stage 0}
+	{research_stage_max 12}
 )
 
 (define "frg_radioman"
@@ -27,6 +29,50 @@
 {"mp/frg/mid/sup_radioman"			("frg_radioman" side(frg)) {cost 50.0}}
 {"mp/frg/early/sup_radioman"		("frg_radioman_early" side(frg)) {cost 50.0}}
 
+
+(define "frg_supporter_early"
+	{tags "early %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+	{research_stage 0}
+	{research_stage_max 12}
+)
+(define "frg_supporter"
+	{tags "mid %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/frg/early/sup_guncrew"			("frg_supporter_early" side(frg)) {cost 5.0}} ; Pistol
+{"mp/frg/early/sup_supporter"		("frg_supporter_early" side(frg)) {cost 5.0}} ; M1
+{"mp/frg/early/sup_tankman"			("frg_supporter_early" side(frg)) {cost 4.0}} ; MP1
+{"mp/frg/early/sup_vehicleman"		("frg_supporter_early" side(frg)) {cost 4.0}} ; MP1 
+{"mp/frg/early/sup_pilot"			("frg_supporter_early" side(frg)) {cost 4.0}} ; MP1
+{"mp/frg/early/pzg_vehicleman"		("frg_supporter_early" side(frg)) {cost 9.0}} ; MP1
+
+{"mp/frg/mid/sup_guncrew"			("frg_supporter" side(frg)) {cost 5.0}} ; Pistol
+{"mp/frg/mid/sup_supporter"			("frg_supporter" side(frg)) {cost 5.0}} ; M1
+{"mp/frg/mid/sup_tankman"			("frg_supporter" side(frg)) {cost 4.0}} ; MP2
+{"mp/frg/mid/sup_vehicleman"		("frg_supporter" side(frg)) {cost 4.0}} ; MP2 
+{"mp/frg/mid/sup_pilot"				("frg_supporter" side(frg)) {cost 4.0}} ; MP2
+{"mp/frg/mid/pzg_vehicleman"		("frg_supporter" side(frg)) {cost 9.0}} ; MP2
+
+
+(define "frg_basic_early"
+	{tags "early %side infantry man lvl1"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+	{research_stage 0}
+	{research_stage_max 12}
+)
 (define "frg_basic"
 	{tags "mid %side infantry man"}
 	{cp 1}
@@ -35,11 +81,13 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/frg/mid/sup_guncrew"			("frg_basic" side(frg)) {cost 5.0}} ; Pistol
-{"mp/frg/mid/sup_supporter"			("frg_basic" side(frg)) {cost 5.0}} ; M1
-{"mp/frg/mid/sup_tankman"			("frg_basic" side(frg)) {cost 4.0}} ; M3
-{"mp/frg/mid/sup_vehicleman"		("frg_basic" side(frg)) {cost 4.0}} ; M3 -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
-{"mp/frg/mid/sup_pilot"				("frg_basic" side(frg)) {cost 4.0}} ; M3
+{"mp/frg/early/rsv_rifleman"		("frg_basic_early" side(frg)) {cost 5.0}} ; M1
+{"mp/frg/early/rsv_grenadier"		("frg_basic_early" side(frg)) {cost 15.0}} ; M1 + M31 HEAT Grenade
+{"mp/frg/early/rsv_antitank"		("frg_basic_early" side(frg)) {cost 30.0}} ; M20 Super Bazooka
+{"mp/frg/early/rsv_mg"				("frg_basic_early" side(frg)) {cost 30.0}} ; MG1
+{"mp/frg/early/rsv_mgassist"		("frg_basic_early" side(frg)) {cost 10.0}} ; M1 & MG Ammo
+{"mp/frg/early/rsv_squadlead"		("frg_basic_early" side(frg)) {cost 15.0}} ; M1
+
 {"mp/frg/mid/rsv_rifleman"			("frg_basic" side(frg)) {cost 5.0}} ; M1
 {"mp/frg/mid/rsv_grenadier"			("frg_basic" side(frg)) {cost 15.0}} ; M1 + M31 HEAT Grenade
 {"mp/frg/mid/rsv_antitank"			("frg_basic" side(frg)) {cost 30.0}} ; M20 Super Bazooka
@@ -47,14 +95,42 @@
 {"mp/frg/mid/rsv_mgassist"			("frg_basic" side(frg)) {cost 10.0}} ; M1 & MG Ammo
 {"mp/frg/mid/rsv_squadlead"			("frg_basic" side(frg)) {cost 15.0}} ; M1
 
-(define "frg_regular"
-	{tags "mid %side infantry man"}
-	{cp 2}
+(define "frg_regular_early"
+	{tags "early %side infantry man lvl1 lvl2"}
+	{cp 1}
 	{basic}
 	{breed}
 	{cw 1.0}
 	{score_factor 0.05}
+	{research_stage 0}
+	{research_stage_max 12}
 )
+
+(define "frg_regular"
+	{tags "mid %side infantry man lvl1 lvl2"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 1.0}
+	{score_factor 0.05}
+	{research_stage 12}
+	{research_stage_max 99}
+)
+{"mp/frg/early/reg_atassist"		("frg_regular_early" side(frg)) {cost 13.0}} ; M1 & M20/Carl Gustaf Ammo
+{"mp/frg/early/reg_atassist2"		("frg_regular_early" side(frg)) {cost 13.0}} ; G1 & M20/Carl Gustaf Ammo
+{"mp/frg/early/reg_grenadier"		("frg_regular_early" side(frg)) {cost 30.0}} ; M1 & M7 HEAT Rifle Grenade
+{"mp/frg/early/reg_mg"				("frg_regular_early" side(frg)) {cost 40.0}} ; MG1
+{"mp/frg/early/reg_mgassist"		("frg_regular_early" side(frg)) {cost 13.0}} ; M1 & MG1 Ammo
+{"mp/frg/early/reg_mgassist2"		("frg_regular_early" side(frg)) {cost 13.0}} ; G1 & MG1 Ammo
+{"mp/frg/early/reg_sapper-ap"		("frg_regular_early" side(frg)) {cost 25.0}} ; M2 Carbine
+{"mp/frg/early/reg_sapper-at"		("frg_regular_early" side(frg)) {cost 25.0}} ; M2 Carbine
+{"mp/frg/early/reg_rifleman"		("frg_regular_early" side(frg)) {cost 10.0}} ; M1 Garand
+{"mp/frg/early/reg_rifleman2"		("frg_regular_early" side(frg)) {cost 10.0}} ; G1 Rifle
+{"mp/frg/early/reg_teamlead"		("frg_regular_early" side(frg)) {cost 14.0}} ; M1 & Ammo Rucksack
+{"mp/frg/early/reg_teamlead2"		("frg_regular_early" side(frg)) {cost 14.0}} ; G1 & Ammo Rucksack
+{"mp/frg/early/reg_squadlead"		("frg_regular_early" side(frg)) {cost 25.0}} ; M1 Garand
+{"mp/frg/early/reg_squadlead2"		("frg_regular_early" side(frg)) {cost 25.0}} ; G1
+
 {"mp/frg/mid/reg_atassist"			("frg_regular" side(frg)) {cost 13.0}} ; G3 & M20/Carl Gustaf Ammo
 {"mp/frg/mid/reg_grenadier"			("frg_regular" side(frg)) {cost 30.0}} ; M79
 {"mp/frg/mid/reg_lat"				("frg_regular" side(frg)) {cost 20.0}} ; G3 & PzF 44
@@ -66,14 +142,30 @@
 {"mp/frg/mid/reg_teamlead"			("frg_regular" side(frg)) {cost 14.0}} ; G3 & Ammo Rucksack
 {"mp/frg/mid/reg_squadlead"			("frg_regular" side(frg)) {cost 25.0}} ; G3
 
+(define "frg_regular_advanced_early"
+	{tags "early %side infantry man" lvl2}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.05}
+	{research_stage 0}
+	{research_stage_max 12}
+)
+
 (define "frg_regular_advanced"
 	{tags "mid %side infantry man"}
-	{cp 3}
+	{cp 1}
 	{basic}
 	{breed}
 	{cw 1.5}
 	{score_factor 0.05}
 )
+{"mp/frg/early/reg_antitank"			("frg_regular_early" side(frg)) {cost 40.0}} ; MP1 + M20/Carl G
+{"mp/frg/early/reg_marksman"			("frg_regular_early" side(frg)) {cost 45.0}} ; M1C Garand
+{"mp/frg/early/reg_flamer"			("frg_regular_early" side(frg)) {cost 50.0}} ; ?
+{"mp/frg/early/reg_engineer"			("frg_regular_early" side(frg)) {cost 35.0}} ; M2 Carbine
+{"mp/frg/early/reg_scout"				("frg_regular_early" side(frg)) {cost 25.0}} ; M2 Carbine
 
 {"mp/frg/mid/reg_antitank"			("frg_regular" side(frg)) {cost 40.0}} ; MP2 + M20/Carl G
 {"mp/frg/mid/reg_marksman"			("frg_regular" side(frg)) {cost 45.0}} ; G3A3ZF
@@ -81,14 +173,35 @@
 {"mp/frg/mid/reg_engineer"			("frg_regular" side(frg)) {cost 35.0}} ; MP2
 {"mp/frg/mid/reg_scout"				("frg_regular" side(frg)) {cost 25.0}} ; MP2
 
+(define "frg_pzgren_early"
+	{tags "early %side infantry man lvl2 lvl3"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+	{research_stage 0}
+	{research_stage_max 12}
+)
 (define "frg_pzgren"
 	{tags "mid %side infantry man"}
-	{cp 3}
+	{cp 1}
 	{basic}
 	{breed}
 	{cw 4.0}
 	{score_factor 0.05}
 )
+{"mp/frg/early/pzg_antitank"		("frg_pzgren_early" side(frg)) {cost 60.0}} ; MP1 & M20
+{"mp/frg/early/pzg_atassist"		("frg_pzgren_early" side(frg)) {cost 20.0}} ; G1
+{"mp/frg/early/pzg_marksman"		("frg_pzgren_early" side(frg)) {cost 65.0}} ; M1C
+{"mp/frg/early/pzg_mg"				("frg_pzgren_early" side(frg)) {cost 50.0}} ; MG1
+{"mp/frg/early/pzg_mgassist"		("frg_pzgren_early" side(frg)) {cost 20.0}} ; G1 & MG Ammo
+{"mp/frg/early/pzg_flamer"			("frg_pzgren_early" side(frg)) {cost 55.0}} ; ?
+{"mp/frg/early/pzg_rifleman"		("frg_pzgren_early" side(frg)) {cost 17.0}} ; G1
+{"mp/frg/early/pzg_teamlead"		("frg_pzgren_early" side(frg)) {cost 22.0}} ; G1 & Ammo Rucksack
+{"mp/frg/early/pzg_squadlead"		("frg_pzgren_early" side(frg)) {cost 30.0}} ; G1
+{"mp/frg/early/pzg_vehicleman"		("frg_pzgren_early" side(frg)) {cost 15.0}} ; MP1
+
 {"mp/frg/mid/pzg_antitank"			("frg_pzgren" side(frg)) {cost 60.0}} ; MP2 & Carl G
 {"mp/frg/mid/pzg_atassist"			("frg_pzgren" side(frg)) {cost 20.0}} ; G3A3
 {"mp/frg/mid/pzg_lat"				("frg_pzgren" side(frg)) {cost 30.0}} ; G3A3 & PzF 44
@@ -101,14 +214,30 @@
 {"mp/frg/mid/pzg_squadlead"			("frg_pzgren" side(frg)) {cost 30.0}} ; G3A3
 {"mp/frg/mid/pzg_vehicleman"		("frg_pzgren" side(frg)) {cost 15.0}} ; G3A3
 
+(define "frg_fernspah_early"
+	{tags "early %side infantry man lvl3 lvl4 lvl5"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+	{research_stage 0}
+	{research_stage_max 12}
+)
 (define "frg_fernspah"
 	{tags "mid %side infantry man"}
-	{cp 3}
+	{cp 1}
 	{basic}
 	{breed}
 	{cw 2}
 	{score_factor 0.05}
 )
+{"mp/frg/early/frn_spotter"		("frg_fernspah_early" side(frg)) {cost 32.0}} ; M2/Binos
+{"mp/frg/early/frn_mg"			("frg_fernspah_early" side(frg)) {cost 65.0}} ; MG1
+{"mp/frg/early/frn_rifleman"	("frg_fernspah_early" side(frg)) {cost 25.0}} ; G1
+{"mp/frg/early/frn_antitank"	("frg_fernspah_early" side(frg)) {cost 70.0}} ; MP1/M20
+{"mp/frg/early/frn_marksman"	("frg_fernspah_early" side(frg)) {cost 80.0}} ; M1C
+{"mp/frg/early/frn_squadlead"	("frg_fernspah_early" side(frg)) {cost 40.0}} ; G1
 
 {"mp/frg/mid/frn_spotter"		("frg_fernspah" side(frg)) {cost 32.0}} ; MP2/Binos
 {"mp/frg/mid/frn_mg"			("frg_fernspah" side(frg)) {cost 65.0}} ; MG3
@@ -118,26 +247,56 @@
 {"mp/frg/mid/frn_marksman"		("frg_fernspah" side(frg)) {cost 80.0}} ; G3A3ZF
 {"mp/frg/mid/frn_squadlead"		("frg_fernspah" side(frg)) {cost 40.0}} ; G3A3
 
-
+(define "frg_specops_early"
+	{tags "early %side infantry man lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+	{research_stage 0}
+	{research_stage_max 12}
+)
 (define "frg_specops"
 	{tags "mid %side infantry man"}
-	{cp 3}
+	{cp 1}
 	{basic}
 	{breed}
 	{cw 2}
 	{score_factor 0.05}
 )
 
+(define "frg_medic_early"
+	{tags "early %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor -0.2}
+	{research_stage 0}
+	{research_stage_max 12}
+)
 (define "frg_medic"
 	{tags "mid %side infantry man"}
-	{cp 3}
+	{cp 1}
 	{basic}
 	{breed}
 	{cw 0.5}
 	{score_factor -0.2}
 )
+{"mp/frg/early/reg_medic"		("frg_medic_early" side(frg)) {cost 40.0}}
 {"mp/frg/mid/reg_medic"			("frg_medic" side(frg)) {cost 40.0}}
 
+(define "frg_officer_early"
+	{tags "early %side infantry man officer"}
+	{cp -25}
+	{basic}
+	{breed}
+	{cw 5}
+	{score_factor 0.2}
+	{research_stage 0}
+	{research_stage_max 12}
+)
 (define "frg_officer"
 	{tags "mid %side infantry man officer"}
 	{cp -25}
@@ -146,15 +305,27 @@
 	{cw 5}
 	{score_factor 0.2}
 )
+{"mp/frg/early/reg_officer"		("frg_officer_early" side(frg)) {cost 65.0}} ; Pistol; High-value officer target.
 {"mp/frg/mid/reg_officer"		("frg_officer" side(frg)) {cost 65.0}} ; Pistol; High-value officer target.
 
 
+(define "frg_sniper_early"
+	{tags "early %side infantry man sniper lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+	{research_stage 0}
+	{research_stage_max 12}
+)
 (define "frg_sniper"
 	{tags "mid %side infantry man sniper"}
-	{cp -25}
+	{cp 1}
 	{basic}
 	{breed}
 	{cw 2}
 	{score_factor 0.05}
 )
+{"mp/frg/early/frn_sniper"		("frg_sniper_early" side(frg)) {cost 140.0}} ; Kar 98K scope
 {"mp/frg/mid/frn_sniper"		("frg_sniper" side(frg)) {cost 140.0}} ; Kar 98K scope

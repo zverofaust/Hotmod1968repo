@@ -347,6 +347,45 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["frg"] = {--Federal Republic of Germany - aka West Germany
 			--Infantry Singles
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_scout_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_marksman_early(frg)"},
+				{priority = 0.2, class = UnitClass.Infantry, unit = "single_sniper_early(frg)"},
+				
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_scout(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "single_marksman(frg)"},
+				{priority = 0.2, class = UnitClass.Infantry, unit = "single_sniper(frg)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_con_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fireteamap_con_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fireteamat_con_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fireteamss_con_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_con_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_g1_con_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_pzgren_mech_con_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fernspah_lrrp_con_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fernspah_fireteam_con_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fernspah_con_early(frg)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_con(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fireteamap_con(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fireteamat_con(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fireteamss_con(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_con(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto_con(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto2_con(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_pzgren_moto_con(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_pzgren_moto2_con(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_pzgren_mech_con(frg)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fernspah_lrrp_con(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fernspah_fireteam_con(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fernspah_con(frg)"},
+				
 	
 			--Infantry Squads
 				
