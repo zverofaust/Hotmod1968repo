@@ -34,6 +34,9 @@
 ;;;EARLY Period
 
 ("squad_with6types_conquest" side(frg) period(early) min_stage(0) max_stage(15) name(squad_reservist_con_early) 	c1(rsv_squadlead:1) c2(rsv_mg:1) c3(rsv_antitank:1) c4(rsv_grenadier:1) c5(rsv_mgassist:1) c6(rsv_rifleman:5))
+{"squad_reservist_moto_con_early(frg)"
+	("squad_vehicle7" period(early) min_stage(2) max_stage(14) side(frg) vehicle(m39g_apc) cw(0) cp(4) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_mg:1) crew4(rsv_antitank:1) crew5(rsv_grenadier:1) crew6(rsv_mgassist:1) crew7(reg_rifleman:5))
+}
 
 ("squad_with4types_conquest" side(frg) period(early) min_stage(0) max_stage(15) name(squad_fireteamap_con_early) 	c1(reg_teamlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_rifleman:2) )
 ("squad_with4types_conquest" side(frg) period(early) min_stage(0) max_stage(15) name(squad_fireteamat_con_early) 	c1(reg_teamlead:1) c2(reg_antitank:1) c3(reg_atassist:1) c4(reg_rifleman:2) )
@@ -42,6 +45,13 @@
 ("squad_with7types_conquest" side(frg) period(early) min_stage(0) max_stage(15) name(squad_rifle_con_early) 	c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_antitank:1) c4(reg_atassist:1) c5(reg_mgassist:1) c6(reg_rifleman:4) c7(reg_teamlead:1))
 ("squad_with7types_conquest" side(frg) period(early) min_stage(0) max_stage(15) name(squad_rifle_g1_con_early) 	c1(reg_squadlead2:1) c2(reg_mg:1) c3(reg_antitank:1) c4(reg_atassist2:1) c5(reg_mgassist2:1) c6(reg_rifleman2:4) c7(reg_teamlead2:1))
 
+{"squad_rifle_moto_con_early(frg)"
+	("squad_vehicle8" period(early) min_stage(3) max_stage(14) side(frg) vehicle(m39g_apc) cw(0) cp(4) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_mg:1) crew4(reg_antitank:1) crew5(reg_atassist:1) crew6(reg_mgassist:1) crew7(reg_teamlead:1) crew8(reg_rifleman:4))
+}
+
+{"squad_pzgren_moto_con_early(frg)"
+	("squad_vehicle8" period(early) min_stage(4) max_stage(14) side(frg) vehicle(m39g_apc) cw(0) cp(4) crew1(pzg_vehicleman:2) crew2(pzg_squadlead:1) crew3(pzg_mg:1) crew4(pzg_antitank:1) crew5(pzg_atassist:1) crew6(pzg_mgassist:1) crew7(pzg_teamlead:1) crew8(pzg_rifleman:4))
+}
 {"squad_pzgren_mech_con_early(frg)"
 	("squad_vehicle6" period(early) min_stage(8) max_stage(14) side(frg) vehicle(spz_123) cw(0) cp(4) crew1(pzg_vehicleman:3) crew2(pzg_squadlead:1) crew3(pzg_mg:1) crew4(pzg_antitank:1) crew5(pzg_atassist:1) crew6(pzg_mgassist:1))
 }
@@ -179,6 +189,15 @@
 	{cost 5}
 }
 
+{"m39g_apc"
+	("vehicle"  period(mid) min_stage(1) max_stage(99) side(frg) crew(sup_vehicleman:2) cw(0) cp(6))
+	{cost 80}
+}
+
+{"m39g_ammo"
+	("vehicle"  period(mid) min_stage(1) max_stage(99) side(frg) crew(sup_vehicleman:2) cw(0) cp(6))
+	{cost 225}
+}
 
 {"m113g_early"
 	("vehicle"  period(mid) min_stage(12) max_stage(99) side(frg) crew(sup_vehicleman:2) cw(0) cp(6))
