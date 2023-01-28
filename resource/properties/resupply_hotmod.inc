@@ -1,3 +1,5 @@
+(include "resupply_vanilla.inc")
+
 (define "items_light_sov"
 
 ;// pistol
@@ -125,6 +127,13 @@
 (define "items_light_prc"
 	;// Rifle
 	{item "mosin"					"ammo" 10 {value 2}}
+)
+
+(define "items_light_frg"
+	;// Rifle
+	{item "fal"						"ammo" 20 {value 2}}
+	{item "g3"						"ammo" 20 {value 2}}
+	{item "mp2"						"ammo" 20 {value 2}}
 )
 
 (define "items_light_generic"
@@ -441,6 +450,7 @@
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
+			("items_light_frg")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
@@ -471,6 +481,7 @@
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
+			("items_light_frg")
 		}
 		{radius 			8}		;// resupply radius in meter
 		{resupplyPeriod 	5}		;// resupply period in seconds
@@ -493,6 +504,7 @@
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
+			("items_light_frg")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
@@ -519,6 +531,7 @@
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
+			("items_light_frg")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
@@ -548,6 +561,7 @@
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
+			("items_light_frg")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
@@ -578,6 +592,7 @@
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
+			("items_light_frg")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
@@ -607,6 +622,7 @@
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
+			("items_light_frg")
 			("items_heavy_sov")
 			("items_heavy_usa")
 			("items_heavy_eng")
