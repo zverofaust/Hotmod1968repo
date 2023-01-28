@@ -181,6 +181,11 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_con_early(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_mg_con_early(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_flame_con_early(usa)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_moto_con_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_natguard_moto_con_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto_con_early(usa)"},
+				{priority = 0.5, class = UnitClass.Infantry, unit = "squad_weapon_moto_con_early(usa)"},
 			
 				-- Mid
 				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at(usa)"},
@@ -366,10 +371,14 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fireteamss_con_early(frg)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_con_early(frg)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_g1_con_early(frg)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_pzgren_mech_con_early(frg)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fernspah_lrrp_con_early(frg)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fernspah_fireteam_con_early(frg)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fernspah_con_early(frg)"},
+				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_moto_con_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto_con_early(frg)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_pzgren_moto_con_early(frg)"},
+				{priority = 0.75, class = UnitClass.Infantry, unit = "squad_pzgren_mech_con_early(frg)"},
 				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_con(frg)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fireteamap_con(frg)"},
