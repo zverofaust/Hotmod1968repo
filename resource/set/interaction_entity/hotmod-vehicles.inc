@@ -1529,6 +1529,10 @@
 	}
 }
 
+{"m39_apc tank"
+	("pz38_sound")
+}
+
 {"m114a1 tank"
 	("pz38_sound")
 	{on "gunner4_hatch_open" overload
