@@ -1514,6 +1514,10 @@
 	}
 }
 
+{"m60"
+	("pz5_sound")
+}
+
 {"m60a1"
 	("pz5_sound")
 }
@@ -1530,7 +1534,15 @@
 }
 
 {"m39_apc tank"
-	("pz38_sound")
+	("pz2_sound")
+}
+
+{"m39_eng tank"
+	("pz2_sound")
+}
+
+{"m39_ammo tank"
+	("pz2_sound")
 }
 
 {"m114a1 tank"
@@ -1931,6 +1943,18 @@
 	("kubel_sound")
 }
 
+{"m39g_apc tank"
+	("pz2_sound")
+}
+
+{"m39g_eng tank"
+	("pz2_sound")
+}
+
+{"m39g_ammo tank"
+	("pz2_sound")
+}
+
 {"m113g tank"
 	("pz38_sound")
 	{on "commander_hatch_open" overload
@@ -2004,6 +2028,33 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open1" -1.0 resume}
+	}
+}
+
+{"m110g"
+	("pz3_sound")
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 5)
+	}
+}
+
+{"m109g"
+	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
+{"m108g"
+	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
 	}
 }
 
