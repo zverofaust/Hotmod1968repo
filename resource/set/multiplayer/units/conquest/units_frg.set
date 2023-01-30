@@ -122,18 +122,29 @@
 ;|                  Emplacements                  |
 ;|________________________________________________|
 
-;AUTOMATIC WEAPONRY
-;// AI Defenders MGs
+; AI DEFENSIVE EMPLACEMENTS
 
-{"heavy_mg_mg1"
+{"defense_mg_mg1"
 	("emplacement" side(frg) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(mg3_lafette))
-	{cost 70}{not_for_player_sale 1}
+	{cost 50}{not_for_player_sale 1}
 }
 
-{"heavy_mg_m2"
-	("emplacement" side(frg) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(m63g))
+{"defense_mg_m2_frg"
+	("emplacement" side(frg) period(mid) min_stage(2) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(m63g))
 	{cost 100}{not_for_player_sale 1}
 }
+
+{"defense_mg_m45_frg"
+	("emplacement" side(frg) period(mid) min_stage(3) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(m45g))
+	{cost 200}{not_for_player_sale 1}
+}
+
+{"defense_rcl_m40_frg"
+	("emplacement" side(frg) period(mid) min_stage(5) max_stage(15) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(m40g))
+	{cost 220}{not_for_player_sale 1}
+}
+
+;AUTOMATIC WEAPONRY
 
 {"mg3_lafette"
 	("vehicle" period(mid) min_stage(0) max_stage(99) side(frg) crew(sup_supporter:2) cw(0) cp(4))

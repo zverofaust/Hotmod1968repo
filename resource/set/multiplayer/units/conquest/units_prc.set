@@ -179,16 +179,34 @@
 ;|                  Emplacements                  |
 ;|________________________________________________|
 
-;AUTOMATIC WEAPONRY
+; AI DEFENSIVE EMPLACEMENTS
 
-{"heavy_mg_dshk_prc"
+{"defense_mg_sg43_prc"
+	("emplacement" side(prc) period(mid) min_stage(1) max_stage(10) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(sg43_stand_prc))
+	{cost 60}{not_for_player_sale 1}
+}
+
+{"defense_mg_dshk_prc"
 	("emplacement" side(prc) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(dshk_aa_prc))
 	{cost 100}{not_for_player_sale 1}
 }
 
+{"defense_mg_zpu4_prc"
+	("emplacement" side(prc) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(zpu-4_prc))
+	{cost 200}{not_for_player_sale 1}
+}
+
+{"defense_rcl_b10_prc"
+	("emplacement" side(prc) period(mid) min_stage(4) max_stage(15) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(b-10_prc))
+	{cost 180}{not_for_player_sale 1}
+}
+
+;AUTOMATIC WEAPONRY
+
+
 {"sg43_stand_prc"
 	("vehicle" period(mid) min_stage(0) max_stage(99) side(prc) crew(sup_supporter:2) cw(4) cp(4))
-	{cost 80}
+	{cost 60}
 }
 
 {"dshk_aa_prc"
@@ -198,7 +216,7 @@
 
 {"zpu-4_prc"
 	("vehicle" period(mid) min_stage(5) max_stage(99) side(prc) crew(sup_supporter:2) cw(4) cp(8))
-	{cost 275}
+	{cost 225}
 }
 
 {"37mm_61k_prc"

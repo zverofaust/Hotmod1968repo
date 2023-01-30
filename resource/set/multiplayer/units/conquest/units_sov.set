@@ -387,16 +387,44 @@
 ;|                  Emplacements                  |
 ;|________________________________________________|
 
-;AUTOMATIC WEAPONRY
 
-{"heavy_mg_dshk"
-	("emplacement" side(prc) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(dshk_aa_prc))
+; AI DEFENSIVE EMPLACEMENTS
+
+{"defense_mg_sg43"
+	("emplacement" side(sov) period(mid) min_stage(1) max_stage(10) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(sg43_stand_sov))
+	{cost 60}{not_for_player_sale 1}
+}
+
+{"defense_mg_dshk"
+	("emplacement" side(sov) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(dshk_aa_prc))
 	{cost 100}{not_for_player_sale 1}
 }
 
+{"defense_mg_zu2"
+	("emplacement" side(sov) period(mid) min_stage(3) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(zu-2))
+	{cost 150}{not_for_player_sale 1}
+}
+
+{"defense_mg_zpu4"
+	("emplacement" side(sov) period(mid) min_stage(5) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(zpu-4))
+	{cost 200}{not_for_player_sale 1}
+}
+
+{"defense_rcl_b10"
+	("emplacement" side(sov) period(mid) min_stage(4) max_stage(15) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(b-10_82mm))
+	{cost 180}{not_for_player_sale 1}
+}
+
+{"defense_rcl_spg9"
+	("emplacement" side(sov) period(mid) min_stage(11) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(b-10_82mm))
+	{cost 200}{not_for_player_sale 1}
+}
+
+;AUTOMATIC WEAPONRY
+
 {"sg43_stand_sov"
 	("vehicle" period(mid) min_stage(0) max_stage(15) side(sov) crew(sup_supporter:2) cw(4) cp(4))
-	{cost 80}
+	{cost 60}
 }
 
 {"dshk_aa_sov"
@@ -406,12 +434,12 @@
 
 {"zu-2"
 	("vehicle" period(mid) min_stage(3) max_stage(99) side(sov) crew(sup_supporter:2) cw(4) cp(6))
-	{cost 150}
+	{cost 175}
 }
 
 {"zpu-4"
 	("vehicle" period(mid) min_stage(6) max_stage(99) side(sov) crew(sup_supporter:2) cw(4) cp(8))
-	{cost 200}
+	{cost 225}
 }
 
 {"zu-23-2"
