@@ -1,0 +1,107 @@
+;Exported by: misan
+;Date:        Sun Jan 29 13:44:46 2023
+;File:        D:\Cold War\ModelWIP\Smallarms\RP-46\RP-46.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.3}}
+		{sequence "bipod_open" {speed 0.3}}
+	}
+	{bone "rp-46"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "rp-46.ply"}
+		{bone "bolt"
+			{Position 5.18632	1.41061	-0.506775}
+			{VolumeView "bolt.ply"}
+		}
+		{bone "foresight14"
+			{Position 18.0212	1.59381	-0.0583007}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.258822	0.965925
+				0	0.965925	-0.258822
+				-1	0	0
+				5.73422	2.06214	0.460323
+			}
+		}
+		{bone "handle"
+			{Matrix34
+				0	-1	0
+				0	0	1
+				-1	0	0
+				5.99582	2.62793	-1.06412
+			}
+		}
+		{bone "standl"
+			{Matrix34
+				0	0.913545	0.406737
+				-1	0	0
+				0	-0.406737	0.913545
+				10.6833	2.11202	-0.386441
+			}
+			{VolumeView "standl.ply"}
+		}
+		{bone "standr"
+			{Matrix34
+				0	0.906308	-0.422618
+				-1	0	0
+				0	0.422618	0.906308
+				10.6833	2.10116	0.269943
+			}
+			{VolumeView "standr.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 23.3621 3.78004 2.68036}
+	{Bone "rp-46"}
+	{Position 6.54056	0.858102	-0.0251939}
+}
+{Volume "select"
+	{Box 39.1527 11.1865 5.05413}
+	{Bone "rp-46"}
+	{Position 7.79559	0.548537	-0.0251939}
+}
+{Extender "preview"
+	{"stuff"
+		{camera
+			{origin 6.47809	-2.98802	30.3112}
+			{lookat 6.47809	-1.39917	13.1161}
+			{fov 45}
+			{horizon 180}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 5.8552	-8.2738	22.3901}
+			}
+			{"1"
+				{type point}
+				{position 5.85519	11.5194	28.281}
+			}
+		}
+	}
+	{"stuff_primary"
+		{camera
+			{origin 6.77478	-3.84225	30.2668}
+			{lookat 6.6363	-2.25943	13.0718}
+			{fov 45}
+			{horizon 180}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position -0.459359	-8.22809	22.4887}
+			}
+			{"1"
+				{type point}
+				{position -2.18445	11.4898	28.3797}
+			}
+		}
+	}
+}
