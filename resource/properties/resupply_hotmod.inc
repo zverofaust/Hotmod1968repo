@@ -49,6 +49,7 @@
 	{item "rpk_mag"					"ammo" 40 {value 2}}
 	{item "pk_box"					"ammo" 100 {value 2}}
 	{item "hmgun_rus_kpvt"			"ammo" 50 {value 2}}
+	{item "mgun_rus"				"ammo" 50 {value 2}}
 	
 ;// Rifle
 	{item "ak47" 					"ammo" 30 {value 2}}
