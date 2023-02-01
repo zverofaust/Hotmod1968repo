@@ -1,0 +1,121 @@
+{game_entity		;M103 base
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.2))
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{props "heavy" "vision_lev05" "muzzle_122mm_128mm" "diesel" "detect_tank_heavy"}
+	(include "m103.ext")
+	{targetclass "tank_heavy"}
+	{targetSelector "tank_heavy"}
+	{able "-emit_passangers_on_enemy"}
+	{collider "tank.heavy"}
+	
+	{extender "enumerator"
+		{digit_folder "usmc"}
+	}
+	
+	;Crew: Driver, Commander, gunner, 2 loaders
+	("crew_5_human_2")
+	("gunner_visible")
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "left"
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_1"}}
+		}
+	}
+	
+	;//no seats because of your fat head
+	;("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	;("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	;("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	;("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+	
+	{extender "inventory"
+		{box
+			{item "ammo bullet120_m58 apbc" 10} ;33 rounds
+			{item "ammo bullet120_m58 heat" 6}
+			{item "ammo bullet120_m58 he" 17}
+			{item "ammo hmgun_usa" 900}
+			{item "ammo mgun_usa belt" 8000}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon 		"120mm_m58" filling "ammo bullet120_m58 apbc" 1}
+			{gunner 		"gunner"}
+			{charger 		"charger"}
+			("abm_dymamic"
+				zeroing(5)
+				dispersion(0.10)
+			)
+		}
+		{place "mgun2"		;double coax
+			{weapon			"browning_m19a4_x2" filled}
+			{foresight		"foresight"}
+			{barrels 2}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun"		;aa
+			{weapon 		"browning_m2" filled}
+			{gunner 		"commander"}
+			{charger 		"commander"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 56700}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
+		("mobility_tank"
+			speed(37)  ;---------Max speed when fully accelerated on road, km/h.
+			reverse(9.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(56.7) ;-------Weight in Tonnes.
+			power(750) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(710) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(480) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "m103.mdl"}
+
+	{bone "turret"		;gun horizontal
+		{speed2 12}		;degree per second
+	}
+	{bone "gun_rot"		;gun vertical
+		{speed2 4}		;degree per second
+		{limits -8 15}	;min down to max up
+	}	
+	{bone "mgun_turret"		;gun horizontal
+		{speed2 28}		;degree per second
+	}
+	{bone "mgun_rot_turret"	;top mgun horizontal
+		{speed2 42}
+		{limits -5 5}
+	}
+	{bone "mgun_rot"		;top mgun vertical
+		{speed2 42}
+	}
+}
