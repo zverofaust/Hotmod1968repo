@@ -1273,6 +1273,10 @@
 	("kubel_sound")
 }
 
+{"m151_m60"
+	("kubel_sound")
+}
+
 {"m151_m40"
 	("kubel_sound")
 }
@@ -1487,6 +1491,34 @@
 }
 
 {"m103"
+	("pz6_sound")
+		{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on spawn
+		{add_view	"flash_gun_big"	"flashbarrel00"	"shooter00"}
+		{add_view	"flash_gun_big"	"flashbarrel01"	"shooter01"}
+	}
+	{on fire "mgun2" overload
+		{play_sound "bkg_mg"}
+		{if  name "00"
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		else name "01"
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
+	}
+}
+
+{"m103_usmc"
 	("pz6_sound")
 		{on "commander_hatch_open" overload
 		{ani_wind "open" end}
@@ -1808,6 +1840,49 @@
 	}
 }
 
+{"m106_acav"
+	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "open" resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	
+	{on "gunner3_hatch_open" overload
+		{if crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_top" resume}
+			{ani_play "weapon_up" resume}
+		}
+	}
+	{on "gunner3_hatch_close" overload
+		{if crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+			{ani_play "weapon_down" resume}
+		}
+	}
+	{on "charger_hatch_open" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else
+			{ani_play "open_top" resume}
+			{ani_play "weapon_up" resume}
+		}
+	}
+	{on "charger_hatch_close" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+			{ani_play "weapon_down" resume}
+		}
+	}
+}
+
 {"m132_zippo"
 	("pz38_sound")
 	{on spawn
@@ -2050,6 +2125,16 @@
 
 {"m108g"
 	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
+{"m41frg"
+	("pz3_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
