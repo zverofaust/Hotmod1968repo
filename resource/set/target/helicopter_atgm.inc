@@ -2,12 +2,11 @@
 	{type "helicopter_atgm"}
 	
 	{group
-		{ignore {class airborne}}
 		{sort {class tank_heavy}}
 		{sort {class tank_medium}}
 		{sort {class tank_light}}
-		{sort {attacking}}
-		{sort {threating}}
+		;{sort {attacking}}
+		;{sort {threating}}
 		{sort distance}
 ;		{sort {weapon "heat"}}
 ;		{sort {weapon "apcr"}}
@@ -24,10 +23,14 @@
 	}
 	{group
 		{select {class armoredcar}}
-		{sort {attacking}}
+		;{sort {attacking}}
 		{sort distance}
 	}
-	
+	{group
+		{select {class airborne}}
+		{select {class helicopter}}
+		{sort distance}
+	}
 	{group
 		{sort {class howitzer}}
 		{sort {class cannon_big}}
@@ -42,8 +45,8 @@
 	
 	{group
 		{select {class car_cannon} {weapon}}
-		{sort {attacking}}
-		{sort {threating}}
+		;{sort {attacking}}
+		;{sort {threating}}
 		{sort distance}
 	}
 	
@@ -54,8 +57,8 @@
 	}
 	{group
 		{sort {class tank_bullet}}
-		{sort {attacking}}
-		{sort {threating}}
+		;{sort {attacking}}
+		;{sort {threating}}
 		{sort distance}
 	}
 	
@@ -73,7 +76,7 @@
 	
 	{group
 		{select {class car_bullet} {weapon}}
-		{sort {attacking}}
+		;{sort {attacking}}
 		{sort distance}
 	}
 	
@@ -89,8 +92,8 @@
 		{sort distance}
 	}
 	
-    {group
-        {sort {attacking}}
-        {sort distance}
-    }
+    ;{group
+    ;    {sort {attacking}}
+    ;    {sort distance}
+    ;}
 }

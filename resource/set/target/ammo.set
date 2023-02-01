@@ -19,6 +19,7 @@
 
 {select_ammo
 	{human in_bush											; -TARGET CLASS-
+		{"atgm" {disable}}									;
 		{"flame"}											; ammo for flamethrowers
 		{"mortar he" {ground}}								; HE mortar ammo
 		{"bomb"}											; aircraft bombs
@@ -47,6 +48,7 @@
 		{"light"}											; ammo for binoculars and other vision devices
 	}
 	{human in_cover											; -TARGET CLASS-
+		{"atgm" {disable}}									;
 		{"flame"}											; ammo for flamethrowers
 		{"mortar he" {ground}}								; HE mortar ammo
 		{"bomb"}											; aircraft bombs
@@ -72,6 +74,7 @@
 		{"light"}											; ammo for binoculars and other vision devices
 	}
 	{human													; -TARGET CLASS-
+		{"atgm" {disable}}									;
 		{"flame"}											; ammo for flamethrowers
 		{"mortar he" {ground}}								; HE mortar ammo
 		{"mortar all_he" {ground}}							; HE mortar ammo
@@ -106,6 +109,7 @@
 		{"light"}											; ammo for binoculars and other vision devices
 	}
 	{car													; -TARGET CLASS-
+		{"atgm" {disable}}									;
 		{"mortar he" {ground}}								; HE mortar ammo
 		{"bomb"}											; aircraft bombs
 		{"shell he arty" {volume "body"}}					; cannon HE ammo for indirect firing artillery
@@ -138,6 +142,7 @@
 		{"light"}											; ammo for binoculars and other vision devices
 	}
 	{cannon_bullet											; -TARGET CLASS-
+		{"atgm" {disable}}									;
 		{"flame"}											; ammo for flamethrowers
 		{"bomb"}											; aircraft bombs
 		{"mortar he" {ground}}								; HE mortar ammo
@@ -166,6 +171,7 @@
 		{"light"}											; ammo for binoculars and other vision devices
 	}
 	{cannon_zenite											; -TARGET CLASS-
+		{"atgm" {disable}}									;
 		{"flame"}											; ammo for flamethrowers
 		{"bomb"}											; aircraft bombs
 		{"mortar he" {ground}}								; HE mortar ammo
@@ -195,6 +201,7 @@
 		{"light"}											; ammo for binoculars and other vision devices
 	}
 	{cannon_small											; -TARGET CLASS-
+		{"atgm" {disable}}									;
 		{"flame"}											; ammo for flamethrowers
 		{"bomb"}											; aircraft bombs
 		{"mortar he" {ground}}								; HE mortar ammo
@@ -249,7 +256,7 @@
 		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
 		{"shell heat_low" {enable_for_user 0}}				; cannon HEAT ammo (penetration < 100mm) (AI ONLY)
 		{"shell heat_low" {ready_for_shot}}					; cannon HEAT ammo (penetration < 100mm)(ONLY IF ALREADY LOADED)
-		{"atgm"}
+		{"atgm" {enable_for_user 0}}
 ;//		{"shell std_ap"}									; cannon standard AP ammo types (AP, APC, APBC, etc)
 ;//		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS)
 		{"rocketselector"}									; rocket artillery
@@ -282,7 +289,7 @@
 		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
 		{"shell heat_low" {enable_for_user 0}}				; cannon HEAT ammo (penetration < 100mm) (AI ONLY)
 		{"shell heat_low" {ready_for_shot}}					; cannon HEAT ammo (penetration < 100mm)(ONLY IF ALREADY LOADED)
-		{"atgm"}
+		{"atgm" {enable_for_user 0}}
 ;//		{"shell std_ap"}									; cannon standard AP ammo types (AP, APC, APBC, etc)
 ;//		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS)
 		{"rocketselector"}									; rocket artillery
@@ -292,58 +299,79 @@
 		{"light"}											; ammo for binoculars and other vision devices
 	}
 	{airborne												; -TARGET CLASS-
-		{"sam"}												; Surface to Air Missile
-		{"aa"}												; Anti-Aircraft
-		{"shell aphe" {volume "body"}{ready_for_shot}}		; autocannon APHE ammo (and 85mm_52k)
-		{"shell apcbche" {volume "body"}{ready_for_shot}}	; cannon APHE ammo (flak 18/36)
+		{"sam"}												; HOTMOD
+		{"aa"}												; HOTMOD
+		{"rocketselector" {disable}}						; rocket artillery
 		{"zenite" {volume "body"}{ready_for_shot}}			; autocannon AP/APCR ammo
-		{"shell he" {volume "body"}}						; cannon HE ammo
-		{"shell he"}										; cannon HE ammo
-;		{"auto he" {volume "body"}}							; auto cannon HE ammo
-;		{"auto he"}											; auto cannon HE ammo
+		{"zenite" {ready_for_shot}}							; autocannon AP/APCR ammo
+		{"auto he" {volume "body"}}							; auto cannon HE ammo
+		{"auto he" }										; auto cannon HE ammo
 		{"zenite" {volume "body"}}							; autocannon AP/APCR ammo
-		{"zenite"}											; autocannon AP/APCR ammo
-		{"ptr" {volume "body"}{enable_for_user 0}}			; anti-tank rifle ammo (AI ONLY)
+		{"zenite" }											; autocannon AP/APCR ammo
 		{"hmgun" {volume "body"}}							; heavy machine gun (.50 cal, etc)
 		{"hmgun"}											; heavy machine gun (.50 cal, etc)
+		{"atgm" {enable_for_user 0}}						; HOTMOD
+		{"ptr" {volume "body"}{ready_for_shot}}				; anti-tank rifle ammo (ONLY IF ALREADY LOADED)
+		{"ptr" {ready_for_shot}}							; anti-tank rifle ammo (ONLY IF ALREADY LOADED)
+		{"ammo rocketlauncher"{volume "body"}{ready_for_shot}}; bazooka class ammo (ONLY IF ALREADY LOADED)
+		{"ammo rocketlauncher"{ready_for_shot}}				; bazooka class ammo (ONLY IF ALREADY LOADED)
 		{"bullet" {volume "body"}}							; bullet ammo (pistols, rifles, smgs, mgs)
 		{"bullet"}											; bullet ammo (pistols, rifles, smgs, mgs)
+		{"shell std_ap" {volume "body"}{ready_for_shot}}	; cannon standard AP ammo types (AP, APC, APBC, etc)(ONLY IF ALREADY LOADED) 
+		{"shell std_ap" {ready_for_shot}}					; cannon standard AP ammo types (AP, APC, APBC, etc)(ONLY IF ALREADY LOADED)
+		{"shell he" {volume "body"}}						; cannon HE ammo
+		{"shell he"}										; cannon HE ammo
+		{"light"}											; ammo for binoculars and other vision devices
 	}
-	{airborne_strike										; -TARGET CLASS-
-		{"sam"}												; Surface to Air Missile
-		{"aa"}												; Anti-Aircraft
-		{"shell aphe" {volume "body"}{ready_for_shot}}		; autocannon APHE ammo (and 85mm_52k)
-		{"shell apcbche" {volume "body"}{ready_for_shot}}	; cannon APHE ammo (flak 18/36)
+	{airborne_strike										; -TARGET CLASS- (HOTMOD)
+		{"sam"}												; HOTMOD
+		{"aa"}												; HOTMOD
+		{"rocketselector" {disable}}						; rocket artillery
 		{"zenite" {volume "body"}{ready_for_shot}}			; autocannon AP/APCR ammo
-		{"shell he" {volume "body"}}						; cannon HE ammo
-		{"shell he"}										; cannon HE ammo
-;		{"auto he" {volume "body"}}							; auto cannon HE ammo
-;		{"auto he"}											; auto cannon HE ammo
+		{"zenite" {ready_for_shot}}							; autocannon AP/APCR ammo
+		{"auto he" {volume "body"}}							; auto cannon HE ammo
+		{"auto he" }										; auto cannon HE ammo
 		{"zenite" {volume "body"}}							; autocannon AP/APCR ammo
-		{"zenite"}											; autocannon AP/APCR ammo
-		{"ptr" {volume "body"}{enable_for_user 0}}			; anti-tank rifle ammo (AI ONLY)
+		{"zenite" }											; autocannon AP/APCR ammo
 		{"hmgun" {volume "body"}}							; heavy machine gun (.50 cal, etc)
 		{"hmgun"}											; heavy machine gun (.50 cal, etc)
+		{"atgm" {enable_for_user 0}}						; HOTMOD
+		{"ptr" {volume "body"}{ready_for_shot}}				; anti-tank rifle ammo (ONLY IF ALREADY LOADED)
+		{"ptr" {ready_for_shot}}							; anti-tank rifle ammo (ONLY IF ALREADY LOADED)
+		{"ammo rocketlauncher"{volume "body"}{ready_for_shot}}; bazooka class ammo (ONLY IF ALREADY LOADED)
+		{"ammo rocketlauncher"{ready_for_shot}}				; bazooka class ammo (ONLY IF ALREADY LOADED)
 		{"bullet" {volume "body"}}							; bullet ammo (pistols, rifles, smgs, mgs)
 		{"bullet"}											; bullet ammo (pistols, rifles, smgs, mgs)
+		{"shell std_ap" {volume "body"}{ready_for_shot}}	; cannon standard AP ammo types (AP, APC, APBC, etc)(ONLY IF ALREADY LOADED) 
+		{"shell std_ap" {ready_for_shot}}					; cannon standard AP ammo types (AP, APC, APBC, etc)(ONLY IF ALREADY LOADED)
+		{"shell he" {volume "body"}}						; cannon HE ammo
+		{"shell he"}										; cannon HE ammo
+		{"light"}											; ammo for binoculars and other vision devices
 	}
 	{helicopter												; -TARGET CLASS-
-		;{"sam"}											; Surface to Air Missile, try to disable
-		{"aa"}												; Anti-Aircraft
-		{"shell aphe" {volume "body"}{ready_for_shot}}		; autocannon APHE ammo (and 85mm_52k)
-		{"shell apcbche" {volume "body"}{ready_for_shot}}	; cannon APHE ammo (flak 18/36)
+		{"sam"}												; HOTMOD
+		{"aa"}												; HOTMOD
+		{"rocketselector" {disable}}						; rocket artillery
 		{"zenite" {volume "body"}{ready_for_shot}}			; autocannon AP/APCR ammo
-		{"shell he" {volume "body"}}						; cannon HE ammo
-		{"shell he"}										; cannon HE ammo
-;		{"auto he" {volume "body"}}							; auto cannon HE ammo
-;		{"auto he"}											; auto cannon HE ammo
+		{"zenite" {ready_for_shot}}							; autocannon AP/APCR ammo
+		{"auto he" {volume "body"}}							; auto cannon HE ammo
+		{"auto he" }										; auto cannon HE ammo
 		{"zenite" {volume "body"}}							; autocannon AP/APCR ammo
-		{"zenite"}											; autocannon AP/APCR ammo
-		{"ptr" {volume "body"}{enable_for_user 0}}			; anti-tank rifle ammo (AI ONLY)
+		{"zenite" }											; autocannon AP/APCR ammo
 		{"hmgun" {volume "body"}}							; heavy machine gun (.50 cal, etc)
 		{"hmgun"}											; heavy machine gun (.50 cal, etc)
+		{"atgm" {enable_for_user 0}}						; HOTMOD
+		{"ptr" {volume "body"}{ready_for_shot}}				; anti-tank rifle ammo (ONLY IF ALREADY LOADED)
+		{"ptr" {ready_for_shot}}							; anti-tank rifle ammo (ONLY IF ALREADY LOADED)
+		{"ammo rocketlauncher"{volume "body"}{ready_for_shot}}; bazooka class ammo (ONLY IF ALREADY LOADED)
+		{"ammo rocketlauncher"{ready_for_shot}}				; bazooka class ammo (ONLY IF ALREADY LOADED)
 		{"bullet" {volume "body"}}							; bullet ammo (pistols, rifles, smgs, mgs)
 		{"bullet"}											; bullet ammo (pistols, rifles, smgs, mgs)
+		{"shell std_ap" {volume "body"}{ready_for_shot}}	; cannon standard AP ammo types (AP, APC, APBC, etc)(ONLY IF ALREADY LOADED) 
+		{"shell std_ap" {ready_for_shot}}					; cannon standard AP ammo types (AP, APC, APBC, etc)(ONLY IF ALREADY LOADED)
+		{"shell he" {volume "body"}}						; cannon HE ammo
+		{"shell he"}										; cannon HE ammo
+		{"light"}											; ammo for binoculars and other vision devices
 	}
 	{armoredcar_l											; -TARGET CLASS-
 		{"mortar he" {volume "engine"}}						; HE mortar ammo
