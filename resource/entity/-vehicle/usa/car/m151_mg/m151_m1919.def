@@ -2,7 +2,7 @@
 	(include "/properties/car.ext")
 	(include "/properties/shadow/tank.inc" scale(0.9))
 	(include "/properties/selection/vehicle.inc" scale(0.8))
-	{props "moto" "vision_lev01" "tractor" "tractor_light"}
+	{props "moto" "vision_lev01" "tractor" "tractor_light" "explosion_throw_crew"}
 	{able "emit_on_attack"}
 	{able "emit_on_attack"}
 	{PatherId "kubel"}
@@ -13,34 +13,37 @@
 	("wheel" args "wheelleft1")
 	("wheel" args "wheelright2")
 	("wheel" args "wheelleft2")
-	
-	("fuel" args "fuel")
+
+	("glass" args "glass" 1)
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
 	("transmission" args "transmission")
+	
 	{volume "engine" {thickness 10}}
+	{Volume "body1" {thickness 4}}
+	{Volume "body2"{thickness 4}{able{holed}}}
+	{Volume "shield1" {thickness 4}{able{holed}}}
 
 	(include "crew.ext")
 	
 	{sensor
 		{visor "commander"
 			{vision "human"}
-			{bone "visor1"}
+			{bone "basis"}
 		}
 		{visor "driver"
 			{vision "human"}
-			{bone "visor"}
+			{bone "basis"}
 		}
 		{visor "gunner"
 			{vision "human"}
-			{bone "visor2"}
+			{bone "turret"}
 		}
 	}
 
 	{extender "inventory"
-		{weapon "mgun2" {mask "mountable"}}
 		{box
-			{item "ammo mgun_usa belt" 1000}
-			{item "ammo m60_box" 1000}
-			{item "m60" filled {user "mgun2"}}
+			{item "ammo mgun_usa belt" 2000}
 		}
 	}
 
@@ -54,15 +57,6 @@
 			{LinkBone		"gun"}
 			{LinkAnimation	"off"}
 			("abm_mgun")
-		}
-		{place "mgun2"
-			{LinkBone "mgun2"}
-			{gunner "commander"}
-			{charger "commander"}
-			{LinkBone		"mgun"}
-			{LinkAnimation	"off"}
-			{basic}
-			{ai_in_manual}
 		}
 	}  
 
@@ -89,12 +83,5 @@
 	{bone "turret"
 		{limits -55 55}
 		{speed2 62}
-	}
-	{bone "mgun_rot"
-		{limits -25 20}
-	}
-	{bone "mgun_turret"
-        {limits -40 20}
-		{speed2 80}
 	}
 }

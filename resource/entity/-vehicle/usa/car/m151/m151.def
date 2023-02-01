@@ -2,8 +2,7 @@
 	(include "/properties/car.ext")
 	(include "/properties/shadow/tank.inc" scale(0.9))
 	(include "/properties/selection/vehicle.inc" scale(0.8))
-	{props "moto" "vision_lev01" "tractor" "tractor_light"}
-	{able "emit_on_attack"}
+	{props "moto" "vision_lev01" "tractor" "tractor_light" "explosion_throw_crew"}
 	{able "emit_on_attack"}
 	{PatherId "kubel"}
 	{targetSelector "car_bullet"}
@@ -13,20 +12,26 @@
 	("wheel" args "wheelright2")
 	("wheel" args "wheelleft2")
 
-	("fuel" args "fuel")
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
 	("transmission" args "transmission")
+	
 	{volume "engine" {thickness 10}}
+	{Volume "body1" {thickness 4}}
+	{Volume "body2"{thickness 4}{able{holed}}}
+	{Volume "shield1" {thickness 4}{able{holed}}}
+	
 
 	(include "crew.ext")
 	
 	{sensor
 		{visor "commander"
 			{vision "human"}
-			{bone "visor"}
+			{bone "basis"}
 		}
 		{visor "driver"
 			{vision "human"}
-			{bone "visor"}
+			{bone "basis"}
 		}
 	}
 	
@@ -34,7 +39,8 @@
 		{box
 		}
 	}
-
+	
+	{extender "detail" {random 1} {detail9 0}}
 
 	{Chassis
 		("car_trace" fx("tracewheel03") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
@@ -54,15 +60,9 @@
 	("glass" args "glass" 1)
 	
 	{extender "shield"
-			{off}
+			{on}
 	}
 	
-	{Volume "Body"
-		{thickness 4}
-	}
-	{Volume "engine"
-		{thickness 4}
-	}
 	
 	{Extension "m151.mdl"}
 	

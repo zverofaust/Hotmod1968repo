@@ -2,8 +2,7 @@
 	(include "/properties/car.ext")
 	(include "/properties/shadow/tank.inc" scale(0.9))
 	(include "/properties/selection/vehicle.inc" scale(0.8))
-	{props "moto" "vision_lev01" "muzzle_75mm_76mm"}
-	{able "emit_on_attack"}
+	{props "moto" "vision_lev01" "muzzle_75mm_76mm" "explosion_throw_crew" "shell_eject"}
 	{able "emit_on_attack"}
 	{PatherId "kubel"}
 	{targetSelector "tank_light"}
@@ -13,27 +12,32 @@
 	("wheel" args "wheelright2")
 	("wheel" args "wheelleft2")
 
-	("fuel" args "fuel")
-	("ammo" args "ammo")
+	("gun" repair(30) thickness(20))
+	
+	("glass" args "glass" 1)
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
 	("transmission" args "transmission")
+	
 	{volume "engine" {thickness 10}}
-	{volume "engine" {thickness 10}}
-	{volume "turret" {thickness 10}{component "turret"}}
+	{Volume "body1" {thickness 4}}
+	{Volume "body2"{thickness 4}{able{holed}}}
+	{Volume "shield1" {thickness 4}{able{holed}}}
 	
 	(include "crew.ext")
 	
 	{sensor
 		{visor "commander"
 			{vision "human"}
-			{bone "visor1"}
+			{bone "basis"}
 		}
 		{visor "driver"
 			{vision "human"}
-			{bone "visor"}
+			{bone "basis"}
 		}
 		{visor "gunner"
-			{vision "human"}
-			{bone "visor2"}
+			{vision "cannon_range_200"}
+			{bone "visor1"}
 		}
 	}
 	
@@ -48,7 +52,7 @@
 		{place "gun"
 			{weapon			"106mm_m40" filling "ammo bullet106_m40 heat" 1}
 			{gunner "gunner"}
-			{charger "commander"}
+			{charger "charger"}
 			{foresight "foresight1"}
 			{RestoreIKAfterAim}
 			{Rotate}
@@ -83,7 +87,7 @@
 	{Extension "m151_m40.mdl"}
 
 	{bone "gun_rot"
-		{limits 5 -15}
+		{limits -5 25}
 		{speed2 16}
 	}
 	{bone "turret"

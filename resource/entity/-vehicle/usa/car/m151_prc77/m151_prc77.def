@@ -2,7 +2,7 @@
 	(include "/properties/car.ext")
 	(include "/properties/shadow/tank.inc" scale(0.9))
 	(include "/properties/selection/vehicle.inc" scale(0.8))
-	{props "command" "vision_lev01" "tractor" "tractor_light" "radio_usa" "radio"}
+	{props "command" "vision_lev01" "tractor" "tractor_light" "radio_usa" "radio" "explosion_throw_crew"}
 	{able "emit_on_attack"}
 	{able "emit_on_attack"}
 	{PatherId "kubel"}
@@ -13,24 +13,31 @@
 	("wheel" args "wheelright2")
 	("wheel" args "wheelleft2")
 
-	("fuel" args "fuel")
+	("glass" args "glass" 1)
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
 	("transmission" args "transmission")
-	{volume "engine" {thickness 10}}
 	
-	{Extender "detail"
-		{random 0}
+	{volume "engine" {thickness 10}}
+	{Volume "body1" {thickness 4}}
+	{Volume "body2"{thickness 4}{able{holed}}}
+	{Volume "shield1" {thickness 4}{able{holed}}}
+	
+	{extender "shield"
+			{on}
 	}
+	
 	
 	(include "crew.ext")
 	
 	{sensor
 		{visor "commander"
 			{vision "human"}
-			{bone "visor"}
+			{bone "basis"}
 		}
 		{visor "driver"
 			{vision "human"}
-			{bone "visor"}
+			{bone "basis"}
 		}
 	}
 	
@@ -53,19 +60,6 @@
 			type(fuel) ;---------------------------------Fuel type.
 			range(170) ;---------------------------------Range in Kilometers.
 		)
-	}
-	
-	("glass" args "glass" 1)
-	
-	{extender "shield"
-			{off}
-	}
-	
-	{Volume "Body"
-		{thickness 4}
-	}
-	{Volume "engine"
-		{thickness 4}
 	}
 	
 	{Extension "m151_prc77.mdl"}
