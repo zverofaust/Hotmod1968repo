@@ -277,6 +277,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "m48a1"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "m67_zippo"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m48a3"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "m60_patton"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m60a1"},
 				{priority = 0.25, class = UnitClass.Tank, unit = "m60a1e2"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "m728"},
