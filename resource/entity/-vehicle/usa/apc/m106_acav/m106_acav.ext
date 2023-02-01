@@ -1,0 +1,45 @@
+{volume "body1"			; Hull Top
+		{thickness 13		 
+			{front 13}
+			{top 8}		 
+			{rear 13}
+			{bottom 8}
+		}
+	}
+	
+	{volume "body2"			; Hull Bottom
+		{thickness 13		 
+			{front 13}
+			{top 8}		 
+			{rear 13}
+			{bottom 8}
+		}
+	}
+	
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+	{volume "engine" {thickness 10}}
+	
+	("shield" args "turret_gunshield" 10)
+	("shield" args "turret_shield" 10)
+	("shield" args "shield2" 10)
+	
+	{volume "turret_gunshield"
+		{component "turret_gunshield"}
+		{tags "turret_gunshield"}
+	}
+	
+	{volume "turret_shield"
+		{component "turret_shield"}
+		{tags "turret_shield"}
+		{able {holed}}
+	}
+	
+	{component "shield"}
+
+	{extender "shield"
+		{on}	
+	}

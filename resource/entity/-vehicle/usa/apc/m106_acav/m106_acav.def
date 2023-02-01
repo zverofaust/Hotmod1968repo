@@ -1,0 +1,135 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	(include "m106_acav.ext")
+	{props "spg" "light" "multi_board" "vision_lev04" "amphibia" "diesel" "muzzle_75mm_76mm" "mortar"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "cannon_howitzer"}
+	
+	{patherId "amphibia"}
+
+	{placer
+		{place "driver"		{visor "driver"}{group "crew"}}
+		{place "commander"	{visor "mgun"}{group "crew"}{sealable}}
+		{place "gunner3"		{group "crew"}}
+		{place "charger"	{group "crew"}}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "left"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "open_ramp"}}
+			{reverse	{end	"board_body" -1} {base "open_ramp"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_body"} {end "pose_mortar_gunner"} {base "open_ramp"}}
+			{reverse	{end	"board_body" -1} {base "open_ramp"}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_body"} {end "pose_mortar_120sgrw42_commander"} {base "open_ramp"}}
+			{reverse	{end	"board_body" -1} {base "open_ramp"}}
+		}
+	}
+	("crew_driver" 															   	door(emit0) door2(emit1) door3(emit2) 					group(crew))
+	("crew_open" place(commander) 		bone(gunner2) visorbone(mgun_rot)      	door(emit1) door2(emit2) anm_left(left) anm_right(right) group(crew))
+	("crew_open" place(gunner3) 		bone(gunner) visorbone(mgun_turret_l) 	door(emit3) door2(emit4) anm_left(gunner) anm_right(gunner) 			group(crew))
+	("crew_open" place(charger) 		bone(charger) visorbone(mgun_turret_r)	door(emit3) door2(emit4) anm_left(charger) anm_right(charger) 			group(crew))
+	
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_usa" 1000}
+			{item "ammo mortarusa_107 he" 60}
+			{item "ammo mortarusa_107 sm" 20}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "weapon 107mm_m30" filling "ammo mortarusa_107 he" 1}
+			{gunner "gunner3"}
+			{charger "charger"}
+			{basic}
+			("abm_dymamic_mortar"
+				zeroing(3.0)	; // time it takes to aim until the reticle shrinks. Bigger values, more control.
+				dispersion(1)   ; // time it takes to distort the reticle when you move the gun (how abrupt it loses zeroing). Bigger values, more control.
+			)
+		}
+		{place "mgun"
+			{weapon			"browning_m2" filled}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			{basic}
+			{ai_in_manual}
+			("abm_mgun")
+		}
+	}
+
+	{mass 14500}	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(60) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(12);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(10.4) ;-------Weight in Tonnes.
+			power(212) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(250) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(480) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}
+	
+	{Extension "m106_acav.mdl"}
+	
+	{bone "foresight"
+		{speed2 20}
+		{limits -20 25}
+	}
+	
+	{bone "turret"			;gun vertical
+		{speed2 28}			;degree per second
+	}
+	
+	{bone "mgun_rot"			;gun vertical
+		{speed2 40}			;degree per second
+		{limits 30 -10}		;min down to max up
+	}
+	
+	{bone "mgun_turret"			;gun vertical
+		{speed2 44}			;degree per second
+		{limits 4 -4}		;min down to max up
+	}
+	
+	{bone "mortar_turret"			;gun vertical
+		{speed2 24}			;degree per second
+	}
+
+
+}
