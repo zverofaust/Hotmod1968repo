@@ -23,6 +23,10 @@
 	}
 	
 	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open2"}}
+			{reverse {end "emit_t34_hold"} {base "open2"}}
+		}
 		{anm "left"
 			{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
 			{reverse 	{end	"emit_tank_1_hold"}}
@@ -32,14 +36,14 @@
 			{reverse 	{end	"emit_tank_1_hold"}}
 		}
 		{anm "armor"
-			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
-			{reverse 	{end	"emit_tank_1"}}
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_body"}}
 		}
 	}
-	
-	;("seat_human" 	place(gunner) 		bone() 				door(emit1)  				animation(gunner))
-	;("seat_human" 	place(charger) 		bone() 				door(emit1)  				animation(gunner))
-	;("seat_human" 	place(commander) 	bone(gunner2) 		door(emit2)  				animation(commander))
 	
 	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
 	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
@@ -123,7 +127,7 @@
 	}	
 	{bone "mgun_rot_turret"	;top mgun horizontal
 		{speed2 46}
-		{limits -45 45}
+		{limits -25 25}
 	}
 	{bone "mgun_rot"		;top mgun vertical
 		{speed2 46}
