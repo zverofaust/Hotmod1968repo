@@ -1,0 +1,98 @@
+;SDL
+
+{panel_control
+
+; first row-------------------------
+
+	{barricade_sq
+		{position 0 0}
+		{condition "human barricade disabled"}
+	}
+	{barricade
+		{position 1 0}
+		{condition "human barricade disabled"}
+	}
+	{barbwire
+		{position 2 0}
+		{condition "human barricade disabled"}
+	}
+	
+; second row-------------------------
+
+	{hedgehog
+		{position 0 1}
+		{condition "human barricade disabled"}
+	}
+	{foxhole
+		{position 1 1}
+		{condition "human barricade"}
+	}
+	{fin_coastal_gun
+		{position 1 1}
+		{condition "human barricade"}
+	}
+	{foxhole_big
+		{position 2 1}
+		{condition "human barricade disabled"}
+	}
+	
+; third row-------------------------
+
+	{medic_rally
+		{position 0 2}
+		{condition "human "}
+	}
+
+	{tank_cover
+		{position 0 2}
+		{condition "human barricade"}
+	}
+	{fin_bunker
+		{position 1 2}
+		{condition "human barricade"}
+	}
+	{gc_cp_browse_back
+		{position 2 2}
+	}
+	
+	{"mg_stand_m1919"
+		{position 0 2}
+		{condition "human"}
+	}
+	{"mg_stand_m60"
+		{position 0 2}
+		{condition "human"}
+	}
+	
+	(define "deploy_weapon"
+		{"%deployable_weapon"
+			{position 0 2}
+			{condition "human"}
+		}
+	)
+	
+	;//SOV
+	("deploy_weapon" deployable_weapon(deploy_sg43))
+	("deploy_weapon" deployable_weapon(deploy_pk))
+	("deploy_weapon" deployable_weapon(deploy_dshk))	
+	("deploy_weapon" deployable_weapon(deploy_bm37))
+	("deploy_weapon" deployable_weapon(deploy_b10))
+	("deploy_weapon" deployable_weapon(deploy_spg9))
+	("deploy_weapon" deployable_weapon(deploy_9m14))
+	;//USA
+	("deploy_weapon" deployable_weapon(deploy_m1919))
+	("deploy_weapon" deployable_weapon(deploy_m60))
+	("deploy_weapon" deployable_weapon(deploy_m2))	
+	("deploy_weapon" deployable_weapon(deploy_m29))
+	("deploy_weapon" deployable_weapon(deploy_entac))
+	;//FRG
+	("deploy_weapon" deployable_weapon(deploy_mg3))
+	("deploy_weapon" deployable_weapon(deploy_m2_frg))
+	("deploy_weapon" deployable_weapon(deploy_m29_frg))
+	;//PRC
+	("deploy_weapon" deployable_weapon(deploy_sg43_prc))
+	("deploy_weapon" deployable_weapon(deploy_dshk_prc))
+	("deploy_weapon" deployable_weapon(deploy_bm37_prc))
+	("deploy_weapon" deployable_weapon(deploy_b10_prc))
+	
+}
