@@ -1,0 +1,131 @@
+;Exported by: misan
+;Date:        Mon Jan  2 10:26:53 2023
+;File:        D:\Cold War\ModelWIP\USA\M2 30 cal Tripod\M2.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.5}}
+	}
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "emit2"
+			{Position -20.9894	17.5763	0}
+		}
+		{bone "emit1"
+			{Position -25.4708	-1.93918	0}
+		}
+		{bone "driver2"
+			{Position -0.818188	6.62192	0}
+		}
+		{bone "driver1"
+			{Position -0.466085	-5.98277	0}
+		}
+		{bone "commander"
+			{Position -17.3965	14.9872	0}
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position 0.410889	0.0197631	4.77087}
+			{VolumeView "body.ply"}
+			{bone "standf"
+				{parameters "id=body;"}
+				{Matrix34
+					0	-1	0
+					-0.707107	0	0.707107
+					-0.707107	0	-0.707107
+					1.62475	0.00257938	-0.0551062
+				}
+				{VolumeView "standf.ply"}
+			}
+			{bone "standr"
+				{parameters "id=body;"}
+				{Matrix34
+					0.906308	0.422618	0
+					-0.422618	0.906308	0
+					0	0	1
+					-1.48216	-0.471516	0.185932
+				}
+				{VolumeView "standr.ply"}
+			}
+			{bone "standl"
+				{parameters "id=body;"}
+				{Matrix34
+					0.906308	-0.422618	0
+					0.422618	0.906308	0
+					0	0	1
+					-1.48216	0.471846	0.185932
+				}
+				{VolumeView "standl.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "id=body;"}
+				{Position 0.147373	-0.00557524	1.2087}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "id=body;"}
+					{Matrix34
+						1	0	0
+						0	0.0871558	0.996195
+						0	-0.996195	0.0871558
+						0.0120931	-0.0142972	0.0755558
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "helper"
+						{Matrix34
+							1	0	0
+							0	0.996195	0.0871554
+							0	-0.0871555	0.996195
+							-9.1933	0.0545092	0.00465918
+						}
+					}
+				}
+				{bone "gunner"
+					{Position -28.0303	-0.0141874	-5.97957}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 4.65135 3.62141 1.46185}
+	{Bone "body"}
+	{Position -0.971007	-0.0197631	0.158056}
+}
+{Volume "select"
+	{Box 25.2502 17.808 11.3387}
+	{Bone "body"}
+	{Position -2.23239	0.0583452	0.898461}
+}
+{Volume "standf"
+	{Cylinder 0.363235 6.62359}
+	{Bone "standf"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		0.0272346	-3.46279	-0.0533577
+	}
+}
+{Volume "standl"
+	{Cylinder 0.363235 13.5121}
+	{Bone "standr"}
+	{Matrix34
+		0	-1	0
+		-0.34202	0	0.939693
+		-0.939693	0	-0.34202
+		-6.30051	-0.00487921	-2.27253
+	}
+}
+{Volume "standr"
+	{Cylinder 0.363235 13.5121}
+	{Bone "standl"}
+	{Matrix34
+		0	-1	0
+		-0.34202	0	0.939693
+		-0.939693	0	-0.34202
+		-6.30051	0.00143763	-2.27253
+	}
+}
