@@ -1,0 +1,130 @@
+;Exported by: misan
+;Date:        Thu Feb  2 08:02:07 2023
+;File:        D:\Cold War\ModelWIP\Smallarms\PK\PK.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.3}}
+		{sequence "bipod_open" {speed 0.3}}
+	}
+	{bone "pk"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "pk.ply"}
+		{bone "magazine"
+			{parameters "lodview;"}
+			{Position 4.86798	-0.762179	0.218513}
+			{VolumeView "magazine.ply"}
+		}
+		{bone "handle"
+			{Matrix34
+				0	1	0
+				0	0	-1
+				-1	0	0
+				5.87328	2.89791	-1.07857
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.25882	-0.965926
+				0	-0.965926	-0.25882
+				-1	0	0
+				4.98204	2.14748	-0.419944
+			}
+		}
+		{bone "foresight14"
+			{Position 17.2866	1.61003	0.00170927}
+		}
+		{bone "belt"
+			{Position 4.86028	1.24505	1.10786}
+			{VolumeView "belt.ply"}
+		}
+		{bone "flap"
+			{Position 4.95413	2.39505	0.86789}
+			{VolumeView "flap.ply"}
+		}
+		{bone "bolt"
+			{Position 3.51463	1.23985	0.745588}
+			{VolumeView "bolt.ply"}
+		}
+		{bone "standr"
+			{Matrix34
+				0	1	0
+				-0.866025	0	0.5
+				0.5	0	0.866025
+				11.8046	0.688296	0.229121
+			}
+			{VolumeView "standr.ply"}
+		}
+		{bone "standl"
+			{Matrix34
+				0	1	0
+				-0.866025	0	-0.5
+				-0.5	0	0.866025
+				11.8046	0.688296	-0.237739
+			}
+			{VolumeView "standl.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 22.405 4.76939 0.833809}
+	{Bone "pk"}
+	{Position 5.57347	0.80322	0.00573409}
+}
+{Volume "magazine"
+	{Box 2.73744 4.54212 1.88579}
+	{Bone "magazine"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		-0.0227026	-0.213076	-0.155688
+	}
+}
+{Volume "select"
+	{Box 26.3253 9.85145 1.25071}
+	{Bone "pk"}
+	{Position 5.68997	0.0936925	0.654965}
+}
+{Extender "preview"
+	{"stuff"
+		{camera
+			{origin 5.68082	-1.82198	28.834}
+			{lookat 5.68082	-0.23312	11.639}
+			{fov 45}
+			{horizon 180}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 0.611365	-8.3114	20.8018}
+			}
+			{"1"
+				{type point}
+				{position 0.611362	11.4818	26.6927}
+			}
+		}
+	}
+	{"stuff_primary"
+		{camera
+			{origin 6.06192	-2.16219	29.0137}
+			{lookat 5.92344	-0.579377	11.8186}
+			{fov 45}
+			{horizon 180}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 1.40254	-8.26569	21.0567}
+			}
+			{"1"
+				{type point}
+				{position -0.322556	11.4522	26.9476}
+			}
+		}
+	}
+}
