@@ -10,6 +10,37 @@
 	{barricade
 		{"fortifications" "foxhole"}
 		{"fortifications" "medic_rally"}
+		{"fortifications" "mg_stand_m1919"}
+		{"fortifications" "mg_stand_m60"}	
+		{"fortifications" "mg_stand_pk"}	
+	}
+	{"resources" "10%"}
+)
+
+(define "deployable_weapons"
+	{barricade
+		{"fortifications" "deploy_sg43"}
+		{"fortifications" "deploy_pk"}	
+		{"fortifications" "deploy_dshk"}	
+		{"fortifications" "deploy_bm37"}
+		{"fortifications" "deploy_b10"}
+		{"fortifications" "deploy_spg9"}
+		{"fortifications" "deploy_9m14"}	
+		
+		{"fortifications" "deploy_m1919"}
+		{"fortifications" "deploy_m60"}	
+		{"fortifications" "deploy_m2"}	
+		{"fortifications" "deploy_m29"}
+		{"fortifications" "deploy_entac"}	
+		
+		{"fortifications" "deploy_mg3"}	
+		{"fortifications" "deploy_m2_frg"}	
+		{"fortifications" "deploy_m29_frg"}
+		
+		{"fortifications" "deploy_sg43_prc"}	
+		{"fortifications" "deploy_dshk_prc"}	
+		{"fortifications" "deploy_bm37_prc"}
+		{"fortifications" "deploy_b10_prc"}
 	}
 	{"resources" "10%"}
 )
@@ -109,6 +140,7 @@
 	{"avoidance" lvl_1}
 	("health_rank_1")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -123,6 +155,7 @@
 	{"avoidance" lvl_2}
 	("health_rank_2")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -137,6 +170,7 @@
 	{"avoidance" lvl_3}
 	("health_rank_3")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -151,6 +185,7 @@
 	{"avoidance" lvl_4}
 	("health_rank_4")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -165,6 +200,7 @@
 	{"avoidance" lvl_5}
 	("health_rank_4")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -182,6 +218,7 @@
 	{"avoidance" lvl_1}
 	("health_rank_1")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -196,6 +233,7 @@
 	{"avoidance" lvl_2}
 	("health_rank_2")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -210,6 +248,7 @@
 	{"avoidance" lvl_3}
 	("health_rank_3")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -224,6 +263,7 @@
 	{"avoidance" lvl_4}
 	("health_rank_4")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -238,6 +278,7 @@
 	{"avoidance" lvl_5}
 	("health_rank_4")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -255,6 +296,7 @@
 	{"avoidance" lvl_1}
 	("health_rank_1")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -269,6 +311,7 @@
 	{"avoidance" lvl_2}
 	("health_rank_2")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -283,6 +326,7 @@
 	{"avoidance" lvl_3}
 	("health_rank_3")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -297,6 +341,7 @@
 	{"avoidance" lvl_4}
 	("health_rank_4")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -311,6 +356,7 @@
 	{"avoidance" lvl_5}
 	("health_rank_4")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -325,6 +371,7 @@
 	{"avoidance" lvl_1}
 	("health_rank_1")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -339,6 +386,7 @@
 	{"avoidance" lvl_2}
 	("health_rank_2")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -353,6 +401,7 @@
 	{"avoidance" lvl_3}
 	("health_rank_3")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -367,6 +416,7 @@
 	{"avoidance" lvl_4}
 	("health_rank_4")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -381,6 +431,7 @@
 	{"avoidance" lvl_5}
 	("health_rank_4")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -398,6 +449,7 @@
 	{"avoidance" lvl_1}
 	("health_rank_1")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -412,6 +464,7 @@
 	{"avoidance" lvl_2}
 	("health_rank_2")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -426,6 +479,7 @@
 	{"avoidance" lvl_3}
 	("health_rank_3")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -440,6 +494,7 @@
 	{"avoidance" lvl_4}
 	("health_rank_4")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
@@ -454,6 +509,7 @@
 	{"avoidance" lvl_5}
 	("health_rank_4")
 	("fortification")
+	("deployable_weapons")
 	("basic_repair")
 	("basic_gun")
 )
