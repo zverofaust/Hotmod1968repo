@@ -393,4 +393,12 @@
 	("magazine" cut(0.1) show(2.9) override(overload) impulse({impulse up -0.01}))
 }
 
+{"stuff weapon pk"
+	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
+}
+
+{"stuff weapon m60"
+	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
+}
+
 ;/*=========== Sepcific Weapons End ===========*/
