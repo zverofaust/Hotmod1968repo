@@ -145,15 +145,9 @@
 ;|________________________________________________|
 
 ;AUTOMATIC WEAPONRY
-{"mg3_lafette"
-	("vehicle" period(mid) cd(0) ci(30) t(cannon antiair) side(frg) crew(sup_supporter:2)  g(empl1) b(empl) cw(0) cp(4))
-	{cost 70}
-}
 
-{"m63g"
-	("vehicle" period(mid) cd(0) ci(30) t(cannon antiair) side(frg) crew(sup_supporter:2)  g(empl1) b(empl) cw(0) cp(4))
-	{cost 100}
-}
+("squad_weaponteam" side(frg) name(deploy_mg3) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_mg3:1) c2(sup_guncrew:1)	b(empl) t() cost(70))
+("squad_weaponteam" side(frg) name(deploy_m2) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_m2:1) c2(sup_guncrew:1)	b(empl) t() cost(100))
 
 {"m45g"
 	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(frg) crew(sup_supporter:2)  g(empl2) b(empl) cw(0) cp(6))
@@ -161,7 +155,7 @@
 }
 
 {"40mm_bofors_l70_frg"
-	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(frg) crew(sup_supporter:4)  g(empl3) b(empl) cw(0) cp(8))
+	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(frg) crew(sup_supporter:4)  g(empl2) b(empl) cw(0) cp(8))
 	{cost 300}
 }
 
@@ -172,18 +166,16 @@
 }
 
 ;HOWITZERS
-{"m29g_mortar"
-	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(frg) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(6))
-	{cost 175}
-}
+
+("squad_weaponteam" side(frg) name(deploy_m29) period(mid) cd(0)   ci(60)  g(empl4)	c1(sup_guncrew_m29:1) c2(sup_guncrew:1)	b(empl) t() cost(175))
 
 {"120mm_krh40_frg"
-	("vehicle" period(mid) cd(80) ci(120) t(cannon mortar) side(frg) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(8))
+	("vehicle" period(mid) cd(80) ci(120) t(cannon mortar) side(frg) crew(sup_supporter:2) g(empl4) b(empl) cw(0) cp(8))
 	{cost 275}
 }
 
 {"m101g"
-	("vehicle" period(mid) cd(120) ci(120) t(cannon) side(frg) crew(sup_supporter:4) g(empl6) b(empl) cw(0) cp(8))
+	("vehicle" period(mid) cd(120) ci(120) t(cannon) side(frg) crew(sup_supporter:4) g(empl5) b(empl) cw(0) cp(8))
 	{cost 375}
 }
 
@@ -299,6 +291,21 @@
 
 {"squad_pzgren_mech2_ai(frg)"
 	("squad_vehicle6" period(mid) cd(0) ci(15) side(frg) t(vehicle) vehicle(spz_123) crew1(sup_vehicleman:3) crew2(pzg_squadlead:1) crew3(pzg_mg:1) crew4(pzg_antitank:1) crew5(pzg_mgassist:1) crew6(pzg_atassist:1) cw(2) cp(14)){squad_cost_factor 1}{not_for_player_sale 1}
+}
+
+{"mg3_lafette"
+	("vehicle" period(mid) cd(0) ci(30) t(light) side(frg) crew(sup_guncrew:2) cw(0) cp(2))
+	{cost 70}{not_for_player_sale 1}
+}
+
+{"mg_stand_m2g"
+	("vehicle" period(mid) cd(60) ci(30) t(light) side(frg) crew(sup_guncrew:2) cw(0) cp(2))
+	{cost 100}{not_for_player_sale 1}
+}
+
+{"m29g_mortar"
+	("vehicle" period(mid) cd(60) ci(30) t(light) side(frg) crew(sup_guncrew:2) cw(0) cp(4))
+	{cost 175}{not_for_player_sale 1}
 }
 
 

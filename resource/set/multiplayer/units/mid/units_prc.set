@@ -163,40 +163,33 @@
 ;|________________________________________________|
 
 ;AUTOMATIC WEAPONRY
-{"dshk_aa_prc"
-	("vehicle" period(mid) cd(0) ci(30) t(cannon antiair) side(prc) crew(sup_supporter:2)  g(empl1) b(empl) cw(4) cp(5))
-	{cost 100}
-}
+("squad_weaponteam" side(prc) name(deploy_sg43) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_sg43:1) c2(sup_guncrew:1)	b(empl) t() cost(65))
+("squad_weaponteam" side(prc) name(deploy_dshk) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_dshk:1) c2(sup_guncrew:1)	b(empl) t() cost(90))
 
 {"37mm_61k_prc"
-	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(prc) crew(sup_supporter:4)  g(empl1) b(empl) cw(0) cp(8))
+	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(prc) crew(sup_supporter:4)  g(empl2) b(empl) cw(0) cp(8))
 	{cost 175}
 }
 
 {"zpu-4_prc"
-	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(prc) crew(sup_supporter:2)  g(empl1) b(empl) cw(0) cp(8))
+	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(prc) crew(sup_supporter:2)  g(empl2) b(empl) cw(0) cp(8))
 	{cost 200}
 }
 
 
 ; AT WEAPONRY
-{"b-10_prc"
-	("vehicle" period(mid) cd(0) ci(30) t(cannon antitank) side(prc) crew(sup_supporter:2)  g(empl2) b(empl) cw(4) cp(4))
-	{cost 150}
-}
+("squad_weaponteam" side(prc) name(deploy_b10) period(mid) cd(30)   ci(60)  g(empl3)	c1(sup_guncrew_b10:1) c2(sup_guncrew:1)	b(empl) t() cost(145))
 
 ;HOWITZERS
-{"82mm_bm37_prc"
-	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(prc) crew(sup_supporter:2) g(empl4) b(empl) cw(0) cp(6))
-	{cost 175}
-}
+("squad_weaponteam" side(prc) name(deploy_bm37) period(mid) cd(0)   ci(60)  g(empl4)	c1(sup_guncrew_bm37:1) c2(sup_guncrew:1)	b(empl) t() cost(160))
+
 {"120mm_pm38_prc"
 	("vehicle" period(mid) cd(180) ci(60) t(cannon mortar) side(prc) crew(sup_supporter:2) g(empl4) b(empl) cw(0) cp(10))
 	{cost 275}
 }
 
 {"d-44_prc"
-	("vehicle" period(mid) cd(15) ci(30) t(cannon antitank) side(prc) crew(sup_supporter:4)  g(empl2) b(empl) cw(4) cp(4))
+	("vehicle" period(mid) cd(15) ci(30) t(cannon antitank) side(prc) crew(sup_supporter:4)  g(empl5) b(empl) cw(4) cp(4))
 	{cost 150}
 }
 
@@ -206,12 +199,12 @@
 ;}
 
 {"m30_prc"
-	("vehicle" period(mid) cd(180) ci(60) t(cannon) side(prc) crew(sup_supporter:4) g(empl4) b(empl) cw(0) cp(10))
+	("vehicle" period(mid) cd(180) ci(60) t(cannon) side(prc) crew(sup_supporter:4) g(empl5) b(empl) cw(0) cp(10))
 	{cost 425}
 }
 
 {"type63_mrl"
-	("vehicle" period(mid) cd(260) ci(160) t(cannon) side(prc) crew(sup_supporter:4) g(empl4) b(empl) cw(0) cp(10))
+	("vehicle" period(mid) cd(260) ci(160) t(cannon) side(prc) crew(sup_supporter:4) g(empl6) b(empl) cw(0) cp(10))
 	{cost 500}
 }
 
@@ -319,6 +312,26 @@
 {"squad_masswave_ai(prc)"
 	("squad_with3types" side(prc) name(squad_masswave)			period(mid) cd(0) ci(0) g(squad_1) c1(mil_squadlead:1) c2(mil_mg:1) c3(mil_rifleman:6) b() t())
 	{squad_cost_factor 0.1}{not_for_player_sale 1}
+}
+
+{"sg43_stand_prc"
+	("vehicle" period(mid) cd(0) ci(30) t() side(prc) crew(sup_guncrew:2) cw(0) cp(2))
+	{cost 70}{not_for_player_sale 1}
+}
+
+{"dshk_aa_prc"
+	("vehicle" period(mid) cd(0) ci(30) t() side(prc) crew(sup_guncrew:2) cw(0) cp(2))
+	{cost 100}{not_for_player_sale 1}
+}
+
+{"82mm_bm37_prc"
+	("vehicle" period(mid) cd(0) ci(30) t() side(prc) crew(sup_guncrew:2) cw(0) cp(2))
+	{cost 175}{not_for_player_sale 1}
+}
+
+{"b-10_prc"
+	("vehicle" period(mid) cd(0) ci(30) t() side(prc) crew(sup_guncrew:2) cw(0) cp(2))
+	{cost 150}{not_for_player_sale 1}
 }
 
 {"type62_lt"

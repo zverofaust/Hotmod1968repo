@@ -26,6 +26,38 @@
 {"mp/usa/mid/sup_radioman"			("usa_radioman" side(usa)) {cost 50.0}}
 {"mp/usa/early/sup_radioman"		("usa_radioman_early" side(usa)) {cost 50.0}}
 
+(define "usa_guncrew_early"
+	{tags "early %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+(define "usa_guncrew"
+	{tags "mid %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/usa/early/sup_guncrew"			("usa_guncrew_early" side(usa)) {cost 5.0}} ; M3 SMG
+{"mp/usa/early/sup_guncrew_m1919"	("usa_guncrew_early" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/early/sup_guncrew_m2"		("usa_guncrew_early" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/early/sup_guncrew_m29"		("usa_guncrew_early" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/early/usmc_guncrew"		("usa_guncrew_early" side(usa)) {cost 13.0}} ; M3
+{"mp/usa/early/aircav_guncrew"		("usa_guncrew_early" side(usa)) {cost 13.0}} ; M2 Carbine
+
+{"mp/usa/mid/sup_guncrew"			("usa_guncrew" side(usa)) {cost 5.0}} ; M2 Carbine
+{"mp/usa/mid/sup_guncrew_m1919"		("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/mid/sup_guncrew_m60"		("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/mid/sup_guncrew_m2"		("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/mid/sup_guncrew_m29"		("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/mid/sup_guncrew_entac"		("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/mid/usmc_guncrew"			("usa_guncrew" side(usa)) {cost 13.0}} ; M3
+{"mp/usa/mid/aircav_guncrew"		("usa_guncrew" side(usa)) {cost 16.0}} ; M16
+
 (define "usa_supporter_early"
 	{tags "early %side infantry man"}
 	{cp 1}
@@ -43,7 +75,6 @@
 	{score_factor 0.05}
 )
 {"mp/usa/early/sup_pilot"			("usa_supporter_early" side(usa)) {cost 0.0}} ; M3
-{"mp/usa/early/sup_guncrew"			("usa_supporter_early" side(usa)) {cost 5.0}} ; Pistol
 {"mp/usa/early/sup_supporter"		("usa_supporter_early" side(usa)) {cost 5.0}} ; M1
 {"mp/usa/early/sup_tankman"			("usa_supporter_early" side(usa)) {cost 4.0}} ; M3
 {"mp/usa/early/sup_vehicleman"		("usa_supporter_early" side(usa)) {cost 4.0}} ; M3
@@ -53,14 +84,12 @@
 {"mp/usa/early/usmc_guncrew"		("usa_supporter_early" side(usa)) {cost 13.0}} ; M3
 
 {"mp/usa/mid/sup_pilot"				("usa_supporter" side(usa)) {cost 0.0}} ; M3
-{"mp/usa/mid/sup_guncrew"			("usa_supporter" side(usa)) {cost 5.0}} ; Pistol
 {"mp/usa/mid/sup_supporter"			("usa_supporter" side(usa)) {cost 5.0}} ; M1
 {"mp/usa/mid/sup_tankman"			("usa_supporter" side(usa)) {cost 4.0}} ; M3
 {"mp/usa/mid/sup_vehicleman"		("usa_supporter" side(usa)) {cost 4.0}} ; M3
 {"mp/usa/mid/aircav_vehicleman"		("usa_supporter" side(usa)) {cost 15.0}} ; M16
 {"mp/usa/mid/acav_vehicleman"		("usa_supporter" side(usa)) {cost 15.0}} ; M16
 {"mp/usa/mid/usmc_vehicleman"		("usa_supporter" side(usa)) {cost 13.0}} ; M3
-{"mp/usa/mid/usmc_guncrew"			("usa_supporter" side(usa)) {cost 13.0}} ; M3
 
 (define "usa_basic_early"
 	{tags "early %side infantry man lvl1"}

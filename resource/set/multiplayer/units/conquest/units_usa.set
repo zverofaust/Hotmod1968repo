@@ -352,7 +352,12 @@
 ; AI DEFENSIVE EMPLACEMENTS
 
 {"defense_mg_browning"
-	("emplacement" side(usa) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(m2_m1919a4))
+	("emplacement" side(usa) period(mid) min_stage(1) max_stage(12) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(mg_stand_m1919))
+	{cost 50}{not_for_player_sale 1}
+}
+
+{"defense_mg_m60"
+	("emplacement" side(usa) period(mid) min_stage(10) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(mg_stand_m60))
 	{cost 50}{not_for_player_sale 1}
 }
 
@@ -373,12 +378,12 @@
 
 ;AUTOMATIC WEAPONRY
 
-{"m2_m1919a4"
+{"mg_stand_m1919"
 	("vehicle"  period(mid) min_stage(0) max_stage(15) side(usa) crew(sup_supporter:2) cw(0) cp(2))
 	{cost 50}
 }
 
-{"m63_browning"
+{"mg_stand_m2"
 	("vehicle"  period(mid) min_stage(2) max_stage(99) side(usa) crew(sup_supporter:2) cw(0) cp(2))
 	{cost 100}
 }

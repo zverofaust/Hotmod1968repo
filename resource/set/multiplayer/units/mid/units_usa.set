@@ -520,10 +520,8 @@
 ;|________________________________________________|
 
 ;AUTOMATIC WEAPONRY
-{"m63_browning"
-	("vehicle" period(mid) cd(0) ci(30) t(cannon antiair) side(usa) crew(sup_supporter:2)  g(empl1) b(empl) cw(0) cp(8))
-	{cost 100}
-}
+
+("squad_weaponteam" side(usa) name(deploy_m2) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_m2:1) c2(sup_guncrew:1)	b(empl) t() cost(100))
 
 {"m45_maxson"
 	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(usa) crew(sup_supporter:2)  g(empl2) b(empl) cw(0) cp(8))
@@ -536,16 +534,11 @@
 	{cost 150}
 }
 
-{"entac"
-	("vehicle" period(mid) cd(60) ci(120) t(cannon atgm) side(usa) crew(sup_supporter:2)  g(empl4) b(empl) cw(4) cp(6))
-	{cost 450}
-}
+("squad_weaponteam" side(usa) name(deploy_entac) 	period(mid) cd(0)   ci(30)  g(empl3)	c1(sup_guncrew_entac:1) c2(sup_guncrew:1)	b(empl) t() cost(400))
 
 ;HOWITZERS
-{"m29_mortar"
-	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(usa) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(6))
-	{cost 175}
-}
+
+("squad_weaponteam" side(usa) name(deploy_m29) 	period(mid) cd(0)   ci(30)  g(empl5)	c1(sup_guncrew_m29:1) c2(sup_guncrew:1)	b(empl) t() cost(175))
 
 {"m30_mortar"
 	("vehicle" period(mid) cd(0) ci(60) t(cannon mortar) side(usa) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(8))
@@ -681,6 +674,26 @@
 {"m35_guntruck"
 	("vehicle"  period(mid) cd(30) ci(30) side(usa) t(vehicle light) crew(sup_supporter:3) cw(0) cp(6))
 	{cost 200}{not_for_player_sale 1}
+}
+
+{"mg_stand_m2"
+	("vehicle"  period(mid) cd(0) ci(30) side(usa) t(vehicle light) crew(sup_guncrew:2) cw(0) cp(2))
+	{cost 100}{not_for_player_sale 1}
+}
+
+{"mg_stand_m60"
+	("vehicle"  period(mid) cd(0) ci(30) side(usa) t(vehicle light) crew(sup_guncrew:2) cw(0) cp(2))
+	{cost 70}{not_for_player_sale 1}
+}
+
+{"m29_mortar"
+	("vehicle"  period(mid) cd(0) ci(60) side(usa) t(vehicle light) crew(sup_guncrew:2) cw(0) cp(4))
+	{cost 175}{not_for_player_sale 1}
+}
+
+{"entac"
+	("vehicle"  period(mid) cd(240) ci(120) side(usa) t(vehicle light) crew(sup_guncrew:2) cw(0) cp(4))
+	{cost 300}{not_for_player_sale 1}
 }
 
 {"m114a2"

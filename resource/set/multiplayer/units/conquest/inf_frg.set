@@ -27,6 +27,31 @@
 {"mp/frg/mid/sup_radioman"			("frg_radioman" side(frg)) {cost 50.0}}
 {"mp/frg/early/sup_radioman"		("frg_radioman_early" side(frg)) {cost 50.0}}
 
+(define "frg_guncrew_early"
+	{tags "early %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+(define "frg_guncrew"
+	{tags "mid %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/frg/early/sup_guncrew"			("frg_guncrew_early" side(frg)) {cost 5.0}} ; M2 Carbine
+{"mp/frg/early/sup_guncrew_mg3"		("frg_guncrew_early" side(frg)) {cost 5.0}} ; Pistol
+{"mp/frg/early/sup_guncrew_m2"		("frg_guncrew_early" side(frg)) {cost 5.0}} ; Pistol
+{"mp/frg/early/sup_guncrew_m29"		("frg_guncrew_early" side(frg)) {cost 5.0}} ; Pistol
+
+{"mp/frg/mid/sup_guncrew"			("frg_guncrew" side(frg)) {cost 5.0}} ; MP2
+{"mp/frg/mid/sup_guncrew_mg3"		("frg_guncrew" side(frg)) {cost 5.0}} ; MP2
+{"mp/frg/mid/sup_guncrew_m2"		("frg_guncrew" side(frg)) {cost 5.0}} ; MP2
+{"mp/frg/mid/sup_guncrew_m29"		("frg_guncrew" side(frg)) {cost 5.0}} ; MP2
 
 (define "frg_supporter_early"
 	{tags "early %side infantry man"}
@@ -44,14 +69,12 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/frg/early/sup_guncrew"			("frg_supporter_early" side(frg)) {cost 5.0}} ; Pistol
 {"mp/frg/early/sup_supporter"		("frg_supporter_early" side(frg)) {cost 5.0}} ; M1
 {"mp/frg/early/sup_tankman"			("frg_supporter_early" side(frg)) {cost 4.0}} ; MP1
 {"mp/frg/early/sup_vehicleman"		("frg_supporter_early" side(frg)) {cost 4.0}} ; MP1 
 {"mp/frg/early/sup_pilot"			("frg_supporter_early" side(frg)) {cost 4.0}} ; MP1
 {"mp/frg/early/pzg_vehicleman"		("frg_supporter_early" side(frg)) {cost 9.0}} ; MP1
 
-{"mp/frg/mid/sup_guncrew"			("frg_supporter" side(frg)) {cost 5.0}} ; Pistol
 {"mp/frg/mid/sup_supporter"			("frg_supporter" side(frg)) {cost 5.0}} ; M1
 {"mp/frg/mid/sup_tankman"			("frg_supporter" side(frg)) {cost 4.0}} ; MP2
 {"mp/frg/mid/sup_vehicleman"		("frg_supporter" side(frg)) {cost 4.0}} ; MP2 

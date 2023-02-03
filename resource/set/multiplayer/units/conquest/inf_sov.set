@@ -45,7 +45,8 @@
 {"mp/sov/early/sup_pilot"				("sov_pilot" side(sov)) {cost 0.0}} ; Pistol
 {"mp/sov/mid/sup_pilot"					("sov_pilot" side(sov)) {cost 0.0}} ; Pistol
 
-(define "sov_tankman"
+
+(define "sov_guncrew"
 	{tags "mid %side infantry man"}
 	{cp 1}
 	{basic}
@@ -53,7 +54,7 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-(define "sov_tankman_early"
+(define "sov_guncrew_early"
 	{tags "early %side infantry man"}
 	{cp 1}
 	{basic}
@@ -61,19 +62,47 @@
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/sov/early/sup_guncrew"				("sov_tankman_early" side(sov)) {cost 5.0}} ; Makarov Pistol
-{"mp/sov/early/sup_supporter"			("sov_tankman_early" side(sov)) {cost 5.0}} ; SKS
-{"mp/sov/early/sup_tankman"				("sov_tankman_early" side(sov)) {cost 4.0}} ; Pistol
-{"mp/sov/early/sup_vehicleman"			("sov_tankman_early" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
-{"mp/sov/early/vdv_vehicleman"			("sov_tankman_early" side(sov)) {cost 15.0}} ; 
-{"mp/sov/early/grd_vehicleman"			("sov_tankman_early" side(sov)) {cost 15.0}} ;
+{"mp/sov/early/sup_guncrew"			("sov_guncrew_early" side(sov)) {cost 5.0}} ; PPsh
+{"mp/sov/early/sup_guncrew_sg43"	("sov_guncrew_early" side(sov)) {cost 5.0}} ; Makarov
+{"mp/sov/early/sup_guncrew_dshk"	("sov_guncrew_early" side(sov)) {cost 5.0}} ; Makarov
+{"mp/sov/early/sup_guncrew_b10"		("sov_guncrew_early" side(sov)) {cost 5.0}} ; Makarov
+{"mp/sov/early/sup_guncrew_bm37"	("sov_guncrew_early" side(sov)) {cost 5.0}} ; Makarov
+
+{"mp/sov/mid/sup_guncrew"			("sov_guncrew" side(sov)) {cost 5.0}} ; AKMS
+{"mp/sov/mid/sup_guncrew_sg43"		("sov_guncrew" side(sov)) {cost 5.0}} ; Stechkin
+{"mp/sov/mid/sup_guncrew_pk"		("sov_guncrew" side(sov)) {cost 5.0}} ; Stechkin
+{"mp/sov/mid/sup_guncrew_dshk"		("sov_guncrew" side(sov)) {cost 5.0}} ; Stechkin
+{"mp/sov/mid/sup_guncrew_b10"		("sov_guncrew" side(sov)) {cost 5.0}} ; Stechkin
+{"mp/sov/mid/sup_guncrew_spg9"		("sov_guncrew" side(sov)) {cost 5.0}} ; Stechkin
+{"mp/sov/mid/sup_guncrew_bm37"		("sov_guncrew" side(sov)) {cost 5.0}} ; Stechkin
+
+(define "sov_supporter"
+	{tags "mid %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+(define "sov_supporter_early"
+	{tags "early %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/sov/early/sup_supporter"			("sov_supporter_early" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/early/sup_tankman"				("sov_supporter_early" side(sov)) {cost 4.0}} ; Pistol
+{"mp/sov/early/sup_vehicleman"			("sov_supporter_early" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
+{"mp/sov/early/vdv_vehicleman"			("sov_supporter_early" side(sov)) {cost 15.0}} ; 
+{"mp/sov/early/grd_vehicleman"			("sov_supporter_early" side(sov)) {cost 15.0}} ;
  
-{"mp/sov/mid/sup_guncrew"				("sov_tankman" side(sov)) {cost 5.0}} ; Makarov Pistol
-{"mp/sov/mid/sup_supporter"				("sov_tankman" side(sov)) {cost 5.0}} ; SKS
-{"mp/sov/mid/sup_tankman"				("sov_tankman" side(sov)) {cost 4.0}} ; Pistol
-{"mp/sov/mid/sup_vehicleman"			("sov_tankman" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
-{"mp/sov/mid/vdv_vehicleman"			("sov_tankman" side(sov)) {cost 15.0}} ;
-{"mp/sov/mid/grd_vehicleman"			("sov_tankman" side(sov)) {cost 15.0}} ; 
+{"mp/sov/mid/sup_supporter"				("sov_supporter" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/mid/sup_tankman"				("sov_supporter" side(sov)) {cost 4.0}} ; Pistol
+{"mp/sov/mid/sup_vehicleman"			("sov_supporter" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
+{"mp/sov/mid/vdv_vehicleman"			("sov_supporter" side(sov)) {cost 15.0}} ;
+{"mp/sov/mid/grd_vehicleman"			("sov_supporter" side(sov)) {cost 15.0}} ; 
 
 (define "sov_basic"
 	{tags "mid %side infantry man"}
