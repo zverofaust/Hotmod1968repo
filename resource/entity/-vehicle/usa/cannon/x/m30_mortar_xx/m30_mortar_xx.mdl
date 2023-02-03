@@ -1,0 +1,86 @@
+;Exported by: misan
+;Date:        Fri Feb  3 15:26:19 2023
+;File:        D:\Cold War\ModelWIP\USA\M30 Mortar\M30 Mortar XX.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone revolute "body"
+			{parameters "id=body;"}
+			{VolumeView "body.ply"}
+			{bone "m30turret"
+				{parameters "id=body;"}
+				{Position 0	0	1.2711}
+				{VolumeView "m30turret.ply"}
+			}
+			{bone "stan"
+				{parameters "id=body;"}
+				{Position -1.32126	0	2.47108}
+				{VolumeView "stan.ply"}
+				{bone "gun"
+					{parameters "id=body;"}
+					{Matrix34
+						0.979104	-0.190072	-0.0723032
+						0.201193	0.957141	0.208335
+						0.0296057	-0.218528	0.975381
+						3.40786	0	-0.335211
+					}
+					{VolumeView "gun.ply"}
+					{bone "stan1"
+						{parameters "id=body;"}
+						{Matrix34
+							0.99537	-0.0577664	-0.07682
+							0.0706821	0.981533	0.177757
+							0.065133	-0.182364	0.981072
+							13.2684	0	17.2121
+						}
+						{VolumeView "stan1.ply"}
+						{bone "stan2"
+							{parameters "id=body;"}
+							{Matrix34
+								0.981627	0	0.190809
+								0	1	0
+								-0.190809	0	0.981627
+								3.18302	0	-16.7289
+							}
+							{VolumeView "stan2.ply"}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Cylinder 9.69161 1.68425}
+	{Bone "body"}
+	{Position 0.0122382	0.0691103	0.842124}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "stan"}
+	{Position 20.3414	-0.0852864	-2.47107}
+}
+{Volume "body3"
+	{Cylinder 1.66488 30.2101}
+	{Bone "gun"}
+	{Matrix34
+		0	-1	0
+		-0.848048	0	0.529919
+		-0.529919	0	-0.848048
+		8.44223	0.0259325	13.8006
+	}
+}
+{Volume "body4"
+	{Cylinder 0.920754 17.1652}
+	{Bone "stan1"}
+	{Matrix34
+		0.984808	0	0.173648
+		0	1	0
+		-0.173648	0	0.984808
+		1.52058	0.099915	-7.80727
+	}
+}
