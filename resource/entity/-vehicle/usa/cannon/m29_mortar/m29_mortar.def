@@ -1,7 +1,8 @@
 {game_entity
 	(include "/properties/cannon_mgun.ext")
-	(include "/properties/shadow/tank.inc"  scale(0.6))
-	{props "-mg_stan" "with_gun" "mortar" "vision_lev01_can" "detect_artillery_small" "cannon_sandbag_standard"}
+	(include "/properties/shadow/tank.inc" scale(0.6))
+	{Extension "m29_mortar.mdl"}
+	{props "-mg_stan" "with_gun" "mortar" "vision_lev01_can" "detect_artillery_small" "cannon_sandbag_standard" "artillery_minimap_light" "gunbagged"}
 	(mod not "mp" {able "emit_on_attack"})
 	{targetclass "howitzer"}
 	{targetSelector "cannon_howitzer"}
@@ -76,7 +77,6 @@
 		)
 	}
 
-	{Extension "m29_mortar.mdl"}
 
 	{bone "basis"
 		{speed2 15}
