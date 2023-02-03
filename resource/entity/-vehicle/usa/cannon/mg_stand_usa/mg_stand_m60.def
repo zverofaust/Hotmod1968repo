@@ -1,8 +1,8 @@
 {game_entity
 	(include "/properties/cannon_mgun.ext")
 	(include "/properties/shadow/tank.inc" scale(0.3))
-	{Extension "m2_m1919a4.mdl"}
-	{props "mgun" "vision_lev00_can" "no_sandbags" "detect_cannon_aa"}
+	{Extension "mg_stand_usa.mdl"}
+	{props "mgun" "vision_lev00_can" "no_sandbags" "detect_cannon_aa" "gunbagged"}
 
 	{boarder
 		{anm "gunner"
@@ -31,14 +31,14 @@
 
 	{extender "inventory"
 		{box
-			{item "ammo mgun_usa belt" 300}
+			{item "ammo m60_box" 400}
 		}
 	}
 
 	{Weaponry
 		{place "mgun1"
 			{type "main"}
-			{weapon "browning_m19a4" filled}
+			{weapon "m60" filled}
 			{LinkAnimation	"off"}
 			{gunner "gunner"}
 			{charger "commander"}
