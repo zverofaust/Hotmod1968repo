@@ -50,8 +50,7 @@
 ;//---SQUADS---
 
 {"single_tankman_early(usa)"				requires ""									costs 1  position 3.5 1}
-{"single_autorifle_early(usa)"				requires ""									costs 1  position 2 1.9}
-{"single_mg_early(usa)"						requires "single_autorifle_early(usa)" 		costs 1  position 2.8 1.9}
+{"single_mg_early(usa)"						requires "" 								costs 1  position 2.8 1.9}
 {"single_riflegren_early(usa)"				requires ""									costs 1  position 0 1}
 {"single_at_early(usa)"						requires "single_riflegren_early(usa)"		costs 2  position 0.8 1}
 {"single_scout_early(usa)"					requires ""									costs 1  position 8 1.9}
@@ -93,6 +92,7 @@
 {"squad_air_fireteam_con_early(usa)"		requires "squad_air_recon_con_early(usa)"		costs 2  position 8 3}
 {"squad_air_con_early(usa)"					requires "squad_air_fireteam_con_early(usa)"	costs 3  position 9 3}
 {"squad_air_m14_con_early(usa)"				requires "squad_air_con_early(usa)"				costs 2  position 10 3}
+{"squad_air_mortar_con_early(usa)"			requires "squad_air_fireteam_con_early(usa)" 		costs 1 position 8 4}
 
 {"squad_ranger_recon_con_early(usa)"		requires "squad_air_recon_con_early(usa)"			costs 2  position 7 4}
 {"squad_ranger_demo_con_early(usa)"			requires "squad_ranger_recon_con_early(usa)"		costs 3  position 7 5}
@@ -100,19 +100,18 @@
 
 	
 ;//---MG---
-	
-	{"mg_stand_m2"		requires	"usa_artillery_early"	costs 1 position 0 9}
+
+	{"deploy_m1919_con(usa)"	requires	"single_mg_early(usa)"	costs 1 position 3.6 1.9}
+	{"deploy_m2_con(usa)"		requires	"usa_artillery_early"	costs 1 position 3.6 2.9}
 
 ;//---Mortars---
 	
-	;{"m29_mortar"		requires	""						costs 0 position 5 25}
-	{"m29_mortar_air"	requires	"squad_air_fireteam_con_early(usa)" 		costs 1 position 8 4}
-	{"m30_mortar"		requires	"usa_artillery_early"	costs 2 position 1 9}
+	{"m30_mortar"				requires	"usa_artillery_early"						costs 2 position 1 9}
 	
 ;//---AA---
 
-	{"m45_maxson"		requires	"m63_browning"		costs 2 position 0 8}
-	{"40_mm_m1"			requires	"m45_maxson"		costs 2 position 1 8}
+	{"m45_maxson"		requires	"deploy_m2_con(usa)"		costs 2 position 0 8}
+	{"40_mm_m1"			requires	"m45_maxson"				costs 2 position 1 8}
 
 ;//---AT Guns---
 	
@@ -149,7 +148,7 @@
 	{"m24_chaffee"			requires	"usa_tanks_early"					costs 0 position 0 15}
 	{"m41_early"			requires	"m24_chaffee"						costs 1 position 0.8 15}
 	{"m41"					requires	"m41_early"							costs 2 position 1.6 15}
-	{"m56"					requires	"m29_mortar_air"					costs 2 position 9 4}
+	{"m56"					requires	"squad_air_fireteam_con_early(usa)"	costs 2 position 9 4}
 	{"paradrop_m56"			requires	"m56"								costs 2 position 10 4}
 	{"m42"					requires	"usa_tanks_early"					costs 3 position 0.8 14}
 	{"m50"					requires	"squad_usmc_flame_con_early(usa)"	costs 2 position 11 7}
@@ -169,6 +168,7 @@
 ;---Heavy Tanks---
 
 	{"m103"					requires	"m48"								costs 3 position 2.4 16.2}
+	{"m103_usmc"			requires	"usa_usmc_early"					costs 4 position 7 5}
 	
 ;---SPGs---
 	
@@ -274,7 +274,7 @@
 
 ;//---AT Guns---
 	
-	{"entac"			requires	"usa_artillery_mid"			costs 2 position 2 29}
+	{"deploy_entac_con(usa)"			requires	"usa_artillery_mid"			costs 2 position 2 29}
 	
 ;//---Artillery---
 

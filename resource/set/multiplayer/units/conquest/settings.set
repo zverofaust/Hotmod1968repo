@@ -197,6 +197,18 @@
 ; For the other normal squads the cost is computed as the sum of the cost of the individual soldiers.
 ;--------------------------------------------------------------------------------------------------
 
+(define "squad_weaponteam_conquest"
+	{"%name(%side)"
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost %cost}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "vehicles"}
+	}
+)
 
 (define "squad_with1types_conquest"
 	{"%name(%side)"

@@ -67,7 +67,7 @@
 	
 	{"squad_engineer_moto_con_early(sov)" 	requires "single_engineer_early(sov)"		costs 3	 position 9.2 2.2}
 	{"squad_medic_moto_con_early(sov)"		requires "single_medic_early(sov)"			costs 2  position 10.8 1}
-	{"squad_mg_early(sov)"					requires "single_mg_early(sov)"				costs 2  position 3.8 1}
+	{"squad_mg_early(sov)"					requires "deploy_sg43_con(sov)"				costs 3  position 4.6 1}
 	{"squad_spz_scout_moto_con_early(sov)"	requires "single_scout_early(sov)"			costs 3  position 6.1 1}
 	
 	
@@ -113,21 +113,21 @@
 	{"squad_spz_demo_con_early(sov)"		requires "squad_vdv_hunter_con_early(sov)"		costs 3  position 8 7.9}
 
 ;//---MG---
-	;{"sg43_stand_sov"						requires ""							costs 0  position 0 0} ;// AVAILABLE BY DEFAULT
-	{"dshk_aa_sov"							requires "sov_artillery_early"		costs 2  position 2.2 6}
+
+	{"deploy_sg43_con(sov)"					requires "single_mg_early(sov)"				costs 2  position 3.8 1}
+	{"deploy_dshk_con(sov)"					requires "sov_artillery_early"		costs 2  position 2.2 6}
 
 ;//---Mortars---
-	;{"82mm_bm37_sov"						requires ""							costs 2  position 1 7}
 	{"120mm_pm38_sov"						requires "sov_artillery_early"		costs 3  position 1.4 7}
 
 ;//---AA---
-	{"zu-2"									requires "dshk_aa_sov"				costs 2  position 3.1 6}
+	{"zu-2"									requires "deploy_dshk_con(sov)"		costs 2  position 3.1 6}
 	{"zpu-4"								requires "zu-2"						costs 2  position 4 6}
 	{"57mm_s-60"							requires "zpu-4"					costs 2  position 4.9 6}
 
 ;//---AT Guns---
 	;{"d-48"								requires ""							costs 0  position 1 10}
-	{"b-10_82mm"							requires "d-44"						costs 2  position 3 9}
+	{"deploy_b10_con(sov)"					requires "d-44"						costs 2  position 3 9}
 	
 ;//---Field Guns---	
 	{"d-44"									requires "sov_artillery_early"		costs 0  position 2.2 8} 
@@ -224,7 +224,6 @@
 	{"single_tankman(sov)"				requires "sov_inf_mid"						costs 1  position 1 18}
 	{"single_at(sov)"					requires "sov_inf_mid"						costs 1  position 4 19}
 	{"single_mg(sov)"					requires "sov_inf_mid"						costs 1  position 1.2 19}
-	{"squad_mg(sov)"					requires "single_mg(sov)"					costs 3  position 2 19}
 	{"single_medic(sov)"				requires "sov_inf_mid"						costs 1  position 8 18}
 	{"squad_medic_moto_con(sov)"		requires "single_medic(sov)"				costs 2  position 8.8 18}	
 	{"single_scout(sov)"				requires "sov_inf_mid"						costs 2  position 9.2 19}	
@@ -236,7 +235,7 @@
 	
 	{"squad_mg(sov)"					requires "single_mg(sov)"					costs 3  position 2 19}
 	{"squad_medic_moto_con(sov)"		requires "single_medic(sov)"				costs 2  position 8.8 18}
-	{"squad_spz_scout_moto_con(sov)"		requires "single_scout(sov)"				costs 3  position 10 19}
+	{"squad_spz_scout_moto_con(sov)"	requires "single_scout(sov)"				costs 3  position 10 19}
 	{"squad_engineer_moto_con(sov)" 	requires "single_engineer(sov)"				costs 3	 position 5.6 18}
 	
 	{"squad_internal_con(sov)"				requires "sov_inf_mid"						costs 1  position 0.4	20}
@@ -291,6 +290,8 @@
 	
 ;//---MG---
 
+	;{"deploy_pk_con(sov)"					requires "single_mg(sov)"			costs 1  position 2 19}
+	
 ;//---Mortars---
 
 ;//---AA---
@@ -298,8 +299,8 @@
 
 ;//---AT Guns---
 	{"t-12"									requires "sov_artillery_mid"		costs 3  position 9 28}
-	{"spg9"									requires "sov_artillery_mid"		costs 2  position 10 28}
-	{"9m14"									requires "spg9"						costs 4  position 11 28}
+	{"deploy_spg9_con(sov)"					requires "sov_artillery_mid"		costs 2  position 10 28}
+	{"deploy_9m14_con(sov)"					requires "deploy_spg9_con(sov)"			costs 4  position 11 28}
 
 ;//---Field Guns---
 
@@ -307,7 +308,6 @@
 	{"d30a"									requires "sov_artillery_mid"		costs 3  position 11 27}
 
 ;//---Trucks---
-	{"zil131_ammo"							requires "zil131"					costs 2  position 11 32}
 	{"zil131"								requires "sov_trucks_mid"			costs 1  position 10 32}
 	{"zil131_ammo"							requires "zil131"					costs 2  position 11 32}
 	
