@@ -10,9 +10,6 @@
 	{barricade
 		{"fortifications" "foxhole"}
 		{"fortifications" "medic_rally"}
-		{"fortifications" "mg_stand_m1919"}
-		{"fortifications" "mg_stand_m60"}	
-		{"fortifications" "mg_stand_pk"}	
 	}
 	{"resources" "10%"}
 )
