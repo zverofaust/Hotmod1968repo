@@ -104,8 +104,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sapperat(sov)"},
 			--Cannons
 			--HMGs
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "sg43_stand_sov"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "dshk_aa_sov"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "sg43_stand_sov"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "dshk_aa_sov"},
 			--Anti_Aircraft
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "zu-2"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "zpu-4"},
@@ -113,12 +113,12 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "37mm_61k_sov"},
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, unit = "76mm_zis3_sov"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "b-10_82mm"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "spg9"},
+				--{priority = 1.0, class = UnitClass.ATTank, unit = "b-10_82mm"},
+				--{priority = 1.0, class = UnitClass.ATTank, unit = "spg9"},
 				{priority = 0.5, class = UnitClass.ATTank, unit = "t-12"},
-				{priority = 0.5, class = UnitClass.ATTank, unit = "9m14"},
+				--{priority = 0.5, class = UnitClass.ATTank, unit = "9m14"},
 			--Mortars
-				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "82mm_bm37_sov"},
+				--{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "82mm_bm37_sov"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "120mm_pm38_sov"},
 			--Infantry_Support
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "gp1958"},
@@ -228,16 +228,16 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.2, class = UnitClass.Infantry, unit = "squad_specops_con(usa)"},
 			--Cannons
 			--HMGs
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "m2_m1919a4"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "m63_browning"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "m2_m1919a4"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "m63_browning"},
 			--Anti_Aircraft
 				{priority = 0.5, class = UnitClass.Vehicle, unit = "m45_maxson"},
 				{priority = 0.5, class = UnitClass.Vehicle, unit = "40_mm_m1"},
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m40"},
-				{priority = 0.5, class = UnitClass.ATTank, unit = "entac"},
+				--{priority = 0.5, class = UnitClass.ATTank, unit = "entac"},
 			--Mortars
-				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "m29_mortar"},
+				--{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "m29_mortar"},
 				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "m30_mortar"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m98_howtar"},
 			--Infantry_Support
@@ -317,18 +317,18 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_full_con_early(prc)"},
 				
 			--Automatic_weaponry
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "sg43_stand_prc"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "dshk_aa_prc"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "sg43_stand_prc"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "dshk_aa_prc"},
 				{priority = 1.0, class = UnitClass.AATank, unit = "zpu-4_prc"},
 				{priority = 1.0, class = UnitClass.AATank, unit = "37mm_61k_prc"},
 			--AT_Weapons
 				{priority = 2.0, class = UnitClass.ATTank, unit = "76mm_zis3_prc"},
-				{priority = 2.0, class = UnitClass.ATTank, unit = "b-10_prc"},
+				--{priority = 2.0, class = UnitClass.ATTank, unit = "b-10_prc"},
 				{priority = 2.0, class = UnitClass.ATTank, unit = "bs3_prc"},
 			--Infantry_Support
 				{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "d-44_prc"},
 			--Howitzers
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "82mm_bm37_prc"},
+				--{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "82mm_bm37_prc"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "120mm_pm38_prc"},
 				--{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "m30_prc"},
 				--{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "d-74_prc"},
@@ -400,15 +400,15 @@ Purchases["campaign_capture_the_flag"] = {
 			--Infantry Squads
 				
 			--HMGs
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "mg3_lafette"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "m63g"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "mg3_lafette"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "m63g"},
 			--Anti_Aircraft
 				{priority = 0.5, class = UnitClass.Vehicle, unit = "m45g"},
 				{priority = 0.5, class = UnitClass.Vehicle, unit = "40mm_bofors_l70_frg"},
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m40g"},
 			--Mortars
-				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "m29g_mortar"},
+				--{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "m29g_mortar"},
 				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "120mm_krh40_frg"},
 			--Infantry_Support
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m116g"},
