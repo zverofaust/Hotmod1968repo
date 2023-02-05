@@ -1,8 +1,9 @@
 ;Exported by: misan
-;Date:        Mon Dec 13 09:16:35 2021
-;File:        D:\Cold War\Models\M37\M37_X.max
+;Date:        Sun Nov 28 19:26:39 2021
+;File:        D:\Cold War\Models\M37\M37 2.0.max
 {Skeleton
 	{bone "basis"
+		{parameters "steermax=30;wheelradius=0.5;"}
 		{Orientation
 			1	0	0
 			0	-1	0
@@ -14,12 +15,7 @@
 			{VolumeView "body.ply"}
 			{bone "engine"
 				{parameters "id=engine;"}
-				{Matrix34
-					0.984808	0	0.173648
-					0	1	0
-					-0.173648	0	0.984808
-					12.7135	0	18.2509
-				}
+				{Position 12.7135	0	18.2509}
 				{VolumeView "engine.ply"}
 			}
 			{bone "motor"
@@ -93,6 +89,11 @@
 					{Position 0.505802	0	12.4314}
 					{VolumeView "detail2.ply"}
 				}
+				{bone "detail3"
+					{parameters "id=body;"}
+					{Position 0.180923	0	17.4326}
+					{VolumeView "detail3.ply"}
+				}
 				{bone "detail5"
 					{parameters "id=body;"}
 					{Position 14.9814	-0.162915	11.6972}
@@ -146,11 +147,6 @@
 						11.8466	7.51189	-4.68787
 					}
 				}
-				{bone "detail3"
-					{parameters "id=body;"}
-					{Position 0.401627	-0.0174224	17.3534}
-					{VolumeView "detail3.ply"}
-				}
 			}
 			{bone "driver"
 				{Position -1.66109	7.78978	2.46689}
@@ -167,7 +163,12 @@
 				}
 			}
 			{bone "link2"
-				{Position -46.1755	-0.0441483	3.72947}
+				{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-46.1755	-0.0441483	3.72947
+				}
 			}
 			{bone "fxstop2"
 				{Matrix34
@@ -217,28 +218,28 @@
 			{bone "fxtracel2"
 				{Position -1.41669	15.0812	-9.424}
 			}
-			{bone "spring_l"
+			{bone revolute "spring_l"
 				{Position -0.959511	12.4954	0.00738525}
-				{bone "wheelleft2"
+				{bone revolute "wheelleft2"
 					{parameters "id=wheelleft2;"}
 					{Matrix34
-						-0.986092	0.0888864	-0.140433
-						-0.155629	-0.292975	0.943369
-						0.0349943	0.968116	0.248047
-						0.0142632	2.49993	-0.010685
+						-1	0	0
+						0	0	1
+						0	1	0
+						0.00934982	2.49075	-0.00738335
 					}
 					{VolumeView "wheelleft2.ply"}
 				}
 			}
-			{bone "spring_r"
+			{bone revolute "spring_r"
 				{Position -0.959511	-12.2733	0.00738335}
-				{bone "wheelright2"
+				{bone revolute "wheelright2"
 					{parameters "id=wheelright2;"}
 					{Matrix34
-						-0.994357	0.0455433	-0.0958074
-						-0.100914	-0.179649	0.978541
-						0.0221762	0.988657	0.148546
-						0.0118656	-2.53304	-0.0137396
+						-1	0	0
+						0	0	1
+						0	1	0
+						0.00934982	-2.5388	-0.00738335
 					}
 					{VolumeView "wheelright2.ply"}
 				}
@@ -247,20 +248,20 @@
 		{bone "pivot_front"
 			{Position 24.4595	-0.531912	9.424}
 			{VolumeView "pivot_front.ply"}
-			{bone "steer_r1"
+			{bone revolute "steer_r1"
 				{Matrix34
 					-1	0	0
 					0	1	0
 					0	0	-1
 					1.09166	-12.283	0.00513268
 				}
-				{bone "wheelright1"
+				{bone revolute "wheelright1"
 					{parameters "id=wheelright1;"}
 					{Matrix34
-						0.992936	-0.0350275	0.113366
-						0.115723	0.0748545	-0.990457
-						0.0262073	0.996579	0.0783792
-						0.0217686	-0.0113764	0.15249
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.0271187	-0.00468636	0.00513172
 					}
 					{VolumeView "wheelright1.ply"}
 				}
@@ -271,64 +272,24 @@
 			{bone "fxtracel1"
 				{Position 1.09166	15.0812	-9.424}
 			}
-			{bone "steer_l1"
+			{bone revolute "steer_l1"
 				{Matrix34
 					-1	0	0
 					0	1	0
 					0	0	-1
 					1.09166	13.3469	0.00513268
 				}
-				{bone "wheelleft1"
+				{bone revolute "wheelleft1"
 					{parameters "id=wheelleft1;"}
 					{Matrix34
-						0.996989	0.0128064	-0.0764831
-						-0.0759095	-0.0404935	-0.996292
-						-0.0158559	0.999098	-0.0393995
-						0.00519371	-0.875711	0.0844622
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.0271301	-0.877739	0.00513458
 					}
 					{VolumeView "wheelleft1.ply"}
 				}
 			}
 		}
-	}
-}
-{Volume "wheelleft1"
-	{Cylinder 9.42532 4.91914}
-	{Bone "wheelleft1"}
-	{Matrix34
-		-0.780899	0	0
-		0	0.780899	0
-		0	0	-0.780899
-		0.0858096	0.0411649	1.9331
-	}
-}
-{Volume "wheelleft2"
-	{Cylinder 9.42532 4.91914}
-	{Bone "wheelleft2"}
-	{Matrix34
-		-0.781499	0	0
-		0	0.78749	0
-		0	0	-0.775061
-		-0.112616	0.0415125	-0.0321842
-	}
-}
-{Volume "wheelright1"
-	{Cylinder 9.42532 4.91914}
-	{Bone "wheelright1"}
-	{Matrix34
-		-0.780899	0	0
-		0	0.780899	0
-		0	0	-0.780899
-		0.0858002	0.041164	-1.95881
-	}
-}
-{Volume "wheelright2"
-	{Cylinder 9.42532 4.91914}
-	{Bone "wheelright2"}
-	{Matrix34
-		-0.781056	0	0
-		0	0.783358	0
-		0	0	-0.778785
-		-0.112555	0.0412903	0.0124372
 	}
 }
