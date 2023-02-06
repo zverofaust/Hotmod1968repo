@@ -2054,8 +2054,182 @@
 	("pz1_sound")
 }
 
+{"rakjpz_1"
+	("pz2_sound")
+	
+	{on "gunner_hatch_open"
+		{ani_play "raise_sight" resume}
+	}
+	{on "gunner_hatch_close"
+		{ani_play "lower_sight" resume}
+	}
+	
+	{on spawn
+		{tags add "missile_r"}
+		{tags remove "missile_l"}
+		{tags remove "reloading"}
+	}
+	
+	{on fire "gun" overload
+		(define "fire_missile"
+			name "%0"
+				{call "fire_missile%0"}
+		)
+		{if	("fire_missile" args 00)
+			{bone hide "rocket_00"}
+			{delay 1
+				{ani_play "lower_launcher_r"}
+				{tags add "reloading"}
+				{tags remove "missile_r"}
+				{tags remove "missile_r_up"}
+				{tags add "missile_l"}
+				{delay 3
+					{ani_play "raise_launcher_l"}
+					{tags add "missile_l_up"}
+					{tags remove "reloading"}
+				}
+			}
+		else ("fire_missile" args 01)
+			{bone hide "rocket_01"}
+			{delay 1
+				{ani_play "lower_launcher_l"}
+				{tags remove "missile_l"}
+				{tags remove "missile_l_up"}
+			}
+		}
+	}	
+	
+	{on "reload"
+		{tags add "reloading"}
+		{tags remove "missile_r"}
+		{tags remove "missile_r_up"}
+		{tags remove "missile_l"}
+		{tags remove "missile_l_up"}
+		;{ik_enable "sight_pole" 0}
+		{talk "reload"}
+		{delay 1
+			{call "update_missileracks"}
+			{delay 3.5
+				{tags remove "reloading"}
+				{tags add "missile_r"}
+				{talk "reloaded"}
+				{call "update_missileracks"}
+				{bone show "rocket_00"}
+				{bone show "rocket_01"}	
+			}
+		}
+	}
+ 
+	{on repair
+		{if component "body"
+			{call "update_missileracks"}
+		}
+	}
+ 
+	(define "update_missileracks"
+		{if crew_in_place "gunner"
+			{if tagged "reloading"
+				{delay 0.1}
+			else tagged "missile_r_up"
+				{delay 0.1}
+			else tagged "missile_l_up"
+				{delay 0.1}
+			else tagged "missile_r"
+				{ani_play "raise_launcher_r"}
+				{bone show "rocket_00"}
+				{tags add "missile_r_up"}
+				{tags remove "missile_l"}
+				{tags remove "reloading"}
+				{ik_enable "sight_pole" 1}
+			else tagged "missile_l"
+				{ani_play "raise_launcher_l"}
+				{bone show "rocket_01"}
+				{tags add "missile_l_up"}
+				{tags remove "missile_r"}
+				{tags remove "reloading"}
+				{ik_enable "sight_pole" 1}
+			}
+		else
+			{delay 0.1}
+		}
+		
+	)
+ 
+ 
+	{on "update_missileracks"
+		("update_missileracks" n())
+	}
+	
+	(define "update_rack_event"
+		{on %event
+			{call "update_missileracks"}
+		}
+	)
+	("update_rack_event" event(operatable on))
+	("update_rack_event" event(operatable off))
+	("update_rack_event" event(crew in))
+	("update_rack_event" event(crew out))
+	("update_rack_event" event(fire))
+	("update_rack_event" event(ik begin "sight_pole"))
+	
+}
+
 {"spz_123"
 	("pz2_sound")
+}
+
+{"spz_123_m40"
+	("pz2_sound")
+	{on spawn
+		{add_view "flash_shotgun" 	"flashrcl"		"foresight1a"}
+		{add_view "flash_shotgun" 	"backblast"		"fx_invers"}
+		{add_view "flash_gun_hmg_m2hb" 		"flashbarrel" 	"foresight1"}
+	}
+	{on "gunner2_hatch_open" overload
+		{if crew_in_place "charger"
+			{ani_play "open_back" resume}
+		else
+			{ani_play "open_back" resume}
+		}
+	}
+	{on "gunner2_hatch_close" overload
+		{if crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_back" -1.0 resume}
+		}
+	}
+	{on "charger_hatch_open" overload
+		{if crew_in_place "gunner2"
+			{ani_play "open_back" resume}
+		else
+			{ani_play "open_back" resume}
+		}
+	}
+	{on "charger_hatch_close" overload
+		{if crew_in_place "gunner2"
+			;nothing
+		else
+			{ani_play "open_back" -1.0 resume}
+		}
+	}
+	{on fire "gun" overload
+		{ani_play "fire"}
+		{view start "flashbarrel"}
+		{delay 0.15
+			{view pause "flashbarrel"}
+		}
+	}	
+	{on fire "gun1" overload
+		{ani_play "firer"}
+		{view start "flashrcl"}
+		{view start "backblast"}
+		{delay 0.15
+			{view pause "flashrcl"}
+			{view pause "backblast"}
+		}
+		{call "spawn_shell"}
+	}	
 }
 
 {"m47frg tank"
