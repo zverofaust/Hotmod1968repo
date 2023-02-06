@@ -1,0 +1,88 @@
+{game_entity		;SPz 12-3 Lang
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	(include "rakjpz_1.ext")
+	{props "atgm" "light" "vision_lev04" "muzzle_20mm_25mm_auto" "diesel" "smoke" "8shot"}
+	{targetclass "tank_light"}
+	{targetSelector "tank_zenite"}
+	{PatherId "t34"}
+
+	("crew_3_human")
+
+	;{extender "shield" {on}}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open_turret"}}
+			{reverse {end "emit_t34_hold"} {base "open_turret"}}
+		}
+		{anm "left"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"} {base "open_left"}}
+			{reverse {end "emit_tank_2"} {base "open_left"}}
+		}
+		{anm "right"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"} {base "open_right"}}
+			{reverse {end "emit_body"} {base "open_right"}}
+		}
+	}
+	
+	{extender "smokescreen"
+		{cooldown 5}
+		{itemTags "grenade nbk39"}
+	}
+	
+	{extender "inventory"
+		{box
+			
+			;{item "geballteladung_3kg" 1}
+			{item "ammo agm22 atgm" 10}
+			{item "nbk39 grenade" 5}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "atgm_agm-22_x2_rakjpz" filling "agm22 atgm" 2}
+			{gunner "gunner"}
+			{charger "charger"}
+			{barrels		2}
+			{shooter		"shooter"}
+			{foresight		"foresight"}
+			{rotate}
+			("abm_dymamic"
+				zeroing(4)
+				dispersion(0.15)
+			)
+		}
+	}
+
+	{mass 14600}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
+		("mobility_tank"
+			speed(58)  ;---------Max speed when fully accelerated on road, km/h.
+			reverse(9.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(14.6) ;-------Weight in Tonnes.
+			power(220) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(1100) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(270) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "rakjpz_1.mdl"}
+	
+	{bone "sight_pole"			;gun horizontal
+		{speed2 24}				;degree per second
+		{limits 25 -25}
+	}
+}
