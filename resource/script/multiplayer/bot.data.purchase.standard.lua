@@ -380,7 +380,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
+				--{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
 			--Tanks_heavy
 			--SPG
@@ -466,7 +466,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
+				--{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"}
 			--Tanks_heavy
@@ -657,13 +657,13 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
-				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
+				--{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
 			--Tanks_heavy
@@ -864,13 +864,13 @@ Purchases["standard"] = {
 			--APCs/BTRs
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
 				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "spz_123_m40"},
-				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
+				--{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
 			--Tanks_heavy
@@ -1080,13 +1080,13 @@ Purchases["standard"] = {
 			--APCs/BTRs
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
 				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "spz_123_m40"},
-				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
+				--{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
 			--Tanks_heavy
@@ -1275,13 +1275,13 @@ Purchases["standard"] = {
 			--APCs/BTRs
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
 				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "spz_123_m40"},
-				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
+				--{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1a1"},
@@ -1476,14 +1476,14 @@ Purchases["standard"] = {
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
-				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "spz_123_m40"},
-				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "spz_123_m40"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
+				--{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1a1"},
