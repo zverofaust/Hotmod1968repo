@@ -654,10 +654,10 @@ Purchases["standard"] = {
 			--	{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m115g"},	
 			--Rocket_Artillery
 			--Wheel_vehicles	
-			{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
-				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m106g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
@@ -860,10 +860,11 @@ Purchases["standard"] = {
 			--	{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m115g"},	
 			--Rocket_Artillery
 			--Wheel_vehicles	
-			{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
-				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m106g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "spz_123_m40"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
@@ -1075,10 +1076,11 @@ Purchases["standard"] = {
 			--	{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m115g"},	
 			--Rocket_Artillery
 			--Wheel_vehicles	
-			{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
-				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m106g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "spz_123_m40"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
@@ -1271,8 +1273,9 @@ Purchases["standard"] = {
 			--Wheel_vehicles	
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
-				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m106g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "spz_123_m40"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
 				{priority = 0.5, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
@@ -1472,8 +1475,9 @@ Purchases["standard"] = {
 			--Wheel_vehicles	
 				{priority = 0.5, class = UnitClass.Vehicle, period = "mid", unit = "munga4_mg3"},
 			--APCs/BTRs
-				{priority = 0.2, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m106g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "spz_112"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "spz_123_m40"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid",  unit = "rakjpz_1"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m41g"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},

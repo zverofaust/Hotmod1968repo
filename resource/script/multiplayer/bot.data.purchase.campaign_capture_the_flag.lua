@@ -419,8 +419,9 @@ Purchases["campaign_capture_the_flag"] = {
 			--Rocket_Artillery
 			--Wheel_vehicles	
 			--APCs/BTRs
-				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "m125g"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "spz_112"},
+				{priority = 0.5, class = UnitClass.ATTank, unit = "spz_123_m40"},
+				{priority = 0.5, class = UnitClass.ATTank, unit = "rakjpz_1"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, unit = "m41g"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m42g"},
