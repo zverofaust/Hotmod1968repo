@@ -30,22 +30,22 @@
 	}
 
 	{extender "inventory"
+		{weapon "mgun" {mask "mountable"}}
 		{box
 			{item "ammo m60_box" 400}
+			{item "m60" filled {user "mgun"}}
 		}
 	}
 
 	{Weaponry
-		{place "mgun1"
+		{place "mgun"
 			{type "main"}
-			{weapon "m60" filled}
-			{LinkAnimation	"off"}
 			{gunner "gunner"}
-			{charger "commander"}
-			;{foresight "foresight3"}
-			{LinkBone		"helper"}
-			{LinkAnimation	"off"}
+			{charger "gunner"}
+			{LinkBone "helper"}
+			{LinkAnimation "off"}
 			("abm_mgun")
+			{Rotate}
 		}
 	}
 	
