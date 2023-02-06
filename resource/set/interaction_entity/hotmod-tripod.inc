@@ -19,7 +19,7 @@
 
 	;///SOV
 	("gunbag" guntype(sg43_stand_sov) 			bagtype(gunbag_sg43))
-	("gunbag" guntype(mg_stand_pk)   			bagtype(pk))
+	("gunbag" guntype(mg_stand_pk)   			bagtype(gunbag_pk))
 	("gunbag" guntype(dshk_aa_sov)   			bagtype(gunbag_dshk))
 	("gunbag" guntype(82mm_bm37_sov)  			bagtype(gunbag_bm37))
 	("gunbag" guntype(b-10_82mm)  				bagtype(gunbag_b10))
@@ -28,13 +28,13 @@
 	
 	;///USA
 	("gunbag" guntype(mg_stand_m1919) 			bagtype(gunbag_m1919))
-	("gunbag" guntype(mg_stand_m60)   			bagtype(m60))
+	("gunbag" guntype(mg_stand_m60)   			bagtype(gunbag_m60))
 	("gunbag" guntype(mg_stand_m2)   			bagtype(gunbag_m2))
 	("gunbag" guntype(m29_mortar)  	 			bagtype(gunbag_m29))
 	("gunbag" guntype(entac)   					bagtype(gunbag_entac))
 	
 	;///FRG
-	("gunbag" guntype(mg3_lafette)   			bagtype(mg1_drum))
+	("gunbag" guntype(mg3_lafette)   			bagtype(gunbag_mg3))
 	("gunbag" guntype(mg_stand_m2g)   			bagtype(gunbag_m2_frg))
 	("gunbag" guntype(m29g_mortar)  			bagtype(gunbag_m29_frg))
 
