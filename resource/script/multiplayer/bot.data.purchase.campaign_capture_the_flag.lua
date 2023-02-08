@@ -347,7 +347,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.ATTank, unit = "su100_prc"},	
 				{priority = 1.0, class = UnitClass.Tank, unit = "type59"},
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "is2_prc"},
+				{priority = 0.5, class = UnitClass.HeavyTank, unit = "is2_prc"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "isu152_prc"}
 			--SPG
 			},
