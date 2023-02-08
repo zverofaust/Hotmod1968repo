@@ -1,8 +1,9 @@
 ;Exported by: misan
-;Date:        Mon Feb  6 06:40:26 2023
+;Date:        Wed Feb  8 10:46:57 2023
 ;File:        D:\Cold War\ModelWIP\West Germany\Raketenjagdpanzer 1\Rak1.max
 {Skeleton
-	{bone "basis"
+	{bone revolute "basis"
+		{limits 0 0}
 		{Orientation
 			1	0	0
 			0	-1	0
@@ -344,13 +345,9 @@
 							1.84801	1.19194	0.00974655
 						}
 					}
-					{bone "foresight"
-						{Matrix34
-							0.99863	0.052336	0
-							0	0	-1
-							-0.052336	0.99863	0
-							1.84801	0.116024	0.00974655
-						}
+					{bone revolute "foresight"
+						{limits -10 25}
+						{Position 1.84801	0.116024	0.00974655}
 					}
 				}
 			}
@@ -359,7 +356,9 @@
 				{Position 18.0244	-10.6911	-0.123945}
 				{VolumeView "launcher_r_post.ply"}
 				{bone revolute "launcher_r_turret"
+					{parameters "id=body;"}
 					{Position -0.00316811	-0.00841713	4.60318}
+					{VolumeView "launcher_r_turret.ply"}
 					{bone "launcher_r_rot"
 						{parameters "id=body;"}
 						{Matrix34

@@ -1,22 +1,22 @@
 ;Exported by: misan
-;Date:        Mon Feb  6 14:59:57 2023
+;Date:        Wed Feb  8 10:46:57 2023
 ;File:        D:\Cold War\ModelWIP\West Germany\Raketenjagdpanzer 1\Rak1.max
 {Skeleton
 	{animation
 		{sequence "start" {speed 0.15}}
 		{sequence "stop" {speed 0.15}}
-		{sequence "open_right" {speed 0.1}}
-		{sequence "open_left" {speed 0.1}}
-		{sequence "open1" {speed 0.3}}
-		{sequence "raise_sight" {speed 0.2}}
-		{sequence "lower_sight" {speed 0.2}}
-		{sequence "raise_launcher_r" {speed 0.2}}
-		{sequence "lower_launcher_r" {speed 0.2}}
-		{sequence "raise_launcher_l" {speed 0.2}}
-		{sequence "lower_launcher_l" {speed 0.2}}
+		{sequence "open_right" {speed 0.05}{resume}{events {1 "hatch_light"}}}
+		{sequence "open_left" {speed 0.05}{resume}{events {1 "hatch_light"}}}
+		{sequence "open1" {speed 0.3}{resume}{events {2 "hatch_light"}}}
+		{sequence "raise_sight" {speed 0.2}{events {2 "hatch_visor"}}}
+		{sequence "lower_sight" {speed 0.2}{events {2 "hatch_visor"}}}
+		{sequence "raise_launcher_r" {speed 0.1}{events {2 "hatch_light"}}}
+		{sequence "lower_launcher_r" {speed 0.1}{events {2 "hatch_light"}}}
+		{sequence "raise_launcher_l" {speed 0.1}{events {2 "hatch_light"}}}
+		{sequence "lower_launcher_l" {speed 0.1}{events {2 "hatch_light"}}}
 	}
 	{bone revolute "basis"
-	{limits 0 0}
+		{limits 0 0}
 		{Orientation
 			1	0	0
 			0	-1	0
@@ -369,7 +369,9 @@
 				{Position 18.0244	-10.6911	-0.123945}
 				{VolumeView "launcher_r_post.ply"}
 				{bone revolute "launcher_r_turret"
+					{parameters "id=body;"}
 					{Position -0.00316811	-0.00841713	4.60318}
+					{VolumeView "launcher_r_turret.ply"}
 					{bone "launcher_r_rot"
 						{parameters "id=body;"}
 						{Matrix34
