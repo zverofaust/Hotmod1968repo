@@ -812,7 +812,7 @@
 	}
 }
 
-{"t-62_1962 tank"
+{"t-62_1960 tank"
 	("t28_sound")
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.8)
