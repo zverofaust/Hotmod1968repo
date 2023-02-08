@@ -7,9 +7,9 @@
 		{sequence "stop" {speed 0.15}}
 		{sequence "fire" {speed 0.35}}
 		{sequence "open1" {speed 0.2}}
-		{sequence "open_turret" {speed 0.15}}
-		{sequence "open_right" {speed 0.2}}
-		{sequence "open_left" {speed 0.2}}
+		{sequence "open_turret" {speed 0.15}{resume}{events {2 "hatch_light"}}}
+		{sequence "open_right" {speed 0.2}{resume}{events {2 "hatch_heavy"}}}
+		{sequence "open_left" {speed 0.2}{resume}{events {2 "hatch_heavy"}}}
 	}
 	{bone "basis"
 		{Orientation

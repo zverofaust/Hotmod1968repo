@@ -8,11 +8,11 @@
 		{sequence "fire" {speed 0.35}}
 		{sequence "firer" {speed 0.05}}
 		{sequence "open1" {speed 0.2}}
-		{sequence "open_turret" {speed 0.2}}
-		{sequence "open_right" {speed 0.2}}
-		{sequence "open_left" {speed 0.2}}
-		{sequence "open_back" {speed 0.2}}
-		{sequence "close_back" {speed 0.2}}
+		{sequence "open_turret" {speed 0.2}{resume}{events {2 "hatch_light"}}}
+		{sequence "open_right" {speed 0.2}{resume}{events {2 "hatch_heavy"}}}
+		{sequence "open_left" {speed 0.2}{resume}{events {2 "hatch_heavy"}}}
+		{sequence "open_back" {speed 0.2}{resume}{events {2 "hatch_heavy"}}}
+		{sequence "close_back" {speed 0.2}{resume}{events {2 "hatch_heavy"}}}
 	}
 	{bone revolute "basis"
 		{limits 0 0}
