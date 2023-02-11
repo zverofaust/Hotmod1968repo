@@ -253,6 +253,12 @@
 	{item "bullet122_d49"		"apds"		"ammo" 1 {value 15}}
 	{item "bullet122_d49"		"heat"		"ammo" 1 {value 20}}
 	
+	{item "bullet122_m62"		"he"		"ammo" 1 {value 8}}
+	{item "bullet122_m62"		"aphe"		"ammo" 1 {value 8}}
+	{item "bullet122_m62"		"apcbc"		"ammo" 1 {value 8}}
+	{item "bullet122_m62"		"apds"		"ammo" 1 {value 15}}
+	{item "bullet122_m62"		"heat"		"ammo" 1 {value 20}}
+	
 	{item "bulletrus_122_l48"	"apcbc"		"ammo" 1 {value 10}}
 	{item "bulletrus_122_l48"	"apds"		"ammo" 1 {value 12}}
 	{item "bulletrus_122_l48"	"heat"		"ammo" 1 {value 12}}
