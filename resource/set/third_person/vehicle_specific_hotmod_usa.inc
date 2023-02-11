@@ -368,7 +368,101 @@
 			{level ;0
 				{linkBone "basis"}
 				{faroffset 0 0 70}
-				{nearoffset -45 0 55}
+				{nearoffset -45 0 65}
+				{camera "zoom1"}
+				{hide_hitmarker 1}
+				{blur_strength 2}
+				{disable_fow 0}
+				{no_grain}
+			}
+			{level ;1
+				{zoom}
+				{vision_modes_active}
+				{hide_crosshair 1}
+				{linkBone "visor1"}
+				{offset 5 0 2}
+				{scope_vignette "/texture/common/environment/lens_effects/vehicle_telescope_blank"}
+				{blur_mask "/texture/common/environment/lens_effects/vehicle_telescope_mask"}
+				{refraction_mask "/texture/common/environment/lens_effects/vehicle_telescope_base_bp"}
+				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_02"}
+				{distance 5}
+				{distanceSet 0}
+				{delta 0}
+				{camera "zoom1.5"}
+				{ManualAccuracyZoom}
+				{blur_strength 10}
+				{disable_fow 0}
+				{no_rim_light}
+				{soundEffect "opentop_vehicle"}
+			}
+			{level ;2
+				{camera "zoom2.5"}
+				{offset 2 0 2}
+			}
+			{level ;2
+				{camera "zoom10"}
+				{offset 2 0 2}
+			}
+		}
+		
+		{"tank.m60"
+			{clip
+				{viewMin		-12	}	; camera rotate upward limit (looking down)
+				{viewMax		20	}	; camera rotate downward limit (looking up)
+				{distanceMin	200	}	; camera min distance from object. value / 20 = meters
+				{distanceMax	350	}	; camera max distance from object. value / 20 = meters
+			}
+			{level ;0
+				{linkBone "basis"}
+				{faroffset 0 0 70}
+				{nearoffset -45 0 70}
+				{camera "zoom1"}
+				{hide_hitmarker 1}
+				{blur_strength 2}
+				{disable_fow 0}
+				{no_grain}
+			}
+			{level ;1
+				{zoom}
+				{vision_modes_active}
+				{hide_crosshair 1}
+				{linkBone "visor1"}
+				{offset 20 0 -5}
+				{scope_vignette "/texture/common/environment/lens_effects/vehicle_telescope_blank"}
+				{blur_mask "/texture/common/environment/lens_effects/vehicle_telescope_mask"}
+				{refraction_mask "/texture/common/environment/lens_effects/vehicle_telescope_base_bp"}
+				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_02"}
+				{distance 5}
+				{distanceSet 0}
+				{delta 0}
+				{camera "zoom1.5"}
+				{ManualAccuracyZoom}
+				{blur_strength 10}
+				{disable_fow 0}
+				{no_rim_light}
+				{soundEffect "opentop_vehicle"}
+			}
+			{level ;2
+				{camera "zoom2.5"}
+				{offset 20 0 -5}
+			}
+			{level ;2
+				{camera "zoom10"}
+				{offset 20 0 -5}
+			}
+		}
+		
+		{"tank.starship"
+			{clip
+				{viewMin		-12	}	; camera rotate upward limit (looking down)
+				{viewMax		20	}	; camera rotate downward limit (looking up)
+				{distanceMin	200	}	; camera min distance from object. value / 20 = meters
+				{distanceMax	350	}	; camera max distance from object. value / 20 = meters
+			}
+			{level ;0
+				{linkBone "basis"}
+				{faroffset 0 0 70}
+				{nearoffset -45 0 75}
 				{camera "zoom1"}
 				{hide_hitmarker 1}
 				{blur_strength 2}
