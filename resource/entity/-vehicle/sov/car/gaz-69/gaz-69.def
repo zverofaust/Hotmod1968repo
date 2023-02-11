@@ -56,19 +56,30 @@
 		)
 	}
 	
-	("glass" args "window1" 1)
+	("glass" args "glassl" 1)
+	("glass" args "glassr" 1)
+	("glass" args "glass_tarp" 1)
 	
-	{Volume "Body"
+	{Volume "body1"
 		{thickness 4}
+	}
+	{Volume "body2"
+		{thickness 4}
+		{able{holed}}
 	}
 	{Volume "engine"
 		{thickness 4}
 	}
+	("shield_cover" args "shield1")
+	("shield_cover" args "shield2")
+	("shield_cover" args "shield3")
+	("shield_cover" args "shield4")
 	
 	{extender "shield"
-			{off}
+			{on}
 	}
 
+	
 	{Chassis
 		("car_trace" fx("tracewheel03") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
 		("car_trace" fx("tracewheel03") step(0.08) wheell("wlr") wheelr("wrr") bonel("FXtraceL2") boner("FXtraceR2"))
