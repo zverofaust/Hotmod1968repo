@@ -1,0 +1,174 @@
+;SDL
+actor
+
+(include "vehicle.ext")
+(include "car_crew.ext")
+(include "armor.ext")
+(include "abm.inc")
+(include "mobility.inc")
+
+("brain_vehicle")
+
+{hearingBias 4.5} ; in meters
+{collider "car"}
+{props "car" "wheeled" "turn_over"}
+{targetClass "car"}
+{targetSelector "car_bullet"}
+
+{able "talk"}
+
+{placer
+	{place "driver"
+		;{visor "main"}
+		{UseVision 0}
+	}
+	{place "commander"
+		;{visor "around"}
+		{UseVision 0}
+	}
+}
+
+{sensor
+	{visor "main"
+		{vision "vehicle_main"}
+		{bone "basis"}
+	}
+	{visor "peripheral"
+		{vision "human_peripheral"}
+		{bone "basis"}
+	}
+	{visor "none"
+		{vision "none"}
+	}
+}
+
+{extender "inventory"
+	{box
+		{Size 9 10}
+		{weight 2000}
+		{item "can" 1}
+		{item "repair_kit" 5}
+	}
+}
+
+(define "restore_ik_time"
+	{RestoreIKTime 10}
+)
+
+{Chassis "wheel"
+	("chassis_defaults")
+}
+
+(define "car_thickness"
+	{volume "body"			; Main Body
+		{thickness %body}
+	}
+	{volume "body1"			; Main Body
+		{thickness %body}
+	}
+	{volume "body2"			; Main Body
+		{thickness %body}
+	}
+	{volume "body3"			; Main Body
+		{thickness %body}
+	}
+	{volume "body4"			; Main Body
+		{thickness %body}
+	}
+	{volume "body5"			; Main Body
+		{thickness %body}
+	}
+	{volume "body6"			; Main Body
+		{thickness %body}
+	}
+	{volume "body7"			; Main Body
+		{thickness %body}
+	}
+	{volume "body8"			; Main Body
+		{thickness %body}
+	}
+	{volume "body9"			; Main Body
+		{thickness %body}
+	}
+	{volume "bodyback1"		; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback2"		; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback3"		; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback4"		; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback5"		; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback6"		; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback7"		; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback8"		; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback9"		; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback10"	; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback11"	; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback12"	; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback13"	; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback14"	; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback15"	; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback16"	; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback17"	; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback18"	; Truck Bed
+		{thickness %body}
+	}
+	{volume "bodyback19"	; Truck Bed
+		{thickness %body}
+	}
+	{volume "engine"		; Engine
+		{thickness %engine}
+	}
+	{volume "engine1"		; Engine
+		{thickness %engine}
+	}
+	{volume "engine2"		; Engine
+		{thickness %engine}
+	}
+)
+
+(define "wood"
+	{volume %0 {material "wood"} {tags "wood"}}
+)
+
+("car_thickness" body(2) engine(1.5))
+
+("basic_armor" args 10)
+
+("body" repair(45))
+("engine" repair(30))
+
+("general_durability" body(120) engine(60) turret(100) mantlet(100) gun(100) track(100))
+
+{perks {blastwave_modifier 9.0}}
