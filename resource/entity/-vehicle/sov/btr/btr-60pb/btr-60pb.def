@@ -15,45 +15,7 @@
 	
  	;Crew: driver, commander, 8 passengers
 	
-{boarder
-	{anm "driver"
-		{forward	{begin	"board_tank_right"} {end "seat_driver_car"} {base "open_l1"}}
-		{reverse	{end	"emit_tank_2_hold"} {base "open_l1" -1}}
-	}
-	{anm "drivergunner"
-		{forward	{begin	"board_tank_left"} {end "seat_driver_car"} {base "open_r1"}}
-		{reverse	{end	"emit_tank_2_hold"} {base "open_r1" -1}}
-	}
-	{anm "passenger_left"
-		{forward	{begin	"board_tank_right"} {end "seat_passenger"} {base "open_l1"}}
-		{reverse	{end	"emit_tank_2_hold"} {base "open_l1" -1}}
-	}
-	{anm "passenger_right"
-		{forward	{begin	"board_tank_left"} {end "seat_passenger"} {base "open_r1"}}
-		{reverse	{end	"emit_tank_2_hold"} {base "open_r1" -1}}
-	}
-	{anm "passenger_left1"
-		{forward	{begin	"board_tank_right"} {end "seat_passenger"} {base "open_r2"}}
-		{reverse	{end	"emit_tank_2_hold"} {base "open_r2" -1}}
-	}
-	{anm "passenger_right1"
-		{forward	{begin	"board_tank_left"} {end "seat_passenger"} {base "open_l2"}}
-		{reverse	{end	"emit_tank_2_hold"} {base "open_l2" -1}}
-	}
-}
-	("crew_human" place(driver)		bone()		door(emit1) animation(driver) group(crew))
-	("crew_human" place(gunner)		bone()		door(emit2) animation(gunner) group(crew))
-	
-	(include "/properties/hotmod_crew.ext")
-	("passenger_invisible"		place(seat1)	door(emit1)			animation(passenger_left)							)
-	("passenger_invisible"		place(seat2)	door(emit2)			animation(passenger_right)							)
-	("passenger_invisible"		place(seat3)	door(emit1)			animation(passenger_left)							)
-	("passenger_invisible"		place(seat4)	door(emit2)			animation(passenger_right)							)
-	("passenger_invisible"		place(seat5)	door(emit1)			animation(passenger_left)							)
-	("passenger_invisible"		place(seat6)	door(emit2)			animation(passenger_right)							)
-	("passenger_invisible"		place(seat7)	door(emit3)			animation(passenger_left1)							)
-	("passenger_invisible"		place(seat8)	door(emit4)			animation(passenger_right1)							)
-	
+	(include "crew.ext")
 	
 	{placer
 		{place "driver"	{visor "driver"}}
