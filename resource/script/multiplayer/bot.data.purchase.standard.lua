@@ -300,7 +300,9 @@ Purchases["standard"] = {
 				{priority = 0.2, class = UnitClass.Tank, period = "mid", unit = "m132_zippo"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "m56"},
 			--Tanks_medium
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "m48"}	
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "m48"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "m48a1"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "m48a3"}
 			--Tanks_heavy
 			--SPG
 			},
@@ -332,7 +334,7 @@ Purchases["standard"] = {
 				{priority = 2, class = UnitClass.Tank, period = "mid", unit = "su76_prc"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su100_prc"}
 			--Tanks_heavy
 			--SPG
@@ -377,8 +379,8 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
-				--{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
 			--Tanks_heavy
 			--SPG
 				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid",  unit = "m108g"}
@@ -440,7 +442,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t-34-85_prc"},	
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type58_tank"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "su100_prc"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "type59"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "type59"},
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "is2_prc"},
 				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "isu152_prc"}
@@ -463,8 +465,8 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
-				--{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"}
 			--Tanks_heavy
 			--SPG
@@ -866,7 +868,7 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
-				--{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
 			--Tanks_heavy
@@ -1082,7 +1084,7 @@ Purchases["standard"] = {
 				{priority = 0.5, class = UnitClass.Tank, period = "mid",  unit = "m42g"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m47g"},
-				--{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid",  unit = "m48g"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "m48a2c"},
 				{priority = 1.5, class = UnitClass.Tank, period = "mid",  unit = "leopard_1"},
 			--Tanks_heavy
