@@ -1,6 +1,6 @@
 ;Exported by: misan
-;Date:        Thu May  5 16:13:31 2022
-;File:        D:\Cold War\Model WIP\Smallarms\AK-47 Turbosquid\AK47.max
+;Date:        Mon Feb 13 11:42:47 2023
+;File:        D:\Cold War\ModelWIP\Smallarms\AK-47 Turbosquid\AK47.max
 {Skeleton
 	{bone "ak47"
 		{parameters "id=mgun;"}
@@ -9,10 +9,20 @@
 			0	-1	0
 			0	0	1
 		}
-		{VolumeView "ak47.ply"}
+		{LODView
+			{VolumeView "ak47.ply"}
+			{VolumeView "ak47_lod1.ply"}
+			{VolumeView "ak47_lod2.ply"}
+			{VolumeView "ak47_lod3.ply"}
+		}
 		{bone "magazine"
 			{Position 3.12228	0.721632	0}
-			{VolumeView "magazine.ply"}
+			{LODView
+				{VolumeView "magazine.ply"}
+				{VolumeView "magazine_lod1.ply"}
+				{VolumeView "magazine_lod2.ply"}
+				{VolumeView "magazine_lod3.ply"}
+			}
 		}
 		{bone "foresight12"
 			{Position 12.4084	0.958594	0}
@@ -47,7 +57,7 @@
 		0.819152	0.573576	0
 		-0.573576	0.819152	0
 		0	0	1
-		0.65758	-1.78674	0.0258276
+		0.762809	-1.93522	0.0258276
 	}
 }
 {Volume "select"
