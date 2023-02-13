@@ -2,11 +2,11 @@
 
 {boarder
 	{anm "left"
-		{forward {begin "board_sd222_driver"} {base "open_left"}}
+		{forward {begin "board_lowtank_stand"} {base "open_left"}}
 		{reverse {end "emit_sd222_driver"} {base "open_left" -1}}
 	}
 	{anm "right"
-		{forward {begin "board_sd222_driver"} {base "open_left"}}
+		{forward {begin "board_lowtank_stand"} {base "open_left"}}
 		{reverse {end "emit_sd222_driver"} {base "open_left" -1}}
 	}
 }
@@ -18,8 +18,8 @@
 	{boarder
 		{door "emit1"}
 		{door "emit2"}
-		{link "emit1" "%place" {anm "open_left"} {forward putoff} {reverse puton}}
-		{link "emit2" "%place" {anm "open_right"} {forward putoff} {reverse puton}}
+		{link "emit1" "%place" {anm "left"} {forward putoff} {reverse puton}}
+		{link "emit2" "%place" {anm "right"} {forward putoff} {reverse puton}}
 	}
 )
 

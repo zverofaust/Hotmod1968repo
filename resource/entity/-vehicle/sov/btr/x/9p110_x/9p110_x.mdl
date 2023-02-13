@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Wed Dec  7 10:53:27 2022
+;Date:        Sun Feb 12 21:14:21 2023
 ;File:        D:\Cold War\ModelWIP\USSR\9P110\9P110.max
 {Skeleton
 	{bone "basis"
@@ -119,7 +119,7 @@
 		}
 		{bone "body"
 			{parameters "id=body;"}
-			{Position 0	0	15.4602}
+			{Position 0	0	13.7413}
 			{VolumeView "body.ply"}
 			{bone "engine"
 				{Position 24.0078	0	13.514}
@@ -129,8 +129,8 @@
 				{parameters "id=body;"}
 				{Matrix34
 					1	0	0
-					0	0.996195	-0.0871557
-					0	0.0871557	0.996195
+					0	0.996195	-0.0871558
+					0	0.0871558	0.996195
 					-7.31024	7.04448	19.5741
 				}
 				{VolumeView "cover1.ply"}
@@ -144,11 +144,6 @@
 					-7.32781	-7.07686	19.7744
 				}
 				{VolumeView "cover2.ply"}
-			}
-			{bone "detail1"
-				{parameters "id=body;"}
-				{Position -45.5462	-1.41411	12.9968}
-				{VolumeView "detail1.ply"}
 			}
 			{bone "fakewheelattach_front"
 				{Position 2.45305	0	-4.20504}
@@ -200,126 +195,101 @@
 			}
 			{bone revolute "turret"
 				{parameters "id=turret;"}
-				{Position -23.0757	0	12.7549}
+				{Position -23.0757	0	11.0725}
 				{VolumeView "turret.ply"}
 				{bone "launcher"
 					{parameters "id=turret;"}
-					{Position -2.6489	0	13.0041}
+					{Matrix34
+						0.965926	0	0.258819
+						0	1	0
+						-0.258819	0	0.965926
+						-2.6489	0	13.0041
+					}
 					{VolumeView "launcher.ply"}
-					{bone "shooter02"
+					{bone revolute "foresight1"
 						{Matrix34
-							0.984808	0	-0.173648
-							0	1	0
-							0.173648	0	0.984808
-							10.9929	-5.5471	-1.67442
-						}
-						{bone "rocket02"
-							{parameters "id=turret;"}
-							{Matrix34
-								0.989016	0	0.14781
-								0.14781	0	-0.989016
-								0	1	0
-								-7.90257	-0.0541868	-1.98089
-							}
-							{VolumeView "rocket02.ply"}
-						}
-					}
-					{bone "shooter04"
-						{Matrix34
-							0.984808	0	-0.173648
-							0	1	0
-							0.173648	0	0.984808
-							10.9929	10.2629	-0.810249
-						}
-						{bone "rocket04"
-							{parameters "id=turret;"}
-							{Matrix34
-								0.989016	0	0.14781
-								0.14781	0	-0.989016
-								0	1	0
-								-7.91897	0.0419388	-1.88793
-							}
-							{VolumeView "rocket04.ply"}
-						}
-					}
-					{bone "shooter05"
-						{Matrix34
-							0.984808	0	-0.173648
-							0	1	0
-							0.173648	0	0.984808
-							10.9929	15.3448	-1.67442
-						}
-						{bone "rocket05"
-							{parameters "id=turret;"}
-							{Matrix34
-								0.989016	0	0.14781
-								0.14781	0	-0.989016
-								0	1	0
-								-7.89186	0.00732803	-2.04166
-							}
-							{VolumeView "rocket05.ply"}
-						}
-					}
-					{bone "shooter03"
-						{Matrix34
-							0.984808	0	-0.173648
-							0	1	0
-							0.173648	0	0.984808
-							10.9929	5.66246	-1.67442
-						}
-						{bone "rocket03"
-							{parameters "id=turret;"}
-							{Matrix34
-								0.989016	0	0.14781
-								0.14781	0	-0.989016
-								0	1	0
-								-7.90257	0.00734425	-1.98089
-							}
-							{VolumeView "rocket03.ply"}
+							0.965926	0	-0.258819
+							0.258819	0	0.965926
+							0	-1	0
+							11.6165	0	-0.824352
 						}
 					}
 					{bone "shooter00"
-						{Matrix34
-							0.984808	0	-0.173648
-							0	1	0
-							0.173648	0	0.984808
-							10.9929	-15.2993	-1.67442
-						}
+						{Position 2.83229	-15.2346	-1.55701}
 						{bone "rocket00"
 							{parameters "id=turret;"}
 							{Matrix34
-								0.989016	0	0.14781
-								0.14781	0	-0.989016
+								0.999657	0	-0.0261768
+								-0.0261768	0	-0.999657
 								0	1	0
-								-7.92763	0.0404434	-1.83884
+								-0.123629	-0.0105419	-0.448833
 							}
 							{VolumeView "rocket00.ply"}
 						}
 					}
 					{bone "shooter01"
-						{Matrix34
-							0.984808	0	-0.173648
-							0	1	0
-							0.173648	0	0.984808
-							10.9929	-10.2212	-0.810249
-						}
+						{Position 2.83229	-10.27	-0.707565}
 						{bone "rocket01"
 							{parameters "id=turret;"}
 							{Matrix34
-								0.989016	0	0.14781
-								0.14781	0	-0.989016
+								0.999657	0	-0.0261768
+								-0.0261768	0	-0.999657
 								0	1	0
-								-7.91772	-0.0570679	-1.89501
+								-0.123628	-0.00143051	-0.424755
 							}
 							{VolumeView "rocket01.ply"}
 						}
 					}
-					{bone "foresight1"
-						{Matrix34
-							0.984808	0	-0.173648
-							0	1	0
-							0.173648	0	0.984808
-							11.6165	0	-0.824356
+					{bone "shooter02"
+						{Position 2.83229	-5.60487	-1.60341}
+						{bone "rocket02"
+							{parameters "id=turret;"}
+							{Matrix34
+								0.999657	0	-0.0261768
+								-0.0261768	0	-0.999657
+								0	1	0
+								-0.123627	0.0303149	-0.402424
+							}
+							{VolumeView "rocket02.ply"}
+						}
+					}
+					{bone "shooter03"
+						{Position 2.83229	5.65614	-1.60341}
+						{bone "rocket03"
+							{parameters "id=turret;"}
+							{Matrix34
+								0.999657	0	-0.0261768
+								-0.0261768	0	-0.999657
+								0	1	0
+								-0.123627	0.0165668	-0.40242
+							}
+							{VolumeView "rocket03.ply"}
+						}
+					}
+					{bone "shooter04"
+						{Position 2.83229	10.2652	-0.731251}
+						{bone "rocket04"
+							{parameters "id=turret;"}
+							{Matrix34
+								0.999657	0	-0.0261768
+								-0.0261768	0	-0.999657
+								0	1	0
+								-0.12363	0.0138874	-0.401062
+							}
+							{VolumeView "rocket04.ply"}
+						}
+					}
+					{bone "shooter05"
+						{Position 2.83229	15.2898	-1.54769}
+						{bone "rocket05"
+							{parameters "id=turret;"}
+							{Matrix34
+								0.999657	0	-0.0261768
+								-0.0261768	0	-0.999657
+								0	1	0
+								-0.12363	0.0216694	-0.458149
+							}
+							{VolumeView "rocket05.ply"}
 						}
 					}
 				}
@@ -400,7 +370,7 @@
 				0	1	0
 				-1	0	0
 				0	0	1
-				-1.60767	-53.5778	0
+				-1.60767	-41.078	0
 			}
 		}
 		{bone "emit1"
