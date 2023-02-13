@@ -1,0 +1,27 @@
+;SDL
+
+{boarder
+	{anm "left"
+		{forward {begin "board_lowtank_stand"} {base "open_left"}}
+		{reverse {end "emit_sd222_driver"} {base "open_left" -1}}
+	}
+	{anm "right"
+		{forward {begin "board_lowtank_stand"} {base "open_left"}}
+		{reverse {end "emit_sd222_driver"} {base "open_left" -1}}
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "crew"} {visor "%visor"}}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "%place" {anm "left"} {forward putoff} {reverse puton}}
+		{link "emit2" "%place" {anm "right"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(driver)		visor(driver))
+("crew_human" place(gunner)		visor(main))

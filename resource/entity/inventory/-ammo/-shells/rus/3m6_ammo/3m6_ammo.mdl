@@ -1,0 +1,68 @@
+;Exported by: misan
+;Date:        Sun Feb 12 12:42:19 2023
+;File:        D:\Cold War\ModelWIP\Object Cameras.max
+{Skeleton
+	{bone "rocket"
+		{parameters "CommonMesh;id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "rocket.ply"}
+		{bone "tail"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-10.8721	0	0
+			}
+		}
+	}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "rocket"}
+}
+{Volume "select"
+	{Polyhedron "select.vol"}
+	{Bone "rocket"}
+}
+{Extender "preview"
+	{"stuff"
+		{camera
+			{origin -0.16405	-1.60521	28.0586}
+			{lookat -0.16405	-0.0163484	10.8635}
+			{fov 45}
+			{horizon 180}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 0.611365	-8.3114	20.0063}
+			}
+			{"1"
+				{type point}
+				{position 0.611362	11.4818	25.8972}
+			}
+		}
+	}
+	{"stuff_primary"
+		{camera
+			{origin -0.30521	-1.74845	28.0894}
+			{lookat -0.443689	-0.165635	10.8944}
+			{fov 45}
+			{horizon 180}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 1.40254	-8.26569	20.0431}
+			}
+			{"1"
+				{type point}
+				{position -0.322556	11.4522	25.934}
+			}
+		}
+	}
+}
