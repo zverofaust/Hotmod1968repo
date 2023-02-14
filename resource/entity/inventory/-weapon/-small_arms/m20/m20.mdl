@@ -1,6 +1,6 @@
-;Exported by: rowen
-;Date:        Wed Jun 19 14:15:23 2019
-;File:        E:\!_Work\!_weapon_export\3D\m20.max
+;Exported by: misan
+;Date:        Tue Feb 14 07:09:40 2023
+;File:        D:\Cold War\ModelWIP\Smallarms\M20 by DMS\M20.max
 {Skeleton
 	{bone "m20"
 		{parameters "id=mgun;"}
@@ -9,7 +9,11 @@
 			0	-1	0
 			0	0	1
 		}
-		{VolumeView "m20.ply"}
+		{LODView
+			{VolumeView "m20.ply"}
+			{VolumeView "m20_lod1.ply"}
+			{VolumeView "m20_lod2.ply"}
+		}
 		{bone "fxshot"
 			{Matrix34
 				-1	0	0
@@ -44,29 +48,7 @@
 	}
 }
 {Extender "preview"
-	{"Stuff"
-		{camera
-			{origin 6.68515	74.1433	1.97914}
-			{lookat 6.98787	-0.00624719	-1.683703}
-			{fov 23.9132}
-			{horizon 0.158259}
-		}
-		{lights
-			{"0"
-				{type point}
-				{position 19.47	18.2785	10.7775}
-			}
-			{"1"
-				{type directional}
-				{direction -0.00294083	-0.273625	-0.418475}
-			}
-			{"2"
-				{type point}
-				{position 8.49928	1.85428	-2.62416}
-			}
-		}
-	}
-	{"stuff_primary"
+	{"stuff"
 		{camera
 			{origin 5.43783	41.3873	2.35983}
 			{lookat 7.12306	0.235125	0.266912}
@@ -81,6 +63,23 @@
 			{"1"
 				{type point}
 				{position 25.0673	28.7114	0}
+			}
+		}
+	}
+	{"stuff_primary"
+		{camera
+			{origin 8.39792	43.6357	0.199398}
+			{lookat 6.42887	0.72146	0.199398}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 3.98506	26.1024	22.3909}
+			}
+			{"1"
+				{type point}
+				{position 3.98506	-7.81772	-7.1597}
 			}
 		}
 	}
