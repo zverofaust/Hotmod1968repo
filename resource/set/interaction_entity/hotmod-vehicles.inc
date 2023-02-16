@@ -525,12 +525,97 @@
 	("zis5_sound")
 }
 
+{"bm-14-16 car"
+	("zis5_sound")	
+	{on spawn
+		{tags add "shield_up"}
+	}
+	
+	{on ik begin "turret"
+		{if tagged "shield_up"
+			{tags add "aiming"}
+			{tags remove "moving"}
+			{ani_play "support_close"}
+			{tags add "shield_down"}
+			{tags remove "shield_up"}
+		else
+			{delay 0.1}
+		}
+	}
+	
+	{on move on
+		{if tagged "shield_down"
+			{tags add "moving"}
+			{tags remove "aiming"}
+			{ani_play "support_open"}
+			{tags remove "shield_down"}
+			{tags add "shield_up"}
+		else 
+			{delay 0.1}
+		}
+	}
+}
+
 {"bm-13-17m car"
 	("zis5_sound")
+	{on spawn
+		{tags add "shield_up"}
+	}
+	
+	{on ik begin "turret"
+		{if tagged "shield_up"
+			{tags add "aiming"}
+			{tags remove "moving"}
+			{ani_play "support_close"}
+			{tags add "shield_down"}
+			{tags remove "shield_up"}
+		else
+			{delay 0.1}
+		}
+	}
+	
+	{on move on
+		{if tagged "shield_down"
+			{tags add "moving"}
+			{tags remove "aiming"}
+			{ani_play "support_open"}
+			{tags remove "shield_down"}
+			{tags add "shield_up"}
+		else 
+			{delay 0.1}
+		}
+	}
 }
 
 {"bm-31m car"
 	("zis5_sound")
+	{on spawn
+		{tags add "shield_up"}
+	}
+	
+	{on ik begin "turret"
+		{if tagged "shield_up"
+			{tags add "aiming"}
+			{tags remove "moving"}
+			{ani_play "support_close"}
+			{tags add "shield_down"}
+			{tags remove "shield_up"}
+		else
+			{delay 0.1}
+		}
+	}
+	
+	{on move on
+		{if tagged "shield_down"
+			{tags add "moving"}
+			{tags remove "aiming"}
+			{ani_play "support_open"}
+			{tags remove "shield_down"}
+			{tags add "shield_up"}
+		else 
+			{delay 0.1}
+		}
+	}
 }
 
 {"btr-152"
@@ -2601,10 +2686,64 @@
 
 {"bm-13-17m_prc car"
 	("zis5_sound")
+	{on spawn
+		{tags add "shield_up"}
+	}
+	
+	{on ik begin "turret"
+		{if tagged "shield_up"
+			{tags add "aiming"}
+			{tags remove "moving"}
+			{ani_play "support_close"}
+			{tags add "shield_down"}
+			{tags remove "shield_up"}
+		else
+			{delay 0.1}
+		}
+	}
+	
+	{on move on
+		{if tagged "shield_down"
+			{tags add "moving"}
+			{tags remove "aiming"}
+			{ani_play "support_open"}
+			{tags remove "shield_down"}
+			{tags add "shield_up"}
+		else 
+			{delay 0.1}
+		}
+	}
 }
 
 {"bm-31m_prc car"
 	("zis5_sound")
+	{on spawn
+		{tags add "shield_up"}
+	}
+	
+	{on ik begin "turret"
+		{if tagged "shield_up"
+			{tags add "aiming"}
+			{tags remove "moving"}
+			{ani_play "support_close"}
+			{tags add "shield_down"}
+			{tags remove "shield_up"}
+		else
+			{delay 0.1}
+		}
+	}
+	
+	{on move on
+		{if tagged "shield_down"
+			{tags add "moving"}
+			{tags remove "aiming"}
+			{ani_play "support_open"}
+			{tags remove "shield_down"}
+			{tags add "shield_up"}
+		else 
+			{delay 0.1}
+		}
+	}
 }
 
 {"ba64_prc"
