@@ -130,7 +130,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "d-44"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "d30a"},
 			--Rocket_Artillery
-			
+				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "bm-14-16"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "bm-21_grad"},
 			--Wheel_vehicles
 				{priority = 2.0, class = UnitClass.Vehicle, unit = "brdm-1"},
 				{priority = 0.5, class = UnitClass.Vehicle, unit = "btr-40a"},
@@ -334,7 +335,8 @@ Purchases["campaign_capture_the_flag"] = {
 				--{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "d-74_prc"},
 				--{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "d1_prc"},
 			--Rocket_Artillery	
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type63_mrl"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "type63_mrl"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, unit = "bm-13-17m_prc"},
 			--Wheel_vehicles
 				{priority = 0.5, class = UnitClass.Tank, unit = "ba64_prc"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "btr-40_type55"},
