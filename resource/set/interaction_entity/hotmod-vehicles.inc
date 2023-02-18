@@ -517,8 +517,12 @@
 	("zis5_sound")
 }
 
-{"ural375_arty car"
-	("zis5_sound")
+{"kraz-255 car"
+	("opel_maultier_sound")
+}
+
+{"kraz-255_ammo car"
+	("opel_maultier_sound")
 }
 
 {"bm-21_grad car"
