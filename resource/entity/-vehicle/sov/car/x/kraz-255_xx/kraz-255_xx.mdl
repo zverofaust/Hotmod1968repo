@@ -1,16 +1,8 @@
 ;Exported by: misan
-;Date:        Sat Feb 18 08:51:41 2023
-;File:        D:\Cold War\ModelWIP\USSR\KRAZ-255\KRAZ-255.max
+;Date:        Sat Feb 18 08:45:18 2023
+;File:        D:\Cold War\ModelWIP\USSR\KRAZ-255\KRAZ-255 XX.max
 {Skeleton
-	{animation
-		{sequence "start" {speed 0.2}}
-		{sequence "stop" {speed 0.2}}
-		{sequence "doorright" {speed 0.1}}
-		{sequence "doorleft" {speed 0.1}}
-		{sequence "doorrear" {speed 0.1}}
-	}
 	{bone "basis"
-		{parameters "WheelRadius=0.6;SteerMax=25;"}
 		{Orientation
 			1	0	0
 			0	-1	0
@@ -18,48 +10,34 @@
 		}
 		{bone "body"
 			{parameters "id=body;"}
-			{Position -4.39044	0.00947167	17.2543}
+			{Matrix34
+				0.999668	0.000424845	-0.0257571
+				0.00042468	0.999456	0.0329677
+				0.0257571	-0.0329677	0.999125
+				-4.39044	0.00947167	17.2543
+			}
 			{VolumeView "body.ply"}
 			{bone "door_left"
-				{Position 41.8108	17.7745	23.965}
-				{VolumeView "door_left.ply"}
-				{bone "glassl"
-					{parameters "id=glassl;"}
-					{Position -7.36339	0.763288	5.13725}
-					{VolumeView "glassl.ply"}
+				{Matrix34
+					0.939693	-0.34202	0
+					0.34202	0.939693	0
+					0	0	1
+					41.8108	17.7745	23.965
 				}
+				{VolumeView "door_left.ply"}
 			}
 			{bone "door_right"
-				{Position 41.8108	-17.7746	23.965}
-				{VolumeView "door_right.ply"}
-				{bone "glassr"
-					{parameters "id=glassr;"}
-					{Position -7.36339	-0.766598	5.13758}
-					{VolumeView "glassr.ply"}
+				{Matrix34
+					0.358368	0.93358	0
+					-0.933581	0.358368	0
+					0	0	1
+					41.8108	-17.7746	23.965
 				}
+				{VolumeView "door_right.ply"}
 			}
 			{bone "engine"
 				{parameters "id=engine;"}
 				{VolumeView "engine.ply"}
-			}
-			{bone "glassf"
-				{parameters "id=glassf;"}
-				{Position 42.4107	-0.0022037	29.9925}
-				{VolumeView "glassf.ply"}
-			}
-			{bone "glassb"
-				{parameters "id=glassb;"}
-				{Position 20.6123	-0.00220597	30.416}
-				{VolumeView "glassb.ply"}
-			}
-			{bone "detail1"
-				{Matrix34
-					0	1	0
-					0	0	-1
-					-1	0	0
-					14.8105	-11.9963	19.7521
-				}
-				{VolumeView "detail1.ply"}
 			}
 			{bone "steering"
 				{Position 37.7012	9.7611	24.0951}
@@ -70,7 +48,7 @@
 					0	0.866025	-0.5
 					-1	0	0
 					0	0.5	0.866025
-					-7.22102	14.9091	-2.07583
+					-7.22103	14.9091	-2.07582
 				}
 			}
 			{bone "commander"
@@ -96,38 +74,28 @@
 				}
 			}
 			{bone "fxfire1"
-				{Position 60.096	-0.00947167	16.7867}
+				{Position 60.096	-0.0094716	16.7867}
 			}
 			{bone "link2"
 				{Matrix34
 					-1	0	0
 					0	-1	0
 					0	0	1
-					-76.9188	-0.00947167	0.829668
+					-76.9188	-0.00947171	0.829668
 				}
 			}
 			{bone "bodyback"
 				{parameters "id=body;"}
 				{Position 20.3488	0	-12.5263}
 				{VolumeView "bodyback.ply"}
-				{bone "boxes1"
-					{parameters "id=body;"}
-					{Position -31.0305	13.8349	37.1603}
-					{VolumeView "boxes1.ply"}
-				}
-				{bone "boxes2"
-					{parameters "id=body;"}
-					{Matrix34
-						0	1	0
-						-1	0	0
-						0	0	1
-						-101.161	10.3067	25.9573
-					}
-					{VolumeView "boxes2.ply"}
-				}
 				{bone "backdoor"
 					{parameters "id=body;"}
-					{Position -96.4911	-0.104604	25.5384}
+					{Matrix34
+						-0.927184	0	0.374607
+						0	1	0
+						-0.374607	0	-0.927184
+						-96.4911	-0.104604	25.5384
+					}
 					{VolumeView "backdoor.ply"}
 				}
 				{bone "fxstop1"
@@ -155,9 +123,9 @@
 				{bone revolute "wheell2"
 					{parameters "id=wheelleft2;"}
 					{Matrix34
-						1	0	0
-						0	0	-1
-						0	1	0
+						0.995063	0.0353783	-0.0927242
+						-0.0813916	-0.243699	-0.96643
+						-0.0567874	0.969205	-0.239616
 						0.0321541	2.47289	0.124977
 					}
 					{VolumeView "wheell2.ply"}
@@ -168,9 +136,9 @@
 				{bone revolute "wheelr2"
 					{parameters "id=wheelright2;"}
 					{Matrix34
-						1	0	0
-						0	0	-1
-						0	1	0
+						0.976627	-0.201343	-0.0752378
+						-0.0306276	0.216109	-0.975889
+						0.212748	0.955384	0.204891
 						0.0321579	-2.46667	0.124977
 					}
 					{VolumeView "wheelr2.ply"}
@@ -181,9 +149,9 @@
 				{bone revolute "wheell3"
 					{parameters "id=wheelleft2;"}
 					{Matrix34
-						1	0	0
-						0	0	-1
-						0	1	0
+						0.983095	-0.182925	0.00796882
+						0.0662988	0.315066	-0.946751
+						0.170674	0.931274	0.321867
 						0.0946274	2.47289	0.124978
 					}
 					{VolumeView "wheell3.ply"}
@@ -194,9 +162,9 @@
 				{bone revolute "wheelr3"
 					{parameters "id=wheelright3;"}
 					{Matrix34
-						1	0	0
-						0	0	-1
-						0	1	0
+						0.989035	-0.143348	0.0355131
+						0.0424325	0.0455043	-0.998063
+						0.141454	0.988626	0.051088
 						0.0946274	-2.46667	0.124978
 					}
 					{VolumeView "wheelr3.ply"}
@@ -255,9 +223,9 @@
 					{bone revolute "wheell1"
 						{parameters "id=wheelleft1;"}
 						{Matrix34
-							1	0	0
-							0	0	-1
-							0	1	0
+							0.992452	-0.111028	0.0520752
+							0.0807492	0.272052	-0.958889
+							0.0922963	0.955856	0.278964
 							-0.0181122	2.47288	0.124977
 						}
 						{VolumeView "wheell1.ply"}
@@ -278,16 +246,6 @@
 						0	-1	0
 						0	0	-1
 						0	0	0.126574
-					}
-					{bone revolute "wheelr1"
-						{parameters "id=wheelright1;"}
-						{Matrix34
-							1	0	0
-							0	0	-1
-							0	1	0
-							-0.0181198	-2.46667	0.124977
-						}
-						{VolumeView "wheelr1.ply"}
 					}
 				}
 			}
@@ -335,17 +293,17 @@
 {Volume "body1"
 	{Polyhedron "body1.vol"}
 	{Bone "body"}
-	{Position 61.3961	-0.00947167	13.471}
+	{Position 61.3961	-0.00947165	13.471}
 }
 {Volume "body2"
 	{Polyhedron "body2.vol"}
 	{Bone "body"}
-	{Position 32.0247	-0.00947144	20.0935}
+	{Position 32.0247	-0.00947136	20.0935}
 }
 {Volume "body3"
 	{Box 85.3877 56.3428 9.79229}
 	{Bone "bodyback"}
-	{Position -53.646	-0.0990211	28.7495}
+	{Position -53.646	-0.099021	28.7495}
 }
 {Volume "body4"
 	{Box 24.2093 7.77633 97.3479}
@@ -354,7 +312,7 @@
 		0	1	0
 		0	0	1
 		1	0	0
-		-27.8662	-0.0191883	4.87174
+		-27.8662	-0.0191884	4.87174
 	}
 }
 {Volume "engine"
@@ -369,7 +327,7 @@
 		0	1	0
 		0	0	1
 		1	0	0
-		2.09761	-16.9657	3.16191
+		2.09762	-16.9657	3.16191
 	}
 }
 {Volume "fuel2"
@@ -379,47 +337,7 @@
 		0	1	0
 		0	0	1
 		1	0	0
-		2.09761	16.6632	3.16191
-	}
-}
-{Volume "glassb"
-	{Box 13.3413 6.53545 0.495793}
-	{Bone "glassb"}
-	{Matrix34
-		0	1	0
-		0	0	1
-		1	0	0
-		0.149237	-0.0202092	0.00595855
-	}
-}
-{Volume "glassf"
-	{Polyhedron "glassf.vol"}
-	{Bone "glassf"}
-	{Matrix34
-		0	1	0
-		-0.258819	0	0.965926
-		0.965926	0	0.258819
-		-1.14584	0.0699436	-0.266182
-	}
-}
-{Volume "glassl"
-	{Box 11.5361 7.92662 0.566187}
-	{Bone "glassl"}
-	{Matrix34
-		-0.992546	0.12187	0
-		0	0	1
-		0.12187	0.992546	0
-		-0.0676361	-0.0701195	0.0877342
-	}
-}
-{Volume "glassr"
-	{Box 11.5361 7.92662 0.566187}
-	{Bone "glassr"}
-	{Matrix34
-		-0.994522	-0.104528	0
-		0	0	1
-		-0.104528	0.994522	0
-		-0.131728	0.0198296	0.0874023
+		2.09762	16.6632	3.16191
 	}
 }
 {Volume "hole1"
@@ -429,7 +347,7 @@
 		0	1	0
 		0	0	1
 		1	0	0
-		33.9705	-0.00947121	30.1733
+		33.9705	-0.00947119	30.1733
 	}
 }
 {Volume "hole2"
@@ -439,7 +357,7 @@
 		-1	0	0
 		0	0	1
 		0	1	0
-		33.5102	-0.00947167	29.1066
+		33.5102	-0.00947362	29.1066
 	}
 }
 {Volume "hole3"
@@ -451,16 +369,6 @@
 	{Box 8.9537 12.8846 18.414}
 	{Bone "body"}
 	{Position 15.2273	14.3358	14.5895}
-}
-{Volume "shield2"
-	{Cylinder 12.0071 9.24356}
-	{Bone "detail1"}
-	{Matrix34
-		1	0	0
-		0	-1	0
-		0	0	-1
-		-0.127547	0.104622	-0.176379
-	}
 }
 {Volume "transmission"
 	{Cylinder 4.8574 101.745}
@@ -479,7 +387,7 @@
 		-1	0	0
 		0	-1	0
 		0	0	1
-		-0.0681984	0.0653854	-0.0994077
+		-0.0682023	0.0653857	-0.0994091
 	}
 }
 {Volume "wheelleft2"
@@ -489,7 +397,7 @@
 		-1	0	0
 		0	-1	0
 		0	0	1
-		0.0091045	0.0653854	-0.0994067
+		0.00910262	0.0653844	-0.0994029
 	}
 }
 {Volume "wheelleft3"
@@ -499,17 +407,7 @@
 		-1	0	0
 		0	-1	0
 		0	0	1
-		-0.0539696	0.0657164	-0.0994077
-	}
-}
-{Volume "wheelright1"
-	{Cylinder 11.9792 9.59436}
-	{Bone "wheelr1"}
-	{Matrix34
-		-1	0	0
-		0	-1	0
-		0	0	1
-		-0.0675385	0.0655504	0.0671229
+		-0.0539695	0.0657158	-0.0994105
 	}
 }
 {Volume "wheelright2"
@@ -519,7 +417,7 @@
 		-1	0	0
 		0	-1	0
 		0	0	1
-		0.00893856	0.0655514	0.0671229
+		0.00894037	0.0655493	0.0671196
 	}
 }
 {Volume "wheelright3"
@@ -529,6 +427,6 @@
 		-1	0	0
 		0	-1	0
 		0	0	1
-		-0.0533059	0.0658823	0.0671229
+		-0.0533022	0.0658823	0.0671215
 	}
 }

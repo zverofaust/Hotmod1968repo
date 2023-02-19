@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Fri Feb 17 19:56:51 2023
+;Date:        Sat Feb 18 08:52:48 2023
 ;File:        D:\Cold War\ModelWIP\USSR\KRAZ-255\KRAZ-255.max
 {Skeleton
 	{animation
@@ -24,11 +24,6 @@
 				{parameters "id=bodyback;"}
 				{Position 20.3488	0	-12.5262}
 				{VolumeView "bodyback.ply"}
-				{bone "backdoor"
-					{parameters "id=bodyback;"}
-					{Position -96.4911	-0.104604	25.5383}
-					{VolumeView "backdoor.ply"}
-				}
 				{bone "seat07"
 					{Matrix34
 						0	-1	0
@@ -141,6 +136,11 @@
 						-41.5672	24.1201	24.7915
 					}
 				}
+				{bone "backdoor"
+					{parameters "id=body;"}
+					{Position -96.4911	-0.104604	25.5383}
+					{VolumeView "backdoor.ply"}
+				}
 				{bone "fxstop1"
 					{Matrix34
 						-1	0	0
@@ -162,7 +162,7 @@
 				{Position 41.8108	17.7745	23.965}
 				{VolumeView "door_left.ply"}
 				{bone "glassl"
-					{parameters "id=glass_left;"}
+					{parameters "id=glassl;"}
 					{Position -7.36339	0.763288	5.13725}
 					{VolumeView "glassl.ply"}
 				}
@@ -171,7 +171,7 @@
 				{Position 41.8108	-17.7746	23.965}
 				{VolumeView "door_right.ply"}
 				{bone "glassr"
-					{parameters "id=glass_right;"}
+					{parameters "id=glassr;"}
 					{Position -7.36339	-0.766598	5.13758}
 					{VolumeView "glassr.ply"}
 				}
@@ -181,12 +181,12 @@
 				{VolumeView "engine.ply"}
 			}
 			{bone "glassf"
-				{parameters "id=glass_front;"}
+				{parameters "id=glassf;"}
 				{Position 42.4107	-0.0022037	29.9925}
 				{VolumeView "glassf.ply"}
 			}
 			{bone "glassb"
-				{parameters "id=glass_back;"}
+				{parameters "id=glassb;"}
 				{Position 20.6123	-0.00220597	30.416}
 				{VolumeView "glassb.ply"}
 			}
@@ -477,6 +477,46 @@
 		0	0	1
 		1	0	0
 		2.09761	16.6632	3.16191
+	}
+}
+{Volume "glassb"
+	{Box 13.3413 6.53545 0.495793}
+	{Bone "glassb"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		0.149237	-0.0202092	0.00595855
+	}
+}
+{Volume "glassf"
+	{Polyhedron "glassf.vol"}
+	{Bone "glassf"}
+	{Matrix34
+		0	1	0
+		-0.258819	0	0.965926
+		0.965926	0	0.258819
+		-1.14584	0.0699436	-0.266182
+	}
+}
+{Volume "glassl"
+	{Box 11.5361 7.92662 0.566187}
+	{Bone "glassl"}
+	{Matrix34
+		-0.992546	0.12187	0
+		0	0	1
+		0.12187	0.992546	0
+		-0.0676361	-0.0701195	0.0877342
+	}
+}
+{Volume "glassr"
+	{Box 11.5361 7.92662 0.566187}
+	{Bone "glassr"}
+	{Matrix34
+		-0.994522	-0.104528	0
+		0	0	1
+		-0.104528	0.994522	0
+		-0.131728	0.0198296	0.0874023
 	}
 }
 {Volume "hole1"
