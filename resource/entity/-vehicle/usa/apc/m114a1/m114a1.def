@@ -43,17 +43,23 @@
 	
 	("crew_inside")
 	("crew_human" place(driver)		door(emit1) door2(emit2) visor(driver))
-	("crew_human" place(commander)	door(emit1) door2(emit2) visor(scout))
-	("crew_human" place(charger)	door(emit1) door2(emit2) visor(around))
+	("crew_human" place(commander)	door(emit1) door2(emit2) visor(main))
+	("crew_human" place(seat1)	door(emit1) door2(emit2) 	visor(none))
+	("crew_human" place(seat2)	door(emit1) door2(emit2) 	visor(none))
+	("crew_human" place(seat3)	door(emit1) door2(emit2) 	visor(none))
 
 	{sensor
-		;{visor "mgun"
-		;	{vision "human"}
-		;	{bone "mgun2_rot"}
-		;}
-		{visor "scout"
+		{visor "main"
+			{vision "tank_commander"}
+			{bone "turret"}
+		}
+		{visor "around"
 			{vision "vehicle_scout"}
 			{bone "turret"}
+		}
+		{Visor "driver"
+			{vision "tank_driver"}
+			{bone "body"}
 		}
 	}
 	
@@ -74,7 +80,7 @@
 		{place "mgun"
 			{weapon			"browning_m2" filled}
 			{gunner			"commander"}
-			{charger		"charger"}
+			{charger		"commander"}
 			{LinkBone		"mgun_help"}
 			{LinkAnimation	"off"}
 			("abm_mgun")
