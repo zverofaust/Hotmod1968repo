@@ -23,6 +23,18 @@
 		}
 	}
 	
+	{on "engine_idle" overload ;// settings for engine if it should be on immediately after spawning
+		{set "engine_on" 1}
+		{set "engine1_start" 1}
+		{ani_play "engine_work" loop} ;//causes issues with start animation transisiton, but needed for spawns w/ Engine on
+		{play_sound "engine_work" 1}
+		{if "engine_on"
+			{chassis_work 1}
+		else
+			{chassis_work 0}
+		}
+	}
+	
 	{on engine off overload
 		{call "engine_off"}	
 	}
