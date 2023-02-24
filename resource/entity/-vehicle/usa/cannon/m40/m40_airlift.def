@@ -1,0 +1,124 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(0.6))
+	{props "recoilless" "wheeled" "vision_lev03_can" "muzzle_75mm_76mm" "cannon_sandbag_standard" "detect_atgun_small" "carried" "shell_eject"}
+	
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 20}
+		{able {visible 1}}
+	}
+	{Volume "gun"
+		{Tags  "gun"}
+		{Thickness 20}
+		{able {visible 1}}
+	}
+	
+	("armor_medium_cannon")
+	
+	("crew_wheeled_cannon_4")
+	
+	("gun" repair(30) thickness(30))
+	
+	{sensor
+		{visor "gunner"
+			{vision "tank_main-l"}
+			{bone "foresight1"}
+		}
+	}
+	
+	{boarder
+		{anm "gunner"
+			{forward {end "cannon_small_gunner" 10}}
+		}
+		{anm "charger"
+			{forward {end "cannon_small_charger" 10}}
+		}
+		{anm "charger2"
+			{forward {end "cannon_small_charger2" 10}}
+		}
+		{anm "commander"
+			{forward {end "cannon_small_commander" 10}}
+		}
+		{anm "driver1"	;// gunner
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"	;// charger
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "driver3"	;// charger2
+			{forward {end "mgun_browning_driver_l" 10}}
+		}
+		{anm "driver4"	;// commander
+			{forward {end "mgun_browning_driver_r" 10}}
+		}
+		{anm "seat1"	;// commander
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"	;// charger
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{anm "seat3"	;// charger2
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{anm "seat4"	;// commander
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+	}
+	
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "mortar_driver_l" "mortar_driver_r" "mgun_browning_driver_l" "mgun_browning_driver_r"}
+			{aim "new_cannon_gunner_traverse" "cannon_small_charger_aim" "cannon_small_charger2_aim"}
+			{fire  "new_cannon_gunner_fire" "cannon_small_charger_fire" "cannon_small_charger2_fire" "new_cannon_commander_fire"}
+			{reload  "new_cannon_gunner_reload" "cannon_small_charger_reload" "" "new_cannon_commander_reload"}
+		}
+		{move {workers "driver1" "driver2" "driver3" "driver4" minWorkers 2} {obstacle "close"}}			;// move state: cannon being pushed and which positions play animations
+		{attack {workers "gunner" "charger" "charger2" "commander"} {obstacle "open"}}		;// fire/attack state: cannon aim, fire, and reload events
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet106_m40 heat" 10}
+			{item "ammo bullet106_m40 he" 5}
+			{item "sandbag_vehicle" 1}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon	"106mm_m40" filling "ammo bullet106_m40 heat" 1}
+			{RestoreIKAfterAim}
+			{basic}
+			{RestoreIKAfterAim}
+			("abm_dymamic_gun"
+				zeroing(1.50)
+				dispersion(0.35)
+			)
+		
+		}
+	} 	
+	
+	{mass 200}
+
+	{Extension "m40.mdl"}
+	
+	{Chassis
+		("mobility_cannon"
+			speed(10) ;----------------------------------Max speed.
+			weight(200) ;---------------------------------Weight in Kilograms. 
+		)
+	}
+	
+	{bone "basis"
+		{speed2 12}
+	}
+    {bone "turret"
+		{limits -15 15}
+		{speed2 14}
+	}
+    {bone "gun_rot"
+		{limits -5 15}
+		{speed2 16}
+	}
+}
