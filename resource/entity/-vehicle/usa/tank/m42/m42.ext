@@ -10,7 +10,8 @@
 	
 	;volume, component/tag
 	
-	("shield" args "shield1" 10)
+	;{extender "shield" {on}}
+	
 	("shield" args "shieldl1" 5)
 	("shield" args "shieldr1" 5)
 	
@@ -29,19 +30,20 @@
 			{bottom 10}
 		}
 	}
+	
 	{volume "turret"	
 		{thickness 10}
 		{able {holed}}
 	}
 	
-	{volume "hole1" {able clear {hole}{touch 1}}}
+	{volume "shield1"
+		{component "body"}
+		{tags "body"}
+		{thickness 10}
+		{able {holed}}
+	}
 	
-	{volume "armor1"
-		{thickness 5}
-	}
-	{volume "armor2"
-		{thickness 5}
-	}
+	{volume "hole1" {sticky}}
 	
 	{volume "engine"		; Hull
 		{thickness 20}

@@ -6,9 +6,11 @@
 	; track guards 5mm
 
 	;durability from properties/armor.ext
-	("tank_light_tier1")
+	("tank_light_tier2")
 	
 	;volume, component/tag
+	
+	{extender "shield" {on}}
 	
 	("shield" args "shield1" 10)
 	("shield" args "shieldl1" 5)
@@ -28,6 +30,7 @@
 			{rear 10}
 			{bottom 10}
 		}
+		{component "body"}
 	}
 	{volume "turret"	
 		{thickness 10}
@@ -35,13 +38,6 @@
 	}
 	
 	{volume "hole1" {able clear {hole}{touch 1}}}
-	
-	{volume "armor1"
-		{thickness 5}
-	}
-	{volume "armor2"
-		{thickness 5}
-	}
 	
 	{volume "engine"		; Hull
 		{thickness 20}
