@@ -1,0 +1,118 @@
+{mission
+	{Human "mp/sov/mid/reg_lmg" 0xc000
+		{Position 389.68 527.83}
+		{Volume "ram"
+			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}{blockcamera 0}}
+			{disabled}
+		}
+		{Player 0}
+		{MID 1}
+		{NameId 90 305}
+		{FsmState "stand_noaim"}
+	}
+	{Entity "rpk" 0xc001
+		{Extender "stuff"
+			{Item "rpk" filling "ak47" "drum" "ammo" 75 75}
+		}
+	}
+	{Human "mp/sov/mid/reg_sapper-ap" 0xa000
+		{Position 471.59 505.39}
+		{Volume "ram"
+			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}{blockcamera 0}}
+			{disabled}
+		}
+		{Player 0}
+		{MID 2}
+		{Weaponry
+			{State
+				{AccuracyByMotion
+					{value 0.773501}
+					{prevposition 465.109 510.788 35.6901}
+					{prevdirection -0.700808 0.244788 0.670035}
+				}
+			}
+		}
+		{NameId 127 188}
+		{FsmState "stand_noaim"}
+	}
+	{Entity "sks" 0xa001
+		{Extender "stuff"
+			{Item "sks" filled 10}
+		}
+	}
+	{Tags "foxhole_spawned" 0x56}
+	{Inventory 0xc000
+		{box
+			{clear}
+			{item 0xc001 {cell 0 0}{user "hand_right"}}
+			{item "ak47" "drum" "ammo" 75 {cell 0 2}}
+			{item "ak47" "drum" "ammo" 75 {cell 2 2}}
+			{item "ak47" "drum" "ammo" 75 {cell 4 2}}
+			{item "ak47" "drum" "ammo" 75 {cell 6 2}}
+			{item "ak47" "drum" "ammo" 75 {cell 0 4}}
+			{item "rgd5" "grenade" {cell 7 0}}
+			{item "bandage_rus" {cell 2 4}}
+			{item "bandage_rus" {cell 4 4}}
+			{item "bandage_rus" {cell 6 4}}
+			{item "bandage_rus" {cell 2 5}}
+			{item "shovel_rus" {cell 4 5}}
+			{item "sov_helmet_ssh60" {cell 0 6}{user "head"}}
+			{item "gunbag_prc_b10" {cell 2 7}}
+		}
+	}
+	{Inventory 0xa000
+		{box
+			{clear}
+			{item 0xa001 {cell 0 0}{user "hand_right"}}
+			{item "sks" "ammo" 10 {cell 6 0}}
+			{item "sks" "ammo" 10 {cell 7 0}}
+			{item "sks" "ammo" 10 {cell 6 1}}
+			{item "sks" "ammo" 10 {cell 7 1}}
+			{item "sks" "ammo" 10 {cell 0 2}}
+			{item "sks" "ammo" 2 {cell 1 2}}
+			{item "pmd" "mine" {cell 2 2}}
+			{item "pmd" "mine" {cell 4 2}}
+			{item "pmd" "mine" {cell 6 2}}
+			{item "pmd" "mine" {cell 0 3}}
+			{item "pmd" "mine" {cell 2 3}}
+			{item "pmd" "mine" {cell 4 3}}
+			{item "pmd" "mine" {cell 6 3}}
+			{item "pmd" "mine" {cell 0 4}}
+			{item "pmd" "mine" {cell 2 4}}
+			{item "pmd" "mine" {cell 4 4}}
+			{item "pmd" "mine" {cell 6 4}}
+			{item "pmd" "mine" {cell 0 5}}
+			{item "pmd" "mine" {cell 2 5}}
+			{item "pmd" "mine" {cell 4 5}}
+			{item "pmd" "mine" {cell 6 5}}
+			{item "bandage_rus" {cell 0 6}}
+			{item "bandage_rus" {cell 2 6}}
+			{item "bandage_rus" {cell 4 6}}
+			{item "shovel_rus" {cell 0 7}}
+			{item "soviet_pilotka" {cell 6 6}{user "head"}}
+			{item "gunbag_usa_m2" {cell 4 8}}
+		}
+	}
+	{Brain 0xc000
+		{Properties
+			{advance_ratio 0.5}
+			{retreat_ratio 4}
+		}
+	}
+	{Brain 0xa000
+		{Properties
+			{advance_ratio 0.5}
+			{retreat_ratio 4}
+		}
+	}
+	{Helpers
+		{reinforcements
+			{scoreTotal 0}
+			{scoreCurrent 0}
+		}
+		{triggers
+			(include "/map/nikral's trigger.mi")
+		}
+	}
+	{Fog 0}
+}
