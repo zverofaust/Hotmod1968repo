@@ -1,3 +1,17 @@
+{"gunbagged"
+	{on spawn
+		{tags add "gunbagged"}
+	}
+}
+
+{"gunbag"
+	{on spawn
+		{if not linked "human"
+			{tags add "gunbag"}
+		}
+	}
+}
+	
 	(define "gunbag"
 		{"%guntype"
 			{on "weapon_undeploy"

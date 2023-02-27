@@ -165,7 +165,9 @@ Purchases["campaign_capture_the_flag"] = {
 				-- Early	
 		
 				-- Mid
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at_early(usa)"},
 				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at(usa)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_lat_early(usa)"},
 				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_lat(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_grenadier_con(usa)"},
@@ -173,57 +175,55 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_sniper(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer(usa)"},
 	
-		
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_con_early(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_fireteamap_con(usa)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_reservist_fireteamat_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_moto2_con(usa)"},
+				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_natguard_con_early(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_natguard_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_natguard_moto2_con(usa)"},
 				
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_fireteamap_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_fireteamat_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_reservist_moto2_con(usa)"},
 				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_con_early(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_fireteamap_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_fireteamat_con(usa)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_rifle_fireteamat_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_weapon_con(usa)"},
-				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_weapon_con(usa)"},	
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_moto_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_weapon_moto_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_m16_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_weapon_m16_con(usa)"},
-				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rifle_m16_moto_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_weapon_m16_moto_con(usa)"},
-				
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_aircav_recon_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_aircav_fireteam_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_aircav_con(usa)"},
-
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_ranger_lrrp_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_ranger_demo_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_ranger_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_lrrp_moto_con(usa)"},
 				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_acav_moto_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_acav_weapon_moto_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_acav_m16_moto_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_acav_m16_weapon_moto_con(usa)"},
 				
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_fireteam_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_scout_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_m16_con(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_mg_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_aircav_recon_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_aircav_fireteam_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_aircav_con(usa)"},
 				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_fireteam_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_mg_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_m16_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_scout_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_moto_con(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_usmc_m16_moto_con(usa)"},
 				
-				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_ranger_lrrp_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_ranger_demo_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_ranger_con(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_lrrp_moto_con(usa)"},
+
 			--Cannons
 			--HMGs
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "m2_m1919a4"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "m63_browning"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "m2_m1919a4"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "m63_browning"},
 			--Anti_Aircraft
 				{priority = 0.5, class = UnitClass.Vehicle, unit = "m45_maxson"},
 			--Anti_Tank
@@ -309,10 +309,11 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_lmg_con(prc)"},
 				{priority = 1.0, class = UnitClass.ATInfantry, unit = "squad_guards_rpg_con(prc)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_full_con(prc)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_moto_con(prc)"},
 				
 			--Automatic_weaponry
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "sg43_stand_prc"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "dshk_aa_prc"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "sg43_stand_prc"},
+				--{priority = 1.0, class = UnitClass.Vehicle, unit = "dshk_aa_prc"},
 				{priority = 1.0, class = UnitClass.AATank, unit = "zpu-4_prc"},
 				{priority = 1.0, class = UnitClass.AATank, unit = "37mm_61k_prc"},
 			--AT_Weapons

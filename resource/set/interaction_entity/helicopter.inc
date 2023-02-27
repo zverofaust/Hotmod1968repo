@@ -19,7 +19,9 @@
 	
 	{on engine on overload
 		{if chassis "helicopter"
-			{call "engine_on"}	
+			{call "engine_on"}
+		else chassis "airborne"
+			{call "engine_on"}
 		}
 	}
 	
