@@ -1,0 +1,45 @@
+;Exported by: misan
+;Date:        Wed Mar  1 10:57:19 2023
+;File:        D:\Cold War\ModelWIP\USSR\9m14\9M14.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{VolumeView "body.ply"}
+			{bone revolute "scope"
+				{parameters "id=body;"}
+				{Position -0.0270886	0.868214	1.93086}
+				{VolumeView "scope.ply"}
+				{bone revolute "foresight"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.918597	0.0475436	10.0868
+					}
+				}
+				{bone "gunner"
+					{Position -15.8262	-0.110266	-1.93086}
+				}
+			}
+		}
+		{bone "emit1"
+			{Position -15.5075	0.740468	0}
+		}
+	}
+}
+{Volume "body"
+	{Box 5.1756 8.04289 12.4353}
+	{Bone "body"}
+	{Position -0.271931	-0.0895259	6.21766}
+}
+{Volume "select"
+	{Box 14.7375 14.6778 22.5537}
+	{Bone "body"}
+	{Position 0	0	11.2768}
+}

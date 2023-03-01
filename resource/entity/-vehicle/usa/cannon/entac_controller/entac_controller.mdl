@@ -1,0 +1,69 @@
+;Exported by: misan
+;Date:        Tue Feb 28 12:34:46 2023
+;File:        D:\Cold War\ModelWIP\USA\ENTAC\ENTAC.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.3}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "stand"
+			{parameters "id=body;"}
+			{Position 0	0	2.7274}
+			{VolumeView "stand.ply"}
+			{bone "body"
+				{parameters "id=body;"}
+				{Position -2.08826	-0.463528	7.46266}
+				{VolumeView "body.ply"}
+				{bone revolute "bino_arm"
+					{parameters "id=body;"}
+					{Position 2.08764	1.397	6.01657}
+					{VolumeView "bino_arm.ply"}
+					{bone revolute "bino"
+						{parameters "id=body;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							0.0470223	-0.0763246	7.55912
+						}
+						{VolumeView "bino.ply"}
+						{bone "foresight"
+							{Matrix34
+								1	0	0
+								0	0	-1
+								0	1	0
+								0.801132	-0.0632477	-0.00456429
+							}
+						}
+					}
+					{bone "gunner"
+						{Position -6.97605	-0.127348	-16.2066}
+					}
+				}
+			}
+		}
+		{bone "emit1"
+			{Position -8.58153	-0.187705	0}
+		}
+	}
+}
+{Volume "body2"
+	{Cylinder 0.567094 10.138}
+	{Bone "bino_arm"}
+	{Position -0.150407	-0.00883007	2.68809}
+}
+{Volume "body"
+	{Box 5.9351 5.74365 13.7528}
+	{Bone "body"}
+	{Position 0.752613	0.707092	-3.31364}
+}
+{Volume "select"
+	{Box 16 16 36.5675}
+	{Bone "body"}
+	{Position 0.663687	0.507559	8.0937}
+}

@@ -121,6 +121,13 @@
 	("spotting2" r(1.5) r_human(0.66) veh_vis(100) can_vis(100) can_fire(120))
 }
 
+{"atgm_main"							; // Recon gunner vision
+	{uncover 25}
+	{h_fov 15}
+	{v_fov 15}
+	("spotting2" r(1.75) r_human(0.85) veh_vis(80) can_vis(80) can_fire(100))
+}
+
 ;/*=============== Cannon End ===============*/
 
 ;/*=============== Vehicle Begin ===============*/

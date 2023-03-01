@@ -1,9 +1,9 @@
-;Exported by: A
-;Date:        Sat Oct 19 20:26:06 2019
-;File:        D:\Cold War\Models\entac\entac_missile.max
+;Exported by: misan
+;Date:        Wed Mar  1 14:11:04 2023
+;File:        D:\Cold War\ModelWIP\USA\ENTAC\ENTAC missile.max
 {Skeleton
 	{bone "rocket"
-		{parameters "ID=mgun;"}
+		{parameters "id=mgun;"}
 		{Orientation
 			1	0	0
 			0	-1	0
@@ -12,76 +12,29 @@
 		{VolumeView "rocket.ply"}
 		{bone "tail"
 			{Matrix34
-				1	0	0
-				0	0	1
+				-1	0	0
 				0	-1	0
-				-8.49058	0	0
+				0	0	1
+				-0.0734034	0	0
 			}
 		}
-	}
-}
-{Volume "body"
-	{Cylinder 3.27807 17.107}
-	{Bone "rocket"}
-	{Matrix34
-		0	0	-1
-		0	-1	0
-		-1	0	0
-		0.797635	-0.0156211	0.0434413
-	}
-}
-{Volume "select"
-	{Box 6.06529 6.12981 17.0822}
-	{Bone "rocket"}
-	{Matrix34
-		0	0	-1
-		0	-1	0
-		-1	0	0
-		0.790884	-0.0156211	0.0434413
 	}
 }
 {Extender "preview"
-	{"Stuff"
+	{"stuff"
 		{camera
-			{origin 0.269905	129.857	0.48595}
-			{lookat 0.156058	-0.00876617	0.0953586}
-			{fov 7.35648}
-			{horizon -0.199792}
+			{origin 7.62032	3.75558	22.8163}
+			{lookat 7.62032	-0.697522	-1.23838}
+			{fov 45}
 		}
 		{lights
 			{"0"
-				{type directional}
-				{direction -0.232022	-0.353995	-0.266182}
+				{type point}
+				{position -6.42528	8.1884	0}
 			}
 			{"1"
-				{type directional}
-				{direction 0.453301	0.0208015	-0.209965}
-			}
-			{"2"
-				{type directional}
-				{direction -0.0998383	0.131562	0.471937}
-			}
-		}
-	}
-	{"Stuff_primary"
-		{camera
-			{origin 3.89559	96.1111	0.253483}
-			{lookat 3.81245	-0.0110319	-0.0317799}
-			{fov 7.35648}
-			{horizon -0.199792}
-		}
-		{lights
-			{"0"
-				{type directional}
-				{direction -0.0998383	0.131562	0.471937}
-			}
-			{"1"
-				{type directional}
-				{direction -0.232022	-0.353995	-0.266182}
-			}
-			{"2"
-				{type directional}
-				{direction 0.453301	0.0208015	-0.209965}
+				{type point}
+				{position 14.531	-6.63614	8.85533}
 			}
 		}
 	}

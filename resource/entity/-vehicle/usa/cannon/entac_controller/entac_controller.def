@@ -1,0 +1,74 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(0.6))
+	{props "-mg_stan" "with_gun" "vision_lev00_can" "detect_cannon_aa" "cannon_sandbag_standard" "gunbagged"}
+	{targetclass "cannon_small"}
+	{targetSelector "cannon_big"}
+
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 2}
+		{able {visible 1}}
+	}	
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 2}
+		{able {visible 1}}
+	}
+	
+	{placer
+		{place "gunner"}
+		;{place "attach"
+		;	{Linkbone "basis"}
+		;	{entity "entac_signal"}
+		;	{handlebone "basis"}
+		;}
+	}
+	
+	{sensor
+		{visor "gunner"
+			{vision "atgm_main"}
+			{bone "foresight"}
+		}
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_squat_watch_binocular" 10}}
+		}
+	}
+		
+	("crew_open" place(gunner)		group(crew)	bone(gunner)	door(emit1) animation(gunner) extra({openForCrush}))
+	
+	{extender "inventory"
+		{box
+			{item "sandbag_vehicle" 2}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{type "commander"}
+			{weapon "commander_vision"}
+			{foresight "foresight"}
+			{gunner "gunner"}
+			{basic}
+			{ai_in_manual}
+		}
+	} 	
+	
+	{mass 2000}
+
+	{Extension "entac_controller.mdl"}
+	
+	;{bone "basis"
+	;	{speed 0.001}
+	;}
+	{bone "bino_arm"
+		{limits -65 65}
+		{speed 0.01}
+	}
+    {bone "bino"
+		{limits -10 25}
+		{speed 0.1}
+	}
+}

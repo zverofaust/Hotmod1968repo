@@ -1,0 +1,73 @@
+;Exported by: misan
+;Date:        Wed Mar  1 10:42:13 2023
+;File:        D:\Cold War\ModelWIP\USSR\9m14\9M14.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.3}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{VolumeView "body.ply"}
+			{bone "gun_rot"
+				{parameters "id=body;"}
+				{Matrix34
+					0.981627	0	0.190809
+					0.190809	0	-0.981627
+					0	1	0
+					-4.75448	0.301966	3.52687
+				}
+				{VolumeView "gun_rot.ply"}
+				{bone "rocket"
+					{parameters "id=body;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						6.52103	-3.12658	0.0115724
+					}
+					{VolumeView "rocket.ply"}
+				}
+				{bone "support"
+					{parameters "id=body;"}
+					{Matrix34
+						0.990268	-0.139173	0
+						0.139173	0.990268	0
+						0	0	1
+						7.47334	-1.05258	0.0166554
+					}
+					{VolumeView "support.ply"}
+				}
+			}
+			{bone revolute "aim_rot_h"
+				{Position 8.01325	0.24589	9.06932}
+				{bone revolute "aim_rot_v"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.328299	0	0
+					}
+					{bone "foresight1"
+						{Position 8.01325	0.24589	9.06932}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 12.0267 7.46301 9.1489}
+	{Bone "body"}
+	{Position 0.92821	-0.0230194	4.57445}
+}
+{Volume "select"
+	{Box 21.1026 18.1223 22.1121}
+	{Bone "body"}
+	{Position 0.553926	-0.0956166	6.74743}
+}

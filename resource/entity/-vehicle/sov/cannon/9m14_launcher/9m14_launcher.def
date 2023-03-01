@@ -1,0 +1,50 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(0.6))
+	{props "atgm" "with_gun" "detect_cannon_aa" "no_sandbags" "gunbagged"}
+	{targetclass "cannon_small"}
+	{targetSelector "cannon_big"}
+
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 2}
+		{able {visible 1}}
+	}
+	
+	{placer
+		{crew 0}
+	}
+	
+	{extender "inventory"
+		{box
+			;{item "ammo 9m14 atgm" 1}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon			"atgm_9m14" filled}
+			{gunner "gunner"}
+            {charger "gunner"}
+			{RestoreIKAfterAim}
+			{Rotate}
+			{basic}
+			("abm_dymamic_gun"
+				zeroing(2.0)
+				dispersion(0.2)
+			)
+		}
+	} 	
+	
+	{mass 2000}
+
+	{Extension "9m14_launcher.mdl"}
+	
+	{bone "aim_rot_h"
+		{limits -15 15}
+		{speed 0.01}
+	}
+    {bone "aim_rot_v"
+		{limits -10 25}
+		{speed 0.01}
+	}
+}
