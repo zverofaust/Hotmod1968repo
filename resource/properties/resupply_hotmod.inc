@@ -439,12 +439,14 @@
 (define "items_gunbags"
 ;// USA
 	{item "gunbag_usa_entac_controller"				1 {value 20}}
+	{item "gunbag_usa_entac_launcher"				1 {value 10}}
 	{item "gunbag_usa_m2"							1 {value 20}}
 	{item "gunbag_usa_m29"							1 {value 15}}
 	{item "gunbag_usa_m60"							1 {value 10}}
 	{item "gunbag_usa_m1919"						1 {value 6}}
 ;// SOV
 	{item "gunbag_sov_9m14_controller"				1 {value 20}}
+	{item "gunbag_sov_9m14_launcher"				1 {value 10}}
 	{item "gunbag_sov_b10"							1 {value 10}}
 	{item "gunbag_sov_bm37"							1 {value 15}}
 	{item "gunbag_sov_dshk"							1 {value 20}}
