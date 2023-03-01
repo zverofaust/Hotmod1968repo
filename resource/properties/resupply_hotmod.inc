@@ -53,6 +53,7 @@
 	
 ;// Rifle
 	{item "ak47" 					"ammo" 30 {value 2}}
+	{item "ak47" "ak"				"ammo" 30 {value 2}}
 	{item "ak47" "akm"				"ammo" 30 {value 2}}
 	{item "ak47" "drum"				"ammo" 75 {value 2}}
 	{item "ak47" "rpk"				"ammo" 40 {value 2}}
@@ -428,6 +429,30 @@
 	{item "tmd_44" "mine" 						 1 {value 10}}
 )
 
+(define "items_gunbags_launchers"
+;// USA
+	{item "gunbag_usa_entac_launcher"				1 {value 10}}
+;// SOV
+	{item "gunbag_sov_9m14_launcher"				1 {value 10}}
+)
+
+(define "items_gunbags"
+;// USA
+	{item "gunbag_usa_entac_controller"				1 {value 20}}
+	{item "gunbag_usa_m2"							1 {value 20}}
+	{item "gunbag_usa_m29"							1 {value 15}}
+	{item "gunbag_usa_m60"							1 {value 10}}
+	{item "gunbag_usa_m1919"						1 {value 6}}
+;// SOV
+	{item "gunbag_sov_9m14_controller"				1 {value 20}}
+	{item "gunbag_sov_b10"							1 {value 10}}
+	{item "gunbag_sov_bm37"							1 {value 15}}
+	{item "gunbag_sov_dshk"							1 {value 20}}
+	{item "gunbag_sov_pk"							1 {value 15}}
+	{item "gunbag_sov_sg43"							1 {value 6}}
+	{item "gunbag_sov_spg9"							1 {value 15}}
+)
+
 ;/*=================== Item Defines End ===================*/
 
 
@@ -457,6 +482,7 @@
 	{extender "supply_zone"
 		{resupply
 			("items_light_generic")
+			("items_gunbags_launchers")
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
@@ -494,6 +520,7 @@
 	{extender "supply_zone"
 		{resupply
 			("items_light_generic")
+			("items_gunbags_launchers")
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
@@ -520,6 +547,7 @@
 	{extender "supply_zone"
 		{resupply
 			("items_light_generic")
+			("items_gunbags_launchers")
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
@@ -553,6 +581,7 @@
 	{extender "supply_zone"
 		{resupply
 			("items_light_generic")
+			("items_gunbags_launchers")
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
@@ -589,6 +618,7 @@
 	{extender "supply_zone"
 		{resupply
 			("items_light_generic")
+			("items_gunbags_launchers")
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
@@ -626,6 +656,7 @@
 	{extender "supply_zone"
 		{resupply
 			("items_light_generic")
+			("items_gunbags_launchers")
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
@@ -662,6 +693,7 @@
 	{extender "supply_zone"
 		{resupply
 			("items_light_generic")
+			("items_gunbags_launchers")
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
