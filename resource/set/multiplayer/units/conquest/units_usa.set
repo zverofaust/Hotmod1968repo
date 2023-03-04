@@ -335,7 +335,10 @@
 }
 
 ("squad_weaponteam_conquest" 	side(usa) name(deploy_entac_con)				period(mid) 	min_stage(4) max_stage(99)			c1(sup_guncrew_entac_c:1) c2(sup_guncrew_entac_l:3) cost(220))
-
+{"entac_launcher"
+	("emplacement" side(usa) period(mid) min_stage(99) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(gunbag_usa_entac_launcher) action(entac_launcher))
+	{cost 0}{not_for_player_sale 1}
+}
 ;MORTARS
 
 ("squad_weaponteam_conquest" 	side(usa) name(deploy_m29_con)				period(mid) 	min_stage(2) max_stage(99)			c1(sup_guncrew_m29:1) c2(sup_guncrew:1) cost(225))
