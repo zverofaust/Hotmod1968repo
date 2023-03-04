@@ -381,7 +381,7 @@
 
 ; AT WEAPONRY
 
-("squad_weaponteam_conquest" 	side(sov) name(deploy_b10_con)			period(early) 	min_stage(1) max_stage(15)			c1(sup_guncrew_b10:1) c2(sup_guncrew:1) cost(180))
+("squad_weaponteam_conquest" 	side(sov) name(deploy_b10_con)			period(mid) 	min_stage(1) max_stage(15)			c1(sup_guncrew_b10:1) c2(sup_guncrew:1) cost(180))
 ("squad_weaponteam_conquest" 	side(sov) name(deploy_spg9_con)			period(mid) 	min_stage(3) max_stage(99)			c1(sup_guncrew_spg9:1) c2(sup_guncrew:1) cost(200))
 
 {"t-12"
@@ -389,11 +389,16 @@
 	{cost 250}
 }
 
-("squad_weaponteam_conquest" 	side(sov) name(deploy_9m14_con)			period(mid) 	min_stage(4) max_stage(99)			c1(sup_guncrew_9m14:1) c2(sup_guncrew:1) cost(350))
+("squad_weaponteam_conquest" 	side(sov) name(deploy_9m14_con)			period(mid) 	min_stage(4) max_stage(99)			c1(sup_guncrew_9m14_c:1) c2(sup_guncrew_9m14_l:3) cost(350))
+
+{"9m14_launcher"
+	("emplacement" side(sov) period(mid) min_stage(99) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(gunbag_sov_9m14_launcher) action(9m14_launcher))
+	{cost 0}{not_for_player_sale 1}
+}
 
 ;ARTILLERY 
 
-("squad_weaponteam_conquest" 	side(sov) name(deploy_bm37_con)			period(early) 	min_stage(0) max_stage(99)			c1(sup_guncrew_bm37:1) c2(sup_guncrew:1) cost(125))
+("squad_weaponteam_conquest" 	side(sov) name(deploy_bm37_con)			period(mid) 	min_stage(0) max_stage(99)			c1(sup_guncrew_bm37:1) c2(sup_guncrew:1) cost(125))
 
 {"120mm_pm38_sov"
 	("vehicle" period(mid) min_stage(3) max_stage(99) side(sov) crew(sup_supporter:2) cw(0) cp(4))
