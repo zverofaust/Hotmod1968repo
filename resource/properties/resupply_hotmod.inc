@@ -82,6 +82,7 @@
 	{item "bullet73_2a28"  "heat"	"ammo" 1  {value 12}} 
 	{item "bullet73_2a28"  "he"		"ammo" 1  {value 8}}
 	{item "9m14"			"atgm"		"ammo" 1 {value 15}}
+	{item "gunbag_sov_9m14_launcher"				1 {value 10}}
 )
 
 (define "items_light_usa"
@@ -118,12 +119,14 @@
 	{item "bullet106_m40" 	"heat"	"ammo" 1  {value 15}} 
 	{item "bullet106_m40"  	"he"	"ammo" 1  {value 10}}
 	{item "mgm32a"			"atgm"	"ammo" 1  {value 15}}
+	{item "gunbag_usa_entac_launcher"				1 {value 10}}
 
 ;// Grenade
 	{item "40mm_grenade" "he"		 "ammo" 1  {value 5}}
 	{item "m31_grenade" "heat"	 	 "ammo" 1  {value 5}}
 	{item "grenade" "m67" 					1  {value 5}}
 	{item "grenade" "anm8_smoke" 			1  {value 5}}
+
 )
 
 (define "items_light_prc"
@@ -274,6 +277,7 @@
 	{item "9m14"				"atgm"		"ammo" 1 {value 15}}
 	{item "3m7"					"atgm"		"ammo" 1 {value 18}}
 	{item "9m111"				"atgm"		"ammo" 1 {value 25}}
+	{item "gunbag_sov_9m14_launcher"				1 {value 10}}
 	
 	;// Aircraft Stuff
 	
@@ -361,6 +365,7 @@
 	{item "mgm32a"				"atgm"		"ammo" 1 {value 15}}
 	{item "agm22"				"atgm"		"ammo" 1 {value 15}}
 	{item "mim23"				"sam"		"ammo" 1 {value 20}}
+	{item "gunbag_usa_entac_launcher"				1 {value 10}}
 	
 	;// Aircraft Stuff
 	
