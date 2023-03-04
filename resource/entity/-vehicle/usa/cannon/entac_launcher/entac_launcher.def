@@ -1,10 +1,10 @@
 {game_entity
 	(include "/properties/cannon_mgun.ext")
 	(include "/properties/shadow/tank.inc"  scale(0.6))
-	{props "atgm" "entac" "with_gun" "detect_cannon_aa" "no_sandbags" "gunbagged"}
+	{props "atgm" "entac" "with_gun" "detect_cannon_aa" "no_sandbags" "gunbagged" "receiver_entac"}
 	{targetclass "cannon_small"}
 	{targetSelector "cannon_big"}
-
+	
 	{Volume "body"
 		{Tags  "body"}
 		{Thickness 2}
@@ -14,7 +14,6 @@
 	{placer
 		{crew 0}
 	}
-	
 	{extender "inventory"
 		{box
 			;{item "ammo mgm32a atgm" 1}
