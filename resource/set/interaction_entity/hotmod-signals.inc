@@ -5,7 +5,7 @@
 			{add_view "icon_signal_off" "off_view" "root" not_manual not_scenario}
 			{tags add "no_signal"}
 			{chassis_work 0}
-			{able select 0}
+			;{able select 0}
 			{weapon_work "gun" 0}
 			{delay 0.5
 				{view start "off_view"}
@@ -18,7 +18,7 @@
 				{view start "on_view"}
 				{view stop "off_view"}
 				{chassis_work 1}
-				{able select 1}
+				;{able select 1}
 				{weapon_work "gun" 1}
 				{delay 1
 					{tags add "no_signal"}
@@ -26,7 +26,7 @@
 					{view start "off_view"}
 					{view stop "on_view"}
 					{chassis_work 0}
-					{able select 0}
+					;{able select 0}
 					{weapon_work "gun" 0}
 				}
 			}
