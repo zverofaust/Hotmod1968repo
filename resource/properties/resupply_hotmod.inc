@@ -449,6 +449,7 @@
 	{item "gunbag_usa_m29"							1 {value 15}}
 	{item "gunbag_usa_m60"							1 {value 10}}
 	{item "gunbag_usa_m1919"						1 {value 6}}
+	{item "ammobag_usa"								1 {value 20}}
 ;// SOV
 	{item "gunbag_sov_9m14_controller"				1 {value 20}}
 	{item "gunbag_sov_9m14_launcher"				1 {value 10}}
@@ -458,6 +459,18 @@
 	{item "gunbag_sov_pk"							1 {value 15}}
 	{item "gunbag_sov_sg43"							1 {value 6}}
 	{item "gunbag_sov_spg9"							1 {value 15}}
+	{item "ammobag_sov"								1 {value 20}}
+;// FRG
+	{item "gunbag_frg_m2"							1 {value 20}}
+	{item "gunbag_frg_krh36"						1 {value 15}}
+	{item "gunbag_usa_mg3"							1 {value 10}}
+	{item "ammobag_frg"								1 {value 20}}
+;// PRC
+	{item "gunbag_prc_b10"							1 {value 10}}
+	{item "gunbag_prc_bm37"							1 {value 15}}
+	{item "gunbag_prc_dshk"							1 {value 20}}
+	{item "gunbag_prc_sg43"							1 {value 6}}
+	{item "ammobag_prc"								1 {value 20}}
 )
 
 ;/*=================== Item Defines End ===================*/
@@ -512,7 +525,33 @@
 		{radius 			8}		;// resupply radius in meter
 		{resupplyPeriod 	2}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				100}	;// max number of resupplies (0 = unlimited)
+		{limit 				200}	;// max number of resupplies (0 = unlimited)
+	}
+	{DecalView supply_zone
+		{Sprite "supply_zone.ebm"
+			{Visibility 0.25}
+		}
+		{Layer grounddynamic}
+		{Visible 0}
+	}
+)
+
+(define "ammobag_ammo" ;//for deployed ammobags
+	{extender "supply_zone"
+		{resupply
+			("items_light_generic")
+			("items_light_sov")
+			("items_light_usa")
+			("items_light_prc")
+			("items_light_frg")
+			("items_light_ger")
+			("items_light_rus")
+			("items_light_fin")
+		}
+		{radius 			5}		;// resupply radius in meter
+		{resupplyPeriod 	2}		;// resupply period in seconds
+		{regenerationPeriod 0}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{limit 				500}	;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"
@@ -539,7 +578,7 @@
 		{radius 			8}		;// resupply radius in meter
 		{resupplyPeriod 	5}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				50}	;// max number of resupplies (0 = unlimited)
+		{limit 				100}	;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"
@@ -573,7 +612,7 @@
 		{radius 			24}		;// resupply radius in meter
 		{resupplyPeriod 	5}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				250}	;// max number of resupplies (0 = unlimited)
+		{limit 				400}	;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"
@@ -589,6 +628,7 @@
 		{resupply
 			("items_light_generic")
 			("items_gunbags_launchers")
+			("items_gunbags")
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
@@ -610,7 +650,7 @@
 		{radius 			24}		;// resupply radius in meter
 		{resupplyPeriod 	10}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				500}	;// max number of resupplies (0 = unlimited)
+		{limit 				750}	;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"
@@ -626,6 +666,7 @@
 		{resupply
 			("items_light_generic")
 			("items_gunbags_launchers")
+			("items_gunbags")
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
@@ -648,7 +689,7 @@
 		{radius 			12}		;// resupply radius in meter
 		{resupplyPeriod 	2}		;// resupply period in seconds
 		{regenerationPeriod 3}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				250}	;// max number of resupplies (0 = unlimited)
+		{limit 				400}	;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"
@@ -664,6 +705,7 @@
 		{resupply
 			("items_light_generic")
 			("items_gunbags_launchers")
+			("items_gunbags")
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
@@ -685,7 +727,7 @@
 		{radius 			18}			;// resupply radius in meter
 		{resupplyPeriod 	2}			;// resupply period in seconds
 		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				500}		;// max number of resupplies (0 = unlimited)
+		{limit 				750}		;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"
@@ -701,6 +743,7 @@
 		{resupply
 			("items_light_generic")
 			("items_gunbags_launchers")
+			("items_gunbags")
 			("items_light_sov")
 			("items_light_usa")
 			("items_light_prc")
@@ -722,7 +765,7 @@
 		{radius 			24}			;// resupply radius in meter
 		{resupplyPeriod 	2}			;// resupply period in seconds
 		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				1000}		;// max number of resupplies (0 = unlimited)
+		{limit 				1250}		;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"
