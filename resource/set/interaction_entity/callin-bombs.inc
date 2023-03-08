@@ -404,6 +404,23 @@
 	}
 }
 
+{"a-4e_airstrike_2xcluster"
+	{on "bomb_drop"
+		{delay 0.38 
+			{spawn "bomb_single_cluster" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 51}
+			}
+		
+		}
+		{delay 0.41 
+			{spawn "bomb_single_cluster" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+	}
+}
+
 {"a-4e_airstrike_4xcluster"
 	{on "bomb_drop"
 		{delay 0.35 
