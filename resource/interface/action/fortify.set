@@ -167,7 +167,7 @@
 )
 
 (define "building_expendable"
-	("construction"	name(%name) entity(%entity) animation(%animation) time(%time) rotation(%rotation) restrictions(%restrictions) cost(%cost) d() spacing(%spacing) item(%item) e({remove_from_inventory}) )
+	("construction"	name(%name) entity(%entity) animation(%animation) time(%time) rotation(%rotation) restrictions("shallow_water water") cost(%cost) d() spacing(%spacing) item(%item) e({remove_from_inventory}) )
 )
 
 (define "fortification_draggable"
@@ -182,6 +182,10 @@
 	("weapon_construction"	name(%name) entity(%entity) animation(squat_repair_1) time(%time) rotation(%rotation) restrictions("shallow_water water") cost(0) d() spacing(%spacing) item(%item) e({remove_from_inventory}) )
 )
 
+(define "deployable_ammo"
+	("weapon_construction"	name(%name) entity(%entity) animation(stand_drop_corpse) time(%time) rotation(%rotation) restrictions("shallow_water water") cost(0) d() spacing(%spacing) item(%item) e({remove_from_inventory}) )
+)
+
 ;foxhole
 ("entrenchment_rotate"		name(foxhole)			entity(soldier_foxhole)		animation(stand_dig_trench)			time(30)	rotation(180.0)	spacing(100) cost(1)	item(foxhole)	restrictions("bridge bridge_wood rock shallow_water ice water"))
 ("entrenchment_rotate"		name(foxhole_big)		entity(trench_engineer)		animation(dig_pickaxe_01)			time(90)	rotation(180.0)	spacing(180) cost(20)	item(trench)	restrictions("bridge bridge_wood rock shallow_water ice water"))
@@ -191,8 +195,8 @@
 ("entrenchment_rotate"		name(fin_bunker)		entity(45mm_pillbox)		animation(stand_dig_01)				time(120)	rotation(-90.0)	spacing(180) cost(50)	item(engineering_fin)	restrictions("bridge bridge_wood rock shallow_water ice water"))
 ("entrenchment_rotate_expendable" name(fin_coastal_gun)	entity(75mm_pillbox_stage1)	animation(stand_dig_01)			time(120)	rotation(180.0)	spacing(180) cost(100)	item(engineering_fin)	restrictions("bridge bridge_wood rock shallow_water ice water"))
 
-; medic rally
-("building_expendable"		name(medic_rally)		entity(medic_rally)			animation(squat_construct_sandbag)	time(30)	rotation(0.0)	spacing(100) cost(1)	item(tent_kit)	restrictions("shallow_water water"))
+; medic rally, ammobags
+("building_expendable"		name(medic_rally)		entity(medic_rally)			animation(squat_construct_sandbag)	time(30)	rotation(0.0)	spacing(100) cost(1)	item(tent_kit))
 
 ;barricade
 ("fortification_draggable"	name(barricade_sq)		entity(barricade_sq)		animation(squat_construct_sandbag)	time(10)	rotation(0.0)	spacing(0)	cost(5))
@@ -209,7 +213,7 @@
 ("fortification_mp"			name(heavy_mg_maxim_m1910_30)	entity(heavy_mg_maxim_m1910_30)	time(30)	rotation(-90.0))
 
 
-; deployable tripods
+; deployables
 ;SOV	
 ("deployable_weapon"		name(deploy_sg43)		entity(sg43_stand_sov)		time(3)		rotation(-90.0)	spacing(0)  item(gunbag_sov_sg43))
 ("deployable_weapon"		name(deploy_pk)			entity(mg_stand_pk)			time(3)		rotation(-90.0)	spacing(0)  item(gunbag_sov_pk))
@@ -219,6 +223,7 @@
 ("deployable_weapon"		name(deploy_spg9)		entity(spg9)				time(5)		rotation(-90.0)	spacing(0)  item(gunbag_sov_spg9))
 ("deployable_weapon"		name(deploy_9m14_launcher)		entity(9m14_launcher)			time(10)	rotation(-90.0)	spacing(0)  item(gunbag_sov_9m14_launcher))
 ("deployable_weapon"		name(deploy_9m14_controller)	entity(9m14_controller)			time(10)	rotation(-90.0)	spacing(0)  item(gunbag_sov_9m14_controller))
+("deployable_ammo"			name(deploy_ammobag_sov)		entity(ammobag_sov_deployed)		time(1)		rotation(-90.0)	spacing(0)  item(ammobag_sov))
 
 ;USA
 ("deployable_weapon"		name(deploy_m1919)		entity(mg_stand_m1919)		time(3)		rotation(-90.0)	spacing(0)  item(gunbag_usa_m1919))
@@ -227,14 +232,17 @@
 ("deployable_weapon"		name(deploy_m29)		entity(m29_mortar)			time(4)		rotation(-90.0)	spacing(0)  item(gunbag_usa_m29))
 ("deployable_weapon"		name(deploy_entac_launcher)		entity(entac_launcher)				time(10)	rotation(-90.0)	spacing(0)  item(gunbag_usa_entac_launcher))
 ("deployable_weapon"		name(deploy_entac_controller)	entity(entac_controller)			time(10)	rotation(-90.0)	spacing(0)  item(gunbag_usa_entac_controller))
+("deployable_ammo"			name(deploy_ammobag_usa)		entity(ammobag_usa_deployed)		time(1)		rotation(-90.0)	spacing(0)  item(ammobag_usa))
 
 ;FRG
 ("deployable_weapon"		name(deploy_mg3)		entity(mg3_lafette)			time(3)		rotation(-90.0)	spacing(0)  item(gunbag_frg_mg3))
 ("deployable_weapon"		name(deploy_m2_frg)		entity(mg_stand_m2g)		time(5)		rotation(-90.0)	spacing(0)  item(gunbag_frg_m2))
-("deployable_weapon"		name(deploy_m29_frg)	entity(m29g_mortar)			time(4)		rotation(-90.0)	spacing(0)  item(gunbag_frg_m29))
+("deployable_weapon"		name(deploy_krh36_frg)	entity(81mm_krh36_frg)		time(4)		rotation(-90.0)	spacing(0)  item(gunbag_frg_krh36))
+("deployable_ammo"			name(deploy_ammobag_frg)	entity(ammobag_frg_deployed)		time(1)		rotation(-90.0)	spacing(0)  item(ammobag_frg))
 
 ;PRC
 ("deployable_weapon"		name(deploy_sg43_prc)	entity(sg43_stand_prc)		time(3)		rotation(-90.0)	spacing(0)  item(gunbag_prc_sg43))
 ("deployable_weapon"		name(deploy_dshk_prc)	entity(dshk_aa_prc)			time(5)		rotation(-90.0)	spacing(0)  item(gunbag_prc_dshk))
 ("deployable_weapon"		name(deploy_bm37_prc)	entity(82mm_bm37_prc)		time(4)		rotation(-90.0)	spacing(0)  item(gunbag_prc_bm37))
 ("deployable_weapon"		name(deploy_b10_prc)	entity(b-10_prc)			time(4)		rotation(-90.0)	spacing(0)  item(gunbag_prc_b10))
+("deployable_ammo"			name(deploy_ammobag_prc)		entity(ammobag_prc_deployed)		time(1)		rotation(-90.0)	spacing(0)  item(ammobag_prc))

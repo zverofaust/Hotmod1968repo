@@ -40,6 +40,7 @@
 	("gunbag" guntype(spg9)  					bagtype(gunbag_spg9))
 	("gunbag" guntype(9m14_launcher)   			bagtype(gunbag_9m14_launcher))
 	("gunbag" guntype(9m14_controller)   		bagtype(gunbag_9m14_controller))
+	;("gunbag" guntype(ammobag_sov_deployed)  	bagtype(ammobag_sov))
 	
 	;///USA
 	("gunbag" guntype(mg_stand_m1919) 			bagtype(gunbag_m1919))
@@ -48,15 +49,18 @@
 	("gunbag" guntype(m29_mortar)  	 			bagtype(gunbag_m29))
 	("gunbag" guntype(entac_launcher)   		bagtype(gunbag_entac_launcher))
 	("gunbag" guntype(entac_controller)   		bagtype(gunbag_entac_controller))
+	;("gunbag" guntype(ammobag_usa_deployed)  	bagtype(ammobag_usa))
 	
 	;///FRG
 	("gunbag" guntype(mg3_lafette)   			bagtype(gunbag_mg3))
 	("gunbag" guntype(mg_stand_m2g)   			bagtype(gunbag_m2_frg))
-	("gunbag" guntype(m29g_mortar)  			bagtype(gunbag_m29_frg))
+	("gunbag" guntype(81mm_krh36_frg)  			bagtype(gunbag_krh36_frg))
+	;("gunbag" guntype(ammobag_frg_deployed)  	bagtype(ammobag_frg))
 
 	;///PRC
 	("gunbag" guntype(sg43_stand_prc) 			bagtype(gunbag_sg43_prc))
 	("gunbag" guntype(dshk_aa_prc)   			bagtype(gunbag_dshk_prc))
 	("gunbag" guntype(82mm_bm37_prc)  			bagtype(gunbag_bm37_prc))
 	("gunbag" guntype(b-10_prc)  				bagtype(gunbag_b10_prc))
+	;("gunbag" guntype(ammobag_prc_deployed)  	bagtype(ammobag_prc))
 
