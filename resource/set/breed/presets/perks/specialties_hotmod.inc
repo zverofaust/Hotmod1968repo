@@ -102,17 +102,13 @@
 	{"stamina_regeneration" "110%"}
 )
 
-(define "tank_commander"	;// Tank Commander
-	("loader_skill_smg_rank_2")
+(define "tankman"			;// Tank Crew
 	("skilled_repair")
-	{"health" "150%"}
-	("expert_gun")
+	("skilled_gun")
 )
 
-(define "tankman"			;// Tank Crew
-	("loader_skill_smg_rank_2")
+(define "vehicleman"			;// Tank Crew
 	("skilled_repair")
-	{"health" "150%"}
 	("skilled_gun")
 )
 
