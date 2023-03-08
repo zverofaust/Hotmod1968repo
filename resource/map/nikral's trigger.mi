@@ -13,8 +13,8 @@
 										{player
 											{player "%player"}
 										}
-										{tag
-											{tag aa_short}
+										{prop
+											{prop aa_short}
 										}
 										{state
 											{state operatable}
@@ -39,8 +39,8 @@
 										{player
 											{player "%player"}
 										}
-										{tag
-											{tag aa_medium}
+										{prop
+											{prop aa_medium}
 										}
 										{state
 											{state operatable}
@@ -65,8 +65,8 @@
 										{player
 											{player "%player"}
 										}
-										{tag
-											{tag aa_long}
+										{prop
+											{prop aa_long}
 										}
 										{state
 											{state operatable}
@@ -83,6 +83,31 @@
 								}
 )
 
+(define "group_sam"  ; For trigger "enhance aa gun's aa desire". This is a group of SAMs(exclude "aa_working") for selector.
+	{source advanced}
+	{ignore_captured_by_user 0}
+								{group
+									{include
+										{player
+											{player "%player"}
+										}
+										{prop
+											{prop sam}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+										{tag
+											{tag aa_long_working}
+										}
+									}
+								}
+)
 
 (define "group_airborne"  ; This is a group of airborne targets including helicopter(HOTMOD) (exclude "shotdown","_abandoned") for selector.
 								{group
@@ -308,7 +333,7 @@
 								{ignore_captured_by_user 0}
 								("group_airborne" player(%player))
 							}
-							{distance 1000}
+							{distance 600}
 						}
 					}
 				}
@@ -368,6 +393,82 @@
 					;}
 					{"trigger"
 						{name "enhance aa gun's aa desire/p%player/detect and fire(long)"}
+					}
+				}
+	}
+
+	{"enhance aa gun's aa desire/p%player/detect and fire(sam)"
+				{condition  ; If enemy planes are near to player's AA
+					{terms
+						{"1.near"
+							{units
+								("group_sam" player(%player))
+							}
+							{near_to
+								{source advanced}
+								{ignore_captured_by_user 0}
+								("group_airborne" player(%player))
+							}
+							{distance 1000}
+						}
+					}
+				}
+				{actions  ; Order attack
+					{"actor_fire"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
+						{selector
+							("group_sam" player(%player))
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									("group_airborne" player(%player))
+								}
+							}
+							{amount 1
+							}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{source advanced}
+							{ignore_captured_by_user 0}
+							("group_airborne" player(%player))
+							{sort
+								{type entity}
+								{entity
+									("group_sam" player(%player))
+								}
+							}
+							{amount 1
+							}
+						}
+						{interval 0}
+						{time 0}
+						{burst_mode long}
+					}
+					{"entity_state"  ; The closest AA to enemy planes, add "aa_working"
+						{selector
+							("group_sam" player(%player))
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									("group_airborne" player(%player))
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add sam_working}
+					}
+					;{"music"
+					;	{start "/sound/mission/task_new.wav"}
+					;	{volume narrator}
+					;}
+					{"trigger"
+						{name "enhance aa gun's aa desire/p%player/detect and fire(sam)"}
 					}
 				}
 	}
@@ -512,7 +613,7 @@
 								{ignore_captured_by_user 0}
 								("group_airborne" player(%player))
 							}
-							{distance 1000}
+							{distance 600}
 						}
 						{"2.entities"
 							{selector
@@ -542,6 +643,64 @@
 					}
 					{"trigger"
 						{name "enhance aa gun's aa desire/p%player/remove aa_working tag(long)"}
+					}
+				}
+	}
+
+	{"enhance aa gun's aa desire/p%player/remove aa_working tag(sam)" ; Reset "aa_working" tag when target disappeared.
+				{condition
+					{expression "!1 & 2"}
+					{terms
+						{"1.near"
+							{units
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{include
+										{tag
+											{tag sam_working}
+										}
+										{player
+											{player "%player"}
+										}
+									}
+								}
+							}
+							{near_to
+								{source advanced}
+								{ignore_captured_by_user 0}
+								("group_airborne" player(%player))
+							}
+							{distance 1000}
+						}
+						{"2.entities"
+							{selector
+								{ignore_captured_by_user 0}
+								{tag sam_working}
+								{player "%player"}
+							}
+						}
+					}
+				}
+				{actions
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag sam_working}
+							{player "%player"}
+						}
+						{drop orders}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag sam_working}
+							{player "%player"}
+						}
+						{tag_remove sam_working}
+					}
+					{"trigger"
+						{name "enhance aa gun's aa desire/p%player/remove aa_working tag(sam)"}
 					}
 				}
 	}
