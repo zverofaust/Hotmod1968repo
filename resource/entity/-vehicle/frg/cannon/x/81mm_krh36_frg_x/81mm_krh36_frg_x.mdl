@@ -1,0 +1,75 @@
+;Exported by:	 guita
+;Date:			 30.01.2022 13:08:47
+;File:			 D:\Git\3D_Scenes\GoH_3D_vehicles_fin\3d vehicles\Cannon\Brandt Mle 31\Brandt_Mle31_x.max
+{skeleton
+	{bone revolute "basis"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position 0 	 0 	 0.7643}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{limits -10 10}
+				{speed 0.01}
+				{Position 0.1508 	 0 	 -0.0317}
+				{bone "gun_rot"
+					{parameters "id=body;"}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "id=body;"}
+						{orientation
+							0.9951 	 0 	 0.0992
+							0 	 1 	 0
+							-0.0992 	 0 	 0.9951
+						}
+						{VolumeView "gun.ply"}
+						{bone "grip"
+							{parameters "id=body;"}
+							{Position 10.3485 	 -0.454 	 13.026}
+							{VolumeView "grip.ply"}
+						}
+					}
+					{bone "bipod_base"
+						{parameters "id=body;"}
+						{matrix34
+							0.9908 	 0 	 -0.1353
+							0 	 1 	 0
+							0.1353 	 0 	 0.9908
+							11.7828 	 -2.4805 	 15.9007
+						}
+						{VolumeView "bipod_base.ply"}
+						{bone "stan_l"
+							{parameters "id=body;"}
+							{matrix34
+								0.9071 	 0 	 0.4209
+								0 	 1 	 0
+								-0.4209 	 0 	 0.9071
+								2.0877 	 2.482 	 -3.6609
+							}
+							{VolumeView "stan_l.ply"}
+						}
+						{bone "stan_r"
+							{parameters "id=body;"}
+							{matrix34
+								0.9071 	 0 	 0.4209
+								0 	 1 	 0
+								-0.4209 	 0 	 0.9071
+								2.0877 	 2.482 	 -3.6609
+							}
+							{VolumeView "stan_r.ply"}
+						}
+						{bone "rod"
+							{parameters "id=body;"}
+							{Position 5.5324 	 5.4054 	 -10.8587}
+							{VolumeView "rod.ply"}
+						}
+					}
+				}
+			}
+		}
+	}
+}
