@@ -1,0 +1,20 @@
+{game_entity
+	(include "/properties/ammo_box.ext")
+	{props "wood" "break_on_burn" "burning" "no_destroyed_stamp" "crushable" "ammo_crate" "supply"}
+
+	{Extension "ammobag_frg_deployed.mdl"}
+	
+	(include "/properties/resupply_hotmod.inc")
+	("ammobag_ammo")
+	
+	{volume "body"
+		{Tags "body" "fire"}
+		{thickness 3}
+		{able {visible 1} {touch}}
+	}
+	{volume "bag"
+		{Tags "body" "fire"}
+		{thickness 3}
+		{able {visible 1} {touch}}
+	}
+}
