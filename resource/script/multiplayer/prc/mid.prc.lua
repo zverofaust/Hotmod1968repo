@@ -22,6 +22,7 @@ Purchases["mid.prc"] = {
 
 			-- Cannons	
 				--HMGs
+				{priority = 1.0, type = {"Cannon", "MG", "Class3",}, unit = "dshk_aa_prc_ai"},
 				--Anti Aircraft
 				{priority = 1.0, type = {"Cannon", "AA", "Class3",}, unit = "37mm_61k_prc"},
 				{priority = 1.0, type = {"Cannon", "AA", "Class2",}, unit = "zpu-4_prc"},
