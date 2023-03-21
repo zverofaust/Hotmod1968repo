@@ -1,0 +1,79 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc" scale(0.3))
+	{extension "sg43_stand_prc.mdl"}
+	{props "mgun" "wheeled" "-carried" "vision_lev00_can" "maxim" "detect_cannon_aa" "no_sandbags"}
+
+	("solid_wheel" args "wheelleft")
+	("solid_wheel" args "wheelright")
+	("shield" args "shield" 6)
+
+	{volume "ammo_box"
+		{thickness 2}
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_maxim_gunner" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_maxim_commander" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_maxim_move" 10}}
+		}
+		{anm "driver2"
+			{forward {end "walk_1hand" 10}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+		;// "gunner" "commander"
+			{move "mgun_browning_driver_r" "mortar_driver_l"}
+			{fire "mg_maxim_gunner_fire" "mg_maxim_commander_fire"}
+			{aim "mg_maxim_gunner_aim" "mg_maxim_commander_aim"}
+			{reload "mg_maxim_gunner_reload" "mg_maxim_commander_reload"}
+		}
+	}
+
+	{extender "shield" {on}}
+
+	{extender "inventory"
+		{box
+			{weight 100}
+			{item "mgun_rus belt" 1000}
+		}
+	}
+
+	{Weaponry
+		{place "mgun1"
+			{type "main"}
+			{charger "gunner"}
+			{weapon "sg43" filled}
+			("abm_mgun")
+			{Rotate}
+			{basic}
+		}
+	}
+
+	{mass 41}
+	{Chassis "track"
+		("mobility_cannon"
+			speed(12) ;----------------------------------Max speed.
+			weight(41) ;---------------------------------Weight in Kilograms.
+		)
+	}
+
+	{bone "basis"
+		{speed2 20}
+	}
+	{bone "gun_rot"
+		{limits -15 20}
+		{speed2 40}
+	}
+	{bone "turret"
+		{limits -15 15}
+		{speed2 40}
+	}
+}
