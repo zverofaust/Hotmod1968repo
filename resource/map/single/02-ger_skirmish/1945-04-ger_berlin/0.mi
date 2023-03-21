@@ -36699,7 +36699,7 @@
 			{item "mgun_ger" "belt" "ammo" 4500 {cell 6 0}}
 			{item 0xc099 {cell 0 6}{user "mgun"}}
 			{item "geballteladung_3kg" {cell 0 8}}
-			{item "nbk39" "grenade" 6 {cell 3 2}}
+			{item "nbks" "grenade" 6 {cell 3 2}}
 		}
 	}
 	{Inventory 0xe052
@@ -36964,7 +36964,7 @@
 			{item "mgun_ger" "belt" "ammo" 4500 {cell 6 0}}
 			{item 0xe0a7 {cell 0 7}{user "mgun"}}
 			{item "geballteladung_3kg" {cell 0 9}}
-			{item "nbk39" "grenade" 6 {cell 3 2}}
+			{item "nbks" "grenade" 6 {cell 3 2}}
 		}
 	}
 	{Inventory 0xb069
@@ -36990,7 +36990,7 @@
 			{item "mgun_ger" "belt" "ammo" 4500 {cell 6 0}}
 			{item 0x901c {cell 0 7}{user "mgun"}}
 			{item "geballteladung_3kg" {cell 0 9}}
-			{item "nbk39" "grenade" 6 {cell 3 2}}
+			{item "nbks" "grenade" 6 {cell 3 2}}
 		}
 	}
 	{Inventory 0x9020
@@ -37061,7 +37061,7 @@
 			{item "mgun_ger" "belt" "ammo" 4500 {cell 6 0}}
 			{item 0xc09e {cell 0 5}{user "mgun"}}
 			{item "geballteladung_3kg" {cell 0 7}}
-			{item "nbk39" "grenade" 6 {cell 3 2}}
+			{item "nbks" "grenade" 6 {cell 3 2}}
 		}
 	}
 	{Inventory 0xa036
@@ -44933,7 +44933,7 @@
 			{"doctrine_allround"}
 		}
 		{triggers
-		(include "/map/nikral's trigger.mi")
+			(include "/map/nikral's trigger.mi")
 			{"parachute"
 				{autoreset}
 				{condition
@@ -55584,14 +55584,11 @@
 						{"1.event"
 							{id "autoassign_init"}
 						}
-						{"2.event"
-							{id "autoassign_init"}
-						}
 					}
 				}
 				{actions
 					{"delay"
-						{time 0.1}
+						{time 0.2}
 					}
 					{"actor_state"
 						{selector
@@ -55607,9 +55604,6 @@
 						{weapon_prepare on}
 						{ai_move
 							{mode enable}
-						}
-						{movement
-							{speed assault}
 						}
 					}
 					{"delay"
@@ -70697,7 +70691,6 @@
 							{smooth_end 0}
 						}
 						{event_on_next "autoassign_init"}
-						{event_on_cancel "autoassign_init"}
 						{force_auto_complete}
 					}
 					{"delay"

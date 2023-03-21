@@ -39291,7 +39291,7 @@
 			{"doctrine_allround"}
 		}
 		{triggers
-		(include "/map/nikral's trigger.mi")
+			(include "/map/nikral's trigger.mi")
 			{"parachute"
 				{autoreset}
 				{condition
@@ -50133,14 +50133,11 @@
 						{"1.event"
 							{id "autoassign_init"}
 						}
-						{"2.event"
-							{id "autoassign_init"}
-						}
 					}
 				}
 				{actions
 					{"delay"
-						{time 0.1}
+						{time 0.2}
 					}
 					{"actor_state"
 						{selector
@@ -50156,9 +50153,6 @@
 						{weapon_prepare on}
 						{ai_move
 							{mode enable}
-						}
-						{movement
-							{speed assault}
 						}
 					}
 					{"delay"
@@ -65367,7 +65361,6 @@
 							{smooth_end 0}
 						}
 						{event_on_next "autoassign_init"}
-						{event_on_cancel "autoassign_init"}
 						{force_auto_complete}
 					}
 					{"delay"
