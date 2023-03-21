@@ -1796,4 +1796,60 @@
 	("cannon_small")
 }
 
+;/*=========== FRG Cannons  ===========*/
+
+{"m45g"				
+	{on "init_gun"
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel02"	"shooter02"}
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel03"	"shooter03"}
+		{add_view "zenit_gilz"			"shell"			"FXshell1"}
+		{add_view "zenit_gilz"			"shell"			"FXshell2"}
+		{add_view "zenit_gilz"			"shell"			"FXshell3"}
+		{add_view "zenit_gilz"			"shell"			"FXshell4"}
+		{call "update_gun"}
+	}
+	{on "add_movement_sound"
+		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+	}
+	{on fire "mgun1" overload
+		(define "fire_barrel"
+			name "%0"
+				{call "fire_barrel%0"}
+				{view start "flashbarrel%0"}
+				{ani_play "fire%0"}
+				{delay 0.2
+					{view pause "flashbarrel%0"}
+				}
+		)
+		{if	("fire_barrel" args 00)
+		else ("fire_barrel" args 01)
+		else ("fire_barrel" args 02)
+		else ("fire_barrel" args 03)
+		}
+		{ani_play "recoil"}
+		{call "spawn_shell"}
+	}
+}
+
+{"m40"			
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2)
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_100_105"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{call "spawn_shell"}
+	}
+	{on "add_movement_sound"
+		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+	}
+}
+
 ;/*=========== Hotmod Specifics End  ===========*/
