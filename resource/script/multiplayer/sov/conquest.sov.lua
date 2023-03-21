@@ -111,7 +111,7 @@ Purchases["conquest.sov"] = {
 			--SPG
 				--{priority = 1.0, type = {"Tank", "Light", "Artillery",}, unit = "2s3"},
 			--Air Assets
-				--{priority = 1.0, type = {"Plane", "Airstrike", "Support",}, unit = "mil_mi4"},
+				{priority = 1.0, type = {"Helicopter", "Support",}, unit = "mil_mi4"},
 				--{priority = 1.0, type = {"Plane", "Airstrike", "Support", "AT",}, unit = "mil_mi4_heavy"},
 				--{priority = 0.5, type = {"Plane", "Airstrike",}, unit = "airstrike_2x250_sov"},
 				--{priority = 0.5, type = {"Plane", "Airstrike",}, unit = "airstrike_4xwp_sov"},

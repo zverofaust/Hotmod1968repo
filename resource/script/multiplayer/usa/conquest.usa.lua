@@ -137,7 +137,7 @@ Purchases["conquest.usa"] = {
 				{priority = 0.5, type = {"Tank", "Medium", "Artillery",}, unit = "m109_acav"},
 				{priority = 0.5, type = {"Tank", "Medium", "Artillery",}, unit = "m110"},
 			--Air Assets
-				--{priority = 2.0, type = {"Plane", "Airstrike", "Support",}, unit = "uh-1b"},
+				{priority = 2.0, type = {"Helicopter", "Support",}, unit = "uh-1b"},
 				--{priority = 2.0, type = {"Plane", "Airstrike", "Support",}, unit = "uh-1b_ara"},
 				--{priority = 2.0, type = {"Plane", "Airstrike", "Support",}, unit = "uh-1b_maxwell"},
 				--{priority = 2.0, type = {"Plane", "Airstrike", "AT",}, unit = "uh-1b_m22"},

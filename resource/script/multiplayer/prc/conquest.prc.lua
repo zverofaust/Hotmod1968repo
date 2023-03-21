@@ -16,7 +16,7 @@ Purchases["conquest.prc"] = {
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_militia_assault_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_conscript_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_conscript_lmg_con(prc)"},
-				{priority = 1.0, type = {"Infantry", "Squad" "AT",,}, unit = "squad_conscript_rpg_con(prc)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "AT",}, unit = "squad_conscript_rpg_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_conscript_full_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_lmg_con(prc)"},
@@ -42,9 +42,9 @@ Purchases["conquest.prc"] = {
 				{priority = 1.0, type = {"Cannon", "Mortar",}, unit = "120mm_pm38_prc"},
 				--Infantry_Support
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "76mm_zis3_prc"},
-				{priority = 1.0, type = {"Cannon", "Support",}, unit = "d-44_prc"},
+				{priority = 1.0, type = {"Cannon", "Support", "AT",}, unit = "d-44_prc"},
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "bs3_prc"},
-				{priority = 1.0, type = {"Cannon", "Support",}, unit = "74_prc"},
+				{priority = 1.0, type = {"Cannon", "Support",}, unit = "d-74_prc"},
 				--Artillery
 				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "m30_prc"},
 				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "d1_prc"},
@@ -53,12 +53,12 @@ Purchases["conquest.prc"] = {
 				--Rocket Artillery
 	
 			--APCs/BTRs
-				{priority = 0.5, type = {"Vehicle", "MG",}, unit = "ba64_prc"},
+				--{priority = 0.5, type = {"Vehicle", "MG",}, unit = "ba64_prc"},
 				{priority = 1.0, type = {"Vehicle", "MG",}, unit = "btr-40_type55"},
 				
 			--Tanks
-				{priority = 2.0, {"Tank", "Light", "Support",}, unit = "su76_prc"},
-				{priority = 0.5, {"Tank", "Light",}, unit = "type62_lt"},
+				{priority = 2.0, type = {"Tank", "Light", "Support",}, unit = "su76_prc"},
+				{priority = 0.5, type = {"Tank", "Light",}, unit = "type62_lt"},
 
 				{priority = 0.5, type = {"Tank", "Medium",}, unit = "t-34-85_prc"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "type58_tank"},
@@ -67,7 +67,7 @@ Purchases["conquest.prc"] = {
 				{priority = 1.0, type = {"Tank", "Heavy",}, unit = "is2_prc"},
 				
 			--SPG
-				{priority = 0.5, type = {"Tank", "Medium", "Support",}, unit = "isu152_prc"},
+				{priority = 0.5, type = {"Tank", "Heavy", "Support",}, unit = "isu152_prc"},
 			--Air Assets
 		}
 	}

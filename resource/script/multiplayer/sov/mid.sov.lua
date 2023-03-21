@@ -20,14 +20,14 @@ Purchases["mid.sov"] = {
 				{priority = 1.0, type = {"Infantry", "Team", "Class1",}, unit = "single_sniper(sov)"},
 				{priority = 1.0, type = {"Infantry", "Team", "Class2",}, unit = "single_flamer(sov)"},
 			--Automatic_weaponry
-				--{priority = 1.0, type = {"Cannon", "MG", "Class2",}, unit = "dshk_aa_sov_ai"},
+				{priority = 1.0, type = {"Cannon", "MG", "Class2",}, unit = "dshk_aa_sov_ai"},
 				{priority = 1.0, type = {"Cannon", "AA", "Class2",}, unit = "zpu-4"},
 				{priority = 1.0, type = {"Cannon", "AA", "Class1",}, unit = "57mm_s-60"},
 			--AT_Weapons
 				--{priority = 1.0, type = {"Cannon", "AT", "Class3",},  unit = "b-10_82mm_ai"},
-				--{priority = 1.0, type = {"Cannon", "AT", "Class2",}, unit = "spg9_ai"},
+				{priority = 1.0, type = {"Cannon", "AT", "Class2",}, unit = "spg9_ai"},
 			--Mortaras
-				--{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "82mm_bm37_sov_ai"},
+				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "82mm_bm37_sov_ai"},
 				{priority = 1.0, type = {"Cannon", "Mortar", "Class1",}, unit = "120mm_pm38_sov"},
 			--Howitzers
 				{priority = 1.0, type = {"Cannon", "Support", "Class2",}, unit = "d-44"},

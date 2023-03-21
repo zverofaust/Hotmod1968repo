@@ -24,16 +24,16 @@ Purchases["mid.usa"] = {
 			-- Cannons	
 				--HMGs
 				--{priority = 1.0, type = {"Cannon", "MG", "Class3",}, unit = "mg_stand_m60_ai"},
-				--{priority = 1.0, type = {"Cannon", "MG", "Class2",}, unit = "mg_stand_m2_ai"},
+				{priority = 1.0, type = {"Cannon", "MG", "Class2",}, unit = "mg_stand_m2_ai"},
 				--Anti Aircraft
 				{priority = 1.0, type = {"Cannon", "AA", "Class2",}, unit = "m45_maxson"},
 				--Anti Tank
 				{priority = 1.0, type = {"Cannon", "AT", "Class2",}, unit = "m40"},
 				--Mortars
-				--{priority = 1.0, type = {"Cannon", "Mortar",}, unit = "m29_mortar_ai"},
+				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "m29_mortar_ai"},
 				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "m30_mortar"},
 				--Infantry_Support
-				--{priority = 1.0, type = {"Cannon", "Support",}, unit = "m116_packhow"},
+				{priority = 1.0, type = {"Cannon", "Support", "Class3",}, unit = "m116_packhow"},
 				--Artillery
 				{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "m101a1"},
 				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m114"},
@@ -63,7 +63,7 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Tank", "Light", "AA", "Class2",}, unit = "m42"},
 				{priority = 1.0, type = {"Tank", "Medium", "Artillery", "Class3",}, unit = "m108"},
 			--Air Assets
-				{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "uh-1b_airborne"},
+				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "uh-1b_airborne"},
 				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_250_usa"},
 				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_napalm_usa"},
 			--Offmap Supports
@@ -78,7 +78,6 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "Tier2",}, unit = "doctrine_vehicle_m132(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "AT", "Tier2",}, unit = "doctrine_vehicle_m551acav(usa)"},
-				{priority = 1.0, type = {"Doctine", "Plane", "Airstrike", "Tier3",}, unit = "airstrike_napalm_acav_usa"},
 				
 			-- Doctrine Mechanized = "Air Cavalry"
 				--[[It's all bloody airlifted!]]
@@ -99,8 +98,8 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Doctine", "Tank", "Heavy", "AT", "Tier3",}, unit = "doctrine_vehicle_m103(usa)"},
 				
 			-- Doctrine Support = "Artillery Brigade"	
-				{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m114(usa)"},
-				{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_m115(usa)"},
+				--{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m114(usa)"},
+				--{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_m115(usa)"},
 				
 		}
 	}

@@ -58,7 +58,7 @@ Purchases["mid.frg"] = {
 			--SPG
 				{priority = 1.0, type = {"Tank", "Medium", "Artillery",}, unit = "m108g"},
 			--Air Assets
-				{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "cas_uh1_frg"},
+				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "cas_uh1_frg"},
 				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_250_frg"},
 				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_napalm_frg"},
 			--Offmap Supports
