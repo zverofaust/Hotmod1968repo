@@ -1,6 +1,6 @@
 {game_entity		;UH-1B/C with M22 subsystem
 	(include "/properties/airborne.ext")
-	;{props "wheeled"}
+	{props "vision_lev02_air"}
 	{PatherID "bf109"}
 	(include "/properties/shadow/airborn.inc" scale(2.2))
 	(include "/properties/selection/airborne.inc" scale(3.0))
@@ -10,7 +10,7 @@
 
 	("helicopter_tier1")
 	
-	{extender "enumerator"}
+	;{extender "enumerator"}
 
 	{boarder
 		{anm "driver"
@@ -62,80 +62,6 @@
 		{component "body"}
 		{thickness 15}
 	}
-	{Volume "window1"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window2"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window3"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window4"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window5"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window6"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window7"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window8"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window9"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window10"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window11"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window12"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window13"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window14"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window15"
-		{Thickness 10}
-		{able {window}}
-	}
-	{Volume "window16"
-		{Thickness 10}
-		{able {window}}
-	}
-
-	;main rotor + blades
-	;("part" args "rotor")
-	;("part" args "propeller")
-	;("part" args "propeller1")
-
-	;back rotor + blades
-	;("part" args "rotor_b")
-	;("part" args "propeller_b")
-	;("part" args "propeller_b1")
 
 	{Weaponry
 		{place "gun"
@@ -151,14 +77,6 @@
 	}
 
 	{mass 4309}
-	;{Obstacle "in_air"
-	;	{Obb2
-	;		{Center -10 0}
-	;		{Extent 200 180}
-	;	}
-	;	{rotate}
-	;}
-	;{ObstacleId "helicopter" "in_air"}
 	
 	{Chassis "wheel"
 		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
