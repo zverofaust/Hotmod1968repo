@@ -337,14 +337,14 @@
 	{uncover 0} 						; // Planes cannot spot concealed soldiers
 	{h_fov 110}
 	{v_fov 180}
-	("spotting" r(1.5))
+	("spotting" r(1.75))
 }
 
 {"airborne_main_mp"						; // Standard plane pilot vision for multiplayer
 	{uncover 0} 						; // Planes cannot spot concealed soldiers
 	{h_fov 30}
 	{v_fov 180}
-	("spotting" r(1.5))
+	("spotting" r(1.75))
 	{wide 2}
 }
 
@@ -352,14 +352,14 @@
 	{uncover 0} 						; // Planes cannot spot concealed soldiers
 	{h_fov 360}
 	{v_fov 360}
-	("spotting" r(1.0))
+	("spotting" r(0.5))
 }
 
 {"airborne_scout"						; // Scout plane vision (better than normal plane)
 	{uncover 0} 						; // Planes cannot spot concealed soldiers
 	{h_fov 360}
 	{v_fov 360}
-	("spotting" r(1.3))
+	("spotting" r(2))
 }
 
 ;/*=============== Airborne End ===============*/
