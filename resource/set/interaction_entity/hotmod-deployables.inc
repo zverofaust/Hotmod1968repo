@@ -64,3 +64,22 @@
 	("gunbag" guntype(b-10_prc)  				bagtype(gunbag_b10_prc))
 	;("gunbag" guntype(ammobag_prc_deployed)  	bagtype(ammobag_prc))
 
+
+	;/// AI
+	("gunbag" guntype(sg43_stand_sov_ai) 			bagtype(gunbag_sg43))
+	("gunbag" guntype(mg_stand_pk_ai)   			bagtype(gunbag_pk))
+	("gunbag" guntype(dshk_aa_sov_ai)   			bagtype(gunbag_dshk))
+	("gunbag" guntype(82mm_bm37_sov_ai)  			bagtype(gunbag_bm37))
+	("gunbag" guntype(b-10_82mm_ai)  				bagtype(gunbag_b10))
+	("gunbag" guntype(spg9_ai)  					bagtype(gunbag_spg9))
+	("gunbag" guntype(mg3_lafette_ai)   			bagtype(gunbag_mg3))
+	("gunbag" guntype(mg_stand_m2g_ai)   			bagtype(gunbag_m2_frg))
+	("gunbag" guntype(81mm_krh36_frg_ai)  			bagtype(gunbag_krh36_frg))
+	("gunbag" guntype(mg_stand_m1919_ai) 			bagtype(gunbag_m1919))
+	("gunbag" guntype(mg_stand_m60_ai)   			bagtype(gunbag_m60))
+	("gunbag" guntype(mg_stand_m2_ai)   			bagtype(gunbag_m2))
+	("gunbag" guntype(m29_mortar_ai)  	 			bagtype(gunbag_m29))
+	("gunbag" guntype(sg43_stand_prc_ai)   			bagtype(gunbag_sg43_prc))
+	("gunbag" guntype(dshk_aa_prc_ai)   			bagtype(gunbag_dshk_prc))
+	("gunbag" guntype(82mm_bm37_prc_ai)   			bagtype(gunbag_bm37_prc))
+	("gunbag" guntype(b-10_prc_ai)   				bagtype(gunbag_b10_prc))
