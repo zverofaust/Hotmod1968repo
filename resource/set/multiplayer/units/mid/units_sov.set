@@ -87,7 +87,7 @@
 
 ; // 15DP Red Banner Shock Squad
 {"doctrine_squad_banner(sov)"
-	("squad_with4types_doctrine" side(sov) period(mid) g(doctrine_lvl1) c1(red_squadlead:1) c2(red_senior:1) c3(red_antitank:3) c4(red_flamer:3))
+	("squad_with4types_doctrine" side(sov) period(mid) g(doctrine_lvl1) c1(grd_squadlead:1) c2(grd_senior:1) c3(grd_antitank:3) c4(grd_flamer:3))
 	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(15))
 }
 
@@ -108,12 +108,7 @@
 	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(12))
 }
 
-; // 10DP 100mm T-12 towed by ZIL-157 truck
-;{"doctrine_squad_t12(sov)"
-;	("towed_gun_doctrine" side(sov) period(mid) vehicle(zil-157) crew_v(sup_supporter:1) cannon(t-12) crew_c(sup_supporter:4) cw(0) cp(0))
-;	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(10))
-;}
-;// As above, without truck
+;// ; // 10DP 100mm T-12
 {"doctrine_squad_t12(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(t-12) crew(sup_supporter:4) cw(0) cp(0))
 	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(10))
@@ -676,11 +671,6 @@
 	{cost 75}
 }
 
-; // Moved to Motostrelki doctrine
-;{"brdm-2" ;
-;	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(sov) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(5))
-;	{cost 100}
-;}
 
 {"btr-152a"
 	("vehicle" period(mid) cd(30) ci(30) t(vehicle antiair) side(sov) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(8))
@@ -738,64 +728,27 @@
 ;|        		 AI ONLY for purchase             |
 ;|________________________________________________|
 
-{"squad_guards_moto_ai(sov)"
-	("squad_vehicle8" period(mid) cd(120) ci(60) side(sov) t(vehicle) vehicle(btr-60pb) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(13)){squad_cost_factor 1}{not_for_player_sale 1}
+{"dshk_aa_sov_ai"
+	("vehicle" period(mid) cd(180) ci(15) t(cannon mortar) side(sov) crew(sup_supporter:2) cw(0) cp(10))
+	{cost 100}{not_for_player_sale 1}
 }
 
-{"squad_guards_mech_ai(sov)"
-	("squad_vehicle8" period(mid) cd(120) ci(60) side(sov) t(vehicle) vehicle(bmp-1) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(13)){squad_cost_factor 1}{not_for_player_sale 1}
+{"b-10_82mm_ai"
+	("vehicle" period(mid) cd(0) ci(15) t(cannon mortar) side(sov) crew(sup_supporter:2) cw(0) cp(10))
+	{cost 140}{not_for_player_sale 1}
 }
 
-{"squad_guards_mech_btr50_ai(sov)"
-	("squad_vehicle8" period(mid) cd(120) ci(60) side(sov) t(vehicle) vehicle(btr-50pk) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(13)){squad_cost_factor 1}{not_for_player_sale 1}
+{"spg9_ai"
+	("vehicle" period(mid) cd(60) ci(30) t(cannon mortar) side(sov) crew(sup_supporter:2) cw(0) cp(10))
+	{cost 180}{not_for_player_sale 1}
 }
 
-{"asu57"
-	("vehicle" period(mid) cd(30) ci(30) t(light) side(sov) crew(sup_tankman:3) cw(0) cp(8))
-	{cost 300}{not_for_player_sale 1}
-}
-
-{"asu-85"
-	("vehicle" period(mid) cd(300) ci(240) t(light) side(sov) crew(sup_tankman:4) cw(0) cp(10))
-	{cost 400}{not_for_player_sale 1}
-}
-
-{"it-1"
-	("vehicle" period(mid) cd(300) ci(240) t(medium) side(sov) crew(sup_tankman:4) cw(0) cp(20))
-	{cost 600}{not_for_player_sale 1}
-}
-
-{"2s3"
-	("vehicle" period(mid) cd(300) ci(240) t(medium heavyart artillery) side(sov) crew(sup_tankman:4) cw(0) cp(20))
-	{cost 600}{not_for_player_sale 1}
-}
-
-{"t-10m"
-	("vehicle" period(mid) cd(300) ci(240) t(heavy) side(sov) crew(sup_tankman:4) cw(0) cp(20))
-	{cost 600}{not_for_player_sale 1}
-}
-
-{"shilka"
-	("vehicle" period(mid) cd(380) ci(240) t(medium antiair) side(sov) crew(sup_tankman:4) cw(0) cp(15))
-	{cost 700}{not_for_player_sale 1}
-}
-
-;{"t-64"
-;	("vehicle" period(mid) cd(300) ci(240) t(mbt heavy) side(sov) crew(sup_tankman:3) cw(0) cp(20))
-;	{cost 1000}{not_for_player_sale 1}
-;}
-
-{"bm-21_grad"
-	("vehicle" period(mid) cd(300) ci(240) t(vehicle artillery heavyart) side(sov) crew(sup_tankman:2) cw(0) cp(20))
-	{cost 1200}{not_for_player_sale 1}
+{"82mm_bm37_sov_ai"
+	("vehicle" period(mid) cd(30) ci(30) t(cannon mortar) side(sov) crew(sup_supporter:2) cw(0) cp(10))
+	{cost 175}{not_for_player_sale 1}
 }
 
 {"mil_mi4_airborne"
 	("vehicle" period(mid) cd(300) ci(240) t(vehicle helicopter airborne) side(sov) crew(sup_pilot:1) cw(0) cp(20))
 	{cost 900}{not_for_player_sale 1}
-}
-
-{"mil_mi4_heavy_airborne"
-	("vehicle" period(mid) cd(300) ci(240) t(vehicle helicopter airborne) side(sov) crew(sup_pilot:1) cw(0) cp(20))
-	{cost 1300}{not_for_player_sale 1}
 }

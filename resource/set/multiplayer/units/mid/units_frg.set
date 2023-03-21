@@ -117,9 +117,9 @@
 
 ("squad_with5types" side(frg) name(squad_reservist)			period(mid) cd(0) ci(0) g(squad_2) c1(rsv_squadlead:1) c2(rsv_mg:1) c3(rsv_mgassist:1) c4(rsv_grenadier:1) c5(rsv_rifleman:6)						b(inf1) t())
 
-("squad_with4types" side(frg) name(squad_fireteamAP)		period(mid) cd(0) ci(0) g(squad_3) c1(reg_teamlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_rifleman:1)											b(inf1) t())
-("squad_with4types" side(frg) name(squad_fireteamAT)		period(mid) cd(0) ci(0) g(squad_3) c1(reg_teamlead:1) c2(reg_antitank:1) c3(reg_rifleman:1) c4(reg_atassist:1)										b(inf1) t())	
-("squad_with3types" side(frg) name(squad_fireteamDM)		period(mid) cd(0) ci(0) g(squad_3) c1(reg_teamlead:1) c2(reg_marksman:2) c3(reg_rifleman:1)															b(inf1) t())
+("squad_with4types" side(frg) name(squad_fireteamap)		period(mid) cd(0) ci(0) g(squad_3) c1(reg_teamlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_rifleman:1)											b(inf1) t())
+("squad_with4types" side(frg) name(squad_fireteamat)		period(mid) cd(0) ci(0) g(squad_3) c1(reg_teamlead:1) c2(reg_antitank:1) c3(reg_rifleman:1) c4(reg_atassist:1)										b(inf1) t())	
+("squad_with3types" side(frg) name(squad_fireteamdm)		period(mid) cd(0) ci(0) g(squad_3) c1(reg_teamlead:1) c2(reg_marksman:2) c3(reg_rifleman:1)															b(inf1) t())
 
 ("squad_with7types" side(frg) name(squad_rifle)				period(mid) cd(0) ci(0) g(squad_4) c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_rifleman:4) c5(reg_teamlead:1) c6(reg_antitank:1) c7(reg_atassist:1)						b(inf1) t())
 
@@ -293,21 +293,20 @@
 ;|        		 AI ONLY for purchase             |
 ;|________________________________________________|
 
-{"squad_rifle_mech_ai(frg)"
-	("squad_vehicle8" period(mid) cd(0) ci(15) side(frg) t(vehicle) vehicle(m113g) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_teamlead:1) crew4(reg_mg:1) crew5(reg_antitank:1) crew6(reg_mgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2) cw(2) cp(8)){squad_cost_factor 1}{not_for_player_sale 1}
+
+{"mg3_lafette_ai"
+	("vehicle" period(mid) cd(0) ci(30) t(cannon mortar) side(frg) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 80}{not_for_player_sale 1}
 }
 
-{"squad_pzgren_mech_ai(frg)"
-	("squad_vehicle8" period(mid) cd(0) ci(0) side(frg) t(vehicle) vehicle(m113g) crew1(pzg_vehicleman:2) crew2(pzg_squadlead:1) crew3(pzg_teamlead:1) crew4(pzg_mg:1) crew5(pzg_mgassist:1) crew6(pzg_rifleman:4) crew7(pzg_atassist:1) crew8(pzg_antitank:1) cw(2) cp(10)){squad_cost_factor 1}{not_for_player_sale 1}
+{"mg_stand_m2g_ai"
+	("vehicle" period(mid) cd(30) ci(60) t(cannon mortar) side(frg) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 125}{not_for_player_sale 1}
 }
 
-{"squad_pzgren_mech2_ai(frg)"
-	("squad_vehicle6" period(mid) cd(0) ci(15) side(frg) t(vehicle) vehicle(spz_123) crew1(sup_vehicleman:3) crew2(pzg_squadlead:1) crew3(pzg_mg:1) crew4(pzg_antitank:1) crew5(pzg_mgassist:1) crew6(pzg_atassist:1) cw(2) cp(14)){squad_cost_factor 1}{not_for_player_sale 1}
-}
-
-{"spz_123_m40"
-	("vehicle" period(mid) cd(300) ci(240) t(light) side(frg) crew(pzg_vehicleman:4) cw(0) cp(10))
-	{cost 350}{not_for_player_sale 1}
+{"81mm_krh36_frg_ai"
+	("vehicle" period(mid) cd(60) ci(60) t(cannon mortar) side(frg) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 175}{not_for_player_sale 1}
 }
 
 

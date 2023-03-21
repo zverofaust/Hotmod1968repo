@@ -471,7 +471,7 @@
 	{conditions "radio_usa"}{action "airstrike:flare_artillery_150"} 
 }
 
-; // 16DP 152-155mm Artillery Barrage
+; // 16DP 203mm Artillery Barrage
 {"artillery_barrage_heavy_usa"
 	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
 	("doctrine_strat" cool(300) d(mid_usa_artillery) cost(16))
@@ -485,8 +485,8 @@
 
 ("squad_with3types" side(usa) name(squad_reservist)			period(mid) cd(0) ci(0) g(squad_2) c1(rsv_squadlead:1) c2(rsv_autorifle:2) c3(rsv_rifleman:7)																	b(inf1) t())
 
-("squad_with4types" side(usa) name(squad_fireteamAP)		period(mid) cd(0) ci(0) g(squad_2) c1(reg_teamlead:1) c2(reg_autorifle:1) c3(reg_grenadier:1) c4(reg_rifleman:2)																b(inf1) t())
-("squad_with4types" side(usa) name(squad_fireteamAT)		period(mid) cd(0) ci(0) g(squad_3) c1(reg_teamlead:1) c2(reg_antitank:1) c3(reg_rifleman:2) c4(reg_atassist:1)																b(inf1) t())
+("squad_with4types" side(usa) name(squad_fireteamap)		period(mid) cd(0) ci(0) g(squad_2) c1(reg_teamlead:1) c2(reg_autorifle:1) c3(reg_grenadier:1) c4(reg_rifleman:2)																b(inf1) t())
+("squad_with4types" side(usa) name(squad_fireteamat)		period(mid) cd(0) ci(0) g(squad_3) c1(reg_teamlead:1) c2(reg_antitank:1) c3(reg_rifleman:2) c4(reg_atassist:1)																b(inf1) t())
 ("squad_with6types" side(usa) name(squad_rifle)				period(mid) cd(0) ci(0) g(squad_4) c1(reg_squadlead:1) c2(reg_autorifle:2) c3(reg_grenadier:2) c4(reg_lat:2) c5(reg_rifleman:2) c6(reg_teamlead:1)									b(inf1) t())
 ("squad_with6types" side(usa) name(squad_weapon)			period(mid) cd(0) ci(15) g(squad_5) c1(reg_squadlead:1) c2(reg_mg:2) c3(reg_mgassist:2) c4(reg_antitank:2) c5(reg_atassist:2) c6(reg_teamlead:1)											b(inf1) t())
 ("squad_with4types" side(usa) name(squad_lrrp)				period(mid) cd(0) ci(60) g(squad_6) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1)															b(inf1) t())
@@ -608,9 +608,9 @@
 
 ;LIGHT
 
-{"m151_m1919"
+{"m151_m60"
 	("vehicle"  period(mid) cd(0) ci(15) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(5))
-	{cost 50}
+	{cost 70}
 }
 
 {"m151_m2"
@@ -674,73 +674,20 @@
 ;|        		 AI ONLY for purchase             |
 ;|________________________________________________|
 
-{"squad_acav_moto_ai(usa)"
-	("squad_vehicle8" period(mid) cd(0) ci(15) side(usa) t(vehicle) vehicle(m113_acav) crew1(acav_vehicleman:2) crew2(acav_rifleman:2) crew3(acav_squadlead:1) crew4(acav_mg:1) crew5(acav_antitank:1) crew6(acav_mgassist:1) crew7(acav_atassist:1) crew8(acav_grenadier:1) cw(2) cp(10)){squad_cost_factor 1}{not_for_player_sale 1}
+
+{"mg_stand_m60_ai"
+	("vehicle" period(mid) cd(0) ci(30) t(cannon mortar) side(frg) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 80}{not_for_player_sale 1}
 }
 
-{"m35_guntruck"
-	("vehicle"  period(mid) cd(30) ci(30) side(usa) t(vehicle light) crew(sup_supporter:3) cw(0) cp(6))
-	{cost 200}{not_for_player_sale 1}
+{"mg_stand_m2_ai"
+	("vehicle" period(mid) cd(30) ci(60) t(cannon mortar) side(frg) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 125}{not_for_player_sale 1}
 }
 
-{"m114a2"
-	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(vehicle light) crew(sup_vehicleman:3) cw(0) cp(6))
-	{cost 300}{not_for_player_sale 1}
-}
-
-{"m56"
-	("vehicle"  period(mid) cd(30) ci(30) side(usa) t(light) crew(sup_tankman:3) cw(0) cp(4))
-	{cost 250}{not_for_player_sale 1}
-}
-
-{"m551"
-	("vehicle"  period(mid) cd(30) ci(30) side(usa) t(light) crew(sup_tankman:4) cw(0) cp(4))
-	{cost 400}{not_for_player_sale 1}
-}
-
-{"m551_acav"
-	("vehicle"  period(mid) cd(30) ci(30) side(usa) t(light) crew(acav_vehicleman:4) cw(0) cp(4))
-	{cost 450}{not_for_player_sale 1}
-}
-
-{"m132_zippo"
-	("vehicle"  period(mid) cd(30) ci(45) side(usa) t(vehicle light) crew(sup_tankman:3) cw(0) cp(5))
-	{cost 300}{not_for_player_sale 1}
-}
-
-{"m50"
-	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(light) crew(usmc_vehicleman:3) cw(0) cp(5))
-	{cost 400}{not_for_player_sale 1}
-}
-
-{"m67_zippo"
-	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(medium) crew(sup_tankman:3) cw(0) cp(6))
-	{cost 400}{not_for_player_sale 1}
-}
-
-{"m113_acav_m40"
-	("vehicle"  period(mid) cd(30) ci(45) side(usa) t(vehicle) crew(sup_vehicleman:4) cw(0) cp(6))
-	{cost 300}{not_for_player_sale 1}
-}
-
-{"m103"
-	("vehicle"  period(mid) cd(120) ci(120) side(usa) t(vehicle) crew(usmc_vehicleman:5) cw(0) cp(7))
-	{cost 600}{not_for_player_sale 1}
-}
-
-{"m728"
-	("vehicle"  period(mid) cd(180) ci(180) side(usa) t(vehicle) crew(sup_tankman:4) cw(0) cp(7))
-	{cost 800}{not_for_player_sale 1}
-}
-
-{"m60a1e2"
-	("vehicle"  period(mid) cd(180) ci(180) side(usa) t(vehicle) crew(sup_tankman:4) cw(0) cp(7))
-	{cost 1050}{not_for_player_sale 1}
-}
-
-{"m163"
-	("vehicle"  period(mid) cd(60) ci(60) side(usa) t(vehicle light) crew(sup_tankman:4) cw(0) cp(6))
-	{cost 675}{not_for_player_sale 1}
+{"m29_mortar_ai"
+	("vehicle" period(mid) cd(60) ci(60) t(cannon mortar) side(frg) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 175}{not_for_player_sale 1}
 }
 
 {"uh-1b_airborne"

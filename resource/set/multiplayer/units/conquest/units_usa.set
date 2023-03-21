@@ -240,6 +240,9 @@
 }
 
 ("squad_with5types_conquest" side(usa) period(mid) min_stage(5) max_stage(99) name(squad_ranger_lrrp_con)				c1(rng_squadlead:1) c2(rng_ammo:1) c3(rng_grenadier:1) c4(rng_mg:1) c5(rng_rifleman:1))
+{"squad_lrrp_moto_con(usa)" 
+	("squad_vehicle4"		 side(usa) period(mid) min_stage(5) max_stage(99) vehicle(m151) cw(0) cp(4) 		crew1(rng_squadlead:1) crew2(rng_ammo:1) crew3(rng_antitank:1) crew4(rng_mg:1))
+}
 ("squad_with4types_conquest" side(usa) period(mid) min_stage(5) max_stage(99) name(squad_ranger_demo_con)				c1(rng_squadlead:1) c2(rng_demo:2) c3(rng_antitank:1) c4(rng_rifleman:1))
 ("squad_with7types_conquest" side(usa) period(mid) min_stage(6) max_stage(99) name(squad_ranger_con)					c1(rng_squadlead:1) c2(rng_ammo:1) c3(rng_grenadier:1) c4(rng_mg:1) c5(rng_antitank:1) c6(rng_rifleman:4) c7(rng_marksman:1))
 
@@ -269,7 +272,7 @@
 ("squad_with2types_conquest" 	side(usa) name(single_at_early)			period(early) min_stage(0) 	max_stage(10)  c1(reg_antitank:1) c2(reg_atassist:1)			) ;M20 Super Bazooka
 ("squad_with2types_conquest" 	side(usa) name(single_at)				period(mid)   min_stage(3) 	max_stage(99) c1(reg_antitank:1) c2(reg_atassist:1)			) ;M67 RCL
 ("squad_with1types_conquest" 	side(usa) name(single_lat_early)		period(early) min_stage(0) 	max_stage(5) c1(reg_grenadier:1) 							) ;M31 HEAT Grenade
-("squad_with1types_conquest" 	side(usa) name(single_lat)				period(mid) min_stage(4) 	max_stage(99) c1(reg_lat:) 									) ;M72 LAW
+("squad_with1types_conquest" 	side(usa) name(single_lat)				period(mid) min_stage(4) 	max_stage(99) c1(reg_lat:1) 								) ;M72 LAW
 ("squad_with1types_conquest" 	side(usa) name(single_grenadier_con)	period(mid) min_stage(2) 	max_stage(99) c1(reg_grenadier:1) 							) ;M79 GL
 ("squad_with1types_conquest" 	side(usa) name(single_flamer)			period(mid) min_stage(2) 	max_stage(15) c1(reg_flamer:1) 								) ;M2 Flamethrower
 ("squad_with1types_conquest" 	side(usa) name(single_scout)			period(mid) min_stage(5) 	max_stage(99) c1(reg_scout:1)								) ;M16A1
@@ -702,4 +705,56 @@
 {"ch-47_chinook_mg"
 	("vehicle" period(mid) min_stage(3) max_stage(99) side(usa) crew(sup_pilot:4) cw(0) cp(12))
 	{cost 400}
+}
+
+
+
+;_________________________________________________
+;|        		 AI ONLY for purchase             |
+;|________________________________________________|
+
+
+
+{"mg_stand_m1919_ai"
+	("vehicle"  period(mid) min_stage(0) max_stage(5) side(usa) crew(sup_supporter:2) cw(0) cp(2))
+	{cost 70}{not_for_player_sale 1}
+}
+
+{"mg_stand_m60_ai"
+	("vehicle"  period(mid) min_stage(2) max_stage(99) side(usa) crew(sup_supporter:2) cw(0) cp(2))
+	{cost 80}{not_for_player_sale 1}
+}
+
+{"mg_stand_m2_ai"
+	("vehicle"  period(mid) min_stage(1) max_stage(99) side(usa) crew(sup_supporter:2) cw(0) cp(2))
+	{cost 100}{not_for_player_sale 1}
+}
+
+{"m29_mortar_ai"
+	("vehicle"  period(mid) min_stage(1) max_stage(99) side(usa) crew(sup_supporter:2) cw(0) cp(2))
+	{cost 175}{not_for_player_sale 1}
+}
+{"uh-1b_airborne"
+	("vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(10) crew(sup_pilot:1))
+	{cost 300}{not_for_player_sale 1}
+}
+
+{"uh-1b_ara_airborne"
+	("vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(10) crew(sup_pilot:1))
+	{cost 400}{not_for_player_sale 1}
+}
+
+{"uh-1b_maxwell_airborne"
+	("vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(10) crew(sup_pilot:1))
+	{cost 500}{not_for_player_sale 1}
+}
+
+{"uh-1b_m22_airborne"
+	("vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(10) crew(sup_pilot:1))
+	{cost 500}{not_for_player_sale 1}
+}
+
+{"bf109_f4"
+	("vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(10) crew(sup_pilot:1))
+	{cost 500}{not_for_player_sale 1}
 }
