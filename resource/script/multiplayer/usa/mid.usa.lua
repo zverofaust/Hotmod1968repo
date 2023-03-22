@@ -35,30 +35,25 @@ Purchases["mid.usa"] = {
 				--Infantry_Support
 				{priority = 1.0, type = {"Cannon", "Support", "Class3",}, unit = "m116_packhow"},
 				--Artillery
-				{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "m101a1"},
+				--{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "m101a1"},
 				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m114"},
 				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m115"},	
 				--Rocket Artillery
 	
 			--APCs/BTRs
-				
-				
-			--Tanks
 				--{priority = 1.0, type = {"Vehicle", "MG", "Class3",}, unit = "m151_m1919"},
 				{priority = 1.0, type = {"Vehicle", "MG", "Class3",}, unit = "m151_m60"},
 				{priority = 1.0, type = {"Vehicle", "MG", "Class2",}, unit = "m151_m2"},
 				{priority = 1.0, type = {"Vehicle", "AT", "Class2",}, unit = "m151_m40"},
+				--{priority = 1.0, type = {"Vehicle", "AA", "Class1",}, unit = "m35_guntruck"},
 				{priority = 1.0, type = {"Armored", "MG", "Class2",}, unit = "m114a1"},
 				{priority = 1.0, type = {"Armored", "AT", "Class3",}, unit = "m113_m40"},
-				{priority = 1.0, type = {"Armored", "Mortar", "MG", "Class3",}, unit = "m125"},
-				
-				
-				
+				{priority = 1.0, type = {"Armored", "Mortar", "MG", "Class3",}, unit = "m125"},				
+			--Tanks					
 				{priority = 1.0, type = {"Tank", "Light", "Class3",}, unit = "m41"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "m48a1"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "m48a3"},
-				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "m60a1"},
-				
+				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "m60a1"},				
 			--SPG
 				{priority = 1.0, type = {"Tank", "Light", "AA", "Class2",}, unit = "m42"},
 				{priority = 1.0, type = {"Tank", "Medium", "Artillery", "Class3",}, unit = "m108"},
