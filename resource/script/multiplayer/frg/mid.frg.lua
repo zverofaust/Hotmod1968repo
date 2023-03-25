@@ -35,7 +35,7 @@ Purchases["mid.frg"] = {
 				--Infantry_Support
 				--{priority = 1.0, type = {"Cannon", "Support",}, unit = "m116g"},
 				--Artillery
-				{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m101g"},
+				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m101g"},
 				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m114g"},
 				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m115g"},	
 				--Rocket Artillery

@@ -32,7 +32,7 @@ Purchases["mid.sov"] = {
 				{priority = 1.0, type = {"Cannon", "Mortar", "Class1",}, unit = "120mm_pm38_sov"},
 			--Howitzers
 				{priority = 1.0, type = {"Cannon", "Support", "Class2",}, unit = "d-44"},
-				{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "d30a"},
+				--{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "d30a"},
 			--Wheel_vehicles
 				{priority = 1.0, type = {"Armored", "MG", "Class3",}, unit = "brdm-1"},
 				--{priority = 0.5, type = {"Armored", "AA", "Class2",}, unit = "btr-40a"},
