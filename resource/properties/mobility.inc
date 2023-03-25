@@ -211,8 +211,8 @@
 		{sideSlopeSpeed (* 2 %roll_rate)}				;// how quickly in degrees per second that aircraft rolls 
 	)
 	{maxSideSlope 	%roll_angle	}						;// limit in degrees that aircraft can roll while in a turn
-	{maxElevationSpeed 0};/		;// climb rate, how many meters per second aircraft changes altitude when in full climb or dive
-	{elevationAcceleration 0};/	;// how quickly aircraft can change from level flight to full climb or dive. (m/s^2)
+	{maxElevationSpeed (+ (/ %climb_speed 6) 2)};/		;// climb rate, how many meters per second aircraft changes altitude when in full climb or dive
+	{elevationAcceleration (+ (/ %climb_speed 4) 2)};/	;// how quickly aircraft can change from level flight to full climb or dive. (m/s^2)
 )
 
 (define "mobility_train"
