@@ -3,6 +3,7 @@ Purchases["mid.sov"] = {
 		Units = {
 
 			-- Infantry
+				{priority = 1.0, type = {"Infantry", "Team", "Aux", "Class3",}, unit = "single_supporter(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_conscript(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_maneuv(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad","AT", "Class2",}, unit = "squad_fireteam(sov)"},

@@ -3,7 +3,7 @@ Purchases["mid.usa"] = {
 		Units = {
 			---[====[
 			-- Infantry
-				
+				{priority = 1.0, type = {"Infantry", "Team", "Aux", "Class3",}, unit = "single_supporter(usa)"},
 				{priority = 1.0, type = {"Infantry", "Team", "AT", "Class2",}, unit = "single_at(usa)"},
 				{priority = 1.0, type = {"Infantry", "Team", "AT", "Class2",}, unit = "single_lat(usa)"},
 				{priority = 1.0, type = {"Infantry", "Team", "Class3",}, unit = "single_mg(usa)"},

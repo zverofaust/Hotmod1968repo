@@ -3,7 +3,7 @@ Purchases["mid.frg"] = {
 		Units = {
 			---[====[
 			-- Infantry
-				
+				{priority = 1.0, type = {"Infantry", "Team", "Aux", "Class3",}, unit = "single_supporter(frg)"},
 				{priority = 1.0, type = {"Infantry", "Team", "AT", "Class2",}, unit = "single_at(frg)"},
 				--{priority = 1.0, type = {"Infantry", "Team", "AT", "Class2",}, unit = "single_lat(frg)"},
 				{priority = 1.0, type = {"Infantry", "Team", "Class3",}, unit = "single_mg(frg)"},
