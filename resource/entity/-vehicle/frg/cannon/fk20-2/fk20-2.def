@@ -1,0 +1,97 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	(include "/properties/shadow/tank.inc" scale(0.6))
+	{extension "fk20-2.mdl"}
+	(include "/properties/selection/cannon.inc" scale(0.7))
+	{props "cannon_small" "automatic" "wheeled" "invisible" "vision_lev02_can" "muzzle_20mm_25mm_auto" "cannon_sandbag_small" "trailer" "trailer_light" "detect_cannon_aa" "aa_short"}
+	{collider "cannon_small"}
+	{targetclass "cannon_zenite"}
+	{targetSelector "cannon_zenite"}
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("gun" repair(30) thickness(15))
+	("armor_light_cannon")
+	("crew_wheeled_cannon")
+
+	("shield_group" args "shield1" 4.5 "shield1")
+	("shield_group" args "shield2" 4.5 "shield1")
+	("shield_group" args "shield3" 4.5 "shield1")
+	
+	{volume "wheelleft" {tags "invisible"} {able {visible 0}}}
+	{volume "wheelright" {tags "invisible"} {able {visible 0}}}
+
+	{extender "shield" {on}}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "AAgun_72k_commander" 10}}
+		}
+		{anm "commander"
+			{forward {end "AAgun_72k_charger" 10}}
+		}
+		{anm "driver1"	;// gunner
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "driver2"	;// charger
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "seat1"	;// gunner
+			{forward {end "AAgun_72k_commander" 10}}
+		}
+		{anm "seat2"	;// charger
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			;// "gunner" "commander"
+			{move "cannon_pak40_pusher_right" "cannon_pak40_pusher_left"}
+;			{aim "AAgun_72k_commander_aim" ""}
+			{fire "AAgun_72k_commander_fire" ""}
+			{reload "AAgun_72k_commander_reload" "AAgun_72k_charger_reload"}
+		}
+		{move {workers "driver1" "driver2" minWorkers 2} {obstacle "close"}} ;// move state: cannon being pushed and which positions play animations
+		{attack {obstacle "open"}}
+		{rotate_ik_Limit 0}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet20_hs820 ap" 200}		
+			{item "bullet20_hs820 he" 300}
+			{item "sandbag_vehicle" 1}
+		}
+	}
+
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_hs820" filling "bullet20_hs820 he" 100}
+			{charger "gunner"}
+			("abm_dymamic_aaa"
+				zeroing(1.2)
+				dispersion(0.15)
+			)
+		}
+	}
+
+	{mass 406}
+	{Chassis "track"
+		("car_trace" fx("tracewheel05a") step(0.14) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility_cannon"
+			speed(8.4) ;--------------------------------Max speed.
+			weight(406) ;-------------------------------Weight in Kilograms.
+		)
+	}
+	{bone "gun_rot"
+		{limits -20 88}
+		{speed2 60}
+	}
+	{bone "turret"
+		{speed2 60}
+	}
+}
+

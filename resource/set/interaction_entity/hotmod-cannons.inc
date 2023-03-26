@@ -1834,6 +1834,10 @@
 	}
 }
 
+{"fk20-2"
+	("cannon_small")
+}
+
 {"m40"			
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)

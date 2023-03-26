@@ -1,0 +1,215 @@
+;Exported by: misan
+;Date:        Sun Mar 26 12:21:23 2023
+;File:        D:\Cold War\ModelWIP\West Germany\mk20_2\FK 20-2_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position -0.982804	0.00206757	-0.76212}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "id=turret;"}
+				{Matrix34
+					0.939693	0.34202	0
+					-0.34202	0.939693	0
+					0	0	1
+					0	0	6.63272
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "id=gun;"}
+					{Matrix34
+						0.983323	0.117979	-0.138411
+						0.149231	-0.0883966	0.984843
+						0.103956	-0.989074	-0.104529
+						-1.26848	0	5.96786
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "id=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							22.0434	0.428131	0
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "gunshield"
+					{Position -4.68271	0	9.73207}
+					{VolumeView "gunshield.ply"}
+				}
+				{bone "optics"
+					{parameters "id=turret;"}
+					{Position 0	0	0}
+					{VolumeView "optics.ply"}
+				}
+				{bone "seat_support"
+					{parameters "id=turret;"}
+					{Position -10.6618	0	4.64669}
+					{VolumeView "seat_support.ply"}
+				}
+				{bone "seat"
+					{parameters "id=turret;"}
+					{Matrix34
+						0.913253	-0.377914	0.152148
+						0.402712	0.893887	-0.196952
+						-0.0615721	0.241138	0.968536
+						-7.31492	0	1.42652
+					}
+					{VolumeView "seat.ply"}
+				}
+				{bone "aim_v"
+					{parameters "id=turret;"}
+					{Position -9.57693	0	8.33356}
+					{VolumeView "aim_v.ply"}
+				}
+				{bone "aim_h"
+					{parameters "id=turret;"}
+					{Position -9.57693	0	8.33356}
+					{VolumeView "aim_h.ply"}
+				}
+			}
+			{bone "gun_lock"
+				{parameters "id=body;"}
+				{Matrix34
+					0.422618	0	-0.906308
+					0	1	0
+					0.906308	0	0.422618
+					4.43825	0	5.49718
+				}
+				{VolumeView "gun_lock.ply"}
+			}
+		}
+	}
+}
+{Obstacle "open"
+	{Polygon2
+		{Radius 0}
+		{Vertex 16.3759 -16.7681}
+		{Vertex 16.3759 17.0261}
+		{Vertex -25.6601 1.9411}
+		{Vertex -25.6601 -2.3718}
+	}
+}
+{Volume "body1"
+	{Box 9.01404 9.41917 4.45638}
+	{Bone "body"}
+	{Position -0.250162	-0.160927	6.76674}
+}
+{Volume "body2"
+	{Box 21.2691 2.83588 1.92435}
+	{Bone "body"}
+	{Matrix34
+		-0.694115	-0.694116	0.190809
+		0.707107	-0.707106	0
+		0.134922	0.134922	0.981627
+		9.19977	9.24754	3.29492
+	}
+}
+{Volume "body3"
+	{Box 21.2691 2.83588 1.92435}
+	{Bone "body"}
+	{Matrix34
+		-0.694115	0.694115	0.190809
+		-0.707107	-0.707107	0
+		0.134922	-0.134922	0.981627
+		9.19977	-9.28289	3.29492
+	}
+}
+{Volume "body4"
+	{Box 21.2691 2.83588 1.92435}
+	{Bone "body"}
+	{Matrix34
+		0.981627	0	0.190809
+		0	1	0
+		-0.190809	0	0.981627
+		-14.1821	-0.414136	3.29492
+	}
+}
+{Volume "gun1"
+	{Box 17.1837 4.8148 5.96568}
+	{Bone "gun_rot"}
+	{Matrix34
+		1	0	0
+		0	0	-1
+		0	1	0
+		6.09669	0.512593	-0.154867
+	}
+}
+{Volume "gun2"
+	{Cylinder 0.955853 33.2594}
+	{Bone "gun"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		9.12948	-0.00390055	0.00150627
+	}
+}
+{Volume "gun3"
+	{Box 4.46628 6.43357 4.89164}
+	{Bone "gun_rot"}
+	{Matrix34
+		1	0	0
+		0	0	-1
+		0	1	0
+		7.47323	0.0252473	-6.03837
+	}
+}
+{Volume "gun4"
+	{Box 4.46628 6.43357 4.89164}
+	{Bone "gun_rot"}
+	{Matrix34
+		1	0	0
+		0	0	-1
+		0	1	0
+		7.47322	0.0252483	6.03323
+	}
+}
+{Volume "select"
+	{Box 43.3116 36.9953 25.5659}
+	{Bone "basis"}
+	{Position -6.93299	0	12.7829}
+}
+{Volume "shield1"
+	{Box 15.2328 5.9666 0.332958}
+	{Bone "gunshield"}
+	{Matrix34
+		0	-1	0
+		-0.309017	0	0.951056
+		-0.951057	0	-0.309017
+		7.12098	0.114991	-6.01977
+	}
+}
+{Volume "shield2"
+	{Box 15.2328 10.7697 0.332958}
+	{Bone "gunshield"}
+	{Matrix34
+		0	-1	0
+		-0.866026	0	0.5
+		-0.5	0	-0.866025
+		1.44868	0.114991	-0.57648
+	}
+}
+{Volume "shield3"
+	{Polyhedron "shield3.vol"}
+	{Bone "gunshield"}
+	{Matrix34
+		0	-1	0
+		-0.601815	0	0.798635
+		-0.798635	0	-0.601815
+		-4.85157	0.114991	4.59259
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Position -5.53515	-0.00206763	9.38643}
+}

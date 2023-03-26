@@ -1,0 +1,233 @@
+;Exported by: misan
+;Date:        Sun Mar 26 11:17:39 2023
+;File:        D:\Cold War\ModelWIP\West Germany\mk20_2\FK 20-2.max
+{Skeleton
+	{bone "basis"
+		{parameters "wheelradius=0.45;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "pivot_front"
+			{Position -44.1351	0	7.82617}
+			{visibility 0}
+			{bone prizmatic "suspension_l1"
+				{Position 0.0715828	14.0575	-0.0189581}
+				{visibility 0}
+				{bone revolute "wheell1"
+					{parameters "id=wheelleft;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-0.0085907	2.06557	0.00354767
+					}
+					{visibility 0}
+					{VolumeView "wheell1.ply"}
+				}
+				{bone "fxtracel1"
+					{Position -0.157661	2.17736	-7.84727}
+					{visibility 0}
+				}
+			}
+			{bone prizmatic "suspension_r1"
+				{Position 0.0715828	-14.0575	-0.01896}
+				{visibility 0}
+				{bone revolute "wheelr1"
+					{parameters "id=wheelright;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-0.00858688	-2.06147	0.00354958
+					}
+					{visibility 0}
+					{VolumeView "wheelr1.ply"}
+				}
+				{bone "fxtracer1"
+					{Position -0.157661	-2.13145	-7.84727}
+					{visibility 0}
+				}
+			}
+			{bone "suspensionrod_r1"
+				{parameters "id=body;"}
+				{Position -7.642	-13.0786	4.58913}
+				{visibility 0}
+				{VolumeView "suspensionrod_r1.ply"}
+			}
+			{bone "suspensionrod_l1"
+				{parameters "id=body;"}
+				{Position -7.642	13.0827	4.58913}
+				{visibility 0}
+				{VolumeView "suspensionrod_l1.ply"}
+			}
+		}
+		{bone "trailer"
+			{parameters "id=body;"}
+			{Position -44.0767	0.00206757	7.74083}
+			{visibility 0}
+			{VolumeView "trailer.ply"}
+			{bone "hitch_mount"
+				{parameters "id=body;"}
+				{Matrix34
+					0	0	1
+					0	1	0
+					-1	0	0
+					-26.619	0	8.70053
+				}
+				{visibility 0}
+				{VolumeView "hitch_mount.ply"}
+				{bone "hitch"
+					{parameters "id=body;"}
+					{Position -8.96029	0	-0.0706024}
+					{visibility 0}
+					{VolumeView "hitch.ply"}
+				}
+			}
+			{bone "seat02"
+				{Matrix34
+					-0.390731	0.920505	0
+					-0.920505	-0.390731	0
+					0	0	1
+					-18.8066	9.66934	6.96771
+				}
+				{visibility 0}
+			}
+			{bone "link1"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					-39.2922	-0.00206757	8.62467
+				}
+				{visibility 0}
+			}
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position -0.982804	0.00206757	-0.76212}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "id=turret;"}
+				{Position 0	0	6.63272}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "id=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-1.26848	0	5.96786
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "id=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							22.0434	0.428133	0
+						}
+						{VolumeView "gun.ply"}
+						{bone "foresight1"
+							{Position 25.7542	-0.00830093	0.0301075}
+						}
+					}
+				}
+				{bone "gunshield"
+					{Position -4.68271	0	9.73207}
+					{VolumeView "gunshield.ply"}
+					{bone "optics_cover"
+						{Matrix34
+							0.390731	0	0.920505
+							0	1	0
+							-0.920505	0	0.390731
+							-8.00849	0	8.59705
+						}
+						{VolumeView "optics_cover.ply"}
+					}
+				}
+				{bone "optics"
+					{parameters "id=turret;"}
+					{Position 0	0	0}
+					{VolumeView "optics.ply"}
+				}
+				{bone "seat_support"
+					{parameters "id=turret;"}
+					{Position -10.6618	0	4.64669}
+					{VolumeView "seat_support.ply"}
+				}
+				{bone "seat"
+					{parameters "id=turret;"}
+					{Position -7.31492	0	1.42652}
+					{VolumeView "seat.ply"}
+					{bone "gunner"
+						{Matrix34
+							0.987688	0	0.156434
+							0	1	0
+							-0.156434	0	0.987688
+							-10.7089	-0.00206803	-1.57995
+						}
+					}
+					{bone "seat01"
+						{Matrix34
+							0.987688	0	0.156434
+							0	1	0
+							-0.156434	0	0.987688
+							-10.6951	-0.00206803	-1.57748
+						}
+					}
+				}
+				{bone "aim_v"
+					{parameters "id=turret;"}
+					{Position -9.57693	0	8.33356}
+					{VolumeView "aim_v.ply"}
+				}
+				{bone "aim_h"
+					{parameters "id=turret;"}
+					{Position -9.57693	0	8.33356}
+					{VolumeView "aim_h.ply"}
+				}
+				{bone "visor"
+					{Position -6.04452	-0.00206759	15.0156}
+				}
+				{bone "commander"
+					{Matrix34
+						-1	0	0
+						0	-1	0
+						0	0	1
+						-2.12904	17.0584	-9.03857
+					}
+				}
+				{bone "emit2"
+					{Matrix34
+						0.292372	-0.956305	0
+						0.956305	0.292372	0
+						0	0	1
+						-3.15493	20.7343	-5.8706
+					}
+				}
+			}
+			{bone "gun_lock"
+				{parameters "id=body;"}
+				{Matrix34
+					0.422618	0	-0.906308
+					0	1	0
+					0.906308	0	0.422618
+					4.43825	0	5.49718
+				}
+				{VolumeView "gun_lock.ply"}
+			}
+		}
+		{bone "emit1"
+			{Position -35.2936	0.02857	0}
+		}
+		{bone "driver1"
+			{Position -29.2981	-8.12152	0}
+		}
+		{bone "driver2"
+			{Position -29.6108	10.6082	0}
+		}
+	}
+}
