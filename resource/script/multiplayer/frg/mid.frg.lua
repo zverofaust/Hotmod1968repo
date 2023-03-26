@@ -25,8 +25,9 @@ Purchases["mid.frg"] = {
 				{priority = 1.0, type = {"Cannon", "MG",}, unit = "mg3_lafette_ai"},
 				--{priority = 1.0, type = {"Cannon", "MG",}, unit = "mg_stand_m2g_ai"},
 				--Anti Aircraft
-				{priority = 1.0, type = {"Cannon", "AA",}, unit = "m45g"},
-				{priority = 1.0, type = {"Cannon", "AA",}, unit = "40mm_bofors_l70_frg"},
+				--{priority = 1.0, type = {"Cannon", "AA",}, unit = "m45g"},
+				{priority = 1.0, type = {"Cannon", "AA",}, unit = "fk20-2"},
+				{priority = 0.5, type = {"Cannon", "AA",}, unit = "40mm_bofors_l70_frg"},
 				--Anti Tank
 				{priority = 1.0, type = {"Cannon", "AT",}, unit = "m40g"},
 				--Mortars
