@@ -42,7 +42,7 @@ Purchases["mid.frg"] = {
 				--Rocket Artillery
 	
 			--APCs/BTRs
-				
+				{priority = 1.0, type = {"Vehicle", "MG", "Class3",}, unit = "munga4_mg3"},
 				
 			--Tanks
 				{priority = 1.0, type = {"Tank", "Light",}, unit = "spz_112"},
@@ -59,7 +59,7 @@ Purchases["mid.frg"] = {
 			--SPG
 				{priority = 1.0, type = {"Tank", "Medium", "Artillery",}, unit = "m108g"},
 			--Air Assets
-				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "cas_uh1_frg"},
+				{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "cas_uh1_frg"},
 				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_250_frg"},
 				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_napalm_frg"},
 			--Offmap Supports
@@ -67,9 +67,9 @@ Purchases["mid.frg"] = {
 			
 			-- Doctrine Mechanized = "Panzergrenadiere"
 				{priority = 1.0, type = {"Doctine", "Armored", "MG", "Tier1",}, unit = "doctrine_squad_panzergren(frg)"},
-				{priority = 1.0, type = {"Doctine", "Armored", "MG", "Tier1",}, unit = "doctrine_squad_panzergren_hs30(frg)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "AT", "Tier1",}, unit = "doctrine_vehicle_spz_m40(frg)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier1",}, unit = "doctrine_vehicle_leopard1a1(frg)"},
+				{priority = 1.0, type = {"Doctine", "Armored", "MG", "Tier2",}, unit = "doctrine_squad_panzergren_hs30(frg)"},
+				{priority = 1.0, type = {"Doctine", "Tank", "Light", "AT", "Tier2",}, unit = "doctrine_vehicle_spz_m40(frg)"},
+				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_leopard1a1(frg)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Artillery", "Tier1",}, unit = "doctrine_vehicle_m109g(frg)"},
 				
 		}

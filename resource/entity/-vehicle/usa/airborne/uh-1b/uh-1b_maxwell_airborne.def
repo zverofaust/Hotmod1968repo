@@ -35,32 +35,43 @@
 		}
 	}
 	
-	;volume, component/tag, thickness
-	{Volume "body"
-		{tags "body"}
-		{component "body"}
-		{thickness 15}
-	}
-	{Volume "body1"
-		{tags "body"}
-		{component "body"}
-		{thickness 15}
-	}
-	{Volume "body2"
-		{tags "body"}
-		{component "body"}
-		{thickness 15}
-	}
-	{Volume "body3"
-		{tags "body"}
-		{component "body"}
-		{thickness 15}
-	}
-	{Volume "body4"
-		{tags "body"}
-		{component "body"}
-		{thickness 15}
-	}
+	;volume/component, thickness
+	("glass" args "window1")
+	("glass" args "window2")
+	("glass" args "window3")
+	("glass" args "window4")
+	("glass" args "window5")
+	("glass" args "window6")
+	("glass" args "window7")
+	("glass" args "window8")
+	("glass" args "window9")
+	("glass" args "window10")
+	("glass" args "window11")
+	("glass" args "window12")
+	("glass" args "window13")
+	("glass" args "window14")
+	("glass" args "window15")
+	("glass" args "window16")
+	
+	;main body parts
+	("body" args "body")
+	("body" args "body1")
+	("body" args "body2")
+	("body" args "body3")
+	("body" args "body4")
+
+	;main rotor + blades
+	("rotor" args "rotor")
+	("rotor" args "propeller")
+	("rotor" args "propeller1")
+
+	;back rotor + blades
+	("rotor_b" args "rotor_b")
+	("rotor_b" args "propeller_b")
+	("rotor_b" args "propeller_b1")
+	
+	;engines
+	("engine" args "engine")
 
 	{extender "inventory"
 		{box
@@ -100,7 +111,8 @@
 			speed(185)  ;//---------Max speed (at sea level), km/h.
 			climb_speed(10) ;//-----Climb rate at sea level, in m/s
 			turn(120) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
-			aerodynamics(1.2) ;//---Aerodynamic efficiency rating (0-3)
+			turnMP(66) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(1.1) ;//---Aerodynamic efficiency rating (0-3)
 			weight(5100) ;//--------Weight in kg.
 			power(1680) ;//---------Horse Power.
 			fuel(650) ;//-----------Fuel capacity in Liters.

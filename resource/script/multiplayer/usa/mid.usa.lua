@@ -58,9 +58,9 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Tank", "Light", "AA", "Class2",}, unit = "m42"},
 				{priority = 1.0, type = {"Tank", "Medium", "Artillery", "Class3",}, unit = "m108"},
 			--Air Assets
-				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "uh-1b_airborne"},
-				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_250_usa"},
-				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_napalm_usa"},
+				{priority = 1.0, type = {"Helicopter", "Support", "Class2",}, unit = "uh-1b_airborne"},
+				{priority = 1.0, type = {"Helicopter", "Support", "Class2",}, unit = "uh-1b_ara_airborne"},
+				{priority = 1.0, type = {"Helicopter", "Support", "Class2",}, unit = "uh-1b_maxwell_airborne"},
 			--Offmap Supports
 				
 			

@@ -132,19 +132,14 @@ Purchases["conquest.usa"] = {
 			--SPG
 				{priority = 1.0, {"Tank", "Light", "AA",}, unit = "m42"},
 				{priority = 1.0, {"Armored", "AA",}, unit = "m163"},
-				{priority = 0.5, type = {"Tank", "Medium", "Artillery",}, unit = "m108"},
+				{priority = 1.0, type = {"Tank", "Medium", "Artillery",}, unit = "m108"},
 				{priority = 0.5, type = {"Tank", "Medium", "Artillery",}, unit = "m109"},
 				{priority = 0.5, type = {"Tank", "Medium", "Artillery",}, unit = "m109_acav"},
 				{priority = 0.5, type = {"Tank", "Medium", "Artillery",}, unit = "m110"},
 			--Air Assets
-				{priority = 2.0, type = {"Helicopter", "Support",}, unit = "uh-1b"},
-				--{priority = 2.0, type = {"Plane", "Airstrike", "Support",}, unit = "uh-1b_ara"},
-				--{priority = 2.0, type = {"Plane", "Airstrike", "Support",}, unit = "uh-1b_maxwell"},
-				--{priority = 2.0, type = {"Plane", "Airstrike", "AT",}, unit = "uh-1b_m22"},
-				--{priority = 0.5, type = {"Plane", "Airstrike",}, unit = "airstrike_2x250_usa"},
-				--{priority = 0.5, type = {"Plane", "Airstrike",}, unit = "airstrike_2xcluster_usa"},
-				--{priority = 0.5, type = {"Plane", "Airstrike",}, unit = "airstrike_8x250_usa"},
-				--{priority = 0.5, type = {"Plane", "Airstrike",}, unit = "airstrike_8xnapalm_usa"},
+				{priority = 1.0, type = {"Helicopter", "Support",}, unit = "uh-1b_airborne"},
+				{priority = 1.0, type = {"Helicopter", "Support",}, unit = "uh-1b_ara_airborne"},
+				{priority = 1.0, type = {"Helicopter", "Support", "AT",}, unit = "uh-1b_maxwell_airborne"},
 		}
 	}
 }

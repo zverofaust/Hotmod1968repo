@@ -211,8 +211,36 @@
 		{sideSlopeSpeed (* 2 %roll_rate)}				;// how quickly in degrees per second that aircraft rolls 
 	)
 	{maxSideSlope 	%roll_angle	}						;// limit in degrees that aircraft can roll while in a turn
-	{maxElevationSpeed (+ (/ %climb_speed 6) 2)};/		;// climb rate, how many meters per second aircraft changes altitude when in full climb or dive
-	{elevationAcceleration (+ (/ %climb_speed 4) 2)};/	;// how quickly aircraft can change from level flight to full climb or dive. (m/s^2)
+	
+	{maxElevationSpeed 0}	
+	{elevationAcceleration 0}
+	
+	;{maxElevationSpeed (+ (/ %climb_speed 6) 2)};/		;// climb rate, how many meters per second aircraft changes altitude when in full climb or dive
+	;{elevationAcceleration (+ (/ %climb_speed 4) 2)};/	;// how quickly aircraft can change from level flight to full climb or dive. (m/s^2)
+)
+
+(define "locomotion_transport"
+	{StartTime		3	}	; acceleration time from 0 to max. speed, seconds
+	{BrakeTime		3	}	; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
+	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds but less
+	{SplineRadius	5	}	; limit turning radius on the splines, meters
+	{Slow			60	}	; km/h
+	{Normal			80	}
+	{Fast			100	}
+	{MaxSpeed		120	}	; max speed, km/h
+	{TurnRadius		15	}	; turn radius, m
+)
+
+(define "locomotion_attack"
+	{StartTime		3	}	; acceleration time from 0 to max. speed, seconds
+	{BrakeTime		3	}	; deceleration time from max. speed, seconds - higher values than 1 can lead to helicopters not being able to stop before collision with an obstacle
+	{StopTime		4	}	; stop time after turning off the engine from max. speed to 0, seconds but less
+	{SplineRadius	5	}	; limit turning radius on the splines, meters
+	{Slow			60	}	; km/h
+	{Normal			80	}
+	{Fast			100	}
+	{MaxSpeed		120	}	; max speed, km/h
+	{TurnRadius		15	}	; turn radius, m
 )
 
 (define "mobility_train"

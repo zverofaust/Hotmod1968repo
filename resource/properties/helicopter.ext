@@ -41,38 +41,67 @@ actor
 	}
 }
 
-{Volume "body"
-	{tags "body"}
-	{thickness 20}
-	{able {visible 0}}
-}
-{Volume "engine"
-	{tags "body" "inflammable"}
-	{thickness 20}
-	{able {visible 1}}
-}
-{Volume "cabin"
-	{tags "body"}
-	{thickness hollow 10}
-	{able {visible 0}}
-}
+(define "body"
+	{volume %0
+		{component "body"}
+		{tags "body"}
+		{thickness 5}
+	}
+	{component %0
+		{RepairTime 30}
+		{RepairOrder 0}
+	}
+)
 
-{Component "body"
-	{RepairTime 25}
-}
-{Component "engine"
-	{RepairTime 25}
-}
+(define "engine"
+	{volume %0
+		{component "engine"}
+		{tags "engine"}
+		{thickness 5}
+	}
+	{component %0
+		{RepairTime 30}
+		{RepairOrder 2}
+	}
+)
 
-;main rotor components
-{Component "rotor"
-	{RepairTime 10}
-}
+(define "rotor"
+	{volume %0
+		{component "rotor"}
+		{tags "rotor"}
+		{thickness 5}
+	}
+	{component %0
+		{RepairTime 30}
+		{RepairOrder 3}
+	}
+)
 
-;back rotor components
-{Component "rotor_b"
-	{RepairTime 10}
-}
+(define "rotor_b"
+	{volume %0
+		{component "rotor_b"}
+		{tags "rotor_b"}
+		{thickness 4}
+	}
+	{component %0
+		{RepairTime 30}
+		{RepairOrder 1}
+	}
+)
+
+(define "glass"
+	{volume %0
+		{thickness 0.1}
+		{material "glass"}
+		{tags "glass"}
+		{component %0}
+		{able {visible 0}{obstacle 0}}
+	}
+	{component %0
+		{tags "glass"}
+		{RepairOrder 13}
+	}
+)
 
 {perks
 	{component "body"
@@ -152,60 +181,6 @@ actor
 	{Fast			100	}
 	{MaxSpeed		120	}	; max speed, km/h
 	{TurnRadius		15	}	; turn radius, m
-)
-
-(define "body"
-	{volume %0					;adress volume named %0
-		{tags %0 "body"}		;give it a tag of its name and "body"
-		{component "body"}			;assign component of name body
-		{thickness 5}
-		{able {visible 0}}
-	}
-	{component "body"}				;create component with name %0
-)
-
-(define "part"
-	{volume %0					;adress volume named %0
-		{tags %0 "part"}		;give it a tag of its name and "part"
-		{component %0}			;assign component of name %0 (in case it existed)
-		{thickness 5}
-		{able {visible 0}}
-	}
-	{component %0}				;create component with name %0
-)
-
-(define "glass"
-	{volume %0
-		{thickness 1}
-		{material "glass"}
-		{tags "glass"}
-		{component %0}
-		{able {visible 0}{obstacle 0}}
-	}
-	{component %0
-		{tags "glass"}
-		{RepairOrder 13}
-	}
-)
-
-(define "armor_helicopter"
-	{armor
-		{setting "body"
-			{volumes "body*"}
-			{threshold
-				{blast 	{value 4}}
-				{pierce {value 4}}
-			}
-		}
-		{setting "engine"
-			{volumes "engine*"}
-			{whole_wound}
-			{threshold
-				{blast 	{value 4}}
-				{pierce {value 4}}
-			}
-		}
-	}
 )
 
 (define "wheel"

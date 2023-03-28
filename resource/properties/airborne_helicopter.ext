@@ -13,6 +13,7 @@
 	{locomotion
 		{Maxspeed		75	}	;// max speed while in flight mode in kph
 		{turnRadius		50	}	;// radius to do a 360ø turn in meters
+		{turnRadius		50	}	;// radius to do a 360ø turn in meters
 		{StartTime		8	}	;// time to accelerate to max speed from 0 kph in seconds
 		{BrakeTime		3	}	;// time to decelerate from max speed to 0 kph in seconds when using brakes (hard stop)
 		{StopTime		5	}	;// time to decelerate from max speed to 0 kph in seconds when coasting to a stop (not applying forward motion)
@@ -36,13 +37,75 @@
 	{maxElevationSpeed 	8	}	;// climb rate, how many meters per second aircraft changes altitude when in full climb or dive
 	{elevationAcceleration 8}	;// how quickly aircraft can change from level flight to full climb or dive. (m/s^2)
 	(mod "mp"
-		{altitude 15}		;// spawns aircraft in air in multiplayer game mode 
+		{altitude 40}		;// spawns aircraft in air in multiplayer game mode 
 	)
-	{MaxAirborneAltitude 15}
+	{MaxAirborneAltitude 75}
 }
 
 {chassisManager
 	{current "airborne"}
 }
+
+(define "body"
+	{volume %0
+		{component "body"}
+		{tags "body"}
+		{thickness 3}
+	}
+	{component %0
+		{RepairTime 30}
+		{RepairOrder 0}
+	}
+)
+
+(define "engine"
+	{volume %0
+		{component "engine"}
+		{tags "engine"}
+		{thickness 6}
+	}
+	{component %0
+		{RepairTime 30}
+		{RepairOrder 2}
+	}
+)
+
+(define "rotor"
+	{volume %0
+		{component "rotor"}
+		{tags "rotor"}
+		{thickness 3}
+	}
+	{component %0
+		{RepairTime 30}
+		{RepairOrder 3}
+	}
+)
+
+(define "rotor_b"
+	{volume %0
+		{component "rotor_b"}
+		{tags "rotor_b"}
+		{thickness 3}
+	}
+	{component %0
+		{RepairTime 30}
+		{RepairOrder 1}
+	}
+)
+
+(define "glass"
+	{volume %0
+		{thickness 0.1}
+		{material "glass"}
+		{tags "glass"}
+		{component %0}
+		{able {visible 0}{obstacle 0}}
+	}
+	{component %0
+		{tags "glass"}
+		{RepairOrder 13}
+	}
+)
 
 ("helicopter_durability" body(200) engine(100) rotor(50) rotor_b(50) part(100))

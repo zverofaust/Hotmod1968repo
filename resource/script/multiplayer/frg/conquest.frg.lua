@@ -48,9 +48,10 @@ Purchases["conquest.frg"] = {
 				--Rocket Artillery
 	
 			--APCs/BTRs
+				{priority = 1.0, type = {"Vehicle", "MG",}, unit = "munga4_mg3"},
 				{priority = 0.5, type = {"Tank", "Light",}, unit = "spz_112"},
-				{priority = 0.5, {"Tank", "Light", "AT",}, unit = "spz_123_m40"},
-				{priority = 0.5, {"Tank", "Light", "AT",}, unit = "rakjpz_1"},
+				{priority = 0.5, type = {"Tank", "Light", "AT",}, unit = "spz_123_m40"},
+				{priority = 0.5, type = {"Tank", "Light", "AT",}, unit = "rakjpz_1"},
 				
 			--Tanks
 				{priority = 1.0, type = {"Tank", "Light",}, unit = "m41g"},
