@@ -1,80 +1,122 @@
 ;Exported by: misan
-;Date:        Thu Oct 24 20:50:46 2019
-;File:        D:\Cold War\Models\xm177e1\xm177e2.max
+;Date:        Wed Mar 29 13:25:47 2023
+;File:        D:\Cold War\ModelWIP\Smallarms\XM177\xm177e2.max
 {Skeleton
+	{animation
+		{sequence "bipod_open" {speed 0.3}}
+		{sequence "recoil" {speed 0.3}}
+	}
 	{bone "xm177e2"
-		{parameters "ID=mgun;"}
-		{Matrix34
+		{parameters "id=mgun;"}
+		{Orientation
 			1	0	0
 			0	-1	0
 			0	0	1
-			-2   0   0
 		}
 		{VolumeView "xm177e2.ply"}
-		{bone "foresight12"
-			{Position 13.8258	1.51236	-3.29618e-05}
+		{bone "stock"
+			{Position -2.68938	1.05939	-9.45741e-05}
+			{VolumeView "stock.ply"}
+		}
+		{bone "magazine_fake"
+			{Position 2.92185	1.73269	-9.35835e-05}
+			{VolumeView "magazine_fake.ply"}
 		}
 		{bone "handle"
-			{Position 2.74729	2.53855	0}
+			{Matrix34
+				0	1	0
+				0	0	-1
+				-1	0	0
+				1.81471	2.79623	-0.0063671
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.34202	0.939693
+				0	0.939693	-0.34202
+				-1	0	0
+				2.26875	1.79689	0.273037
+			}
+		}
+		{bone "foresight12"
+			{Position 10.6735	1.71674	-0.00924047}
 		}
 		{bone "xm148"
-			{Position 4.55135	-0.00436068	0.0241245}
+			{Matrix34
+				0	0	-1
+				-1	0	0
+				0	1	0
+				7.02477	1.71148	-0.0466314
+			}
 			{VolumeView "xm148.ply"}
+			{bone "xm148_trigger"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0	2.78447	-0.927575
+				}
+				{VolumeView "xm148_trigger.ply"}
+			}
+			{bone "xm148_barrel"
+				{Position 0	-2.39086	-0.943581}
+				{VolumeView "xm148_barrel.ply"}
+				{bone "foresight3"
+					{Matrix34
+						0	-1	0
+						0	0	1
+						-1	0	0
+						-0.037366	-0.040719	-0.0192221
+					}
+				}
+			}
 		}
 	}
 }
 {Volume "body"
-	{Box 18.1336 5.21609 1.23632}
+	{Box 16.2655 4.58495 1.25071}
 	{Bone "xm177e2"}
-	{Position 4.45317	0.752205	0.00449634}
+	{Position 2.57497	0.856888	0.0174443}
 }
 {Volume "select"
-	{Box 23.1833 9.11718 2.39379}
+	{Box 17.3193 6.95397 1.86356}
 	{Bone "xm177e2"}
-	{Position 4.12674	0.389304	0.00202596}
+	{Position 2.27615	1.00309	0.151226}
 }
 {Extender "preview"
-	{"Stuff_primary"
+	{"stuff_primary"
 		{camera
-			{origin 4.14242	-1.053	45.909}
-			{lookat 4.14242	-0.0507226	0.0188497}
-			{fov 23.9132}
-			{horizon -174.326}
+			{origin 3.28828	-2.43074	18.0883}
+			{lookat 3.14981	-0.847937	-0.598839}
+			{fov 45}
+			{horizon 180}
 		}
 		{lights
 			{"0"
 				{type point}
-				{position 2.82093	9.50824	2.74103}
+				{position 1.40254	-8.2657	8.63916}
 			}
 			{"1"
 				{type point}
-				{position 11.95	-7.88728	20.2469}
-			}
-			{"2"
-				{type directional}
-				{direction 0.000725076	0.410639	-0.285263}
+				{position -0.322557	11.4522	14.5301}
 			}
 		}
 	}
-	{"Stuff"
+	{"stuff"
 		{camera
-			{origin 3.94891	-2.17962	44.3193}
-			{lookat 3.94891	-0.0918679	0.0177778}
-			{fov 23.9132}
-			{horizon -172.326}
+			{origin 3.10631	-2.41558	16.9953}
+			{lookat 3.1063	-0.826717	-0.199747}
+			{fov 45}
+			{horizon 180}
 		}
 		{lights
 			{"0"
 				{type point}
-				{position 13.7916	-10.4029	18.2801}
+				{position 0.611361	-8.3114	5.49372}
 			}
 			{"1"
-				{type directional}
-				{direction -0.00294095	0.418475	-0.273625}
-			}
-			{"2"
 				{type point}
-				{position 2.82093	2.99877	1.85589}
+				{position 0.611363	11.4818	11.3847}
 			}
 		}
 	}
