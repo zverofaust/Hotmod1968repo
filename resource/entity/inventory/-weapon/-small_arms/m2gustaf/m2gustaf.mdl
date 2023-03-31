@@ -1,0 +1,99 @@
+;Exported by: misan
+;Date:        Fri Mar 31 10:30:55 2023
+;File:        D:\Cold War\ModelWIP\Smallarms\Gustaf\Gustaf.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.1}}
+		{sequence "bipod_open" {speed 0.1}}
+	}
+	{bone "gustaf"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "gustaf.ply"}
+		{bone "ironsight"
+			{Matrix34
+				0	0.965926	0.258819
+				-1	0	0
+				0	-0.258819	0.965926
+				10.4455	1.04247	0.7223
+			}
+			{VolumeView "ironsight.ply"}
+		}
+		{bone "fxshot"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-11.4805	0	0.400939
+			}
+		}
+		{bone "foresight3"
+			{Position 10.7811	0	0.400939}
+		}
+		{bone "breech"
+			{Position -6.50163	1.07756	0.494607}
+			{VolumeView "breech.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 3.3 3.3 19.4693}
+	{Bone "gustaf"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-0.229723	-0.0139359	0.348228
+	}
+}
+{Volume "select"
+	{Box 5.27095 5.50652 23.6412}
+	{Bone "gustaf"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		0.186353	0.0203453	0.377675
+	}
+}
+{Extender "preview"
+	{"stuff_primary"
+		{camera
+			{origin -0.0977545	28.7217	0.398738}
+			{lookat -0.646291	0.226732	-1.69418}
+			{fov 45}
+			{horizon 4.98939}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 22.1182	28.7114	0.400939}
+			}
+			{"1"
+				{type point}
+				{position -5.07399	10.3198	12.2584}
+			}
+		}
+	}
+	{"stuff"
+		{camera
+			{origin 0.0489893	29.7549	0.013974}
+			{lookat -0.149255	-0.263054	-0.274303}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 23.3604	28.7114	12.5772}
+			}
+			{"1"
+				{type point}
+				{position -4.25187	10.3198	1.73398}
+			}
+		}
+	}
+}
