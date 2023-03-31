@@ -14,7 +14,7 @@
 	
 	(define "gunbag"
 		{"%guntype"
-			{on "weapon_undeploy"
+			{on "weapon_undeploy" sync
 				{if work "body"
 					{if operatable
 						{crew_emit}
