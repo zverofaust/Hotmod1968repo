@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Wed Mar 29 13:25:47 2023
+;Date:        Fri Mar 31 11:36:56 2023
 ;File:        D:\Cold War\ModelWIP\Smallarms\XM177\xm177e2.max
 {Skeleton
 	{animation
@@ -13,33 +13,29 @@
 			0	-1	0
 			0	0	1
 		}
-		{VolumeView "xm177e2.ply"}
+		{LODView
+			{VolumeView "xm177e2.ply"}
+			{VolumeView "xm177e2_lod1.ply"}
+			{VolumeView "xm177e2_lod2.ply"}
+			{VolumeView "xm177e2_lod3.ply"}
+		}
 		{bone "stock"
 			{Position -2.68938	1.05939	-9.45741e-05}
-			{VolumeView "stock.ply"}
+			{LODView
+				{VolumeView "stock.ply"}
+				{VolumeView "stock_lod1.ply"}
+				{VolumeView "stock_lod2.ply"}
+				{VolumeView "stock_lod3.ply"}
+			}
 		}
-		{bone "magazine_fake"
+		{bone "magazine"
 			{Position 2.92185	1.73269	-9.35835e-05}
-			{VolumeView "magazine_fake.ply"}
-		}
-		{bone "handle"
-			{Matrix34
-				0	1	0
-				0	0	-1
-				-1	0	0
-				1.81471	2.79623	-0.0063671
+			{LODView
+				{VolumeView "magazine.ply"}
+				{VolumeView "magazine_lod1.ply"}
+				{VolumeView "magazine_lod2.ply"}
+				{VolumeView "magazine_lod3.ply"}
 			}
-		}
-		{bone "fxshell"
-			{Matrix34
-				0	0.34202	0.939693
-				0	0.939693	-0.34202
-				-1	0	0
-				2.26875	1.79689	0.273037
-			}
-		}
-		{bone "foresight12"
-			{Position 10.6735	1.71674	-0.00924047}
 		}
 		{bone "xm148"
 			{Matrix34
@@ -48,7 +44,12 @@
 				0	1	0
 				7.02477	1.71148	-0.0466314
 			}
-			{VolumeView "xm148.ply"}
+			{LODView
+				{VolumeView "xm148.ply"}
+				{VolumeView "xm148_lod1.ply"}
+				{VolumeView "xm148_lod2.ply"}
+				{VolumeView "xm148_lod3.ply"}
+			}
 			{bone "xm148_trigger"
 				{Matrix34
 					1	0	0
@@ -56,18 +57,20 @@
 					0	-1	0
 					0	2.78447	-0.927575
 				}
-				{VolumeView "xm148_trigger.ply"}
+				{LODView
+					{VolumeView "xm148_trigger.ply"}
+					{VolumeView "xm148_trigger_lod1.ply"}
+					{VolumeView "xm148_trigger_lod2.ply"}
+					{VolumeView "xm148_trigger_lod3.ply"}
+				}
 			}
 			{bone "xm148_barrel"
 				{Position 0	-2.39086	-0.943581}
-				{VolumeView "xm148_barrel.ply"}
-				{bone "foresight3"
-					{Matrix34
-						0	-1	0
-						0	0	1
-						-1	0	0
-						-0.037366	-0.040719	-0.0192221
-					}
+				{LODView
+					{VolumeView "xm148_barrel.ply"}
+					{VolumeView "xm148_barrel_lod1.ply"}
+					{VolumeView "xm148_barrel_lod2.ply"}
+					{VolumeView "xm148_barrel_lod3.ply"}
 				}
 			}
 		}
@@ -77,6 +80,11 @@
 	{Box 16.2655 4.58495 1.25071}
 	{Bone "xm177e2"}
 	{Position 2.57497	0.856888	0.0174443}
+}
+{Volume "magazine"
+	{Box 1.35899 2.48394 0.543597}
+	{Bone "magazine"}
+	{Position -0.516681	-1.46303	0.00193384}
 }
 {Volume "select"
 	{Box 17.3193 6.95397 1.86356}
