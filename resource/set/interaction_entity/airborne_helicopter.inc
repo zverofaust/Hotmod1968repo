@@ -34,15 +34,15 @@
 		{add_view "aircraft_damage_big"		"heavy_rotorb_smoke"	"rotor_b"}
 		{add_view "aircraft_damage_medium"	"medium_rotorb_smoke"	"rotor_b"}
 		{add_view "aircraft_damage_small"	"light_rotorb_smoke"	"rotor_b"}
-
+		
+		{add_view "spheredust_heli" 		"ground_dust" 			"basis"}
+		
 		{call "init_gun"}
 
 		;(mod "mp" {call "engine_on"})
 	}
 
 	{##on "wheels_fx" overload
-		{add_view "spheredust_heli" "ground_dust" "support1"}
-		{add_view "spheredust_helo" "ground_dust" "support2"}
 		{view start "ground_dust"}
 		{delay 4
 			{view stop "ground_dust"}
@@ -217,6 +217,8 @@
 				{call "add_trace"}
 				("stop_smoke_fx" args body)
 				("stop_smoke_fx" args engine)
+				("stop_smoke_fx" args rotor)
+				("stop_smoke_fx" args rotorb)
 			}
 			{if "engine_start"
 				("play_trace")
@@ -432,12 +434,12 @@
 				{view start "light_body_smoke"}
 
 			else component "engine"
-				{view start "medium_engine_smoke"}
+				{view start "light_engine_smoke"}
 
 			else component "rotor"
-				{view start "medium_rotor_smoke"}
+				{view start "light_rotor_smoke"}
 			else component "rotor_b"
-				{view start "medium_rotorb_smoke"}
+				{view start "light_rotorb_smoke"}
 			else component "wheel"
 				{if "engine_on"
 					{chassis_work 1} ;// fixes wheel break's "up impluse" from disabling movement on ground
@@ -462,7 +464,7 @@
 					}
 				else component "engine"
 					{view start "heavy_engine_smoke"}
-					{delay 1 {view pause "medium_engine_smoke"}}
+					{delay 1 {view pause "heavy_engine_smoke"}}
 					{if chassis "airborne"
 						{call "fall"}
 					else
@@ -470,7 +472,7 @@
 					}
 				else component "rotor"
 					{view start "heavy_rotor_smoke"}
-					{delay 1 {view pause "medium_rotor_smoke"}}
+					{delay 1 {view pause "heavy_rotor_smoke"}}
 					{if chassis "airborne"
 						{call "fall"}
 					else
@@ -479,7 +481,7 @@
 				
 				else component "rotor_b"
 					{view start "heavy_rotorb_smoke"}
-					{delay 1 {view pause "medium_rotorb_smoke"}}
+					{delay 1 {view pause "heavy_rotorb_smoke"}}
 					{if chassis "airborne"
 						{call "fall"}
 					else
@@ -807,6 +809,8 @@
 		{call "propeller_stop"}
 		("stop_smoke_fx" args body)
 		("stop_smoke_fx" args engine)
+		("stop_smoke_fx" args rotor)
+		("stop_smoke_fx" args rotorb)
 		{if not under_water
 			;{add_view "aero_die" "fire" "body"}
 			{add_view "aero_die_fire" "fire" "body"}
