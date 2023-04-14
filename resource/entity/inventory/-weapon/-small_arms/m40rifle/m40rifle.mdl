@@ -1,0 +1,97 @@
+;Exported by: misan
+;Date:        Fri Apr 14 08:00:42 2023
+;File:        D:\Cold War\ModelWIP\Smallarms\M40 by Mr.Funny\M40.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.2}}
+	}
+	{bone "m40rifle"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{LODView
+			{VolumeView "m40rifle.ply"}
+			{VolumeView "m40rifle_lod1.ply"}
+			{VolumeView "m40rifle_lod2.ply"}
+			{VolumeView "m40rifle_lod3.ply"}
+		}
+		{bone "handle"
+			{Matrix34
+				1	0	0
+				0	0	-1
+				0	1	0
+				2.81824	2.30853	0.0602253
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.515038	0.857167
+				0	-0.857167	0.515038
+				1	0	0
+				1.87296	1.3286	0.138832
+			}
+		}
+		{bone "foresight12"
+			{Position 15.5381	1.18422	-0.0107151}
+		}
+		{bone "bolt"
+			{Position 1.00138	1.18573	-0.0212297}
+			{LODView
+				{VolumeView "bolt.ply"}
+				{VolumeView "bolt_lod1.ply"}
+				{VolumeView "bolt_lod2.ply"}
+				{VolumeView "bolt_lod3.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 22.3682 4.16662 1.00068}
+	{Bone "m40rifle"}
+	{Position 4.43044	0.284405	0.00776751}
+}
+{Volume "select"
+	{Box 26.8156 10.0559 4.60894}
+	{Bone "m40rifle"}
+	{Position 4.02664	0.347904	-0.040155}
+}
+{Extender "preview"
+	{"stuff_primary"
+		{camera
+			{origin 4.56243	-4.24294	28.1951}
+			{lookat 4.56243	-0.547845	-0.189941}
+			{fov 45}
+			{horizon -168}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 16.5067	-17.5294	12.9096}
+			}
+			{"1"
+				{type point}
+				{position -13.3979	8.85729	-15.1806}
+			}
+		}
+	}
+	{"stuff"
+		{camera
+			{origin 6.14186	-0.817652	29.0506}
+			{lookat 4.79499	-0.817654	-0.531224}
+			{fov 45}
+			{horizon 89.9555}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 12.9064	4.31522	-18.942}
+			}
+			{"1"
+				{type point}
+				{position -11.9213	-6.59549	23.0046}
+			}
+		}
+	}
+}

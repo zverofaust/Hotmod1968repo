@@ -1,21 +1,44 @@
-;Exported by: Basement
-;Date:        Sun Sep  9 15:44:24 2018
-;File:        C:\Users\Basement\Documents\3dsMax\saves\xm21.max
+;Exported by: misan
+;Date:        Fri Apr 14 07:47:21 2023
+;File:        D:\Cold War\ModelWIP\Smallarms\M14\M14.max
 {Skeleton
+	{animation
+		{sequence "recoil" {speed 0.3}}
+	}
 	{bone "xm21"
-		{parameters "CommonMesh;ID=smg;"}
+		{parameters "ID=mgun;"}
 		{Orientation
 			1	0	0
 			0	-1	0
 			0	0	1
 		}
-		{VolumeView "xm21.ply"}
-		{bone "foresight12"
-			{Matrix34
-				1	0	0
-				0	0	-1
-				0	1	0
-				17.9257	1.49602	0
+		{LODView
+			{VolumeView "xm21.ply"}
+			{VolumeView "xm21_lod1.ply"}
+			{VolumeView "xm21_lod2.ply"}
+		}
+		{bone "magazine"
+			{Position 2.22452	-0.586133	0}
+			{LODView
+				{VolumeView "magazine.ply"}
+				{VolumeView "magazine_lod1.ply"}
+				{VolumeView "magazine_lod2.ply"}
+			}
+		}
+		{bone "pull"
+			{Position 4.10956	1.38411	0.580478}
+			{LODView
+				{VolumeView "pull.ply"}
+				{VolumeView "pull_lod1.ply"}
+				{VolumeView "pull_lod2.ply"}
+			}
+		}
+		{bone "bolt"
+			{Position 1.83455	1.48342	0}
+			{LODView
+				{VolumeView "bolt.ply"}
+				{VolumeView "bolt_lod1.ply"}
+				{VolumeView "bolt_lod2.ply"}
 			}
 		}
 		{bone "handle"
@@ -23,81 +46,89 @@
 				1	0	0
 				0	0	-1
 				0	1	0
-				6.09339	1.39963	0
+				3.55726	1.77426	0.0602252
 			}
 		}
 		{bone "fxshell"
 			{Matrix34
-				-3.5405e-05	0.00411144	0.999992
-				-0.00872713	0.999953	-0.00411159
-				-0.999962	-0.0087272	0
-				2.57174	1.38399	0.992715
+				0	0.515038	0.857167
+				0	-0.857167	0.515038
+				1	0	0
+				1.87296	1.58572	0.0718009
+			}
+		}
+		{bone "foresight12"
+			{Position 15.5381	1.51936	0.00145319}
+		}
+		{bone "scope"
+			{Matrix34
+				0	1	0
+				0	0	1
+				1	0	0
+				0.191494	2.6009	-0.0344717
+			}
+			{LODView
+				{VolumeView "scope.ply"}
+				{VolumeView "scope_lod1.ply"}
+				{VolumeView "scope_lod2.ply"}
 			}
 		}
 	}
 }
 {Volume "body"
-	{Box 28.6886 2.26786 6.76994}
+	{Box 22.3682 4.16662 1.00068}
 	{Bone "xm21"}
+	{Position 4.43043	0.101576	0.0077675}
+}
+{Volume "magazine"
+	{Box 1.54244 2.34486 0.471826}
+	{Bone "magazine"}
 	{Matrix34
-		1	0	0
-		0	0	-1
-		0	1	0
-		6.89234	0.30972	0.322216
+		0.996195	0.0871557	0
+		-0.0871557	0.996195	0
+		0	0	1
+		-0.0218978	0.0837275	0.0169773
 	}
 }
 {Volume "select"
-	{Box 25.9277 2.24541 6.25192}
+	{Box 26.8156 10.0559 4.60894}
 	{Bone "xm21"}
-	{Matrix34
-		1.1625	0	0
-		0	0	-1.60544
-		0	1.26231	0
-		7.09243	0.0495691	0.322216
-	}
+	{Position 4.02663	0.347904	-0.0401549}
 }
 {Extender "preview"
-	{"Stuff"
+	{"stuff"
 		{camera
-			{origin 6.01285	-0.833238	24.3941}
-			{lookat 4.60797	-0.0108979	5.83982}
+			{origin 6.14186	-0.817652	29.0506}
+			{lookat 4.79499	-0.817654	-0.531239}
 			{fov 45}
-			{horizon 120.048}
+			{horizon 89.9555}
 		}
 		{lights
 			{"0"
 				{type point}
-				{position 8.17283	-3.38583	17.942}
+				{position 12.9064	4.31522	-18.942}
 			}
 			{"1"
 				{type point}
-				{position 1.00347	-4.08991	12.4105}
-			}
-			{"2"
-				{type directional}
-				{direction -0.0815215	0	-0.493309}
+				{position -11.9213	-6.59549	23.0046}
 			}
 		}
 	}
-	{"Stuff_primary"
+	{"stuff_primary"
 		{camera
-			{origin 8.2921	-0.137478	29.1404}
-			{lookat 6.88723	0.684835	10.5862}
+			{origin 4.56243	-4.24293	28.1951}
+			{lookat 4.56243	-0.547832	-0.189962}
 			{fov 45}
-			{horizon 120.246}
+			{horizon -168}
 		}
 		{lights
 			{"0"
 				{type point}
-				{position 8.17283	-3.38583	22.8301}
+				{position 16.5067	-17.5294	12.9096}
 			}
 			{"1"
 				{type point}
-				{position 1.00347	-4.08992	17.2986}
-			}
-			{"2"
-				{type directional}
-				{direction -0.0815215	0	-0.493309}
+				{position -13.3979	8.8573	-15.1806}
 			}
 		}
 	}
