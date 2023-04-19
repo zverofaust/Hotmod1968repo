@@ -83,7 +83,7 @@ Purchases["conquest.usa"] = {
 				{priority = 1.0, type = {"Cannon", "Mortar",}, unit = "m30_mortar"},
 				{priority = 1.0, type = {"Cannon", "Mortar",}, unit = "m98_howtar"},
 				--Infantry_Support
-				{priority = 1.0, type = {"Cannon", "Support",}, unit = "m116_packhbow"},
+				{priority = 1.0, type = {"Cannon", "Support",}, unit = "m116_packhow"},
 				--Artillery
 				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "m101a1"},
 				--{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "m114"},
