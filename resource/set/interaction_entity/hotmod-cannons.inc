@@ -1838,7 +1838,7 @@
 	("cannon_small")
 }
 
-{"m40"			
+{"m40g"			
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
