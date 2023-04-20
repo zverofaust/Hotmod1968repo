@@ -186,7 +186,7 @@
 					}
 				}
 				{actions  ; Order attack
-					{"actor_fire"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
+					{"actor_state"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
 						{selector
 							("group_aa_short" player(%player))
 							{sort
@@ -201,6 +201,24 @@
 							}
 						}
 						{drop orders}
+						{weapon_prepare on}
+						{cannon fire}
+					}
+					{"actor_fire"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
+						{selector
+							("group_aa_short" player(%player))
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									("group_airborne" player(%player))
+								}
+							}
+							{amount 1
+							}
+						}
+						; {drop orders}
 						{attack enemies}
 						{enemies
 							{source advanced}
@@ -262,7 +280,7 @@
 					}
 				}
 				{actions  ; Order attack
-					{"actor_fire"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
+					{"actor_state"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
 						{selector
 							("group_aa_medium" player(%player))
 							{sort
@@ -277,6 +295,24 @@
 							}
 						}
 						{drop orders}
+						{weapon_prepare on}
+						{cannon fire}
+					}
+					{"actor_fire"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
+						{selector
+							("group_aa_medium" player(%player))
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									("group_airborne" player(%player))
+								}
+							}
+							{amount 1
+							}
+						}
+						; {drop orders}
 						{attack enemies}
 						{enemies
 							{source advanced}
@@ -321,81 +357,98 @@
 				}
 	}
 
-	{"enhance aa gun's aa desire/p%player/detect and fire(long)"
-				{condition  ; If enemy planes are near to player's AA
-					{terms
-						{"1.near"
-							{units
-								("group_aa_long" player(%player))
-							}
-							{near_to
-								{source advanced}
-								{ignore_captured_by_user 0}
-								("group_airborne" player(%player))
-							}
-							{distance 600}
-						}
-					}
-				}
-				{actions  ; Order attack
-					{"actor_fire"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
-						{selector
-							("group_aa_long" player(%player))
-							{sort
-								{type entity}
-								{entity
-									{source advanced}
-									{ignore_captured_by_user 0}
-									("group_airborne" player(%player))
-								}
-							}
-							{amount 1
-							}
-						}
-						{drop orders}
-						{attack enemies}
-						{enemies
-							{source advanced}
-							{ignore_captured_by_user 0}
-							("group_airborne" player(%player))
-							{sort
-								{type entity}
-								{entity
-									("group_aa_long" player(%player))
-								}
-							}
-							{amount 1
-							}
-						}
-						{interval 0}
-						{time 0}
-						{burst_mode long}
-					}
-					{"entity_state"  ; The closest AA to enemy planes, add "aa_working"
-						{selector
-							("group_aa_long" player(%player))
-							{sort
-								{type entity}
-								{entity
-									{source advanced}
-									{ignore_captured_by_user 0}
-									("group_airborne" player(%player))
-								}
-							}
-							{amount 1
-							}
-						}
-						{tag_add aa_long_working}
-					}
-					;{"music"
-					;	{start "/sound/mission/task_new.wav"}
-					;	{volume narrator}
-					;}
-					{"trigger"
-						{name "enhance aa gun's aa desire/p%player/detect and fire(long)"}
-					}
-				}
-	}
+	; {"enhance aa gun's aa desire/p%player/detect and fire(long)"
+	; 			{condition  ; If enemy planes are near to player's AA
+	; 				{terms
+	; 					{"1.near"
+	; 						{units
+	; 							("group_aa_long" player(%player))
+	; 						}
+	; 						{near_to
+	; 							{source advanced}
+	; 							{ignore_captured_by_user 0}
+	; 							("group_airborne" player(%player))
+	; 						}
+	; 						{distance 600}
+	; 					}
+	; 				}
+	; 			}
+	; 			{actions  ; Order attack
+	; 				{"actor_state"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
+	; 					{selector
+	; 						("group_aa_long" player(%player))
+	; 						{sort
+	; 							{type entity}
+	; 							{entity
+	; 								{source advanced}
+	; 								{ignore_captured_by_user 0}
+	; 								("group_airborne" player(%player))
+	; 							}
+	; 						}
+	; 						{amount 1
+	; 						}
+	; 					}
+	; 					{weapon_prepare on}
+	; 					{cannon fire}
+	; 				}
+	; 				{"actor_fire"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
+	; 					{selector
+	; 						("group_aa_long" player(%player))
+	; 						{sort
+	; 							{type entity}
+	; 							{entity
+	; 								{source advanced}
+	; 								{ignore_captured_by_user 0}
+	; 								("group_airborne" player(%player))
+	; 							}
+	; 						}
+	; 						{amount 1
+	; 						}
+	; 					}
+	; 					{drop orders}
+	; 					{attack enemies}
+	; 					{enemies
+	; 						{source advanced}
+	; 						{ignore_captured_by_user 0}
+	; 						("group_airborne" player(%player))
+	; 						{sort
+	; 							{type entity}
+	; 							{entity
+	; 								("group_aa_long" player(%player))
+	; 							}
+	; 						}
+	; 						{amount 1
+	; 						}
+	; 					}
+	; 					{interval 0}
+	; 					{time 0}
+	; 					{burst_mode long}
+	; 				}
+	; 				{"entity_state"  ; The closest AA to enemy planes, add "aa_working"
+	; 					{selector
+	; 						("group_aa_long" player(%player))
+	; 						{sort
+	; 							{type entity}
+	; 							{entity
+	; 								{source advanced}
+	; 								{ignore_captured_by_user 0}
+	; 								("group_airborne" player(%player))
+	; 							}
+	; 						}
+	; 						{amount 1
+	; 						}
+	; 					}
+	; 					{tag_add aa_long_working}
+	; 				}
+	; 				;{"music"
+	; 				;	{start "/sound/mission/task_new.wav"}
+	; 				;	{volume narrator}
+	; 				;}
+	; 				{"trigger"
+	; 					{name "enhance aa gun's aa desire/p%player/detect and fire(long)"}
+	; 				}
+	; 			}
+	; }
 
 	{"enhance aa gun's aa desire/p%player/detect and fire(sam)"
 				{condition  ; If enemy planes are near to player's AA
@@ -409,12 +462,12 @@
 								{ignore_captured_by_user 0}
 								("group_airborne" player(%player))
 							}
-							{distance 1000}
+							{distance 600}
 						}
 					}
 				}
 				{actions  ; Order attack
-					{"actor_fire"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
+					{"actor_state"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
 						{selector
 							("group_sam" player(%player))
 							{sort
@@ -429,6 +482,24 @@
 							}
 						}
 						{drop orders}
+						{weapon_prepare on}
+						{cannon fire}
+					}
+					{"actor_fire"  ; The closest AA to enemy planes, attacks the closest enemy plane to AA
+						{selector
+							("group_sam" player(%player))
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									("group_airborne" player(%player))
+								}
+							}
+							{amount 1
+							}
+						}
+						; {drop orders}
 						{attack enemies}
 						{enemies
 							{source advanced}
@@ -589,63 +660,63 @@
 				}
 	}
 
-	{"enhance aa gun's aa desire/p%player/remove aa_working tag(long)" ; Reset "aa_working" tag when target disappeared.
-				{condition
-					{expression "!1 & 2"}
-					{terms
-						{"1.near"
-							{units
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{include
-										{tag
-											{tag aa_long_working}
-										}
-										{player
-											{player "%player"}
-										}
-									}
-								}
-							}
-							{near_to
-								{source advanced}
-								{ignore_captured_by_user 0}
-								("group_airborne" player(%player))
-							}
-							{distance 600}
-						}
-						{"2.entities"
-							{selector
-								{ignore_captured_by_user 0}
-								{tag aa_long_working}
-								{player "%player"}
-							}
-						}
-					}
-				}
-				{actions
-					{"action"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag aa_long_working}
-							{player "%player"}
-						}
-						{drop orders}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag aa_long_working}
-							{player "%player"}
-						}
-						{tag_remove aa_long_working}
-					}
-					{"trigger"
-						{name "enhance aa gun's aa desire/p%player/remove aa_working tag(long)"}
-					}
-				}
-	}
+	; {"enhance aa gun's aa desire/p%player/remove aa_working tag(long)" ; Reset "aa_working" tag when target disappeared.
+	; 			{condition
+	; 				{expression "!1 & 2"}
+	; 				{terms
+	; 					{"1.near"
+	; 						{units
+	; 							{source advanced}
+	; 							{ignore_captured_by_user 0}
+	; 							{group
+	; 								{include
+	; 									{tag
+	; 										{tag aa_long_working}
+	; 									}
+	; 									{player
+	; 										{player "%player"}
+	; 									}
+	; 								}
+	; 							}
+	; 						}
+	; 						{near_to
+	; 							{source advanced}
+	; 							{ignore_captured_by_user 0}
+	; 							("group_airborne" player(%player))
+	; 						}
+	; 						{distance 600}
+	; 					}
+	; 					{"2.entities"
+	; 						{selector
+	; 							{ignore_captured_by_user 0}
+	; 							{tag aa_long_working}
+	; 							{player "%player"}
+	; 						}
+	; 					}
+	; 				}
+	; 			}
+	; 			{actions
+	; 				{"action"
+	; 					{selector
+	; 						{ignore_captured_by_user 0}
+	; 						{tag aa_long_working}
+	; 						{player "%player"}
+	; 					}
+	; 					{drop orders}
+	; 				}
+	; 				{"entity_state"
+	; 					{selector
+	; 						{ignore_captured_by_user 0}
+	; 						{tag aa_long_working}
+	; 						{player "%player"}
+	; 					}
+	; 					{tag_remove aa_long_working}
+	; 				}
+	; 				{"trigger"
+	; 					{name "enhance aa gun's aa desire/p%player/remove aa_working tag(long)"}
+	; 				}
+	; 			}
+	; }
 
 	{"enhance aa gun's aa desire/p%player/remove aa_working tag(sam)" ; Reset "aa_working" tag when target disappeared.
 				{condition
