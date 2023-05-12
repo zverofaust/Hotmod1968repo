@@ -6906,6 +6906,62 @@
 								{value 3}
 							}
 						}
+						{"case"
+							{condition
+								{type side}
+								{side usa}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 4}
+							}
+						}
+						{"case"
+							{condition
+								{type side}
+								{side sov}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 5}
+							}
+						}
+						{"case"
+							{condition
+								{type side}
+								{side prc}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 6}
+							}
+						}
+						{"case"
+							{condition
+								{type side}
+								{side frg}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 7}
+							}
+						}
 						{"default"
 							{"delay"
 								{time 0.1}
