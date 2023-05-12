@@ -463,7 +463,7 @@
 ;// FRG
 	{item "gunbag_frg_m2"							1 {value 20}}
 	{item "gunbag_frg_krh36"						1 {value 15}}
-	{item "gunbag_usa_mg3"							1 {value 10}}
+	{item "gunbag_frg_mg3"							1 {value 10}}
 	{item "ammobag_frg"								1 {value 20}}
 ;// PRC
 	{item "gunbag_prc_b10"							1 {value 10}}
