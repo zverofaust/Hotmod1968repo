@@ -38,8 +38,9 @@
 	("gunbag" guntype(82mm_bm37_sov)  			bagtype(gunbag_bm37))
 	("gunbag" guntype(b-10_82mm)  				bagtype(gunbag_b10))
 	("gunbag" guntype(spg9)  					bagtype(gunbag_spg9))
-	("gunbag" guntype(9m14_launcher)   			bagtype(gunbag_9m14_launcher))
-	("gunbag" guntype(9m14_controller)   		bagtype(gunbag_9m14_controller))
+	("gunbag" guntype(9m14)   					bagtype(gunbag_9m14))
+	;("gunbag" guntype(9m14_launcher)   		bagtype(gunbag_9m14_launcher))
+	;("gunbag" guntype(9m14_controller)   		bagtype(gunbag_9m14_controller))
 	;("gunbag" guntype(ammobag_sov_deployed)  	bagtype(ammobag_sov))
 	
 	;///USA
@@ -47,8 +48,9 @@
 	("gunbag" guntype(mg_stand_m60)   			bagtype(gunbag_m60))
 	("gunbag" guntype(mg_stand_m2)   			bagtype(gunbag_m2))
 	("gunbag" guntype(m29_mortar)  	 			bagtype(gunbag_m29))
-	("gunbag" guntype(entac_launcher)   		bagtype(gunbag_entac_launcher))
-	("gunbag" guntype(entac_controller)   		bagtype(gunbag_entac_controller))
+	("gunbag" guntype(entac)   					bagtype(gunbag_entac))
+	;("gunbag" guntype(entac_launcher)   		bagtype(gunbag_entac_launcher))
+	;("gunbag" guntype(entac_controller)   		bagtype(gunbag_entac_controller))
 	;("gunbag" guntype(ammobag_usa_deployed)  	bagtype(ammobag_usa))
 	
 	;///FRG

@@ -1,0 +1,152 @@
+;Exported by: misan
+;Date:        Fri May 12 10:30:08 2023
+;File:        D:\Cold War\ModelWIP\USA\ENTAC\ENTAC Singular.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.3}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "stand"
+			{parameters "id=body;"}
+			{Position 0	28.5592	2.7274}
+			{VolumeView "stand.ply"}
+			{bone "body"
+				{parameters "id=body;"}
+				{Position -2.08826	-0.463528	7.46266}
+				{VolumeView "body.ply"}
+				{bone revolute "bino_arm"
+					{parameters "id=body;"}
+					{Position 2.08764	1.397	6.01657}
+					{VolumeView "bino_arm.ply"}
+					{bone revolute "bino"
+						{parameters "id=body;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							0.0470223	-0.0763245	7.55912
+						}
+						{VolumeView "bino.ply"}
+						{bone "visor1"
+							{Matrix34
+								1	0	0
+								0	0	-1
+								0	1	0
+								0.801132	-0.0632477	-0.00456429
+							}
+						}
+					}
+				}
+			}
+		}
+		{bone "emit1"
+			{Position -8.58153	28.3714	0}
+		}
+		{bone "emit2"
+			{Position -19.5368	-28.694	0}
+		}
+		{bone revolute "turret"
+			{bone "launcher"
+				{parameters "id=turret;"}
+				{Matrix34
+					0.939693	0	0.34202
+					0	1	0
+					-0.34202	0	0.939693
+					-7.04394	0	0
+				}
+				{VolumeView "launcher.ply"}
+				{bone "legr"
+					{parameters "id=turret;"}
+					{Matrix34
+						0.212012	0.573577	0.79124
+						-0.148452	0.819152	-0.554033
+						-0.965926	0	0.258819
+						11.7408	-0.137617	0
+					}
+					{VolumeView "legr.ply"}
+				}
+				{bone "legl"
+					{parameters "id=turret;"}
+					{Matrix34
+						0.212012	-0.573577	0.79124
+						0.148452	0.819152	0.554033
+						-0.965926	0	0.258819
+						11.7408	0.129408	0
+					}
+					{VolumeView "legl.ply"}
+				}
+				{bone "rocket"
+					{parameters "id=body;"}
+					{Position 13.485	0	3.42984}
+					{VolumeView "rocket.ply"}
+				}
+			}
+			{bone revolute "aim_rot"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0.347403	0	11.8942
+				}
+				{bone "foresight1"
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						3.87572	-6.29425e-05	0
+					}
+				}
+			}
+		}
+		{bone "commander"
+			{Position -12.905	-28.6569	0}
+		}
+		{bone "gunner"
+			{Position -6.97667	29.3653	0}
+		}
+		{bone "driver2"
+			{Position -0.179841	-13.1238	0}
+		}
+		{bone "driver1"
+			{Position -6.60715	15.0656	0}
+		}
+		{bone "visor2"
+			{Position -2.43784	-28.6569	7.46812}
+		}
+	}
+}
+{Volume "body2"
+	{Cylinder 0.567094 10.138}
+	{Bone "bino_arm"}
+	{Position -0.150407	-0.00883102	2.68809}
+}
+{Volume "body3"
+	{Box 1.64109 1.81383 7.08258}
+	{Bone "stand"}
+	{Position -0.105883	0.00782013	2.60918}
+}
+{Volume "body"
+	{Box 5.9351 5.74365 4.81349}
+	{Bone "body"}
+	{Position 0.752613	0.707092	1.05687}
+}
+{Volume "select"
+	{Box 16 16 36.5675}
+	{Bone "body"}
+	{Position 0.663687	0.507559	8.0937}
+}
+{Volume "turret"
+	{Box 6.98065 6.9386 15.333}
+	{Bone "launcher"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		9.4443	0.0119755	3.45142
+	}
+}
