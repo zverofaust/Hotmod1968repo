@@ -1,6 +1,6 @@
 {Easy
 	{GlobalMaxCP 500}
-	{StageCP 50 60 70 80 90}
+	{StageCP 50 70 90 110 130}
 	{SpecialCP 50}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
@@ -52,15 +52,15 @@
 	{Resources
 		{Standard
 			{MP ;// Manpower (generic money)
-				{StartVal 1000}
+				{StartVal 2000}
 				{WinGain "1:200 4:250 6:30 8:350 10:400 12:600 14:800"} ;// games played : MP gain 
 				{LoseGain "1:100"}
 				{MapRewards	;//Bonus resources on various game types (a game can only be one randomly chosen type). Types: Airfield, Ammodepot, Bonus, Factory, Research.
-					{Airfield	250}
-					{Ammodepot	250}
+					{Airfield	400}
+					{Ammodepot	400}
 					{Bonus		2000}
-					{Factory	500}
-					{Research	500}
+					{Factory	750}
+					{Research	750}
 				}
 			}
 			{SP ;// Special Points (airstrikes)
@@ -81,17 +81,17 @@
 				}
 			}
 			{RP ;// Research points
-				{StartVal 10}
+				{StartVal 20}
 				{WinGain 5}
-				{LoseGain 2}
+				{LoseGain 1}
 				{MapRewards
 					{Bonus		2}
-					{Research	10}
+					{Research	12}
 				}
 			}
 			{Budget
 				{Start "0:100 4:110 8:120 12:130 16:140 20:150"} ;// games played : starting CP of each match 
-				{PointsPerSecond 0.25} ;// CP income
+				{PointsPerSecond 0.5} ;// CP income
 				{Limit 500} ;// Max CP 
 			}
 		}

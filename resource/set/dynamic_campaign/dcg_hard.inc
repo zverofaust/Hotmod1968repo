@@ -68,7 +68,7 @@
 				{WinGain "1:5 5:10 10:15"}
 				{LoseGain "1:0"}
 				{MapRewards
-					{Airfield	25}
+					{Airfield	22}
 				}
 			}
 			{AP ;// Ammo points
@@ -86,7 +86,7 @@
 				{LoseGain 1}
 				{MapRewards
 					{Bonus		0}
-					{Research	4}
+					{Research	6}
 				}
 			}
 			{Budget
