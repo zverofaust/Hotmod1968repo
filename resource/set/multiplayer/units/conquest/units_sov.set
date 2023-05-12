@@ -79,12 +79,12 @@
 ;// Helicopter CAS Runs
 
 {"cas_mi4_sov"
-	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(mil_mi4_airborne) crew(sup_pilot:1))
+	("squad_vehicle" side(sov) period(mid) min_stage(5) max_stage(99) cw(0) cp(4) vehicle(mil_mi4_airborne) crew(sup_pilot:1))
 	{cost 8}{action "airstrike:dummy_cas"}
 }
 
 {"cas_mi4_heavy_sov"
-	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:1))
+	("squad_vehicle" side(sov) period(mid) min_stage(8) max_stage(99) cw(0) cp(4) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:1))
 	{cost 16}{action "airstrike:dummy_cas"}
 }
 
@@ -215,9 +215,9 @@
 }
 
 ;;; Guards
-("squad_with4types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_guards_maneuv_con)		c1(grd_senior:1) c2(grd_mg:1) c3(grd_marksman:1) c4(grd_mgassist:1))
-("squad_with3types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_guards_fireteam_con)	c1(grd_senior:1) c2(grd_antitank:1) c3(grd_atassist:2) c4(grd_rifleman:1))
-("squad_with8types_conquest" side(sov) period(mid) min_stage(1) max_stage(99) name(squad_guards_con)			c1(grd_squadlead:1) c2(grd_antitank:1) c3(grd_atassist:2) c4(grd_mg:1) c5(grd_mgassist:1) c6(grd_marksman:1) c7(grd_senior:1) c8(grd_rifleman:1))
+("squad_with4types_conquest" side(sov) period(mid) min_stage(1) max_stage(99) name(squad_guards_maneuv_con)		c1(grd_senior:1) c2(grd_mg:1) c3(grd_marksman:1) c4(grd_mgassist:1))
+("squad_with3types_conquest" side(sov) period(mid) min_stage(1) max_stage(99) name(squad_guards_fireteam_con)	c1(grd_senior:1) c2(grd_antitank:1) c3(grd_atassist:2) c4(grd_rifleman:1))
+("squad_with8types_conquest" side(sov) period(mid) min_stage(2) max_stage(99) name(squad_guards_con)			c1(grd_squadlead:1) c2(grd_antitank:1) c3(grd_atassist:2) c4(grd_mg:1) c5(grd_mgassist:1) c6(grd_marksman:1) c7(grd_senior:1) c8(grd_rifleman:1))
 ("squad_with4types_conquest" side(sov) period(mid) min_stage(2) max_stage(99) name(squad_guards_mg_con)			c1(grd_squadlead:1) c2(grd_mg:3) c3(grd_mgassist:1) c4(grd_rifleman:3))
 ("squad_with4types_conquest" side(sov) period(mid) min_stage(3) max_stage(20) name(squad_guards_shock_con)		c1(grd_squadlead:1) c2(grd_antitank:3) c3(grd_atassist:1) c4(grd_flamer:3))
 
@@ -247,9 +247,9 @@
 
 ;;; VDV
 
-("squad_with3types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_vdv_recon_con)				c1(vdv_senior:1) c2(vdv_marksman:1) c3(vdv_rifleman:2))
-("squad_with3types_conquest" side(sov) period(mid) min_stage(0) max_stage(99) name(squad_vdv_hunter_con)			c1(vdv_senior:1) c2(vdv_antitank:2) c3(vdv_atassist:1))
-("squad_with7types_conquest" side(sov) period(mid) min_stage(1) max_stage(99) name(squad_vdv_con)					c1(vdv_squadlead:1) c2(vdv_lightmg:1) c3(vdv_lightmgassist:1) c4(vdv_antitank:1) c5(vdv_atassist:1) c6(vdv_marksman:1) c7(vdv_senior:1) c8(vdv_rifleman:1))
+("squad_with3types_conquest" side(sov) period(mid) min_stage(1) max_stage(99) name(squad_vdv_recon_con)				c1(vdv_senior:1) c2(vdv_marksman:1) c3(vdv_rifleman:2))
+("squad_with3types_conquest" side(sov) period(mid) min_stage(2) max_stage(99) name(squad_vdv_hunter_con)			c1(vdv_senior:1) c2(vdv_antitank:2) c3(vdv_atassist:1))
+("squad_with7types_conquest" side(sov) period(mid) min_stage(2) max_stage(99) name(squad_vdv_con)					c1(vdv_squadlead:1) c2(vdv_lightmg:1) c3(vdv_lightmgassist:1) c4(vdv_antitank:1) c5(vdv_atassist:1) c6(vdv_marksman:1) c7(vdv_senior:1) c8(vdv_rifleman:1))
 ("squad_with4types_conquest" side(sov) period(mid) min_stage(2) max_stage(99) name(squad_vdv_rcl_con)				c1(vdv_squadlead:1) c2(vdv_guncrew_b10:3) c3(vdv_rifleman:3) c4(vdv_antitank:1))
 {"squad_vdv_mi4_con(sov)" 
 	("squad_vehicle8"		 side(sov) period(mid) min_stage(5) max_stage(99) vehicle(mil_mi4_unarmed) cw(0) cp(4) 		crew1(sup_pilot:2) crew2(vdv_squadlead:1) crew3(vdv_marksman:1) crew4(vdv_antitank:1) crew5(vdv_atassist:1) crew6(vdv_lightmg:1) crew7(vdv_lightmgassist:1) crew8(vdv_senior:1))
@@ -258,7 +258,7 @@
 	("squad_vehicle6"		 side(sov) period(mid) min_stage(9) max_stage(99) vehicle(bmd-1) cw(0) cp(4) 			crew1(vdv_vehicleman:2) crew2(vdv_squadlead:1) crew3(vdv_marksman:1) crew4(vdv_antitank:1) crew5(vdv_lightmg:1) crew6(vdv_lightmgassist:1))
 }
 
-("squad_with4types_conquest" side(sov) period(mid) min_stage(1) max_stage(99) name(squad_spz_recon_con)				c1(spz_squadlead:1) c2(spz_marksman:1) c3(spz_antitank:1) c4(spz_spotter:1))
+("squad_with4types_conquest" side(sov) period(mid) min_stage(2) max_stage(99) name(squad_spz_recon_con)				c1(spz_squadlead:1) c2(spz_marksman:1) c3(spz_antitank:1) c4(spz_spotter:1))
 ("squad_with3types_conquest" side(sov) period(mid) min_stage(3) max_stage(99) name(squad_spz_sabo_con)				c1(spz_squadlead:1) c2(spz_demo:1) c3(spz_antitank:2))
 ("squad_with6types_conquest" side(sov) period(mid) min_stage(5) max_stage(99) name(squad_spz_con)					c1(spz_squadlead:1) c2(spz_mg:1) c3(spz_antitank:1) c4(spz_marksman:1) c5(spz_demo:1) c6(spz_rifleman:3))
 {"squad_spz_mi4_con(sov)" 
@@ -269,7 +269,7 @@
 }
 
 {"squad_spz_scout_moto_con(sov)" 
-	("squad_vehicle2"		 side(sov) period(mid) min_stage(1) max_stage(99) vehicle(m72_sov) cw(0) cp(4) 			crew1(spz_rifleman:2) crew2(spz_squadlead:1))
+	("squad_vehicle2"		 side(sov) period(mid) min_stage(2) max_stage(99) vehicle(m72_sov) cw(0) cp(4) 			crew1(spz_rifleman:2) crew2(spz_squadlead:1))
 }
 ;;; VMF
 
@@ -409,7 +409,7 @@
 	{cost 150}
 }
 ;{"gp1958"
-;	("vehicle" period(mid) min_stage(1) max_stage(25) side(sov) crew(vdv_rifleman:4) cw(4) cp(6))
+;	("vehicle" period(mid) min_stage(4) max_stage(25) side(sov) crew(vdv_rifleman:4) cw(4) cp(6))
 ;	{cost 175}
 ;}
 {"d-44"
