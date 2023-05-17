@@ -6977,7 +6977,7 @@
 							{"objective_progress"
 								{set 0}
 								{add 0}
-								{title "dcg side 01 error - report if you see this"}
+								{title ""}
 							}
 							{"delay"
 								{time 30}
@@ -6986,7 +6986,7 @@
 								{hide}
 								{set 0}
 								{add 0}
-								{title "dcg side 01 error - report if you see this"}
+								{title ""}
 							}
 						}
 					}
