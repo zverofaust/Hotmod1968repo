@@ -18,24 +18,16 @@
 	
 	{boarder
 		{anm "driver"
-			{forward {begin "board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{forward {begin "board_t34_driver"} {end "seat_gunner_stand"}}
 			{reverse {end "emit_t34_hold"} {base "close_driver"}}
 		}
 		{anm "left"
-			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} }
 			{reverse {end "emit_tank_1_hold"}}
 		}
 		{anm "right"
-			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} }
 			{reverse {end "emit_tank_1_hold"}}
-		}
-		{anm "armor"
-			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
-			{reverse {end "emit_tank_2"}}
-		}
-		{anm "armor1"
-			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
-			{reverse {end "emit_body"}}
 		}
 	}	
 	
@@ -104,17 +96,21 @@
 	{Extension "m108.mdl"}
 
 	{bone "turret"			;gun horizontal
-		{speed2 11}			;degree per second
+		{speed2 10}			;degree per second
 	}
 	{bone "gun_rot"			;gun vertical
-		{speed2 7}			;degree per second
-		{limits -3 75}		;min down to max up
+		{speed2 8}			;degree per second
+		{limits -5 75}		;min down to max up
 	}
 	{bone "mgun_rot"			;gun vertical
 		{speed2 40}			;degree per second
 		{limits -14 30}		;min down to max up
 	}
-	{bone "mgun_shield"
-		{limits -15 15}
+	{bone "mg_turret"			;gun horizontal
+		{speed2 40}			;degree per second
+		{limits -8 8}		;min down to max up
+	}
+	{bone "commander_turret"
+		{speed2 28}
 	}
 }

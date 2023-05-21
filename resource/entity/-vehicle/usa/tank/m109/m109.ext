@@ -15,7 +15,7 @@
 	("ammo" args "ammo2")
 	("ammo" args "ammo3")
 	("transmission" args "transmission")
-	("tracks" repair(30) thickness(20))
+	("tracks" repair(30) thickness(15))
 	
 	{volume "body1"			
 		{thickness 15
@@ -27,8 +27,18 @@
 			{front 30}	
 		}
 	}
+	{volume "body3"			
+		{thickness 15
+			{front 30}	
+		}
+	}
+	{volume "body4"			
+		{thickness 15
+			{front 30}	
+		}
+	}
 	{volume "engine"
-		{thickness 15}
+		{thickness 50}
 	}
 	{volume "turret"			
 		{thickness 15
@@ -39,7 +49,23 @@
 		{thickness 10}
 	}
 	
-	{volume "engine"		; Hull
+	{volume "engine"	
 		{thickness 15}
+		{HighHardness}
+	}
+	
+	{volume "shield1"		
+		{thickness 5}
+		{HighHardness}
+		{able{holed}}
+	}
+	
+	{volume "shield2"		
+		{thickness 5}
+		{HighHardness}
+	}
+	
+	{volume "shield3"		
+		{thickness 5}
 		{HighHardness}
 	}
