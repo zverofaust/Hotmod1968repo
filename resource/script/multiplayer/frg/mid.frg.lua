@@ -55,9 +55,7 @@ Purchases["mid.frg"] = {
 				--{priority = 1.0, type = {"Tank", "Medium",}, unit = "m48g"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "m48a2c"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "leopard_1"},
-				
 			--SPG
-				{priority = 1.0, type = {"Tank", "Medium", "Artillery",}, unit = "m108g"},
 			--Air Assets
 				{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "cas_uh1_frg"},
 				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_250_frg"},
