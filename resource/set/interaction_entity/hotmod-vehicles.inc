@@ -2212,7 +2212,17 @@
 {"m109"
 	("pz38_sound")
 	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
+		{ani_play "open"}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
+{"m109_acav"
+	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "open"}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
@@ -2222,7 +2232,7 @@
 {"m108"
 	("pz38_sound")
 	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
+		{ani_play "open"}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
