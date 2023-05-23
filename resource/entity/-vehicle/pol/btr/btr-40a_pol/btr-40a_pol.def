@@ -1,0 +1,119 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props 	"spaag" "tank" "turret" "with_gun" "wheeled" "vision_lev02" "muzzle_kpvt" "tractor" "tractor_light" "aa_short"}
+	{targetclass "armoredcar"}
+	{targetSelector "car_bullet"}
+	{PatherId "ba64"}
+	{collider "truck"}
+	
+	("armoredcar_tier1")
+	
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 8}   
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 8}
+		{able {holed}}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 8}
+		{able {holed}}
+	}
+	
+	{volume "turret"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 10}
+	}
+	{volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	{volume "gun1"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	{volume "gun2"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	
+	{volume "engine"
+		{thickness 8}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	
+	("transmission" args "transmission")
+	("fuel" args "fuel")
+	("ammo" args "ammo")
+	
+	;Crew: driver, commander, 4 passengers
+
+	(include "crew.ext")
+	
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_rus_kpvt" 1000}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+ 	{Weaponry
+		("restore_ik_time")
+		{place "mgun1"
+			{type "aa"}
+			{weapon "kpv_x2" filled}
+			{foresight "foresight4"}
+			{charger "charger"}
+			{Barrels 2}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 5000}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlf") wheelr("wrf") bonel("fxtracel1") boner("fxtracer1"))
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlm") wheelr("wrm") bonel("fxtracel2") boner("fxtracer2"))
+		("mobility_car"
+			speed(70) ;----------------------------------Max speed.
+			speedatmaxturn(18) ;-------------------------Max speed at max turn.
+			reverse(26) ;--------------------------------Max speed in Reverse.
+			weight(5) ;----------------------------------Weight in Tonnes.
+			power(80) ;----------------------------------Horse Power.
+			fuel(122) ;-----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(430) ;---------------------------------Range in Kilometers.
+		)
+	}
+	
+	{Extension "btr-40a_pol.mdl"}
+	
+	{bone "turret"
+		{speed2 24}
+	}
+	{bone "gun_rot" ;mgun horizontal
+		{limits 3 -80}
+		{speed2 42}
+	}
+}
