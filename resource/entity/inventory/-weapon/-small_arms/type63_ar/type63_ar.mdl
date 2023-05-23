@@ -1,0 +1,136 @@
+;Exported by: misan
+;Date:        Tue May 23 09:00:53 2023
+;File:        D:\Cold War\ModelWIP\Smallarms\Type 63 assault rifle\Type 63.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.7}}
+		{sequence "bipod_open" {speed 0.7}}
+	}
+	{bone "type63"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{LODView
+			{VolumeView "type63.ply"}
+			{VolumeView "type63_lod1.ply"}
+			{VolumeView "type63_lod2.ply"}
+			{VolumeView "type63_lod3.ply"}
+		}
+		{bone "bayonet"
+			{Matrix34
+				0	1	0
+				0	0	-1
+				-1	0	0
+				10.1881	0.6478	0.00494317
+			}
+			{LODView
+				{VolumeView "bayonet.ply"}
+				{VolumeView "bayonet_lod1.ply"}
+				{VolumeView "bayonet_lod2.ply"}
+				{VolumeView "bayonet_lod3.ply"}
+			}
+		}
+		{bone "bolt"
+			{Position 2.57677	1.42993	0.220651}
+			{LODView
+				{VolumeView "bolt.ply"}
+				{VolumeView "bolt_lod1.ply"}
+				{VolumeView "bolt_lod2.ply"}
+				{VolumeView "bolt_lod3.ply"}
+			}
+		}
+		{bone "magazine"
+			{Matrix34
+				1	0	0
+				0	0	-1
+				0	1	0
+				2.92447	0.441784	0.00320645
+			}
+			{LODView
+				{VolumeView "magazine.ply"}
+				{VolumeView "magazine_lod1.ply"}
+				{VolumeView "magazine_lod2.ply"}
+				{VolumeView "magazine_lod3.ply"}
+			}
+		}
+		{bone "handle"
+			{Matrix34
+				0	1	0
+				0	0	-1
+				-1	0	0
+				3.86496	1.8604	0.000573726
+			}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0	0.573576	0.819152
+				0	0.819152	-0.573576
+				-1	0	0
+				2.6072	1.4109	0.28012
+			}
+		}
+		{bone "foresight12"
+			{Position 11.6039	1.14944	0}
+		}
+	}
+}
+{Volume "body"
+	{Box 17.1334 3.53941 0.621716}
+	{Bone "type63"}
+	{Position 3.19409	0.358583	0.0454894}
+}
+{Volume "magazone"
+	{Box 1.22666 2.41826 0.375615}
+	{Bone "magazine"}
+	{Matrix34
+		0.939693	0	0.34202
+		-0.34202	0	0.939693
+		0	-1	0
+		0.285134	-0.00434012	-0.799774
+	}
+}
+{Volume "select"
+	{Box 21.0779 7.21689 1.60375}
+	{Bone "type63"}
+	{Position 3.1868	0.122112	0.0695861}
+}
+{Extender "preview"
+	{"stuff_primary"
+		{camera
+			{origin 3.68341	1.24275	23.4314}
+			{lookat 3.68341	-0.783736	0.268638}
+			{fov 45}
+			{horizon 5.00002}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position -5.52111	-0.701136	0.338745}
+			}
+			{"1"
+				{type point}
+				{position 5.972	-0.503878	11.3031}
+			}
+		}
+	}
+	{"stuff"
+		{camera
+			{origin 3.88575	-0.780004	22.9267}
+			{lookat 3.71603	0.361855	0.184574}
+			{fov 45}
+			{horizon 171.893}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 12.3158	-10.0099	-6.00437}
+			}
+			{"1"
+				{type point}
+				{position -1.06745	1.49305	12.6868}
+			}
+		}
+	}
+}
