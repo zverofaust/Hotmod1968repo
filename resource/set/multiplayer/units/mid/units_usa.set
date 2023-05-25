@@ -530,6 +530,9 @@
 }
 
 ; AT WEAPONRY
+
+("squad_weaponteam" side(usa) name(deploy_m20) 	period(mid) cd(0)   ci(30)  g(empl3)	c1(sup_guncrew_m20:1) c2(sup_guncrew:)	b(empl) t() cost(160))
+
 {"m40"
 	("vehicle" period(mid) cd(0) ci(30) t(cannon) side(usa) crew(sup_supporter:4)  g(empl3) b(empl) cw(4) cp(4))
 	{cost 150}
@@ -674,18 +677,23 @@
 ;|________________________________________________|
 
 {"mg_stand_m60_ai"
-	("vehicle" period(mid) cd(0) ci(30) t(cannon mortar) side(usa) crew(sup_supporter:2) cw(0) cp(4))
+	("vehicle" period(mid) cd(0) ci(30) t(cannon) side(usa) crew(sup_supporter:2) cw(0) cp(4))
 	{cost 80}{not_for_player_sale 1}
 }
 
 {"mg_stand_m2_ai"
-	("vehicle" period(mid) cd(30) ci(60) t(cannon mortar) side(usa) crew(sup_supporter:2) cw(0) cp(4))
+	("vehicle" period(mid) cd(30) ci(60) t(cannon) side(usa) crew(sup_supporter:2) cw(0) cp(4))
 	{cost 125}{not_for_player_sale 1}
 }
 
 {"m29_mortar_ai"
 	("vehicle" period(mid) cd(60) ci(60) t(cannon mortar) side(usa) crew(sup_supporter:2) cw(0) cp(4))
 	{cost 175}{not_for_player_sale 1}
+}
+
+{"m20_rcl_ai"
+	("vehicle" period(mid) cd(30) ci(30) t(cannon) side(usa) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 160}{not_for_player_sale 1}
 }
 
 {"uh-1b_airborne"

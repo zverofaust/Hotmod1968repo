@@ -172,6 +172,9 @@
 }
 
 ; AT WEAPONRY
+
+("squad_weaponteam" side(frg) name(deploy_m20) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_m20:1) c2(sup_guncrew:1)	b(empl) t() cost(160))
+
 {"m40g"
 	("vehicle" period(mid) cd(0) ci(30) t(cannon) side(frg) crew(sup_supporter:4)  g(empl3) b(empl) cw(4) cp(4))
 	{cost 150}
@@ -294,18 +297,23 @@
 ;|________________________________________________|
 
 {"mg3_lafette_ai"
-	("vehicle" period(mid) cd(0) ci(30) t(cannon mortar) side(frg) crew(sup_supporter:2) cw(0) cp(4))
+	("vehicle" period(mid) cd(0) ci(30) t(cannon) side(frg) crew(sup_supporter:2) cw(0) cp(4))
 	{cost 80}{not_for_player_sale 1}
 }
 
 {"mg_stand_m2g_ai"
-	("vehicle" period(mid) cd(30) ci(60) t(cannon mortar) side(frg) crew(sup_supporter:2) cw(0) cp(4))
+	("vehicle" period(mid) cd(30) ci(60) t(cannon) side(frg) crew(sup_supporter:2) cw(0) cp(4))
 	{cost 125}{not_for_player_sale 1}
 }
 
 {"81mm_krh36_frg_ai"
 	("vehicle" period(mid) cd(60) ci(60) t(cannon mortar) side(frg) crew(sup_supporter:2) cw(0) cp(4))
 	{cost 175}{not_for_player_sale 1}
+}
+
+{"m20g_rcl_ai"
+	("vehicle" period(mid) cd(30) ci(30) t(cannon) side(frg) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 160}{not_for_player_sale 1}
 }
 
 

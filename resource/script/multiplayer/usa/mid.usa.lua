@@ -28,6 +28,7 @@ Purchases["mid.usa"] = {
 				--Anti Aircraft
 				{priority = 1.0, type = {"Cannon", "AA", "Class2",}, unit = "m45_maxson"},
 				--Anti Tank
+				{priority = 1.0, type = {"Cannon", "AT", "Class3",}, unit = "m20_rcl_ai"},
 				{priority = 1.0, type = {"Cannon", "AT", "Class2",}, unit = "m40"},
 				--Mortars
 				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "m29_mortar_ai"},

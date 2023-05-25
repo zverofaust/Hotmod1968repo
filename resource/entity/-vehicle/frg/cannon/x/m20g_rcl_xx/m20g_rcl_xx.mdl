@@ -1,0 +1,156 @@
+;Exported by: misan
+;Date:        Thu May 25 09:59:15 2023
+;File:        D:\Cold War\ModelWIP\USA\M20 RCL\M20 RCL XX.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Matrix34
+				1	0	0
+				0	0.939693	-0.34202
+				0	0.34202	0.939693
+				0.393783	0	0.49461
+			}
+			{VolumeView "body.ply"}
+			{bone "stand_r"
+				{parameters "id=body;"}
+				{Matrix34
+					-0.491748	-0.424375	-0.760323
+					-0.382163	0.889786	-0.249466
+					0.782391	0.167893	-0.59973
+					1.32788	-1.583	0.749159
+				}
+				{VolumeView "stand_r.ply"}
+			}
+			{bone "stand_b"
+				{parameters "id=body;"}
+				{Matrix34
+					0.996195	0	-0.0871559
+					0	1	0
+					0.0871558	0	0.996195
+					-1.65878	-0.00664315	0.693937
+				}
+				{VolumeView "stand_b.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "id=turret;"}
+				{Matrix34
+					0.970296	0.241922	0
+					-0.241922	0.970296	0
+					0	0	1
+					0	0	3.13316
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "id=turret;"}
+					{Matrix34
+						0.978148	0	-0.207912
+						0.207912	0	0.978148
+						0	-1	0
+						2.07621	0.00961298	3.38745
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "screw"
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							4.53317	-0.499287	0.0103003
+						}
+						{VolumeView "screw.ply"}
+					}
+					{bone "gun"
+						{parameters "id=gun;"}
+						{Matrix34
+							0.996195	0.0871557	0
+							0	0	-1
+							-0.0871557	0.996195	0
+							-2.00932	0.257181	0.0096128
+						}
+						{VolumeView "gun.ply"}
+						{bone "sight"
+							{parameters "id=gun;"}
+							{Position 0.203191	0	1.67642}
+							{VolumeView "sight.ply"}
+						}
+						{bone "breech"
+							{parameters "id=gun;"}
+							{Position -9.24878	0	-0.992893}
+							{VolumeView "breech.ply"}
+							{bone "breech_handle"
+								{parameters "id=gun;"}
+								{Position -0.340752	0	2.68473}
+								{VolumeView "breech_handle.ply"}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Box 3.44153 3.69285 3.28839}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		0.270085	0.0548428	1.11765
+	}
+}
+{Volume "body2"
+	{Cylinder 0.648146 16.3463}
+	{Bone "stand_b"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-8.01675	0.00664465	-0.0317785
+	}
+}
+{Volume "body4"
+	{Cylinder 0.648146 14.5482}
+	{Bone "stand_r"}
+	{Matrix34
+		0.292819	0.955427	0.0376476
+		0.567729	-0.20541	0.797177
+		0.769377	-0.212056	-0.602571
+		6.53818	-1.96776	-4.42997
+	}
+}
+{Volume "gun1"
+	{Cylinder 1.27418 40.214}
+	{Bone "gun"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		18.2338	0.0108911	1.66013
+	}
+}
+{Volume "gun2"
+	{Cylinder 2.20434 7.72109}
+	{Bone "gun"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-5.7055	0.0108897	1.66013
+	}
+}
+{Volume "turret"
+	{Box 2.32635 4.02989 8.15137}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	0	1
+		0	1	0
+		-1	0	0
+		0.802749	-1.56305	-0.0837064
+	}
+}

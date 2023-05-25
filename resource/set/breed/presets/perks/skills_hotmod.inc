@@ -31,6 +31,7 @@
 		{"fortifications" "deploy_m60"}	
 		{"fortifications" "deploy_m2"}	
 		{"fortifications" "deploy_m29"}
+		{"fortifications" "deploy_m20"}
 		{"fortifications" "deploy_entac"}
 		{"fortifications" "deploy_entac_launcher"}
 		{"fortifications" "deploy_entac_controller"}
@@ -39,6 +40,7 @@
 		{"fortifications" "deploy_mg3"}	
 		{"fortifications" "deploy_m2_frg"}	
 		{"fortifications" "deploy_krh36_frg"}
+		{"fortifications" "deploy_m20_frg"}	
 		{"fortifications" "deploy_ammobag_frg"}
 		
 		{"fortifications" "deploy_sg43_prc"}	

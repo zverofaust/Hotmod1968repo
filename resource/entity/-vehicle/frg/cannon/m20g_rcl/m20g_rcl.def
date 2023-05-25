@@ -1,0 +1,104 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(0.6))
+	{props "recoilless" "wheeled" "vision_lev03_can" "muzzle_75mm_76mm" "cannon_sandbag_small" "detect_atgun_small" "carried" "shell_eject" "gunbagged"}
+	{collider "cannon_small"}
+	{targetclass "cannon_small"}
+	{targetSelector "cannon_small"}
+	
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 15}
+		{able {visible 1}}
+	}
+	{Volume "gun"
+		{Tags  "gun"}
+		{Thickness 15}
+		{able {visible 1}}
+	}
+	
+	("armor_light_cannon")
+	
+	("crew_wheeled_cannon")
+	
+	("gun" repair(30) thickness(15))
+	
+	{sensor
+		{visor "gunner"
+			{vision "tank_main-l"}
+			{bone "foresight1"}
+		}
+	}
+	
+	{boarder
+		{anm "gunner"
+			{forward {end "cannon_small_gunner" 10}}
+		}
+		{anm "commander"
+			{forward {end "cannon_small_charger" 10}}
+		}
+		{anm "driver1"	;// gunner
+			{forward {end "mortar_driver_r" 10}}
+		}
+		{anm "driver2"	;// charger
+			{forward {end "mgun_browning_driver_r" 10}}
+		}
+	}
+	
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "mgun_browning_driver_r" "mortar_driver_r"}
+			{aim "cannon_small_gunner_aim" "cannon_small_charger_aim"}
+			{fire  "cannon_small_gunner_fire" "cannon_small_charger_fire"}
+			{reload  "cannon_small_gunner_reload" "cannon_small_charger_reload"}
+		}
+		{move {workers "driver1" "driver2" minWorkers 2}{obstacle "close"}}
+		{attack {workers "gunner" "commander"}{obstacle "open"}}
+		;{rotate_ik_Limit 0}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet75_m20 heat" 10}
+			{item "ammo bullet75_m20 he" 5}
+			{item "sandbag_vehicle" 1}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon	"75mm_m20" filling "ammo bullet75_m20 heat" 1}
+			{RestoreIKAfterAim}
+			{basic}
+			{RestoreIKAfterAim}
+			("abm_dymamic_gun"
+				zeroing(1.50)
+				dispersion(0.35)
+			)
+		
+		}
+	} 	
+	
+	{mass 120}
+
+	{Extension "m20g_rcl.mdl"}
+	
+	{Chassis
+		("mobility_cannon"
+			speed(14) ;----------------------------------Max speed.
+			weight(120) ;---------------------------------Weight in Kilograms.
+		)
+	}
+	
+	{bone "basis"
+		{speed2 12}
+	}
+    {bone "turret"
+		{limits -15 15}
+		{speed2 14}
+	}
+    {bone "gun_rot"
+		{limits -5 15}
+		{speed2 16}
+	}
+}

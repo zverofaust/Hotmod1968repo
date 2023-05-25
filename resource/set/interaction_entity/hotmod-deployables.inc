@@ -48,6 +48,7 @@
 	("gunbag" guntype(mg_stand_m60)   			bagtype(gunbag_m60))
 	("gunbag" guntype(mg_stand_m2)   			bagtype(gunbag_m2))
 	("gunbag" guntype(m29_mortar)  	 			bagtype(gunbag_m29))
+	("gunbag" guntype(m20_rcl)  	 			bagtype(gunbag_m20))
 	("gunbag" guntype(entac)   					bagtype(gunbag_entac))
 	;("gunbag" guntype(entac_launcher)   		bagtype(gunbag_entac_launcher))
 	;("gunbag" guntype(entac_controller)   		bagtype(gunbag_entac_controller))
@@ -57,6 +58,7 @@
 	("gunbag" guntype(mg3_lafette)   			bagtype(gunbag_mg3))
 	("gunbag" guntype(mg_stand_m2g)   			bagtype(gunbag_m2_frg))
 	("gunbag" guntype(81mm_krh36_frg)  			bagtype(gunbag_krh36_frg))
+	("gunbag" guntype(m20g_rcl)   				bagtype(gunbag_m20_frg))
 	;("gunbag" guntype(ammobag_frg_deployed)  	bagtype(ammobag_frg))
 
 	;///PRC

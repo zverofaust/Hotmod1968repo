@@ -35,6 +35,7 @@ Purchases["conquest.frg"] = {
 				{priority = 1.0, type = {"Cannon", "AA",}, unit = "fk20-2"},
 				{priority = 0.5, type = {"Cannon", "AA",}, unit = "40mm_bofors_l70_frg"},
 				--Anti Tank
+				{priority = 1.0, type = {"Cannon", "AT",}, unit = "m20g_rc_ai"},
 				{priority = 1.0, type = {"Cannon", "AT",}, unit = "m40g"},
 				--Mortars
 				{priority = 1.0, type = {"Cannon", "Mortar",}, unit = "81mm_krh36_frg_ai"},

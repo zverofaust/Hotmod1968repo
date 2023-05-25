@@ -1657,6 +1657,24 @@
 	}
 }
 
+{"m20_rcl"			
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2)
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_75_76"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{call "spawn_shell"}
+	}
+	{on "add_movement_sound"
+		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+	}
+}
+
 {"m40"			
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
@@ -1836,6 +1854,42 @@
 
 {"fk20-2"
 	("cannon_small")
+}
+
+{"m20g_rcl"			
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2)
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_75_76"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{call "spawn_shell"}
+	}
+	{on "add_movement_sound"
+		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+	}
+}
+
+{"m20g_rcl_ai"			
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2)
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_75_76"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{call "spawn_shell"}
+	}
+	{on "add_movement_sound"
+		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+	}
 }
 
 {"m40g"			

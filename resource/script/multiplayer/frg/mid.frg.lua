@@ -22,17 +22,18 @@ Purchases["mid.frg"] = {
 
 			-- Cannons	
 				--HMGs
-				{priority = 1.0, type = {"Cannon", "MG",}, unit = "mg3_lafette_ai"},
+				{priority = 1.0, type = {"Cannon", "MG", "Class3",}, unit = "mg3_lafette_ai"},
 				--{priority = 1.0, type = {"Cannon", "MG",}, unit = "mg_stand_m2g_ai"},
 				--Anti Aircraft
 				--{priority = 1.0, type = {"Cannon", "AA",}, unit = "m45g"},
-				{priority = 1.0, type = {"Cannon", "AA",}, unit = "fk20-2"},
-				{priority = 0.5, type = {"Cannon", "AA",}, unit = "40mm_bofors_l70_frg"},
+				{priority = 1.0, type = {"Cannon", "AA", "Class2",}, unit = "fk20-2"},
+				{priority = 0.5, type = {"Cannon", "AA", "Class1",}, unit = "40mm_bofors_l70_frg"},
 				--Anti Tank
-				{priority = 1.0, type = {"Cannon", "AT",}, unit = "m40g"},
+				{priority = 1.0, type = {"Cannon", "AT", "Class3",}, unit = "m20g_rcl_ai"},
+				{priority = 1.0, type = {"Cannon", "AT", "Class2",}, unit = "m40g"},
 				--Mortars
-				--{priority = 1.0, type = {"Cannon", "Mortar",}, unit = "81mm_krh36_frg_ai"},
-				{priority = 1.0, type = {"Cannon", "Mortar",}, unit = "120mm_krh40_frg"},
+				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "81mm_krh36_frg_ai"},
+				{priority = 1.0, type = {"Cannon", "Mortar", "Class1",}, unit = "120mm_krh40_frg"},
 				--Infantry_Support
 				--{priority = 1.0, type = {"Cannon", "Support",}, unit = "m116g"},
 				--Artillery
