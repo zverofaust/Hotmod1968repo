@@ -116,6 +116,8 @@
 	{item "mortarusa_81" 	"sm"	"ammo" 1  {value 5}}
 	{item "mortarusa_107" 	"he"	"ammo" 1  {value 7}}
 	{item "mortarusa_107"	"sm"	"ammo" 1  {value 7}}
+	{item "bullet75_m20" 	"heat"	"ammo" 1  {value 15}} 
+	{item "bullet75_m20"  	"he"	"ammo" 1  {value 10}}
 	{item "bullet106_m40" 	"heat"	"ammo" 1  {value 15}} 
 	{item "bullet106_m40"  	"he"	"ammo" 1  {value 10}}
 	{item "mgm32a"			"atgm"	"ammo" 1  {value 15}}
@@ -326,6 +328,9 @@
 	{item "bullet75_m6"			"ap"		"ammo" 1 {value 4}}
 	{item "bullet75_m6"			"apcbche"	"ammo" 1 {value 5}}
 	{item "bullet75_m6"			"he"		"ammo" 1 {value 4}}
+	
+	{item "bullet75_m20" 		"heat"		"ammo" 1  {value 15}} ;// M20 recoilless rifle
+	{item "bullet75_m20"  		"he"		"ammo" 1  {value 10}}
 	
 	{item "bullet76_m1a2"		"apcr"		"ammo" 1 {value 5}}
 	{item "bullet76_m1a2"		"ap"		"ammo" 1 {value 5}}
