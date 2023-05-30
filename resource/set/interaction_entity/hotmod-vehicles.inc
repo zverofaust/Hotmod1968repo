@@ -469,6 +469,12 @@
 	("animation_sound" args "open_right")
 }
 
+{"gaz-51_eng car"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
 {"zil-130 car"
 	("zis5_sound")
 }
@@ -2267,6 +2273,30 @@
 
 {"munga4"
 	("kubel_sound")
+}
+
+{"unimog404s car"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
+{"gaz-51 car"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
+{"gaz-51_ammo car"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
+{"gaz-51_eng car"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
 }
 
 {"m39g_apc tank"
