@@ -1,0 +1,32 @@
+{boarder
+	{anm "driver"
+		{forward	{begin	"board_kubel_leftpassenger"} {end "seat_driver_car"}}
+		{reverse 	{end	"board_kubel_leftpassenger" -1}}
+	}
+	{anm "commander"
+		{forward	{begin	"board_Kubel_rightpassenger"} {end "seat_passenger"}}
+		{reverse 	{end	"board_Kubel_rightpassenger" -1}}
+	}
+	{anm "passenger"
+			{forward {begin "board_body"} {end "seat_passenger"} {base "door_back"}}
+			{reverse {end "emit_body" 1} {base "door_back"}}
+		}
+}
+
+{placer
+	{place "driver"		{group "passenger"} {visor "driver"}}
+	{place "commander"	{group "passenger"} {visor "commander"}}
+	{place "seat01"		{group "passenger"} {visor "passenger"}}
+	{place "seat02"		{group "passenger"} {visor "passenger"}}
+	{place "seat03"		{group "passenger"} {visor "passenger"}}
+	{place "seat04"		{group "passenger"} {visor "passenger"}}
+}
+	
+("crew_human"		place(driver)		bone(driver)				door(emit1)		animation(driver) 		group(passenger))
+("crew_human"		place(commander) 	bone(commander)				door(emit2)		animation(commander) 	group(passenger))
+("crew_human"		place(seat01)		bone(seat01)				door(emit3)		animation(passenger)	group(passenger))
+("crew_human"		place(seat02)		bone(seat02)				door(emit3)		animation(passenger)	group(passenger))
+("crew_human"		place(seat03)		bone(seat03)				door(emit3)		animation(passenger)	group(passenger))
+("crew_human"		place(seat04)		bone(seat04)				door(emit3)		animation(passenger)	group(passenger))
+("crew_human"		place(seat05)		bone(seat05)				door(emit3)		animation(passenger)	group(passenger))
+("crew_human"		place(seat06)		bone(seat06)				door(emit3)		animation(passenger)	group(passenger))

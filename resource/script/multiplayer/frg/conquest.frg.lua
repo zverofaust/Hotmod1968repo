@@ -47,9 +47,10 @@ Purchases["conquest.frg"] = {
 				--{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "m114g"},
 				--{priority = 0.1, type = {"Cannon", "Artillery",}, unit = "m115g"},	
 				--Rocket Artillery
-	
-			--APCs/BTRs
+			--Vehicles
 				{priority = 1.0, type = {"Vehicle", "MG",}, unit = "munga4_mg3"},
+				{priority = 1.0, type = {"Vehicle", "AT",}, unit = "munga8_m40"},
+			--APCs/BTRs
 				{priority = 0.5, type = {"Tank", "Light",}, unit = "spz_112"},
 				{priority = 0.5, type = {"Tank", "Light", "AT",}, unit = "spz_123_m40"},
 				{priority = 0.5, type = {"Tank", "Light", "AT",}, unit = "rakjpz_1"},

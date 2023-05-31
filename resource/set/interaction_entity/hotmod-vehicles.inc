@@ -1,5 +1,9 @@
 ;/*=========== Hotmod Specifics Begin  ===========*/
-
+{"vehicle"
+	{on spawn
+		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
+	}
+}
 ;/*===========  Command Vehicle Props  ===========*/
 
 {"radio"
@@ -269,6 +273,69 @@
 		{call "update_mg_turret"}
 	}
 }
+
+;/*=========== spawn_shell script for vehicles? ===========*/
+
+{"moto shell_eject"
+	{on fire "gun"
+		{call "spawn_shell"}
+	}
+	{on "spawn_shell"
+		{tags add "gun_fired"}
+		{call "spawn_shell_delay"}
+		(define "shell_eject_delay"
+			{delay_ex %0
+				{ani_play "shell_eject" 1}			;// door/hatch animation for tank to open and shell is thrown out
+				{ani_play "shell_hatch" 1}
+				{delay_ex %1
+					{add_view "smoke_breach" "smoke_shell" "fx_invers"}
+					{view start "smoke_shell"}
+					{delay 2.5 0.5
+						{view pause "smoke_shell"}
+					}
+					{spawn "shell_cannon" "fx_invers" x scale 0.014
+						{impulse forward 4 0.5 rnd_dir 0.1 0.1 cz 0.2 0.1 com}
+						{add_view "smoke_empty_shell" "smoke_shell" "fx_shellsmoke"}
+						{view start "smoke_shell"}
+						{delay_effect 3 1 "stop"}
+						{##delay 3 0.5
+							{hide 3}
+						}
+					}
+				}
+			}
+		)
+	}
+
+	{on "spawn_shell_delay"
+		("shell_eject_delay" args 0 0)
+	}
+
+	{on "reload"
+		{call "reload_delay"}
+		(define "reload_delay"
+			{if tagged "gun_fired"
+				{delay %0 ;4.5
+					{tags remove "gun_fired"}
+					{ani_play "shell_eject" -1.0}
+					{ani_play "shell_hatch" -1.0}
+				}
+			else
+				{delay %1 ;0.5
+					{ani_play "shell_eject" 1.0}
+				}
+				{delay %2 ;5
+					{ani_play "shell_eject" -1.0}
+				}
+			}
+		)
+	}
+
+	{on "reload_delay"
+		("reload_delay" args 4.5 0.5 5)
+	}
+}
+	
 ;/// Added from Valour mod
 (define "m4a3_sound"
 	{on "add_movement_sound" overload
@@ -1443,20 +1510,15 @@
 	("kubel_sound")
 }
 
-{"m151_m1919"
-	("kubel_sound")
-}
-
-{"m151_m2"
-	("kubel_sound")
-}
-
-{"m151_m60"
-	("kubel_sound")
-}
-
 {"m151_m40"
-	("kubel_sound")
+	{on fire "gun"
+		{ani_play "fire"}
+		{view start "flashbarrelsmall"}
+		{call "spawn_shell"}
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1)
+	}
 }
 
 {"m151_m40_airlift"
@@ -2271,8 +2333,19 @@
 
 ;/*=========== FRG Vehicles BEGIN  ===========*/
 
-{"munga4"
+{"munga"
 	("kubel_sound")
+}
+
+{"munga8_m40"
+	{on fire "gun"
+		{ani_play "fire"}
+		{view start "flashbarrelsmall"}
+		{call "spawn_shell"}
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1.2)
+	}
 }
 
 {"unimog404s car"

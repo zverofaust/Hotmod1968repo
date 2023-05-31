@@ -44,6 +44,7 @@ Purchases["mid.frg"] = {
 	
 			--APCs/BTRs
 				{priority = 1.0, type = {"Vehicle", "MG", "Class3",}, unit = "munga4_mg3"},
+				{priority = 1.0, type = {"Vehicle", "AT", "Class2",}, unit = "munga8_m40"},
 				
 			--Tanks
 				{priority = 1.0, type = {"Tank", "Light",}, unit = "spz_112"},
