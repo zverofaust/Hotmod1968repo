@@ -503,6 +503,89 @@
 
 ;/*============================== RANGES AND SPECIFICS ==============================*/
 
+;/*======== HOTMOD Ranges =======*/
+
+(define "range_autocannon"
+	("standard_firing_arc")
+	{range 180 200}
+	{automatic}
+	{aimingTolerance 3}
+	{SpreadTolerance 0}			;// Zeroing up to 0% needed before fire
+	{spreading
+		{BurstRecoveryTime 0.5}
+		{BurstAccuracy 100 98 95 90 85 80 75 70}
+		{SpreadXYRatio	0.5}
+	}
+	{burst
+		{short 2 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 5 1}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.5}			;// rangeKoef * aimRange = max long burst distance
+	}
+	{SyncedProjectiles 0}		;// not for automatic weapons
+)
+
+(define "range_rcl"
+	("standard_firing_arc")
+	{range 180 200}
+	("direct_settings")
+)
+
+(define "range_short"
+	("standard_firing_arc")
+	{range 230 250}
+	("direct_settings")
+)
+
+(define "range_medium"
+	("standard_firing_arc")
+	{range 280 300}
+	("direct_settings")
+)
+
+(define "range_long"
+	("standard_firing_arc")
+	{range 320 350}
+	("direct_settings")
+)
+
+(define "range_atgm"
+	("standard_firing_arc")
+	{range 400 400}
+	;{minRange 50}
+	{SpreadTolerance 0.4}		;// Zeroing up to 40% needed before fire
+	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
+	{spreading {SpreadXYRatio 0.4}}
+)
+
+(define "range_sam"
+	("standard_firing_arc")
+	{range 800 800}
+	{minRange 50}
+	{SpreadTolerance 0.1}		;// Zeroing up to 10% needed before fire
+	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
+	{spreading {SpreadXYRatio 0.4}}
+)
+
+(define "range_howitzer_short"
+	("curved_firing_arc")
+	{range 300 300}
+	("indirect_settings")
+)
+
+(define "range_howitzer_medium"
+	("curved_firing_arc")
+	{range 550 550}
+	("indirect_settings")
+)
+
+(define "range_howitzer_long"
+	("curved_firing_arc")
+	{range 800 800}
+	("indirect_settings")
+)
+
+;/*======== END HOTMOD Ranges =======*/
+
 (define "range_aircraft_gun"
 	("standard_firing_arc")
 	{range 220 220}
@@ -717,24 +800,6 @@
 	("standard_firing_arc")
 	{range 400 400}
 	("direct_settings")
-)
-
-(define "range_atgm"
-	("standard_firing_arc")
-	{range 400 400}
-	;{minRange 50}
-	{SpreadTolerance 0.4}		;// Zeroing up to 40% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
-)
-
-(define "range_sam"
-	("standard_firing_arc")
-	{range 800 800}
-	{minRange 50}
-	{SpreadTolerance 0.1}		;// Zeroing up to 10% needed before fire
-	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 0.4}}
 )
 
 (define "range_160_howitzer"
