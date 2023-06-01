@@ -35,28 +35,28 @@ Purchases["mid.frg"] = {
 				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "81mm_krh36_frg_ai"},
 				{priority = 1.0, type = {"Cannon", "Mortar", "Class1",}, unit = "120mm_krh40_frg"},
 				--Infantry_Support
-				--{priority = 1.0, type = {"Cannon", "Support",}, unit = "m116g"},
+				--{priority = 1.0, type = {"Cannon", "Support", "Class3",}, unit = "m116g"},
 				--Artillery
-				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m101g"},
-				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m114g"},
-				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m115g"},	
+				--{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "m101g"},
+				--{priority = 1.0, type = {"Cannon", "Artillery", "Class2",}, unit = "m114g"},
+				--{priority = 1.0, type = {"Cannon", "Artillery", "Class1",}, unit = "m115g"},	
 				--Rocket Artillery
 	
 			--APCs/BTRs
 				{priority = 1.0, type = {"Vehicle", "MG", "Class3",}, unit = "munga4_mg3"},
-				{priority = 1.0, type = {"Vehicle", "AT", "Class2",}, unit = "munga8_m40"},
+				{priority = 1.0, type = {"Vehicle", "AT", "Class3",}, unit = "munga8_m40"},
 				
 			--Tanks
-				{priority = 1.0, type = {"Tank", "Light",}, unit = "spz_112"},
-				{priority = 1.0, type = {"Tank", "Light", "AT",}, unit = "rakjpz_1"},
-				{priority = 1.0, type = {"Tank", "Light",}, unit = "m41g"},
-				{priority = 1.0, type = {"Tank", "Light", "AA",}, unit = "m42g"},
+				{priority = 1.0, type = {"Tank", "Light", "Class3",}, unit = "spz_112"},
+				{priority = 1.0, type = {"Tank", "Light", "AT", "Class2",}, unit = "rakjpz_1"},
+				{priority = 1.0, type = {"Tank", "Light", "Class2",}, unit = "m41g"},
+				{priority = 1.0, type = {"Tank", "Light", "AA", "Class2",}, unit = "m42g"},
 
-				--{priority = 1.0, type = {"Tank", "Medium",}, unit = "m47frg"},
-				{priority = 1.0, type = {"Tank", "Medium",}, unit = "m47g"},
-				--{priority = 1.0, type = {"Tank", "Medium",}, unit = "m48g"},
-				{priority = 1.0, type = {"Tank", "Medium",}, unit = "m48a2c"},
-				{priority = 1.0, type = {"Tank", "Medium",}, unit = "leopard_1"},
+				--{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "m47frg"},
+				{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "m47g"},
+				--{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "m48g"},
+				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "m48a2c"},
+				{priority = 1.0, type = {"Tank", "Medium", "Class1",}, unit = "leopard_1"},
 			--SPG
 			--Air Assets
 				{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "cas_uh1_frg"},
