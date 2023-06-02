@@ -1,38 +1,56 @@
-(define "deploy_bots"
-	{easy
-		{unitset
-			{value %period}
-		}
-		{balancingFactorBonus {cp 0.50} {mpStart 1.00} {mpFinish 0.75} {payback 1.00} {charge 1.0}}
-		{chargeFactors
-			{value "*=1.0"}
-		}
+{easy
+	{unitset
+		{value %period}
 	}
-	{normal
-		{unitset
-			{value %period}
-		}
-		{balancingFactorBonus {cp 0.60} {mpStart 1.20} {mpFinish 2.00} {payback 1.20} {charge 0.75}}
-		{chargeFactors
-			{value "*=1.0"}
-		}
+	{balancingFactorBonus
+		{cp 1.00}
+		{mpStart 1.10}
+		{mpFinish 1.00}
+		{payback 2.00}
+		{chargeDelay 1.0}	;// adjusts the inital delay only
+		{charge 1.0}		;// adjusts the interval only
 	}
-	{hard
-		{unitset
-			{value %period}
-		}
-		{balancingFactorBonus {cp 0.80} {mpStart 1.40} {mpFinish 3.00} {payback 1.40} {charge 0.5}}
-		{chargeFactors
-			{value "*=1.0"}
-		}
+	{unitScore 0.9}
+}
+{normal
+	{unitset
+		{value %period}
 	}
-	{heroic
-		{unitset
-			{value %period}
-		}
-		{balancingFactorBonus {cp 1.00} {mpStart 1.60} {mpFinish 4.00} {payback 1.60} {charge 0.5}}
-		{chargeFactors
-			{value "*=1.0"}
-		}
+	{balancingFactorBonus
+		{cp 1.00}
+		{mpStart 1.10}
+		{mpFinish 1.00}
+		{payback 3.00}
+		{chargeDelay 1.0}	;// adjusts the inital delay only
+		{charge 1.0}		;// adjusts the interval only
 	}
-)
+	{unitScore 0.8}
+}
+{hard
+	{unitset
+		{value %period}
+	}
+	{balancingFactorBonus
+		{cp 1.00}
+		{mpStart 1.10}
+		{mpFinish 1.25}
+		{payback 4.00}
+		{chargeDelay 1.0}	;// adjusts the inital delay only
+		{charge 1.0}		;// adjusts the interval only
+	}
+	{unitScore 0.7}
+}
+{heroic
+	{unitset
+		{value %period}
+	}
+	{balancingFactorBonus
+		{cp 1.10}
+		{mpStart 1.10}
+		{mpFinish 1.50}
+		{payback 4.00}
+		{chargeDelay 1.0}	;// adjusts the inital delay only
+		{charge 1.0}		;// adjusts the interval only
+	}
+	{unitScore 0.6}
+}

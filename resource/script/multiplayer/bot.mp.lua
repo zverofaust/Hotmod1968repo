@@ -406,6 +406,7 @@ function GetUnitToSpawn(units)
 		"soldier_pzfaust",
 		"soldier_atr",
 		"soldier_atr_grenade",
+		"soldier_at",
 	}
 	local sceneUnits = BotApi.Scene:QueryScene(searchProps, 5)
 
@@ -421,6 +422,7 @@ function GetUnitToSpawn(units)
 		["soldier_pzfaust"] = {"BotInfantry", "BotATInfantry"},
 		["soldier_atr"] = {"BotInfantry", "BotATInfantry"},
 		["soldier_atr_grenade"] = {"BotInfantry", "BotATInfantry"},
+		["soldier_at"] = {"BotInfantry", "BotATInfantry"},
 	}
 	
 	local botUnits = sceneUnits[BotApi.Instance.playerId][2]
@@ -473,7 +475,7 @@ function GetUnitToSpawn(units)
 
 		if unitCounts.BotInfantry < 10 and unitCounts.BotATInfantry <= 2 then
 			if UnitType("Infantry") and UnitType("AT") then
-				priorityMultiplier = priorityMultiplier * 2
+				priorityMultiplier = priorityMultiplier * 4
 			end
 		elseif unitCounts.BotATInfantry >= 5 then
 			if UnitType("Infantry") and UnitType("AT") then
@@ -484,11 +486,11 @@ function GetUnitToSpawn(units)
 		-- Global priorities for different class of squads
 		if UnitType("Squad") then
 			if UnitType("Class1") then
-				priorityMultiplier = priorityMultiplier * 1.5
+				priorityMultiplier = priorityMultiplier * 3
 			elseif UnitType("Class2") then
-				priorityMultiplier = priorityMultiplier * 1.5 * 0.67
+				priorityMultiplier = priorityMultiplier * 3 * 0.67
 			else
-				priorityMultiplier = priorityMultiplier * 0.75 * 0.25
+				priorityMultiplier = priorityMultiplier * 1.5 * 0.25
 			end
 		end
 	

@@ -1,0 +1,9 @@
+try with the following (regex and match newline needs to be checked)
+
+Find what: ^(.*?\r\n)(.*)$
+Replace: \1SomeText\r\n\2
+^ Start from beginning of file and the ? restricts to find as less as possible chars until a \r\n (windows end of line marks) appears
+which basically means the first line. Having enclosed in () means it get captured in variable \1 .
+Next capture group gets the rest of the text until $ end.
+
+In replace you need to add the text and the eols \r\n together with the matching groups.

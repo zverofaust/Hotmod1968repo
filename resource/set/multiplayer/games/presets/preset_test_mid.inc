@@ -13,8 +13,7 @@
 		(include "global_parameters/budget.inc" s(%start) f(%finish) d(%doctrine))
 	}
 	{bots
-		(include "global_parameters/bots_generic.inc")
-		("deploy_bots" period("mid"))
+		(include "global_parameters/bots_generic.inc" period("mid"))
 	}
 )
 
