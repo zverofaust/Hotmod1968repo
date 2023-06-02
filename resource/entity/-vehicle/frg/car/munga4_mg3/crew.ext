@@ -1,0 +1,24 @@
+{boarder
+		{anm "driver"
+			{forward	{begin	"board_kubel_leftpassenger"} {end "seat_driver_car"}}
+			{reverse 	{end	"board_kubel_leftpassenger" -1} {base "doorleft" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_Kubel_rightpassenger"} {end "seat_passenger"}}
+			{reverse 	{end	"board_Kubel_rightpassenger" -1} {base "doorright" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_dodge_bodyback"} {end "pose_pak40_gunlayer"} {base "door_back"}}
+			{reverse	{end	"emit_tank_2_hold" -1}}
+		}
+	}
+	
+{placer
+	{place "driver"		{group "crew"} {visor "driver"}}
+	{place "gunner"		{group "crew"} {visor "gunner"}}
+	{place "commander"	{group "crew"} {visor "commander"}}
+}
+	
+("crew_human"		place(driver)		bone(driver)				door(emit1)		animation(driver) 		group(passenger))
+("crew_human"		place(gunner)		bone(gunner)				door(emit3)		animation(gunner)		group(passenger))
+("crew_human"		place(commander) 	bone(commander)				door(emit2)		animation(commander) 	group(passenger))
