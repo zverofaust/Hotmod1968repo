@@ -1,9 +1,9 @@
 {game_entity
 	(include "/properties/cannon.ext")
-	
+	(include "/properties/shadow/tank.inc" scale(0.6))
 	{extension "152mm_ml20_prc.mdl"}
-	(include "/properties/selection/cannon_big.inc" scale(0.9))
-	{props "wheeled" "vision_lev05_can" "muzzle_150mm_155mm_sides" "cannon_sandbag_standard" "trailer" "trailer_heavy" "animation" "detect_artillery" "artillery_minimap_heavy" "c_gun_hvy"}
+	(include "/properties/selection/cannon.inc" scale(0.7))
+	{props "wheeled" "vision_lev05_can" "muzzle_150mm_155mm_sides" "cannon_sandbag_standard" "trailer" "trailer_heavy" "animation" "detect_artillery"}
 	{PatherId "cannon.medium"}
 	{targetclass "howitzer"}
 	{targetSelector "cannon_howitzer"}
@@ -17,7 +17,7 @@
 	("armor_heavy_cannon")
 	("crew_wheeled_cannon_5")
 	{volume "body2" {able {holed}}}
-
+	
 	{boarder
 		{anm "gunner"
 			{forward {end "pose_m5_gunlayer" 10}}
@@ -82,8 +82,8 @@
 
 	{extender "inventory"
 		{box
-			{item "bulletrus_152 he" 10}
-			{item "bulletrus_152 aphe" 5}
+			{item "bulletrus_152 aphe" 4}
+			{item "bulletrus_152 he" 8}
 			{item "sandbag_vehicle" 1}
 		}
 	}
@@ -94,9 +94,10 @@
 			{weapon "152mm_ml20" filling "bulletrus_152 he" 1}
 			{RestoreIKAfterAim}
 			("abm_dymamic_gun"
-				zeroing(8.0)	; // time it takes to aim until the reticle shrinks. Bigger values, more control.
-				dispersion(1)   ; // time it takes to distort the reticle when you move the gun (how abrupt it loses zeroing). Bigger values, more control.
+				zeroing(5.0)
+				dispersion(0.25)
 			)
+			{charger "commander"}
 		}
 	}
 
@@ -114,11 +115,11 @@
 	}
 	{bone "gun_rot"
 		{limits -2 65}
-		{speed2 4}
+		{speed2 8}
 	}
 	{bone "turret"
 		{limits -29 29}
-		{speed2 4}
+		{speed2 5}
 	}
 	(mod "mp"
 		{brain
