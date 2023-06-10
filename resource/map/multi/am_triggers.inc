@@ -384,6 +384,416 @@
 					}
 				}
 			}
+			{"ai/ai_untow"
+				{condition
+					{type 1}
+					{terms
+						{"1.see_actors"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag bot_tow}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state linked}
+										}
+										{team
+											{team a}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{zone
+											{zone "global"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{team
+											{team b}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{tag
+								{"tag pair"}
+								{"for selector" tow_act}
+							}
+						}
+						{"2.see_actors"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag bot_tow}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state linked}
+										}
+										{team
+											{team b}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{zone
+											{zone "global"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{team
+											{team a}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{tag
+								{"tag pair"}
+								{"for selector" tow_act}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"linker"
+						{selector
+							{type vehicle}
+						}
+						{action unlink}
+						{entities
+							{ignore_captured_by_user 0}
+							{tag tow_act}
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag bot_car}
+									}
+									{tag
+										{tag bot_tank}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag bot_towing}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{ignore_captured_by_user 0}
+									{tag tow_act}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add bot_towing}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bot_towing}
+							{state operatable}
+						}
+						{tag_add _lua_mi}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type near}
+								{units
+									{ignore_captured_by_user 0}
+									{tag bot_towing}
+								}
+								{near_to
+									{ignore_captured_by_user 0}
+									{tag tow_act}
+								}
+								{distance 22}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag bot_towing}
+													}
+												}
+												{include
+													{prop
+														{prop car}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{state
+														{state moveable}
+													}
+													{state
+														{state user_control}
+													}
+												}
+											}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"emit"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag bot_towing}
+											{type vehicle}
+											{state inhabited}
+										}
+										{drop orders}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"action"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag bot_towing}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state "operatable moveable"}
+													}
+												}
+												{exclude
+													{state
+														{state user_control}
+													}
+												}
+											}
+										}
+										{drop orders}
+										{action move}
+										{target
+											{ignore_captured_by_user 0}
+											{tag flag}
+											{zone "global"}
+										}
+									}
+									{"delay"
+										{time 5}
+									}
+									{"if"
+										{condition
+											{type entities}
+											{selector
+												{source advanced}
+												{ignore_captured_by_user 0}
+												{group
+													{select
+														{tag
+															{tag bot_towing}
+														}
+													}
+													{include
+														{prop
+															{prop car}
+														}
+														{state
+															{state inhabited}
+														}
+													}
+													{exclude
+														{state
+															{state user_control}
+														}
+													}
+												}
+											}
+										}
+										{"delay"
+											{time 0.1}
+										}
+										{"emit"
+											{selector
+												{tag bot_towing}
+												{type vehicle}
+												{state operatable}
+											}
+											{drop orders}
+										}
+									}
+								}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag bot_tow}
+									}
+								}
+								{include
+									{tag
+										{tag tow_act}
+									}
+								}
+							}
+						}
+						{tag_remove bot_tow}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag tow_act}
+						}
+						{tag_remove tow_act}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bot_towing}
+						}
+						{tag_remove _lua_mi}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bot_towing}
+						}
+						{tag_remove bot_towing}
+					}
+					{"delay"
+						{time 8}
+					}
+					{"trigger"
+						{name "ai/ai_untow"}
+					}
+				}
+			}
 			{"ai/ai_unhold"
 				{condition
 					{type 1}
@@ -412,6 +822,9 @@
 										}
 										{tag
 											{tag _lua_mi}
+										}
+										{tag
+											{tag _lua_alert}
 										}
 										{state
 											{state inactive}
@@ -451,7 +864,7 @@
 							}
 							{distance
 								{mode near_than}
-								{meters 50}
+								{meters 60}
 							}
 							{detection located}
 							{tag
@@ -485,6 +898,9 @@
 										{tag
 											{tag _lua_mi}
 										}
+										{tag
+											{tag _lua_alert}
+										}
 										{state
 											{state inactive}
 										}
@@ -523,7 +939,7 @@
 							}
 							{distance
 								{mode near_than}
-								{meters 50}
+								{meters 60}
 							}
 							{detection located}
 							{tag
@@ -1514,7 +1930,7 @@
 									}
 									{include
 										{state
-											{state "operatable user_control"}
+											{state operatable}
 										}
 										{team
 											{team b}
@@ -1587,7 +2003,7 @@
 									}
 									{include
 										{state
-											{state "operatable user_control"}
+											{state operatable}
 										}
 										{team
 											{team a}
@@ -1665,7 +2081,7 @@
 							{condition
 								{type cmp_i}
 								{var "ai_on$"}
-								{op "!="}
+								{op "<<"}
 								{value 1}
 							}
 							{"delay"
@@ -2303,6 +2719,203 @@
 					}
 				}
 			}
+			{"ai/bail_portables"
+				{condition
+					{type 1}
+					{terms
+						{"1.see_actors"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag bot_veh}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{team
+											{team a}
+										}
+									}
+									{exclude
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{zone
+											{zone "global"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+										{team
+											{team b}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 33}
+							}
+							{tag
+								{"tag pair"}
+								{"for selector" bail_veh}
+								{"for enemy" bail_target}
+							}
+						}
+						{"2.see_actors"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag bot_veh}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{team
+											{team b}
+										}
+									}
+									{exclude
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{zone
+											{zone "global"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+										{team
+											{team a}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 33}
+							}
+							{tag
+								{"tag pair"}
+								{"for selector" bail_veh}
+								{"for enemy" bail_target}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"emit"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag bail_veh}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{emit
+							{count 1}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bail_target}
+							{state operatable}
+						}
+						{tag_add noted_by_ai}
+						{tag_remove bail_target}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bail_veh}
+						}
+						{tag_remove bail_veh}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "ai/bail_portables"}
+					}
+				}
+			}
 			{"ai/recrew_portables"
 				{condition
 					{type 1}
@@ -2368,7 +2981,7 @@
 											{tag destroyed}
 										}
 										{tag
-											{tag hidden}
+											{tag "_no-recrew"}
 										}
 										{state
 											{state inhabited}
@@ -2450,7 +3063,7 @@
 											{tag destroyed}
 										}
 										{tag
-											{tag hidden}
+											{tag "_no-recrew"}
 										}
 										{state
 											{state inhabited}
@@ -2869,10 +3482,31 @@
 							}
 							{"actor_state"
 								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag ecrew}
-									{type human}
-									{state "not dead"}
+									{group
+										{select
+											{tag
+												{tag ecrew}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
 								}
 								{drop orders}
 								{fire_mode open}
@@ -2886,9 +3520,30 @@
 							}
 							{"action"
 								{selector
-									{tag ecrew}
-									{type human}
-									{state "not dead"}
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ecrew}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
 								}
 								{drop orders}
 								{action move}
@@ -2931,9 +3586,30 @@
 									}
 									{"board"
 										{selector
-											{tag ecrew}
-											{type human}
-											{state "not dead"}
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ecrew}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag repairing}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
 										}
 										{vehicle
 											{source advanced}
@@ -2964,10 +3640,31 @@
 									}
 									{"actor_state"
 										{selector
+											{source advanced}
 											{ignore_captured_by_user 0}
-											{tag ecrew}
-											{type human}
-											{state "not dead"}
+											{group
+												{select
+													{tag
+														{tag ecrew}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag repairing}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
 										}
 										{drop orders}
 										{fire_mode open}
@@ -2999,7 +3696,18 @@
 												{tag ecrew}
 											}
 										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
 										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
 											{state
 												{state linked}
 											}
@@ -3040,7 +3748,18 @@
 										{tag _mi_temp4}
 									}
 								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
 								{exclude
+									{tag
+										{tag repairing}
+									}
+									{state
+										{state inactive}
+									}
 									{state
 										{state linked}
 									}
@@ -4008,7 +4727,6 @@
 			}
 			{"bots_units"
 				{condition
-					{expression "(1 & 3) | (2 & 3)"}
 					{terms
 						{"1.entities"
 							{selector
@@ -4021,63 +4739,25 @@
 										}
 									}
 									{include
-										{prop
-											{prop human}
+										{state
+											{state operatable}
 										}
 									}
 									{exclude
 										{tag
-											{tag bot}
+											{tag _bot}
 										}
 										{tag
 											{tag hidden}
 										}
 										{state
-											{state dead}
-										}
-										{state
 											{state user_control}
 										}
 									}
 								}
 							}
 						}
-						{"2.entities"
-							{selector
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{select
-										{zone
-											{zone "global"}
-										}
-									}
-									{include
-										{prop
-											{prop vehicle}
-										}
-										{state
-											{state inhabited}
-										}
-									}
-									{exclude
-										{tag
-											{tag bot_tank}
-										}
-										{tag
-											{tag bot_car}
-										}
-										{tag
-											{tag bot_veh}
-										}
-										{state
-											{state user_control}
-										}
-									}
-								}
-							}
-						}
-						{"3.cmp_i"
+						{"2.cmp_i"
 							{var "ai_on$"}
 							{op ">"}
 							{value 0}
@@ -4102,6 +4782,9 @@
 									{prop
 										{prop human}
 									}
+									{state
+										{state operatable}
+									}
 								}
 								{exclude
 									{tag
@@ -4109,9 +4792,6 @@
 									}
 									{tag
 										{tag hidden}
-									}
-									{state
-										{state dead}
 									}
 									{state
 										{state user_control}
@@ -4230,10 +4910,10 @@
 								}
 							}
 						}
-						{tag_add bot_veh}
+						{tag_add _bot_veh}
 					}
 					{"delay"
-						{time 1}
+						{time 0.5}
 					}
 					{"ables"
 						{selector
@@ -4246,7 +4926,20 @@
 						{remove personage}
 					}
 					{"delay"
-						{time 1}
+						{time 0.5}
+					}
+					{"ables"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _bot_veh}
+							{zone "global"}
+							{type vehicle}
+							{state operatable}
+						}
+						{add emit_on_attack}
+					}
+					{"delay"
+						{time 0.5}
 					}
 					{"entity_state"
 						{selector
@@ -4269,6 +4962,49 @@
 						{tag_remove _ai}
 					}
 					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _bot_veh}
+						}
+						{tag_add bot_veh}
+						{tag_remove _bot_veh}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag bot_veh}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+									{state
+										{state linked}
+									}
+								}
+								{exclude
+									{tag
+										{tag bot_tow}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{tag_add bot_tow}
+					}
+					{"delay"
 						{time 1}
 					}
 					{"entity_state"
@@ -4289,9 +5025,6 @@
 								{exclude
 									{tag
 										{tag _bot}
-									}
-									{state
-										{state inactive}
 									}
 									{state
 										{state user_control}
@@ -4421,7 +5154,7 @@
 						{"default"}
 					}
 					{"delay"
-						{time 6}
+						{time 5}
 					}
 					{"trigger"
 						{name "bots_units"}
@@ -4890,6 +5623,9 @@
 											{tag
 												{tag _lua_mi}
 											}
+											{tag
+												{tag _lua_ignore}
+											}
 											{state
 												{state inactive}
 											}
@@ -5135,6 +5871,9 @@
 											}
 											{tag
 												{tag _lua_mi}
+											}
+											{tag
+												{tag _lua_ignore}
 											}
 											{state
 												{state inactive}
@@ -5685,9 +6424,31 @@
 					{"entity_state"
 						{selector
 							{ignore_captured_by_user 0}
-							{tag _lua_ignore}
+							{tag _bot}
 							{zone "global"}
 							{state "not operatable"}
+						}
+						{tag_remove _bot}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _lua_ignore}
+									}
+								}
+								{exclude
+									{tag
+										{tag _bot}
+									}
+								}
+							}
 						}
 						{tag_remove _lua_ignore}
 					}
@@ -5696,22 +6457,20 @@
 					}
 					{"entity_state"
 						{selector
+							{source advanced}
 							{ignore_captured_by_user 0}
-							{tag _lua_mi}
-							{zone "global"}
-							{state "not operatable"}
-						}
-						{tag_remove _lua_mi}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag _lua_alert}
-							{zone "global"}
-							{state "not operatable"}
+							{group
+								{select
+									{tag
+										{tag _lua_alert}
+									}
+								}
+								{exclude
+									{tag
+										{tag _bot}
+									}
+								}
+							}
 						}
 						{tag_remove _lua_alert}
 					}
@@ -5747,28 +6506,6 @@
 							{group
 								{select
 									{tag
-										{tag _lua_mi}
-									}
-								}
-								{exclude
-									{zone
-										{zone "global"}
-									}
-								}
-							}
-						}
-						{tag_remove _lua_mi}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{tag
 										{tag _lua_alert}
 									}
 								}
@@ -5786,10 +6523,20 @@
 					}
 					{"entity_state"
 						{selector
+							{source advanced}
 							{ignore_captured_by_user 0}
-							{tag smk_}
-							{zone "global"}
-							{state "not operatable"}
+							{group
+								{select
+									{tag
+										{tag smk_}
+									}
+								}
+								{exclude
+									{tag
+										{tag _bot}
+									}
+								}
+							}
 						}
 						{tag_remove smk_}
 					}
@@ -5822,7 +6569,6 @@
 							{"entity_state"
 								{selector
 									{source advanced}
-									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
@@ -5833,14 +6579,24 @@
 											{tag
 												{tag ecrew}
 											}
+											{state
+												{state operatable}
+											}
 										}
 										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
 											{state
 												{state linked}
 											}
 										}
 									}
 								}
+								{tag_add _clean}
 								{tag_remove _lua_mi}
 							}
 							{"delay"
@@ -5848,27 +6604,25 @@
 							}
 							{"entity_state"
 								{selector
-									{source advanced}
 									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ecrew}
-											}
-										}
-										{exclude
-											{state
-												{state linked}
-											}
-										}
-									}
+									{tag _clean}
 								}
 								{tag_remove ecrew}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag _clean}
+								}
+								{tag_remove _clean}
 							}
 						}
 					}
 					{"delay"
-						{time 0.5}
+						{time 1}
 					}
 					{"switch"
 						{"case"
@@ -5884,7 +6638,6 @@
 							{"entity_state"
 								{selector
 									{source advanced}
-									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
@@ -5895,17 +6648,24 @@
 											{tag
 												{tag tcrew}
 											}
+											{state
+												{state operatable}
+											}
 										}
 										{exclude
-											{state
-												{state linked}
+											{tag
+												{tag repairing}
 											}
 											{state
 												{state inactive}
 											}
+											{state
+												{state linked}
+											}
 										}
 									}
 								}
+								{tag_add _clean}
 								{tag_remove _lua_mi}
 							}
 							{"delay"
@@ -5913,25 +6673,20 @@
 							}
 							{"entity_state"
 								{selector
-									{source advanced}
 									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag tcrew}
-											}
-										}
-										{exclude
-											{state
-												{state linked}
-											}
-											{state
-												{state inactive}
-											}
-										}
-									}
+									{tag _clean}
 								}
 								{tag_remove tcrew}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag _clean}
+								}
+								{tag_remove _clean}
 							}
 						}
 					}
@@ -5951,8 +6706,8 @@
 							{op ">"}
 							{value 0}
 						}
-						{"2.see_enemy"
-							{selector
+						{"2.near"
+							{units
 								{source advanced}
 								{ignore_captured_by_user 0}
 								{group
@@ -5977,11 +6732,31 @@
 											{tag _lua_alert}
 										}
 										{state
+											{state inactive}
+										}
+										{state
 											{state user_control}
 										}
 									}
 								}
 							}
+							{near_to
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag flag}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{distance 61}
 						}
 					}
 				}
@@ -6014,14 +6789,11 @@
 									{tag
 										{tag _lua_alert}
 									}
-									{tag
-										{tag bot_veh}
-									}
 									{state
 										{state inactive}
 									}
 									{state
-										{state linked}
+										{state user_control}
 									}
 								}
 							}
@@ -6038,11 +6810,9 @@
 												{tag flag}
 											}
 										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
+									}
+									{sort
+										{type shuffle}
 									}
 								}
 							}
@@ -6050,7 +6820,7 @@
 						{tag_add _local1}
 					}
 					{"delay"
-						{time 1}
+						{time 0.5}
 					}
 					{"switch"
 						{"case"
@@ -6059,24 +6829,13 @@
 								{units
 									{ignore_captured_by_user 0}
 									{tag _local1}
+									{state operatable}
 								}
 								{near_to
-									{source advanced}
 									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag flag}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
-									}
+									{tag flag}
 								}
-								{distance 100}
+								{distance 60}
 							}
 							{"delay"
 								{time 0.1}
@@ -6085,8 +6844,93 @@
 								{selector
 									{ignore_captured_by_user 0}
 									{tag _local1}
+									{state operatable}
 								}
 								{tag_add _lua_ignore}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"actor_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag _local1}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag _lua_mi}
+											}
+										}
+									}
+								}
+								{drop orders}
+								{fire_mode open}
+								{move_mode zone}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{speed assault}
+								}
+								{ai
+									{advance_ratio 2}
+									{retreat_ratio 5}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"actor_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag _local1}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag _lua_mi}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{drop orders}
+								{fire_mode open}
+								{move_mode zone}
+								{move_radius 30}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{speed normal}
+									{forward on}
+									{backward on}
+								}
 							}
 						}
 						{"default"}
@@ -6102,35 +6946,7 @@
 						{tag_remove _local1}
 					}
 					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{ignore_captured_by_user 0}
-									{tag _lua_ignore}
-									{zone "global"}
-									{state operatable}
-								}
-								{count
-									{op ">"}
-									{value 40}
-								}
-							}
-							{"delay"
-								{time 40}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 15}
-							}
-						}
-					}
-					{"delay"
-						{time 1}
+						{time 15}
 					}
 					{"trigger"
 						{name "lua/ignore_seek"}
@@ -6139,16 +6955,29 @@
 			}
 			{"lua/ignore_incheck"
 				{condition
-					{expression "1 & !2"}
+					{expression "(1 & 2) | (2 & 3)"}
 					{terms
-						{"1.cmp_i"
+						{"1.entities"
+							{selector
+								{ignore_captured_by_user 0}
+								{tag _lua_ignore}
+								{zone "global"}
+								{state operatable}
+							}
+							{count
+								{op ">"}
+								{value 30}
+							}
+						}
+						{"2.cmp_i"
 							{var "ai_on$"}
 							{op ">"}
 							{value 0}
 						}
-						{"2.see_enemy"
+						{"3.entities"
 							{selector
 								{source advanced}
+								{ignore_captured_by_user 0}
 								{group
 									{select
 										{tag
@@ -6156,19 +6985,14 @@
 										}
 									}
 									{include
-										{state
-											{state operatable}
+										{zone
+											{zone "global"}
 										}
-									}
-									{exclude
 										{tag
 											{tag _lua_mi}
 										}
-										{tag
-											{tag _lua_alert}
-										}
 										{state
-											{state user_control}
+											{state operatable}
 										}
 									}
 								}
@@ -6180,67 +7004,54 @@
 					{"delay"
 						{time 0.1}
 					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{tag
-										{tag _lua_ignore}
-									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-								}
-								{exclude
-									{tag
-										{tag _lua_mi}
-									}
-									{tag
-										{tag _lua_alert}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
 									{source advanced}
 									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
-												{tag flag}
+												{tag _lua_ignore}
 											}
 										}
-										{exclude
-											{state
-												{state inactive}
+										{include
+											{tag
+												{tag _lua_mi}
 											}
 										}
 									}
 								}
-								{mode farthest}
 							}
-							{amount 1
+							{"delay"
+								{time 0.1}
 							}
-						}
-						{tag_add _tidy1}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type see_enemy}
+							{"entity_state"
 								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag _tidy1}
-									{state operatable}
+									{group
+										{select
+											{tag
+												{tag _lua_ignore}
+											}
+										}
+										{include
+											{tag
+												{tag _lua_mi}
+											}
+										}
+									}
 								}
+								{tag_remove _lua_ignore}
+							}
+							{"delay"
+								{time 10}
+							}
+							{"trigger"
+								{name "lua/ignore_incheck"}
 							}
 						}
 						{"default"
@@ -6249,28 +7060,94 @@
 							}
 							{"entity_state"
 								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag _tidy1}
+									{group
+										{select
+											{tag
+												{tag _lua_ignore}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{sort
+										{type entity}
+										{entity
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag flag}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{mode farthest}
+									}
+									{amount 1
+									}
 								}
-								{tag_remove _lua_ignore}
+								{tag_add _tidy1}
 							}
 							{"delay"
 								{time 1}
 							}
-							{"entity_state"
-								{selector
-									{ignore_captured_by_user 0}
-									{tag _tidy1}
+							{"switch"
+								{"case"
+									{condition
+										{type see_enemy}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag _tidy1}
+											{state operatable}
+										}
+									}
 								}
-								{tag_remove _tidy1}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag _tidy1}
+										}
+										{tag_remove _lua_ignore}
+									}
+									{"delay"
+										{time 1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag _tidy1}
+										}
+										{tag_remove _tidy1}
+									}
+								}
+							}
+							{"delay"
+								{time 25}
+							}
+							{"trigger"
+								{name "lua/ignore_incheck"}
 							}
 						}
-					}
-					{"delay"
-						{time 30}
-					}
-					{"trigger"
-						{name "lua/ignore_incheck"}
 					}
 				}
 			}
@@ -6750,10 +7627,31 @@
 							}
 							{"actor_state"
 								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag tcrew}
-									{type human}
-									{state "not dead"}
+									{group
+										{select
+											{tag
+												{tag tcrew}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
 								}
 								{drop orders}
 								{fire_mode open}
@@ -6767,10 +7665,31 @@
 							}
 							{"action"
 								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag tcrew}
-									{type human}
-									{state "not dead"}
+									{group
+										{select
+											{tag
+												{tag tcrew}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
 								}
 								{drop orders}
 								{action move}
@@ -6822,10 +7741,31 @@
 									}
 									{"board"
 										{selector
+											{source advanced}
 											{ignore_captured_by_user 0}
-											{tag tcrew}
-											{type human}
-											{state "not dead"}
+											{group
+												{select
+													{tag
+														{tag tcrew}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag repairing}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
 										}
 										{vehicle
 											{source advanced}
@@ -6862,10 +7802,31 @@
 									}
 									{"actor_state"
 										{selector
+											{source advanced}
 											{ignore_captured_by_user 0}
-											{tag tcrew}
-											{type human}
-											{state "not dead"}
+											{group
+												{select
+													{tag
+														{tag tcrew}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag repairing}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
 										}
 										{drop orders}
 										{fire_mode open}
@@ -6889,13 +7850,6 @@
 							}
 							{"entity_state"
 								{selector
-									{ignore_captured_by_user 0}
-									{tag temp3}
-								}
-								{tag_remove temp3}
-							}
-							{"entity_state"
-								{selector
 									{source advanced}
 									{group
 										{select
@@ -6903,7 +7857,15 @@
 												{tag tcrew}
 											}
 										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
 										{exclude
+											{tag
+												{tag repairing}
+											}
 											{state
 												{state inactive}
 											}
@@ -6914,6 +7876,13 @@
 									}
 								}
 								{tag_remove tcrew}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag temp3}
+								}
+								{tag_remove temp3}
 							}
 							{"entity_state"
 								{selector
@@ -6940,7 +7909,15 @@
 										{tag _mi_temp6}
 									}
 								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
 								{exclude
+									{tag
+										{tag repairing}
+									}
 									{state
 										{state inactive}
 									}
@@ -7000,7 +7977,13 @@
 											{tag _lua_mi}
 										}
 										{tag
+											{tag _lua_ignore}
+										}
+										{tag
 											{tag repairing}
+										}
+										{state
+											{state inactive}
 										}
 										{state
 											{state linked}
@@ -7016,8 +7999,8 @@
 								{ignore_captured_by_user 0}
 								{group
 									{select
-										{tag
-											{tag _user}
+										{zone
+											{zone "global"}
 										}
 									}
 									{include
@@ -7032,7 +8015,7 @@
 							}
 							{distance
 								{mode near_than}
-								{meters 120}
+								{meters 90}
 							}
 							{tag
 								{"tag pair"}
@@ -7065,7 +8048,13 @@
 											{tag _lua_mi}
 										}
 										{tag
+											{tag _lua_ignore}
+										}
+										{tag
 											{tag repairing}
+										}
+										{state
+											{state inactive}
 										}
 										{state
 											{state linked}
@@ -7081,8 +8070,8 @@
 								{ignore_captured_by_user 0}
 								{group
 									{select
-										{tag
-											{tag _user}
+										{zone
+											{zone "global"}
 										}
 									}
 									{include
@@ -7097,7 +8086,7 @@
 							}
 							{distance
 								{mode near_than}
-								{meters 120}
+								{meters 90}
 							}
 							{tag
 								{"tag pair"}
@@ -7247,7 +8236,7 @@
 										}
 									}
 									{"delay"
-										{time 50}
+										{time 22}
 									}
 								}
 								{"default"
@@ -7300,7 +8289,7 @@
 										}
 									}
 									{"delay"
-										{time 50}
+										{time 22}
 									}
 								}
 							}
@@ -7331,22 +8320,86 @@
 			}
 			{"lua/alert_clear"
 				{condition
-					{expression "!1 & 2"}
+					{expression "(!1 & 2 & 4) | (3 & 4)"}
 					{terms
 						{"1.see_enemy"
 							{selector
-								{ignore_captured_by_user 0}
-								{tag _lua_alert}
-								{zone "global"}
-								{state operatable}
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _lua_alert}
+										}
+									}
+									{include
+										{zone
+											{zone "global"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+									}
+								}
 							}
 						}
 						{"2.entities"
 							{selector
-								{ignore_captured_by_user 0}
-								{tag _lua_alert}
-								{zone "global"}
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _lua_alert}
+										}
+									}
+									{include
+										{zone
+											{zone "global"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+									}
+								}
 							}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag _lua_alert}
+										}
+									}
+									{include
+										{zone
+											{zone "global"}
+										}
+										{tag
+											{tag _lua_mi}
+										}
+										{state
+											{state operatable}
+										}
+									}
+								}
+							}
+						}
+						{"4.cmp_i"
+							{var "ai_on$"}
+							{op ">"}
+							{value 0}
 						}
 					}
 				}
@@ -7354,27 +8407,54 @@
 					{"delay"
 						{time 0.1}
 					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{amount 1
-							}
-							{tag _lua_alert}
-							{state operatable}
-						}
-						{tag_add alert_temp}
-					}
-					{"delay"
-						{time 1}
-					}
 					{"switch"
 						{"case"
 							{condition
-								{type see_enemy}
+								{type entities}
 								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag alert_temp}
+									{group
+										{select
+											{tag
+												{tag _lua_alert}
+											}
+										}
+										{include
+											{tag
+												{tag _lua_mi}
+											}
+										}
+									}
 								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag _lua_alert}
+											}
+										}
+										{include
+											{tag
+												{tag _lua_mi}
+											}
+										}
+									}
+								}
+								{tag_remove _lua_alert}
+							}
+							{"delay"
+								{time 8}
+							}
+							{"trigger"
+								{name "lua/alert_clear"}
 							}
 						}
 						{"default"
@@ -7383,28 +8463,56 @@
 							}
 							{"entity_state"
 								{selector
-									{ignore_captured_by_user 0}
-									{tag alert_temp}
+									{amount 1
+									}
+									{tag _lua_alert}
+									{state operatable}
 								}
-								{tag_remove _lua_alert}
+								{tag_add alert_temp}
 							}
 							{"delay"
 								{time 1}
 							}
-							{"entity_state"
-								{selector
-									{ignore_captured_by_user 0}
-									{tag alert_temp}
+							{"switch"
+								{"case"
+									{condition
+										{type see_enemy}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag alert_temp}
+										}
+									}
 								}
-								{tag_remove alert_temp}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag alert_temp}
+										}
+										{tag_remove _lua_alert}
+									}
+									{"delay"
+										{time 1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag alert_temp}
+										}
+										{tag_remove alert_temp}
+									}
+								}
+							}
+							{"delay"
+								{time 8}
+							}
+							{"trigger"
+								{name "lua/alert_clear"}
 							}
 						}
-					}
-					{"delay"
-						{time 10}
-					}
-					{"trigger"
-						{name "lua/alert_clear"}
 					}
 				}
 			}

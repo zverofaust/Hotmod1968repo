@@ -18,6 +18,16 @@
 						{op "="}
 						{value 1}
 					}
+					{"set_i"
+						{var "arrows$"}
+						{op "="}
+						{value 0}
+					}
+					{"set_i"
+						{var "user_team$"}
+						{op "="}
+						{value 0}
+					}
 					{"delay"
 						{time 2}
 					}
@@ -165,7 +175,15 @@
 						}
 					}
 					{"delay"
-						{time 1}
+						{time 0.5}
+					}
+					{"set_i"
+						{var "dcg_error$"}
+						{op "="}
+						{value 5}
+					}
+					{"delay"
+						{time 0.5}
 					}
 					{"event"
 						{event "init"}
@@ -262,9 +280,9 @@
 						{"case"
 							{condition
 								{type cmp_i}
-								{var "user_team$"}
+								{var "user_is_defender$"}
 								{op "=="}
-								{value "def_team$"}
+								{value 1}
 							}
 						}
 						{"default"
@@ -302,7 +320,7 @@
 										}
 									}
 								}
-								{tag_add _bot}
+								{tag_add _def}
 								{tag_remove cmp_def}
 							}
 						}
@@ -397,9 +415,9 @@
 						{"case"
 							{condition
 								{type cmp_i}
-								{var "user_team$"}
+								{var "user_is_defender$"}
 								{op "=="}
-								{value "def_team$"}
+								{value 1}
 							}
 						}
 						{"default"
@@ -437,7 +455,7 @@
 										}
 									}
 								}
-								{tag_add _bot}
+								{tag_add _def}
 								{tag_remove cmp_def}
 							}
 						}
@@ -532,9 +550,9 @@
 						{"case"
 							{condition
 								{type cmp_i}
-								{var "user_team$"}
+								{var "user_is_defender$"}
 								{op "=="}
-								{value "def_team$"}
+								{value 1}
 							}
 						}
 						{"default"
@@ -572,7 +590,7 @@
 										}
 									}
 								}
-								{tag_add _bot}
+								{tag_add _def}
 								{tag_remove cmp_def}
 							}
 						}
@@ -667,9 +685,9 @@
 						{"case"
 							{condition
 								{type cmp_i}
-								{var "user_team$"}
+								{var "user_is_defender$"}
 								{op "=="}
-								{value "def_team$"}
+								{value 1}
 							}
 						}
 						{"default"
@@ -707,7 +725,7 @@
 										}
 									}
 								}
-								{tag_add _bot}
+								{tag_add _def}
 								{tag_remove cmp_def}
 							}
 						}
@@ -802,9 +820,9 @@
 						{"case"
 							{condition
 								{type cmp_i}
-								{var "user_team$"}
+								{var "user_is_defender$"}
 								{op "=="}
-								{value "def_team$"}
+								{value 1}
 							}
 						}
 						{"default"
@@ -842,7 +860,7 @@
 										}
 									}
 								}
-								{tag_add _bot}
+								{tag_add _def}
 								{tag_remove cmp_def}
 							}
 						}
@@ -1049,9 +1067,9 @@
 						{"case"
 							{condition
 								{type cmp_i}
-								{var "user_team$"}
+								{var "user_is_defender$"}
 								{op "=="}
-								{value "def_team$"}
+								{value 1}
 							}
 						}
 						{"default"
@@ -1083,7 +1101,7 @@
 										}
 									}
 								}
-								{tag_add _bot}
+								{tag_add _def}
 								{tag_remove cmp_def}
 							}
 						}
@@ -1928,6 +1946,11 @@
 						{"2.event"
 							{id "init"}
 						}
+						{"3.cmp_i"
+							{var "user_is_defender$"}
+							{op "!="}
+							{value 1}
+						}
 					}
 				}
 				{actions
@@ -1959,7 +1982,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -1987,7 +2010,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2015,7 +2038,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2043,7 +2066,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2154,7 +2177,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2182,7 +2205,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2210,7 +2233,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2238,7 +2261,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2349,7 +2372,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2377,7 +2400,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2405,7 +2428,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2433,7 +2456,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2544,7 +2567,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2572,7 +2595,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2600,7 +2623,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2628,7 +2651,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2739,7 +2762,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2767,7 +2790,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2795,7 +2818,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -2823,7 +2846,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.24}
+										{value 0.1}
 									}
 									{"delay"
 										{time 0.1}
@@ -3041,6 +3064,12 @@
 															}
 														}
 														{exclude
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3057,6 +3086,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc1}
+														}
+													}
+													{amount 4
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"case"
@@ -3093,6 +3164,12 @@
 															}
 														}
 														{exclude
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3109,6 +3186,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc1}
+														}
+													}
+													{amount 2
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"default"}
@@ -3189,6 +3308,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3205,6 +3330,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc2}
+														}
+													}
+													{amount 4
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"case"
@@ -3244,6 +3411,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3260,6 +3433,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc2}
+														}
+													}
+													{amount 2
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"default"}
@@ -3340,6 +3555,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3356,6 +3577,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc3}
+														}
+													}
+													{amount 4
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"case"
@@ -3395,6 +3658,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3411,6 +3680,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc3}
+														}
+													}
+													{amount 2
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"default"}
@@ -3491,6 +3802,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3507,6 +3824,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc4}
+														}
+													}
+													{amount 4
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"case"
@@ -3546,6 +3905,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3562,6 +3927,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc4}
+														}
+													}
+													{amount 2
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"default"}
@@ -3642,6 +4049,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3658,6 +4071,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc5}
+														}
+													}
+													{amount 4
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"case"
@@ -3697,6 +4152,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3713,6 +4174,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc5}
+														}
+													}
+													{amount 2
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"default"}
@@ -3834,6 +4337,12 @@
 															}
 														}
 														{exclude
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3850,6 +4359,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc1}
+														}
+													}
+													{amount 4
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"case"
@@ -3886,6 +4437,12 @@
 															}
 														}
 														{exclude
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3902,6 +4459,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc1}
+														}
+													}
+													{amount 2
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"default"}
@@ -3982,6 +4581,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -3998,6 +4603,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc2}
+														}
+													}
+													{amount 4
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"case"
@@ -4037,6 +4684,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -4053,6 +4706,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc2}
+														}
+													}
+													{amount 2
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"default"}
@@ -4133,6 +4828,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -4149,6 +4850,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc3}
+														}
+													}
+													{amount 4
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"case"
@@ -4188,6 +4931,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -4204,6 +4953,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc3}
+														}
+													}
+													{amount 2
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"default"}
@@ -4284,6 +5075,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -4300,6 +5097,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc4}
+														}
+													}
+													{amount 4
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"case"
@@ -4339,6 +5178,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -4355,6 +5200,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc4}
+														}
+													}
+													{amount 2
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"default"}
@@ -4435,6 +5322,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -4451,6 +5344,48 @@
 													}
 												}
 												{tag_add cmp_mg}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc5}
+														}
+													}
+													{amount 4
+													}
+												}
+												{tag_add cmp_def}
 											}
 										}
 										{"case"
@@ -4490,6 +5425,12 @@
 															{tag
 																{tag cmp_mg}
 															}
+															{prop
+																{prop car}
+															}
+															{prop
+																{prop tank}
+															}
 															{state
 																{state user_control}
 															}
@@ -4507,6 +5448,48 @@
 												}
 												{tag_add cmp_mg}
 											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{zone
+																{zone "combat"}
+															}
+														}
+														{include
+															{prop
+																{prop human}
+															}
+															{state
+																{state "operatable linked"}
+															}
+														}
+														{exclude
+															{tag
+																{tag cmp_def}
+															}
+															{state
+																{state user_control}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag fpc5}
+														}
+													}
+													{amount 2
+													}
+												}
+												{tag_add cmp_def}
+											}
 										}
 										{"default"}
 									}
@@ -4520,7 +5503,7 @@
 						{"default"}
 					}
 					{"delay"
-						{time 0.4}
+						{time 0.5}
 					}
 					{"switch"
 						{"case"
@@ -4544,322 +5527,134 @@
 								{effect construction_sandbag_cannon_standard}
 							}
 							{"delay"
-								{time 5}
+								{time 2}
 							}
-							{"ables"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag cmp_mg}
+							{"switch"
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "user_is_defender$"}
+										{op "=="}
+										{value 1}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag cmp_mg}
+										}
+										{tag_add cmp_def}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "combat"}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag _user}
+													}
+													{tag
+														{tag cmp_def}
+													}
+													{state
+														{state user_control}
+													}
+													{state
+														{state inactive}
+													}
+												}
 											}
 										}
-										{include
-											{prop
-												{prop vehicle}
-											}
+										{tag_add cmp_def}
+									}
+									{"delay"
+										{time 0.5}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag cmp_def}
 										}
-										{exclude
-											{state
-												{state user_control}
-											}
+										{tag_remove bot}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag cmp_def}
 										}
+										{tag_remove _bot}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag cmp_def}
+										}
+										{tag_remove _ai}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag cmp_def}
+										}
+										{tag_remove bot_veh}
 									}
 								}
-								{remove select}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"ables"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag cmp_mg}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+												}
+												{exclude
+													{state
+														{state user_control}
+													}
+												}
+											}
+										}
+										{remove select}
+									}
+								}
 							}
 						}
 						{"default"}
 					}
-				}
-			}
-			{"dcg/ai_air_decide"
-				{condition
-					{terms
-						{"1.event"
-							{id "ai_air_possible"}
-						}
-						{"2.cmp_i"
-							{var "ai_air_on$"}
-							{op "=="}
-							{value 0}
-						}
-					}
-				}
-				{actions
 					{"delay"
 						{time 1}
 					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{ignore_captured_by_user 0}
-									{tag fpc1}
-									{zone "gamezone"}
-								}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag player}
-											{zone "fpc1"}
-											{type human}
-											{state "not dead"}
-										}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"set_i"
-										{var "ai_air_on$"}
-										{op "="}
-										{value 1}
-									}
-								}
-								{"default"}
-							}
-						}
-						{"default"}
-					}
-					{"delay"
-						{time 2}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "ai_air_on$"}
-								{op "=="}
-								{value 0}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag fpc2}
-											{zone "gamezone"}
-										}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"switch"
-										{"case"
-											{condition
-												{type entities}
-												{selector
-													{ignore_captured_by_user 0}
-													{tag player}
-													{zone "fpc2"}
-													{type human}
-													{state "not dead"}
-												}
-											}
-											{"delay"
-												{time 0.1}
-											}
-											{"set_i"
-												{var "ai_air_on$"}
-												{op "="}
-												{value 2}
-											}
-										}
-										{"default"}
-									}
-								}
-								{"default"}
-							}
-						}
-						{"default"}
-					}
-					{"delay"
-						{time 2}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "ai_air_on$"}
-								{op "=="}
-								{value 0}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag fpc3}
-											{zone "gamezone"}
-										}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"switch"
-										{"case"
-											{condition
-												{type entities}
-												{selector
-													{ignore_captured_by_user 0}
-													{tag player}
-													{zone "fpc3"}
-													{type human}
-													{state "not dead"}
-												}
-											}
-											{"delay"
-												{time 0.1}
-											}
-											{"set_i"
-												{var "ai_air_on$"}
-												{op "="}
-												{value 3}
-											}
-										}
-										{"default"}
-									}
-								}
-								{"default"}
-							}
-						}
-						{"default"}
-					}
-					{"delay"
-						{time 2}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "ai_air_on$"}
-								{op "=="}
-								{value 0}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag fpc4}
-											{zone "gamezone"}
-										}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"switch"
-										{"case"
-											{condition
-												{type entities}
-												{selector
-													{ignore_captured_by_user 0}
-													{tag player}
-													{zone "fpc4"}
-													{type human}
-													{state "not dead"}
-												}
-											}
-											{"delay"
-												{time 0.1}
-											}
-											{"set_i"
-												{var "ai_air_on$"}
-												{op "="}
-												{value 4}
-											}
-										}
-										{"default"}
-									}
-								}
-								{"default"}
-							}
-						}
-						{"default"}
-					}
-					{"delay"
-						{time 2}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "ai_air_on$"}
-								{op "=="}
-								{value 0}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag fpc5}
-											{zone "gamezone"}
-										}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"switch"
-										{"case"
-											{condition
-												{type entities}
-												{selector
-													{ignore_captured_by_user 0}
-													{tag player}
-													{zone "fpc5"}
-													{type human}
-													{state "not dead"}
-												}
-											}
-											{"delay"
-												{time 0.1}
-											}
-											{"set_i"
-												{var "ai_air_on$"}
-												{op "="}
-												{value 5}
-											}
-										}
-										{"default"}
-									}
-								}
-								{"default"}
-							}
-						}
-						{"default"}
-					}
-					{"delay"
-						{time 50}
-					}
-					{"trigger"
-						{name "dcg/ai_air_decide"}
+					{"set_i"
+						{var "dcg_on$"}
+						{op "+"}
+						{value 1}
 					}
 				}
 			}
@@ -4883,7 +5678,45 @@
 				}
 				{actions
 					{"delay"
-						{time 1}
+						{time 0.5}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "user_is_defender$"}
+								{op "=="}
+								{value 1}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag mine_planted}
+											}
+											{tag
+												{tag dcg_mine_sign}
+											}
+										}
+										{include
+											{tag
+												{tag cmp_def}
+											}
+										}
+									}
+								}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 0.5}
 					}
 					{"switch"
 						{"case"
@@ -5185,920 +6018,12 @@
 					}
 				}
 			}
-			{"dcg/ai_airstrike"
-				{condition
-					{terms
-						{"1.event"
-							{id "ai_air_on"}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag enemy_air}
-						}
-						{tag_remove enemy_air}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "user_team$"}
-								{op "=="}
-								{value 1}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"actor_to_waypoint"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag air_vehicle}
-											}
-										}
-										{include
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-									{amount 1
-									}
-								}
-								{waypoint "0"}
-								{clone}
-								{approach "safe teleport & rotate"}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"actor_to_waypoint"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag air_vehicle}
-											}
-										}
-										{include
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-									{amount 1
-									}
-								}
-								{waypoint "6"}
-								{clone}
-								{approach "safe teleport & rotate"}
-							}
-						}
-					}
-				}
-			}
-			{"dcg/ai_airstrike_do"
-				{condition
-					{expression "(1 & 2 & 4) | (1 & 3 & !4)"}
-					{terms
-						{"1.event"
-							{id "ai_air_on"}
-						}
-						{"2.near"
-							{units
-								{ignore_captured_by_user 0}
-								{tag enemy_air}
-								{type vehicle}
-								{state inhabited}
-							}
-							{near_to
-								{ignore_captured_by_user 0}
-								{amount 1
-								}
-								{tag spawn_a}
-							}
-							{distance 76}
-						}
-						{"3.near"
-							{units
-								{ignore_captured_by_user 0}
-								{tag enemy_air}
-								{type vehicle}
-								{state inhabited}
-							}
-							{near_to
-								{ignore_captured_by_user 0}
-								{amount 1
-								}
-								{tag spawn_b}
-							}
-							{distance 76}
-						}
-						{"4.cmp_i"
-							{var "user_team$"}
-							{op "=="}
-							{value 1}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 4.5}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{ignore_captured_by_user 0}
-									{tag ai_air_target}
-									{zone "gamezone"}
-								}
-							}
-							{"delay"
-								{time 0.1}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{include
-											{state
-												{state "operatable user_control"}
-											}
-										}
-										{exclude
-											{state
-												{state "inactive linked"}
-											}
-										}
-									}
-									{amount 1
-									}
-								}
-								{tag_add ai_air_target}
-							}
-						}
-					}
-					{"delay"
-						{time 1.1}
-					}
-					{"switch"
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"air_attack"
-								{selector
-									{ignore_captured_by_user 0}
-									{tag enemy_air}
-									{type vehicle}
-									{state inhabited}
-								}
-								{drop "orders sensor senseless"}
-								{enemies
-									{ignore_captured_by_user 0}
-									{tag ai_air_target}
-								}
-								{attack_altitude 46}
-							}
-						}
-					}
-				}
-			}
-			{"dcg/ai_air_chance"
-				{condition
-					{terms
-						{"1.event"
-							{id "airplane_set"}
-						}
-						{"2.cmp_i"
-							{var "user_team$"}
-							{op ">"}
-							{value 0}
-						}
-						{"3.cmp_i"
-							{var "user_team$"}
-							{op "=="}
-							{value "def_team$"}
-						}
-						{"4.cmp_i"
-							{var "tier2$"}
-							{op "=="}
-							{value 1}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type rand}
-								{value 0.2}
-							}
-							{"delay"
-								{time 660}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.2}
-							}
-							{"delay"
-								{time 900}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.2}
-							}
-							{"delay"
-								{time 950}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.2}
-							}
-							{"delay"
-								{time 800}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 700}
-							}
-						}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type rand}
-								{value 0.25}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"trigger"
-								{name "dcg/ai_air_chance"}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"event"
-								{event "ai_air_possible"}
-								{mode set}
-								{delay 0}
-							}
-						}
-					}
-				}
-			}
-			{"dcg/ai_air_on"
-				{condition
-					{terms
-						{"1.event"
-							{id "dcg"}
-						}
-						{"2.cmp_i"
-							{var "enemyid$"}
-							{op ">"}
-							{value 0}
-						}
-						{"3.entities"
-							{selector
-								{ignore_captured_by_user 0}
-								{tag player}
-								{zone "gamezone"}
-								{type human}
-								{state "not dead"}
-							}
-						}
-						{"4.cmp_i"
-							{var "ai_air_on$"}
-							{op ">"}
-							{value 0}
-						}
-						{"5.cmp_i"
-							{var "dcg_on$"}
-							{op ">"}
-							{value 0}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 0.1}
-					}
-					{"event"
-						{event "ai_air_on"}
-						{mode set}
-						{delay 0}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag ai_air_target}
-						}
-						{tag_remove ai_air_target}
-					}
-					{"delay"
-						{time 5}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag player_armor}
-											}
-											{tag
-												{tag player_car}
-											}
-											{tag
-												{tag player_veh}
-											}
-										}
-										{include
-											{zone
-												{zone "combat"}
-											}
-											{prop
-												{prop vehicle}
-											}
-											{state
-												{state operatable}
-											}
-										}
-										{exclude
-											{tag
-												{tag destroyed}
-											}
-										}
-									}
-								}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 1}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag player_armor}
-													}
-													{tag
-														{tag player_car}
-													}
-													{tag
-														{tag player_veh}
-													}
-												}
-												{include
-													{zone
-														{zone "combat"}
-													}
-													{prop
-														{prop vehicle}
-													}
-													{state
-														{state operatable}
-													}
-												}
-												{exclude
-													{tag
-														{tag destroyed}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "1"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 2}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag player_armor}
-													}
-													{tag
-														{tag player_car}
-													}
-													{tag
-														{tag player_veh}
-													}
-												}
-												{include
-													{zone
-														{zone "combat"}
-													}
-													{prop
-														{prop vehicle}
-													}
-													{state
-														{state operatable}
-													}
-												}
-												{exclude
-													{tag
-														{tag destroyed}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "2"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 3}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag player_armor}
-													}
-													{tag
-														{tag player_car}
-													}
-													{tag
-														{tag player_veh}
-													}
-												}
-												{include
-													{zone
-														{zone "combat"}
-													}
-													{prop
-														{prop vehicle}
-													}
-													{state
-														{state operatable}
-													}
-												}
-												{exclude
-													{tag
-														{tag destroyed}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "3"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 4}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag player_armor}
-													}
-													{tag
-														{tag player_car}
-													}
-													{tag
-														{tag player_veh}
-													}
-												}
-												{include
-													{zone
-														{zone "combat"}
-													}
-													{prop
-														{prop vehicle}
-													}
-													{state
-														{state operatable}
-													}
-												}
-												{exclude
-													{tag
-														{tag destroyed}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "4"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"default"
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag player_armor}
-													}
-													{tag
-														{tag player_car}
-													}
-													{tag
-														{tag player_veh}
-													}
-												}
-												{include
-													{zone
-														{zone "combat"}
-													}
-													{prop
-														{prop vehicle}
-													}
-													{state
-														{state operatable}
-													}
-												}
-												{exclude
-													{tag
-														{tag destroyed}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "5"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 1}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag player}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{prop
-														{prop human}
-													}
-												}
-												{exclude
-													{state
-														{state dead}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "1"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 2}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag player}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{prop
-														{prop human}
-													}
-												}
-												{exclude
-													{state
-														{state dead}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "2"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 3}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag player}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{prop
-														{prop human}
-													}
-												}
-												{exclude
-													{state
-														{state dead}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "3"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 4}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag player}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{prop
-														{prop human}
-													}
-												}
-												{exclude
-													{state
-														{state dead}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "4"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"default"
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag player}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{prop
-														{prop human}
-													}
-												}
-												{exclude
-													{state
-														{state dead}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "5"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
 			{"dcg/init"
 				{condition
+					{expression "1"}
 					{terms
 						{"1.event"
 							{id "init2"}
-						}
-						{"2.entities"
-							{selector
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state user_control}
-										}
-										{prop
-											{prop human}
-										}
-									}
-								}
-							}
 						}
 					}
 				}
@@ -6107,17 +6032,7 @@
 						{time 3}
 					}
 					{"set_i"
-						{var "dcg_on$"}
-						{op "="}
-						{value 0}
-					}
-					{"set_i"
 						{var "ai_air_on$"}
-						{op "="}
-						{value 0}
-					}
-					{"set_i"
-						{var "user_team$"}
 						{op "="}
 						{value 0}
 					}
@@ -6128,6 +6043,11 @@
 					}
 					{"set_i"
 						{var "tier2$"}
+						{op "="}
+						{value 0}
+					}
+					{"set_i"
+						{var "user_nation$"}
 						{op "="}
 						{value 0}
 					}
@@ -6143,418 +6063,9 @@
 						{time 1}
 					}
 					{"set_i"
-						{var "user_nation$"}
-						{op "="}
-						{value 0}
-					}
-					{"set_i"
-						{var "dcg_error$"}
-						{op "="}
-						{value 5}
-					}
-					{"set_i"
-						{var "enemyid$"}
-						{op "="}
-						{value 0}
-					}
-					{"set_i"
-						{var "arrows$"}
-						{op "="}
-						{value 0}
-					}
-					{"delay"
-						{time 1.2}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{tag
-										{tag spawn_a}
-									}
-									{tag
-										{tag spawn_b}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{include
-											{state
-												{state "operatable user_control"}
-											}
-										}
-										{exclude
-											{state
-												{state "inactive linked"}
-											}
-										}
-									}
-								}
-							}
-							{amount 1
-							}
-						}
-						{tag_add user_team}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag spawn_b}
-											}
-										}
-										{include
-											{tag
-												{tag user_team}
-											}
-										}
-										{exclude
-											{tag
-												{tag spawn_a}
-											}
-										}
-									}
-								}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_team$"}
-								{op "="}
-								{value 2}
-							}
-							{"set_i"
-								{var "arrows$"}
-								{op "="}
-								{value 1}
-							}
-							{"delete"
-								{selector
-									{ignore_captured_by_user 0}
-									{tag arrow_enemy_b}
-								}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_team$"}
-								{op "="}
-								{value 1}
-							}
-							{"set_i"
-								{var "arrows$"}
-								{op "="}
-								{value 2}
-							}
-							{"delete"
-								{selector
-									{ignore_captured_by_user 0}
-									{tag arrow_enemy_a}
-								}
-							}
-						}
-					}
-				}
-			}
-			{"dcg/nation_init2"
-				{condition
-					{expression "(1 & 2 & 3 & 5) | (1 & 2 & 4 & 6)"}
-					{terms
-						{"1.cmp_i"
-							{var "def_team$"}
-							{op ">"}
-							{value 0}
-						}
-						{"2.cmp_i"
-							{var "dcg_on$"}
-							{op "=="}
-							{value 1}
-						}
-						{"3.entities"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{prop
-											{prop human}
-										}
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag cmp_def}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state inactive}
-										}
-										{state
-											{state user_control}
-										}
-									}
-								}
-							}
-						}
-						{"4.entities"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{prop
-											{prop human}
-										}
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag player}
-										}
-										{state
-											{state inactive}
-										}
-										{state
-											{state user_control}
-										}
-									}
-								}
-							}
-						}
-						{"5.cmp_i"
-							{var "user_team$"}
-							{op "=="}
-							{value "def_team$"}
-						}
-						{"6.cmp_i"
-							{var "user_team$"}
-							{op "!="}
-							{value "def_team$"}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 0.1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "user_team$"}
-								{op "=="}
-								{value "def_team$"}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-											{tag
-												{tag cmp_def}
-											}
-											{state
-												{state inactive}
-											}
-											{state
-												{state user_control}
-											}
-										}
-									}
-								}
-								{tag_add e_check}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-											{state
-												{state inactive}
-											}
-											{state
-												{state user_control}
-											}
-										}
-									}
-								}
-								{tag_add e_check}
-							}
-						}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type inventory}
-								{selector
-									{ignore_captured_by_user 0}
-									{tag e_check}
-									{zone "gamezone"}
-									{type human}
-									{state "not dead"}
-								}
-								{item "bandage_fin"}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "user_nation$"}
-										{op "=="}
-										{value 2}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"delete"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag airstrike_rus}
-													}
-												}
-											}
-										}
-									}
-								}
-								{"default"}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "user_nation$"}
-										{op "=="}
-										{value 2}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"delete"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag airstrike_fin}
-													}
-												}
-											}
-										}
-									}
-								}
-								{"default"}
-							}
-						}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag e_check}
-						}
-						{tag_remove e_check}
-					}
-					{"event"
-						{event "airplane_set"}
-						{mode set}
-						{delay 0}
+						{var "dcg_on$"}
+						{op "+"}
+						{value 1}
 					}
 				}
 			}
@@ -6565,7 +6076,7 @@
 							{id "dcg"}
 						}
 						{"2.cmp_i"
-							{var "user_nation$"}
+							{var "bot_army$"}
 							{op ">"}
 							{value 0}
 						}
@@ -6579,9 +6090,52 @@
 						{"case"
 							{condition
 								{type cmp_i}
-								{var "user_nation$"}
+								{var "bot_army$"}
 								{op "=="}
 								{value 1}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"set_i"
+								{var "dcg_on$"}
+								{op "+"}
+								{value 1}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"event"
+								{event "airplane_set"}
+								{mode set}
+								{delay 0}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bot_army$"}
+								{op "=="}
+								{value 2}
 							}
 							{"delay"
 								{time 0.1}
@@ -6595,37 +6149,8 @@
 											{tag
 												{tag airstrike_rus}
 											}
-										}
-									}
-								}
-							}
-							{"delay"
-								{time 1}
-							}
-							{"set_i"
-								{var "dcg_on$"}
-								{op "="}
-								{value 1}
-							}
-						}
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "user_nation$"}
-								{op "=="}
-								{value 2}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
 											{tag
-												{tag airstrike_ger}
+												{tag airstrike_fin}
 											}
 										}
 									}
@@ -6636,14 +6161,22 @@
 							}
 							{"set_i"
 								{var "dcg_on$"}
-								{op "="}
+								{op "+"}
 								{value 1}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"event"
+								{event "airplane_set"}
+								{mode set}
+								{delay 0}
 							}
 						}
 						{"case"
 							{condition
 								{type cmp_i}
-								{var "user_nation$"}
+								{var "bot_army$"}
 								{op "=="}
 								{value 3}
 							}
@@ -6657,7 +6190,7 @@
 									{group
 										{select
 											{tag
-												{tag airstrike_fin}
+												{tag airstrike_rus}
 											}
 											{tag
 												{tag airstrike_ger}
@@ -6671,8 +6204,8 @@
 							}
 							{"set_i"
 								{var "dcg_on$"}
-								{op "="}
-								{value 2}
+								{op "+"}
+								{value 1}
 							}
 							{"delay"
 								{time 1}
@@ -6689,7 +6222,7 @@
 							}
 							{"set_i"
 								{var "dcg_on$"}
-								{op "="}
+								{op "+"}
 								{value 1}
 							}
 						}
@@ -6707,14 +6240,10 @@
 							{op ">"}
 							{value 0}
 						}
-						{"3.entities"
-							{selector
-								{ignore_captured_by_user 0}
-								{tag player}
-								{zone "gamezone"}
-								{type human}
-								{state "not dead"}
-							}
+						{"3.cmp_i"
+							{var "enemyid$"}
+							{op ">"}
+							{value 0}
 						}
 					}
 				}
@@ -6725,33 +6254,82 @@
 					{"switch"
 						{"case"
 							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag player}
-											}
-										}
-										{include
-											{relation
-												{relation ally}
-												{player "1"}
-											}
-										}
-									}
-								}
+								{type cmp_i}
+								{var "enemyid$"}
+								{op "=="}
+								{value 1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"player"
 								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag air_vehicle}
-									{type vehicle}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "1"}
+							}
+							{"player"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag pilot}
+									{type human}
+								}
+								{operation set}
+								{player "1"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "enemyid$"}
+								{op "=="}
+								{value 2}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+									}
 								}
 								{operation set}
 								{player "2"}
@@ -6765,43 +6343,97 @@
 								{operation set}
 								{player "2"}
 							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "enemyid$"}
-								{op "="}
-								{value 2}
-							}
 						}
 						{"case"
 							{condition
-								{type entities}
+								{type cmp_i}
+								{var "enemyid$"}
+								{op "=="}
+								{value 3}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"player"
 								{selector
 									{source advanced}
 									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
-												{tag player}
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
 											}
 										}
 										{include
-											{relation
-												{relation enemy}
-												{player "1"}
+											{prop
+												{prop vehicle}
 											}
 										}
 									}
 								}
+								{operation set}
+								{player "3"}
+							}
+							{"player"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag pilot}
+									{type human}
+								}
+								{operation set}
+								{player "3"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "enemyid$"}
+								{op "=="}
+								{value 4}
 							}
 							{"delay"
-								{time 0.2}
+								{time 0.1}
 							}
-							{"set_i"
-								{var "enemyid$"}
-								{op "="}
-								{value 1}
+							{"player"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "4"}
+							}
+							{"player"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag pilot}
+									{type human}
+								}
+								{operation set}
+								{player "4"}
 							}
 						}
 						{"default"
@@ -6811,12 +6443,47 @@
 							{"set_i"
 								{var "enemyid$"}
 								{op "="}
-								{value 1}
+								{value 5}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "5"}
+							}
+							{"player"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag pilot}
+									{type human}
+								}
+								{operation set}
+								{player "5"}
 							}
 							{"objective_progress"
 								{set 0}
 								{add 0}
-								{title "dcg eid error 01 - report if you see this"}
+								{title "dcg eid error 01 - enemyid above 4!"}
 							}
 							{"delay"
 								{time 5}
@@ -6825,7 +6492,7 @@
 								{hide}
 								{set 0}
 								{add 0}
-								{title "dcg eid error 01 - report if you see this"}
+								{title "dcg eid error 01 - enemyid above 4!"}
 							}
 						}
 					}
@@ -6833,7 +6500,7 @@
 			}
 			{"dcg/player_nation"
 				{condition
-					{expression "1 & !2 & 3 & 4"}
+					{expression "1 & !2 & 3"}
 					{terms
 						{"1.entities"
 							{selector
@@ -6849,12 +6516,7 @@
 							{op ">"}
 							{value 0}
 						}
-						{"3.cmp_i"
-							{var "dcg_error$"}
-							{op ">"}
-							{value 0}
-						}
-						{"4.event"
+						{"3.event"
 							{id "dcg"}
 						}
 					}
@@ -6906,62 +6568,6 @@
 								{value 3}
 							}
 						}
-						{"case"
-							{condition
-								{type side}
-								{side usa}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_nation$"}
-								{op "="}
-								{value 4}
-							}
-						}
-						{"case"
-							{condition
-								{type side}
-								{side sov}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_nation$"}
-								{op "="}
-								{value 5}
-							}
-						}
-						{"case"
-							{condition
-								{type side}
-								{side prc}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_nation$"}
-								{op "="}
-								{value 6}
-							}
-						}
-						{"case"
-							{condition
-								{type side}
-								{side frg}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_nation$"}
-								{op "="}
-								{value 7}
-							}
-						}
 						{"default"
 							{"delay"
 								{time 0.1}
@@ -6977,7 +6583,7 @@
 							{"objective_progress"
 								{set 0}
 								{add 0}
-								{title ""}
+								{title "dcg side 01 error - report if you see this"}
 							}
 							{"delay"
 								{time 30}
@@ -6986,7 +6592,7 @@
 								{hide}
 								{set 0}
 								{add 0}
-								{title ""}
+								{title "dcg side 01 error - report if you see this"}
 							}
 						}
 					}
@@ -6994,7 +6600,6 @@
 			}
 			{"dcg/players_units"
 				{condition
-					{expression "(1 & 3) | (2 & 3)"}
 					{terms
 						{"1.entities"
 							{selector
@@ -7007,8 +6612,8 @@
 										}
 									}
 									{include
-										{prop
-											{prop human}
+										{state
+											{state operatable}
 										}
 										{state
 											{state user_control}
@@ -7016,54 +6621,13 @@
 									}
 									{exclude
 										{tag
-											{tag player}
-										}
-										{tag
-											{tag hidden}
-										}
-										{state
-											{state dead}
+											{tag _user}
 										}
 									}
 								}
 							}
 						}
-						{"2.entities"
-							{selector
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{prop
-											{prop vehicle}
-										}
-										{state
-											{state "inhabited user_control"}
-										}
-									}
-									{exclude
-										{tag
-											{tag hidden}
-										}
-										{tag
-											{tag player_armor}
-										}
-										{tag
-											{tag player_car}
-										}
-										{tag
-											{tag player_veh}
-										}
-									}
-								}
-							}
-						}
-						{"3.event"
+						{"2.event"
 							{id "dcg"}
 						}
 					}
@@ -7083,8 +6647,41 @@
 									}
 								}
 								{include
+									{state
+										{state operatable}
+									}
+									{state
+										{state user_control}
+									}
+								}
+								{exclude
+									{tag
+										{tag _user}
+									}
+								}
+							}
+						}
+						{tag_add _user}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+								}
+								{include
 									{prop
 										{prop human}
+									}
+									{state
+										{state operatable}
 									}
 									{state
 										{state user_control}
@@ -7096,9 +6693,6 @@
 									}
 									{tag
 										{tag player}
-									}
-									{state
-										{state dead}
 									}
 								}
 							}
@@ -7114,8 +6708,8 @@
 							{ignore_captured_by_user 0}
 							{group
 								{select
-									{zone
-										{zone "gamezone"}
+									{tag
+										{tag _user}
 									}
 								}
 								{include
@@ -7123,7 +6717,7 @@
 										{prop tank}
 									}
 									{state
-										{state "inhabited user_control"}
+										{state "operatable user_control"}
 									}
 								}
 								{exclude
@@ -7147,8 +6741,8 @@
 							{ignore_captured_by_user 0}
 							{group
 								{select
-									{zone
-										{zone "gamezone"}
+									{tag
+										{tag _user}
 									}
 								}
 								{include
@@ -7156,7 +6750,7 @@
 										{prop car}
 									}
 									{state
-										{state "inhabited user_control"}
+										{state "operatable user_control"}
 									}
 								}
 								{exclude
@@ -7180,8 +6774,8 @@
 							{ignore_captured_by_user 0}
 							{group
 								{select
-									{zone
-										{zone "gamezone"}
+									{tag
+										{tag _user}
 									}
 								}
 								{include
@@ -7189,7 +6783,7 @@
 										{prop vehicle}
 									}
 									{state
-										{state "inhabited user_control"}
+										{state "operatable user_control"}
 									}
 								}
 								{exclude
@@ -7211,33 +6805,6 @@
 						{tag_add player_veh}
 					}
 					{"delay"
-						{time 0.5}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{zone
-										{zone "gamezone"}
-									}
-								}
-								{include
-									{state
-										{state "operatable user_control"}
-									}
-								}
-								{exclude
-									{tag
-										{tag _user}
-									}
-								}
-							}
-						}
-						{tag_add _user}
-					}
-					{"delay"
 						{time 4.2}
 					}
 					{"trigger"
@@ -7245,83 +6812,9 @@
 					}
 				}
 			}
-			{"dcg/warning_air"
-				{condition
-					{expression "!1 & 2"}
-					{terms
-						{"1.event"
-							{id "talk_on"}
-						}
-						{"2.trigger"
-							{name "dcg/ai_airstrike"}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 0.1}
-					}
-					{"event"
-						{event "talk_on"}
-						{mode set}
-						{delay 0}
-					}
-					{"delay"
-						{time 6}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type rand}
-								{value 0.5}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"talk"
-								{selector
-									{ignore_captured_by_user 0}
-									{amount 1
-									}
-									{tag player}
-									{zone "gamezone"}
-									{type human}
-									{state "not dead"}
-								}
-								{text "mission/multi/enemy_plane_alert2"}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"talk"
-								{selector
-									{ignore_captured_by_user 0}
-									{amount 1
-									}
-									{tag player}
-									{zone "gamezone"}
-									{type human}
-									{state "not dead"}
-								}
-								{text "mission/multi/enemy_plane_alert1"}
-							}
-						}
-					}
-					{"delay"
-						{time 8}
-					}
-					{"event"
-						{event "talk_on"}
-						{mode reset}
-						{delay 0}
-					}
-				}
-			}
 			{"dcg/warning_mines"
 				{condition
-					{expression "1 & 2 & !3 & !4"}
+					{expression "1 & 2 & !3 & 4"}
 					{terms
 						{"1.cmp_i"
 							{var "tier2$"}
@@ -7363,9 +6856,9 @@
 							{id "talk_on"}
 						}
 						{"4.cmp_i"
-							{var "user_team$"}
+							{var "user_is_defender$"}
 							{op "=="}
-							{value "def_team$"}
+							{value 0}
 						}
 					}
 				}
@@ -8471,13 +7964,539 @@
 					}
 				}
 			}
-			{"lua/bot"
+			{## "ai/ai_untow"
+				{disabled}
+				{condition
+					{type 1}
+					{terms
+						{"1.see_actors"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag bot_tow}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state linked}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{tag
+								{"tag pair"}
+								{"for selector" tow_act}
+							}
+						}
+						{"2.see_actors"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag bot_tow}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state linked}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{tag
+								{"tag pair"}
+								{"for selector" tow_act}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"linker"
+						{selector
+							{type vehicle}
+						}
+						{action unlink}
+						{entities
+							{ignore_captured_by_user 0}
+							{tag tow_act}
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag bot_car}
+									}
+									{tag
+										{tag bot_tank}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag bot_towing}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{ignore_captured_by_user 0}
+									{tag tow_act}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add bot_towing}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bot_towing}
+							{state operatable}
+						}
+						{tag_add _lua_mi}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type near}
+								{units
+									{ignore_captured_by_user 0}
+									{tag bot_towing}
+								}
+								{near_to
+									{ignore_captured_by_user 0}
+									{tag tow_act}
+								}
+								{distance 22}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag bot_towing}
+													}
+												}
+												{include
+													{prop
+														{prop car}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{state
+														{state moveable}
+													}
+													{state
+														{state user_control}
+													}
+												}
+											}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"emit"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag bot_towing}
+											{type vehicle}
+											{state inhabited}
+										}
+										{drop orders}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"action"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag bot_towing}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state "operatable moveable"}
+													}
+												}
+												{exclude
+													{state
+														{state user_control}
+													}
+												}
+											}
+										}
+										{drop orders}
+										{action move}
+										{target
+											{ignore_captured_by_user 0}
+											{tag flag}
+											{zone "gamezone"}
+										}
+									}
+									{"delay"
+										{time 5}
+									}
+									{"if"
+										{condition
+											{type entities}
+											{selector
+												{source advanced}
+												{ignore_captured_by_user 0}
+												{group
+													{select
+														{tag
+															{tag bot_towing}
+														}
+													}
+													{include
+														{prop
+															{prop car}
+														}
+														{state
+															{state inhabited}
+														}
+													}
+													{exclude
+														{state
+															{state user_control}
+														}
+													}
+												}
+											}
+										}
+										{"delay"
+											{time 0.1}
+										}
+										{"emit"
+											{selector
+												{tag bot_towing}
+												{type vehicle}
+												{state operatable}
+											}
+											{drop orders}
+										}
+									}
+								}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag bot_tow}
+									}
+								}
+								{include
+									{tag
+										{tag tow_act}
+									}
+								}
+							}
+						}
+						{tag_remove bot_tow}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag tow_act}
+						}
+						{tag_remove tow_act}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bot_towing}
+						}
+						{tag_remove _lua_mi}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bot_towing}
+						}
+						{tag_remove bot_towing}
+					}
+					{"delay"
+						{time 8}
+					}
+					{"trigger"
+						{name "ai/ai_untow"}
+					}
+				}
+			}
+			{"ai/bail_portables"
+				{condition
+					{terms
+						{"1.see_actors"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag bot_veh}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 33}
+							}
+							{tag
+								{"tag pair"}
+								{"for selector" bail_veh}
+								{"for enemy" bail_target}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"emit"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag bail_veh}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{emit
+							{count 1}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bail_target}
+							{state operatable}
+						}
+						{tag_add noted_by_ai}
+						{tag_remove bail_target}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bail_veh}
+						}
+						{tag_remove bail_veh}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "ai/bail_portables"}
+					}
+				}
+			}
+			{"lua/bot_tags"
 				{condition
 					{terms
 						{"1.cmp_i"
 							{var "dcg_on$"}
 							{op ">"}
-							{value 0}
+							{value 2}
 						}
 						{"2.entities"
 							{selector
@@ -8486,29 +8505,30 @@
 								{group
 									{select
 										{zone
-											{zone "combat"}
+											{zone "gamezone"}
 										}
 									}
 									{include
-										{tag
-											{tag _bot}
-										}
 										{state
 											{state operatable}
 										}
 									}
 									{exclude
 										{tag
-											{tag bot}
+											{tag _bot}
 										}
 										{tag
-											{tag bot_tank}
+											{tag cmp_def}
 										}
 										{tag
-											{tag bot_car}
+											{tag air_vehicle}
 										}
-										{tag
-											{tag bot_veh}
+										{relation
+											{relation ally}
+											{player "0"}
+										}
+										{state
+											{state user_control}
 										}
 									}
 								}
@@ -8526,8 +8546,64 @@
 							{ignore_captured_by_user 0}
 							{group
 								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag _ai}
+									}
 									{tag
 										{tag _bot}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{tag
+										{tag air_vehicle}
+									}
+									{relation
+										{relation ally}
+										{player "0"}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{tag_add _ai}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"ables"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _ai}
+							{zone "gamezone"}
+							{type human}
+							{state operatable}
+						}
+						{remove personage}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _ai}
 									}
 								}
 								{include
@@ -8560,7 +8636,7 @@
 							{group
 								{select
 									{tag
-										{tag _bot}
+										{tag _ai}
 									}
 								}
 								{include
@@ -8568,7 +8644,7 @@
 										{prop tank}
 									}
 									{state
-										{state inhabited}
+										{state operatable}
 									}
 								}
 								{exclude
@@ -8593,7 +8669,7 @@
 							{group
 								{select
 									{tag
-										{tag _bot}
+										{tag _ai}
 									}
 								}
 								{include
@@ -8601,7 +8677,7 @@
 										{prop car}
 									}
 									{state
-										{state inhabited}
+										{state operatable}
 									}
 								}
 								{exclude
@@ -8617,7 +8693,7 @@
 						{tag_add bot_car}
 					}
 					{"delay"
-						{time 0.5}
+						{time 0.2}
 					}
 					{"entity_state"
 						{selector
@@ -8626,7 +8702,7 @@
 							{group
 								{select
 									{tag
-										{tag _bot}
+										{tag _ai}
 									}
 								}
 								{include
@@ -8634,7 +8710,7 @@
 										{prop vehicle}
 									}
 									{state
-										{state inhabited}
+										{state operatable}
 									}
 								}
 								{exclude
@@ -8648,10 +8724,7 @@
 										{tag bot_veh}
 									}
 									{tag
-										{tag engine_count_1}
-									}
-									{tag
-										{tag engine_count_2}
+										{tag air_vehicle}
 									}
 									{state
 										{state user_control}
@@ -8659,10 +8732,86 @@
 								}
 							}
 						}
-						{tag_add bot_veh}
+						{tag_add _bot_veh}
 					}
 					{"delay"
-						{time 2}
+						{time 1}
+					}
+					{"ables"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _bot_veh}
+							{zone "gamezone"}
+							{type vehicle}
+							{state operatable}
+						}
+						{add emit_on_attack}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _bot_veh}
+						}
+						{tag_add bot_veh}
+						{tag_remove _bot_veh}
+					}
+					{## "entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag bot_veh}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+									{state
+										{state linked}
+									}
+								}
+								{exclude
+									{tag
+										{tag bot_tow}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{tag_add bot_tow}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _ai}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{tag_add _bot}
+						{tag_remove _ai}
+					}
+					{"delay"
+						{time 1}
 					}
 					{"switch"
 						{"case"
@@ -8677,7 +8826,7 @@
 								}
 								{count
 									{op "<<"}
-									{value 50}
+									{value 55}
 								}
 							}
 							{"delay"
@@ -8782,10 +8931,10 @@
 						{"default"}
 					}
 					{"delay"
-						{time 12}
+						{time 8}
 					}
 					{"trigger"
-						{name "lua/bot"}
+						{name "lua/bot_tags"}
 					}
 				}
 			}
@@ -8818,6 +8967,9 @@
 										{tag
 											{tag _lua_mi}
 										}
+										{tag
+											{tag _lua_alert}
+										}
 										{state
 											{state inactive}
 										}
@@ -8828,13 +8980,27 @@
 								}
 							}
 							{enemy
+								{source advanced}
 								{ignore_captured_by_user 0}
-								{tag _user}
-								{state operatable}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
 							}
 							{distance
 								{mode near_than}
-								{meters 48}
+								{meters 55}
 							}
 							{detection located}
 							{tag
@@ -8871,6 +9037,9 @@
 										{tag
 											{tag _lua_mi}
 										}
+										{tag
+											{tag _lua_alert}
+										}
 										{state
 											{state user_control}
 										}
@@ -8878,13 +9047,27 @@
 								}
 							}
 							{enemy
+								{source advanced}
 								{ignore_captured_by_user 0}
-								{tag _user}
-								{state operatable}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
 							}
 							{distance
 								{mode near_than}
-								{meters 56}
+								{meters 66}
 							}
 							{detection located}
 							{tag
@@ -9762,7 +9945,10 @@
 									}
 									{include
 										{state
-											{state "operatable user_control"}
+											{state operatable}
+										}
+										{state
+											{state user_control}
 										}
 									}
 									{exclude
@@ -9801,7 +9987,7 @@
 								{selector
 									{ignore_captured_by_user 0}
 									{tag p_tank_target}
-									{zone "combat"}
+									{zone "gamezone"}
 									{state operatable}
 								}
 								{count
@@ -10422,6 +10608,9 @@
 										{tag
 											{tag destroyed}
 										}
+										{tag
+											{tag "_no-recrew"}
+										}
 										{state
 											{state inhabited}
 										}
@@ -10646,10 +10835,30 @@
 							}
 							{"actor_state"
 								{selector
-									{ignore_captured_by_user 0}
-									{tag ecrew}
-									{type human}
-									{state "not dead"}
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ecrew}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
 								}
 								{drop orders}
 								{fire_mode open}
@@ -10663,9 +10872,30 @@
 							}
 							{"action"
 								{selector
-									{tag ecrew}
-									{type human}
-									{state "not dead"}
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ecrew}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
 								}
 								{drop orders}
 								{action move}
@@ -10711,9 +10941,30 @@
 									}
 									{"board"
 										{selector
-											{tag ecrew}
-											{type human}
-											{state "not dead"}
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ecrew}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag repairing}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
 										}
 										{vehicle
 											{source advanced}
@@ -10744,10 +10995,30 @@
 									}
 									{"actor_state"
 										{selector
-											{ignore_captured_by_user 0}
-											{tag ecrew}
-											{type human}
-											{state "not dead"}
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ecrew}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag repairing}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
 										}
 										{drop orders}
 										{fire_mode open}
@@ -10772,14 +11043,24 @@
 							{"entity_state"
 								{selector
 									{source advanced}
-									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
 												{tag ecrew}
 											}
 										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
 										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
 											{state
 												{state linked}
 											}
@@ -10813,14 +11094,24 @@
 					{"entity_state"
 						{selector
 							{source advanced}
-							{ignore_captured_by_user 0}
 							{group
 								{select
 									{tag
 										{tag _mi_temp4}
 									}
 								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
 								{exclude
+									{tag
+										{tag repairing}
+									}
+									{state
+										{state inactive}
+									}
 									{state
 										{state linked}
 									}
@@ -10908,7 +11199,7 @@
 							}
 							{distance
 								{mode near_than}
-								{meters 95}
+								{meters 100}
 							}
 							{tag
 								{"tag pair"}
@@ -11771,6 +12062,9 @@
 										{state
 											{state operatable}
 										}
+										{state
+											{state user_control}
+										}
 									}
 									{exclude
 										{state
@@ -11810,6 +12104,9 @@
 									}
 									{tag
 										{tag _lua_mi}
+									}
+									{tag
+										{tag _lua_ignore}
 									}
 									{state
 										{state inactive}
@@ -12224,42 +12521,6 @@
 					{"entity_state"
 						{selector
 							{ignore_captured_by_user 0}
-							{tag _lua_ignore}
-							{zone "gamezone"}
-							{state "not operatable"}
-						}
-						{tag_remove _lua_ignore}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag _lua_mi}
-							{zone "gamezone"}
-							{state "not operatable"}
-						}
-						{tag_remove _lua_mi}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag _lua_alert}
-							{zone "gamezone"}
-							{state "not operatable"}
-						}
-						{tag_remove _lua_alert}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
 							{tag _bot}
 							{zone "gamezone"}
 							{state "not operatable"}
@@ -12271,10 +12532,108 @@
 					}
 					{"entity_state"
 						{selector
+							{source advanced}
 							{ignore_captured_by_user 0}
-							{tag smk_}
-							{zone "gamezone"}
-							{state "not operatable"}
+							{group
+								{select
+									{tag
+										{tag _lua_ignore}
+									}
+								}
+								{exclude
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+						{tag_remove _lua_ignore}
+					}
+					{"delay"
+						{time 0.3}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _lua_mi}
+									}
+								}
+								{exclude
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+						{tag_remove _lua_mi}
+					}
+					{"delay"
+						{time 0.3}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _lua_alert}
+									}
+								}
+								{exclude
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+						{tag_remove _lua_alert}
+					}
+					{"delay"
+						{time 0.3}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _lua_alert}
+									}
+								}
+								{include
+									{tag
+										{tag _lua_mi}
+									}
+								}
+							}
+						}
+						{tag_remove _lua_alert}
+					}
+					{"delay"
+						{time 0.3}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag smk_}
+									}
+								}
+								{exclude
+									{tag
+										{tag _bot}
+									}
+								}
+							}
 						}
 						{tag_remove smk_}
 					}
@@ -12297,8 +12656,7 @@
 						{selector
 							{ignore_captured_by_user 0}
 							{tag _arrowed}
-							{zone "gamezone"}
-							{state "not operatable"}
+							{zone "combat"}
 						}
 						{tag_remove _arrowed}
 					}
@@ -12319,7 +12677,6 @@
 							{"entity_state"
 								{selector
 									{source advanced}
-									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
@@ -12330,14 +12687,24 @@
 											{tag
 												{tag ecrew}
 											}
+											{state
+												{state operatable}
+											}
 										}
 										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
 											{state
 												{state linked}
 											}
 										}
 									}
 								}
+								{tag_add _clean}
 								{tag_remove _lua_mi}
 							}
 							{"delay"
@@ -12345,27 +12712,25 @@
 							}
 							{"entity_state"
 								{selector
-									{source advanced}
 									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ecrew}
-											}
-										}
-										{exclude
-											{state
-												{state linked}
-											}
-										}
-									}
+									{tag _clean}
 								}
 								{tag_remove ecrew}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag _clean}
+								}
+								{tag_remove _clean}
 							}
 						}
 					}
 					{"delay"
-						{time 0.5}
+						{time 1}
 					}
 					{"switch"
 						{"case"
@@ -12381,7 +12746,6 @@
 							{"entity_state"
 								{selector
 									{source advanced}
-									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
@@ -12392,8 +12756,14 @@
 											{tag
 												{tag tcrew}
 											}
+											{state
+												{state operatable}
+											}
 										}
 										{exclude
+											{tag
+												{tag repairing}
+											}
 											{state
 												{state inactive}
 											}
@@ -12403,6 +12773,7 @@
 										}
 									}
 								}
+								{tag_add _clean}
 								{tag_remove _lua_mi}
 							}
 							{"delay"
@@ -12410,153 +12781,28 @@
 							}
 							{"entity_state"
 								{selector
-									{source advanced}
 									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag tcrew}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-											{state
-												{state linked}
-											}
-										}
-									}
+									{tag _clean}
 								}
 								{tag_remove tcrew}
 							}
+							{"delay"
+								{time 0.5}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag _clean}
+								}
+								{tag_remove _clean}
+							}
 						}
 					}
 					{"delay"
-						{time 25}
+						{time 30}
 					}
 					{"trigger"
 						{name "lua/clean"}
-					}
-				}
-			}
-			{"lua/_bot"
-				{condition
-					{terms
-						{"1.event"
-							{id "dcg"}
-						}
-						{"2.cmp_i"
-							{var "dcg_on$"}
-							{op ">"}
-							{value 0}
-						}
-						{"3.entities"
-							{selector
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag cmp_def}
-										}
-										{tag
-											{tag _bot}
-										}
-										{state
-											{state inactive}
-										}
-										{state
-											{state user_control}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{zone
-										{zone "gamezone"}
-									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-								}
-								{exclude
-									{tag
-										{tag _ai}
-									}
-									{tag
-										{tag cmp_def}
-									}
-									{tag
-										{tag no_scavenge}
-									}
-									{tag
-										{tag _bot}
-									}
-									{state
-										{state inactive}
-									}
-									{state
-										{state user_control}
-									}
-								}
-							}
-						}
-						{tag_add _ai}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"ables"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag _ai}
-							{zone "gamezone"}
-							{type human}
-							{state "not dead"}
-						}
-						{remove personage}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag _ai}
-						}
-						{tag_add _bot}
-						{tag_remove _ai}
-					}
-					{"delay"
-						{time 7.9}
-					}
-					{"trigger"
-						{name "lua/_bot"}
 					}
 				}
 			}
@@ -12847,9 +13093,31 @@
 							}
 							{"actor_state"
 								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag tcrew}
-									{state operatable}
+									{group
+										{select
+											{tag
+												{tag tcrew}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
 								}
 								{drop orders}
 								{fire_mode open}
@@ -12863,9 +13131,30 @@
 							}
 							{"action"
 								{selector
-									{ignore_captured_by_user 0}
-									{tag tcrew}
-									{state operatable}
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag tcrew}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag repairing}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
 								}
 								{drop orders}
 								{action move}
@@ -12917,9 +13206,30 @@
 									}
 									{"board"
 										{selector
-											{ignore_captured_by_user 0}
-											{tag tcrew}
-											{state operatable}
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag tcrew}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag repairing}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
 										}
 										{vehicle
 											{source advanced}
@@ -12956,9 +13266,30 @@
 									}
 									{"actor_state"
 										{selector
-											{ignore_captured_by_user 0}
-											{tag tcrew}
-											{state operatable}
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag tcrew}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag repairing}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
 										}
 										{drop orders}
 										{fire_mode open}
@@ -12982,22 +13313,22 @@
 							}
 							{"entity_state"
 								{selector
-									{ignore_captured_by_user 0}
-									{tag temp3}
-								}
-								{tag_remove temp3}
-							}
-							{"entity_state"
-								{selector
 									{source advanced}
-									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
 												{tag tcrew}
 											}
 										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
 										{exclude
+											{tag
+												{tag repairing}
+											}
 											{state
 												{state inactive}
 											}
@@ -13008,6 +13339,13 @@
 									}
 								}
 								{tag_remove tcrew}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag temp3}
+								}
+								{tag_remove temp3}
 							}
 							{"entity_state"
 								{selector
@@ -13027,14 +13365,21 @@
 					{"entity_state"
 						{selector
 							{source advanced}
-							{ignore_captured_by_user 0}
 							{group
 								{select
 									{tag
 										{tag _mi_temp6}
 									}
 								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
 								{exclude
+									{tag
+										{tag repairing}
+									}
 									{state
 										{state inactive}
 									}
@@ -13066,22 +13411,86 @@
 			}
 			{"lua/alert_clear"
 				{condition
-					{expression "!1 & !2"}
+					{expression "(!1 & 2 & 4) | (3 & 4)"}
 					{terms
 						{"1.see_enemy"
 							{selector
-								{ignore_captured_by_user 0}
-								{tag _lua_alert}
-								{zone "gamezone"}
-								{state operatable}
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _lua_alert}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+									}
+								}
 							}
 						}
 						{"2.entities"
 							{selector
-								{ignore_captured_by_user 0}
-								{tag _lua_alert}
-								{state operatable}
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _lua_alert}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+									}
+								}
 							}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag _lua_alert}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{tag
+											{tag _lua_mi}
+										}
+										{state
+											{state operatable}
+										}
+									}
+								}
+							}
+						}
+						{"4.cmp_i"
+							{var "dcg_on$"}
+							{op ">"}
+							{value 2}
 						}
 					}
 				}
@@ -13089,25 +13498,54 @@
 					{"delay"
 						{time 0.1}
 					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag _lua_alert}
-							{state operatable}
-						}
-						{tag_add alert_temp}
-					}
-					{"delay"
-						{time 0.5}
-					}
 					{"switch"
 						{"case"
 							{condition
-								{type see_enemy}
+								{type entities}
 								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag alert_temp}
+									{group
+										{select
+											{tag
+												{tag _lua_alert}
+											}
+										}
+										{include
+											{tag
+												{tag _lua_mi}
+											}
+										}
+									}
 								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag _lua_alert}
+											}
+										}
+										{include
+											{tag
+												{tag _lua_mi}
+											}
+										}
+									}
+								}
+								{tag_remove _lua_alert}
+							}
+							{"delay"
+								{time 10}
+							}
+							{"trigger"
+								{name "lua/alert_clear"}
 							}
 						}
 						{"default"
@@ -13116,28 +13554,76 @@
 							}
 							{"entity_state"
 								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag alert_temp}
+									{group
+										{select
+											{tag
+												{tag _lua_alert}
+											}
+										}
+										{include
+											{zone
+												{zone "gamezone"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+										}
+									}
+									{amount 1
+									}
 								}
-								{tag_remove _lua_alert}
+								{tag_add alert_temp}
 							}
 							{"delay"
-								{time 1}
+								{time 0.5}
 							}
-							{"entity_state"
-								{selector
-									{ignore_captured_by_user 0}
-									{tag alert_temp}
+							{"switch"
+								{"case"
+									{condition
+										{type see_enemy}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag alert_temp}
+										}
+									}
 								}
-								{tag_remove alert_temp}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag alert_temp}
+										}
+										{tag_remove _lua_alert}
+									}
+									{"delay"
+										{time 1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag alert_temp}
+										}
+										{tag_remove alert_temp}
+									}
+								}
+							}
+							{"delay"
+								{time 10}
+							}
+							{"trigger"
+								{name "lua/alert_clear"}
 							}
 						}
-					}
-					{"delay"
-						{time 10}
-					}
-					{"trigger"
-						{name "lua/alert_clear"}
 					}
 				}
 			}
@@ -13147,348 +13633,68 @@
 						{"1.cmp_i"
 							{var "dcg_on$"}
 							{op ">"}
-							{value 0}
+							{value 2}
 						}
-						{"2.entities"
-							{selector
+						{"2.near"
+							{units
 								{source advanced}
 								{ignore_captured_by_user 0}
 								{group
 									{select
-										{zone
-											{zone "fpc1"}
-										}
-										{zone
-											{zone "fpc2"}
-										}
-										{zone
-											{zone "fpc3"}
-										}
-										{zone
-											{zone "fpc4"}
-										}
-										{zone
-											{zone "fpc5"}
-										}
-									}
-									{include
 										{tag
 											{tag _bot}
 										}
+									}
+									{include
 										{state
 											{state operatable}
 										}
 									}
 									{exclude
 										{tag
-											{tag _lua_ignore}
+											{tag _lua_mi}
 										}
 										{tag
-											{tag _lua_mi}
+											{tag _lua_ignore}
 										}
 										{tag
 											{tag _lua_alert}
 										}
-										{state
-											{state linked}
+										{tag
+											{tag _def}
 										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{near_to
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag flag}
+										}
+									}
+									{exclude
 										{state
 											{state inactive}
 										}
 									}
 								}
 							}
+							{distance 61}
 						}
 					}
 				}
 				{actions
 					{"delay"
 						{time 0.1}
-					}
-					{"if"
-						{condition
-							{type entities}
-							{selector
-								{ignore_captured_by_user 0}
-								{tag fpc1}
-								{zone "fpc1"}
-							}
-						}
-						{"delay"
-							{time 0.1}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{select
-										{zone
-											{zone "fpc1"}
-										}
-									}
-									{include
-										{tag
-											{tag _bot}
-										}
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag _lua_ignore}
-										}
-										{tag
-											{tag _lua_mi}
-										}
-										{tag
-											{tag _lua_alert}
-										}
-										{state
-											{state inactive}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{amount 1
-								}
-							}
-							{tag_add _lua_ignore}
-						}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"if"
-						{condition
-							{type entities}
-							{selector
-								{ignore_captured_by_user 0}
-								{tag fpc2}
-								{zone "fpc2"}
-							}
-						}
-						{"delay"
-							{time 0.1}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{select
-										{zone
-											{zone "fpc2"}
-										}
-									}
-									{include
-										{tag
-											{tag _bot}
-										}
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag _lua_ignore}
-										}
-										{tag
-											{tag _lua_alert}
-										}
-										{tag
-											{tag _lua_mi}
-										}
-										{state
-											{state inactive}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{amount 1
-								}
-							}
-							{tag_add _lua_ignore}
-						}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"if"
-						{condition
-							{type entities}
-							{selector
-								{ignore_captured_by_user 0}
-								{tag fpc3}
-								{zone "fpc3"}
-							}
-						}
-						{"delay"
-							{time 0.1}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{select
-										{zone
-											{zone "fpc3"}
-										}
-									}
-									{include
-										{tag
-											{tag _bot}
-										}
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag _lua_ignore}
-										}
-										{tag
-											{tag _lua_alert}
-										}
-										{tag
-											{tag _lua_mi}
-										}
-										{state
-											{state inactive}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{amount 1
-								}
-							}
-							{tag_add _lua_ignore}
-						}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"if"
-						{condition
-							{type entities}
-							{selector
-								{ignore_captured_by_user 0}
-								{tag fpc4}
-								{zone "fpc4"}
-							}
-						}
-						{"delay"
-							{time 0.1}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{select
-										{zone
-											{zone "fpc4"}
-										}
-									}
-									{include
-										{tag
-											{tag _bot}
-										}
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag _lua_ignore}
-										}
-										{tag
-											{tag _lua_alert}
-										}
-										{tag
-											{tag _lua_mi}
-										}
-										{state
-											{state inactive}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{amount 1
-								}
-							}
-							{tag_add _lua_ignore}
-						}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"if"
-						{condition
-							{type entities}
-							{selector
-								{ignore_captured_by_user 0}
-								{tag fpc5}
-								{zone "fpc5"}
-							}
-						}
-						{"delay"
-							{time 0.1}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{select
-										{zone
-											{zone "fpc5"}
-										}
-									}
-									{include
-										{tag
-											{tag _bot}
-										}
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag _lua_ignore}
-										}
-										{tag
-											{tag _lua_alert}
-										}
-										{tag
-											{tag _lua_mi}
-										}
-										{state
-											{state inactive}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{amount 1
-								}
-							}
-							{tag_add _lua_ignore}
-						}
-					}
-					{"delay"
-						{time 1}
 					}
 					{"entity_state"
 						{selector
@@ -13516,13 +13722,13 @@
 										{tag _lua_alert}
 									}
 									{tag
-										{tag bot_veh}
+										{tag _def}
 									}
 									{state
 										{state inactive}
 									}
 									{state
-										{state linked}
+										{state user_control}
 									}
 								}
 							}
@@ -13539,11 +13745,9 @@
 												{tag flag}
 											}
 										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
+									}
+									{sort
+										{type shuffle}
 									}
 								}
 							}
@@ -13551,7 +13755,7 @@
 						{tag_add _local1}
 					}
 					{"delay"
-						{time 1}
+						{time 0.5}
 					}
 					{"switch"
 						{"case"
@@ -13560,24 +13764,13 @@
 								{units
 									{ignore_captured_by_user 0}
 									{tag _local1}
+									{state operatable}
 								}
 								{near_to
-									{source advanced}
 									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag flag}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
-									}
+									{tag flag}
 								}
-								{distance 80}
+								{distance 62}
 							}
 							{"delay"
 								{time 0.1}
@@ -13586,8 +13779,93 @@
 								{selector
 									{ignore_captured_by_user 0}
 									{tag _local1}
+									{state operatable}
 								}
 								{tag_add _lua_ignore}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"actor_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag _local1}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag _lua_mi}
+											}
+										}
+									}
+								}
+								{drop orders}
+								{fire_mode open}
+								{move_mode zone}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{speed assault}
+								}
+								{ai
+									{advance_ratio 2}
+									{retreat_ratio 5}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"actor_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag _local1}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag _lua_mi}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{drop orders}
+								{fire_mode open}
+								{move_mode zone}
+								{move_radius 30}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{speed normal}
+									{forward on}
+									{backward on}
+								}
 							}
 						}
 						{"default"}
@@ -13603,35 +13881,7 @@
 						{tag_remove _local1}
 					}
 					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{ignore_captured_by_user 0}
-									{tag _lua_ignore}
-									{zone "gamezone"}
-									{state operatable}
-								}
-								{count
-									{op ">"}
-									{value 25}
-								}
-							}
-							{"delay"
-								{time 50}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 20}
-							}
-						}
-					}
-					{"delay"
-						{time 20}
+						{time 15}
 					}
 					{"trigger"
 						{name "lua/at_flag_ignore"}
@@ -13667,6 +13917,12 @@
 										{tag
 											{tag repairing}
 										}
+										{tag
+											{tag _lua_ignore}
+										}
+										{state
+											{state inactive}
+										}
 										{state
 											{state linked}
 										}
@@ -13677,14 +13933,30 @@
 								}
 							}
 							{enemy
+								{source advanced}
 								{ignore_captured_by_user 0}
-								{tag _user}
-								{zone "gamezone"}
-								{state operatable}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
 							}
 							{distance
 								{mode near_than}
-								{meters 45}
+								{meters 90}
 							}
 							{tag
 								{"tag pair"}
@@ -13732,6 +14004,9 @@
 													}
 												}
 												{exclude
+													{state
+														{state linked}
+													}
 													{state
 														{state user_control}
 													}
@@ -13834,7 +14109,7 @@
 										}
 									}
 									{"delay"
-										{time 45}
+										{time 26}
 									}
 								}
 								{"default"
@@ -13887,7 +14162,7 @@
 										}
 									}
 									{"delay"
-										{time 45}
+										{time 26}
 									}
 								}
 							}
@@ -13918,16 +14193,28 @@
 			}
 			{"lua/ignore_incheck"
 				{condition
-					{expression "1 & !2"}
+					{expression "(1 & 2) | (2 & 3)"}
 					{terms
-						{"1.cmp_i"
+						{"1.entities"
+							{selector
+								{tag _lua_ignore}
+								{zone "gamezone"}
+								{state operatable}
+							}
+							{count
+								{op ">"}
+								{value 30}
+							}
+						}
+						{"2.cmp_i"
 							{var "dcg_on$"}
 							{op ">"}
-							{value 0}
+							{value 2}
 						}
-						{"2.see_enemy"
+						{"3.entities"
 							{selector
 								{source advanced}
+								{ignore_captured_by_user 0}
 								{group
 									{select
 										{tag
@@ -13935,13 +14222,661 @@
 										}
 									}
 									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{tag
+											{tag _lua_mi}
+										}
 										{state
 											{state operatable}
 										}
 									}
-									{exclude
-										{state
-											{state user_control}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag _lua_ignore}
+											}
+										}
+										{include
+											{tag
+												{tag _lua_mi}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag _lua_ignore}
+											}
+										}
+										{include
+											{tag
+												{tag _lua_mi}
+											}
+										}
+									}
+								}
+								{tag_remove _lua_ignore}
+							}
+							{"delay"
+								{time 10}
+							}
+							{"trigger"
+								{name "lua/ignore_incheck"}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag _lua_ignore}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+									}
+									{sort
+										{type entity}
+										{entity
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag flag}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{mode farthest}
+									}
+									{amount 1
+									}
+								}
+								{tag_add _tidy1}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type see_enemy}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag _tidy1}
+											{state operatable}
+										}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag _tidy1}
+										}
+										{tag_remove _lua_ignore}
+									}
+									{"delay"
+										{time 1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag _tidy1}
+										}
+										{tag_remove _tidy1}
+									}
+								}
+							}
+							{"delay"
+								{time 25}
+							}
+							{"trigger"
+								{name "lua/ignore_incheck"}
+							}
+						}
+					}
+				}
+			}
+			{## "debug/vars"
+				{disabled}
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_team$"}
+							{op ">"}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "enemyid$"}
+								{op "=="}
+								{value 1}
+							}
+							{"timer"
+								{time 8}
+								{title "enemid is 1"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "enemyid$"}
+								{op "=="}
+								{value 2}
+							}
+							{"timer"
+								{time 8}
+								{title "enemid is 2"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "enemyid$"}
+								{op "=="}
+								{value 3}
+							}
+							{"timer"
+								{time 8}
+								{title "enemid is 3"}
+							}
+						}
+						{"default"
+							{"timer"
+								{time 8}
+								{title "enemyid is above 3"}
+							}
+						}
+					}
+					{"delay"
+						{time 7}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "user_is_defender$"}
+								{op "=="}
+								{value 0}
+							}
+							{"timer"
+								{time 8}
+								{title "user is defender == 0"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "user_is_defender$"}
+								{op "=="}
+								{value 1}
+							}
+							{"timer"
+								{time 8}
+								{title "user is defender == 1"}
+							}
+						}
+						{"default"
+							{"timer"
+								{time 8}
+								{title "user is defender not 0 or 1!"}
+							}
+						}
+					}
+					{"delay"
+						{time 7}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "def_team$"}
+								{op "=="}
+								{value 1}
+							}
+							{"timer"
+								{time 8}
+								{title "def_team == 1 (a)"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "def_team$"}
+								{op "=="}
+								{value 2}
+							}
+							{"timer"
+								{time 8}
+								{title "def_team == 2(b)"}
+							}
+						}
+						{"default"
+							{"timer"
+								{time 8}
+								{title "DEF TEAM UNKNOWN"}
+							}
+						}
+					}
+					{"delay"
+						{time 7}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "arrows$"}
+								{op "=="}
+								{value 1}
+							}
+							{"timer"
+								{time 8}
+								{title "arrows == 1(a)"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "arrows$"}
+								{op "=="}
+								{value 2}
+							}
+							{"timer"
+								{time 8}
+								{title "arrows == 2(b)"}
+							}
+						}
+						{"default"
+							{"timer"
+								{time 8}
+								{title "arrows invalid!"}
+							}
+						}
+					}
+					{"delay"
+						{time 7}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bot_army$"}
+								{op "=="}
+								{value 1}
+							}
+							{"timer"
+								{time 8}
+								{title "bot army==1 RUS"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bot_army$"}
+								{op "=="}
+								{value 2}
+							}
+							{"timer"
+								{time 8}
+								{title "bot army==2 GER"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bot_army$"}
+								{op "=="}
+								{value 3}
+							}
+							{"timer"
+								{time 8}
+								{title "bot army==3 FIN"}
+							}
+						}
+						{"default"
+							{"timer"
+								{time 8}
+								{title "bot army ABOVE 3!!!!"}
+							}
+						}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bot_mp_team$"}
+								{op "=="}
+								{value 1}
+							}
+							{"timer"
+								{time 8}
+								{title "bot_mp_team 1"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bot_mp_team$"}
+								{op "=="}
+								{value 2}
+							}
+							{"timer"
+								{time 8}
+								{title "bot_mp_team 2"}
+							}
+						}
+						{"default"
+							{"timer"
+								{time 8}
+								{title "bot_mp_team INVALID"}
+							}
+						}
+					}
+					{"event"
+						{event "ai_air_possible"}
+						{mode set}
+						{delay 0}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"set_i"
+						{var "ai_air_on$"}
+						{op "="}
+						{value 1}
+					}
+				}
+			}
+			{"clean-saved-tags"
+				{condition
+				}
+				{actions
+					{"delay"
+						{time 0.5}
+					}
+					{"set_i"
+						{var "dcg_on$"}
+						{op "="}
+						{value 0}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag engine_count_1}
+									}
+									{tag
+										{tag engine_count_2}
+									}
+								}
+								{exclude
+									{tag
+										{tag air_vehicle}
+									}
+								}
+							}
+						}
+						{tag_add air_vehicle}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _bot}
+						}
+						{tag_remove _bot}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bot_tank}
+						}
+						{tag_remove bot_tank}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bot_car}
+						}
+						{tag_remove bot_car}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bot_veh}
+						}
+						{tag_remove bot_veh}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag smk_target}
+						}
+						{tag_remove smk_target}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag unhold_iq}
+						}
+						{tag_remove unhold_iq}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag enemy_near_iq}
+						}
+						{tag_remove enemy_near_iq}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bail_veh}
+						}
+						{tag_remove bail_veh}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bail_target}
+						}
+						{tag_remove bail_target}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag noted_by_ai}
+						}
+						{tag_remove noted_by_ai}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag pursue_target}
+						}
+						{tag_remove pursue_target}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag ecannon_enter}
+						}
+						{tag_remove ecannon_enter}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag etank_enter}
+						}
+						{tag_remove etank_enter}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag e_tank_alt}
+						}
+						{tag_remove e_tank_alt}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag p_tank_target}
+						}
+						{tag_remove p_tank_target}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag p_tank_target}
+						}
+						{tag_remove p_tank_target}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag temp1}
+						}
+						{tag_remove temp1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag temp2}
+						}
+						{tag_remove temp2}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag temp3}
+						}
+						{tag_remove temp3}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag temp4}
+						}
+						{tag_remove temp4}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"set_i"
+						{var "dcg_on$"}
+						{op "+"}
+						{value 1}
+					}
+				}
+			}
+			{"dcg/user_error"
+				{condition
+					{terms
+						{"1.event"
+							{id "dcg"}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{tag
+											{tag bot}
 										}
 									}
 								}
@@ -13960,82 +14895,448 @@
 							{group
 								{select
 									{tag
-										{tag _lua_ignore}
+										{tag _user}
 									}
 								}
 								{include
-									{state
-										{state operatable}
+									{tag
+										{tag bot}
 									}
 								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag flag}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
-									}
-								}
-								{mode farthest}
-							}
-							{amount 1
 							}
 						}
-						{tag_add _tidy1}
+						{tag_remove _bot}
 					}
 					{"delay"
-						{time 1}
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+								}
+								{include
+									{tag
+										{tag bot}
+									}
+								}
+							}
+						}
+						{tag_remove bot}
+					}
+					{"delay"
+						{time 4.4}
+					}
+					{"trigger"
+						{name "dcg/user_error"}
+					}
+				}
+			}
+			{"minimap/arrows"
+				{condition
+					{expression "(1 & 2 & 4) | (1 & 3 & 4)"}
+					{terms
+						{"1.event"
+							{id "init"}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{zone
+											{zone "a_1"}
+										}
+										{zone
+											{zone "a_2"}
+										}
+										{zone
+											{zone "a_3"}
+										}
+										{zone
+											{zone "a_4"}
+										}
+										{zone
+											{zone "b_1"}
+										}
+										{zone
+											{zone "b_2"}
+										}
+										{zone
+											{zone "b_3"}
+										}
+										{zone
+											{zone "b_4"}
+										}
+									}
+									{include
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{zone
+											{zone "combat"}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{relation
+											{relation ally}
+											{player "0"}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+						}
+						{"3.entities"
+							{selector
+								{ignore_captured_by_user 0}
+								{tag _user}
+								{zone "gamezone"}
+								{state operatable}
+							}
+						}
+						{"4.cmp_i"
+							{var "dcg_on$"}
+							{op ">"}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
 					}
 					{"switch"
 						{"case"
 							{condition
-								{type see_enemy}
+								{type entities}
 								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag _tidy1}
-									{state operatable}
+									{group
+										{select
+											{zone
+												{zone "b_1"}
+											}
+											{zone
+												{zone "b_2"}
+											}
+											{zone
+												{zone "b_3"}
+											}
+											{zone
+												{zone "b_4"}
+											}
+										}
+										{include
+											{tag
+												{tag _bot}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{zone
+												{zone "combat"}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
 								}
 							}
-						}
-						{"default"
 							{"delay"
 								{time 0.1}
 							}
-							{"entity_state"
+							{"set_i"
+								{var "user_team$"}
+								{op "="}
+								{value 1}
+							}
+							{"set_i"
+								{var "arrows$"}
+								{op "="}
+								{value 2}
+							}
+							{"delete"
 								{selector
 									{ignore_captured_by_user 0}
-									{tag _tidy1}
+									{tag arrow_enemy_a}
 								}
-								{tag_remove _lua_ignore}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{zone
+												{zone "a_1"}
+											}
+											{zone
+												{zone "a_2"}
+											}
+											{zone
+												{zone "a_3"}
+											}
+											{zone
+												{zone "a_4"}
+											}
+										}
+										{include
+											{tag
+												{tag _bot}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{zone
+												{zone "combat"}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
 							}
 							{"delay"
-								{time 1}
+								{time 0.1}
 							}
-							{"entity_state"
+							{"set_i"
+								{var "user_team$"}
+								{op "="}
+								{value 2}
+							}
+							{"set_i"
+								{var "arrows$"}
+								{op "="}
+								{value 1}
+							}
+							{"delete"
 								{selector
 									{ignore_captured_by_user 0}
-									{tag _tidy1}
+									{tag arrow_enemy_b}
 								}
-								{tag_remove _tidy1}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "arrows$"}
+								{op "=="}
+								{value 0}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "b_1"}
+													}
+													{zone
+														{zone "b_2"}
+													}
+													{zone
+														{zone "b_3"}
+													}
+													{zone
+														{zone "b_4"}
+													}
+												}
+												{include
+													{tag
+														{tag _user}
+													}
+												}
+											}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"set_i"
+										{var "user_team$"}
+										{op "="}
+										{value 2}
+									}
+									{"set_i"
+										{var "arrows$"}
+										{op "="}
+										{value 1}
+									}
+									{"delete"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag arrow_enemy_b}
+										}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "a_1"}
+													}
+													{zone
+														{zone "a_2"}
+													}
+													{zone
+														{zone "a_3"}
+													}
+													{zone
+														{zone "a_4"}
+													}
+												}
+												{include
+													{tag
+														{tag _user}
+													}
+												}
+											}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"set_i"
+										{var "user_team$"}
+										{op "="}
+										{value 1}
+									}
+									{"set_i"
+										{var "arrows$"}
+										{op "="}
+										{value 2}
+									}
+									{"delete"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag arrow_enemy_a}
+										}
+									}
+								}
+								{"default"}
 							}
 						}
 					}
 					{"delay"
-						{time 25}
+						{time 0.5}
 					}
-					{"trigger"
-						{name "lua/ignore_incheck"}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "arrows$"}
+								{op ">"}
+								{value 0}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 1}
+							}
+							{"set_i"
+								{var "dcg_error$"}
+								{op "-"}
+								{value 1}
+							}
+							{"delay"
+								{time 4}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "dcg_error$"}
+										{op ">"}
+										{value 0}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"trigger"
+										{name "minimap/arrows"}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"set_i"
+										{var "user_team$"}
+										{op "="}
+										{value 1}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"objective_progress"
+										{set 0}
+										{add 0}
+										{title "dcg arrow error - report if you see this"}
+									}
+									{"delay"
+										{time 10}
+									}
+									{"objective_progress"
+										{hide}
+										{set 0}
+										{add 0}
+										{title "dcg arrow error - report if you see this"}
+									}
+									{"delay"
+										{time 0.1}
+									}
+								}
+							}
+						}
 					}
 				}
 			}
