@@ -238,3 +238,12 @@
 		{delete}
 	}
 }
+
+
+;;;;;;;;;;;;;;;;;;;;// Plane Specific
+
+{"a4e"
+	{on spawn
+		{ani_play "gear_up"}
+	}
+}
