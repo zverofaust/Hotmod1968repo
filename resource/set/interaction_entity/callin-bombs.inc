@@ -124,16 +124,16 @@
 	}
 }
 
-{"mig-19_airstrike_2x100"
+{"mig-19_airstrike_2xwp"
 	{on "bomb_drop"
 		{delay 0.1 
-			{spawn "bomb_single_100" "hardpoint_3" x dir_velocity
+			{spawn "bomb_single_wp" "hardpoint_3" x dir_velocity
 				{impulse up -14 dir -5 forward 45}
 			}
 		
 		}
 		{delay 0.13 
-			{spawn "bomb_single_100" "hardpoint_4" x dir_velocity
+			{spawn "bomb_single_wp" "hardpoint_4" x dir_velocity
 				{impulse up -14 dir -5 forward 55}
 			}
 		
@@ -141,74 +141,28 @@
 	}
 }
 
-{"mig-19_airstrike_2xcluster"
-	{on "bomb_drop"
-		{delay 0.28 
-			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
-				{impulse up -14 dir -5 forward 60}
-			}
-		
-		}
-		{delay 0.3 
-			{spawn "bomb_single_cluster" "hardpoint_2" x dir_velocity
-				{impulse up -14 dir -5 forward 55}
-			}
-		
-		}
-	}
-}
-
-
-{"su-7_airstrike_4xcluster"
-	{on "bomb_drop"
-		{delay 0.26 
-			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
-				{impulse up -14 dir -5 forward 55}
-			}
-		
-		}
-		{delay 0.28 
-			{spawn "bomb_single_cluster" "hardpoint_2" x dir_velocity
-				{impulse up -14 dir -5 forward 60}
-			}
-		
-		}
-		{delay 0.3 
-			{spawn "bomb_single_cluster" "hardpoint_3" x dir_velocity
-				{impulse up -14 dir -5 forward 55}
-			}
-		
-		}
-		{delay 0.32 
-			{spawn "bomb_single_cluster" "hardpoint_4" x dir_velocity
-				{impulse up -14 dir -5 forward 60}
-			}
-		
-		}
-	}
-}
-{"su-7_airstrike_4x500"
+{"su-7_airstrike_4x250"
 	{on "bomb_drop"
 		{delay 0.01 
-			{spawn "bomb_single_500" "hardpoint_1" x dir_velocity
+			{spawn "bomb_single_250" "hardpoint_1" x dir_velocity
 				{impulse up -14 dir -5 forward 40}
 			}
 		
 		}
 		{delay 0.1 
-			{spawn "bomb_single_500" "hardpoint_2" x dir_velocity
+			{spawn "bomb_single_250" "hardpoint_2" x dir_velocity
 				{impulse up -14 dir -5 forward 45}
 			}
 		
 		}
 		{delay 0.15 
-			{spawn "bomb_single_500" "hardpoint_3" x dir_velocity
+			{spawn "bomb_single_250" "hardpoint_3" x dir_velocity
 				{impulse up -14 dir -5 forward 50}
 			}
 		
 		}
 		{delay 0.2 
-			{spawn "bomb_single_500" "hardpoint_4" x dir_velocity
+			{spawn "bomb_single_250" "hardpoint_4" x dir_velocity
 				{impulse up -14 dir -5 forward 55}
 			}
 		
@@ -245,93 +199,105 @@
 	}
 }
 
-{"su-7_airstrike_6x250"
+{"yak-28_airstrike_8x250"
 	{on "bomb_drop"
-		{delay 0.01 
-			{spawn "bomb_single_250" "hardpoint_1" x dir_velocity
-				{impulse up -14 dir -5 forward 37}
-			}
-		
-		}
-		{delay 0.1 
-			{spawn "bomb_single_250" "hardpoint_2" x dir_velocity
-				{impulse up -14 dir -5 forward 42}
-			}
-		
-		}
-		{delay 0.15 
-			{spawn "bomb_single_250" "hardpoint_3" x dir_velocity
-				{impulse up -14 dir -5 forward 47}
-			}
-		
-		}
-		{delay 0.2 
-			{spawn "bomb_single_250" "hardpoint_4" x dir_velocity
-				{impulse up -14 dir -5 forward 51}
-			}
-		
-		}
-		{delay 0.22 
+		{delay 0.18 
 			{spawn "bomb_single_250" "hardpoint_1" x dir_velocity
 				{impulse up -14 dir -5 forward 55}
 			}
 		
 		}
-		{delay 0.26 
+		{delay 0.22 
+			{spawn "bomb_single_250" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 60}
+			}
+		
+		}
+		{delay 0.25 
 			{spawn "bomb_single_250" "hardpoint_2" x dir_velocity
-				{impulse up -14 dir -5 forward 58}
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.28 
+			{spawn "bomb_single_250" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 60}
+			}
+		
+		}
+		{delay 0.31 
+			{spawn "bomb_single_250" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.33 
+			{spawn "bomb_single_250" "hardpoint_1" x dir_velocity
+				{impulse up -14 dir -5 forward 60}
+			}
+		
+		}
+		{delay 0.35
+			{spawn "bomb_single_250" "hardpoint_2" x dir_velocity
+				{impulse up -14 dir -5 forward 55}
+			}
+		
+		}
+		{delay 0.37 
+			{spawn "bomb_single_250" "hardpoint_3" x dir_velocity
+				{impulse up -14 dir -5 forward 60}
 			}
 		
 		}
 	}
 }
 
-{"yak-28_airstrike_8xcluster"
+{"yak-28_airstrike_8xwp"
 	{on "bomb_drop"
 		{delay 0.18 
-			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
+			{spawn "bomb_single_wp" "hardpoint_1" x dir_velocity
 				{impulse up -14 dir -5 forward 55}
 			}
 		
 		}
 		{delay 0.22 
-			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
+			{spawn "bomb_single_wp" "hardpoint_1" x dir_velocity
 				{impulse up -14 dir -5 forward 60}
 			}
 		
 		}
 		{delay 0.25 
-			{spawn "bomb_single_cluster" "hardpoint_2" x dir_velocity
+			{spawn "bomb_single_wp" "hardpoint_2" x dir_velocity
 				{impulse up -14 dir -5 forward 55}
 			}
 		
 		}
 		{delay 0.28 
-			{spawn "bomb_single_cluster" "hardpoint_3" x dir_velocity
+			{spawn "bomb_single_wp" "hardpoint_3" x dir_velocity
 				{impulse up -14 dir -5 forward 60}
 			}
 		
 		}
 		{delay 0.31 
-			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
+			{spawn "bomb_single_wp" "hardpoint_1" x dir_velocity
 				{impulse up -14 dir -5 forward 55}
 			}
 		
 		}
 		{delay 0.33 
-			{spawn "bomb_single_cluster" "hardpoint_1" x dir_velocity
+			{spawn "bomb_single_wp" "hardpoint_1" x dir_velocity
 				{impulse up -14 dir -5 forward 60}
 			}
 		
 		}
 		{delay 0.35
-			{spawn "bomb_single_cluster" "hardpoint_2" x dir_velocity
+			{spawn "bomb_single_wp" "hardpoint_2" x dir_velocity
 				{impulse up -14 dir -5 forward 55}
 			}
 		
 		}
 		{delay 0.37 
-			{spawn "bomb_single_cluster" "hardpoint_3" x dir_velocity
+			{spawn "bomb_single_wp" "hardpoint_3" x dir_velocity
 				{impulse up -14 dir -5 forward 60}
 			}
 		
