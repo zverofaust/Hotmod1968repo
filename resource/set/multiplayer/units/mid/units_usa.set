@@ -25,39 +25,69 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
-{"m151_prc77"
-	("vehicle2"  period(mid) cd(120) ci(120) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
-	{cost 5} {squad_cost_factor 0}
-}
+;{"m151_prc77"
+;	("vehicle2"  period(mid) cd(120) ci(120) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
+;	{cost 5} {squad_cost_factor 0}
+;}
 
-{"mortar_barrage_smoke_usa"
-	("squad_vehicle" side(usa) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
-	{cost 2}{conditions "radio_usa"}{action "airstrike:flare_mortar_smoke"}
-}
+;{"mortar_barrage_smoke_usa"
+;	("squad_vehicle" side(usa) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
+;	{cost 2}{conditions "radio_usa"}{action "airstrike:flare_mortar_smoke"}
+;}
 
-{"mortar_barrage_light_usa"
-	("squad_vehicle" side(usa) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
-	{cost 3}{conditions "radio_usa"}{action "airstrike:flare_mortar_80"}
-}
+;{"mortar_barrage_light_usa"
+;	("squad_vehicle" side(usa) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
+;	{cost 3}{conditions "radio_usa"}{action "airstrike:flare_mortar_80"}
+;}
 
-{"mortar_barrage_medium_usa"
-	("squad_vehicle" side(usa) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(m30_mortar) crew(sup_guncrew:0))
-	{cost 5}{conditions "radio_usa"}{action "airstrike:flare_mortar_120"}
-}
+;{"mortar_barrage_medium_usa"
+;	("squad_vehicle" side(usa) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(m30_mortar) crew(sup_guncrew:0))
+;	{cost 5}{conditions "radio_usa"}{action "airstrike:flare_mortar_120"}
+;}
 
 {"cas_uh1_usa"
 	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
 	{cost 10}{conditions "radio_usa"}{action "airstrike:reconnaissance_50"} 
 }
 
-{"airstrike_250_usa" ;by A-4E currently, to be replaced by A-1
-	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_2x250) crew(sup_pilot:0))
-	{cost 8}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_2x250"} 
+{"airstrike_rocket_light_usa" ;by A-4E currently, to be replaced by A-1
+	("squad_vehicle" side(usa) cd(60) ci(30) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_rocket_light) crew(sup_pilot:0))
+	{cost 6}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_rocket_light"} 
 }
 
-{"airstrike_napalm_usa" ;by A-4E currently, to be replaced by A-1
-	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_2xnapalm) crew(sup_pilot:0))
-	{cost 6}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_2xnapalm"} 
+{"airstrike_light_usa" ;by A-4E currently, to be replaced by A-1
+	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_light) crew(sup_pilot:0))
+	{cost 6}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_light"} 
+}
+
+{"airstrike_light_napalm_usa" ;by A-4E currently, to be replaced by A-1
+	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_napalm_light) crew(sup_pilot:0))
+	{cost 6}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_napalm_light"} 
+}
+
+{"airstrike_medium_usa" ;by USMC A-4E currently, to be replaced by USAF F-100?
+	("squad_vehicle" side(usa) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_medium) crew(sup_pilot:0))
+	{cost 12}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_medium"} 
+}
+
+{"airstrike_medium_napalm_usa" ;by USMC A-4E currently, to be replaced by USAF F-100?
+	("squad_vehicle" side(usa) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_napalm_medium) crew(sup_pilot:0))
+	{cost 12}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_napalm_medium"} 
+}
+
+{"airstrike_heavy_usa" ;by F-105
+	("squad_vehicle" side(usa) cd(330) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike_heavy) crew(sup_pilot:0))
+	{cost 18}{conditions "radio_usa"}{action "airstrike:f-105_airstrike_heavy"} 
+}
+
+{"airstrike_heavy_napalm_usa" ;by F-105
+	("squad_vehicle" side(usa) cd(330) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike_napalm_heavy) crew(sup_pilot:0))
+	{cost 18}{conditions "radio_usa"}{action "airstrike:f-105_airstrike_napalm_heavy"} 
+}
+
+{"airstrike_superheavy_usa" ;by F-105
+	("squad_vehicle" side(usa) cd(420) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike_superheavy) crew(sup_pilot:0))
+	{cost 24}{conditions "radio_usa"}{action "airstrike:f-105_airstrike_superheavy"} 
 }
 
 ;_________________________________________________
@@ -134,27 +164,6 @@
 	("doctrine_t1" cool(120) d(mid_usa_acav) cost(20))
 }
 
-; // 8 DP Cluster bomb strike by A-4E
-{"airstrike_cluster_acav_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(a-4e_airstrike_4xcluster) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(180) d(mid_usa_acav) cost(8))
-	{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_4xcluster"}
-}
-
-; // 15 DP Napalm bomb strike by F-105
-{"airstrike_napalm_acav_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(f-105_airstrike_8xnapalm) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_acav) cost(15))
-	{conditions "radio_usa"}{action "airstrike:f-105_airstrike_8xnapalm"}
-}
-
-; // 20 DP 8 x 500kg Bomb Strike by F-105
-{"airstrike_500_acav_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(f-105_airstrike_8x500) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_acav) cost(20))
-	{conditions "radio_usa"}{action "airstrike:f-105_airstrike_8x500"}
-}
-
 ;===================================
 ;         AIR CAV
 ;			
@@ -221,26 +230,12 @@
 	{conditions "radio_usa"}{action "airstrike:reconnaissance_50"} 
 }
 
-; // 8DP 4 x cluster bomb strike by A-4E
-{"airstrike_cluster_air_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(a-4e_airstrike_4xcluster) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_air) cost(8))
-	{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_4xcluster"}
-}
-
-; // 12DP 8 x 250kg bomb strike by F-105
-{"airstrike_250_air_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(f-105_airstrike_8x250) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_air) cost(12))
-	{conditions "radio_usa"}{action "airstrike:f-105_airstrike_8x250"}
-}
-
 ; // 18DP 3x1000kg bomb strike by F-105
-{"airstrike_1000_air_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(f-105_airstrike_3x1000) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_air) cost(18))
-	{conditions "radio_usa"}{action "airstrike:f-105_airstrike_3x1000"}
-}
+;{"airstrike_1000_air_usa"
+;	("strategic_doctrine" side(usa) period(mid) vehicle(f-105_airstrike_3x1000) crew(sup_pilot:0) cw(0) cp(0))
+;	("doctrine_t1" cool(240) d(mid_usa_air) cost(18))
+;	{conditions "radio_usa"}{action "airstrike:f-105_airstrike_3x1000"}
+;}
 
 ;===================================
 ;         ARMORED BRIGADE
@@ -294,27 +289,6 @@
 	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_m22_airborne) crew(sup_pilot:1) cw(0) cp(0))
 	("doctrine_strat" cool(180) d(mid_usa_tank) cost(15))
 	{conditions "radio_usa"}{action "airstrike:reconnaissance_50"} 
-}
-
-; // 10DP 4 x napalm bomb strike by A-4E
-{"airstrike_napalm_tank_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(a-4e_airstrike_4xnapalm) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_tank) cost(10))
-	{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_4xnapalm"}
-}
-
-; // 15DP 8 x 250kg bomb strike by F-105
-{"airstrike_250_tank_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(f-105_airstrike_8x250) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_tank) cost(15))
-	{conditions "radio_usa"}{action "airstrike:f-105_airstrike_8x250"}
-}
-
-; // 15DP Cluster bomb strike by F-105
-{"airstrike_cluster_tank_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(f-105_airstrike_8xcluster) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_tank) cost(15))
-	{conditions "radio_usa"}{action "airstrike:f-105_airstrike_8xcluster"}
 }
 
 ;===================================
@@ -375,20 +349,6 @@
 	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_maxwell_airborne) crew(sup_pilot:1) cw(0) cp(0))
 	("doctrine_strat" cool(180) d(mid_usa_usmc) cost(15))
 	{conditions "radio_usa"}{action "airstrike:reconnaissance_50"} 
-}
-
-; // 15DP 8 x 250kg bomb strike by F-105 (A-4)
-{"airstrike_250_usmc_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(f-105_airstrike_8x250) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_usmc) cost(15))
-	{conditions "radio_usa"}{action "airstrike:f-105_airstrike_8x250"}
-}
-
-; // 15DP 12 x Napalm bomb strike by F-105 (A-6)
-{"airstrike_napalm_usmc_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(f-105_airstrike_8xnapalm) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_usmc) cost(15))
-	{conditions "radio_usa"}{action "airstrike:f-105_airstrike_8xnapalm"}
 }
 
 ;===================================

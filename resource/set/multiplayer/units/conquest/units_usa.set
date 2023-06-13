@@ -83,37 +83,37 @@
 
 {"airstrike_light_usa"
 	("squad_vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(a-4e_airstrike) crew(sup_pilot:0))
-	{cost 5}{action "airstrike:a-4e_airstrike_2x250"}
+	{cost 5}{action "airstrike:a-4e_airstrike_light"}
 }
 
 {"airstrike_light_napalm_usa"
 	("squad_vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(a-4e_airstrike) crew(sup_pilot:0))
-	{cost 5}{action "airstrike:a-4e_airstrike_2xnapalm"}
+	{cost 5}{action "airstrike:a-4e_airstrike_napalm_light"}
 }
 
 {"airstrike_medium_usa"
 	("squad_vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(a-4e_airstrike) crew(sup_pilot:0))
-	{cost 8}{action "airstrike:a-4e_airstrike_4x250"}
+	{cost 8}{action "airstrike:a-4e_airstrike_medium"}
 }
 
 {"airstrike_medium_napalm_usa"
 	("squad_vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(a-4e_airstrike) crew(sup_pilot:0))
-	{cost 8}{action "airstrike:a-4e_airstrike_4xnapalm"}
+	{cost 8}{action "airstrike:a-4e_airstrike_napalm_medium"}
 }
 
 {"airstrike_heavy_usa"
 	("squad_vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(f-105_airstrike) crew(sup_pilot:0))
-	{cost 15}{action "airstrike:f-105_airstrike_8x250"}
+	{cost 15}{action "airstrike:f-105_airstrike_heavy"}
 }
 
 {"airstrike_heavy_napalm_usa"
 	("squad_vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(f-105_airstrike) crew(sup_pilot:0))
-	{cost 18}{action "airstrike:f-105_airstrike_8xnapalm"}
+	{cost 18}{action "airstrike:f-105_airstrike_napalm_heavy"}
 }
 
 {"airstrike_superheavy_usa"
 	("squad_vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(6) vehicle(f-105_airstrike) crew(sup_pilot:0))
-	{cost 18}{action "airstrike:f-105_airstrike_3x1000"}
+	{cost 24}{action "airstrike:f-105_airstrike_superheavy"}
 }
 
 ;// OTHER OFFMAP Supports
@@ -240,9 +240,9 @@
 
 ; // OTHER Squads
 
-;{"squad_engineer_moto_con(usa)" 
-;	("squad_vehicle"		 side(usa) period(mid) min_stage(1) max_stage(15) vehicle(dodge_m37_eng) cw(0) cp(4) 		crew(reg_engineer:2) )
-;}
+{"squad_engineer_moto_con(usa)" 
+	("squad_vehicle"		 side(usa) period(mid) min_stage(1) max_stage(15) vehicle(dodge_m37_eng) cw(0) cp(4) 		crew(reg_engineer:2) )
+}
 
 {"squad_medic_moto_con(usa)" 
 	("squad_vehicle"		 side(usa) period(mid) min_stage(1) max_stage(15) vehicle(dodge_m37) cw(0) cp(4) 		crew(reg_medic:4) )
@@ -418,11 +418,6 @@
 {"dodge_m37_ammo"
 	("vehicle"  period(mid) min_stage(0) max_stage(25) side(usa) crew(sup_supporter:1) cw(0) cp(2))
 	{cost 125}
-}
-
-{"dodge_m37_eng"
-	("vehicle"  period(mid) min_stage(1) max_stage(25) side(usa) crew(sup_supporter:1) cw(0) cp(2))
-	{cost 150}
 }
 
 {"m35"

@@ -3,6 +3,7 @@
 {"sortie"
 	{on spawn
 		{link_sound "bombdrop"				"weapon/shot/mortar/whistle"}
+		{link_sound "rocketlaunch"			"weapon/shot/reactive/rocket_burst"}
 		;{add_view	"nebel_tail"			"engine_afterburner"			"FXSmoke1"}	
 		;{add_view	"nebel_tail"			"engine_afterburner2"			"FXSmoke2"}
 	}
@@ -12,7 +13,7 @@
 		{add_view	"rocket_smoke"			"engine_exhaust2"				"FXSmoke2"}			
 		{add_view	"pfaust_tail"			"wingtipr_trail"				"wingtipr"}
 		{add_view	"pfaust_tail"			"wingtipl_trail"				"wingtipl"}
-		{play_sound "bombdrop"}
+		;{play_sound "bombdrop"}
 		{view start "engine_exhaust"}
 		{view start "engine_exhaust2"}
 		{view start "wingtipr_trail"}
