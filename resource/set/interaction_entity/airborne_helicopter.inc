@@ -3,7 +3,7 @@
 		{link_sound "fall"				"vehicle/airborne/fw_deep"}
 		{link_sound "bounds"			"world/plane/bounds_warning"}
 		{link_sound "false_start"		"vehicle/airborne/false_start"}
-		{link_sound "bkg_plane"			"vehicle/airborne/bkg/"}
+		{link_sound "bkg_plane"			"vehicle/airborne/bkgheli/"}
 		{link_sound "bkg_gun"			"weapon/shot/bkg/auto/"}
 		{link_sound "bkg_mgun"			"weapon/shot/bkg/gun/mg/"}
 		

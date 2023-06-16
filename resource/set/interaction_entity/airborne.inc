@@ -1819,64 +1819,6 @@
 
 ;/*=========== Plane Specifics End  ===========*/
 
-{"f-105"
-	{on "add_movement_sound" overload
-		{link_sound "engine1_start"			"vehicle/airborne/f4_start"}
-		{link_sound "engine1_idle"			"vehicle/airborne/f4_work"}
-		{link_sound "engine1_full"			"vehicle/airborne/f4_move2"}
-		{link_sound "engine2_start"			"vehicle/airborne/f4_start"}
-		{link_sound "engine2_idle"			"vehicle/airborne/f4_work"}
-		{link_sound "engine2_full"			"vehicle/airborne/f4_move2"}
-		{link_sound "engine3_start"			"vehicle/airborne/f4_start"}
-		{link_sound "engine3_idle"			"vehicle/airborne/f4_work"}
-		{link_sound "engine3_full"			"vehicle/airborne/f4_move2"}
-		{link_sound "fly"					"vehicle/airborne/f4_move2"}	
-		{link_sound "engine_work"			"vehicle/airborne/f4_move2"}	
-		{link_sound "engine_accelerate"		"vehicle/airborne/f4_move"}
-		{link_sound "engine_decelerate"		"vehicle/airborne/f4_move"}
-		{link_sound "engine_stop"			"vehicle/airborne/f4_stop"}
-		{link_sound "attack"				"vehicle/airborne/f4_move2"}
-	}
-	
-	{##on "wheels_fx"
-		{add_view "spheredust_big" "ground_dust" "support1"}
-		{add_view "spheredust_big" "ground_dust" "support2"}
-		{view start "ground_dust"}
-		{delay 4
-			{view stop "ground_dust"}
-		}
-	}
-}
-
-{"su-7"
-	{on "add_movement_sound" overload
-		{link_sound "engine1_start"			"vehicle/airborne/f4_start"}
-		{link_sound "engine1_idle"			"vehicle/airborne/f4_work"}
-		{link_sound "engine1_full"			"vehicle/airborne/f4_move2"}
-		{link_sound "engine2_start"			"vehicle/airborne/f4_start"}
-		{link_sound "engine2_idle"			"vehicle/airborne/f4_work"}
-		{link_sound "engine2_full"			"vehicle/airborne/f4_move2"}
-		{link_sound "engine3_start"			"vehicle/airborne/f4_start"}
-		{link_sound "engine3_idle"			"vehicle/airborne/f4_work"}
-		{link_sound "engine3_full"			"vehicle/airborne/f4_move2"}
-		{link_sound "fly"					"vehicle/airborne/f4_move2"}	
-		{link_sound "engine_work"			"vehicle/airborne/f4_move2"}	
-		{link_sound "engine_accelerate"		"vehicle/airborne/f4_move"}
-		{link_sound "engine_decelerate"		"vehicle/airborne/f4_move"}
-		{link_sound "engine_stop"			"vehicle/airborne/f4_stop"}
-		{link_sound "attack"				"vehicle/airborne/f4_move2"}
-	}
-
-	{##on "wheels_fx"
-		{add_view "spheredust_big" "ground_dust" "support1"}
-		{add_view "spheredust_big" "ground_dust" "support2"}
-		{view start "ground_dust"}
-		{delay 4
-			{view stop "ground_dust"}
-		}
-	}
-}
-
 {"mil_mi4_airborne"
 	{on "add_movement_sound" overload
 		{link_sound "engine1_start"			"vehicle/airborne/uh1h_start"}

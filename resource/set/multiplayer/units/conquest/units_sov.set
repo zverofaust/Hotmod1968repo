@@ -90,39 +90,44 @@
 
 ;// Airstrikes
 
-{"airstrike_light_sov"
+{"airstrike_light_rocket_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 5}{action "airstrike:mig-19_airstrike_light"}
+	{cost 3}{action "airstrike:flare_airstrike_light_rocket_sov"}
 }
 
-{"airstrike_light_wp_sov"
+{"airstrike_light_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 5}{action "airstrike:mig-19_airstrike_wp_light"}
+	{cost 2}{action "airstrike:flare_airstrike_light_bomb_sov"}
 }
 
 {"airstrike_medium_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(su-7_airstrike) crew(sup_pilot:0))
-	{cost 8}{action "airstrike:su-7_airstrike_medium"}
+	{cost 4}{action "airstrike:flare_airstrike_medium_bomb_sov"}
 }
 
 {"airstrike_medium_wp_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(su-7_airstrike) crew(sup_pilot:0))
-	{cost 8}{action "airstrike:su-7_airstrike_wp_medium"}
+	{cost 5}{action "airstrike:flare_airstrike_medium_wp_sov"}
 }
 
-{"airstrike_heavy_wp_sov"
-	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
-	{cost 15}{action "airstrike:yak-28_airstrike_heavy"}
+{"airstrike_medium_cluster_sov"
+	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(su-7_airstrike) crew(sup_pilot:0))
+	{cost 6}{action "airstrike:flare_airstrike_medium_cluster_sov"}
 }
 
 {"airstrike_heavy_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
-	{cost 15}{action "airstrike:yak-28_airstrike_wp_heavy"}
+	{cost 12}{action "airstrike:flare_airstrike_heavy_bomb_sov"}
+}
+
+{"airstrike_heavy_wp_sov"
+	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
+	{cost 15}{action "airstrike:flare_airstrike_heavy_wp_sov"}
 }
 
 {"airstrike_superheavy_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(6) vehicle(yak-28_airstrike) crew(sup_pilot:0))
-	{cost 22}{action "airstrike:yak-28_airstrike_superheavy"}
+	{cost 20}{action "airstrike:flare_airstrike_super_bomb_sov"}
 }
 
 ;// OTHER OFFMAP Supports (Paradrops)

@@ -2,8 +2,10 @@
 
 {"sortie"
 	{on spawn
-		{link_sound "bombdrop"				"weapon/shot/mortar/whistle"}
+		{link_sound "release"				"vehicle/deploy"}
+		{link_sound "bomb"					"weapon/shot/mortar/whistle"}
 		{link_sound "rocketlaunch"			"weapon/shot/reactive/rocket_burst"}
+		{link_sound "jet_incoming"			"vehicle/airborne/bkgjet"}
 		;{add_view	"nebel_tail"			"engine_afterburner"			"FXSmoke1"}	
 		;{add_view	"nebel_tail"			"engine_afterburner2"			"FXSmoke2"}
 	}
@@ -13,7 +15,8 @@
 		{add_view	"rocket_smoke"			"engine_exhaust2"				"FXSmoke2"}			
 		{add_view	"pfaust_tail"			"wingtipr_trail"				"wingtipr"}
 		{add_view	"pfaust_tail"			"wingtipl_trail"				"wingtipl"}
-		;{play_sound "bombdrop"}
+		;{play_sound "release"}
+		;{delay 0.2 {play_sound "bomb"}}
 		{view start "engine_exhaust"}
 		{view start "engine_exhaust2"}
 		{view start "wingtipr_trail"}
@@ -230,7 +233,7 @@
 {"sound_jet"			;
 	{on spawn
 		{link_sound "fly"					"vehicle/airborne/f4_move2"}
-		{delay 10 
+		{delay 1 
 			{play_sound "fly" 1}
 			{delay 25 {delete}}
 		}
@@ -244,6 +247,18 @@
 ;;;;;;;;;;;;;;;;;;;;// Plane Specific
 
 {"a4e"
+	{on spawn
+		{ani_play "gear_up"}
+	}
+}
+
+{"yak-28"
+	{on spawn
+		{ani_play "gear_up"}
+	}
+}
+
+{"f-105"
 	{on spawn
 		{ani_play "gear_up"}
 	}

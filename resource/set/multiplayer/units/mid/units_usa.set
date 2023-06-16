@@ -25,10 +25,10 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
-;{"m151_prc77"
-;	("vehicle2"  period(mid) cd(120) ci(120) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
-;	{cost 5} {squad_cost_factor 0}
-;}
+{"m151_prc77"
+	("vehicle2"  period(mid) cd(120) ci(120) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
+	{cost 5} {squad_cost_factor 0}
+}
 
 ;{"mortar_barrage_smoke_usa"
 ;	("squad_vehicle" side(usa) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
@@ -51,43 +51,43 @@
 }
 
 {"airstrike_rocket_light_usa" ;by A-4E currently, to be replaced by A-1
-	("squad_vehicle" side(usa) cd(60) ci(30) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_rocket_light) crew(sup_pilot:0))
-	{cost 6}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_rocket_light"} 
+	("squad_vehicle" side(usa) cd(60) ci(30) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 3}{conditions "radio_usa"}{action "airstrike:flare_airstrike_light_rocket_usa"} 
 }
 
-{"airstrike_light_usa" ;by A-4E currently, to be replaced by A-1
-	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_light) crew(sup_pilot:0))
-	{cost 6}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_light"} 
-}
-
-{"airstrike_light_napalm_usa" ;by A-4E currently, to be replaced by A-1
-	("squad_vehicle" side(usa) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_napalm_light) crew(sup_pilot:0))
-	{cost 6}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_napalm_light"} 
+{"airstrike_rocket_heavy_usa" ; by A-4E, to be replaced by F-100?
+	("squad_vehicle" side(usa) cd(60) ci(30) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 6}{conditions "radio_usa"}{action "airstrike:flare_airstrike_heavy_rocket_usa"} 
 }
 
 {"airstrike_medium_usa" ;by USMC A-4E currently, to be replaced by USAF F-100?
-	("squad_vehicle" side(usa) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_medium) crew(sup_pilot:0))
-	{cost 12}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_medium"} 
+	("squad_vehicle" side(usa) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 6}{conditions "radio_usa"}{action "airstrike:flare_airstrike_medium_bomb_usa"} 
 }
 
 {"airstrike_medium_napalm_usa" ;by USMC A-4E currently, to be replaced by USAF F-100?
-	("squad_vehicle" side(usa) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike_napalm_medium) crew(sup_pilot:0))
-	{cost 12}{conditions "radio_usa"}{action "airstrike:a-4e_airstrike_napalm_medium"} 
+	("squad_vehicle" side(usa) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions "radio_usa"}{action "airstrike:flare_airstrike_medium_napalm_usa"} 
+}
+
+{"airstrike_medium_cluster_usa" ;by USMC A-4E currently, to be replaced by USAF F-100?
+	("squad_vehicle" side(usa) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 10}{conditions "radio_usa"}{action "airstrike:flare_airstrike_medium_cluster_usa"} 
 }
 
 {"airstrike_heavy_usa" ;by F-105
-	("squad_vehicle" side(usa) cd(330) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike_heavy) crew(sup_pilot:0))
-	{cost 18}{conditions "radio_usa"}{action "airstrike:f-105_airstrike_heavy"} 
+	("squad_vehicle" side(usa) cd(330) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 16}{conditions "radio_usa"}{action "airstrike:flare_airstrike_heavy_bomb_usa"} 
 }
 
 {"airstrike_heavy_napalm_usa" ;by F-105
-	("squad_vehicle" side(usa) cd(330) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike_napalm_heavy) crew(sup_pilot:0))
-	{cost 18}{conditions "radio_usa"}{action "airstrike:f-105_airstrike_napalm_heavy"} 
+	("squad_vehicle" side(usa) cd(330) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 20}{conditions "radio_usa"}{action "airstrike:flare_airstrike_heavy_napalm_usa"} 
 }
 
 {"airstrike_superheavy_usa" ;by F-105
-	("squad_vehicle" side(usa) cd(420) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike_superheavy) crew(sup_pilot:0))
-	{cost 24}{conditions "radio_usa"}{action "airstrike:f-105_airstrike_superheavy"} 
+	("squad_vehicle" side(usa) cd(420) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 24}{conditions "radio_usa"}{action "airstrike:flare_airstrike_super_bomb_usa"} 
 }
 
 ;_________________________________________________
