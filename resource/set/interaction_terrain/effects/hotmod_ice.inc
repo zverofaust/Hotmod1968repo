@@ -18,13 +18,13 @@
 		{if stuff "bomb size4"								; 500kg+ bomb
 			{start_sound "detonation/he_size5/bkg/" use_position}
 			{spawn "shockwave_sphere"}
-			{spawn "ex_he_size5_snow"}
+			{spawn "ex_he_size6_snow"}
 			{spawn "crater_massive" terrain_texmod}
 		
 		else stuff "bomb size5"								; 1000kg+ bomb
 			{start_sound "detonation/he_size5/bkg/" use_position}
 			{spawn "shockwave_sphere"}
-			{spawn "ex_he_size6_snow"}
+			{spawn "ex_he_size7_snow"}
 			{spawn "crater_massive" terrain_texmod}
 			
 		else stuff "bomb napalm"								; Napalm bomb

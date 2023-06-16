@@ -27,10 +27,10 @@
 
 (define "shallow_water_detonate"
 	{if stuff "bomb size4"								; 500kg+ bomb
-		{spawn "ex_he_size5"}
-	
-	else stuff "bomb size5"								; 500kg+ bomb
 		{spawn "ex_he_size6"}
+	
+	else stuff "bomb size5"								; 1000kg+ bomb
+		{spawn "ex_he_size7"}
 		
 	else stuff "bomb napalm"								; Napalm bomb
 			{spawn "ex_he_size2_mud"}
