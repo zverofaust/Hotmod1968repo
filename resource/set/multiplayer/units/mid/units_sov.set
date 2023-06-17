@@ -51,6 +51,11 @@
 	{cost 15}{conditions "radio_sov"}{action "airstrike:reconnaissance_50"} 
 }
 
+{"cas_mi4_heavy_sov"
+	("squad_vehicle" side(sov) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:1))
+	{cost 25}{conditions "radio_sov"}{action "airstrike:reconnaissance_50"} 
+}
+
 {"airstrike_rocket_light_sov"
 	("squad_vehicle" side(sov) cd(60) ci(30) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
 	{cost 3}{conditions "radio_sov"}{action "airstrike:flare_airstrike_light_rocket_sov"} 
@@ -356,13 +361,6 @@
 	("doctrine_t1" cool(140) d(mid_sov_vdv) cost(20))
 }
 
-; // 20 DP Mi-4 Heavy CAS
-{"cas_mi4_heavy_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:1) cw(0) cp(0))
-	("doctrine_strat" cool(120) d(mid_sov_vdv) cost(20))
-	{conditions "radio_sov"}{action "airstrike:reconnaissance_50"} 
-}
-
 ;===================================
 ;       	VMF Naval Infantry
 ;            
@@ -424,50 +422,6 @@
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(bm-31m) crew(sup_supporter:2) cw(0) cp(0))
 	("doctrine_t1" cool(180) d(mid_sov_artillery) cost(25))
 }
-
-; // 5DP 122mm Smoke Barrage
-{"artillery_barrage_smoke_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(120) d(mid_sov_artillery) cost(5))
-	{conditions "radio_sov"}{action "airstrike:flare_artillery_smoke"} 
-}
-
-; // 8DP 122mm Artillery Barrage
-{"artillery_barrage_light_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(200) d(mid_sov_artillery) cost(8))
-	{conditions "radio_sov"}{action "airstrike:flare_artillery_105"} 
-}
-
-; // 12DP 152mm Artillery Barrage
-{"artillery_barrage_medium_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(300) d(mid_sov_artillery) cost(12))
-	{conditions "radio_sov"}{action "airstrike:flare_artillery_150"} 
-}
-
-; // 16DP 203mm Artillery Barrage
-{"artillery_barrage_heavy_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(300) d(mid_sov_artillery) cost(16))
-	{conditions "radio_sov"}{action "airstrike:flare_artillery_203"} 
-}
-
-; // 25DP Rocket Artillery Barrage
-{"artillery_barrage_rocket_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(360) d(mid_sov_artillery) cost(16))
-	{conditions "radio_sov"}{action "airstrike:flare_artillery_rocket"} 
-}
-
-; // 35DP Rocket Artillery Barrage
-{"artillery_barrage_rocket_heavy_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(360) d(mid_sov_artillery) cost(22))
-	{conditions "radio_sov"}{action "airstrike:flare_artillery_rocket_heavy"} 
-}
-
-
 
 ;_________________________________________________
 ;|             inf1                               |

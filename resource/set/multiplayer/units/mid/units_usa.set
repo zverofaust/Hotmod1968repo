@@ -217,25 +217,11 @@
 ;	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
 ;}
 
-; // 20 DP UH-1B Airborne Rocket Artillery (ARA)
+; // 10 DP UH-1B Airborne Rocket Artillery (ARA)
 {"doctrine_vehicle_uh1b_ara(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1b_ara) crew(sup_pilot:2) cw(0) cp(0))
 	("doctrine_t1" cool(180) d(mid_usa_air) cost(10))
 }
-
-; // 15 DP Huey ARA CAS
-{"cas_uh1_ara_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_ara_airborne) crew(sup_pilot:1) cw(0) cp(0))
-	("doctrine_strat" cool(180) d(mid_usa_air) cost(15))
-	{conditions "radio_usa"}{action "airstrike:reconnaissance_50"} 
-}
-
-; // 18DP 3x1000kg bomb strike by F-105
-;{"airstrike_1000_air_usa"
-;	("strategic_doctrine" side(usa) period(mid) vehicle(f-105_airstrike_3x1000) crew(sup_pilot:0) cw(0) cp(0))
-;	("doctrine_t1" cool(240) d(mid_usa_air) cost(18))
-;	{conditions "radio_usa"}{action "airstrike:f-105_airstrike_3x1000"}
-;}
 
 ;===================================
 ;         ARMORED BRIGADE
@@ -284,11 +270,10 @@
 	("doctrine_t1" cool(240) d(mid_usa_tank) cost(30))
 }
 
-; // 15 DP Huey M22 CAS
-{"cas_uh1_m22_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_m22_airborne) crew(sup_pilot:1) cw(0) cp(0))
-	("doctrine_strat" cool(180) d(mid_usa_tank) cost(15))
-	{conditions "radio_usa"}{action "airstrike:reconnaissance_50"} 
+; // 18 DP UH-1B with 'M22' ATGM Mount
+{"doctrine_vehicle_uh1b_m22(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1b_m22) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t1" cool(180) d(mid_usa_air) cost(18))
 }
 
 ;===================================
@@ -344,11 +329,10 @@
 	("doctrine_t1" cool(180) d(mid_usa_usmc) cost(20))
 }
 
-; // 15 DP Huey Maxwell CAS; to be replaced by CH-34 with TK-1 subsystem
-{"cas_uh1_maxwell_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(uh-1b_maxwell_airborne) crew(sup_pilot:1) cw(0) cp(0))
-	("doctrine_strat" cool(180) d(mid_usa_usmc) cost(15))
-	{conditions "radio_usa"}{action "airstrike:reconnaissance_50"} 
+; // 14 DP UH-1B with 'Maxwell' Mount
+{"doctrine_vehicle_uh1b_maxwell(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1b_maxwell) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t1" cool(180) d(mid_usa_air) cost(14))
 }
 
 ;===================================
@@ -402,34 +386,6 @@
 {"doctrine_vehicle_m416_m388(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m416_m388) crew(sup_guncrew:0) cw(0) cp(0))
 	("doctrine_t1" cool(300) d(mid_usa_artillery) cost(40))
-}
-
-; // 5DP 105-122mm Smoke Barrage
-{"artillery_barrage_smoke_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(120) d(mid_usa_artillery) cost(5))
-	{conditions "radio_usa"}{action "airstrike:flare_artillery_smoke"} 
-}
-
-; // 8DP 105-122mm Artillery Barrage
-{"artillery_barrage_light_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(200) d(mid_usa_artillery) cost(8))
-	{conditions "radio_usa"}{action "airstrike:flare_artillery_105"} 
-}
-
-; // 12DP 152-155mm Artillery Barrage
-{"artillery_barrage_medium_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(300) d(mid_usa_artillery) cost(12))
-	{conditions "radio_usa"}{action "airstrike:flare_artillery_150"} 
-}
-
-; // 16DP 203mm Artillery Barrage
-{"artillery_barrage_heavy_usa"
-	("strategic_doctrine" side(usa) period(mid) vehicle(d30a) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_strat" cool(300) d(mid_usa_artillery) cost(16))
-	{conditions "radio_usa"}{action "airstrike:flare_artillery_203"} 
 }
 
 ;_________________________________________________
