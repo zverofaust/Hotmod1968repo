@@ -435,7 +435,7 @@
 	{on spawn
 		{tags add "hardpoint_count_2"}
 	}
-	("bombtype" args 100)
+	("bombtype" args 250)
 }
 
 {"airstrike_napalm_light"
@@ -463,7 +463,7 @@
 	{on spawn
 		{tags add "hardpoint_count_4"}
 	}
-	("bombtype" args 100)
+	("bombtype" args 250)
 }
 
 {"airstrike_wp_medium"
