@@ -50,8 +50,8 @@ Purchases["mid.sov"] = {
 			--Tanks_heavy
 			--SPG
 			--Air Assets
-				{priority = 2.0, type = {"Plane", "Support", "Class2",}, unit = "mil_mi4_airborne"},
-				{priority = 2.0, type = {"Plane", "Support", "Class1",}, unit = "mil_mi4_heavy_airborne"},
+				{priority = 2.0, type = {"Plane", "Sortie", "Class2",}, unit = "mil_mi4_airborne"},
+				{priority = 2.0, type = {"Plane", "Sortie", "Class1",}, unit = "mil_mi4_heavy_airborne"},
 				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_100_sov"},
 				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_cluster_sov"},
 			--Offmap Supports

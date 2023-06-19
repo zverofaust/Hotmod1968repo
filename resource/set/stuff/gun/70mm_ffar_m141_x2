@@ -1,28 +1,7 @@
-{from "pattern gun"	 ;
-	{filling "70mm_ffar" 2} ;14
-	{fillingVisible "detail_a"}
-	{fireSound "reactive/rocket_burst/"}
-	{reloadSound "tank/reload_medium"}
-
-	{calibre 70}
-	{range 200 200} ;//Totally arbitrary, historic max effective range 3.4km
+{from "70mm_ffar"	 ; FFAR Mk 4 in M141 mount of two 7-tube launchers
 	
-
-	("fire rate" rpm(1200))
-	("reload time" seconds(0.5))
-
-	("velocity m/s" ap(1) apcr(1) he(739) heat(1))
-	("armor health" damage(175))
-
-	{parameters "he"										
-		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
-	}
-
 	{burst
 		{min 2}
 	}
-	
-	("accuracy_direct" r1(2.0) range_ap(300) range_he(300) range_heat(270))
-	
-	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_rus_hmg"}
+
 }

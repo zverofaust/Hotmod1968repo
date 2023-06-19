@@ -59,9 +59,9 @@ Purchases["mid.frg"] = {
 				{priority = 1.0, type = {"Tank", "Medium", "Class1",}, unit = "leopard_1"},
 			--SPG
 			--Air Assets
-				{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "cas_uh1_frg"},
-				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_250_frg"},
-				--{priority = 1.0, type = {"Plane", "Airstrike", "Class2",}, unit = "airstrike_napalm_frg"},
+				{priority = 1.0, type = {"Plane", "Sortie", "Class2",}, unit = "cas_uh1_frg"},
+				--{priority = 1.0, type = {"Plane", "Sortie", "Class2",}, unit = "airstrike_250_frg"},
+				--{priority = 1.0, type = {"Plane", "Sortie", "Class2",}, unit = "airstrike_napalm_frg"},
 			--Offmap Supports
 				
 			
