@@ -505,6 +505,17 @@ function GetUnitToSpawn(units)
 			end
 		end
 	
+		-- Global priorities for different class of cannons
+		if UnitType("Sortie") then
+			if UnitType("Class1") then
+				priorityMultiplier = priorityMultiplier * 0.30
+			elseif UnitType("Class2") then
+				priorityMultiplier = priorityMultiplier * 0.30 * 0.67
+			else
+				priorityMultiplier = priorityMultiplier * 0.30 * 0.25
+			end
+		end
+		
 		-- Global priorities for different class of all other vehicles and infantry teams
 		if not UnitType("Cannon") or not UnitType("Squad") then
 			if UnitType("Class1") then
