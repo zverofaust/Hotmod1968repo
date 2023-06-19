@@ -156,6 +156,14 @@
 	)
 )
 
+(define "hm68_abm_td_range"	; settings for vehicles without turrets but with coincidence rangefinders, ie SU-122-54
+	("accuracy_by_motion"
+		max_linear(10) accuracy_by_linear(0.1)
+		max_angular(1) accuracy_by_angular(0.25)
+		disorder_time(1) order_time(3.5)
+	)
+)
+
 (define "hm68_abm_spg"	; settings for self-propelled artillery with lower direct fire ability
 	("accuracy_by_motion"
 		max_linear(5) accuracy_by_linear(0.2)
@@ -166,7 +174,7 @@
 
 (define "hm68_abm_nostab_norange"	; general setting used by most vehicles, unstabilized & without rangefinder
 	("accuracy_by_motion"
-		max_linear(10) accuracy_by_linear(0.2)
+		max_linear(10) accuracy_by_linear(0.15)
 		max_angular(1) accuracy_by_angular(0.5)
 		disorder_time(1) order_time(7)
 	)
@@ -190,25 +198,25 @@
 
 (define "hm68_abm_nostab_range"	; no stabilizer, rangefinder
 	("accuracy_by_motion"
-		max_linear(10) accuracy_by_linear(0.2)
-		max_angular(15) accuracy_by_angular(0.7)
-		disorder_time(2.5) order_time(3.5)
+		max_linear(10) accuracy_by_linear(0.15)
+		max_angular(15) accuracy_by_angular(0.5)
+		disorder_time(1) order_time(3.5)
 	)
 )
 
 (define "hm68_abm_stab_range"	; stabilizer, rangefinder
 	("accuracy_by_motion"
 		max_linear(20) accuracy_by_linear(0.6)
-		max_angular(15) accuracy_by_angular(0.7)
-		disorder_time(1.5) order_time(3.5)
+		max_angular(15) accuracy_by_angular(0.5)
+		disorder_time(2) order_time(3.5)
 	)
 )
 
 (define "hm68_abm_stab_lrange"	; stabilizer, laser rangefinder
 	("accuracy_by_motion"
 		max_linear(20) accuracy_by_linear(0.6)
-		max_angular(15) accuracy_by_angular(0.7)
-		disorder_time(1.5) order_time(2)
+		max_angular(15) accuracy_by_angular(0.5)
+		disorder_time(2) order_time(2)
 	)
 )
 
