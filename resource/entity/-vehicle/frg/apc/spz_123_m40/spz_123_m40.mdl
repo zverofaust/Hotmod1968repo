@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Mon Feb  6 10:36:35 2023
+;Date:        Sun Jun 18 14:00:47 2023
 ;File:        D:\Cold War\ModelWIP\West Germany\HS30\HS30 M40.max
 {Skeleton
 	{animation
@@ -8,14 +8,13 @@
 		{sequence "fire" {speed 0.35}}
 		{sequence "firer" {speed 0.05}}
 		{sequence "open1" {speed 0.2}}
-		{sequence "open_turret" {speed 0.2}{resume}{events {2 "hatch_light"}}}
-		{sequence "open_right" {speed 0.2}{resume}{events {2 "hatch_heavy"}}}
-		{sequence "open_left" {speed 0.2}{resume}{events {2 "hatch_heavy"}}}
-		{sequence "open_back" {speed 0.2}{resume}{events {2 "hatch_heavy"}}}
-		{sequence "close_back" {speed 0.2}{resume}{events {2 "hatch_heavy"}}}
+		{sequence "open_turret" {speed 0.2}}
+		{sequence "open_right" {speed 0.2}}
+		{sequence "open_left" {speed 0.2}}
+		{sequence "open_back" {speed 0.2}}
+		{sequence "close_back" {speed 0.2}}
 	}
-	{bone revolute "basis"
-		{limits 0 0}
+	{bone "basis"
 		{Orientation
 			1	0	0
 			0	-1	0
@@ -300,10 +299,20 @@
 				{Position 53.6032	12.7568	2.81375}
 			}
 			{bone "fxstop2"
-				{Position -52.2711	-22.3647	0.687624}
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					-52.2711	-22.3647	0.687624
+				}
 			}
 			{bone "fxstop1"
-				{Position -52.2711	22.3368	0.687624}
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					-52.2711	22.3368	0.687624
+				}
 			}
 			{bone "cover_commander"
 				{Matrix34
