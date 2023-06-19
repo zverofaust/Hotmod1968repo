@@ -1,12 +1,26 @@
-{from "76mm_f34"			; "PT-76"
+{from "pattern gun"			; "PT-76"
 	{filling "bullet76_d56"}
+	{fireSound "gun/gun_75_105"}
+	{fireSoundclose "gun/gun_interior/size3"}
+	{reloadSound "interior/large/medium_reload_interior"}
+	
+	{calibre 76.2}
+
+	("standard_firing_arc")
+	{range 192 192}
 	
 	("reload time" seconds(7))
-	
+
+	("velocity m/s" ap(655) apcr(955) he(680) heat(325))
+	("armor health" damage(200))
+
+	; BR-350P  ; only issued to ZiS-5 & F-34 guns
+	("penetration_medium" shell(apcr) range(192) a(130) b(92) c(60) d(39) e(26))	; issued in Oct. '43. 8 rounds per vehicle where the Germans were expected to attack. Spring '44 all vehicles had at least 4 rounds.
+
 	; BK-354M HEAT FS  ;
-	("penetration_medium" shell(heat) range(180) a(200) b(200) c(200) d(200) e(200))	;
-	
-	("accuracy_direct" r1(0.72) range_ap(300) range_he(300) range_heat(280))
+	("penetration_medium" shell(heat) range(173) a(200) b(200) c(200) d(200) e(200))	;
+
+	("accuracy_direct" r1(0.72) range_ap(192) range_he(230) range_heat(173))
 	
 	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_sov_tshk-66"}
 }

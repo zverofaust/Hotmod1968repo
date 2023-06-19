@@ -3,24 +3,27 @@
 	{fireSound "gun/gun_75_105"}
 	{fireSoundclose "interior/large/big_reload_interior"}
 	{reloadSound "tank/reload_big"}
-	("range_390")
-	{calibre 100}
 
+	{calibre 105}
+
+	("standard_firing_arc")
+	{range 219 219}
+	
 	("reload time" seconds(10))
 
 	("velocity m/s" ap(900) apcr(1478) he(732) heat(1173))
 	("armor health" damage(300))
 
 	; M392A2 APDS
-	("penetration_long" shell(apds) range(300) a(303) b(296) c(277) d(257) e(252))  ;RHA
+	("penetration_long" shell(apds) range(219) a(303) b(296) c(277) d(257) e(252))  ;RHA
 
 	; M456 HEATFS
-	("penetration_long" shell(heat) range(280) a(400) b(400) c(400) d(400) e(400))  ;RHA
+	("penetration_long" shell(heat) range(171) a(400) b(400) c(400) d(400) e(400))  ;RHA
 	
 	; M393A2 HESH
-	("penetration_long" shell(he) range(300) a(127) b(127) c(127) d(127) e(127))  ;RHA
+	("penetration_long" shell(he) range(257) a(127) b(127) c(127) d(127) e(127))  ;RHA
 
-	("accuracy_direct" r1(0.50) range_ap(400) range_he(400) range_heat(380))
+	("accuracy_direct" r1(0.50) range_ap(219) range_he(263) range_heat(197))
 	
 	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_usa_base"}
 }

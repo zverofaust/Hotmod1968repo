@@ -3,9 +3,12 @@
 	{fireSound "gun/gun_37_57"}
 	{fireSoundclose "gun/gun_37_57"}
 	{reloadSound "tank/reload_medium"}
-	("range_250")
+
 	{calibre 57}
 
+	("standard_firing_arc")
+	{range 176 176}
+	
 	("reload time" seconds(4.8))
 
 	("velocity m/s" ap(990) apcr(1200) he(700) heat(1))
@@ -14,20 +17,19 @@
 	("armor health custom" shell(aphebc) damage(150) filler(24))
 
 	; BR-271K  Higher Penetration than BR-271 on flat armor but less penetration against sloped armor
-	("penetration_medium" shell(aphe) range(200) a(134) b(111) c(87) d(69) e(54))  ;RHA
+	("penetration_medium" shell(aphe) range(176) a(134) b(111) c(87) d(69) e(54))  ;RHA
 
 	; BR-271
-	("penetration_medium" shell(aphebc) range(200) a(119) b(106) c(91)  d(78) e(68)) ;RHA
+	("penetration_medium" shell(aphebc) range(176) a(119) b(106) c(91)  d(78) e(68)) ;RHA
 
 	; BR-271N issued in Oct. '43. 8 rounds per vehicle where the Germans were expected to attack. Spring '44 all vehicles had at least 4 rounds.
-	("penetration_medium" shell(apcr) range(200) a(183) b(147) c(111) d(84) e(64))
+	("penetration_medium" shell(apcr) range(176) a(183) b(147) c(111) d(84) e(64))
 
 	{parameters "he"
-		{range 180 180}
+		{range 211 211}
 	}
 
-	("accuracy_direct" r1(0.66) range_ap(300) range_he(300) range_heat(280))
-}
+	("accuracy_direct" r1(0.7) range_ap(176) range_he(211) range_heat(158))
 
 	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_rus_pp2"}
 }

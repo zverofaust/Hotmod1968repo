@@ -3,10 +3,12 @@
 	{fireSound "gun/gun_auto"}
 	{fireSoundclose "gun/gun_auto"}
 	{reloadSound "tank/reload_small"}
-	("range_autocannon_12-20") ;240
 	{cursor "ironsights/aa"}
 	{calibre 23}
 	("light_aa")
+
+	("autocannon_20-35")
+	{range 192 192}
 
 	("fire rate" rpm(400))
 	("reload time" seconds(4))
@@ -15,7 +17,7 @@
 	("armor health" damage(38))
 
 	; BZT
-	("penetration_medium" shell(ap) range(240) a(51) b(36) c(26) d(18) e(13))
+	("penetration_medium" shell(ap) range(192) a(51) b(36) c(26) d(18) e(13))
 
 	{burst
 		{short 4 0.75}			;// short burst shots on long distance, rand (+-)shots
@@ -27,5 +29,5 @@
 		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
 	}
 
-	("accuracy_direct_auto" r1(0.9) range_ap(340) range_he(340) range_heat(340))
+	("accuracy_direct_auto" r1(0.88) range_ap(192) range_he(230) range_heat(173))
 }

@@ -8,18 +8,21 @@
 	{fireSound "gun/gun_73/"}
 	{fireSoundclose "gun/gun_interior/size3"}
 	{reloadSound "interior/large/medium_reload_interior"}
-	("range_240")
+	
 	{calibre 73}
 
+	("standard_firing_arc")
+	{range 150 150}
+	
 	("reload time" seconds(7.0))
 
 	("velocity m/s" ap(1) apcr(1) he(316) heat(435))
 	("armor health" damage(200))
 
 	; PG-9 HEAT  ;
-	("penetration_medium" shell(heat) range(200) a(300) b(300) c(300) d(300) e(300))	;
+	("penetration_medium" shell(heat) range(120) a(300) b(300) c(300) d(300) e(300))	;
 
-	("accuracy_direct" r1(0.88) range_ap(300) range_he(300) range_heat(300))
+	("accuracy_direct" r1(0.8) range_ap(150) range_he(180) range_heat(120))
 	
 	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_sov_1PN22M1"}
 }

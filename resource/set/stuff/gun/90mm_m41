@@ -3,9 +3,12 @@
 	{fireSound "gun/gun_88"}
 	{fireSoundclose "gun/gun_interior/size3"}
 	{reloadSound "interior/large/big_reload_interior"}
-	("range_350")
+	
 	{calibre 90}
-
+	
+	("standard_firing_arc")
+	{range 208 208}
+	
 	("reload time" seconds(8))
 
 	("velocity m/s" ap(853) apcr(1249) he(823) heat(1216))
@@ -13,19 +16,19 @@
 	("armor health custom" shell(apcbche) damage(260) filler(137))
 
 	; M82 Shot
-	("penetration_long" shell(apcbche) range(230) a(185) b(170) c(155) d(142) e(130))
+	("penetration_long" shell(apcbche) range(208) a(185) b(170) c(155) d(142) e(130))
 
 	; M431 Shell
-	("penetration_long" shell(heat) range(210) a(320) b(320) c(320) d(320) e(320))
+	("penetration_long" shell(heat) range(187) a(320) b(320) c(320) d(320) e(320))
 	
 	; M332 Shot
-	("penetration_long" shell(apcr) range(230) a(321) b(292) c(265) d(240) e(218))
+	("penetration_long" shell(apcr) range(208) a(321) b(292) c(265) d(240) e(218))
 	{parameters "apcr" ; 
 		("large_apcr_slope_multiplier")
 	}
 
 
-	("accuracy_direct" r1(0.55) range_ap(330) range_he(330) range_heat(310))
+	("accuracy_direct" r1(0.55) range_ap(208) range_he(250) range_heat(187))
 	
 	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_usa_base"}
 }

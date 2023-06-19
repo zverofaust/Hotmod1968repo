@@ -1,16 +1,25 @@
-{from "122mm_a19"			; L/53 "D-74" Field Gun
-
-	{range 808 808} ;24km x 33.7
+{from "pattern gun"			; L/53 "D-74" Field Gun
+	{filling "bullet122"}
+	{fireSound "gun/howitzer/122mm_d25"}
+	
+	{reloadSound "tankgun_r04"}
 	("reload time" seconds(16))
+	{range 808 808} ;24km x 33.7
 
 	("velocity m/s" ap(800) apcr(1) he(300) heat(560)) ; // Real HE 515m/s
+	("armor health" damage(280))
 	
+	
+	; BR-365P
+	("penetration_long" shell(apcr) range(210) a(183) b(162) c(140) d(119) e(100))
+	
+
 	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
-		r1(0.60) 				; // Accuracy radius for direct-fire munitions
+		r1(0.75) 				; // Accuracy radius for direct-fire munitions
 		r2(6) 					; // Accuracy radius for indirect fire
 		rmax(38) 				; // Accuracy radius for indirect fire at maximum range
-		range_ap(250) 			; // Range after which accuracy drops to prevent farshooting.
-		range_heat(230) 		; // Range after which accuracy drops to prevent farshooting.
+		range_ap(206) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(206) 		; // Range after which accuracy drops to prevent farshooting.
 		range_he(808)			; // Range after which accuracy drops to prevent farshooting.
 	)
 }

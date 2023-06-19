@@ -3,21 +3,24 @@
 	{fireSound "gun/gun_122_152"}
 	{fireSoundclose "gun/gun_interior/size4"}
 	{reloadSound "interior/large/howitzer_reload_interior"}
-	("range_400")
+
 	{calibre 120}
 
+	("standard_firing_arc")
+	{range 219 219}
+	
 	("reload time" seconds(14))
 
 	("velocity m/s" ap(1067) apcr(1400) he(762) heat(1143))
 	("armor health" damage(350))
 
 	; M358
-	("penetration_long" shell(apbc) range(280) a(301) b(286) c(272) d(258) e(245))  ;RHA
+	("penetration_long" shell(apbc) range(219) a(301) b(286) c(272) d(258) e(245))  ;RHA
 
 	; M469 HEAT-FS
-	("penetration_long" shell(heat) range(260) a(380) b(380) c(380) d(380) e(380))  ;RHA
+	("penetration_long" shell(heat) range(197) a(380) b(380) c(380) d(380) e(380))  ;RHA
 
-	("accuracy_direct" r1(0.60) range_ap(380) range_he(380) range_heat(360))
+	("accuracy_direct" r1(0.55) range_ap(219) range_he(263) range_heat(197))
 	
 	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_usa_base"}
 }

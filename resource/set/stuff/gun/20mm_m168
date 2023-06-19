@@ -7,11 +7,13 @@
 	{fireSound "gun/gun_auto"}
 	{fireSoundclose "gun/gun_auto"}
 	{reloadSound "tank/reload_small"}
-	("range_autocannon_12-20") ;240
 	{cursor "ironsights/aa"}
 	{calibre 20}
 	("light_aa")
 
+	("autocannon_20-35")
+	{range 182 182}
+	
 	("fire rate" rpm(3000))
 	("reload time" seconds(12))
 
@@ -25,14 +27,14 @@
 	}
 
 	; M601
-	("penetration_medium" shell(aphe) range(240) a(50) b(39) c(28) d(20) e(14))
+	("penetration_medium" shell(aphe) range(182) a(50) b(39) c(28) d(20) e(14))
 
 	; M594
 	{parameters "he"										
 		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
 	}
 
-	("accuracy_direct_auto" r1(0.45) range_ap(340) range_he(340) range_heat(340))
+	("accuracy_direct_auto" r1(0.7) range_ap(182) range_he(218) range_heat(164))
 	
 	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_rus_hmg"}
 }

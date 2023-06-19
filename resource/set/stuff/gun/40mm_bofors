@@ -8,11 +8,13 @@
 	{fireSound "gun/gun_auto"}
 	{fireSoundclose "gun/gun_auto"}
 	{reloadSound "tank/reload_small"}
-	("range_autocannon_37-40") ;250
 	{cursor "ironsights/aa"}
 	{calibre 40}
 	
 	("medium_aa")
+	
+	("autocannon_37-40")
+	{range 208 208}
 
 	("fire rate" rpm(120))
 	("reload time" seconds(1.5))
@@ -22,11 +24,11 @@
 	("armor health custom" shell(ap) damage(55) filler(22)) ;pzgr.18 has filler
 
 	; M81A1   ;
-	("penetration_medium" shell(ap) range(250) a(69) b(58) c(47) d(38) e(30))
+	("penetration_medium" shell(ap) range(208) a(69) b(58) c(47) d(38) e(30))
 
 	{parameters "he"										
 		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
 	}
 
-	("accuracy_direct_auto" r1(0.48) range_ap(350) range_he(350) range_heat(320))
+	("accuracy_direct_auto" r1(0.75) range_ap(208) range_he(250) range_heat(187))
 }

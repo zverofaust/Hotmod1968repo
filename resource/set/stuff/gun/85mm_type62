@@ -1,13 +1,27 @@
-;_________________________________________
-;  USSR long-barreled Medium AT gun
-;=========================================
+{from "pattern gun"			; 85mm Type 62-85-TC on 'Type 62' Light Tank
+	{filling "bulletrus_85"}
+	{fireSound "gun/gun_75_105"}
+	{fireSoundclose "gun/gun_interior/size3"}
+	{reloadSound "interior/large/medium_reload_interior"}
+	
+	{calibre 85}
+	
+	("standard_firing_arc")
+	{range 176 176}
+	
+	("reload time" seconds(8))
 
+	("velocity m/s" ap(792) apcr(1050) he(785) heat(792))
+	("armor health" damage(230))
+	("armor health custom" shell(aphebc) damage(230) filler(160))
 
-{from "85mm_zis53"			; Type 62-85-TC on 'Type 62' Light Tank
+	; BR-365
+	("penetration_long" shell(aphebc) range(176) a(135) b(125) c(115) d(106) e(97))  ;RHA
 	
 	; 3BK-2 HEAT
-	("penetration_long" shell(heat) range(210) a(270) b(270) c(270) d(270) e(270))  ;RHA
-	
-	("accuracy_direct" r1(0.72) range_ap(310) range_he(310) range_heat(310))
+	("penetration_long" shell(heat) range(158) a(270) b(270) c(270) d(270) e(270))  ;RHA
 
+	("accuracy_direct" r1(0.77) range_ap(176) range_he(211) range_heat(158))
+	
+	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_rus_tsh16"}
 }

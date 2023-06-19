@@ -4,16 +4,19 @@
 	{fireSoundclose "gun/gun_interior/size4"}
 	{reloadSound "interior/large/howitzer_reload_interior"}
 	{calibre 152}
-	("range_250")
+	
+	("standard_firing_arc")
+	{range 150 150}
+	
 	("reload time" seconds(12))
 	
 	("velocity m/s" ap(530) apcr(1) he(682) heat(682) atgm(240))
 	("armor health" damage(450))
 
-	("penetration_medium" shell(heat) range(190) a(380) b(380) c(380) d(380) e(380))
-	("penetration_long" shell(atgm) range(400) a(500) b(500) c(500) d(500) e(500))		
+	("penetration_medium" shell(heat) range(135) a(380) b(380) c(380) d(380) e(380))
+	("penetration_long" shell(atgm) range(326) a(500) b(500) c(500) d(500) e(500))		
 	
-	("accuracy_direct" r1(0.8) range_ap(350) range_he(350) range_heat(330))
+	("accuracy_direct" r1(0.7) range_ap(150) range_he(180) range_heat(135))
 	
 	{parameters "he"
 		{cursorReloading "gun_he"}
@@ -23,8 +26,8 @@
 	}
 	{parameters "atgm"
 		{cursorReloading "gun_atgm"}
-		{aimRange 400}										
-		{maxRange 400}	
+		{aimRange 326}										
+		{maxRange 326}	
 		{speed 240} ;320 * 0.75
 		{gravity 0}
 	}

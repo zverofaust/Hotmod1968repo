@@ -8,11 +8,13 @@
 	{fireSound "gun/gun_auto"}
 	{fireSoundclose "gun/gun_auto"}
 	{reloadSound "tank/reload_small"}
-	("range_autocannon_37-40")
 	{cursor "ironsights/aa"}
 	{calibre 37}
 	("medium_aa")
-
+	
+	("autocannon_37-40")
+	{range 198 198}
+	
 	("fire rate" rpm(165))
 	("reload time" seconds(1.5))
 
@@ -20,11 +22,11 @@
 	("armor health" damage(55))
 
 	; BR-167		;//Source http://www.russianammo.org/Russian_Ammunition_Page_37mm.html#20 x AP Slope Multiplier
-	("penetration_medium" shell(ap) range(250) a(50) b(45) c(37) d(28) e(18))
+	("penetration_medium" shell(ap) range(198) a(50) b(45) c(37) d(28) e(18))
 
 	{parameters "he"										; OR-167
 		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
 	}
 
-	("accuracy_direct_auto" r1(0.51) range_ap(350) range_he(350) range_heat(330))
+	("accuracy_direct_auto" r1(0.75) range_ap(198) range_he(238) range_heat(178))
 }

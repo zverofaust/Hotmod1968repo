@@ -505,9 +505,39 @@
 
 ;/*======== HOTMOD Ranges =======*/
 
-(define "range_autocannon"
+(define "range_aircraft_gun"
 	("standard_firing_arc")
-	{range 180 200}
+	(mod not "mp"
+		{range 275 500}
+		{aimingTolerance 15}
+		{spreading
+			{SpreadPower 1}
+			{BurstRecoveryTime 0.5}
+			{BurstAccuracy 100 95 90 85 80}
+			{SpreadXYRatio	1}
+			{radiusTable {0 1} {200 2} {300 5} {350 12}}
+		}
+	)
+	{automatic}
+	{aimingTolerance 10}
+	{SpreadTolerance 0}			;// Zeroing up to 0% needed before fire
+	{spreading
+		{SpreadPower 1}
+		{BurstRecoveryTime 0.5}
+		{BurstAccuracy 100 95 90 85 80}
+		{SpreadXYRatio	0.5}
+		{radiusTable {0 1} {80 2} {130 5} {200 10}}
+	}
+	{burst
+		{short 20 5}			;// short burst shots on long distance, rand (+-)shots
+		{long 50 10}			;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.75}		;// rangeKoef * aimRange = max long burst distance
+	}
+	{SyncedProjectiles 0}		;// not for automatic weapons
+)
+
+(define "autocannon_20-35"
+	("standard_firing_arc")
 	{automatic}
 	{aimingTolerance 3}
 	{SpreadTolerance 0}			;// Zeroing up to 0% needed before fire
@@ -520,6 +550,43 @@
 		{short 2 0.75}			;// short burst shots on long distance, rand (+-)shots
 		{long 5 1}				;// long burst shots on short distance, rand (+-)shots
 		{rangeKoef 0.5}			;// rangeKoef * aimRange = max long burst distance
+	}
+	{SyncedProjectiles 0}		;// not for automatic weapons
+)
+
+
+(define "autocannon_37-40"
+	("standard_firing_arc")
+	{automatic}
+	{aimingTolerance 3}
+	{SpreadTolerance 0}			;// Zeroing up to 0% needed before fire
+	{spreading
+		{BurstRecoveryTime 0.5}
+		{BurstAccuracy 100 95 88 82 75 68 55 32}
+		{SpreadXYRatio	0.5}
+	}
+	{burst
+		{short 2 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 5 1}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
+	}
+	{SyncedProjectiles 0}		;// not for automatic weapons
+)
+
+(define "autocannon_41-57"
+	("standard_firing_arc")
+	{automatic}
+	{aimingTolerance 3}
+	{SpreadTolerance 0}			;// Zeroing up to 0% needed before fire
+	{spreading
+		{BurstRecoveryTime 0.5}
+		{BurstAccuracy 100 95 88 82 75 68 55 32}
+		{SpreadXYRatio	0.5}
+	}
+	{burst
+		{short 2 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 4 1}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
 	}
 	{SyncedProjectiles 0}		;// not for automatic weapons
 )
@@ -588,7 +655,6 @@
 
 (define "range_aircraft_gun"
 	("standard_firing_arc")
-	{range 220 220}
 	(mod not "mp"
 		{range 275 500}
 		{aimingTolerance 15}
@@ -620,8 +686,8 @@
 
 (define "range_autocannon_12-20"
 	("standard_firing_arc")
-	{range 200 240}
 	{automatic}
+	{range 200 240}
 	{aimingTolerance 3}
 	{SpreadTolerance 0}			;// Zeroing up to 0% needed before fire
 	{spreading
@@ -640,8 +706,8 @@
 
 (define "range_autocannon_37-40"
 	("standard_firing_arc")
-	{range 210 250}
 	{automatic}
+	{range 210 250}
 	{aimingTolerance 3}
 	{SpreadTolerance 0}			;// Zeroing up to 0% needed before fire
 	{spreading
@@ -659,8 +725,8 @@
 
 (define "range_autocannon_41-57"
 	("standard_firing_arc")
-	{range 230 270}
 	{automatic}
+	{range 230 270}
 	{aimingTolerance 3}
 	{SpreadTolerance 0}			;// Zeroing up to 0% needed before fire
 	{spreading
