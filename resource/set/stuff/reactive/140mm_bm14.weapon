@@ -1,9 +1,4 @@
-;_________________________________________
-; Soviet 'Katusha' Medium Rocket Artillery
-;=========================================
-
-
-{from "pattern reactive"		; "bm13"
+{from "pattern reactive"		; "bm14"
 	{filling "ammo rocket140_bm14" 16}
 	{fireSound "reactive/katy_burst/"}
 	{calibre 140}
@@ -13,11 +8,11 @@
 	{spreading
 		{radiusTable
 			{0 0}
-			{100 10}
-			{400 20}
-			{650 35} ;// max range
-			{800 90}
-			{950 140}
+			{120 20}
+			{240 40}
+			{360 60} 
+			{480 80}
+			{600 100}
 		}
 	}
 
@@ -25,10 +20,12 @@
 		{min 16}
 		{noaiming}
 	}
-	{gravity 3.25}
+	{gravity 2}
 
-	{range 650 650}
-	("velocity" mps(320))
-	("reload time" seconds(170))
-	("fire rate" rpm(170))
+	{range 441 490} ;//9.8km
+	{minRange 100}
+	
+	("velocity" mps(350))
+	("reload time" seconds(160))
+	("fire rate" rpm(120))
 }

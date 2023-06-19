@@ -3,7 +3,7 @@
 ;=========================================
 
 
-{from "pattern reactive"		; "BM-21"
+{from "pattern reactive"		; "BM-21" with short-range rockets
 	{filling "ammo rocket122_9m22u" 40}
 	{fireSound "reactive/katy_burst/"}
 	{calibre 122}
@@ -12,14 +12,17 @@
 	{spreading
 		{radiusTable
 			{0 0}
-			{100 10}
-			{200 20}
-			{400 60}
-			{600 90}
-			{800 120}
+			{170 10}
+			{340 20}
+			{510 60}
+			{680 90}
+			{850 100}
 		}
 	}
-	{range 800 800}
+	
+	{range 675 750} ;//15km
+	{minRange 100}
+	
 	{burst 
 		{min 10}
 		{noaiming}
@@ -28,5 +31,5 @@
 	("fire rate" rpm(120))
 	("velocity" mps(390))
 	("reload time" seconds(170))
-	{gravity 3}
+	{gravity 2}
 }
