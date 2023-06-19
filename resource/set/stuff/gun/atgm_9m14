@@ -1,10 +1,12 @@
-{from "pattern missile"      ;// ATGM 9M14 'Malyutka' A (1963)
+{from "pattern missile"      ;// ATGM 9M14 'Malyutka' A (1963) aka AT-3 Sagger
 	{filling "9m14 atgm" 1}
 	{fillingVisible "rocket"}
 	{fireSound	"reactive/grnd_launch"}
 	{reloadSound "tank/reload_small"}
 
-	("range_atgm")
+	("standard_firing_arc")
+	{range 273 273}
+	
 	{calibre 125}
 	
 	("reload time" seconds(12.5))
@@ -15,7 +17,7 @@
 	
 	{gravity 0}
 
-	("accuracy_direct" r1(0.8) range_ap(200) range_he(200) range_heat(400))
+	("accuracy_direct" r1(0.1) range_ap(273) range_he(273) range_heat(273))
 	
 	{toplayerVignette "/texture/common/environment/lens_effects/zoom_vignette_vehicle_01"}
 }
