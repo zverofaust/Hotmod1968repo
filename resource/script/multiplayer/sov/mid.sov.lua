@@ -11,7 +11,7 @@ Purchases["mid.sov"] = {
 				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_guards(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_conscript_moto(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_rifle_moto(sov)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_rifle_mech(sov)"},
+				--{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_rifle_mech(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class1",}, unit = "squad_guards_moto(sov)"},
 				
 				{priority = 1.0, type = {"Infantry", "Team", "AT", "Class2",}, unit = "single_at(sov)"},
