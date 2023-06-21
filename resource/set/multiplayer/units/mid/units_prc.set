@@ -31,30 +31,17 @@
 	{cost 5} {squad_cost_factor 0}
 }
 
-{"mortar_barrage_smoke_prc"
-	("squad_vehicle" side(prc) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_prc) crew(sup_guncrew:0))
-	{cost 2}{conditions "radio_prc"}{action "airstrike:flare_mortar_smoke"}
-}
-
-{"mortar_barrage_light_prc"
-	("squad_vehicle" side(prc) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_prc) crew(sup_guncrew:0))
-	{cost 3}{conditions "radio_prc"}{action "airstrike:flare_mortar_80"}
-}
-
-{"mortar_barrage_medium_prc"
-	("squad_vehicle" side(prc) cd(0) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(120mm_pm38_prc) crew(sup_guncrew:0))
-	{cost 5}{conditions "radio_prc"}{action "airstrike:flare_mortar_120"}
+{"airstrike_rocket_light_prc"
+	("squad_vehicle" side(prc) cd(60) ci(30) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 3}{conditions "radio_prc"}{action "airstrike:flare_airstrike_light_rocket_sov"} 
 }
 
 {"airstrike_light_prc"
-	("squad_vehicle" side(prc) cd(0) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike_2x100) crew(sup_pilot:0))
-	{cost 6}{conditions "radio_prc"}{action "airstrike:mig-19_airstrike_2x250"} 
+	("squad_vehicle" side(prc) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 3}{conditions "radio_prc"}{action "airstrike:flare_airstrike_light_bomb_sov"} 
 }
 
-{"airstrike_light_cluster_prc"
-	("squad_vehicle" side(prc) cd(0) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike_2xcluster) crew(sup_pilot:0))
-	{cost 8}{conditions "radio_prc"}{action "airstrike:mig-19_airstrike_2xcluster"} 
-}
+
 
 ;_________________________________________________
 ;|            Doctrines                           |
@@ -83,31 +70,31 @@
 ; // 10DP Type 60 Field Gun (D-74)
 {"doctrine_vehicle_type60gun(prc)"
 	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(d-74_prc) crew(sup_supporter:4) cw(0) cp(0))
-	("doctrine_t1" cool(100) d(mid_prc_tank) cost(10))
+	("doctrine_t1" cool(80) d(mid_prc_tank) cost(10))
 }
 
 ; // 10DP Type 62 Light Tank
 {"doctrine_vehicle_type62lt(prc)"
 	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(type62_lt) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(100) d(mid_prc_tank) cost(10))
+	("doctrine_t1" cool(180) d(mid_prc_tank) cost(10))
 }
 
 ; // 10DP IS-2
 {"doctrine_vehicle_is2(prc)"
 	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(is2_prc) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(100) d(mid_prc_tank) cost(10))
+	("doctrine_t1" cool(300) d(mid_prc_tank) cost(10))
 }
 
 ; // 15DP ISU-152
 {"doctrine_vehicle_isu152(prc)"
 	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(isu152_prc) crew(sup_tankman:5) cw(0) cp(0))
-	("doctrine_t1" cool(130) d(mid_prc_tank) cost(15))
+	("doctrine_t1" cool(300) d(mid_prc_tank) cost(15))
 }
 
 ; // 20DP BM-13-17
 {"doctrine_vehicle_bm13(prc)"
 	("squad_vehicle_doctrine" side(prc) period(mid) vehicle(bm-13-17m_prc) crew(sup_supporter:2) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_prc_tank) cost(20))
+	("doctrine_t1" cool(300) d(mid_prc_tank) cost(20))
 }
 
 ; // 20DP BM-31
@@ -173,7 +160,7 @@
 }
 
 {"zpu-4_prc"
-	("vehicle" period(mid) cd(60) ci(60) t(cannon antiair) side(prc) crew(sup_supporter:2)  g(empl2) b(empl) cw(0) cp(8))
+	("vehicle" period(mid) cd(120) ci(60) t(cannon antiair) side(prc) crew(sup_supporter:2)  g(empl2) b(empl) cw(0) cp(8))
 	{cost 200}
 }
 
@@ -205,7 +192,7 @@
 }
 
 {"type63_mrl"
-	("vehicle" period(mid) cd(260) ci(160) t(cannon) side(prc) crew(sup_supporter:4) g(empl6) b(empl) cw(0) cp(10))
+	("vehicle" period(mid) cd(300) ci(300) t(cannon) side(prc) crew(sup_supporter:4) g(empl6) b(empl) cw(0) cp(10))
 	{cost 500}
 }
 
@@ -271,7 +258,7 @@
 ;}
 
 {"btr-40_type55"
-	("vehicle" period(mid) cd(10) ci(15) t(vehicle apc) side(prc) crew(sup_vehicleman:2) g(wheel3) b(tanks) cw(0) cp(3))
+	("vehicle" period(mid) cd(30) ci(60) t(vehicle apc) side(prc) crew(sup_vehicleman:2) g(wheel3) b(tanks) cw(0) cp(3))
 	{cost 75}
 }
 
@@ -283,22 +270,22 @@
 ;Medium
 
 {"t-34-85_prc"
-	("vehicle" period(mid) cd(60) ci(30) t(medium tank) side(prc) crew(sup_tankman:5) g(medium1) b(tanks) cw(0) cp(8))
+	("vehicle" period(mid) cd(30) ci(30) t(medium tank) side(prc) crew(sup_tankman:5) g(medium1) b(tanks) cw(0) cp(8))
 	{cost 310}
 }
 
 {"su100_prc"
-	("vehicle" period(mid) cd(120) ci(45) t(medium tank) side(prc) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(10))
+	("vehicle" period(mid) cd(120) ci(60) t(medium tank) side(prc) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(10))
 	{cost 330}
 }
 
 {"type58_tank"
-	("vehicle" period(mid) cd(120) ci(45) t(medium tank) side(prc) crew(sup_tankman:5) g(medium1) b(tanks) cw(0) cp(10))
+	("vehicle" period(mid) cd(120) ci(60) t(medium tank) side(prc) crew(sup_tankman:5) g(medium1) b(tanks) cw(0) cp(10))
 	{cost 350}
 }
 
 {"type59"
-	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(prc) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
+	("vehicle" period(mid) cd(240) ci(240) t(medium tank) side(prc) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
 	{cost 390}
 }
 
@@ -307,16 +294,16 @@
 ;|________________________________________________|
 
 {"dshk_aa_prc_ai"
-	("vehicle" period(mid) cd(180) ci(15) t(cannon mortar) side(prc) crew(sup_supporter:2) cw(0) cp(10))
+	("vehicle" period(mid) cd(180) ci(120) t(cannon mortar) side(prc) crew(sup_supporter:2) cw(0) cp(10))
 	{cost 100}{not_for_player_sale 1}
 }
 
 {"b-10_prc_ai"
-	("vehicle" period(mid) cd(0) ci(15) t(cannon mortar) side(prc) crew(sup_supporter:2) cw(0) cp(10))
+	("vehicle" period(mid) cd(60) ci(60) t(cannon mortar) side(prc) crew(sup_supporter:2) cw(0) cp(10))
 	{cost 140}{not_for_player_sale 1}
 }
 
 {"82mm_bm37_prc_ai"
-	("vehicle" period(mid) cd(30) ci(30) t(cannon mortar) side(prc) crew(sup_supporter:2) cw(0) cp(10))
+	("vehicle" period(mid) cd(60) ci(60) t(cannon mortar) side(prc) crew(sup_supporter:2) cw(0) cp(10))
 	{cost 175}{not_for_player_sale 1}
 }

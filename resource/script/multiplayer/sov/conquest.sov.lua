@@ -89,6 +89,7 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Armored", "AT",}, unit = "9p110"},
 				{priority = 0.5, type = {"Armored", "AT",}, unit = "9p122"},
 				{priority = 0.5, type = {"Vehicle", "Artillery",}, unit = "bm-14-16"},
+				{priority = 0.5, type = {"Vehicle", "Artillery",}, unit = "bm-24m"},
 				{priority = 0.5, type = {"Vehicle", "Artillery",}, unit = "bm-21_grad"},
 			--Tanks_light
 				{priority = 1.0, type = {"Tank", "Light",}, unit = "pt-76"},	

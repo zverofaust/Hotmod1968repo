@@ -36,45 +36,7 @@
 
 ;//Artillery Supports
 
-{"mortar_barrage_smoke_sov"
-	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
-	{cost 1}{action "airstrike:flare_mortar_smoke"}
-}
-
-{"mortar_barrage_light_sov"
-	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
-	{cost 1}{action "airstrike:flare_mortar_80"}
-}
-
-{"mortar_barrage_medium_sov"
-	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(120mm_pm38_sov) crew(sup_guncrew:0))
-	{cost 2}{action "airstrike:flare_mortar_120"}
-}
-
-{"artillery_barrage_smoke_sov"
-	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d30a) crew(sup_guncrew:0))
-	{cost 2}{action "airstrike:flare_artillery_smoke"}
-}
-
-{"artillery_barrage_light_sov"
-	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d30a) crew(sup_guncrew:0))
-	{cost 5}{action "airstrike:flare_artillery_105"}
-}
-
-{"artillery_barrage_medium_sov"
-	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d-20) crew(sup_guncrew:0))
-	{cost 8}{action "airstrike:flare_artillery_150"}
-}
-
-{"artillery_barrage_heavy_sov"
-	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(203mm_b4_sov) crew(sup_guncrew:0))
-	{cost 12}{action "airstrike:flare_artillery_203"}
-}
-
-{"artillery_barrage_rocket_sov"
-	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(bm-21_grad) crew(sup_guncrew:0))
-	{cost 12}{action "airstrike:flare_artillery_rocket"}
-}
+; removed
 
 ;// Helicopter CAS Runs
 
@@ -100,6 +62,11 @@
 	{cost 2}{action "airstrike:flare_airstrike_light_bomb_sov"}
 }
 
+{"airstrike_light_wp_sov"
+	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 2}{action "airstrike:flare_airstrike_light_wp_sov"}
+}
+
 {"airstrike_medium_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(su-7_airstrike) crew(sup_pilot:0))
 	{cost 4}{action "airstrike:flare_airstrike_medium_bomb_sov"}
@@ -123,6 +90,11 @@
 {"airstrike_heavy_wp_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
 	{cost 15}{action "airstrike:flare_airstrike_heavy_wp_sov"}
+}
+
+{"airstrike_heavy_cluster_sov"
+	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
+	{cost 15}{action "airstrike:flare_airstrike_heavy_cluster_sov"}
 }
 
 {"airstrike_superheavy_sov"
@@ -452,9 +424,9 @@
 	("vehicle" period(mid) min_stage(5) max_stage(15) side(sov) crew(sup_supporter:2) cw(0) cp(12))
 	{cost 700}
 }
-{"bm-31m"
-	("vehicle" period(early) min_stage(8) max_stage(10) side(sov) crew(sup_supporter:2) cw(0) cp(12))
-	{cost 750}
+{"bm-24m"
+	("vehicle" period(early) min_stage(8) max_stage(18) side(sov) crew(sup_supporter:2) cw(0) cp(12))
+	{cost 800}
 }
 {"bm-21_grad"
 	("vehicle" period(mid) min_stage(8) max_stage(99) side(sov) crew(sup_supporter:2) cw(0) cp(12))

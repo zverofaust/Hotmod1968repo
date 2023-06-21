@@ -27,41 +27,6 @@
 
 ;// Artillery Supports
 
-{"mortar_barrage_smoke_usa"
-	("offmap_support" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(m29_mortar) crew(sup_guncrew:0))
-	{cost 1}{action "airstrike:flare_mortar_smoke"}
-}
-
-{"mortar_barrage_light_usa"
-	("offmap_support" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(m29_mortar) crew(sup_guncrew:0))
-	{cost 1}{action "airstrike:flare_mortar_80"}
-}
-
-{"mortar_barrage_medium_usa"
-	("offmap_support" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(m30_mortar) crew(sup_guncrew:0))
-	{cost 2}{action "airstrike:flare_mortar_120"}
-}
-
-{"artillery_barrage_smoke_usa"
-	("offmap_support" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(m101a1) crew(sup_guncrew:0))
-	{cost 2}{action "airstrike:flare_artillery_smoke"}
-}
-
-{"artillery_barrage_light_usa"
-	("offmap_support" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(m101a1) crew(sup_guncrew:0))
-	{cost 5}{action "airstrike:flare_artillery_105"}
-}
-
-{"artillery_barrage_medium_usa"
-	("offmap_support" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(m114) crew(sup_guncrew:0))
-	{cost 8}{action "airstrike:flare_artillery_150"}
-}
-
-{"artillery_barrage_heavy_usa"
-	("offmap_support" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(m115) crew(sup_guncrew:0))
-	{cost 12}{action "airstrike:flare_artillery_203"}
-}
-
 ;// Helicopter CAS runs
 
 {"cas_uh1_usa"
@@ -80,6 +45,16 @@
 }
 
 ;// Airstrike sorties
+
+{"airstrike_light_usa"
+	("squad_vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 3}{action "airstrike:flare_airstrike_light_bomb_usa"}
+}
+
+{"airstrike_light_napalm_usa"
+	("squad_vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 3}{action "airstrike:flare_airstrike_light_napalm_usa"}
+}
 
 {"airstrike_light_rocket_usa"
 	("squad_vehicle" side(usa) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(a-4e_airstrike) crew(sup_pilot:0))
