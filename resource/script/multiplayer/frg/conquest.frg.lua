@@ -38,8 +38,8 @@ Purchases["conquest.frg"] = {
 				{priority = 1.0, type = {"Cannon", "AT",}, unit = "m20g_rc_ai"},
 				{priority = 1.0, type = {"Cannon", "AT",}, unit = "m40g"},
 				--Mortars
-				{priority = 1.0, type = {"Cannon", "Mortar",}, unit = "81mm_krh36_frg_ai"},
-				{priority = 1.0, type = {"Cannon", "Mortar",}, unit = "120mm_krh40_frg"},
+				{priority = 0.3, type = {"Cannon", "Mortar",}, unit = "81mm_krh36_frg_ai"},
+				{priority = 0.3, type = {"Cannon", "Mortar",}, unit = "120mm_krh40_frg"},
 				--Infantry_Support
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "m116g"},
 				--Artillery

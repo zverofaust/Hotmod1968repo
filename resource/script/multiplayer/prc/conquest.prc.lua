@@ -53,8 +53,8 @@ Purchases["conquest.prc"] = {
 				--Anti Tank
 				{priority = 1.0, type = {"Cannon", "AT",}, unit = "b-10_prc_ai"},
 				--Mortars
-				{priority = 1.5, type = {"Cannon", "Mortar",}, unit = "82mm_bm37_prc_ai"},
-				{priority = 1.0, type = {"Cannon", "Mortar",}, unit = "120mm_pm38_prc"},
+				{priority = 0.3, type = {"Cannon", "Mortar",}, unit = "82mm_bm37_prc_ai"},
+				{priority = 0.3, type = {"Cannon", "Mortar",}, unit = "120mm_pm38_prc"},
 				--Infantry_Support
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "76mm_zis3_prc"},
 				{priority = 1.0, type = {"Cannon", "Support", "AT",}, unit = "d-44_prc"},
@@ -64,8 +64,8 @@ Purchases["conquest.prc"] = {
 				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "m30_prc"},
 				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "d1_prc"},
 				--Rocket Artillery
-				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "type63_mrl"},	
-				{priority = 0.5, type = {"Vehicle", "Artillery",}, unit = "bm-13-17m_prc"},	
+				{priority = 0.2, type = {"Cannon", "Artillery",}, unit = "type63_mrl"},	
+				{priority = 0.2, type = {"Vehicle", "Artillery",}, unit = "bm-13-17m_prc"},	
 	
 			--APCs/BTRs
 				{priority = 0.5, type = {"Vehicle", "MG",}, unit = "cj-750"},

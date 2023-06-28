@@ -31,8 +31,8 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Cannon", "AT", "Class3",}, unit = "m20_rcl_ai"},
 				{priority = 1.0, type = {"Cannon", "AT", "Class2",}, unit = "m40"},
 				--Mortars
-				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "m29_mortar_ai"},
-				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "m30_mortar"},
+				{priority = 0.2, type = {"Cannon", "Mortar", "Class2",}, unit = "m29_mortar_ai"},
+				{priority = 0.2, type = {"Cannon", "Mortar", "Class2",}, unit = "m30_mortar"},
 				--Infantry_Support
 				{priority = 1.0, type = {"Cannon", "Support", "Class3",}, unit = "m116_packhow"},
 				--Artillery
@@ -59,7 +59,7 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Tank", "Light", "AA", "Class2",}, unit = "m42"},
 				{priority = 1.0, type = {"Tank", "Medium", "Artillery", "Class3",}, unit = "m108"},
 			--Air Assets
-				{priority = 1.0, type = {"Helicopter", "Sortie", "Support", "Class2",}, unit = "uh-1b_airborne"},
+				{priority = 0.5, type = {"Helicopter", "Sortie", "Support", "Class2",}, unit = "uh-1b_airborne"},
 			--Offmap Supports
 				
 			
@@ -67,8 +67,8 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Doctine", "Tier1",}, unit = "doctrine_squad_lrrp(usa)"},
 				{priority = 1.0, type = {"Doctine", "Armored", "MG", "Tier1",}, unit = "doctrine_squad_acav_moto(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "AT", "Tier1",}, unit = "doctrine_vehicle_m113_acav_m40(usa)"},
-				{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_m114a2(usa)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Mortar", "Tier2",}, unit = "doctrine_vehicle_m106(usa)"},
+				{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier2",}, unit = "doctrine_vehicle_m114a2(usa)"},
+				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Mortar", "Tier1",}, unit = "doctrine_vehicle_m106(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "Tier2",}, unit = "doctrine_vehicle_m132(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "AT", "Tier2",}, unit = "doctrine_vehicle_m551acav(usa)"},
@@ -78,11 +78,11 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Helicopter", "Sortie", "Class2",}, unit = "uh-1b_ara_airborne"},
 			
 			-- Doctrine Heavy = "Armor Brigade"
-				{priority = 1.0, type = {"Doctine", "Armored", "Support", "AA", "Tier2",}, unit = "doctrine_vehicle_m163(usa)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Heavy", "Support", "AT", "Tier2",}, unit = "doctrine_vehicle_m60a1e2(usa)"},
+				{priority = 1.0, type = {"Doctine", "Tank", "Light", "AA", "Tier3",}, unit = "doctrine_vehicle_m163(usa)"},
+				{priority = 1.0, type = {"Doctine", "Tank", "Heavy", "Support", "AT", "Tier3",}, unit = "doctrine_vehicle_m60a1e2(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Support", "Tier2",}, unit = "doctrine_vehicle_m728(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109(usa)"},
-				{priority = 1.0, type = {"Doctine", "Armored", "Support", "Tier3",}, unit = "doctrine_vehicle_m110(usa)"},
+				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "Tier3",}, unit = "doctrine_vehicle_m110(usa)"},
 				
 			-- Doctrine Assault = "USMC"				
 				{priority = 1.0, type = {"Doctine", "Tier1",}, unit = "doctrine_squad_usmc_fireteam(usa)"},
@@ -90,7 +90,6 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Doctine", "Armored", "Support", "AT", "Tier1",}, unit = "doctrine_vehicle_m50(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Support", "Tier3",}, unit = "doctrine_vehicle_m67_zippo(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Heavy", "AT", "Tier3",}, unit = "doctrine_vehicle_m103(usa)"},
-				{priority = 1.0, type = {"Helicopter", "Sortie", "Class2",}, unit = "uh-1b_maxwell_airborne"},
 				
 			-- Doctrine Support = "Artillery Brigade"	
 				--{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m114(usa)"},

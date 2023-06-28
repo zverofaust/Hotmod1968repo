@@ -32,8 +32,8 @@ Purchases["mid.frg"] = {
 				{priority = 1.0, type = {"Cannon", "AT", "Class3",}, unit = "m20g_rcl_ai"},
 				{priority = 1.0, type = {"Cannon", "AT", "Class2",}, unit = "m40g"},
 				--Mortars
-				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "81mm_krh36_frg_ai"},
-				{priority = 1.0, type = {"Cannon", "Mortar", "Class1",}, unit = "120mm_krh40_frg"},
+				{priority = 0.3, type = {"Cannon", "Mortar", "Class2",}, unit = "81mm_krh36_frg_ai"},
+				{priority = 0.3, type = {"Cannon", "Mortar", "Class1",}, unit = "120mm_krh40_frg"},
 				--Infantry_Support
 				--{priority = 1.0, type = {"Cannon", "Support", "Class3",}, unit = "m116g"},
 				--Artillery
@@ -59,7 +59,6 @@ Purchases["mid.frg"] = {
 				{priority = 1.0, type = {"Tank", "Medium", "Class1",}, unit = "leopard_1"},
 			--SPG
 			--Air Assets
-				{priority = 1.0, type = {"Plane", "Sortie", "Class2",}, unit = "cas_uh1_frg"},
 				--{priority = 1.0, type = {"Plane", "Sortie", "Class2",}, unit = "airstrike_250_frg"},
 				--{priority = 1.0, type = {"Plane", "Sortie", "Class2",}, unit = "airstrike_napalm_frg"},
 			--Offmap Supports

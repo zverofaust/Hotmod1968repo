@@ -70,8 +70,8 @@ Purchases["conquest.sov"] = {
 				--{priority = 0.5, type = {"Cannon", "AT",}, unit = "t-12"},
 				--{priority = 0.5, type = {"Cannon", "AT",}, unit = "9m14"},
 			--Mortars
-				{priority = 1.5, type = {"Cannon", "Mortar",}, unit = "82mm_bm37_sov_ai"},
-				{priority = 1.0, type = {"Cannon", "Mortar",}, unit = "120mm_pm38_sov"},
+				{priority = 0.3, type = {"Cannon", "Mortar",}, unit = "82mm_bm37_sov_ai"},
+				{priority = 0.3, type = {"Cannon", "Mortar",}, unit = "120mm_pm38_sov"},
 			--Infantry_Support
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "gp1958"},
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "d-44"},
@@ -88,9 +88,9 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Armored", "MG",}, unit = "brdm-2"},
 				{priority = 1.0, type = {"Armored", "AT",}, unit = "9p110"},
 				{priority = 0.5, type = {"Armored", "AT",}, unit = "9p122"},
-				{priority = 0.5, type = {"Vehicle", "Artillery",}, unit = "bm-14-16"},
-				{priority = 0.5, type = {"Vehicle", "Artillery",}, unit = "bm-24m"},
-				{priority = 0.5, type = {"Vehicle", "Artillery",}, unit = "bm-21_grad"},
+				{priority = 0.2, type = {"Vehicle", "Artillery",}, unit = "bm-14-16"},
+				{priority = 0.2, type = {"Vehicle", "Artillery",}, unit = "bm-24m"},
+				{priority = 0.2, type = {"Vehicle", "Artillery",}, unit = "bm-21_grad"},
 			--Tanks_light
 				{priority = 1.0, type = {"Tank", "Light",}, unit = "pt-76"},	
 				{priority = 1.0, type = {"Tank", "Light", "Support",}, unit = "asu57"},

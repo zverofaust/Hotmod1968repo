@@ -28,14 +28,14 @@ Purchases["mid.prc"] = {
 				--Anti Tank
 				{priority = 1.0, type = {"Cannon", "AT", "Class3",}, unit = "b-10_prc_ai"},
 				--Mortars
-				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "82mm_bm37_prc_ai"},
-				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "120mm_pm38_prc"},
+				{priority = 0.3, type = {"Cannon", "Mortar", "Class2",}, unit = "82mm_bm37_prc_ai"},
+				{priority = 0.3, type = {"Cannon", "Mortar", "Class2",}, unit = "120mm_pm38_prc"},
 				--Infantry_Support
 				{priority = 1.0, type = {"Cannon", "Support", "Class3",}, unit = "d-44_prc"},
 				--Artillery
 				--{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "m30_prc"},
 				--Rocket Artillery
-				{priority = 1.0, type = {"Cannon", "Artillery", "Class1",}, unit = "type63_mrl"},
+				{priority = 0.2, type = {"Cannon", "Artillery", "Class1",}, unit = "type63_mrl"},
 				
 				--APCs/BTRs
 				{priority = 1.0, type = {"Armored", "MG", "Class3",}, unit = "btr-40_type55"},
