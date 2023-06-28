@@ -387,7 +387,8 @@
 	
 	{item "bullet203_m1"		"he"		"ammo" 1 {value 20}}
 	
-	;{item "x279mm_m388"					"ammo" 1 {value 500}} ;// resupply only possible by purchasing M388 reloads individually
+	{item "rocket318_mgr3"					"ammo" 1 {value 100}}
+	{item "x279mm_m388"						"ammo" 1 {value 500}}
 )
 
 (define "items_heavy_prc"

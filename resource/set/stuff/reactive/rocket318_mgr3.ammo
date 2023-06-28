@@ -1,0 +1,33 @@
+{from "pattern reactive_ammo"
+	{tag "bomb size3 he fg itemin2hands"}
+	{inventory
+		{size 12 3}
+		{weight 1}
+	}
+	{entity "mgr3_ammo"}
+	{mass 112}
+
+	{view "mgr3_ammo"
+		{tail "rocket_smoke_st" "tail"}
+	}
+
+	("he_level_7" weight(345) filler(125))
+
+	{##damage blastwave
+		{energy 125}
+		{area 3 8}
+		{ground_interaction_radius 0.2}
+	}
+
+	{##damage add blastwave
+		{energy 10}
+		{area 11 18}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+
+	{##damage add blastwave
+		{energy 1.5}
+		{area 20 35}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+}

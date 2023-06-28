@@ -1,0 +1,31 @@
+;_________________________________________
+; Soviet Heavy Rocket Artillery
+;=========================================
+
+
+{from "pattern reactive"		; "MGR-3 Little John Artillery Rocket"
+	{filling "ammo rocket318_mgr3"}
+	{fireSound "gun/38cm"}
+	{fireSoundclose "gun/gun_interior/size4"}
+	{calibre 318}
+
+	("rocket_artillery")
+
+	{spreading
+		{radiusTable
+			{0 0}
+			{170 10}
+			{340 20}
+			{550 60}
+			{780 90}
+			{1100 100}
+		}
+	}
+	{gravity 1.8}
+
+	{range 800 1000} ;//20km
+	{minRange 130}
+	
+	("velocity" mps(335))
+	("reload time" seconds(120))
+}
