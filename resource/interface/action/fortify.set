@@ -150,6 +150,23 @@
 	}
 )
 
+(define "callin"
+	{Action "%name"
+		{Cursor "cursor_head"}
+		{fx "flashred"}
+		{Entity "%entity"}
+		{Cost %cost}
+		{Rotation %rotation}
+		{AbleRotate}
+		;{AbleEnqueue} not supported yet. leads to negative mp.
+		{ShowCount}
+		{Instructions
+			{install_begin "%entity" %rotation}
+			{install_end}
+		}
+	}
+)
+
 (define "entrenchment"
 	("digging"		name(%name) entity(%entity) animation(%animation) time(%time) rotation(%rotation) restrictions(%restrictions) cost(%cost) d({AbleDrag}) spacing(%spacing) item(%item))
 )
@@ -184,6 +201,10 @@
 
 (define "deployable_ammo"
 	("weapon_construction"	name(%name) entity(%entity) animation(stand_drop_corpse) time(%time) rotation(%rotation) restrictions("shallow_water water") cost(0) d() spacing(%spacing) item(%item) e({remove_from_inventory}) )
+)
+
+(define "airstrike_callin"
+	("callin" name(%name) entity(%entity) cost(0) time(%time) rotation(%rotation))
 )
 
 ;foxhole
@@ -250,3 +271,49 @@
 ("deployable_weapon"		name(deploy_bm37_prc)	entity(82mm_bm37_prc)		time(4)		rotation(-90.0)	spacing(0)  item(gunbag_prc_bm37))
 ("deployable_weapon"		name(deploy_b10_prc)	entity(b-10_prc)			time(4)		rotation(-90.0)	spacing(0)  item(gunbag_prc_b10))
 ("deployable_ammo"			name(deploy_ammobag_prc)		entity(ammobag_prc_deployed)		time(1)		rotation(-90.0)	spacing(0)  item(ammobag_prc))
+
+; AIRSTRIKES
+;//USA
+("airstrike_callin"			name(callin_light_rocket_usa)	entity(flare_airstrike_light_rocket_usa)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_bomb_usa)		entity(flare_airstrike_light_bomb_usa)		time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_cluster_usa)	entity(flare_airstrike_light_cluster_usa)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_napalm_usa)	entity(flare_airstrike_light_napalm_usa)	time(1)	rotation(-90.0))
+
+("airstrike_callin"			name(callin_heavy_rocket_usa)	entity(flare_airstrike_heavy_rocket_usa)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_medium_bomb_usa)	entity(flare_airstrike_medium_bomb_usa)		time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_medium_cluster_usa)	entity(flare_airstrike_medium_cluster_usa)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_medium_napalm_usa)	entity(flare_airstrike_medium_napalm_usa)	time(1)	rotation(-90.0))
+
+("airstrike_callin"			name(callin_heavy_bomb_usa)		entity(flare_airstrike_heavy_bomb_usa)		time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_heavy_cluster_usa)	entity(flare_airstrike_heavy_cluster_usa)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_heavy_napalm_usa)	entity(flare_airstrike_heavy_napalm_usa)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_super_bomb_usa)		entity(flare_airstrike_super_bomb_usa)		time(1)	rotation(-90.0))
+
+;//SOV
+("airstrike_callin"			name(callin_light_rocket_sov)	entity(flare_airstrike_light_rocket_sov)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_bomb_sov)		entity(flare_airstrike_light_bomb_sov)		time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_cluster_sov)	entity(flare_airstrike_light_cluster_sov)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_wp_sov)		entity(flare_airstrike_light_wp_sov)		time(1)	rotation(-90.0))
+
+("airstrike_callin"			name(callin_medium_bomb_sov)	entity(flare_airstrike_medium_bomb_sov)		time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_medium_cluster_sov)	entity(flare_airstrike_medium_cluster_sov)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_medium_wp_sov)		entity(flare_airstrike_medium_wp_sov)		time(1)	rotation(-90.0))
+
+("airstrike_callin"			name(callin_heavy_bomb_sov)		entity(flare_airstrike_heavy_bomb_sov)		time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_heavy_cluster_sov)	entity(flare_airstrike_heavy_cluster_sov)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_heavy_wp_sov)		entity(flare_airstrike_heavy_wp_sov)		time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_super_bomb_sov)		entity(flare_airstrike_super_bomb_sov)		time(1)	rotation(-90.0))
+
+;// FRG
+
+("airstrike_callin"			name(callin_light_rocket_frg)	entity(flare_airstrike_light_rocket_usa)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_bomb_frg)		entity(flare_airstrike_light_bomb_usa)		time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_cluster_frg)	entity(flare_airstrike_light_cluster_usa)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_napalm_frg)	entity(flare_airstrike_light_napalm_usa)	time(1)	rotation(-90.0))
+
+;// PRC
+
+("airstrike_callin"			name(callin_light_rocket_prc)	entity(flare_airstrike_light_rocket_sov)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_bomb_prc)		entity(flare_airstrike_light_bomb_sov)		time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_cluster_prc)	entity(flare_airstrike_light_cluster_sov)	time(1)	rotation(-90.0))
+("airstrike_callin"			name(callin_light_wp_prc)		entity(flare_airstrike_light_wp_sov)		time(1)	rotation(-90.0))
