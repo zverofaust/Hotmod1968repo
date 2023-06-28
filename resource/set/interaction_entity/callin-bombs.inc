@@ -8,63 +8,68 @@
 		{play_sound "bkg_jet"}
 		;{add_view "smoke_flare_red" "smoke" "root"}
 		;{view start "smoke"}
-		{impulse up -5 rnd_dir 3 com}
-		{damage_report "root" "ENEMY AIRCRAFT INBOUND"}
+		;{impulse up -5 rnd_dir 3 com}
 		{delay 20 {stop_sound "bkg_jet"}{delete}}
 	}
 }
 
 {"flare_airstrike_light_bomb_sov"
 	{on spawn
-		{delay 8 {spawn "mig-19_airstrike_bomb_light"}}
+		{delay 8 {spawn "mig-19_airstrike_bomb_light" "root" x}}
 	}
 }
 
 {"flare_airstrike_light_wp_sov"
 	{on spawn
-		{delay 8 {spawn "mig-19_airstrike_wp_light"}}
+		{delay 8 {spawn "mig-19_airstrike_wp_light" "root" x}}
+	}
+}
+
+{"flare_airstrike_light_cluster_sov"
+	{on spawn
+		{delay 8 {spawn "mig-19_airstrike_cluster_light" "root" x}}
 	}
 }
 
 {"flare_airstrike_light_rocket_sov"
 	{on spawn
-		{delay 5 {spawn "mig-19_airstrike_rocket_light"}}
+		{delay 5 {spawn "mig-19_airstrike_rocket_light" "root" x}}
 	}
 }
 
 {"flare_airstrike_medium_bomb_sov"
 	{on spawn
-		{delay 12 {spawn "su-7_airstrike_bomb_medium"}}
+		{delay 12 {spawn "su-7_airstrike_bomb_medium" "root" x}}
 	}
 }
 
 {"flare_airstrike_medium_wp_sov"
 	{on spawn
-		{delay 12 {spawn "su-7_airstrike_wp_medium"}}
+		{delay 12 {spawn "su-7_airstrike_wp_medium" "root" x}}
 	}
 }
 
 {"flare_airstrike_medium_cluster_sov"
 	{on spawn
-		{delay 12 {spawn "su-7_airstrike_cluster_medium"}}
+		{delay 12 {spawn "su-7_airstrike_cluster_medium" "root" x}}
 	}
 }
 
 {"flare_airstrike_heavy_bomb_sov"
 	{on spawn
-		{delay 16 {spawn "yak-28_airstrike_bomb_heavy"}}
+		{delay 16 {spawn "yak-28_airstrike_bomb_heavy" "root" x}}
 	}
 }
 
 {"flare_airstrike_heavy_wp_sov"
 	{on spawn
-		{delay 16 {spawn "yak-28_airstrike_wp_heavy"}}
+		{delay 16 {spawn "yak-28_airstrike_wp_heavy" "root" x}}
 	}
 }
 
 {"flare_airstrike_super_bomb_sov"
 	{on spawn
-		{delay 16 {spawn "yak-28_airstrike_bomb_super"}}
+		{delay 16 {spawn "yak-28_airstrike_bomb_super" "root" x}}
 	}
 }
 
@@ -72,91 +77,97 @@
 
 {"flare_airstrike_light_bomb_usa"
 	{on spawn
-		{delay 8 {spawn "a-4e_airstrike_bomb_light"}}
+		{delay 8 {spawn "a-4e_airstrike_bomb_light" "root" x}}
 	}
 }
 
 {"flare_airstrike_light_napalm_usa"
 	{on spawn
-		{delay 8 {spawn "a-4e_airstrike_napalm_light"}}
+		{delay 8 {spawn "a-4e_airstrike_napalm_light" "root" x}}
+	}
+}
+
+{"flare_airstrike_light_cluster_usa"
+	{on spawn
+		{delay 8 {spawn "a-4e_airstrike_cluster_light" "root" x}}
 	}
 }
 
 {"flare_airstrike_light_rocket_usa"
 	{on spawn
-		{delay 5 {spawn "a-4e_airstrike_rocket_light"}}
+		{delay 5 {spawn "a-4e_airstrike_rocket_light" "root" x}}
 	}
 }
 
 {"flare_airstrike_heavy_rocket_usa"
 	{on spawn
-		{delay 5 {spawn "a-4e_airstrike_rocket_heavy"}}
+		{delay 5 {spawn "a-4e_airstrike_rocket_heavy" "root" x}}
 	}
 }
 
 {"flare_airstrike_medium_bomb_usa"
 	{on spawn
-		{delay 12 {spawn "a-4e_airstrike_bomb_medium"}}
+		{delay 12 {spawn "a-4e_airstrike_bomb_medium" "root" x}}
 	}
 }
 
 {"flare_airstrike_medium_napalm_usa"
 	{on spawn
-		{delay 12 {spawn "a-4e_airstrike_napalm_medium"}}
+		{delay 12 {spawn "a-4e_airstrike_napalm_medium" "root" x}}
 	}
 }
 
 {"flare_airstrike_medium_cluster_usa"
 	{on spawn
-		{delay 12 {spawn "a-4e_airstrike_cluster_medium"}}
+		{delay 12 {spawn "a-4e_airstrike_cluster_medium" "root" x}}
 	}
 }
 
 {"flare_airstrike_heavy_bomb_usa"
 	{on spawn
-		{delay 16 {spawn "f-105_airstrike_bomb_heavy"}}
+		{delay 16 {spawn "f-105_airstrike_bomb_heavy" "root" x}}
 	}
 }
 
 {"flare_airstrike_heavy_napalm_usa"
 	{on spawn
-		{delay 16 {spawn "f-105_airstrike_napalm_heavy"}}
+		{delay 16 {spawn "f-105_airstrike_napalm_heavy" "root" x}}
 	}
 }
 
 {"flare_airstrike_heavy_cluster_usa"
 	{on spawn
-		{delay 16 {spawn "f-105_airstrike_cluster_heavy"}}
+		{delay 16 {spawn "f-105_airstrike_cluster_heavy" "root" x}}
 	}
 }
 
 {"flare_airstrike_super_bomb_usa"
 	{on spawn
-		{delay 16 {spawn "f-105_airstrike_bomb_super"}}
+		{delay 16 {spawn "f-105_airstrike_bomb_super" "root" x}}
 	}
 }
 
-{"sortie"			;
+{"sortie"			;Sorties used to include 8 different animations to randomize direction of bombing run, now just uses flyin_1
 	{on spawn
-		{delay 0
-			{if rand 0.33	
-				{ani_play "flyin_8" callback}	
-				else rand 0.33			
-				{ani_play "flyin_7" callback}	
-				else rand 0.33	
-				{ani_play "flyin_6" callback}	
-				else rand 0.33	
-				{ani_play "flyin_5" callback}	
-				else rand 0.33
-				{ani_play "flyin_4" callback}	
-				else rand 0.33			
-				{ani_play "flyin_3" callback}	
-				else rand 0.33	
-				{ani_play "flyin_2" callback}	
-				else 
+		;{delay 0
+			;{if rand 0.33	
+				;{ani_play "flyin_8" callback}	
+				;else rand 0.33			
+				;{ani_play "flyin_7" callback}	
+				;else rand 0.33	
+				;{ani_play "flyin_6" callback}	
+				;else rand 0.33	
+				;{ani_play "flyin_5" callback}	
+				;else rand 0.33
+				;{ani_play "flyin_4" callback}	
+				;else rand 0.33			
+				;{ani_play "flyin_3" callback}	
+				;else rand 0.33	
+				;{ani_play "flyin_2" callback}	
+				;else 
 				{ani_play "flyin_1" callback}
-			}
-		}
+			;}
+		;}
 	}
 	{on animation_end "flyin_1"
 		{call "rocket_launch"}
@@ -435,7 +446,7 @@
 	{on spawn
 		{tags add "hardpoint_count_2"}
 	}
-	("bombtype" args 250)
+	("bombtype" args 100)
 }
 
 {"airstrike_napalm_light"
@@ -463,7 +474,7 @@
 	{on spawn
 		{tags add "hardpoint_count_4"}
 	}
-	("bombtype" args 250)
+	("bombtype" args 100)
 }
 
 {"airstrike_wp_medium"
@@ -542,7 +553,7 @@
 
 {"rocket_single"			;// Settings for all ROCKETS that are launched by script	
 	{on spawn
-		{add_view	"rocket_smoke"			"rockettrail"				"tail"}
+		{add_view	"rocket_smoke_st"			"rockettrail"				"tail"}
 		{view start "rockettrail"}
 	}
 	{on ground_hit
