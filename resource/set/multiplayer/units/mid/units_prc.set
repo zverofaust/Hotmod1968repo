@@ -25,20 +25,26 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
+("squad_with1types"	side(prc) name(single_fac)	period(mid) cd(0) ci(30) g(single_fac) c1(reg_fac:1) b(strategic) t()); PPSH?
 
-{"gaz67a_prc" ; Default radio jeep
-	("vehicle2"  period(mid) cd(120) ci(120) g(command) side(prc) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
-	{cost 5} {squad_cost_factor 0}
+{"mig-19prc_airstrike_rocket_light" ;buildable airstrike
+	("emplacement" side(prc) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_rocket_prc))
+	{cost 0}
 }
 
-{"airstrike_rocket_light_prc"
-	("squad_vehicle" side(prc) cd(60) ci(30) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 3}{conditions "radio_prc"}{action "airstrike:flare_airstrike_light_rocket_sov"} 
+{"mig-19prc_airstrike_bomb_light" ;buildable airstrike
+	("emplacement" side(prc) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_bomb_prc))
+	{cost 0}
 }
 
-{"airstrike_light_prc"
-	("squad_vehicle" side(prc) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 3}{conditions "radio_prc"}{action "airstrike:flare_airstrike_light_bomb_sov"} 
+{"mig-19prc_airstrike_cluster_light" ;buildable airstrike
+	("emplacement" side(prc) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_cluster_prc))
+	{cost 0}
+}
+
+{"mig-19prc_airstrike_wp_light" ;buildable airstrike
+	("emplacement" side(prc) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_wp_prc))
+	{cost 0}
 }
 
 

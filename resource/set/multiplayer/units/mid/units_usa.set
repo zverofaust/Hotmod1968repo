@@ -25,10 +25,10 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
-{"m151_prc77"
-	("vehicle2"  period(mid) cd(120) ci(120) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
-	{cost 5} {squad_cost_factor 0}
-}
+;{"m151_prc77"
+;	("vehicle2"  period(mid) cd(120) ci(120) g(command) side(usa) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
+;	{cost 5} {squad_cost_factor 0}
+;}
 
 ;{"mortar_barrage_smoke_usa"
 ;	("squad_vehicle" side(usa) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(m29_mortar) crew(sup_guncrew:0))
@@ -45,61 +45,76 @@
 ;	{cost 5}{conditions "radio_usa"}{action "airstrike:flare_mortar_120"}
 ;}
 
-{"cas_uh1_usa"
-	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
-	{cost 10}{conditions "radio_usa"}{action "airstrike:reconnaissance_50"} 
-}
+;{"cas_uh1_usa"
+;	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
+;	{cost 10}{conditions "radio_usa"}{action "airstrike:callin_light_rocket_usa"} 
+;}
 
-{"airstrike_rocket_light_usa" ;by A-4E currently, to be replaced by A-1
-	("squad_vehicle" side(usa) cd(60) ci(30) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
-	{cost 3}{conditions "radio_usa"}{action "airstrike:flare_airstrike_light_rocket_usa"} 
-}
+;AIR SUPPORT
 
-{"airstrike_rocket_heavy_usa" ; by A-4E, to be replaced by F-100?
-	("squad_vehicle" side(usa) cd(60) ci(30) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
-	{cost 6}{conditions "radio_usa"}{action "airstrike:flare_airstrike_heavy_rocket_usa"} 
-}
+("squad_with1types"	side(usa) name(single_fac)	period(mid) cd(0) ci(30) g(single_fac) c1(reg_fac:1) b(strategic) t()); M2
 
-{"airstrike_medium_usa" ;by USMC A-4E currently, to be replaced by USAF F-100?
-	("squad_vehicle" side(usa) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
-	{cost 6}{conditions "radio_usa"}{action "airstrike:flare_airstrike_medium_bomb_usa"} 
-}
-
-{"airstrike_medium_napalm_usa" ;by USMC A-4E currently, to be replaced by USAF F-100?
-	("squad_vehicle" side(usa) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
-	{cost 8}{conditions "radio_usa"}{action "airstrike:flare_airstrike_medium_napalm_usa"} 
-}
-
-{"airstrike_medium_cluster_usa" ;by USMC A-4E currently, to be replaced by USAF F-100?
-	("squad_vehicle" side(usa) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
-	{cost 10}{conditions "radio_usa"}{action "airstrike:flare_airstrike_medium_cluster_usa"} 
-}
-
-{"airstrike_heavy_usa" ;by F-105
-	("squad_vehicle" side(usa) cd(330) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike) crew(sup_pilot:0))
-	{cost 16}{conditions "radio_usa"}{action "airstrike:flare_airstrike_heavy_bomb_usa"} 
-}
-
-{"airstrike_heavy_napalm_usa" ;by F-105
-	("squad_vehicle" side(usa) cd(330) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike) crew(sup_pilot:0))
-	{cost 20}{conditions "radio_usa"}{action "airstrike:flare_airstrike_heavy_napalm_usa"} 
-}
-
-{"airstrike_heavy_cluster_usa" ;by F-105
-	("squad_vehicle" side(usa) cd(330) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike) crew(sup_pilot:0))
-	{cost 20}{conditions "radio_usa"}{action "airstrike:flare_airstrike_heavy_cluster_usa"} 
-}
-
-{"airstrike_superheavy_usa" ;by F-105
-	("squad_vehicle" side(usa) cd(420) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike) crew(sup_pilot:0))
-	{cost 24}{conditions "radio_usa"}{action "airstrike:flare_airstrike_super_bomb_usa"} 
-}
-
-;BUILDABLES
-{"a-4e_airstrike" ;buildable airstrike
-	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(test_airstrike))
+{"a-4e_airstrike_rocket_light" ;buildable airstrike
+	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_rocket_usa))
 	{cost 0}
 }
+
+{"a-4e_airstrike_bomb_light" ;buildable airstrike
+	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_bomb_usa))
+	{cost 0}
+}
+
+;{"a-4e_airstrike_cluster_light" ;buildable airstrike
+;	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_cluster_usa))
+;	{cost 0}
+;}
+
+;{"a-4e_airstrike_napalm_light" ;buildable airstrike
+;	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_napalm_usa))
+;	{cost 0}
+;}
+
+{"a-4e_airstrike_rocket_heavy" ;buildable airstrike
+	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_rocket_usa))
+	{cost 0}
+}
+
+{"a-4e_airstrike_bomb_medium" ;buildable airstrike
+	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_bomb_usa))
+	{cost 0}
+}
+
+{"a-4e_airstrike_napalm_medium" ;buildable airstrike
+	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_napalm_usa))
+	{cost 0}
+}
+
+{"a-4e_airstrike_cluster_medium" ;buildable airstrike
+	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_cluster_usa))
+	{cost 0}
+}
+
+{"f-105_airstrike_bomb_heavy" ;buildable airstrike
+	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_bomb_usa))
+	{cost 0}
+}
+
+{"f-105_airstrike_cluster_heavy" ;buildable airstrike
+	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_cluster_usa))
+	("doctrine_t1" cool(5) d(mid_usa_acav) cost(0))
+}
+
+{"f-105_airstrike_napalm_heavy" ;buildable airstrike
+	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_napalm_usa))
+	("doctrine_t1" cool(5) d(mid_usa_usmc) cost(0))
+}
+
+{"f-105_airstrike_bomb_super" ;buildable airstrike
+	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_super_bomb_usa))
+	("doctrine_t1" cool(5) d(mid_usa_air) cost(0))
+}
+
+
 
 ;_________________________________________________
 ;|            Doctrines                           |
@@ -114,6 +129,10 @@
 ;        ARMORED CAVALRY
 ;===================================
 
+{"doctrine_fac_acav(usa)"
+	("squad_with1types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(acav_fac:1) )
+	("doctrine_t1" cool(120) d(mid_usa_acav) cost(5))
+}
 
 ; // 10DP US Army Ranger Long-Range Recon Patrol
 {"doctrine_squad_lrrp(usa)"
@@ -186,6 +205,11 @@
 	("doctrine_t1" cool(15) d(mid_usa_air) cost(3))
 }
 
+{"doctrine_fac_aircav(usa)"
+	("squad_with1types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(aircav_fac:1) )
+	("doctrine_t1" cool(120) d(mid_usa_air) cost(5))
+}
+
 ; // 10DP Airmobile Infantry Squad in UH-1D
 {"doctrine_squad_rifle_huey(usa)"
 	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h) crew1(sup_pilot:4) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:1) crew5(aircav_lat:2) crew6(aircav_mgassist:1) crew7(aircav_grenadier:2) crew8(aircav_rifleman:2) cw(2) cp(0))
@@ -198,40 +222,46 @@
 	("doctrine_t1" cool(45) d(mid_usa_air) cost(10))
 }
 
-; // 20DP Airmobile Ranger Squad in UH-1D
-{"doctrine_squad_ranger_huey(usa)"
-	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
-	("doctrine_t2" cool(180) d(mid_usa_air) cost(20))
-}
-
 ; // 5DP Air-Dropped M151 with M40
 {"doctrine_vehicle_m151_m40(usa)"
 	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(uh-1h_transport_m151_m40) crew1(sup_pilot:4) crew2(aircav_rifleman:3) cw(0) cp(0))
 	("doctrine_t1" cool(240) d(mid_usa_air) cost(8))
 }
 
+; // 20DP Airmobile Ranger Squad in UH-1D
+{"doctrine_squad_ranger_huey(usa)"
+	("squad_vehicle8_doctrine" side(usa) period(mid) g(doctrine_lvl1) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
+	("doctrine_t2" cool(180) d(mid_usa_air) cost(20))
+}
+
 ; // 8DP Air-Dropped M56 Scorpion
 {"doctrine_vehicle_m56(usa)"
 	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(ch-47_transport_m56) crew1(sup_pilot:4) crew2(aircav_vehicleman:3) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_usa_air) cost(8))
+	("doctrine_t2" cool(240) d(mid_usa_air) cost(8))
 }
 
-; // 15DP Air-Dropped M551 Sheridan
+; // M551 Sheridan
 {"doctrine_vehicle_m551(usa)"
-	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(ch-47_transport_m551) crew1(sup_pilot:4) crew2(aircav_vehicleman:4) cw(0) cp(0))
-	("doctrine_t2" cool(240) d(mid_usa_air) cost(15))
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m551) crew(aircav_vehicleman:4) cw(0) cp(0))
+	("doctrine_t3" cool(240) d(mid_usa_air) cost(12))
+}
+
+; // 15DP Air-Dropped MGR-3 Honest John Launcher
+{"doctrine_vehicle_mgr3(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(mgr-3) crew(aircav_rifleman:4) cw(0) cp(0))
+	("doctrine_t3" cool(260) d(mid_usa_air) cost(15))
 }
 
 ; // 10 DP Chinook Transport/Supply
 ;{"doctrine_vehicle_chinook(usa)"
 ;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ch-47_chinook_mg) crew(sup_pilot:4) cw(0) cp(0))
-;	("doctrine_t1" cool(240) d(mid_usa_air) cost(10))
+;	("doctrine_t2" cool(240) d(mid_usa_air) cost(10))
 ;}
 
 ; // 10 DP UH-1B Airborne Rocket Artillery (ARA)
 {"doctrine_vehicle_uh1b_ara(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1b_ara) crew(sup_pilot:2) cw(0) cp(0))
-	("doctrine_t1" cool(180) d(mid_usa_air) cost(10))
+	("doctrine_t3" cool(180) d(mid_usa_air) cost(10))
 }
 
 ;===================================
@@ -263,12 +293,6 @@
 	("doctrine_t1" cool(120) d(mid_usa_tank) cost(40))
 }
 
-; // 30DP M728 CEV
-{"doctrine_vehicle_m728(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m728) crew(acav_engineer:4) cw(0) cp(0))
-	("doctrine_t1" cool(120) d(mid_usa_tank) cost(30))
-}
-
 ; // 20DP M109 Self-Propelled Howitzer
 {"doctrine_vehicle_m109(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m109) crew(sup_tankman:4) cw(0) cp(0))
@@ -291,6 +315,11 @@
 ;          USMC
 ;            
 ;===================================
+
+{"doctrine_fac_usmc(usa)"
+	("squad_with1types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(usmc_fac:1) )
+	("doctrine_t1" cool(120) d(mid_usa_usmc) cost(5))
+}
 
 ; // 2DP Marine Fireteam
 {"doctrine_squad_usmc_fireteam(usa)"
@@ -381,6 +410,12 @@
 	("doctrine_t1" cool(360) d(mid_usa_artillery) cost(20))
 }
 
+; // 30DP M728 CEV
+{"doctrine_vehicle_m728(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m728) crew(acav_engineer:4) cw(0) cp(0))
+	("doctrine_t1" cool(120) d(mid_usa_artillery) cost(30))
+}
+
 ; // 20DP M192 HAWK Launcher
 {"doctrine_vehicle_m192(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m192) crew(sup_guncrew:4) cw(0) cp(0))
@@ -390,14 +425,14 @@
 ; // 100DP M-28 Davy Crockett Tactical Nuclear Weapon
 {"doctrine_vehicle_m28(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m-28) crew(sup_guncrew:4) cw(0) cp(0))
-	("doctrine_t1" cool(600) d(mid_usa_artillery) cost(100))
+	("doctrine_t1" cool(600) d(mid_usa_artillery) cost(80))
 }
 
 ; // 40DP M416 Ammunition Trailer carrying a single M388 nuclear round
-{"doctrine_vehicle_m416_m388(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m416_m388) crew(sup_guncrew:0) cw(0) cp(0))
-	("doctrine_t1" cool(300) d(mid_usa_artillery) cost(40))
-}
+;{"doctrine_vehicle_m416_m388(usa)"
+;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m416_m388) crew(sup_guncrew:0) cw(0) cp(0))
+;	("doctrine_t1" cool(300) d(mid_usa_artillery) cost(40))
+;}
 
 ;_________________________________________________
 ;|             inf1                               |

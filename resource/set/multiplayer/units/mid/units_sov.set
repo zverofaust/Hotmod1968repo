@@ -26,11 +26,6 @@
 ;|________________________________________________|
 
 
-{"gaz-69a" ; Default radio jeep
-	("vehicle2"  period(mid) cd(120) ci(120) g(command) side(sov) t(vehicle command) crew1(sup_supporter:1) crew2(sup_supporter:1) b(strategic) cw(0) cp(2))
-	{cost 5} {squad_cost_factor 0}
-}
-
 ;{"mortar_barrage_smoke_sov"
 ;	("squad_vehicle" side(sov) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
 ;	{cost 2}{conditions "radio_sov"}{action "airstrike:flare_mortar_smoke"}
@@ -46,55 +41,72 @@
 ;	{cost 5}{conditions "radio_sov"}{action "airstrike:flare_mortar_120"}
 ;}
 
-{"cas_mi4_sov"
-	("squad_vehicle" side(sov) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(sup_pilot:1))
-	{cost 15}{conditions "radio_sov"}{action "airstrike:reconnaissance_50"} 
+;{"cas_mi4_sov"
+;	("squad_vehicle" side(sov) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_airborne) crew(sup_pilot:1))
+;	{cost 15}{conditions "radio_sov"}{action "airstrike:reconnaissance_50"} 
+;}
+
+;{"cas_mi4_heavy_sov"
+;	("squad_vehicle" side(sov) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:1))
+;	{cost 25}{conditions "radio_sov"}{action "airstrike:reconnaissance_50"} 
+;}
+
+("squad_with1types"	side(sov) name(single_fac)	period(mid) cd(0) ci(30) g(single_fac) c1(reg_fac:1) b(strategic) t()); AKMS
+
+{"mig-19_airstrike_rocket_light" ;buildable airstrike
+	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_rocket_sov))
+	{cost 0}
 }
 
-{"cas_mi4_heavy_sov"
-	("squad_vehicle" side(sov) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:1))
-	{cost 25}{conditions "radio_sov"}{action "airstrike:reconnaissance_50"} 
+{"mig-19_airstrike_bomb_light" ;buildable airstrike
+	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_bomb_sov))
+	{cost 0}
 }
 
-{"airstrike_rocket_light_sov"
-	("squad_vehicle" side(sov) cd(60) ci(30) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 3}{conditions "radio_sov"}{action "airstrike:flare_airstrike_light_rocket_sov"} 
+;{"mig-19_airstrike_cluster_light" ;buildable airstrike
+;	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_cluster_sov))
+;	{cost 0}
+;}
+
+;{"mig-19_airstrike_wp_light" ;buildable airstrike
+;	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_wp_sov))
+;	{cost 0}
+;}
+
+{"su-7_airstrike_bomb_medium" ;buildable airstrike
+	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_bomb_sov))
+	{cost 0}
 }
 
-{"airstrike_light_sov"
-	("squad_vehicle" side(sov) cd(120) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 3}{conditions "radio_sov"}{action "airstrike:flare_airstrike_light_bomb_sov"} 
+{"su-7_airstrike_wp_medium" ;buildable airstrike
+	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_wp_sov))
+	{cost 0}
 }
 
-{"airstrike_medium_sov"
-	("squad_vehicle" side(sov) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(su-7_airstrike) crew(sup_pilot:0))
-	{cost 12}{conditions "radio_sov"}{action "airstrike:flare_airstrike_medium_bomb_sov"} 
+{"su-7_airstrike_cluster_medium" ;buildable airstrike
+	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_cluster_sov))
+	{cost 0}
 }
 
-{"airstrike_medium_wp_sov"
-	("squad_vehicle" side(sov) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(su-7_airstrike) crew(sup_pilot:0))
-	{cost 12}{conditions "radio_sov"}{action "airstrike:flare_airstrike_medium_wp_sov"} 
+{"yak-28_airstrike_bomb_heavy" ;buildable airstrike
+	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_bomb_sov))
+	{cost 0}
 }
 
-{"airstrike_medium_cluster_sov"
-	("squad_vehicle" side(sov) cd(240) ci(180) period(mid) cw(0) cp(0) b(strategic) vehicle(su-7_airstrike) crew(sup_pilot:0))
-	{cost 12}{conditions "radio_sov"}{action "airstrike:flare_airstrike_medium_cluster_sov"} 
+{"yak-28_airstrike_cluster_heavy" ;buildable airstrike
+	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_cluster_sov))
+	("doctrine_t1" cool(30) d(mid_sov_motostrelki) cost(0))
 }
 
-{"airstrike_heavy_sov"
-	("squad_vehicle" side(sov) cd(330) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(yak-28_airstrike) crew(sup_pilot:0))
-	{cost 18}{conditions "radio_sov"}{action "airstrike:flare_airstrike_heavy_bomb_sov"} 
+{"yak-28_airstrike_wp_heavy" ;buildable airstrike
+	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_wp_sov))
+	("doctrine_t1" cool(30) d(mid_sov_vdv) cost(0))
 }
 
-{"airstrike_heavy_wp_sov"
-	("squad_vehicle" side(sov) cd(330) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(yak-28_airstrike) crew(sup_pilot:0))
-	{cost 18}{conditions "radio_sov"}{action "airstrike:flare_airstrike_heavy_wp_sov"} 
-}
-
-{"airstrike_superheavy_sov"
-	("squad_vehicle" side(sov) cd(420) ci(240) period(mid) cw(0) cp(0) b(strategic) vehicle(yak-28_airstrike) crew(sup_pilot:0))
-	{cost 24}{conditions "radio_sov"}{action "airstrike:flare_airstrike_super_bomb_sov"} 
-}
+;{"yak-28_airstrike_bomb_super" ;buildable airstrike
+;	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_super_bomb_sov))
+;	("doctrine_t1" cool(30) d(mid_sov_vdv) cost(0))
+;}
 
 
 ;_________________________________________________
@@ -115,16 +127,15 @@
 	("doctrine_t1" cool(30) d(mid_sov_motostrelki) cost(5))
 }
 
+{"doctrine_fac_motostrelki(sov)"
+	("squad_with1types_doctrine" side(sov) period(mid) g(doctrine_lvl1) c1(grd_fac:1) )
+	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(5))
+}
+
 ; // 6DP BRDM-2 Scout Car
 {"doctrine_vehicle_brdm2(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(brdm-2) crew(sup_vehicleman:3) cw(2) cp(0))
 	("doctrine_t1" cool(30) d(mid_sov_motostrelki) cost(6))
-}
-
-; // 15DP Red Banner Shock Squad
-{"doctrine_squad_banner(sov)"
-	("squad_with4types_doctrine" side(sov) period(mid) g(doctrine_lvl1) c1(grd_squadlead:1) c2(grd_senior:1) c3(grd_antitank:3) c4(grd_flamer:3))
-	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(15))
 }
 
 ; // 12DP Guards Motostrelki Squad in BTR-60PB
@@ -133,11 +144,6 @@
 	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(12))
 }
 
-; // 10DP 23mm ZU-23-2 towed by GAZ-51 light truck
-;{"doctrine_squad_zu23(sov)"
-;	("towed_gun_doctrine" side(sov) period(mid) vehicle(gaz-51) crew_v(sup_supporter:1) cannon(zu-23-2) crew_c(sup_supporter:2) cw(0) cp(0))
-;	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(10))
-;}
 ;// As above, without truck
 {"doctrine_squad_zu23(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(zu-23-2) crew(sup_supporter:2) cw(0) cp(0))
@@ -150,9 +156,9 @@
 	("doctrine_t1" cool(120) d(mid_sov_motostrelki) cost(10))
 }
 
-; // 15DP 9P110 ATGM carrier
-{"doctrine_vehicle_9p110(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(9p110) crew(vdv_vehicleman:2) cw(0) cp(0))
+; // 15DP 9P122 ATGM carrier
+{"doctrine_vehicle_9p122(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(9p122) crew(vdv_vehicleman:2) cw(0) cp(0))
 	("doctrine_t1" cool(160) d(mid_sov_motostrelki) cost(15))
 }
 
@@ -162,26 +168,6 @@
 	("doctrine_t1" cool(160) d(mid_sov_motostrelki) cost(20))
 }
 
-; // 10DP 160mm Mortar Barrage
-;{"mortar_barrage_heavy_sov"
-;	("strategic_doctrine" side(sov) period(mid) vehicle(120mm_pm38_sov) crew(sup_guncrew:0) cw(0) cp(0))
-;	("doctrine_strat" cool(200) d(mid_sov_motostrelki) cost(8))
-;	{conditions "radio_sov"}{action "airstrike:flare_mortar_160"} 
-;}
-
-; // 15 DP Mi-4 Heavy CAS
-{"cas_mi4_heavy_sov"
-	("strategic_doctrine" side(sov) period(mid) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:1) cw(0) cp(0))
-	("doctrine_strat" cool(180) d(mid_sov_motostrelki) cost(15))
-	{conditions "radio_sov"}{action "airstrike:reconnaissance_50"} 
-}
-
-; // 12DP 4 x WP bomb strike by Su-7
-;{"airstrike_wp_motostrelki_sov"
-;	("strategic_doctrine" side(sov) period(mid) vehicle(su-7_airstrike_4xwp) crew(sup_pilot:0) cw(0) cp(0))
-;	("doctrine_t1" cool(240) d(mid_sov_motostrelki) cost(12))
-;	{conditions "radio_sov"}{action "airstrike:su-7_airstrike_4xwp"}
-;}
 
 ;===================================
 ;        Heavy Independent Tank Brigade
@@ -190,16 +176,22 @@
 
 ; ======Tier1======
 
-; // 3DP Conscript Platoon in BTR-50P
-{"doctrine_platoon_conscript_mech(sov)"
-	("squad_vehicle6_doctrine" side(sov) period(mid) vehicle(btr-50p) crew1(sup_vehicleman:2) crew2(con_squadlead:1) crew3(con_mg:1) crew4(con_atgren:2) crew5(con_antitank:1) crew6(con_rifleman:7) cw(2) cp(0))
-	("doctrine_t1" cool(30) d(mid_sov_tank) cost(3))
+; // 5DP Ural 375 Ammo
+{"doctrine_vehicle_ural_ammo(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(ural375_ammo) crew(sup_supporter:1) cw(2) cp(0))
+	("doctrine_t1" cool(30) d(mid_sov_tank) cost(5))
 }
 
 ; // 10DP Guards Motostrelki Squad in BTR-60PB
 {"doctrine_squad_guards_btr50(sov)"
 	("squad_vehicle8_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(btr-50pk) crew1(sup_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(0))
 	("doctrine_t1" cool(80) d(mid_sov_tank) cost(10))
+}
+
+; // 20DP Guards Motostrelki Squad in BMP-1
+{"doctrine_squad_guards_mech(sov)"
+	("squad_vehicle7_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(bmp-1) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_atassist:1) crew6(grd_marksman:1) crew7(grd_rifleman:1) cw(2) cp(0))
+	("doctrine_t1" cool(300) d(mid_sov_tank) cost(20))
 }
 
 ; // 10DP TO-55
@@ -214,76 +206,24 @@
 	("doctrine_t1" cool(200) d(mid_sov_tank) cost(25))
 }
 
-; // 12DP ISU-152M Self-Propelled Assault Gun
-{"doctrine_vehicle_isu152m(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(isu-152m) crew(sup_tankman:5) cw(0) cp(0))
-	("doctrine_t1" cool(160) d(mid_sov_tank) cost(12))
-}
-
 ; // 16DP T-10M
 {"doctrine_vehicle_t10(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(t-10m) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t1" cool(200) d(mid_sov_tank) cost(16))
 }
 
-; // 16DP T-55K Command Tank
-{"doctrine_vehicle_t55k(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(t-55k) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(200) d(mid_sov_tank) cost(16))
-}
-
-;===================================
-;        Red Banner Guards Combined Arms Brigade
-;
-;===================================
-
-; // 5DP Ural 375 Ammo
-{"doctrine_vehicle_ural_ammo(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(ural375_ammo) crew(sup_supporter:1) cw(2) cp(0))
-	("doctrine_t1" cool(30) d(mid_sov_banner) cost(5))
-}
-
-; // 8DP GRU Spetsnaz Demolition Team
-{"doctrine_squad_spz_demo(sov)"
-	("squad_with3types_doctrine" side(sov) period(mid) g(doctrine_lvl1) c1(spz_squadlead:1) c2(spz_demo:2) c3(spz_antitank:1))
-	("doctrine_t1" cool(120) d(mid_sov_banner) cost(8))
-}
-
-; // 20DP Guards Motostrelki Squad in BMP-1
-{"doctrine_squad_guards_mech(sov)"
-	("squad_vehicle7_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(bmp-1) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_atassist:1) crew6(grd_marksman:1) crew7(grd_rifleman:1) cw(2) cp(0))
-	("doctrine_t1" cool(300) d(mid_sov_banner) cost(20))
-}
-
-; // 25DP GRU Spetsnaz Assault Squad in Mi-4
-{"doctrine_squad_spz_mi4(sov)"
-	("squad_vehicle7_doctrine" side(sov) period(mid) g(doctrine_lvl1) vehicle(mil_mi4) crew1(sup_pilot:2) crew2(spz_squadlead:1) crew3(spz_mg:1) crew4(spz_antitank:1) crew5(spz_marksman:1) crew6(spz_demo:1) crew7(spz_rifleman:2)cw(2) cp(0))
-	("doctrine_t1" cool(200) d(mid_sov_banner) cost(25))
-}
-
-; // 15DP 9P122
-{"doctrine_vehicle_9p122(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(9p122) crew(grd_vehicleman:2) cw(0) cp(0))
-	("doctrine_t1" cool(160) d(mid_sov_banner) cost(15))
-}
-
 ; // 25DP ZSU-23-4
 {"doctrine_vehicle_shilka(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(shilka) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(330) d(mid_sov_banner) cost(25))
+	("doctrine_t1" cool(330) d(mid_sov_tank) cost(25))
 }
 
 ; // 50DP T-64A
 ;{"doctrine_vehicle_t64(sov)"
 ;	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(t-64) crew(sup_tankman:3) cw(0) cp(0))
-;	("doctrine_t1" cool(600) d(mid_sov_banner) cost(50))
+;	("doctrine_t1" cool(600) d(mid_sov_tank) cost(50))
 ;}
 
-; // 20DP T-62K
-{"doctrine_vehicle_t62command(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(t-62k) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(400) d(mid_sov_banner) cost(20))
-}
 
 ;===================================
 ;       	VDV Airborne Troops
@@ -292,11 +232,16 @@
 
 ; ======Tier1======
 
-; // 3 DP Ammo Paradrop
+; // 3 DP Ammo Paradrop - to be replaced with LuAZ-967 (Ammo) Paradrop
 {"doctrine_airdrop_ammo(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:0) cw(0) cp(0))
 	("doctrine_strat" cool(60) d(mid_sov_vdv) cost(3))
 	{action "airstrike:flare_paradrop_ammo"} 
+
+}
+{"doctrine_fac_vdv(sov)"
+	("squad_with1types_doctrine" side(sov) period(mid) g(doctrine_lvl1) c1(vdv_fac:1) )
+	("doctrine_t1" cool(120) d(mid_sov_vdv) cost(5))
 }
 
 ;; // 10 DP Mi-8 Transport/Supply
@@ -336,10 +281,10 @@
 }
 
 ; // 76mm GP-58 Mountain Gun
-{"doctrine_squad_gp1958(sov)"
-	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(gp1958) crew(vdv_rifleman:4) cw(0) cp(0))
-	("doctrine_t1" cool(120) d(mid_sov_vdv) cost(8))
-}
+;{"doctrine_squad_gp1958(sov)"
+;	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(gp1958) crew(vdv_rifleman:4) cw(0) cp(0))
+;	("doctrine_t1" cool(120) d(mid_sov_vdv) cost(8))
+;}
 
 ; // 6DP Air-Dropped ASU-57
 {"doctrine_paradrop_asu57(sov)"
@@ -353,6 +298,12 @@
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(su-7) crew(sup_pilot:0) cw(0) cp(0))
 	("doctrine_t1" cool(180) d(mid_sov_vdv) cost(14))
 	{action "airstrike:flare_paradrop_rpu14"} 
+}
+
+; // 14DP 9P110 ATGM carrier
+{"doctrine_vehicle_9p110(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(9p110) crew(vdv_vehicleman:2) cw(0) cp(0))
+	("doctrine_t1" cool(160) d(mid_sov_vdv) cost(14))
 }
 
 ; // 20DP Mi-4AV
@@ -390,13 +341,13 @@
 ; // 10DP D-74 122mm Field Gun (to be replaced by M-46 130mm Field Gun)
 {"doctrine_vehicle_d74(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(d-74) crew(sup_guncrew:4) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_sov_artillery) cost(10))
+	("doctrine_t1" cool(240) d(mid_sov_artillery) cost(8))
 }
 
 ; // 10DP D-20 152mm Howitzer
 {"doctrine_vehicle_d20(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(d-20) crew(sup_guncrew:4) cw(0) cp(0))
-	("doctrine_t1" cool(240) d(mid_sov_artillery) cost(10))
+	("doctrine_t1" cool(180) d(mid_sov_artillery) cost(7))
 }
 
 ; // 15DP B-4M 203mm Howitzer
@@ -411,13 +362,19 @@
 	("doctrine_t1" cool(160) d(mid_sov_artillery) cost(15))
 }
 
+; // 12DP ISU-152M Self-Propelled Assault Gun
+{"doctrine_vehicle_isu152m(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(isu-152m) crew(sup_tankman:5) cw(0) cp(0))
+	("doctrine_t1" cool(160) d(mid_sov_artillery) cost(12))
+}
+
 ; // 18DP BM-21 Grad
 {"doctrine_vehicle_grad(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(bm-21_grad) crew(sup_supporter:2) cw(0) cp(0))
 	("doctrine_t1" cool(160) d(mid_sov_artillery) cost(18))
 }
 
-; // 25DP BM-24, to be replaced with BM-24
+; // 25DP BM-24
 {"doctrine_vehicle_bm24(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(bm-24m) crew(sup_supporter:2) cw(0) cp(0))
 	("doctrine_t1" cool(180) d(mid_sov_artillery) cost(25))
