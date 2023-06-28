@@ -87,3 +87,20 @@
 	("gunbag" guntype(dshk_aa_prc_ai)   			bagtype(gunbag_dshk_prc))
 	("gunbag" guntype(82mm_bm37_prc_ai)   			bagtype(gunbag_bm37_prc))
 	("gunbag" guntype(b-10_prc_ai)   				bagtype(gunbag_b10_prc))
+	
+	
+{"dozer"
+	{on "hull_down"
+		{able select 0}
+		{ani_play "dozer_down"}
+		{delay 2
+			{start_sound "vehicle/deploy/trench"}
+			{spawn "tank_cover2" "root" x}
+			{spawn "building_smoke" "root"}
+			{ani_play "dozer_up"}
+			{delay 0.2
+				{able select 1}
+			}
+		}
+	}
+}
