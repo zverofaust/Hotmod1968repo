@@ -14,6 +14,60 @@
 	{"resources" "10%"}
 )
 
+(define "aircontroller"
+	{barricade
+		{"fortifications" "callin_light_rocket_usa"}
+		{"fortifications" "callin_light_bomb_usa"}
+		;{"fortifications" "callin_light_cluster_usa"}
+		;{"fortifications" "callin_light_napalm_usa"}
+		{"fortifications" "callin_heavy_rocket_usa"}
+		{"fortifications" "callin_medium_bomb_usa"}
+		{"fortifications" "callin_medium_cluster_usa"}
+		{"fortifications" "callin_medium_napalm_usa"}
+		;{"fortifications" "callin_heavy_bomb_usa"}
+		;{"fortifications" "callin_heavy_cluster_usa"}
+		;{"fortifications" "callin_heavy_napalm_usa"}
+		;{"fortifications" "callin_super_bomb_usa"}
+		
+		{"fortifications" "callin_light_rocket_sov"}
+		{"fortifications" "callin_light_bomb_sov"}
+		;{"fortifications" "callin_light_cluster_sov"}
+		;{"fortifications" "callin_light_wp_sov"}
+		{"fortifications" "callin_medium_bomb_sov"}
+		{"fortifications" "callin_medium_cluster_sov"}
+		{"fortifications" "callin_medium_wp_sov"}
+		;{"fortifications" "callin_heavy_bomb_sov"}
+		;{"fortifications" "callin_heavy_cluster_sov"}
+		;{"fortifications" "callin_heavy_wp_sov"}
+		;{"fortifications" "callin_super_bomb_sov"}	
+		
+		{"fortifications" "callin_light_rocket_frg"}
+		{"fortifications" "callin_light_bomb_frg"}
+		{"fortifications" "callin_light_cluster_frg"}
+		{"fortifications" "callin_light_napalm_frg"}
+		
+		{"fortifications" "callin_light_rocket_prc"}
+		{"fortifications" "callin_light_bomb_prc"}
+		{"fortifications" "callin_light_cluster_prc"}
+		{"fortifications" "callin_light_wp_prc"}
+	}
+	{"resources" "10%"}
+)
+
+(define "aircontroller_2"
+	{barricade
+		{"fortifications" "callin_heavy_bomb_usa"}
+		{"fortifications" "callin_heavy_napalm_usa"}
+		{"fortifications" "callin_heavy_cluster_usa"}
+		{"fortifications" "callin_super_bomb_usa"}
+		{"fortifications" "callin_heavy_bomb_sov"}
+		{"fortifications" "callin_heavy_wp_sov"}
+		{"fortifications" "callin_heavy_cluster_sov"}
+		{"fortifications" "callin_super_bomb_sov"}
+	}
+	{"resources" "10%"}
+)
+
 (define "deployable_weapons"
 	{barricade
 		{"fortifications" "deploy_sg43"}
