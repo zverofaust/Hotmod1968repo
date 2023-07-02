@@ -4,10 +4,13 @@
 
 
 {from "57mm_ars-57"		; 4 x UB-16 launchers
-	{filling "57mm_s-5" 4};64
+	{filling "57mm_s-5" 64};64
 	("fire rate" rpm(1200))
-	("reload time" seconds(0.6))
+	("reload time" seconds(180))
 	{burst
 		{min 4}
+		{short 8 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 24 1}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
 	}
 }

@@ -1,24 +1,31 @@
 {from "pattern gun"	 ;57mm S-5 rockets
-	{filling "57mm_s-5" 1};16
+	{filling "57mm_s-5" 2};16
 	{fillingVisible "rocket"}
 	{fireSound "reactive/rocket_burst/"}
 	{reloadSound "tank/reload_medium"}
 
 	{calibre 57}
-	{range 120 140} ;//totaly arbitrary, historic range around 2-3km
+	{range 60 180} ;//Totally arbitrary, historic max effective range ~3.4km
 	
-
-	("fire rate" rpm(600))
-	("reload time" seconds(0.5))
+	{Automatic}
+	("fire rate" rpm(800))
+	("reload time" seconds(10))
 
 	("velocity m/s" ap(1) apcr(1) he(586) heat(1))
 	("armor health" damage(150))
-
+	
+	{burst
+		{min 2}
+		{short 4 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 8 1}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
+	}
+	
 	{parameters "he"										
 		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
 	}
 
-	("accuracy_direct" r1(2.0) range_ap(300) range_he(300) range_heat(270))
+	("accuracy_direct" r1(3.0) range_ap(140) range_he(140) range_heat(140))
 	
 	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_rus_hmg"}
 }
