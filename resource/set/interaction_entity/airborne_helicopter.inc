@@ -513,6 +513,8 @@
 				{stop_sound "bounds"}
 				{call "fall_fx"}
 				{set "fall" 1}
+				;{crew_emit}
+				;{reset_manual_control}
 				{drop_orders}
 				(mod "mp"
 					{impulse up 0.01 forward 0.001}
