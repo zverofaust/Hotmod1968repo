@@ -514,9 +514,6 @@
 				{call "fall_fx"}
 				{set "fall" 1}
 				{drop_orders}
-				{crew_emit}
-				{reset_manual_control}
-				{able select 0}			;// disables vehicle from being crewed until body is repaired
 				(mod "mp"
 					{impulse up 0.01 forward 0.001}
 					{explosive 1}
