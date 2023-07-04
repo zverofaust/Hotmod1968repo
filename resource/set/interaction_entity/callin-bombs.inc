@@ -37,6 +37,12 @@
 	}
 }
 
+{"flare_airstrike_heavy_rocket_sov"
+	{on spawn
+		{delay 5 {spawn "su-7_airstrike_rocket_heavy" "root" x}}
+	}
+}
+
 {"flare_airstrike_medium_bomb_sov"
 	{on spawn
 		{delay 12 {spawn "su-7_airstrike_bomb_medium" "root" x}}
