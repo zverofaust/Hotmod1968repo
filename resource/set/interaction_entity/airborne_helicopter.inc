@@ -158,6 +158,7 @@
 	{on accelerate off overload} ;// stops extra interaction calls from vehicle.inc
 
 	{on move on overload ;// vehicle moves forward or reverse
+		{ani_play "accel_tilt"}
 		{if not chassis "airborne"
 			{if not "landing"
 				{kill_delay "engine_decel"}
@@ -184,6 +185,7 @@
 	}
 
 	{on move off overload ;// vehicle not moving forward or reverse
+		{ani_play "decel_tilt"}
 		{if not "landing"
 			{kill_delay "engine_accel"}
 			{stop_sound "bkg_plane"}
