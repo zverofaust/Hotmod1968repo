@@ -119,7 +119,7 @@
 		}
 		{place "gun2"
 			{rotate}
-			{weapon			"70mm_ffar_maxwell_x2" filled}
+			{weapon			"70mm_ffar_18x2" filled}
 			{barrels		36}
 			{gunner			"driver"}
 			{charger		"driver"}
@@ -141,20 +141,21 @@
 
 	{Extension "uh-1b_maxwell.mdl"}
 
-	{bone "gun_rot_h"			;miniguns: right/left
+	{bone "gun_rot_h"			;atgms: right/left
 		{speed 0.025}
 		{limits -35 35}
 	}
-	{bone "gun_rot_v"			;miniguns: down/up
+	{bone "gun_rot_v"			;atgms: down/up
 		{speed 0.025}
 		{limits -45 15}
 	}
+	
 	{bone "gun2_rot_h"			;rockets: right/left
 		{speed 0.01}
-		{limits -20 20}			;back to -10 10 as soon as they are able to rotate on their own
+		{limits -5 5}			;back to -10 10 as soon as they are able to rotate on their own
 	}
 	{bone "gun2_rot_v"			;rockets: down/up
 		{speed 0.01}
-		{limits -35 15}
+		{limits -15 15}
 	}
 }

@@ -10,6 +10,8 @@
 		{sequence "doorright"}
 		{sequence "doorleft1"}
 		{sequence "doorright1"}
+		{sequence "accel_tilt" {speed 0.3}}
+		{sequence "decel_tilt" {speed 0.3}}
 	}
 	{bone revolute "basis"
 		{limits 0 0}
@@ -380,11 +382,27 @@
 					14.7075	-1.44458	-4.73624
 					}
 				}
+				{bone revolute "shooter01"
+					{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					14.7075	-1.44458	-4.73624
+					}
+				}
 			}
 			{bone revolute "m134d001"
 				{Position -6.27413	39.4592	16.5739}
 				{VolumeView "m134d001.ply"}
 				{bone revolute "foresight4"
+					{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					14.7075	1.24526	-4.73624
+					}
+				}
+				{bone revolute "shooter00"
 					{Matrix34
 					1	0	0
 					0	0	-1

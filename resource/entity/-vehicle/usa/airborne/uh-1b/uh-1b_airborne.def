@@ -75,34 +75,25 @@
 
 	{extender "inventory"
 		{box
-           ; {item "ammo 70mm_ffar" 14}
+            {item "ammo 70mm_ffar" 14}
         }
     }
 	
 	{Weaponry
-		{place "mgun2"
-			{rotate}
-			{weapon			"m134_b" filled}
-			;{barrels 		2}
-			{gunner			"driver"}
-			{charger		"driver"}
-			{foresight		"foresight4"}
-			{basic}
-			{ai_in_manual}
-		}
 		{place "mgun"
 			{rotate}
-			{weapon			"m134_a" filled}
-			;{barrels 		2}
+			{weapon			"m134_x2" filled}
+			{barrels 		2}
 			{gunner			"driver"}
 			{charger		"driver"}
-			{foresight		"foresight5"}
+			{shooter		"shooter"}
+			{foresight		"foresight1"}
 			{basic}
 			{ai_in_manual}
 		}
 		{place "gun"
 			{rotate}
-			{weapon			"70mm_ffar_m141_x2" filled}
+			{weapon			"70mm_ffar_7x2" filled}
 			{barrels		14}
 			{gunner			"driver"}
 			{charger		"driver"}
@@ -135,36 +126,20 @@
 
 	{Extension "uh-1b.mdl"}
 
-	{bone "m134d"			;miniguns: right/left
-		{speed 0.025}
-		{limits -15 15}
-	}
-	{bone "m134d001"			;miniguns: right/left
-		{speed 0.025}
-		{limits -15 15}
-	}
-	{bone "foresight5"			;miniguns: right/left
-		{speed 0.025}
-		{limits -35 35}
-	}
-	{bone "foresight4"			;miniguns: right/left
-		{speed 0.025}
-		{limits -35 35}
-	}
 	{bone "mgun_rot_h"			;miniguns: right/left
 		{speed 0.025}
-		{limits -35 35}
+		{limits -10 10}
 	}
 	{bone "mgun_rot_v"			;miniguns: down/up
 		{speed 0.025}
-		{limits -45 15}
+		{limits -15 15}
 	}
 	{bone "gun_rot_h"			;rockets: right/left
 		{speed 0.01}
-		{limits -20 20}			;back to -10 10 as soon as they are able to rotate on their own
+		{limits -5 5}			;back to -10 10 as soon as they are able to rotate on their own
 	}
 	{bone "gun_rot_v"			;rockets: down/up
 		{speed 0.01}
-		{limits -35 15}
+		{limits -5 15}
 	}
 }
