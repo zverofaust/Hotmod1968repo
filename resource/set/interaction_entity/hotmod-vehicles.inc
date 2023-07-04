@@ -4,6 +4,54 @@
 		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
 	}
 }
+;/*===========  MG Turret scanning  ===========*/
+
+{"cw_panorama"
+    {on "update_cw_panorama"
+        {if operatable
+            ;{if work "additional_triplex"
+                ;{if work "commander_triplex"
+					{if not tagged "human_in_use"
+						{if not tagged "contusion"
+							{if crew_in_place "commander"
+								{if not tagged "no_power"
+									{call "cw_panorama_work"}
+								else {call "cw_panorama_off"}}
+							else {call "cw_panorama_off"}}
+						else {call "cw_panorama_off"}}
+					else {call "cw_panorama_off"}}
+                ;else {call "cw_panorama_off"}}
+            ;else {call "cw_panorama_off"}}
+        else {call "cw_panorama_instant_off"}}
+    }
+    {on "cw_panorama_work"
+        {if not tagged "cw_panorama_work"
+            {ani_play "panorama" callback}
+        }
+        {tags add "cw_panorama_work"}
+    }
+    {on "cw_panorama_off"
+        {tags remove "cw_panorama_work"}
+		{ani_stop "panorama"} 
+    }
+    {on "cw_panorama_instant_off"
+        {tags remove "cw_panorama_work"}
+        {ani_stop "panorama"}
+    }
+    {on animation_end "panorama"
+        {if tagged "cw_panorama_work" {ani_play "panorama" callback}}
+    }
+	{on ik begin "turret_mg"                ;// turret_mg bone rotates
+         {tags add "human_in_use"}
+         {call "update_cw_panorama"}
+    }
+    {on ik end "turret_mg"                    ;// turret_mg stops rotation
+        {delay 3 
+			{tags remove "human_in_use"}
+			{call "update_cw_panorama"}
+        }
+    }
+}
 ;/*===========  Command Vehicle Props  ===========*/
 
 {"radio"
@@ -94,10 +142,13 @@
 	)
 	{on "update_hatch_on_spawn"
 		("update_hatch" wind(true))
+		{tags remove "cw_panorama_work"}
+		{call "update_cw_panorama"}
 	}
 	(define "update_hatch_event"
 		{on %event
 			("update_hatch" wind(false))
+			{call "update_cw_panorama"}
 		}
 	)
 	("update_hatch_event" event(operatable on))
