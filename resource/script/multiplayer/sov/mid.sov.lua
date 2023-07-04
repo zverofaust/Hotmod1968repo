@@ -49,8 +49,8 @@ Purchases["mid.sov"] = {
 			--Tanks_heavy
 			--SPG
 			--Air Assets
-				{priority = 0.2, type = {"Plane", "Sortie", "Class2",}, unit = "mil_mi4_airborne"},
-				--{priority = 2.0, type = {"Plane", "Sortie", "Class1",}, unit = "mil_mi4_heavy_airborne"},
+				{priority = 0.2, type = {"Helicopter", "Sortie", "Class2",}, unit = "mil_mi4_airborne"},
+				--{priority = 2.0, type = {"Helicopter", "Sortie", "Class1",}, unit = "mil_mi4_heavy_airborne"},
 			--Offmap Supports
 				
 				
@@ -80,6 +80,7 @@ Purchases["mid.sov"] = {
 			{priority = 1.0, type = {"Doctine", "Tank", "Light", "AT", "Tier3",}, unit = "doctrine_squad_spz_desantski(sov)"},
 			{priority = 1.0, type = {"Doctine", "Cannon", "AA", "Tier1",}, unit = "doctrine_squad_zu2(sov)"},
 			{priority = 1.0, type = {"Doctine", "Armored", "AT", "Tier3",}, unit = "doctrine_vehicle_9p110(sov)"},
+			{priority = 0.2, type = {"Doctine", "Helicopter", "Sortie", "Tier3",}, unit = "mil_mi4_heavy_airborne"},
 			
 			-- Doctrine = "Rocket & Artillery Troops"
 			

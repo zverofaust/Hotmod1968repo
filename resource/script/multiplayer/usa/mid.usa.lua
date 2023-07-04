@@ -59,7 +59,7 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Tank", "Light", "AA", "Class2",}, unit = "m42"},
 				{priority = 1.0, type = {"Tank", "Medium", "Artillery", "Class3",}, unit = "m108"},
 			--Air Assets
-				{priority = 0.5, type = {"Helicopter", "Sortie", "Support", "Class2",}, unit = "uh-1b_airborne"},
+				{priority = 0.2, type = {"Helicopter", "Sortie", "Support", "Class3",}, unit = "uh-1b_airborne"},
 			--Offmap Supports
 				
 			
@@ -71,11 +71,13 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Mortar", "Tier1",}, unit = "doctrine_vehicle_m106(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "Tier2",}, unit = "doctrine_vehicle_m132(usa)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "AT", "Tier2",}, unit = "doctrine_vehicle_m551acav(usa)"},
+				{priority = 1.0, type = {"Doctine", "Artillery", "Light", "Support", "AT", "Tier2",}, unit = "doctrine_vehicle_m551acav(usa)"},
 				
 			-- Doctrine Mechanized = "Air Cavalry"
 				--[[It's all bloody airlifted!]]
-				{priority = 1.0, type = {"Helicopter", "Sortie", "Class2",}, unit = "uh-1b_ara_airborne"},
+				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "AT", "Tier3",}, unit = "doctrine_vehicle_m551(usa)"},
+				{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_mgr3(usa)"},
+				{priority = 0.2, type = {"Doctine", "Helicopter", "Sortie", "Tier2",}, unit = "uh-1b_ara_airborne"},
 			
 			-- Doctrine Heavy = "Armor Brigade"
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "AA", "Tier3",}, unit = "doctrine_vehicle_m163(usa)"},
