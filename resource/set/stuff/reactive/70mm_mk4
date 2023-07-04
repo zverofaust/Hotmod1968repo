@@ -1,0 +1,43 @@
+{from "pattern reactive"	 ;70mm Mk4 FFAR "Mickey Mouse"
+	{tag "-gun"}
+	{filling "70mm_ffar" 2}
+	{fillingVisible "detail_a"}
+	{fireSound "reactive/rocket_burst/"}
+	{reloadSound "tank/reload_medium"}
+	{inventory {noView}}
+
+	{calibre 70}
+	{range 175 200} ;//Totally arbitrary, historic max effective range ~3.4km
+	
+	{Automatic}
+	("fire rate" rpm(600))
+	("reload time" seconds(10))
+	("velocity" mps(340))
+	("aerial gravity")
+
+	{spreading
+		{SpreadXYRatio 2}
+		{radiusTable
+			{0 0}
+			{100 12}
+			{200 30}
+			{279.99 60} ;// max range
+			{280 150}
+			{310 300}
+		}
+	}
+	
+	{SpreadTolerance 0.02}								;// How much, in %, does AI need to aim before it can fire
+	{AimingTolerance 90}								;// Measure in degrees of IK error when AI is allowed to shoot
+	
+	{burst
+		{min 2}
+		{short 2}
+		{long 4}			;// short burst shots on long distance, rand (+-)shots
+		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
+	}
+	
+	{FiringTimeout 1.5}	; delay between bursts
+	
+	{toplayerVignette "/texture/common/environment/lens_effects/vehicle_telescope_rus_hmg"}
+}

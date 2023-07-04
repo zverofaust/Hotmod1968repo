@@ -1,0 +1,46 @@
+(include "\set\blast.inc")
+
+(define "velocity"			;// muzzle velocity in meters per second
+	{speed (* 0.35 %mps)}
+)
+
+(define "fire rate"			;// rate of fire in rounds per minute 
+	{recoveryTime (/ 60 %rpm)}
+)
+
+(define "reload time"		;// reload time for magazine or shell
+	{rechargeTime %seconds}
+)
+
+(define "default gravity"	;// default gravity setting
+	{gravity 2}
+)
+
+(define "aerial gravity"	;// default gravity setting
+	{gravity 1}
+)
+
+(define "rocket_artillery"
+	{fillingVisible "rocket"}
+	{inventory {noView}}
+	{gravity 4}
+
+	{spreading
+		{radiusTable
+			{0 0}
+			{100 10}
+			{200 20}
+			{299.99 50}
+			{300 100}
+			{320 200}
+		}
+	}
+
+	{range 300 300}
+	("fire rate" rpm(60))
+	("reload time" seconds(120))
+)
+
+(define "armor health"
+	{minimumDamageModifier (* 1.0 %damage)}
+)

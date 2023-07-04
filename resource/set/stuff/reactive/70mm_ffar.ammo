@@ -1,0 +1,35 @@
+{from "pattern reactive_ammo"	; 70mm Mk 4 Folding Fin Aerial Rocket aka Mighty Mouse
+	{tag "shell size2 he fg itemin2hands"}
+	{inventory
+		{weight 20}
+		{size 4 1}
+		{block 4}
+	}
+	{entity "mk4_ammo"}
+	{mass 8.4}
+
+	{view "mk4_ammo"
+		{tail "tow_tail" "tail"}
+	}
+
+	("he_level_2" weight(8.4) filler(0.5))
+	
+	{##damage blastwave
+		{energy 8.0}
+		{area 0.4 0.5}
+		{ground_interaction_radius 0.075}
+	}
+
+	{##damage add blastwave
+		{energy 2.5}
+		{area 4 7}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+
+	{##damage add blastwave
+		{energy 1.5}
+		{area 7 10}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+	
+}
