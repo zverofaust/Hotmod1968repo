@@ -27,6 +27,7 @@
 
 ;AIR SUPPORT
 
+
 ("squad_with1types"	side(usa) name(single_fac)	period(mid) cd(300) ci(300) g(single_fac) c1(reg_fac:1) b(strategic) t()); M2
 
 ;{"cas_uh1_usa"
@@ -36,7 +37,7 @@
 
 ;{"cas_uh1_ara_usa"
 ;	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_ara_airborne) crew(sup_pilot:1))
-;	{cost 10}{conditions ""}{action "airstrike:reconnaissance_50"} 
+	{cost 10}{conditions ""}{action "airstrike:reconnaissance_50"} 
 ;}
 
 ;{"cas_uh1_maxwell_usa"
@@ -51,12 +52,12 @@
 
 {"a-4e_airstrike_rocket_light" ;buildable airstrike
 	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_rocket_usa))
-	{cost 0}
+	{cost 3}
 }
 
 {"a-4e_airstrike_bomb_light" ;buildable airstrike
 	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_bomb_usa))
-	{cost 0}
+	{cost 5}
 }
 
 ;{"a-4e_airstrike_cluster_light" ;buildable airstrike
@@ -71,42 +72,42 @@
 
 {"a-4e_airstrike_rocket_heavy" ;buildable airstrike
 	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_rocket_usa))
-	{cost 0}
+	{cost 5}
 }
 
 {"a-4e_airstrike_bomb_medium" ;buildable airstrike
 	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_bomb_usa))
-	{cost 0}
+	{cost 8}
 }
 
 {"a-4e_airstrike_napalm_medium" ;buildable airstrike
 	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_napalm_usa))
-	{cost 0}
+	{cost 10}
 }
 
 {"a-4e_airstrike_cluster_medium" ;buildable airstrike
 	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_cluster_usa))
-	{cost 0}
+	{cost 10}
 }
 
 {"f-105_airstrike_bomb_heavy" ;buildable airstrike
 	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_bomb_usa))
-	{cost 0}
+	{cost 12}
 }
 
 {"f-105_airstrike_cluster_heavy" ;buildable airstrike
 	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_cluster_usa))
-	("doctrine_t1" cool(5) d(mid_usa_acav) cost(0))
+	("doctrine_t1" cool(5) d(mid_usa_acav) cost(15))
 }
 
 {"f-105_airstrike_napalm_heavy" ;buildable airstrike
 	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_napalm_usa))
-	("doctrine_t1" cool(5) d(mid_usa_usmc) cost(0))
+	("doctrine_t1" cool(5) d(mid_usa_usmc) cost(15))
 }
 
 {"f-105_airstrike_bomb_super" ;buildable airstrike
 	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_super_bomb_usa))
-	("doctrine_t1" cool(5) d(mid_usa_air) cost(0))
+	("doctrine_t1" cool(5) d(mid_usa_air) cost(18))
 }
 
 

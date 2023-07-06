@@ -25,7 +25,7 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
-("squad_with1types"	side(sov) name(single_fac)	period(mid) cd(0) ci(30) g(single_fac) c1(reg_fac:1) b(strategic) t()); AKMS
+("squad_with1types"	side(sov) name(single_fac)	period(mid) cd(300) ci(300) g(single_fac) c1(reg_fac:1) b(strategic) t()); AKMS
 
 
 ;{"cas_mi4_sov"
@@ -35,12 +35,12 @@
 
 {"mig-19_airstrike_rocket_light" ;buildable airstrike
 	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_rocket_sov))
-	{cost 0}
+	{cost 3}
 }
 
 {"mig-19_airstrike_bomb_light" ;buildable airstrike
 	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_bomb_sov))
-	{cost 0}
+	{cost 5}
 }
 
 ;{"mig-19_airstrike_cluster_light" ;buildable airstrike
@@ -55,42 +55,42 @@
 
 {"su-7_airstrike_rocket_heavy" ;buildable airstrike
 	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_heavy_rocket_sov))
-	{cost 0}
+	{cost 5}
 }
 
 {"su-7_airstrike_bomb_medium" ;buildable airstrike
 	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_bomb_sov))
-	{cost 0}
+	{cost 8}
 }
 
 {"su-7_airstrike_wp_medium" ;buildable airstrike
 	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_wp_sov))
-	{cost 0}
+	{cost 10}
 }
 
 {"su-7_airstrike_cluster_medium" ;buildable airstrike
 	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_cluster_sov))
-	{cost 0}
+	{cost 10}
 }
 
 {"yak-28_airstrike_bomb_heavy" ;buildable airstrike
 	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_bomb_sov))
-	{cost 0}
+	{cost 12}
 }
 
 {"yak-28_airstrike_cluster_heavy" ;buildable airstrike
 	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_cluster_sov))
-	("doctrine_t1" cool(30) d(mid_sov_motostrelki) cost(0))
+	("doctrine_t1" cool(30) d(mid_sov_motostrelki) cost(15))
 }
 
 {"yak-28_airstrike_wp_heavy" ;buildable airstrike
 	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_wp_sov))
-	("doctrine_t1" cool(30) d(mid_sov_vdv) cost(0))
+	("doctrine_t1" cool(30) d(mid_sov_vdv) cost(15))
 }
 
 ;{"yak-28_airstrike_bomb_super" ;buildable airstrike
 ;	("emplacement" side(sov) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_super_bomb_sov))
-;	("doctrine_t1" cool(30) d(mid_sov_vdv) cost(0))
+;	("doctrine_t1" cool(30) d(mid_sov_vdv) cost(18))
 ;}
 
 
@@ -321,6 +321,12 @@
 {"doctrine_vehicle_kraz_arty(sov)"
 	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(kraz-255_ammo) crew(sup_supporter:1) cw(2) cp(0))
 	("doctrine_t1" cool(30) d(mid_sov_artillery) cost(5))
+}
+
+; // 10DP BTR-152U Command Vehicle for calling in artillery bombardments (to be replaced by BTR-50PU or BTR-60PU)
+{"doctrine_vehicle_command(sov)"
+	("squad_vehicle_doctrine" side(sov) period(mid) vehicle(btr-152u) crew(sup_supporter:2) cw(2) cp(0))
+	("doctrine_t1" cool(30) d(mid_sov_artillery) cost(10))
 }
 
 ; // 8DP D-74 122mm Field Gun (to be replaced by M-46 130mm Field Gun)
