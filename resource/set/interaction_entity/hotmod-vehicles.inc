@@ -715,7 +715,7 @@
 	}
 }
 
-{"bm-31m car"
+{"bm-24m car"
 	("zis5_sound")
 	{on spawn
 		{tags add "shield_up"}
