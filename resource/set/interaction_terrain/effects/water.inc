@@ -115,11 +115,12 @@
 			{spawn "ex_wp_bomb"}
 			{spawn "crater_small" terrain_texmod}
 			
-	else stuff "bomb sizenuke"								; W33 'Davy Crockett' Nuclear Warhead
+	else stuff "bomb mininuke"								; W33 Davy Crockett 20-ton warhead
+			{start_sound "detonation/nuke/" use_position}
+			{spawn "ex_crockett"}
+		else stuff "bomb sizenuke"								; W45 0.5 to 5kt Warhead
 			{start_sound "detonation/nuke/" use_position}
 			{spawn "expluto"}
-			{fire radius 50 time 15 heating 25}
-			{blastwave c4 50  r0 0 r1 10}
 	}
 )
 
@@ -209,11 +210,14 @@
 			{spawn "ex_wp_bomb"}
 			{spawn "crater_small" terrain_texmod}
 			
-	else stuff "bomb sizenuke"								; W33 'Davy Crockett' Nuclear Warhead
-			{start_sound "detonation/nuke/" use_position}
-			{spawn "expluto"}
-			{fire radius 50 time 15 heating 25}
-			{blastwave c4 50  r0 0 r1 10}
+	else stuff "bomb mininuke"								; W33 Davy Crockett 20-ton warhead
+		{start_sound "detonation/nuke/" use_position}
+		{spawn "ex_crockett"}
+
+	else stuff "bomb sizenuke"								; W45 0.5 to 5kt Warhead
+		{start_sound "detonation/nuke/" use_position}
+		{spawn "expluto"}
+
 	}
 )
 
@@ -511,11 +515,14 @@
 			{spawn "ex_wp_bomb"}
 			{spawn "crater_small" terrain_texmod}
 			
-		else stuff "bomb sizenuke"								; W33 'Davy Crockett' Nuclear Warhead
+		else stuff "bomb mininuke"								; W33 Davy Crockett 20-ton warhead
+			{start_sound "detonation/nuke/" use_position}
+			{spawn "ex_crockett"}
+
+		else stuff "bomb sizenuke"								; W45 0.5 to 5kt Warhead
 			{start_sound "detonation/nuke/" use_position}
 			{spawn "expluto"}
-			{fire radius 50 time 15 heating 25}
-			{blastwave c4 50  r0 0 r1 10}
+
 		}
 	}
 }

@@ -1,7 +1,7 @@
 ;SDL
 
 (include "airborne.ext")
-{props "helo" "airborne_helicopter"}
+{props "airborne" "airborne_helicopter"}
 
 (define "air_movement"
 	{dontUseSlope}
@@ -44,6 +44,18 @@
 
 {chassisManager
 	{current "airborne"}
+}
+
+{sensor
+	{Visor "main"
+		{vision "airborne_main"}
+		{bone "visor"}
+	}
+	{visor "around"
+		{vision "airborne_around"}
+		{bone "basis"}
+	}
+	{InformRange 100 135}		;first - AI ;second - USER
 }
 
 (define "body"

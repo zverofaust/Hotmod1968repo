@@ -1,5 +1,5 @@
 {from "pattern reactive_ammo"
-	{tag "bomb sizenuke he fg itemin2hands"}
+	{tag "bomb mininuke he fg itemin2hands"}
 	{inventory
 		{size 8 2}
 		{weight 1}
@@ -15,19 +15,21 @@
 	{detonationThickness 100}
 	
 	{damage blastwave
-		{energy 500}
-		{area 3 8}
+		{energy 225}
+		{area 7 16}
 		{ground_interaction_radius 0.2}
 	}
+
 	{damage add blastwave
-		{energy 100}
-		{area 18 28}
-		{ground_interaction_radius 0.1} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+		{energy 20}
+		{area 16 28}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
 	}
+
 	{damage add blastwave
-		{energy 25}
-		{area 40 65}
-		{ground_interaction_radius 0.01} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+		{energy 3}
+		{area 35 55}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
 	}
 	{damage fire					;burn inner radius
 		{radius 10}
@@ -35,7 +37,7 @@
 		{time 25}
 	}
 	{damage add fire				;inflame outer radius
-		{radius 50}
+		{radius 20}
 		{heating 1}
 		{time 25}
 	}
