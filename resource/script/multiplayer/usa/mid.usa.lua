@@ -66,7 +66,7 @@ Purchases["mid.usa"] = {
 			-- Doctrine Irregular = "Armored Cavalry"
 				{priority = 1.0, type = {"Doctine", "Tier1",}, unit = "doctrine_squad_lrrp(usa)"},
 				{priority = 1.0, type = {"Doctine", "Armored", "MG", "Tier1",}, unit = "doctrine_squad_acav_moto(usa)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "AT", "Tier1",}, unit = "doctrine_vehicle_m113_acav_m40(usa)"},
+				--{priority = 1.0, type = {"Doctine", "Tank", "Light", "AT", "Tier1",}, unit = "doctrine_vehicle_m113_acav_m40(usa)"},
 				{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier2",}, unit = "doctrine_vehicle_m114a2(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Mortar", "Tier1",}, unit = "doctrine_vehicle_m106(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109(usa)"},
