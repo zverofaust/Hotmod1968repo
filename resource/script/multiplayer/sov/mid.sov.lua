@@ -49,8 +49,8 @@ Purchases["mid.sov"] = {
 			--Tanks_heavy
 			--SPG
 			--Air Assets
-				{priority = 0.2, type = {"Helicopter", "Sortie", "Class2",}, unit = "mil_mi4_airborne"},
-				--{priority = 2.0, type = {"Helicopter", "Sortie", "Class1",}, unit = "mil_mi4_heavy_airborne"},
+				--{priority = 0.2, type = {"Helicopter", "Sortie", "Class2",}, unit = "mil_mi4_airborne"},
+				--{priority = 0.2, type = {"Helicopter", "Sortie", "Class1",}, unit = "mil_mi4_heavy_airborne"},
 			--Offmap Supports
 				
 				
