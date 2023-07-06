@@ -32,11 +32,11 @@
 		{"fortifications" "callin_light_rocket_sov"}
 		{"fortifications" "callin_light_bomb_sov"}
 		;{"fortifications" "callin_light_cluster_sov"}
-		;{"fortifications" "callin_light_wp_sov"}
-		{"fortifications" "callin_heavy_rocket_sov"}
+		{"fortifications" "callin_light_wp_sov"}
+		;{"fortifications" "callin_heavy_rocket_sov"}
 		{"fortifications" "callin_medium_bomb_sov"}
 		{"fortifications" "callin_medium_cluster_sov"}
-		{"fortifications" "callin_medium_wp_sov"}
+		;{"fortifications" "callin_medium_wp_sov"}
 		;{"fortifications" "callin_heavy_bomb_sov"}
 		;{"fortifications" "callin_heavy_cluster_sov"}
 		;{"fortifications" "callin_heavy_wp_sov"}
@@ -57,12 +57,14 @@
 
 (define "aircontroller_2"
 	{barricade
+		{"fortifications" "callin_heavy_rocket_usa"}
 		{"fortifications" "callin_heavy_bomb_usa"}
 		{"fortifications" "callin_heavy_napalm_usa"}
 		{"fortifications" "callin_heavy_cluster_usa"}
 		{"fortifications" "callin_super_bomb_usa"}
 		
-		
+		{"fortifications" "callin_heavy_rocket_sov"}
+		{"fortifications" "callin_medium_wp_sov"}
 		{"fortifications" "callin_heavy_bomb_sov"}
 		{"fortifications" "callin_heavy_wp_sov"}
 		{"fortifications" "callin_heavy_cluster_sov"}
