@@ -30,6 +30,11 @@
 
 ("squad_with1types"	side(usa) name(single_fac)	period(mid) cd(300) ci(300) g(single_fac) c1(reg_fac:1) b(strategic) t()); M2
 
+;{"cas_ah1_usa"
+;	("squad_vehicle" side(usa) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(ah-1g_airborne) crew(sup_pilot:2))
+;	{cost 0}{conditions ""}{action "airstrike:reconnaissance_50"} 
+;}
+
 ;{"cas_uh1_usa"
 ;	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
 ;	{cost 10}{conditions ""}{action "airstrike:reconnaissance_50"} 
@@ -246,6 +251,12 @@
 {"doctrine_squad_ranger_huey(usa)"
 	("squad_vehicle8_doctrine" side(usa) period(mid) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
 	("doctrine_t3" cool(180) d(mid_usa_air) cost(20))
+}
+
+; // 25DP AH-1G
+{"doctrine_vehicle_ah1g(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ah-1g) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(240) d(mid_usa_air) cost(25))
 }
 
 ; // 10 DP Chinook Transport/Supply
@@ -679,16 +690,26 @@
 }
 
 {"uh-1b_airborne"
-	("vehicle"  period(mid) cd(300) ci(240) side(usa) t(helicopter) g(heli) crew(sup_pilot:1) cw(0) cp(6))
+	("vehicle"  period(mid) cd(300) ci(240) side(usa) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6))
 	{cost 650}{not_for_player_sale 1}
 }
 
 {"uh-1b_ara_airborne"
-	("vehicle"  period(mid) cd(300) ci(240) side(usa) t(helicopter) g(heli) crew(sup_pilot:1) cw(0) cp(6))
+	("vehicle"  period(mid) cd(300) ci(240) side(usa) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6))
 	{cost 750}{not_for_player_sale 1}
 }
 
 {"uh-1b_maxwell_airborne"
-	("vehicle"  period(mid) cd(300) ci(240) side(usa) t(helicopter) g(heli) crew(sup_pilot:1) cw(0) cp(6))
+	("vehicle"  period(mid) cd(300) ci(240) side(usa) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6))
 	{cost 800}{not_for_player_sale 1}
+}
+
+{"uh-1b_m22_airborne"
+	("vehicle"  period(mid) cd(300) ci(240) side(usa) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6))
+	{cost 800}{not_for_player_sale 1}
+}
+
+{"ah-1g_airborne"
+	("vehicle"  period(mid) cd(300) ci(300) side(usa) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6))
+	{cost 1200}{not_for_player_sale 1}
 }

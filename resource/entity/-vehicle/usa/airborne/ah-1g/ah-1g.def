@@ -1,0 +1,143 @@
+{game_entity  ;AH-1G with rockets
+	(include "/properties/helicopter.ext")
+	(include "/properties/shadow/airborn.inc" scale(2.5))
+	(include "/properties/selection/airborne.inc" scale(2.00))
+	(include "/properties/car_crew.ext")
+	{Extension "ah-1g.mdl"}
+	{props "helo"}
+	{PatherID "helicopter"}
+
+	("helicopter_tier1")
+	
+	{extender "enumerator"}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "doorsback"}}
+			{reverse 	{end	"board_big-midcar_driver" -1} {base "doorsback"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "doorsfront"}}
+			{reverse 	{end	"board_big-midcar" -1} {base "doorsfront"}}
+		}
+	}
+	("crew_human" place(driver)		bone(driver)	door(emit1) animation(driver) group(crew))
+	("crew_human" place(commander)	bone(commander)	door(emit2) animation(commander) group(crew))
+	
+	{placer
+		{place "driver"		{group "crew"}}
+		{place "commander"	{group "crew"}}
+	}
+	
+	{Sensor
+		{Visor "main"
+			{bone	 "visor"}
+		}
+	}
+	
+	;main body parts
+	("body" args "body")
+	("body" args "body1")
+	("body" args "tail")
+	("body" args "wingl")
+	("body" args "wingr")
+
+	;main rotor + blades
+	("rotor" args "rotor")
+	("rotor" args "propeller")
+	("rotor" args "propeller1")
+
+	;back rotor + blades
+	("rotor_b" args "rotor_b")
+	("rotor_b" args "propeller_b")
+	("rotor_b" args "propeller_b1")
+	
+	;engines
+	("engine" args "engine")
+
+	{Obstacle "in_air"
+        {Obb2
+            {Center 10 0}
+            {Extent 190 160}
+            {Axis -1 0}
+        }
+        {rotate}
+    }
+    {ObstacleId "helicopter" "in_air"}
+	
+	{extender "inventory"
+		{box
+            {item "ammo 70mm_ffar" 52}
+			{item "ammo 40mm_grenade he" 300}
+			{item "ammo mgun_usa belt" 4000}
+        }
+    }
+	
+	{Weaponry
+		{place "mgun"
+			{rotate}
+			{weapon			"m134" filling "mgun_usa" 4000}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{foresight		"foresight14"}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun2"
+			{rotate}
+			{weapon			"40mm_m129" filling "ammo 40mm_grenade he" 300}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{foresight		"foresight1"}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "gun"
+			{rotate}
+			{weapon			"70mm_ffar_7x2" filled}
+			{barrels		14}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter_b"}
+			{foresight		"foresight"}
+			{basic}
+		}
+		{place "gun2"
+			{rotate}
+			{weapon			"70mm_ffar_19x2" filled}
+			{barrels		38}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter_b"}
+			{foresight		"foresight"}
+			{basic}
+		}
+	}
+
+	{mass 4309}
+	
+	{Chassis "helicopter"
+		{Locomotion ("locomotion_attack")}
+	}
+	
+	{bone "turret"			;turret rotator
+		{speed 0.03}
+		{limits -115 115}
+	}
+	{bone "gun1_rot"			;turret minigun up/down
+		{speed 0.03}
+		{limits -50 15}
+	}
+	{bone "gun2_rot"			;grenade launcher up/down
+		{speed 0.03}
+		{limits -50 15}			;back to -10 10 as soon as they are able to rotate on their own
+	}
+	{bone "rocket_rot_h"			;rockets: right/left
+		{speed 0.01}
+		{limits -5 5}			;back to -10 10 as soon as they are able to rotate on their own
+	}
+	{bone "rocket_rot_v"			;rockets: down/up
+		{speed 0.01}
+		{limits -5 15}
+	}
+}

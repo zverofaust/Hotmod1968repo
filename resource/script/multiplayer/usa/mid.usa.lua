@@ -77,7 +77,7 @@ Purchases["mid.usa"] = {
 				--[[It's all bloody airlifted!]]
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "AT", "Tier3",}, unit = "doctrine_vehicle_m551(usa)"},
 				{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_mgr3(usa)"},
-				{priority = 0.2, type = {"Doctine", "Helicopter", "Sortie", "Tier2",}, unit = "uh-1b_ara_airborne"},
+				{priority = 6.0, type = {"Doctine", "Helicopter", "Sortie", "Tier3",}, unit = "ah-1g_airborne"},
 			
 			-- Doctrine Heavy = "Armor Brigade"
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "AA", "Tier3",}, unit = "doctrine_vehicle_m163(usa)"},
@@ -85,6 +85,7 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Support", "Tier2",}, unit = "doctrine_vehicle_m728(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "Tier3",}, unit = "doctrine_vehicle_m110(usa)"},
+				{priority = 0.2, type = {"Doctine", "Helicopter", "Sortie", "Tier2",}, unit = "uh-1b_m22_airborne"},
 				
 			-- Doctrine Assault = "USMC"				
 				{priority = 1.0, type = {"Doctine", "Tier1",}, unit = "doctrine_squad_usmc_fireteam(usa)"},
@@ -92,8 +93,10 @@ Purchases["mid.usa"] = {
 				{priority = 1.0, type = {"Doctine", "Armored", "Support", "AT", "Tier1",}, unit = "doctrine_vehicle_m50(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Support", "Tier3",}, unit = "doctrine_vehicle_m67_zippo(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Heavy", "AT", "Tier3",}, unit = "doctrine_vehicle_m103(usa)"},
+				{priority = 0.2, type = {"Doctine", "Helicopter", "Sortie", "Tier2",}, unit = "uh-1b_maxwell_airborne"},
 				
 			-- Doctrine Support = "Artillery Brigade"	
+				{priority = 0.2, type = {"Doctine", "Helicopter", "Sortie", "Tier2",}, unit = "uh-1b_ara_airborne"},
 				--{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m114(usa)"},
 				--{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_m115(usa)"},
 				

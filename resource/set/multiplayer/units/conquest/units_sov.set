@@ -36,30 +36,65 @@
 
 ;//Artillery Supports
 
-; removed
+{"mortar_barrage_smoke_sov"
+	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
+	{cost 1}{action "airstrike:flare_mortar_smoke"}{condition "radio_sov"}
+}
+
+{"mortar_barrage_light_sov"
+	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(82mm_bm37_sov) crew(sup_guncrew:0))
+	{cost 1}{action "airstrike:flare_mortar_80"}{condition "radio_sov"}
+}
+
+{"mortar_barrage_medium_sov"
+	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(120mm_pm38_sov) crew(sup_guncrew:0))
+	{cost 2}{action "airstrike:flare_mortar_120"}{condition "radio_sov"}
+}
+
+{"artillery_barrage_smoke_sov"
+	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d30a) crew(sup_guncrew:0))
+	{cost 2}{conditions "radio_sov"}{action "airstrike:flare_artillery_smoke"}
+}
+
+{"artillery_barrage_light_sov"
+	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d30a) crew(sup_guncrew:0))
+	{cost 5}{action "airstrike:flare_artillery_105"}
+}
+
+{"artillery_barrage_medium_sov"
+	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d-20) crew(sup_guncrew:0))
+	{cost 8}{action "airstrike:flare_artillery_150"}
+}
+
+{"artillery_barrage_heavy_sov"
+	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(203mm_b4_sov) crew(sup_guncrew:0))
+	{cost 12}{action "airstrike:flare_artillery_203"}
+}
+
+{"artillery_barrage_rocket_sov"
+	("offmap_support" side(sov) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(bm-21_grad) crew(sup_guncrew:0))
+	{cost 12}{action "airstrike:flare_artillery_rocket"}
+}
 
 ;// Helicopter CAS Runs
 
-;{"cas_mi4_sov"
-;	("squad_vehicle" side(sov) period(mid) min_stage(5) max_stage(99) cw(0) cp(4) vehicle(mil_mi4_airborne) crew(sup_pilot:1))
-;	{cost 8}{action "airstrike:dummy_cas"}
-;}
-
-;{"cas_mi4_heavy_sov"
-;	("squad_vehicle" side(sov) period(mid) min_stage(8) max_stage(99) cw(0) cp(4) vehicle(mil_mi4_heavy_airborne) crew(sup_pilot:1))
-;	{cost 16}{action "airstrike:dummy_cas"}
-;}
+; removed
 
 ;// Airstrikes
 
 {"airstrike_light_rocket_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 3}{action "airstrike:flare_airstrike_light_rocket_sov"}
+	{cost 3}{action "callin_light_rocket_sov"}
 }
 
 {"airstrike_light_sov"
-	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	("emplacement" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
 	{cost 2}{action "airstrike:flare_airstrike_light_bomb_sov"}
+}
+
+{"mig-19_airstrike_rocket_light" ;buildable airstrike
+	("emplacement" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_rocket_sov))
+	{cost 3}
 }
 
 {"airstrike_light_wp_sov"
@@ -132,6 +167,7 @@
 ;;;MID Period
 
 ;;; Conscripts & Tier 0 Troops
+("squad_with1types_conquest" 	side(sov) name(single_fac_con)				period(mid) min_stage(0) max_stage(5)			c1(reg_fac:1)									) ;Makarov
 
 ("squad_with4types_conquest" side(sov) period(early) min_stage(0) max_stage(4) name(squad_conscript_early_con)			c1(con_squadlead:1) c2(con_mg:1) c3(con_atgren:1) c4(con_rifleman:5))
 ("squad_with4types_conquest" side(sov) period(mid) min_stage(0) max_stage(10)  name(squad_conscript_maneuv_con)			c1(con_squadlead:1) c2(con_mg:1) c3(con_marksman:1) c4(con_rifleman:1))

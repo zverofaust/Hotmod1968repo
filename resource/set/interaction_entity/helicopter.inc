@@ -557,3 +557,22 @@
 
 }
 
+{"ah-1g"	
+	{on spawn
+		{add_view "flash_gun_hmg_m2hb"			"grenflash"	"foresight1"}
+	}
+	{on fire "mgun"
+		{ani_play "recoil_mini" loop resume}
+		{delay 2
+			{ani_stop "recoil_mini"}
+		}
+	}
+	{on fire "mgun2"
+		{view start "grenflash"}
+		{ani_play "recoil_grenade"}
+		{delay 0.2
+			{view pause "grenflash"}
+		}
+	}
+}
+
