@@ -1205,7 +1205,7 @@
 	
 	{on "reload"
 		{tags add "reloading"}
-		{ik_enable "turret" 0}
+		;{weapon_work "gun" 0}
 		{ani_play "turret_reset"}
 		{ani_play "weapon_down"}
 		{tags add "weapon_down"}
@@ -1236,7 +1236,7 @@
 						{ani_play "weapon_up"}
 						{tags remove "weapon_down"}
 						{delay 1
-							{ik_enable "turret" 1}
+							;{weapon_work "gun" 1}
 						}
 					else
 						{delay 0.1}
