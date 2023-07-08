@@ -351,7 +351,7 @@
 			{spawn "crater_small" terrain_texmod}
 			
 		else stuff "bomb mininuke"								; W33 Davy Crockett 20-ton warhead
-			{start_sound "detonation/nuke/" use_position}
+			{start_sound "detonation/ex_crockett/" use_position}
 			{spawn "ex_crockett"}
 			{spawn "crater_massive" terrain_texmod}
 			{spawn "shellhole_super"}
