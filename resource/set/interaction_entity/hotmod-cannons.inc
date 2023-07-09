@@ -1708,16 +1708,70 @@
 {"mk18_agl"
 	{on spawn
 		{add_view "flash_gun_hmg_m2hb"			"grenflash"	"foresight1"}
+		{tags add "ammo_count_12"}
 	}
-	{on fire "mgun"
+	{on fire "mgun" overload
 		{view start "grenflash"}
-		{ani_play "recoil1"}
 		{delay 0.2
 			{view pause "grenflash"}
+		}
+		{if tagged "ammo_count_12"
+			{ani_play "recoil1"}
+			{tags remove "ammo_count_12"}
+			{tags add "ammo_count_11"}
+		else tagged "ammo_count_11"
+			{ani_play "recoil2"}
+			{tags remove "ammo_count_11"}
+			{tags add "ammo_count_10"}
+		else tagged "ammo_count_10"
+			{ani_play "recoil3"}
+			{tags remove "ammo_count_10"}
+			{tags add "ammo_count_9"}
+		else tagged "ammo_count_9"
+			{ani_play "recoil4"}
+			{tags remove "ammo_count_9"}
+			{tags add "ammo_count_8"}
+		else tagged "ammo_count_8"
+			{ani_play "recoil5"}
+			{tags remove "ammo_count_8"}
+			{tags add "ammo_count_7"}
+		else tagged "ammo_count_7"
+			{ani_play "recoil6"}
+			{tags remove "ammo_count_7"}
+			{tags add "ammo_count_6"}
+		else tagged "ammo_count_6"
+			{ani_play "recoil7"}
+			{tags remove "ammo_count_6"}
+			{tags add "ammo_count_5"}
+		else tagged "ammo_count_5"
+			{ani_play "recoil8"}
+			{tags remove "ammo_count_5"}
+			{tags add "ammo_count_4"}
+		else tagged "ammo_count_4"
+			{ani_play "recoil9"}
+			{tags remove "ammo_count_4"}
+			{tags add "ammo_count_3"}
+		else tagged "ammo_count_3"
+			{ani_play "recoil10"}
+			{tags remove "ammo_count_3"}
+			{tags add "ammo_count_2"}
+		else tagged "ammo_count_2"
+			{ani_play "recoil11"}
+			{tags remove "ammo_count_2"}
+			{tags add "ammo_count_1"}
+		else tagged "ammo_count_1"
+			{ani_play "recoil12"}
+			{tags remove "ammo_count_2"}
+			{tags add "ammo_count_0"}
 		}
 	}
 	{on "reload"
 		{ani_play "reload"}
+		{delay 3
+			{tags remove "ammo_count_0"}
+			{tags add "ammo_count_12"}
+			{ani_play "recoil1" -1}
+		}
 	}
 }
 

@@ -47,6 +47,7 @@
 	("gunbag" guntype(m29_mortar)  	 			bagtype(gunbag_m29))
 	("gunbag" guntype(m20_rcl)  	 			bagtype(gunbag_m20))
 	("gunbag" guntype(entac)   					bagtype(gunbag_entac))
+	("gunbag" guntype(mk18_agl)   				bagtype(gunbag_mk18))
 	
 	;///FRG
 	("gunbag" guntype(mg3_lafette)   			bagtype(gunbag_mg3))

@@ -82,8 +82,6 @@
 		{"fortifications" "deploy_b10"}
 		{"fortifications" "deploy_spg9"}
 		{"fortifications" "deploy_9m14"}
-		{"fortifications" "deploy_9m14_launcher"}
-		{"fortifications" "deploy_9m14_controller"}
 		{"fortifications" "deploy_ammobag_sov"}
 		
 		{"fortifications" "deploy_m1919"}
@@ -92,8 +90,7 @@
 		{"fortifications" "deploy_m29"}
 		{"fortifications" "deploy_m20"}
 		{"fortifications" "deploy_entac"}
-		{"fortifications" "deploy_entac_launcher"}
-		{"fortifications" "deploy_entac_controller"}
+		{"fortifications" "deploy_mk18"}
 		{"fortifications" "deploy_ammobag_usa"}
 		
 		{"fortifications" "deploy_mg3"}	
