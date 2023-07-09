@@ -667,6 +667,27 @@
 				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_02"}
 				{distance 5}
 				{distanceSet 0}
+				{hide_crosshair 0}		; hides curser / crosshair
+				{hide_hitmarker 0}		; hides hit indicators 
+				{delta 0}
+				{camera "zoom1"}
+				{ManualAccuracyZoom}
+				{blur_strength 10}
+				{disable_fow 1}
+				{no_rim_light}
+				{soundEffect "opentop_vehicle"}
+			}
+			{level ;2
+				{zoom}
+				{vision_modes_active}
+				{linkBone "visor"}
+				{offset 0 0 5}
+				{scope_vignette "/texture/common/environment/lens_effects/vehicle_telescope_blank"}
+				{blur_mask "/texture/common/environment/lens_effects/vehicle_telescope_mask"}
+				{refraction_mask "/texture/common/environment/lens_effects/vehicle_telescope_base_bp"}
+				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_02"}
+				{distance 5}
+				{distanceSet 0}
 				{delta 0}
 				{camera "zoom1.5"}
 				{ManualAccuracyZoom}
