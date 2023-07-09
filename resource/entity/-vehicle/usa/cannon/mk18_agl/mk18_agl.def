@@ -1,0 +1,69 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc" scale(0.3))
+	{Extension "mk18_agl.mdl"}
+	{props "mgun" "vision_lev00_can" "no_sandbags" "detect_cannon_aa" "gunbagged"}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_mg_lafette_gunner" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_mg_lafette_commander" 10}}
+		}
+		{anm "driver1"
+			{forward {end "mgun_browning_driver_l"}}
+		}
+		{anm "driver2"
+			{forward {end "mgun_browning_driver_r"}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+		;// "gunner" "commander"
+			{move "mgun_browning_driver_r" "mortar_driver_l"}
+			{fire "mg_lafette_gunner_fire" "mg_lafette_commander_fire"}
+			{aim "mg_lafette_gunner_aim" "mg_lafette_commander_aim"}
+			{reload "mg_lafette_gunner_reload" "mg_lafette_commander_reload"}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo 40mm_grenade he" 36} ;3 extra belts
+		}
+	}
+
+	{Weaponry
+		{place "mgun"
+			{type "main"}
+			{weapon "40mm_mk18" filled}
+			{gunner "gunner"}
+			{charger "commander"}
+			("abm_mgun")
+			{Rotate}
+		}
+	}
+	
+	{mass 32}
+	{Chassis
+		("mobility_cannon"
+			speed(18) ;----------------------------------Max speed.
+			weight(32) ;---------------------------------Weight in Kilograms.
+		)
+	}
+
+	{bone "basis"
+		{speed2 20}
+	}
+	{bone "gun_rot"
+		{limits -10 15}
+		{speed2 40}
+	}
+	{bone "turret"
+		{limits -13 13}
+		{speed2 40}
+	}
+}
+

@@ -1705,6 +1705,50 @@
 	("cannon_small")
 }
 
+{"mk18_agl"
+	{on spawn
+		{add_view "flash_gun_hmg_m2hb"			"grenflash"	"foresight1"}
+	}
+	{on fire "mgun"
+		{view start "grenflash"}
+		{ani_play "recoil1"}
+		{delay 0.2
+			{view pause "grenflash"}
+		}
+	}
+	{on "reload"
+		{ani_play "reload"}
+	}
+}
+
+{"mgr-3"
+	{on spawn
+		{add_view	"flash_cannon_big"		"flashbarrel1"	"shooter"}
+		{add_view	"dust_nebelfire"		"dust"			"turret"}
+		{add_view	"dust_nebelfire_snow"	"snow"			"turret"}
+	}
+	
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{view start "flashbarrel1"}
+		{delay 2
+			{view pause "flashbarrel1"}
+		}
+		{if terrain_fx "snow"
+			{view start "snow"}
+			{delay 0.3 {view pause "snow"}}
+		else terrain_fx "ice"
+			{view start "snow"}
+			{delay 0.3 {view pause "snow"}}
+		else terrain_fx "shallow_water"
+			;nothing
+		else
+			{view start "dust"}
+			{delay 0.3 {view pause "dust"}}
+		}
+	}
+}
+
 ;/*=========== PRC Cannons  ===========*/
 
 {"b-10_prc"			
@@ -1907,34 +1951,6 @@
 	{on "add_movement_sound"
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
-	}
-}
-
-{"mgr-3"
-	{on spawn
-		{add_view	"flash_cannon_big"		"flashbarrel1"	"shooter"}
-		{add_view	"dust_nebelfire"		"dust"			"turret"}
-		{add_view	"dust_nebelfire_snow"	"snow"			"turret"}
-	}
-	
-	{on fire "gun" overload
-		{ani_play "recoil"}
-		{view start "flashbarrel1"}
-		{delay 2
-			{view pause "flashbarrel1"}
-		}
-		{if terrain_fx "snow"
-			{view start "snow"}
-			{delay 0.3 {view pause "snow"}}
-		else terrain_fx "ice"
-			{view start "snow"}
-			{delay 0.3 {view pause "snow"}}
-		else terrain_fx "shallow_water"
-			;nothing
-		else
-			{view start "dust"}
-			{delay 0.3 {view pause "dust"}}
-		}
 	}
 }
 

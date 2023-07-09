@@ -1,0 +1,25 @@
+{from "pattern gun"			; 40mm belt-fed automatic grenade launcher "M129"
+	{filling "40mm_grenade" 12}
+	{fireSound "rifle/m79/"}
+	{fireSoundClose "rifle/m79/3p"}
+	{calibre 40}
+
+	{gravity 3.0}
+	{range 65 75}
+
+	{Automatic}
+	("fire rate" rpm(200))
+	("reload time" seconds(5))
+
+	("velocity" mps(85))
+	("armor health" damage(38))
+
+	{burst
+		{short 3 0.75}			;// short burst shots on long distance, rand (+-)shots
+		{long 6 1}				;// long burst shots on short distance, rand (+-)shots
+		{rangeKoef 0.85}		;// rangeKoef * aimRange = max long burst distance
+	}
+
+	{spreading 3 {SpreadPower 1}}
+	
+}
