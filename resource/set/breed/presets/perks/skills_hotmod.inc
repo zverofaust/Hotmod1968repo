@@ -97,6 +97,7 @@
 		{"fortifications" "deploy_m2_frg"}	
 		{"fortifications" "deploy_krh36_frg"}
 		{"fortifications" "deploy_m20_frg"}	
+		{"fortifications" "deploy_cobra_frg"}	
 		{"fortifications" "deploy_ammobag_frg"}
 		
 		{"fortifications" "deploy_sg43_prc"}	

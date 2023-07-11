@@ -1,0 +1,126 @@
+;Exported by: misan
+;Date:        Tue Jul 11 11:11:59 2023
+;File:        D:\Cold War\ModelWIP\West Germany\kobra\Cobra.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.3}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "emit1"
+			{Position -15.5948	28.9232	0}
+		}
+		{bone "emit2"
+			{Position -19.5368	-28.694	0}
+		}
+		{bone revolute "turret"
+			{bone revolute "aim_rot"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0.347403	0	11.8942
+				}
+				{bone "foresight1"
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						3.87572	-6.29425e-05	0
+					}
+				}
+			}
+		}
+		{bone "commander"
+			{Position -12.905	-28.6569	0}
+		}
+		{bone "gunner"
+			{Position -13.9899	28.9608	0}
+		}
+		{bone "driver2"
+			{Position -0.179841	-13.1238	0}
+		}
+		{bone "driver1"
+			{Position -6.60715	15.0656	0}
+		}
+		{bone "visor2"
+			{Position -2.43784	-28.6569	7.46812}
+		}
+		{bone "box"
+			{Position -1.00137	28.8507	1.18734}
+			{VolumeView "box.ply"}
+			{bone "box_nob"
+				{Position 1.68439	2.14372	1.31431}
+				{VolumeView "box_nob.ply"}
+			}
+			{bone "joystick"
+				{Position -0.484867	-0.57423	3.2794}
+				{VolumeView "joystick.ply"}
+			}
+			{bone "box_arm_base"
+				{Position 3.0497	-1.33983	1.90129}
+				{VolumeView "box_arm_base.ply"}
+				{bone "box_arm_mid"
+					{Position -0.00510883	1.52588e-05	2.65414}
+					{VolumeView "box_arm_mid.ply"}
+					{bone "box_arm_upper"
+						{Position -0.292591	0	1.0179}
+						{VolumeView "box_arm_upper.ply"}
+						{bone "box_arm_clamp_lower"
+							{Position -0.803251	0	0.32321}
+							{VolumeView "box_arm_clamp_lower.ply"}
+							{bone "box_arm_clamp_upper"
+								{Position -0.473652	0	1.9383}
+								{VolumeView "box_arm_clamp_upper.ply"}
+							}
+						}
+					}
+				}
+			}
+			{bone "box_lid"
+				{Position 0.00330222	-1.52588e-05	2.27134}
+				{visibility 0}
+				{VolumeView "box_lid.ply"}
+			}
+		}
+		{bone "blast_plate"
+			{parameters "id=turret;"}
+			{Position -7.05374	0.0513763	0.111514}
+			{VolumeView "blast_plate.ply"}
+		}
+		{bone "rocket"
+			{parameters "id=turret;"}
+			{Matrix34
+				0.996195	0	0.0871557
+				0	1	0
+				-0.0871557	0	0.996195
+				1.37384	0.0513768	4.57042
+			}
+			{VolumeView "rocket.ply"}
+		}
+		{bone "support"
+			{parameters "id=turret;"}
+			{Position -0.118259	0.0513787	0.877133}
+			{VolumeView "support.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 5.74622 6.87804 5.0497}
+	{Bone "box"}
+	{Position -0.0228664	-0.0077877	1.33751}
+}
+{Volume "select"
+	{Box 32.2903 45.4082 23.4609}
+	{Bone "basis"}
+	{Position 0.233813	12.4185	11.7304}
+}
+{Volume "turret"
+	{Box 16.2037 8.00653 8.51361}
+	{Bone "rocket"}
+	{Position 0.60499	0.0233828	-0.00713778}
+}

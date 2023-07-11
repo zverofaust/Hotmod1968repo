@@ -7,7 +7,7 @@
 		{add_view "smoke_black" "smoke_rotor" 		"FXfire2"}
 		{add_view "smoke_black" "smoke_rotor_back" 	"FXfire3"}
 		{call "init_gun"}
-		;{call "altitude_checker"}
+		{call "altitude_checker"}
 	}
 	
 	{on "add_movement_sound"
@@ -89,7 +89,7 @@
 	}
 	
 	{on "altitude_checker" 
-		{if altitude 3                         
+		{if altitude 15                         
 			{tags remove "wheel_pullout"}                  
 			{if not tagged "wheel_pullback"                        
 					{tags add "wheel_pullback"}                     
