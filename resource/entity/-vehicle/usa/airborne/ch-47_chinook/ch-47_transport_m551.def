@@ -3,7 +3,7 @@
 	(include "/properties/shadow/airborn.inc" scale(2.2))
 	(include "/properties/selection/airborne.inc" scale(2.00))
 	(include "/properties/car_crew.ext")
-	{props "helicopter" "insertion"} ;"wheeled" 
+	{props "helo" "helicopter" "insertion" "multi_board"} ;"wheeled" 
 	{targetclass "helicopter"}
 	{targetSelector "helicopter"}
 	
@@ -79,7 +79,7 @@
 		}
 		{anm "passenger"
 			{forward	{begin	"board_dodge_bodyback"} {end "seat_passenger"} {base "doorback"}}
-			{reverse	{end	"emit_body"} {base "doorback"}}
+			{reverse	{end	"board_thor_driver" -1} {base "doorback"}}
 		}
 	}
 	
@@ -90,17 +90,15 @@
 	
 	("crew_human"		place(seat01)	bone(seat01)	door(emit3) animation(passenger)	group(passenger))
 	("crew_human"		place(seat02)	bone(seat02)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human"		place(seat03)	bone(seat03)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat04)	bone(seat04)	door(emit4) animation(passenger)	group(passenger))
-	
-	
+	("crew_human"		place(seat03)	bone(seat03)	door(emit5) animation(passenger)	group(passenger))
+	("crew_human"		place(seat04)	bone(seat04)	door(emit6) animation(passenger)	group(passenger))
 
 	{Placer
 		{place "gunner1"	{visor "mgun1"}}
 		{place "gunner2"	{visor "mgun2"}}
 		{place "attach"
 			{Linkbone "attach"}
-			{entity "m56"}
+			{entity "m551_airlift"}
 			{handlebone "basis"}
 		}
 	}
@@ -159,7 +157,8 @@
 		{Locomotion ("locomotion_transport")}
 	}
 
-	{Extension "ch-47_transport.mdl"}
+	{Extension "ch-47.mdl"}
+	{ObstacleId "helicopter"}
 	
 	{bone "mgun_rot_h_left"			;mgun left: right/left
 		{speed 0.05}
