@@ -1,0 +1,61 @@
+;Exported by: misan
+;Date:        Tue Jul 11 10:50:43 2023
+;File:        D:\Cold War\ModelWIP\USA\ENTAC\ENTAC missile.max
+{Skeleton
+	{bone "rocket"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "rocket.ply"}
+		{bone "tail"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-8.01771	0	0
+			}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 1.28067 18.5719}
+	{Bone "rocket"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		1.70475	0.00675365	0.00536052
+	}
+}
+{Volume "select"
+	{Box 13.9137 14.5486 21.6377}
+	{Bone "rocket"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		1.46591	0.244821	0.243428
+	}
+}
+{Extender "preview"
+	{"stuff"
+		{camera
+			{origin -0.323989	3.75557	22.8163}
+			{lookat -0.32399	-0.697522	-1.23838}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position -14.3696	8.1884	0}
+			}
+			{"1"
+				{type point}
+				{position 6.58674	-6.63614	8.85532}
+			}
+		}
+	}
+}
