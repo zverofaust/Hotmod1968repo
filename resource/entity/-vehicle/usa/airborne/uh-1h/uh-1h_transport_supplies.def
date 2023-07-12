@@ -3,7 +3,7 @@
 	(include "/properties/shadow/airborn.inc" scale(2.5))
 	(include "/properties/selection/airborne.inc" scale(2.00))
 	(include "/properties/car_crew.ext")
-	{props "helo" "insertion"}
+	{props "helo" "insertion" "multi_board"}
 	{PatherID "helicopter"}
 	{targetclass "helicopter"}
 	{targetSelector "helicopter"}
@@ -21,15 +21,15 @@
 			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "doorright"}}
 			{reverse 	{end	"board_big-midcar" -1} {base "doorright" -1}}
 		}
-		{anm "gunner1"
-			{forward	{begin	"board_SdKfz251-1"} {end "seat_passenger"}}
-			{reverse 	{end	"emit_body" 1}}
+		{anm "passenger"
+			{forward	{begin	"board_dodge_bodyback"} {end "seat_passenger"}}
+			{reverse	{end	"board_thor_driver" -1} {base "doorback"}}
 		}
 	}
 	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
 	("crew_human" place(commander) bone(commander) door(emit2) animation(commander))
-	("crew_human" place(gunner1)	door(emit4) bone(gunner1)    animation(gunner1)	group(crew))
-	("crew_human" place(gunner2)	door(emit3) bone(gunner2)    animation(gunner1)	group(crew))
+	("crew_human" place(gunner1)	door(emit4) bone(gunner1)    animation(passenger)	group(crew))
+	("crew_human" place(gunner2)	door(emit3) bone(gunner2)    animation(passenger)	group(crew))
 	
 	("crew_human"		place(seat01)	bone(seat01)	door(emit3) animation(passenger)	group(passenger))
 	("crew_human"		place(seat02)	bone(seat02)	door(emit4) animation(passenger)	group(passenger))
@@ -43,7 +43,7 @@
 		{place "gunner2" {useVision} {visor "gunner2"}}
 		{place "attach"
 			{Linkbone "attach"}
-			{entity "mgr-3"}
+			{entity "ammo_pallet"}
 			{handlebone "basis"}
 		}
 	}
@@ -145,5 +145,5 @@
 		{Locomotion ("locomotion_transport")}
 	}
 	
-	{Extension "uh-1h_transport.mdl"}
+	{Extension "uh-1h.mdl"}
 }
