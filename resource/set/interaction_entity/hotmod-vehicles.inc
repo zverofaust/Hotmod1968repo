@@ -19,7 +19,7 @@
 								else {call "cw_panorama_off"}}
 							else {call "cw_panorama_off"}}
 						else {call "cw_panorama_off"}}
-					else {call "cw_panorama_off"}}
+					else {call "cw_panorama_instant_off"}}
                 ;else {call "cw_panorama_off"}}
             ;else {call "cw_panorama_off"}}
         else {call "cw_panorama_instant_off"}}
