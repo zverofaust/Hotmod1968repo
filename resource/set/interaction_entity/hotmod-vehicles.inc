@@ -31,8 +31,7 @@
         {tags add "cw_panorama_work"}
     }
     {on "cw_panorama_off"
-        {tags remove "cw_panorama_work"}
-		{ani_stop "panorama"} 
+        {tags remove "cw_panorama_work"} 
     }
     {on "cw_panorama_instant_off"
         {tags remove "cw_panorama_work"}
