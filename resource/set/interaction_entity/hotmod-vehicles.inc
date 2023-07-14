@@ -1056,6 +1056,27 @@
 	}
 }
 
+{"t-72_ural tank"
+	("t28_sound")
+	{on operatable on
+		{ani_play "flaps"}
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1.2)
+	}
+	{on fire "gun"
+		{delay 1.2
+			{ani_play "eject"}
+		}
+	}
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+}
+
 {"2s3 tank"
 	("t70_sound")
 	{on "commander_hatch_open" overload
