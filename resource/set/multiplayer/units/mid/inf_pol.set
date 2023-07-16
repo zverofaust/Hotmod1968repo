@@ -1,0 +1,167 @@
+;SDL
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+(define "pol_radioman_early"
+	{tags "early %side infantry man signaller"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.2}
+)
+(define "pol_radioman"
+	{tags "mid %side infantry man signaller"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.2}
+)
+{"mp/pol/mid/reg_fac"					("pol_radioman_early" side(pol)) {cost 10.0}}
+
+(define "pol_guncrew"
+	{tags "mid %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/pol/mid/sup_guncrew"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
+
+(define "pol_basic"
+	{tags "mid %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/pol/mid/sup_supporter"			("pol_basic" side(pol)) {cost 5.0}} ; SKS
+{"mp/pol/mid/sup_pilot"				("pol_basic" side(pol)) {cost 5.0}} ; Pistol
+{"mp/pol/mid/sup_tankman"			("pol_basic" side(pol)) {cost 4.0}} ; Pistol
+{"mp/pol/mid/sup_vehicleman"		("pol_basic" side(pol)) {cost 4.0}} ; Pistol
+
+{"mp/pol/mid/con_rifleman"			("pol_basic" side(pol)) {cost 5.0}} ; SKS
+{"mp/pol/mid/con_mg"				("pol_basic" side(pol)) {cost 20.0}} ; RPD
+{"mp/pol/mid/con_atgren"			("pol_basic" side(pol)) {cost 15.0}} ; SKS & RKG-2
+{"mp/pol/mid/con_antitank"			("pol_basic" side(pol)) {cost 35.0}} ; SKS & RPG-2
+{"mp/pol/mid/con_atassist"			("pol_basic" side(pol)) {cost 8.0}} ; SKS & RPG-2
+{"mp/pol/mid/con_squadlead"			("pol_basic" side(pol)) {cost 15.0}} ; AK47
+
+(define "pol_regular"
+	{tags "mid %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 1.0}
+	{score_factor 0.05}
+)
+{"mp/pol/mid/reg_ammo"				("pol_regular" side(pol)) {cost 14.0}} ; AK47
+{"mp/pol/mid/reg_atassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 & RPG-7 Ammo
+{"mp/pol/mid/reg_atgren"			("pol_regular" side(pol)) {cost 16.0}} ; AK47 + RPG-43 Grenades
+{"mp/pol/mid/reg_lmg"				("pol_regular" side(pol)) {cost 35.0}} ; RPD
+{"mp/pol/mid/reg_lmgassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 + RPD Ammo
+{"mp/pol/mid/reg_mg"				("pol_regular" side(pol)) {cost 30.0}} ; RP-46
+{"mp/pol/mid/reg_mgassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 + PK Ammo
+{"mp/pol/mid/reg_rifleman"			("pol_regular" side(pol)) {cost 12.0}} ; AK47
+{"mp/pol/mid/reg_senior"			("pol_regular" side(pol)) {cost 16.0}} ; AK47
+{"mp/pol/mid/reg_squadlead"			("pol_regular" side(pol)) {cost 25.0}} ; AK47
+
+(define "pol_regular_advanced"
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.05}
+)
+
+{"mp/pol/mid/reg_antitank"			("pol_regular" side(pol)) {cost 50.0}} ; AKMS & RPG-2
+{"mp/pol/mid/reg_antitank2"			("pol_regular" side(pol)) {cost 40.0}} ; AKMS & RPG-7
+{"mp/pol/mid/reg_marksman"			("pol_regular" side(pol)) {cost 40.0}} ; SVD
+{"mp/pol/mid/reg_flamer"			("pol_regular" side(pol)) {cost 50.0}} ; RKO
+{"mp/pol/mid/reg_engineer"			("pol_regular" side(pol)) {cost 30.0}} ; SKS
+{"mp/pol/mid/reg_scout"				("pol_regular" side(pol)) {cost 25.0}} ; AKM
+
+(define "pol_airborne" ;Spadochroniarze, Airborne - VDV, Air Cav
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 3.0}
+	{score_factor 0.05}
+)
+
+(define "pol_marines" ;Niebieskie Berety, Blue Berets - VMF, USMC
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+
+(define "pol_saperzy" ;Saperzi Szturmowi, Assault Sappers = Heavy Assault Infantry
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+
+(define "pol_strzelcy" ;Strzelcy Podhalanscy, Mountain Light Infantry = Rangers
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+
+(define "pol_komandosi" ;Komandosi, Special Forces
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+
+(define "pol_medic"
+	{tags "mid %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor -0.2}
+)
+{"mp/pol/mid/reg_medic"			("pol_medic" side(pol)) {cost 40.0}}
+
+
+(define "pol_officer"
+	{tags "mid %side infantry man officer"}
+	{cp -25}
+	{basic}
+	{breed}
+	{cw 5}
+	{score_factor 0.2}
+)
+{"mp/pol/mid/reg_officer"		("pol_officer" side(pol)) {cost 65.0}} ; Pistol; High-value reg_officer target.
+
+
+(define "pol_sniper"
+	{tags "mid %side infantry man sniper"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
