@@ -3,7 +3,7 @@
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	(include "t-72_ural.ext")
-	{props "medium" "diesel" "vision_lev04" "muzzle_122mm_128mm" "shell_eject" "smoke" "ess"}
+	{props "heavy" "diesel" "vision_lev04" "muzzle_122mm_128mm" "shell_eject1" "smoke" "ess" "cw_panorama"}
 	{targetclass "tank_heavy"}
 	{targetSelector "tank_medium"}
 	{PatherId "t34"}
@@ -11,10 +11,38 @@
 	{extender "enumerator"
 		{digit_folder "cw"}
 	}
+
+	{extender "shield"
+		{on}
+	}
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl4" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	{component "shieldr3" {tags "shield"}}
+	{component "shieldr4" {tags "shield"}}
 	
 	("crew_3_human_2_extended")
 	("gunner_visible")
 	;("seat_4_human")
+
+	{sensor		
+		{visor "driver" 	
+			{vision "tank_driver"}
+			{bone "Visor2"}
+		}
+		{visor "gunner" 
+			{vision "tank_range_250"}
+			{bone "Visor1"}
+		}
+		
+		{visor "commander"			
+			{vision "tank_commander"}
+			{bone "Visor3"}
+		}
+	}
 
 	{boarder
 		{anm "driver"
@@ -61,7 +89,7 @@
 			{RestoreIKAfterAim}
 			{weapon			"125mm_2a46" filling "ammo bullet125_2a46 apfsds" 1}
 			{gunner "gunner"}
-			("hm68_abm_stab_norange")
+			("hm68_abm_stab_range")
 		}
 		{place "mgun2"
 			{type "coaxial"}
