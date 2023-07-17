@@ -16,12 +16,15 @@
 	(include "crew.ext")
 	
 	{placer
-		{place "gunner2"	{sealable}{visor "mgun"}}
+		{place "driver"		{visor "driver"}{group "crew"}}
+		{place "gunner2"	{visor "mgun"}{sealable}}
+		{place "commander"	{visor "human"}}
 	}
 	
 	{sensor
 		{visor "mgun"
-			{bone "mgun_rot_turret"}
+			{vision "human"}
+			{bone "turret_mgun"}
 		}
 	}
 	
