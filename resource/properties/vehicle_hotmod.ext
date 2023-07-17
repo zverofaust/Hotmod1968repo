@@ -25,3 +25,79 @@
 		{RepairOrder 11}
 	}
 )
+
+;////////////general defines for comp armor////////////
+
+(define "armor_comp_values"
+        {Volume "comp_armor_body" {tags "armor_comp"  }
+            {able clear {NoWoundDecal}}
+            {component "comp_armor_body"}
+        }
+        {Volume "comp_armor_body1" {tags "armor_comp"  }
+            {able clear {NoWoundDecal}}
+            {component "comp_armor_body"}
+        }
+        {Volume "comp_armor_body2" {tags "armor_comp"  }
+            {able clear {NoWoundDecal}}
+            {component "comp_armor_body"}
+        }
+        {Volume "comp_armor_turret" {tags "armor_comp"  } 
+            {able clear {NoWoundDecal}}
+            {component "comp_armor_turret"}
+        }
+        {Volume "comp_armor_turret1" {tags "armor_comp"  }
+            {able clear {NoWoundDecal}}
+            {component "comp_armor_turret"}
+        }
+        {Volume "comp_armor_turret2" {tags "armor_comp"  }
+            {able clear {NoWoundDecal}}
+            {component "comp_armor_turret"}
+        }
+        {Volume "comp_armor_turret3" {tags "armor_comp"  }
+            {able clear {NoWoundDecal}}
+            {component "comp_armor_turret"}
+        }
+        {Volume "comp_armor_turret4" {tags "armor_comp"  }
+            {able clear {NoWoundDecal}}
+            {component "comp_armor_turret"}
+        }
+        {Volume "comp_armor_turret5" {tags "armor_comp"  }
+            {able clear {NoWoundDecal}}
+            {component "comp_armor_turret"}
+        }
+        {armor
+            {setting "comp_armor_body"
+                {thickness %body}
+                {volumes "comp_armor_body"}
+            }
+            {setting "comp_armor_turret"
+                {thickness %turret}
+                {volumes "comp_armor_turret"}
+            }
+        }
+    )
+
+   (define "shield_t-64a"
+
+	{volume "exshieldl1"{component "exshieldl"}{tags "comp_shield" }{able clear {NoWoundDecal}}}
+	{volume "exshieldl2"{component "exshieldl"}{tags "comp_shield" }{able clear {NoWoundDecal}}}
+	{volume "exshieldl3"{component "exshieldl"}{tags "comp_shield" }{able clear {NoWoundDecal}}}
+	{volume "exshieldl4"{component "exshieldl"}{tags "comp_shield" }{able clear {NoWoundDecal}}}
+	{volume "exshieldr1"{component "exshieldr"}{tags "comp_shield" }{able clear {NoWoundDecal}}}
+	{volume "exshieldr2"{component "exshieldr"}{tags "comp_shield" }{able clear {NoWoundDecal}}}
+	{volume "exshieldr3"{component "exshieldr"}{tags "comp_shield" }{able clear {NoWoundDecal}}}
+	{volume "exshieldr4"{component "exshieldr"}{tags "comp_shield" }{able clear {NoWoundDecal}}}
+	{armor
+		{setting "exshieldl"
+			{thickness 100}
+			{volumes "exshieldl*"}
+		}
+		{setting "exshieldr"
+			{thickness 100}
+			{volumes "exshieldr*"}
+		}
+	}
+)
+
+
+;/////////////////////////////////////////////////////

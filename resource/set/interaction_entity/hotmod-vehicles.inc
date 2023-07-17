@@ -4,6 +4,75 @@
 		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
 	}
 }
+;/*=========== shell eject script for T-72 series ===========*/
+{"tank shell_eject1"
+	{on fire "gun"
+		{call "spawn_shell"}
+	}
+	{on "spawn_shell"
+		{tags add "gun_fired"}
+		{call "spawn_shell_delay"}
+		(define "shell_eject_delay"
+			{delay_ex %0
+				{ani_play "shell_eject" 1}			;// door/hatch animation for tank to open and shell is thrown out
+				{ani_play "shell_hatch" 1}
+				{delay_ex %1
+					{add_view "smoke_breach" "smoke_shell" "fx_invers"}
+					{view start "smoke_shell"}
+					{delay 2.5 0.5
+						{view pause "smoke_shell"}
+					}
+					{spawn "shell_cannon1" "fx_invers" x scale 0.014
+						{impulse forward 4 0.5 rnd_dir 0.1 0.1 cz 0.2 0.1 com}
+						{add_view "smoke_empty_shell" "smoke_shell" "fx_shellsmoke"}
+						{view start "smoke_shell"}
+						{delay_effect 3 1 "stop"}
+						{##delay 3 0.5
+							{hide 3}
+						}
+					}
+				}
+			}
+		)
+	}
+
+	{on "spawn_shell_delay"
+		;("shell_eject_delay" args 0.5 0)
+		("shell_eject_delay" args 1.8 0)
+	}
+
+	{on "reload"
+		{call "reload_delay"}
+		(define "reload_delay"
+			{if tagged "gun_fired"
+				{delay %0 ;4.5
+					{tags remove "gun_fired"}
+					{ani_play "shell_eject" -1.0}
+					{ani_play "shell_hatch" -1.0}
+				}
+			else
+				{delay %1 ;0.5
+					{ani_play "shell_eject" 1.0}
+				}
+				{delay %2 ;5
+					{ani_play "shell_eject" -1.0}
+				}
+			}
+		)
+	}
+
+	{on "reload_delay"
+		("reload_delay" args 4.5 0.5 5)
+	}
+}
+
+;/*===========  AT FIELD for cumulative type damage ===========*/
+{"rpg_restrictor"
+	{on spawn {delay 0.2 {delete}}}
+	{on bullet_hit {delete}}
+}
+
+
 ;/*===========  MG Turret scanning  ===========*/
 
 {"cw_panorama"
@@ -1061,9 +1130,9 @@
 	{on operatable on
 		{ani_play "flaps"}
 	}
-	{on "spawn_shell_delay" overload
-		("shell_eject_delay" args 1.2)
-	}
+	;{on "spawn_shell_delay" overload
+	;	("shell_eject_delay" args 1.2)
+	;}
 	{on fire "gun"
 		{delay 1.2
 			{ani_play "eject"}
@@ -1887,6 +1956,11 @@
 
 {"m60a1"
 	("pz5_sound")
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m60a1e2"
