@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Mon Jul 17 05:47:03 2023
+;Date:        Mon Jul 17 08:44:57 2023
 ;File:        D:\Cold War\ModelWIP\USSR\T-72\T-72 Ural.max
 {Skeleton
 	{animation
@@ -7,6 +7,9 @@
 		{sequence "stop" {speed 0.15}}
 		{sequence "flaps" {speed 0.3}}
 		{sequence "fire" {speed 0.2}}
+		{sequence "fire_left" {speed 0.2}}
+		{sequence "fire_right" {speed 0.2}}
+		{sequence "fire_back" {speed 0.2}}
 		{sequence "open" {speed 0.3}}
 		{sequence "open_commander" {speed 0.15}}
 		{sequence "open_charger" {speed 0.15}}
@@ -65,75 +68,6 @@
 					{Position 22.7343	-12.866	-0.414288}
 					{VolumeView "detail4.ply"}
 				}
-				{Bone "cw_panorama_basis"
-                    {Position -6.54707	-13.1114	7.911}
-                    {Bone "cw_panorama"
-							{bone revolute "mgun_turret"
-								{parameters "id=turret;"}
-								
-								{VolumeView "mgun_turret.ply"}
-								{bone revolute "mgun_mount"
-									{parameters "id=turret;"}
-									{limits -5 5}
-									{Position -9.51648	-0.471243	1.3881}
-									{VolumeView "mgun_mount.ply"}
-									{bone revolute "mgun_rot"
-										{parameters "id=turret;"}
-										{limits -50 8}
-										{Matrix34
-											1	0	0
-											0	0	1
-											0	-1	0
-											0.0542755	0.119143	4.61237
-										}
-										{VolumeView "mgun_rot.ply"}
-										{bone "mgun_help"
-											{Matrix34
-												-1	0	0
-												0	1	0
-												0	0	-1
-												1.76051	0.21394	0.114132
-											}
-										}
-									}
-								}
-								{bone "spring"
-									{parameters "id=turret;"}
-									{Position -15.0196	-0.387714	3.12143}
-									{VolumeView "spring.ply"}
-								}
-								{bone "cover1"
-									{parameters "id=turret;"}
-									{Position 2.49891	0.0443039	2.44918}
-									{VolumeView "cover1.ply"}
-								}
-								{bone revolute "vision_rot"
-									{limits -15 25}
-									{Matrix34
-										1	0	0
-										0	0	1
-										0	-1	0
-										6.91989	0.136681	1.67885
-									}
-									{bone revolute "visor3"
-										{limits -15 25}
-										{Position 0.258904	0	0}
-									}
-								}
-								{bone "gunner2"
-									{Matrix34
-										-1	0	0
-										0	-0.999962	-0.00872631
-										0	-0.00872631	0.999962
-										-3.43814	-0.466232	7.38686
-									}
-								}
-								{bone "fxfire3_2"
-									{Position -2.84823	20.2082	-3.73608}
-								}
-							}
-						}
-					}
 				{bone "cover2"
 					{parameters "id=turret;"}
 					{Matrix34
@@ -221,6 +155,75 @@
 				}
 				{bone "visor1"
 					{Position 15.417	8.79004	5.58865}
+				}
+				{bone "cw_panorama_basis"
+					{Position -6.547	-13.1115	7.91102}
+					{bone "cw_panorama"
+						{bone revolute "mgun_turret"
+							{parameters "id=turret;"}
+							{Position -7.05719e-05	8.39233e-05	-1.90735e-05}
+							{VolumeView "mgun_turret.ply"}
+							{bone revolute "mgun_mount"
+								{parameters "id=turret;"}
+								{limits -5 5}
+								{Position -9.51648	-0.471243	1.3881}
+								{VolumeView "mgun_mount.ply"}
+								{bone revolute "mgun_rot"
+									{parameters "id=turret;"}
+									{limits -50 8}
+									{Matrix34
+										1	0	0
+										0	0	1
+										0	-1	0
+										0.0542755	0.119143	4.61237
+									}
+									{VolumeView "mgun_rot.ply"}
+									{bone "mgun_help"
+										{Matrix34
+											-1	0	0
+											0	1	0
+											0	0	-1
+											1.76051	0.21394	0.114132
+										}
+									}
+								}
+							}
+							{bone "spring"
+								{parameters "id=turret;"}
+								{Position -15.0196	-0.387714	3.12143}
+								{VolumeView "spring.ply"}
+							}
+							{bone "cover1"
+								{parameters "id=turret;"}
+								{Position 2.49891	0.0443039	2.44918}
+								{VolumeView "cover1.ply"}
+							}
+							{bone revolute "vision_rot"
+								{limits -15 25}
+								{Matrix34
+									1	0	0
+									0	0	1
+									0	-1	0
+									6.91989	0.136681	1.67885
+								}
+								{bone revolute "visor3"
+									{limits -15 25}
+									{Position 0.258904	0	0}
+								}
+							}
+							{bone "gunner2"
+								{Matrix34
+									-1	0	0
+									0	-0.999962	-0.00872631
+									0	-0.00872631	0.999962
+									-3.43814	-0.466232	7.38686
+								}
+							}
+							{bone "fxfire3_2"
+								{Position -2.84823	20.2082	-3.73607}
+							}
+						}
+					}
 				}
 			}
 			{bone "engine"
@@ -633,14 +636,6 @@
 				-2.84278	-56.3099	0
 			}
 		}
-		{bone "recoil_gun_back"
-		}
-		{bone "recoil_gun_front"
-		}
-		{bone "recoil_gun_left"
-		}
-		{bone "recoil_gun_right"
-		}
 	}
 }
 {Volume "ammo1"
@@ -662,16 +657,6 @@
 	{Cylinder 18.2193 7.08526}
 	{Bone "body"}
 	{Position 0.0931603	0.335561	-2.33851}
-}
-{Volume "comp_armor_body"
-	{Box 29.1174 42.2346 1.42704}
-	{Bone "body"}
-	{Matrix34
-		0.927184	0	-0.374607
-		0	1	0
-		0.374607	0	0.927184
-		48.537	0.858283	5.10884
-	}
 }
 {Volume "armor_spaced_l"
 	{Polyhedron "armor_spaced_l.vol"}
@@ -696,6 +681,16 @@
 		0	0	1
 		-1	0	0
 		-1.89293	7.22869	0.189818
+	}
+}
+{Volume "comp_armor_body"
+	{Box 29.1174 42.2346 1.42704}
+	{Bone "body"}
+	{Matrix34
+		0.927184	0	-0.374607
+		0	1	0
+		0.374607	0	0.927184
+		48.537	0.858283	5.10884
 	}
 }
 {Volume "engine"
@@ -837,6 +832,22 @@
 		0	1	0
 		-1.0779	0.983242	1.14378
 	}
+}
+{Volume "recoil_gun_back"
+	{Polyhedron "recoil_gun_back.vol"}
+	{Bone "basis"}
+}
+{Volume "recoil_gun_front"
+	{Polyhedron "recoil_gun_front.vol"}
+	{Bone "basis"}
+}
+{Volume "recoil_gun_left"
+	{Polyhedron "recoil_gun_left.vol"}
+	{Bone "basis"}
+}
+{Volume "recoil_gun_right"
+	{Polyhedron "recoil_gun_right.vol"}
+	{Bone "basis"}
 }
 {Volume "shieldl1"
 	{Box 7.17408 9.88266 1.5373}
