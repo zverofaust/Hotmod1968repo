@@ -25,52 +25,8 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
-("squad_with1types"	side(pol) name(single_fac)	period(mid) cd(300) ci(300) g(single_fac) c1(reg_fac:1) b(strategic) t()); AKMS
+;("squad_with1types"	side(pol) name(single_fac)	period(mid) cd(300) ci(300) g(single_fac) c1(reg_fac:1) b(strategic) t()); AKMS
 
-{"mig-19_airstrike_rocket_light" ;buildable airstrike
-	("emplacement" side(pol) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_rocket_pol))
-	{cost 3}
-}
-
-{"mig-19_airstrike_bomb_light" ;buildable airstrike
-	("emplacement" side(pol) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_bomb_pol))
-	{cost 5}
-}
-
-{"su-7_airstrike_rocket_heavy" ;buildable airstrike
-	("emplacement" side(pol) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_heavy_rocket_pol))
-	{cost 5}
-}
-
-{"su-7_airstrike_bomb_medium" ;buildable airstrike
-	("emplacement" side(pol) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_bomb_pol))
-	{cost 8}
-}
-
-{"su-7_airstrike_wp_medium" ;buildable airstrike
-	("emplacement" side(pol) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_wp_pol))
-	{cost 10}
-}
-
-{"su-7_airstrike_cluster_medium" ;buildable airstrike
-	("emplacement" side(pol) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_cluster_pol))
-	{cost 10}
-}
-
-{"yak-28_airstrike_bomb_heavy" ;buildable airstrike
-	("emplacement" side(pol) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_bomb_pol))
-	{cost 12}
-}
-
-{"yak-28_airstrike_cluster_heavy" ;buildable airstrike
-	("emplacement" side(pol) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_cluster_pol))
-	("doctrine_t1" cool(30) d(mid_pol_motostrelki) cost(15))
-}
-
-{"yak-28_airstrike_wp_heavy" ;buildable airstrike
-	("emplacement" side(pol) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_wp_pol))
-	("doctrine_t1" cool(30) d(mid_pol_vdv) cost(15))
-}
 
 
 ;_________________________________________________
@@ -84,6 +40,12 @@
 ;===================================
 
 ; ======Tier1======
+
+; // 10DP 9P110
+{"doctrine_vehicle_9p110(pol)"
+	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(9p110_pol) crew(sup_vehicleman:2) cw(0) cp(0))
+	("doctrine_t1" cool(80) d(mid_pol_light) cost(10))
+}
 ; ======Tier2======
 ; ======Tier3======
 
@@ -237,10 +199,6 @@
 
 ;Medium
 
-{"t-54a"
-	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
-	{cost 390}
-}
 
 {"t-54a_pol"
 	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
