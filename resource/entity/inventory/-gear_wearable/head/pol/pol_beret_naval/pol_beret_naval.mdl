@@ -1,6 +1,6 @@
-;Exported by: user
-;Date:        Fri Dec 24 19:16:49 2021
-;File:        D:\Users\Sea-Knight\Documents\3ds Max 2020\scenes\3D-Work\ADW\Inventory-Models\Headgear\Bundeswehr\bw_beret_tank.max
+;Exported by: misan
+;Date:        Mon Jul 17 23:04:14 2023
+;File:        D:\Cold War\ModelWIP\POLAND\Polack Soldier\WZ67 Helmet\Beret.max
 {Skeleton
 	{bone "beret"
 		{Orientation
@@ -9,20 +9,22 @@
 			0	0	1
 		}
 		{VolumeView "beret.ply"}
-		{bone "handle"
-			{Position 0.93451	0.34401	5.41662}
-		}
 	}
 }
 {Volume "body"
-	{Polyhedron "body.vol"}
+	{Cylinder 2.18628 1.52431}
 	{Bone "beret"}
-	{Position 0.319794	0.337928	3.15082}
+	{Matrix34
+		1	0	0
+		0	0.996195	0.0871557
+		0	-0.0871557	0.996195
+		-0.101465	-0.213985	4.04947
+	}
 }
 {Volume "select"
-	{Polyhedron "select.vol"}
+	{Box 9.0239 9.55428 8.40197}
 	{Bone "beret"}
-	{Position 0.348858	0.330718	2.07529}
+	{Position 0	0	4.20098}
 }
 {Extender "preview"
 	{"Stuff_primary"
