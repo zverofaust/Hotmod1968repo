@@ -1,0 +1,111 @@
+;Exported by:	 guita
+;Date:			 21.06.2020 12:20:31
+;File:			 D:\Git\3D_Scenes\GoH_3D_human_export\3d_weapons\pps43\pps43_export.max
+{skeleton
+	{animation
+		{sequence "recoil" {speed 3}}
+	}
+	{bone "pps43"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{LODView
+			{VolumeView "pps43.ply"}
+			{VolumeView "pps43_lod1.ply"}
+			{VolumeView "pps43_lod2.ply"}
+			{VolumeView "pps43_lod3.ply"}
+		}
+		{bone "bolt"
+			{matrix34
+				0 	 0 	 -1
+				-1 	 0 	 0
+				0 	 1 	 0
+				3.6489 	 1.0907 	 0
+			}
+			{LODView
+				{VolumeView "bolt.ply"}
+				{VolumeView "bolt_lod1.ply"}
+				{VolumeView "bolt_lod2.ply"}
+			}
+		}
+		{bone "magazine"
+			{matrix34
+				0 	 0 	 -1
+				-1 	 0 	 0
+				0 	 1 	 0
+				0.1994 	 -0.0106 	 0
+			}
+			{LODView
+				{VolumeView "magazine.ply"}
+				{VolumeView "magazine_lod1.ply"}
+				{VolumeView "magazine_lod2.ply"}
+				{VolumeView "magazine_lod3.ply"}
+			}
+		}
+		{bone "foresight11"
+			{Position 10.8651 	 1.2696 	 0}
+		}
+		{bone "fxshell"
+			{matrix34
+				0 	 0.9397 	 0.342
+				0 	 0.342 	 -0.9397
+				-1 	 0 	 0
+				4.8653 	 1.6038 	 0.3053
+			}
+		}
+		{bone "handle"
+			{matrix34
+				0.9252 	 -0.1572 	 -0.3454
+				-0.3374 	 0.0758 	 -0.9383
+				0.1737 	 0.9847 	 0.0171
+				2.4434 	 1.9173 	 -0.018
+			}
+		}
+	}
+}
+{volume "body"
+	{box 16.1436 2.56256 1.2939}
+	{bone "pps43"}
+	{Position 2.6334 	 0.5231 	 -0.1023}
+}
+{volume "magazine"
+	{polyhedron "magazine.vol"}
+	{bone "magazine"}
+	{matrix34
+		0 	 -1 	 0
+		0 	 0 	 1
+		-1 	 0 	 0
+		-0.0236 	 -5.0719 	 -1.0878
+	}
+}
+{volume "select"
+	{box 16.7994 5.74161 1.90013}
+	{bone "pps43"}
+	{Position 2.3303 	 -0.4425 	 -0.0817}
+}
+{extender "preview"
+	{"stuff"
+		{camera
+			{origin 3.5753 	 0.3461 	 -33.0527}
+			{lookat 2.3782 	 0.3474 	 -0.699}
+			{fov 29.9075}
+			{horizon 90.589}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 10.3666 	 -5.6629 	 -1.4579}
+			}
+			{"1"
+				{type directional}
+				{direction -0.0937 	 0.0114 	 0.491}
+			}
+			{"2"
+				{type point}
+				{position -3.3653 	 3.1291 	 -0.1198}
+			}
+		}
+	}
+}
