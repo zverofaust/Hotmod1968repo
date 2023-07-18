@@ -29,6 +29,7 @@
 	{"speed" 1.2}
 	{"telescope"}
 	{"vision" human_elite}
+	{"health" "200%"}
 )
 
 (define "sniper"		;// Snipers
@@ -89,6 +90,7 @@
 
 (define "recon"		;// recon soldiers
 	{"stealth"}
+	{"speed" 1.1}
 	{"health" "160%"}
 	{"stamina" "175%"}
 	{"stamina_regeneration" "110%"}
@@ -110,6 +112,22 @@
 (define "vehicleman"			;// Tank Crew
 	("skilled_repair")
 	("skilled_gun")
+)
+
+(define "rozpoznawczy"		;// Polish 'Batalion Dywersyjno-Rozpoznawczy' Reconaissance and Diversion Battalion
+	{"stealth"}
+	{"speed" 1.2}
+	{"health" "175%"}
+	{"stamina" "175%"}
+	{"stamina_regeneration" "125%"}
+	("recon_vision")
+)
+
+(define "szturmowy"		;// Polish 'Samodzielny Batalion Szturmowy' Independent Assault Battalion
+	{"health" "350%"}
+	{"health_regeneration" "150%"}
+	{"stamina" "200%"}
+	{"stamina_regeneration" "125%"}
 )
 
 ;/*=========== Unique Presets End ===========*/
