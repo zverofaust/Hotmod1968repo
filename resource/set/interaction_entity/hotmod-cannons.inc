@@ -243,6 +243,9 @@
 		{view start "flashbarrel1"}
 		{view start "flashbarrel1smoke"}
 		{call "spawn_shell"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{spawn "detector" "foresight" x}   ;ordos_debug
+		{tags add "ordos_debug_cannon_fire"}
 	}
 
 	{on "spawn_shell"
@@ -1390,7 +1393,7 @@
 	("cannon_small")
 }
 
-{"zu-2"				
+{"zu-2"
 	{on "init_gun" overload
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
@@ -1418,7 +1421,7 @@
 	("cannon_small")
 }
 
-{"zpu-4"				
+{"zpu-4"
 	{on "init_gun" overload
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
@@ -1460,7 +1463,7 @@
 	("cannon_small")
 }
 
-{"zu-23-2"				
+{"zu-23-2"
 	{on "init_gun" overload
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
@@ -1487,7 +1490,7 @@
 	("cannon_small")
 }
 
-{"b-10_82mm"			
+{"b-10_82mm"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1)
 	}
@@ -1496,13 +1499,14 @@
 	}
 	{on fire "gun" overload
 		{ani_play "recoil"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
 		{view start "backblast"}
 		{call "spawn_shell"}
 	}
 	("cannon_small")
 }
 
-{"spg9"			
+{"spg9"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1)
 	}
@@ -1512,6 +1516,8 @@
 	{on fire "gun" overload
 		{ani_play "recoil"}
 		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{tags add "ordos_debug_spg9_fire"}
 		{call "spawn_shell"}
 	}
 	("cannon_small")
@@ -1621,7 +1627,7 @@
 
 
 
-{"m45_maxson"				
+{"m45_maxson"
 	{on "init_gun"
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
@@ -1657,7 +1663,7 @@
 	}
 }
 
-{"m20_rcl"			
+{"m20_rcl"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -1667,6 +1673,7 @@
 	{on fire "gun" overload
 		{ani_play "recoil"}
 		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
 		{call "spawn_shell"}
 	}
 	{on "add_movement_sound"
@@ -1675,7 +1682,7 @@
 	}
 }
 
-{"m40"			
+{"m40"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -1685,6 +1692,8 @@
 	{on fire "gun" overload
 		{ani_play "recoil"}
 		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{tags add "ordos_debug_cannon_fire"}
 		{call "spawn_shell"}
 	}
 	{on "add_movement_sound"
@@ -1698,7 +1707,7 @@
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
 	}
 
-	{on "spawn" 
+	{on "spawn"
 		{ani_play "spawn"}
 	}
 
@@ -1781,7 +1790,7 @@
 		{add_view	"dust_nebelfire"		"dust"			"turret"}
 		{add_view	"dust_nebelfire_snow"	"snow"			"turret"}
 	}
-	
+
 	{on fire "gun" overload
 		{ani_play "recoil"}
 		{view start "flashbarrel1"}
@@ -1805,7 +1814,7 @@
 
 ;/*=========== PRC Cannons  ===========*/
 
-{"b-10_prc"			
+{"b-10_prc"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1)
 	}
@@ -1815,6 +1824,8 @@
 	{on fire "gun" overload
 		{ani_play "recoil"}
 		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{tags add "ordos_debug_cannon_fire"}
 		{call "spawn_shell"}
 	}
 	("cannon_small")
@@ -1870,7 +1881,7 @@
 	("cannon_big")
 }
 
-{"zpu-4"				
+{"zpu-4"
 	{on "init_gun" overload
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
@@ -1914,7 +1925,7 @@
 
 ;/*=========== FRG Cannons  ===========*/
 
-{"m45g"				
+{"m45g"
 	{on "init_gun"
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
@@ -1954,7 +1965,7 @@
 	("cannon_small")
 }
 
-{"m20g_rcl"			
+{"m20g_rcl"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -1964,6 +1975,7 @@
 	{on fire "gun" overload
 		{ani_play "recoil"}
 		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
 		{call "spawn_shell"}
 	}
 	{on "add_movement_sound"
@@ -1972,7 +1984,7 @@
 	}
 }
 
-{"m20g_rcl_ai"			
+{"m20g_rcl_ai"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -1982,6 +1994,7 @@
 	{on fire "gun" overload
 		{ani_play "recoil"}
 		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
 		{call "spawn_shell"}
 	}
 	{on "add_movement_sound"
@@ -1990,7 +2003,7 @@
 	}
 }
 
-{"m40g"			
+{"m40g"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -1999,6 +2012,7 @@
 	}
 	{on fire "gun" overload
 		{ani_play "recoil"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
 		{view start "backblast"}
 		{call "spawn_shell"}
 	}

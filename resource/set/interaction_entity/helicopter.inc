@@ -576,3 +576,22 @@
 	}
 }
 
+{"uh-1b_m22"
+
+	{ on spawn
+		;("link_damage_sound_rus")
+		;{call "altitude_checker"}
+		;{view start "smoke_engine1"}
+		;{view start "smoke_engine2"}
+
+	}
+
+	{on fire "gun"
+
+		{spawn "detector_extra_big" "foresight1" x}
+		;{spawn "detector_extra_big" "shooter02" x}
+
+	}
+
+}
+

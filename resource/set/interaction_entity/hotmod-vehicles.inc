@@ -5,19 +5,19 @@
 	}
 }
 ;/*=========== side fire script===========*/
-{"side_fire"	
+{"side_fire"
 
 	{on spawn
 		{volumes "gun_recoil" disable blast}
 		{tags add "ordos_fire_debug001"}
 	}
 
-	
+
 	{on fire "gun"
 		{tags add "ordos_fire_debug002"}
 		{volumes "gun_recoil" enable blast}
 		{spawn "turret_dir_detector" "gun_recoil" {stuff_detonate}}
-		{delay 0.5 
+		{delay 0.5
 			{tags add "ordos_fire_debug003"}
 			{volumes "gun_recoil" disable blast}
 		}
@@ -27,7 +27,7 @@
 		{tags add "ordos_fire_debug002"}
 		{volumes "gun_recoil" enable blast}
 		{spawn "turret_dir_detector" "gun_recoil" {stuff_detonate}}
-		{delay 0.5 
+		{delay 0.5
 			{tags add "ordos_fire_debug003"}
 			{volumes "gun_recoil" disable blast}
 		}
@@ -35,17 +35,17 @@
 
 	{on blast_hit
 			{if stuff "turret_dir_detector"
-				
+
 				{if volume "recoil_gun_front"  {ani_play "fire_front"} {ani_play "fire_front_common"}{tags add "ordos_fire_front"}
-					
+
 				else volume "recoil_gun_left"  {ani_play "fire_left"} {ani_play "fire_left_common"} {tags add "ordos_fire_left"}
-					
+
 				else volume "recoil_gun_right"  {ani_play "fire_right"} {ani_play "fire_right_common"} {tags add "ordos_fire_right"}
-					
+
 				else volume "recoil_gun_back"  {ani_play "fire_back"} {ani_play "fire_back_common"}{tags add "ordos_fire_back"}
-					
+
 				else volume "recoil_gun_central"
-					
+
 				}
 			}
 	}
@@ -147,7 +147,7 @@
         {tags add "cw_panorama_work"}
     }
     {on "cw_panorama_off"
-        {tags remove "cw_panorama_work"} 
+        {tags remove "cw_panorama_work"}
     }
     {on "cw_panorama_instant_off"
         {tags remove "cw_panorama_work"}
@@ -161,7 +161,7 @@
          {call "update_cw_panorama"}
     }
     {on ik end "turret_mg"                    ;// turret_mg stops rotation
-        {delay 3 
+        {delay 3
 			{tags remove "human_in_use"}
 			{call "update_cw_panorama"}
         }
@@ -279,13 +279,13 @@
 	{on spawn
 		{add_view "exhaust_dark_big_diesel"			"smoke_ess1"			"fxsmoke1"}
 		{add_view "smoke_cover-up_big"				"smoke_ess1_cover" 		"fxsmoke1"}
-		
+
 		(define "spawn_volume"
 			{spawn "smoke_volume_%0" offset %1 %2 0
 				{delay %3 {hide 1}}
 			}
 		)
-		
+
 	}
 	{on "smoke_screen"
 		{view start "smoke_ess1"}
@@ -332,10 +332,10 @@
 	{on spawn
 		{add_view "exhaust_dark_big_diesel"			"smoke_bdsh"			"root"}
 		{add_view "smoke_cover-up_big"				"smoke_bdsh_cover" 		"root"}
-		{tags add "smoke0"}		
+		{tags add "smoke0"}
 	}
-	
-	
+
+
 	{on "smoke_screen"
 		{if tagged "smoke0"
 			{tags add "smoke1"}
@@ -368,7 +368,7 @@
 		else ;//do nothing
 		}
 	}
-	
+
 	(define "drop_bdsh"
 		{on "smokebomb"
 			{if tagged "smoke0"
@@ -399,7 +399,7 @@
 			}
 		}
 	)
-	
+
 		{on "smokebomb2"
 			{tear "piece_large_steel" bone "smokebomb2"
 				{impulse up -1 dir -5 forward -2}
@@ -501,7 +501,7 @@
 		("reload_delay" args 4.5 0.5 5)
 	}
 }
-	
+
 ;/// Added from Valour mod
 (define "m4a3_sound"
 	{on "add_movement_sound" overload
@@ -566,10 +566,16 @@
 
 {"pt-76 tank"
 	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 {"pt-76b tank"
 	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 
@@ -594,6 +600,10 @@
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1)
 	}
+
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 {"btr-50pk tank"
@@ -608,10 +618,16 @@
 
 {"asu-85 tank"
 	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 {"asu-85_para tank"
 	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 {"t-34-85m tank"
@@ -624,6 +640,9 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 {"su100m tank"
@@ -635,6 +654,9 @@
 		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/gun/gun_horizontal"}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
 	}
 }
 
@@ -769,11 +791,11 @@
 }
 
 {"bm-14-16 car"
-	("zis5_sound")	
+	("zis5_sound")
 	{on spawn
 		{tags add "shield_up"}
 	}
-	
+
 	{on ik begin "turret"
 		{if tagged "shield_up"
 			{tags add "aiming"}
@@ -785,7 +807,7 @@
 			{delay 0.1}
 		}
 	}
-	
+
 	{on move on
 		{if tagged "shield_down"
 			{tags add "moving"}
@@ -793,7 +815,7 @@
 			{ani_play "support_open"}
 			{tags remove "shield_down"}
 			{tags add "shield_up"}
-		else 
+		else
 			{delay 0.1}
 		}
 	}
@@ -804,7 +826,7 @@
 	{on spawn
 		{tags add "shield_up"}
 	}
-	
+
 	{on ik begin "turret"
 		{if tagged "shield_up"
 			{tags add "aiming"}
@@ -816,7 +838,7 @@
 			{delay 0.1}
 		}
 	}
-	
+
 	{on move on
 		{if tagged "shield_down"
 			{tags add "moving"}
@@ -824,7 +846,7 @@
 			{ani_play "support_open"}
 			{tags remove "shield_down"}
 			{tags add "shield_up"}
-		else 
+		else
 			{delay 0.1}
 		}
 	}
@@ -835,7 +857,7 @@
 	{on spawn
 		{tags add "shield_up"}
 	}
-	
+
 	{on ik begin "turret"
 		{if tagged "shield_up"
 			{tags add "aiming"}
@@ -847,7 +869,7 @@
 			{delay 0.1}
 		}
 	}
-	
+
 	{on move on
 		{if tagged "shield_down"
 			{tags add "moving"}
@@ -855,7 +877,7 @@
 			{ani_play "support_open"}
 			{tags remove "shield_down"}
 			{tags add "shield_up"}
-		else 
+		else
 			{delay 0.1}
 		}
 	}
@@ -893,6 +915,9 @@
 
 {"asu57"
 	("s60_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 {"asu57_para"
@@ -909,7 +934,12 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
+	
+
 
 {"t-54a tank"
 	{on "add_movement_sound" overload
@@ -926,6 +956,9 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
 	}
 }
 
@@ -947,6 +980,9 @@
 		{ani_play "open" -1.0 resume}
 		{ani_play "mgun_aa" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 {"t-64 tank"
@@ -954,8 +990,11 @@
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 3 0.25)
 	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
-		
+
 {"t-55 tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
@@ -972,6 +1011,9 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 {"t-55a tank"
@@ -983,6 +1025,9 @@
 		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
 	}
 }
 
@@ -996,7 +1041,12 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
+	
+
 
 {"ot-55"
 	{on "add_movement_sound" overload
@@ -1023,6 +1073,10 @@
 		{fire radius 5 time 15 heating 10}
 	}
 	("flame_weapon" args mgun2 160 3 40)
+
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 {"is2m tank"
@@ -1035,7 +1089,13 @@
 		{ani_play "open" -1.0 resume}
 		{ani_play "mgun_aa" -1.0 resume}
 	}
+
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
+	
+
 
 {"isu-122m tank"
 	{on "add_movement_sound" overload
@@ -1054,6 +1114,9 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open_right" -1.0 resume}
 		{ani_play "mgun_aa" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
 	}
 }
 {"isu-152m tank"
@@ -1074,7 +1137,12 @@
 		{ani_play "open_right" -1.0 resume}
 		{ani_play "mgun_aa" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
+	
+
 
 {"zsu-57-2 tank"
 	{on "add_movement_sound" overload
@@ -1114,6 +1182,8 @@
 		("shell_eject_delay" args 1.8)
 	}
 	{on fire "gun"
+
+		{spawn "detector" "foresight1" x}
 		{delay 1.5
 			{ani_play "eject"}
 		}
@@ -1134,6 +1204,8 @@
 		("shell_eject_delay" args 1.8)
 	}
 	{on fire "gun"
+
+		{spawn "detector" "foresight1" x}
 		{delay 1.5
 			{ani_play "eject"}
 		}
@@ -1146,6 +1218,7 @@
 		("shell_eject_delay" args 1.8)
 	}
 	{on fire "gun"
+		{spawn "detector" "foresight1" x}
 		{delay 1.5
 			{ani_play "eject"}
 		}
@@ -1158,6 +1231,7 @@
 		("shell_eject_delay" args 1.8)
 	}
 	{on fire "gun"
+		{spawn "detector" "foresight1" x}
 		{delay 1.5
 			{ani_play "eject"}
 		}
@@ -1181,6 +1255,7 @@
 	;	("shell_eject_delay" args 1.2)
 	;}
 	{on fire "gun"
+		{spawn "detector" "foresight1" x}
 		{delay 1.2
 			{ani_play "eject"}
 		}
@@ -1197,7 +1272,7 @@
          		{call "update_cw_panorama"}
     	}
 	{on ik end "mgun_turret"                    ;// turret_mg stops rotation
-	        {delay 3 
+	        {delay 3
 			{tags remove "human_in_use"}
 			{call "update_cw_panorama"}
 	        }
@@ -1206,6 +1281,9 @@
 
 {"2s3 tank"
 	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -1216,6 +1294,9 @@
 
 {"it-1 tank"
 	("t28_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 	{on spawn
 		{ani_play "fire1" +1.0 resume}
 	}
@@ -1231,10 +1312,16 @@
 		{ani_play "open" -1.0 resume}
 		{ani_play "mgun_aa" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 {"t-10m_1957 tank"
 	("is_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 		{ani_play "mgun_aa" +1.0 resume}
@@ -1246,6 +1333,10 @@
 }
 
 {"su-122-54 tank"
+
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
 		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
@@ -1259,19 +1350,38 @@
 
 {"bmp-1"
 	("bt_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+	{on fire "gun2"
+		{spawn "detector" "foresight6" x}
+	}
 }
 
 {"bmd-1"
 	("bt_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+	{on fire "gun2"
+		{spawn "detector" "foresight6" x}
+	}
 }
 
 {"2p27" ;// can't figure out how to reset turret to 0
 	("sdkfz222_sound")
- 
+
 	{on spawn
 		{tags add "weapon_up"}
 	}
-	
+
+	{on fire "gun"
+		{tags add "gun_fired!!!!"}
+		{spawn "detector_big" "foresight1" x}
+		;{spawn "detector" "rocket2" x}
+		;{spawn "detector" "rocket3" x}
+	}
+
 	{on "reload"
 		{tags add "reloading"}
 		{ani_play "weapon_down"}
@@ -1287,13 +1397,13 @@
 			}
 		}
 	}
- 
+
 	{on repair
 		{if component "turret"
 			{call "update_missilerack"}
 		}
 	}
- 
+
 	(define "update_missilerack"
 		{if crew_in_place "gunner"
 			{if tagged "reloading"
@@ -1323,12 +1433,12 @@
 			}
 		}
 	)
- 
- 
+
+
 	{on "update_missilerack"
 		("update_missilerack" n())
 	}
-	
+
 	(define "update_rack_event"
 		{on %event
 			{call "update_missilerack"}
@@ -1345,11 +1455,11 @@
 
 {"9p110" ;// can't figure out how to reset turret to 0
 	("sdkfz222_sound")
- 
+
 	{on spawn
 		{tags add "weapon_up"}
 	}
-	
+
 	{on "reload"
 		{tags add "reloading"}
 		;{weapon_work "gun" 0}
@@ -1366,13 +1476,13 @@
 			}
 		}
 	}
- 
+
 	{on repair
 		{if component "turret"
 			{call "update_missilerack"}
 		}
 	}
- 
+
 	(define "update_missilerack"
 		{if crew_in_place "gunner"
 			{if tagged "reloading"
@@ -1401,12 +1511,12 @@
 			}
 		}
 	)
- 
- 
+
+
 	{on "update_missilerack"
 		("update_missilerack" n())
 	}
-	
+
 	(define "update_rack_event"
 		{on %event
 			{call "update_missilerack"}
@@ -1419,15 +1529,20 @@
 	("update_rack_event" event(fire))
 	("update_rack_event" event(ik begin "turret"))
 	("update_rack_event" event(ik begin "foresight1"))
+
+	{on fire "gun"
+		{tags add "gun_fired!!!!"}
+		{spawn "detector_big" "foresight1" x}
+	}
 }
 
 {"9p110_sam" ;// can't figure out how to reset turret to 0
 	("sdkfz222_sound")
- 
+
 	{on spawn
 		{tags add "weapon_down"}
 	}
-	
+
 	{on "reload"
 		{tags add "reloading"}
 		{ik_enable "turret" 0}
@@ -1444,13 +1559,13 @@
 			}
 		}
 	}
- 
+
 	{on repair
 		{if component "turret"
 			{call "update_missilerack"}
 		}
 	}
- 
+
 	(define "update_missilerack"
 		{if crew_in_place "gunner"
 			{if tagged "reloading"
@@ -1477,12 +1592,12 @@
 			}
 		}
 	)
- 
- 
+
+
 	{on "update_missilerack"
 		("update_missilerack" n())
 	}
-	
+
 	(define "update_rack_event"
 		{on %event
 			{call "update_missilerack"}
@@ -1492,15 +1607,20 @@
 	("update_rack_event" event(operatable off))
 	("update_rack_event" event(crew in))
 	("update_rack_event" event(crew out))
+	{on fire "gun"
+
+		{spawn "detector_big" "foresight1" x}
+
+	}
 }
 
 {"9p122" ;// can't figure out how to reset turret to 0
 	("ba_sound")
- 
+
 	{on spawn
 		{tags add "weapon_down"}
 	}
-	
+
 	{on "reload"
 		{tags add "reloading"}
 		{ik_enable "turret" 0}
@@ -1516,13 +1636,13 @@
 			}
 		}
 	}
- 
+
 	{on repair
 		{if component "turret"
 			{call "update_missilerack"}
 		}
 	}
- 
+
 	(define "update_missilerack"
 		{if crew_in_place "gunner"
 			{if tagged "reloading"
@@ -1549,12 +1669,12 @@
 			}
 		}
 	)
- 
- 
+
+
 	{on "update_missilerack"
 		("update_missilerack" n())
 	}
-	
+
 	(define "update_rack_event"
 		{on %event
 			{call "update_missilerack"}
@@ -1564,15 +1684,20 @@
 	("update_rack_event" event(operatable off))
 	("update_rack_event" event(crew in))
 	("update_rack_event" event(crew out))
+	{on fire "gun"
+		{tags add "gun_fired!!!!"}
+		{spawn "detector_big" "foresight1" x}
+
+	}
 }
 
 {"9p124" ;// can't figure out how to reset turret to 0
 	("ba_sound")
- 
+
 	{on spawn
 		{tags add "weapon_down"}
 	}
-	
+
 	{on "reload"
 		{tags add "reloading"}
 		{ik_enable "turret" 0}
@@ -1588,13 +1713,13 @@
 			}
 		}
 	}
- 
+
 	{on repair
 		{if component "turret"
 			{call "update_missilerack"}
 		}
 	}
- 
+
 	(define "update_missilerack"
 		{if crew_in_place "gunner"
 			{if tagged "reloading"
@@ -1621,12 +1746,12 @@
 			}
 		}
 	)
- 
- 
+
+
 	{on "update_missilerack"
 		("update_missilerack" n())
 	}
-	
+
 	(define "update_rack_event"
 		{on %event
 			{call "update_missilerack"}
@@ -1636,6 +1761,11 @@
 	("update_rack_event" event(operatable off))
 	("update_rack_event" event(crew in))
 	("update_rack_event" event(crew out))
+	{on fire "gun"
+		{tags add "gun_fired!!!!"}
+		{spawn "detector_big" "foresight1" x}
+
+	}
 }
 
 {"btr-40"
@@ -1711,6 +1841,7 @@
 {"m151_m40"
 	{on fire "gun"
 		{ani_play "fire"}
+		{spawn "detector"  "foresight1" x}
 		{view start "flashbarrelsmall"}
 		{call "spawn_shell"}
 	}
@@ -1721,8 +1852,12 @@
 
 {"m151_m40_airlift"
 	("kubel_sound")
-}
+	{on fire "gun"
 
+		{spawn "detector"  "foresight1" x}
+
+	}
+}
 {"m151_prc77"
 	("kubel_sound")
 }
@@ -1786,7 +1921,7 @@
 	("kubel_sound")
 }
 
-{"m16gmc tank" 
+{"m16gmc tank"
 	("us_halftrack_sound")
 	{on spawn
 		{link_sound "bkg_hmg" "weapon/shot/bkg/gun/hmg/"}
@@ -1820,7 +1955,7 @@
 	}
 }
 
-{"m16gmc tank" 
+{"m16gmc tank"
 	("us_halftrack_sound")
 }
 
@@ -1832,6 +1967,11 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m41_early"
@@ -1841,6 +1981,11 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -1865,7 +2010,7 @@
 		else ("fire_barrel" args 01)
 		}
 		{call "spawn_shell"}
-	}	
+	}
 }
 
 {"m551"
@@ -1875,6 +2020,12 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -1886,6 +2037,12 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m551_airlift"
@@ -1895,6 +2052,11 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -1906,6 +2068,11 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m46_patton tank"
@@ -1915,6 +2082,11 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -1926,6 +2098,11 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m48"
@@ -1936,10 +2113,20 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m48a1"
 	("pz6_sound")
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m48a3"
@@ -1949,6 +2136,11 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -1978,6 +2170,11 @@
 			}
 		}
 	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m103_usmc"
@@ -2006,10 +2203,20 @@
 			}
 		}
 	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
-{"m60"
+{"m60_patton"
 	("pz5_sound")
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m60a1"
@@ -2023,12 +2230,22 @@
 
 {"m60a1e2"
 	("pz5_sound")
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m728"
 	("pz5_sound")
-	{on spawn 
+	{on spawn
 		{link_sound "dozer" "vehicle/misc/dozer"}
+	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -2175,8 +2392,12 @@
 			{ani_play "open_top" -1.0 resume}
 		}
 	}
-}
+	{on fire "gun"
 
+		{spawn "detector"  "foresight1" x}
+
+	}
+}
 {"m113_m40 tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/hetzer/start"}
@@ -2222,18 +2443,23 @@
 			{ani_play "open_top" -1.0 resume}
 		}
 	}
-}
 
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
+}
 {"m125"
 	("pz38_sound")
-	
+
 	{on "commander_hatch_open" overload
 		{ani_play "open" resume}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
-	
+
 	{on "gunner3_hatch_open" overload
 		{if crew_in_place "charger"
 			{ani_play "open_top" resume}
@@ -2272,7 +2498,7 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
-	
+
 	{on "gunner3_hatch_open" overload
 		{if crew_in_place "charger"
 			;nothing
@@ -2315,7 +2541,7 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
-	
+
 	{on "gunner3_hatch_open" overload
 		{if crew_in_place "charger"
 			;nothing
@@ -2411,6 +2637,12 @@
 		else ("fire_barrel" args 05)
 		}
 		{call "spawn_shell"}
+
+
+
+		{spawn "detector_extra_big"  "foresight" x}
+
+
 	}
 }
 
@@ -2432,6 +2664,7 @@
 		{call "update_gun"}
 	}
 	{on fire "gun" overload
+		{spawn "detector_extra_big"  "foresight" x}
 		(define "fire_barrel"
 			name "%0"
 				{call "fire_barrel%0"}
@@ -2457,6 +2690,13 @@
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
+
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
+
 }
 
 {"m56_airlift"
@@ -2464,12 +2704,22 @@
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m56_para"
 	("pz2_sound")
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
+	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -2512,6 +2762,11 @@
 
 {"m36gmc tank"
 	("m10_sound")
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m4a3e8 tank"
@@ -2521,6 +2776,11 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -2532,6 +2792,12 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open2" -1.0 resume}
 	}
+
+	{on fire "gun"
+
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 ;/*=========== FRG Vehicles BEGIN  ===========*/
@@ -2542,6 +2808,7 @@
 
 {"munga8_m40"
 	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
 		{ani_play "fire"}
 		{view start "flashbarrelsmall"}
 		{call "spawn_shell"}
@@ -2613,21 +2880,23 @@
 
 {"rakjpz_1"
 	("pz2_sound")
-	
+
 	{on "gunner_hatch_open"
 		{ani_play "raise_sight" resume}
 	}
 	{on "gunner_hatch_close"
 		{ani_play "lower_sight" resume}
 	}
-	
+
 	{on spawn
 		{tags add "missile_r"}
 		{tags remove "missile_l"}
 		{tags remove "reloading"}
 	}
-	
+
 	{on fire "gun" overload
+
+		{spawn "detector_extra_big"  "foresight" x}
 		(define "fire_missile"
 			name "%0"
 				{call "fire_missile%0"}
@@ -2654,8 +2923,8 @@
 				{tags remove "missile_l_up"}
 			}
 		}
-	}	
-	
+	}
+
 	{on "reload"
 		{tags add "reloading"}
 		{tags remove "missile_r"}
@@ -2672,17 +2941,17 @@
 				{talk "reloaded"}
 				{call "update_missileracks"}
 				{bone show "rocket_00"}
-				{bone show "rocket_01"}	
+				{bone show "rocket_01"}
 			}
 		}
 	}
- 
+
 	{on repair
 		{if component "body"
 			{call "update_missileracks"}
 		}
 	}
- 
+
 	(define "update_missileracks"
 		{if crew_in_place "gunner"
 			{if tagged "reloading"
@@ -2709,14 +2978,14 @@
 		else
 			{delay 0.1}
 		}
-		
+
 	)
- 
- 
+
+
 	{on "update_missileracks"
 		("update_missileracks" n())
 	}
-	
+
 	(define "update_rack_event"
 		{on %event
 			{call "update_missileracks"}
@@ -2728,7 +2997,7 @@
 	("update_rack_event" event(crew out))
 	("update_rack_event" event(fire))
 	("update_rack_event" event(ik begin "sight_pole"))
-	
+
 }
 
 {"spz_123"
@@ -2776,8 +3045,9 @@
 		{delay 0.15
 			{view pause "flashbarrel"}
 		}
-	}	
+	}
 	{on fire "gun1" overload
+		{spawn "detector"  "foresight1a" x}
 		{ani_play "firer"}
 		{view start "flashrcl"}
 		{view start "backblast"}
@@ -2786,7 +3056,7 @@
 			{view pause "backblast"}
 		}
 		{call "spawn_shell"}
-	}	
+	}
 }
 
 {"m47frg tank"
@@ -2796,6 +3066,11 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -2807,14 +3082,26 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m48g"
 	("pz6_sound")
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m48a2c"
 	("pz6b_sound")
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"leopard_1"
@@ -2825,6 +3112,10 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open1" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"leopard_1a1"
@@ -2834,6 +3125,10 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open1" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -2872,6 +3167,10 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"m41g"
@@ -2881,6 +3180,10 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -2905,7 +3208,7 @@
 		else ("fire_barrel" args 01)
 		}
 		{call "spawn_shell"}
-	}	
+	}
 }
 
 
@@ -2955,6 +3258,10 @@
 
 {"pt-76gdr tank"
 	("t70_sound")
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"su100_gdr tank"
@@ -2967,6 +3274,10 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/gun/gun_horizontal"}
 	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"su85_gdr tank"
@@ -2978,6 +3289,10 @@
 		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/gun/gun_horizontal"}
+	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -2997,6 +3312,10 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"t-55g tank"
@@ -3015,6 +3334,10 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"t-54g tank"
@@ -3032,6 +3355,10 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -3078,7 +3405,7 @@
 	{on spawn
 		{tags add "shield_up"}
 	}
-	
+
 	{on ik begin "turret"
 		{if tagged "shield_up"
 			{tags add "aiming"}
@@ -3090,7 +3417,7 @@
 			{delay 0.1}
 		}
 	}
-	
+
 	{on move on
 		{if tagged "shield_down"
 			{tags add "moving"}
@@ -3098,7 +3425,7 @@
 			{ani_play "support_open"}
 			{tags remove "shield_down"}
 			{tags add "shield_up"}
-		else 
+		else
 			{delay 0.1}
 		}
 	}
@@ -3109,7 +3436,7 @@
 	{on spawn
 		{tags add "shield_up"}
 	}
-	
+
 	{on ik begin "turret"
 		{if tagged "shield_up"
 			{tags add "aiming"}
@@ -3121,7 +3448,7 @@
 			{delay 0.1}
 		}
 	}
-	
+
 	{on move on
 		{if tagged "shield_down"
 			{tags add "moving"}
@@ -3129,7 +3456,7 @@
 			{ani_play "support_open"}
 			{tags remove "shield_down"}
 			{tags add "shield_up"}
-		else 
+		else
 			{delay 0.1}
 		}
 	}
@@ -3192,6 +3519,10 @@
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 0.4 0.3)
 	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"t-34-85_prc tank"
@@ -3203,6 +3534,10 @@
 		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -3222,6 +3557,10 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open2" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"type58_tank tank"
@@ -3240,6 +3579,10 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open2" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"su100_prc tank"
@@ -3251,6 +3594,10 @@
 		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/gun/gun_horizontal"}
+	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -3270,6 +3617,10 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
+	}
 }
 
 {"is2_prc tank"
@@ -3281,6 +3632,10 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 		{ani_play "mgun_aa" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 
@@ -3301,6 +3656,10 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open_right" -1.0 resume}
 		{ani_play "mgun_aa" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+
 	}
 }
 

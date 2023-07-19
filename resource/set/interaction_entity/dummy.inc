@@ -1576,7 +1576,56 @@
 	       else stuff "hesh"
 	       		 {spawn "armor_comp_assistor" "missile_point" x}
 	     }
-	      
+
+	}
+}
+
+{"detector_big"
+	{on spawn
+	      {delay 0.2
+		{delete}
+	     }
+	}
+	{on bullet_hit overload
+	       {impulse up 0.01 com}
+	       {gravity 0.01}
+	       {volumes "body" disable all}
+
+	      {if stuff "heat_shell"
+		 	{spawn "armor_comp_assistor" "missile_point" x}
+	       else stuff "rocketlauncher"
+	       	 	{spawn "armor_comp_assistor" "missile_point" x}
+	       else stuff "cumulative_charge"
+	      	 	{spawn "armor_comp_assistor" "missile_point" x}
+	       else stuff "hesh"
+	       		 {spawn "armor_comp_assistor" "missile_point" x}
+	     }
+
+	}
+}
+
+
+{"detector_extra_big"
+	{on spawn
+	      {delay 0.2
+		{delete}
+	     }
+	}
+	{on bullet_hit overload
+	       {impulse up 0.01 com}
+	       {gravity 0.01}
+	       {volumes "body" disable all}
+
+	      {if stuff "heat_shell"
+		 	{spawn "armor_comp_assistor" "missile_point" x}
+	       else stuff "rocketlauncher"
+	       	 	{spawn "armor_comp_assistor" "missile_point" x}
+	       else stuff "cumulative_charge"
+	      	 	{spawn "armor_comp_assistor" "missile_point" x}
+	       else stuff "hesh"
+	       		 {spawn "armor_comp_assistor" "missile_point" x}
+	     }
+
 	}
 }
 
