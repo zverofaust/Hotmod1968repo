@@ -2,6 +2,13 @@
 ;Date:        Thu Mar 21 10:31:31 2019
 ;File:        E:\Chris models\pt76\PT_76_export.max
 {Skeleton
+	{animation
+		{sequence "start" {speed 0.7}}
+		{sequence "stop" {speed 0.7}}
+		{sequence "fire" {speed 0.6}}
+		{sequence "hit" {speed 0.5}}
+		{sequence "open" {resume}}
+	}
 	{bone "basis"
 		{Orientation
 			1	0	0
@@ -10,6 +17,9 @@
 		}
 		{bone "body"
 			{parameters "ID=body;"}
+			{animation
+				{sequence "repair" {file "body_r.anm"} {speed 0.9}}
+			}
 			{Position -2.99213	0	17.4738}
 			{VolumeView "body.ply"}
 			{bone "headlightl"
@@ -90,11 +100,17 @@
 			}
 			{bone revolute "turret"
 				{parameters "ID=turret;"}
+				{animation
+					{sequence "repair" {file "turret_r.anm"}}
+				}
 				{speed 0.1}
 				{Position 14.7188	0.134571	15.5998}
 				{VolumeView "turret.ply"}
 				{bone revolute "gun_rot"
 					{parameters "ID=gun;"}
+					{animation
+						{sequence "repair" {file "gun_r.anm"}}
+					}
 					{limits -7 15}
 					{speed 0.01}
 					{Matrix34
@@ -296,6 +312,9 @@
 			}
 			{bone "engine"
 				{parameters "ID=body;"}
+				{animation
+					{sequence "repair" {file "body_r.anm"} {speed 0.9}}
+				}
 				{VolumeView "engine.ply"}
 			}
 			{bone "fxfire4"
@@ -613,4 +632,129 @@
 			}
 		}
 	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		32.6383	-2.79342	8.82092
+	}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		1.56533	0.838381	-1.08007
+	}
+}
+{Volume "body3"
+	{Box 53.9211 44.1934 12.2748}
+	{Bone "engine"}
+	{Position -36.3212	0	8.87811}
+}
+{Volume "engine"
+	{Box 30 18 20}
+	{Bone "engine"}
+	{Position -26	0	4}
+}
+{Volume "fuel1"
+	{Box 12.8966 7.20385 14.092}
+	{Bone "body"}
+	{Position -22.0644	-16.1804	5.04602}
+}
+{Volume "fuel2"
+	{Box 13.0737 7.09318 6.53686}
+	{Bone "body"}
+	{Position -22.1097	-24.2639	9.1761}
+}
+{Volume "fuel3"
+	{Box 5.31068 16.7188 6.09744}
+	{Bone "body"}
+	{Position -57.7625	-1.55955	11.04872}
+}
+{Volume "transmission"
+	{cylinder 5.59661 33.1079}
+	{Bone "body"}
+	{Matrix34
+		-1 	 0 	 0
+		0 	 0 	 1
+		0 	 1 	 0
+		-50	-0.333058	1.0
+	}
+}
+{Volume "gun"
+	{Cylinder 2.17039 50.8079}
+	{Bone "gun"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		26.2754	0.0581931	0.0786553
+	}
+}
+{Volume "ammo1"
+	{Box 15.9068 15.9593 9.42873}
+	{Bone "body"}
+	{Matrix34
+		0.939692	-0.34202	0
+		0.34202	0.939692	0
+		0	0	1
+		21	-5	0
+	}
+}
+{Volume "ammo2"
+	{Box 5.40936 15.4622 13.6605}
+	{Bone "body"}
+	{Matrix34
+		0.906308	0.422618	0
+		-0.422618	0.906308	0
+		0	0	1
+		-3	-9	5
+	}
+}
+{Volume "mantlet"
+	{Polyhedron "mantlet.vol"}
+	{Bone "turret"}
+	{Matrix34
+		0.999997	0	0.00229978
+		0	1	0
+		-0.00229978	0	0.999997
+		15.6621	-0.15639	-0.0864716
+	}
+}
+{Volume "ram"
+	{Polyhedron "ram.vol"}
+	{Bone "body"}
+	{Position 7.80116	0.841323	-9.60768}
+}
+{Volume "trackleft"
+	{Polyhedron "trackleft.vol"}
+	{Bone "wheelsl"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		5.6973	27.3312	-6.57064
+	}
+}
+{Volume "trackright"
+	{Polyhedron "trackright.vol"}
+	{Bone "wheelsr"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		5.6973	-27.1352	-6.57064
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Position 0.0919094	0	-0.0858612}
 }
