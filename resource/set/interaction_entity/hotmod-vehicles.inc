@@ -3635,7 +3635,6 @@
 	}
 	{on fire "gun"
 		{spawn "detector"  "foresight1" x}
-
 	}
 }
 
@@ -3662,5 +3661,353 @@
 
 	}
 }
+
+;/*=========== POL Vehicles BEGIN  ===========*/
+
+{"lublin-51 car"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
+{"lublin-51_ammo car"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
+{"lublin-51_eng car"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
+{"ural375_pol car"
+	("zis5_sound")
+}
+
+{"ural375_pol_ammo car"
+	("zis5_sound")
+}
+
+{"btr-40_pol"
+	("sdkfz222_sound")
+}
+
+{"brdm-1_pol"
+	("sdkfz222_sound")
+}
+
+{"btr-40a"
+	("sdkfz222_sound")
+	{on "init_gun"
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
+		{add_view "zenit_gilz"			"shell"			"FXshell00"}
+		{add_view "zenit_gilz"			"shell"			"FXshell01"}
+		{call "update_gun"}
+	}
+	{on fire "mgun1" overload
+		(define "fire_barrel"
+			name "%0"
+				{call "fire_barrel%0"}
+				{view start "flashbarrel%0"}
+				{ani_play "fire%0"}
+				{delay 0.2
+					{view pause "flashbarrel%0"}
+				}
+		)
+		{if	("fire_barrel" args 00)
+		else ("fire_barrel" args 01)
+		}
+		{call "spawn_shell"}
+	}
+}
+
+{"brdm-2"
+	("ba_sound")
+}
+
+{"2p27_pol" ;// can't figure out how to reset turret to 0
+	("sdkfz222_sound")
+
+	{on spawn
+		{tags add "weapon_up"}
+	}
+
+	{on fire "gun"
+		{tags add "gun_fired!!!!"}
+		{spawn "detector_big" "foresight1" x}
+		;{spawn "detector" "rocket2" x}
+		;{spawn "detector" "rocket3" x}
+	}
+
+	{on "reload"
+		{tags add "reloading"}
+		{ani_play "weapon_down"}
+		{tags add "weapon_down"}
+		{tags remove "weapon_up"}
+		{talk "reload"}
+		{delay 1
+			{call "update_missilerack"}
+			{delay 30
+				{tags remove "reloading"}
+				{talk "reloaded"}
+				{call "update_missilerack"}
+			}
+		}
+	}
+
+	{on repair
+		{if component "turret"
+			{call "update_missilerack"}
+		}
+	}
+
+	(define "update_missilerack"
+		{if crew_in_place "gunner"
+			{if tagged "reloading"
+				{delay 0.1}
+			else
+				{if work "turret"
+					{if tagged "weapon_down"
+						{ani_play "weapon_up"}
+						{tags remove "weapon_down"}
+						{tags add "weapon_up"}
+						{delay 1
+							{ik_enable "turret" 1}
+						}
+					else
+						{delay 0.1}
+					}
+				else
+					{delay 0.1}
+				}
+			}
+		else
+			{if not tagged "weapon_down"
+				{ani_play "weapon_down"}
+				{tags add "weapon_down"}
+			else
+				{delay 0.1}
+			}
+		}
+	)
+
+
+	{on "update_missilerack"
+		("update_missilerack" n())
+	}
+
+	(define "update_rack_event"
+		{on %event
+			{call "update_missilerack"}
+		}
+	)
+	("update_rack_event" event(operatable on))
+	("update_rack_event" event(operatable off))
+	("update_rack_event" event(crew in))
+	("update_rack_event" event(crew out))
+	("update_rack_event" event(fire))
+	("update_rack_event" event(ik begin "gun_rot_h"))
+	("update_rack_event" event(ik begin "gun_rot_v"))
+}
+
+{"9p110_pol" ;// can't figure out how to reset turret to 0
+	("sdkfz222_sound")
+
+	{on spawn
+		{tags add "weapon_up"}
+	}
+
+	{on "reload"
+		{tags add "reloading"}
+		;{weapon_work "gun" 0}
+		{ani_play "turret_reset"}
+		{ani_play "weapon_down"}
+		{tags add "weapon_down"}
+		{talk "reload"}
+		{delay 1
+			{call "update_missilerack"}
+			{delay 60
+				{tags remove "reloading"}
+				{talk "reloaded"}
+				{call "update_missilerack"}
+			}
+		}
+	}
+
+	{on repair
+		{if component "turret"
+			{call "update_missilerack"}
+		}
+	}
+
+	(define "update_missilerack"
+		{if crew_in_place "gunner"
+			{if tagged "reloading"
+				{delay 0.1}
+			else
+				{if work "turret"
+					{if tagged "weapon_down"
+						{ani_play "weapon_up"}
+						{tags remove "weapon_down"}
+						{delay 1
+							;{weapon_work "gun" 1}
+						}
+					else
+						{delay 0.1}
+					}
+				else
+					{delay 0.1}
+				}
+			}
+		else
+			{if not tagged "weapon_down"
+				{ani_play "weapon_down"}
+				{tags add "weapon_down"}
+			else
+				{delay 0.1}
+			}
+		}
+	)
+
+
+	{on "update_missilerack"
+		("update_missilerack" n())
+	}
+
+	(define "update_rack_event"
+		{on %event
+			{call "update_missilerack"}
+		}
+	)
+	("update_rack_event" event(operatable on))
+	("update_rack_event" event(operatable off))
+	("update_rack_event" event(crew in))
+	("update_rack_event" event(crew out))
+	("update_rack_event" event(fire))
+	("update_rack_event" event(ik begin "turret"))
+	("update_rack_event" event(ik begin "foresight1"))
+
+	{on fire "gun"
+		{tags add "gun_fired!!!!"}
+		{spawn "detector_big" "foresight1" x}
+	}
+}
+
+{"t-34-85_pol tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"pt-76_pol tank"
+	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"pt-76b_pol tank"
+	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"t-54a_pol tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "open" 1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"t-54m2 tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "open" 1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"t-55_pol tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "open" 1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"t-55a_pol tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "open" 1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
 
 ;/*=========== Hotmod Specifics End  ===========*/

@@ -1490,6 +1490,18 @@
 	("cannon_small")
 }
 
+{"57mm_s-60"
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
+	}
+
+	{on "spawn_shell_delay_auto" overload
+		("shell_eject_delay_auto" args 0.25) ;// delay cannot be longer than rate of fire else shell ejection is skipped and only played on last shell.
+	}
+
+	("cannon_small")
+}
+
 {"b-10_82mm"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1)
@@ -1814,6 +1826,18 @@
 
 ;/*=========== PRC Cannons  ===========*/
 
+{"57mm_s-60_prc"
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
+	}
+
+	{on "spawn_shell_delay_auto" overload
+		("shell_eject_delay_auto" args 0.25) ;// delay cannot be longer than rate of fire else shell ejection is skipped and only played on last shell.
+	}
+
+	("cannon_small")
+}
+
 {"b-10_prc"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1)
@@ -2020,6 +2044,78 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
+}
+
+
+;/*=========== POL Cannons  ===========*/
+
+{"57mm_s-60_pol"
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
+	}
+
+	{on "spawn_shell_delay_auto" overload
+		("shell_eject_delay_auto" args 0.25) ;// delay cannot be longer than rate of fire else shell ejection is skipped and only played on last shell.
+	}
+
+	("cannon_small")
+}
+
+{"b-10_pol"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1)
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{tags add "ordos_debug_cannon_fire"}
+		{call "spawn_shell"}
+	}
+	("cannon_small")
+}
+
+{"d1_pol"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
+}
+
+{"m30_pol"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
+}
+
+{"d-44_pol"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 6 1.5 14)
+	}
+	("cannon_big")
+}
+
+{"d-20_pol"
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
 }
 
 ;/*=========== Hotmod Specifics End  ===========*/
