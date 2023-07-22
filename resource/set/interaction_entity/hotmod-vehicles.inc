@@ -3946,7 +3946,7 @@
 	}
 }
 
-{"t-54m2 tank"
+{"t-54am2 tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
 		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
