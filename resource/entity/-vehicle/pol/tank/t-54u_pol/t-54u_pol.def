@@ -1,9 +1,9 @@
-{game_entity		;T-54A
+{game_entity		;T-54U (aka T-55U), a T-54AM-2 fully upgraded to parity with T-55.
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm"}
-	(include "t-54a_pol.ext")
+	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "smoke" "ess"}
+	(include "t-54u_pol.ext")
 	{targetclass "tank_medium"}
 	{targetSelector "tank_medium"}
 	{PatherId "t34"}
@@ -24,11 +24,11 @@
 			{reverse {end "emit_t34_hold"} {base "close_driver"}}
 		}
 		{anm "left"
-			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
 			{reverse {end "emit_tank_1_hold"}}
 		}
 		{anm "right"
-			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
 			{reverse {end "emit_tank_1_hold"}}
 		}
 		{anm "armor"
@@ -45,14 +45,24 @@
 	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
 	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
 	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
-
+	
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "gunner"		{visor "main"}}
+		{place "commander"	{visor "main"}}
+	}
 
 	; smokescreen via injecting fuel into the exhaust system possible
+	
+	{extender "smokescreen"
+		{cooldown 20}
+		{itemTags "can"}
+	}
 
 	{extender "inventory"
 		{box
 			{item "ammo bullet100_d10 aphe" 12} ; 34 rounds
-			{item "ammo bullet100_d10 apcr" 6}
+			{item "ammo bullet100_d10 aphebc" 6}
 			{item "ammo bullet100_d10 he" 16}
 			{item "ammo mgun_rus belt" 2000}		;4 boxes
 			{item "ammo hmgun_rus" 1000}
@@ -66,7 +76,7 @@
 			{weapon			"100mm_d-10t" filling "ammo bullet100_d10 aphe" 1}
 			{gunner "gunner"}
 			{charger "charger"}
-			("hm68_abm_1stab_norange")
+			("hm68_abm_stab_norange")
 		}
 		{place "mgun2"
 			{type "coaxial"}
@@ -88,39 +98,34 @@
 			{basic}
 			{ai_in_manual}
 		}
-		{place "mgun1"
-			{type "commander"}
-			{weapon "commander_vision"}
-			{foresight "vision_rot"}
-			{gunner "gunner"}
-			{basic}
-			{ai_in_manual}
-		}
 	}
 
 	{mass 36000}
 	{Chassis
 		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
 		("mobility_tank"
-			speed(51)  ;---------Max speed when fully accelerated on road, km/h.
+			speed(52)  ;---------Max speed when fully accelerated on road, km/h.
 			reverse(9.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
 			traverse(36) ;-------Track traverse, per second, in degrees.
 			weight(36.0) ;-------Weight in Tonnes.
-			power(520) ;---------Engine Power, in hp.
+			power(580) ;---------Engine Power, in hp.
 			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
-			fuel(450) ;----------Fuel capacity in Litres.
+			fuel(580) ;----------Fuel capacity in Litres.
 			type(diesel) ;-------Fuel type. (diesel OR fuel)
-			range(300) ;---------Range in km, off-road.
+			range(400) ;---------Range in km, off-road.
 		)
 	}
 
-	{Extension "t-54a_pol.mdl"}
+	{Extension "t-54u_pol.mdl"}
 
 	{bone "turret"			;gun horizontal
-		{speed2 18}			;degree per second
+		{speed2 24}			;degree per second
 	}	
 	{bone "gun_rot"			;gun vertical
 		{speed2 4}			;degree per second
 		{limits -5 18}		;min down to max up
+	}
+	{bone "mgun_rot"			;gun vertical
+		{limits -8 30}		;min down to max up
 	}
 }
