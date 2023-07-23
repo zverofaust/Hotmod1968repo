@@ -16,6 +16,7 @@
 	;Crew 4: driver, commander, gunner, loader
 	
 	("crew_4_human")
+	("gunner_visible")
 
 	{boarder
 		{anm "driver"
@@ -65,6 +66,7 @@
 			{item "ammo bullet100_d10 heat" 6}
 			{item "ammo bullet100_d10 he" 22}
 			{item "ammo pk_box" 2000}		;4 boxes
+			{item "ammo hmgun_rus" 1000}
 			{item "satchel_charge_rus" 1}
 		}
 	}
@@ -85,6 +87,17 @@
 			{charger "gunner"}
 			("abm_mgun")
 			{basic}
+		}
+		{place "mgun"		;aa 
+			{type 			"aa"}
+			{weapon			"dshk" filled}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
 		}
 		{place "mgun1"
 			{type "commander"}
@@ -112,7 +125,7 @@
 		)
 	}
 
-	{Extension "t-55a.mdl"}
+	{Extension "t-55a_1971.mdl"}
 
 	{bone "turret"			;gun horizontal
 		{speed2 24}			;degree per second
