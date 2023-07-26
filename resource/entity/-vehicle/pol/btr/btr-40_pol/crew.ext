@@ -1,0 +1,57 @@
+{boarder
+	{anm "left"
+		{forward {begin "board_tank_right"} {end "seat_passenger"}{base "open"}}
+		{reverse {end "emit_tank_2_hold"}{base "open" -1}}
+	}
+	{anm "right"
+		{forward {begin "board_tank_right"} {end "seat_passenger"}{base "open"}}
+		{reverse {end "emit_tank_2_hold"}{base "open" -1}}
+	}
+	{anm "gunner"
+		{forward	{begin	"board_SdKfz251-1"} {end "pose_dodge_sg2"}}
+		{reverse 	{end	"emit_tank_1"}}
+	}
+	{anm "passengers"
+		{forward	{begin	"board_SdKfz251-1"} {end "seat_passenger"}}
+		{reverse 	{end	"emit_tank_1"}}
+	}
+	{anm "passengers1"
+		{forward	{begin	"board_SdKfz251-1"} {end "seat_passenger"}}
+		{reverse 	{end	"emit_body"}}
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {LinkBone "%bone"} {group "crew"} {visor "%visor"} {turnoff {sensor}}}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "%place" {anm "left"} {forward putoff} {reverse puton}}
+		{link "emit2" "%place" {anm "right"} {forward putoff} {reverse puton}}
+	}
+)
+
+(define "crew_gunner"
+	{placer
+		{place "%place" {LinkBone "%bone"} {group "crew"} {visor "%visor"} {turnoff {sensor}}}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "%place" {anm "gunner"} {forward putoff} {reverse puton}}
+		{link "emit2" "%place" {anm "gunner"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(driver) bone(driver)  visor(driver) off({sensor}))
+("crew_gunner" place(gunner2) bone(gunner2)  visor(human) off())
+;("crew_human" place(commander) bone(commander)  visor(around) off())
+
+("crew_human_v" place(seat01)		door(emit2) bone(commander) animation(passengers)	group(passengers))
+("crew_human_v" place(seat02)		door(emit3) bone(seat01) animation(passengers)	group(passengers))
+("crew_human_v" place(seat03)		door(emit3) bone(seat02) animation(passengers1)	group(passengers))
+("crew_human_v" place(seat04)		door(emit3) bone(seat03) animation(passengers)	group(passengers))
+("crew_human_v" place(seat05)		door(emit3) bone(seat04) animation(passengers1)	group(passengers))
+("crew_human_v" place(seat06)		door(emit3) bone(seat05) animation(passengers)	group(passengers))
