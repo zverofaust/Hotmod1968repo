@@ -616,6 +616,10 @@
 	}
 }
 
+{"btr-50pu tank"
+	("t70_sound")
+}
+
 {"asu-85 tank"
 	("t70_sound")
 	{on fire "gun"
