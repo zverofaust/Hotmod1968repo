@@ -3702,7 +3702,7 @@
 	("sdkfz222_sound")
 }
 
-{"btr-40a"
+{"btr-40a_pol"
 	("sdkfz222_sound")
 	{on "init_gun"
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
@@ -3728,7 +3728,7 @@
 	}
 }
 
-{"brdm-2"
+{"brdm-2_pol"
 	("ba_sound")
 }
 
@@ -3922,11 +3922,20 @@
 	}
 }
 
-{"pt-76b_pol tank"
+{"pt-76p tank"
 	("t70_sound")
+	{on "gunner_hatch_open" overload
+		{ani_play "open1" +1.0 resume}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "gunner_hatch_close" overload
+		{ani_play "open1" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
+	
 }
 
 {"t-54a_pol tank"

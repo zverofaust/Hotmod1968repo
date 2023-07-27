@@ -1,0 +1,99 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(0.6))
+	{props "recoilless" "with_gun" "vision_lev01_can" "muzzle_37mm_47mm" "detect_atgun_small" "cannon_sandbag_small" "carried"}
+	{collider "cannon_small"}
+	{targetclass "cannon_small"}
+	{targetSelector "cannon_small"}
+	
+	("armor_light_cannon")
+	
+	("crew_wheeled_cannon")
+	
+
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 20}
+		{able {visible 1}}
+	}
+	{Volume "gun"
+		{Tags  "gun"}
+		{Thickness 20}
+		{able {visible 1}}
+	}
+	
+	("gun" repair(30) thickness(30))
+	
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "mgun_browning_driver_r" "mortar_driver_r"}
+			{aim "cannon_small_gunner_aim" "cannon_small_charger_aim"}
+			{fire  "cannon_small_gunner_fire" "cannon_small_charger_fire"}
+			{reload  "cannon_small_gunner_reload" "cannon_small_charger_reload"}
+		}
+		{move {workers "driver1" "driver2" minWorkers 2}{obstacle "close"}}
+		{attack {workers "gunner" "commander"}{obstacle "open"}}
+		;{rotate_ik_Limit 0}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet73_2a28 heat" 15}
+			;{item "bullet73_2a28 he" 5}
+			{item "sandbag_vehicle" 1}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon	"73mm_spg9" filling "ammo bullet73_2a28 heat" 1}
+			{gunner "gunner"}
+            {charger "commander"}
+			{RestoreIKAfterAim}
+			{Rotate}
+			{basic}
+			("hm68_abm_gun")
+		
+		}
+	} 	
+	
+	{boarder
+		{anm "gunner"
+			{forward {end "cannon_small_gunner" 10}}
+		}
+		{anm "commander"
+			{forward {end "cannon_small_charger" 10}}
+		}
+		{anm "driver1"	;// gunner
+			{forward {end "mgun_browning_driver_r" 10}}
+		}
+		{anm "driver2"	;// charger
+			{forward {end "mortar_driver_r" 10}}
+		}
+	}
+	
+	
+	
+	{mass 60}
+
+	{Extension "spg9.mdl"}
+	
+	{Chassis
+		("mobility_cannon"
+			speed(10) ;----------------------------------Max speed.
+			weight(60) ;---------------------------------Weight in Kilograms. 
+		)
+	}
+	
+	{bone "basis"
+		{speed2 18}
+	}
+    {bone "turret"
+		{limits -15 15}
+		{speed2 20}
+	}
+        {bone "gun"
+		{limits -5 15}
+		{speed2 20}
+	}
+}

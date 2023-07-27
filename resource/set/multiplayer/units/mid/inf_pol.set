@@ -76,7 +76,7 @@
 
 (define "pol_regular_advanced"
 	{tags "mid %side infantry man"}
-	{cp 3}
+	{cp 2}
 	{basic}
 	{breed}
 	{cw 1.5}
@@ -99,7 +99,7 @@
 	{score_factor 0.05}
 )
 
-(define "pol_marines" ;Niebieskie Berety, Blue Berets - VMF, USMC
+(define "pol_jdesantowa" ; Jednostka Desantowa aka Niebieskie Berety, Blue Berets - Polish Marines
 	{tags "mid %side infantry man"}
 	{cp 3}
 	{basic}
@@ -107,6 +107,19 @@
 	{cw 4.0}
 	{score_factor 0.05}
 )
+
+{"mp/pol/mid/jdes_ammo"				("pol_jdesantowa" side(pol)) {cost 25.0}} ; AK47 & Ammo
+{"mp/pol/mid/jdes_antitank"			("pol_jdesantowa" side(pol)) {cost 55.0}} ; RPG-7
+{"mp/pol/mid/jdes_atassist"			("pol_jdesantowa" side(pol)) {cost 18.0}} ; AK47 & RPG-7 Ammo
+{"mp/pol/mid/jdes_marksman"			("pol_jdesantowa" side(pol)) {cost 60.0}} ; SWD
+{"mp/pol/mid/jdes_mg"				("pol_jdesantowa" side(pol)) {cost 35.0}} ; PK
+{"mp/pol/mid/jdes_mgassist"			("pol_jdesantowa" side(pol)) {cost 18.0}} ; AK47 & PK Ammo
+{"mp/pol/mid/jdes_rifleman"			("pol_jdesantowa" side(pol)) {cost 17.0}} ; AK47
+{"mp/pol/mid/jdes_lmg"				("pol_jdesantowa" side(pol)) {cost 32.0}} ; RPD
+{"mp/pol/mid/jdes_teamlead"			("pol_jdesantowa" side(pol)) {cost 20.0}} ; AK47
+{"mp/pol/mid/jdes_squadlead"		("pol_jdesantowa" side(pol)) {cost 30.0}} ; AK47
+{"mp/pol/mid/jdes_vehicleman"		("pol_jdesantowa" side(pol)) {cost 13.0}} ; AKMS
+{"mp/pol/mid/jdes_guncrew"			("pol_jdesantowa" side(pol)) {cost 13.0}} ; AKMS
 
 (define "pol_saperzy" ;Saperzi Szturmowi, Assault Sappers = Heavy Assault Infantry
 	{tags "mid %side infantry man"}

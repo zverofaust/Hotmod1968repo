@@ -7,7 +7,7 @@
 		{sequence "stop" {speed 0.7}}
 		{sequence "fire" {speed 0.6}}
 		{sequence "hit" {speed 0.5}}
-		{sequence "open" {resume}}
+		{sequence "open" {speed 0.5}{resume}}
 	}
 	{bone "basis"
 		{Orientation
@@ -197,24 +197,6 @@
 						-0.138796	0	6.67009
 					}
 				}
-				{bone "enumerator1"
-					{Matrix34
-						0.931371	-0.348685	0.10472
-						0.189739	0.710367	0.677774
-						-0.31072	-0.611389	0.727775
-						8.26951	17.4325	3.64983
-					}
-					{VolumeView "enumerator1.ply"}
-				}
-				{bone "enumerator2"
-					{Matrix34
-						-0.797732	-0.59385	0.10472
-						0.494229	-0.54439	0.677773
-						-0.345487	0.592437	0.727776
-						9.24755	-16.9383	3.64981
-					}
-					{VolumeView "enumerator2.ply"}
-				}
 				{bone "gun2"
 					{parameters "id=gun;"}
 					{Position 18.2291	-0.000352278	5.16631}
@@ -251,6 +233,24 @@
 					{parameters "ID=turret;"}
 					{Position -10.0637	-11.9035	7.16745}
 					{VolumeView "detail1.ply"}
+				}
+				{bone "enumerator4"
+					{Matrix34
+						-0.906166	-0.422923	0
+						0.233967	-0.501303	0.83304
+						-0.352312	0.754872	0.553213
+						-8.26414	16.5627	5.07879
+					}
+					{VolumeView "enumerator4.ply"}
+				}
+				{bone "enumerator3"
+					{Matrix34
+						0.990839	-0.135051	0
+						0.0747118	0.548145	0.83304
+						-0.112503	-0.825408	0.553213
+						-2.32314	-18.4839	5.07879
+					}
+					{VolumeView "enumerator3.ply"}
 				}
 			}
 			{bone "headlightr"
@@ -323,7 +323,7 @@
 			{bone "detail3"
 				{parameters "ID=body;"}
 				{Position -47.4327	0.103271	16.6038}
-				;{VolumeView "detail3.ply"}
+				{VolumeView "detail3.ply"}
 			}
 			{bone "detail2"
 				{parameters "ID=body;"}
