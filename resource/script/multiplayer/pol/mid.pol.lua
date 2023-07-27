@@ -61,7 +61,7 @@ Purchases["mid.pol"] = {
 				
 				-- Doctrine = "Batalion Szturmowy"
 				{priority = 1.0, type = {"Doctine", "Armored", "MG", "Tier1",}, unit = "doctrine_squad_rifle_mech(pol)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Tier1",}, unit = "doctrine_vehicle_pt76b(pol)"},
+				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Tier1",}, unit = "doctrine_vehicle_pt76p(pol)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t55a(pol)"},
 				{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier2",}, unit = "doctrine_vehicle_brdm2(pol)"},
 				

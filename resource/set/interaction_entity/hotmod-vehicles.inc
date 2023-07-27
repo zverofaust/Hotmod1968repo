@@ -3698,6 +3698,14 @@
 	("sdkfz222_sound")
 }
 
+{"btr-152_pol"
+	("zis5_sound")
+}
+
+{"btr-152u_pol"
+	("zis5_sound")
+}
+
 {"brdm-1_pol"
 	("sdkfz222_sound")
 }
