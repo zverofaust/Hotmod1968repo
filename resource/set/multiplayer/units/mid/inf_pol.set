@@ -90,38 +90,37 @@
 {"mp/pol/mid/reg_engineer"			("pol_regular" side(pol)) {cost 30.0}} ; SKS
 {"mp/pol/mid/reg_scout"				("pol_regular" side(pol)) {cost 25.0}} ; AKM
 
-(define "pol_airborne" ;Spadochroniarze, Airborne - VDV, Air Cav
+(define "pol_powietrzno" ; Powietrznodesantowa, Airborne Troops
 	{tags "mid %side infantry man"}
-	{cp 3}
+	{cp 2}
 	{basic}
 	{breed}
 	{cw 3.0}
 	{score_factor 0.05}
 )
 
-(define "pol_jdesantowa" ; Jednostka Desantowa aka Niebieskie Berety, Blue Berets - Polish Marines
+(define "pol_desantowa" ; Desantowa aka Niebieskie Berety, Blue Berets - Polish Marines
 	{tags "mid %side infantry man"}
-	{cp 3}
+	{cp 2}
 	{basic}
 	{breed}
 	{cw 4.0}
 	{score_factor 0.05}
 )
+{"mp/pol/mid/des_ammo"				("pol_desantowa" side(pol)) {cost 25.0}} ; AK47 & Ammo
+{"mp/pol/mid/des_antitank"			("pol_desantowa" side(pol)) {cost 55.0}} ; RPG-7
+{"mp/pol/mid/des_atassist"			("pol_desantowa" side(pol)) {cost 18.0}} ; AK47 & RPG-7 Ammo
+{"mp/pol/mid/des_marksman"			("pol_desantowa" side(pol)) {cost 60.0}} ; SWD
+{"mp/pol/mid/des_mg"				("pol_desantowa" side(pol)) {cost 35.0}} ; PK
+{"mp/pol/mid/des_mgassist"			("pol_desantowa" side(pol)) {cost 18.0}} ; AK47 & PK Ammo
+{"mp/pol/mid/des_rifleman"			("pol_desantowa" side(pol)) {cost 17.0}} ; AK47
+{"mp/pol/mid/des_lmg"				("pol_desantowa" side(pol)) {cost 32.0}} ; RPD
+{"mp/pol/mid/des_teamlead"			("pol_desantowa" side(pol)) {cost 20.0}} ; AK47
+{"mp/pol/mid/des_squadlead"			("pol_desantowa" side(pol)) {cost 30.0}} ; AK47
+{"mp/pol/mid/des_vehicleman"		("pol_desantowa" side(pol)) {cost 13.0}} ; AKMS
+{"mp/pol/mid/des_guncrew"			("pol_desantowa" side(pol)) {cost 13.0}} ; AKMS
 
-{"mp/pol/mid/jdes_ammo"				("pol_jdesantowa" side(pol)) {cost 25.0}} ; AK47 & Ammo
-{"mp/pol/mid/jdes_antitank"			("pol_jdesantowa" side(pol)) {cost 55.0}} ; RPG-7
-{"mp/pol/mid/jdes_atassist"			("pol_jdesantowa" side(pol)) {cost 18.0}} ; AK47 & RPG-7 Ammo
-{"mp/pol/mid/jdes_marksman"			("pol_jdesantowa" side(pol)) {cost 60.0}} ; SWD
-{"mp/pol/mid/jdes_mg"				("pol_jdesantowa" side(pol)) {cost 35.0}} ; PK
-{"mp/pol/mid/jdes_mgassist"			("pol_jdesantowa" side(pol)) {cost 18.0}} ; AK47 & PK Ammo
-{"mp/pol/mid/jdes_rifleman"			("pol_jdesantowa" side(pol)) {cost 17.0}} ; AK47
-{"mp/pol/mid/jdes_lmg"				("pol_jdesantowa" side(pol)) {cost 32.0}} ; RPD
-{"mp/pol/mid/jdes_teamlead"			("pol_jdesantowa" side(pol)) {cost 20.0}} ; AK47
-{"mp/pol/mid/jdes_squadlead"		("pol_jdesantowa" side(pol)) {cost 30.0}} ; AK47
-{"mp/pol/mid/jdes_vehicleman"		("pol_jdesantowa" side(pol)) {cost 13.0}} ; AKMS
-{"mp/pol/mid/jdes_guncrew"			("pol_jdesantowa" side(pol)) {cost 13.0}} ; AKMS
-
-(define "pol_saperzy" ;Saperzi Szturmowi, Assault Sappers = Heavy Assault Infantry
+(define "pol_rozpoznawczą" ; Rozpoznawczą Specjalna, Special Recon Infantry (Rangers)
 	{tags "mid %side infantry man"}
 	{cp 3}
 	{basic}
@@ -129,8 +128,14 @@
 	{cw 2}
 	{score_factor 0.05}
 )
+{"mp/pol/mid/roz_squadlead"	("pol_rozpoznawczą" side(pol)) {cost 40.0}} ; AKMS
+{"mp/pol/mid/roz_rifleman"	("pol_rozpoznawczą" side(pol)) {cost 22.0}} ; AKMS
+{"mp/pol/mid/roz_mg"		("pol_rozpoznawczą" side(pol)) {cost 45.0}} ; PK
+{"mp/pol/mid/roz_antitank"	("pol_rozpoznawczą" side(pol)) {cost 75.0}} ; RPG-7
+{"mp/pol/mid/roz_marksman"	("pol_rozpoznawczą" side(pol)) {cost 80.0}} ; SWD
+{"mp/pol/mid/roz_spotter"	("pol_rozpoznawczą" side(pol)) {cost 37.0}} ; AKMS(S)
 
-(define "pol_strzelcy" ;Strzelcy Podhalanscy, Mountain Light Infantry = Rangers
+(define "pol_strzelcy" ;Strzelcy Podhalanscy, Mountain Light Infantry
 	{tags "mid %side infantry man"}
 	{cp 3}
 	{basic}
@@ -178,3 +183,4 @@
 	{cw 2}
 	{score_factor 0.05}
 )
+{"mp/pol/mid/roz_sniper"		("pol_sniper" side(pol)) {cost 140.0}} ; Mosin-Nagant
