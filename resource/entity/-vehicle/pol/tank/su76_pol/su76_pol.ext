@@ -1,0 +1,61 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 15mm
+	; gun 25mm
+
+	("tank_light_tier2")
+
+	("shield_group" args "tshield1" 25 "shieldt")
+	("shield_group" args "tshield2" 10 "shieldt")
+	("shield_group" args "tshield3" 10 "shieldt")
+	("shield_group" args "tshield4" 15 "shieldt")
+	("shield_group" args "tshield5" 25 "shieldt")
+
+	("tracks" repair(30) thickness(15))
+	("gun" repair(30) thickness(15))
+
+	("fuel" args "fuel")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("transmission" args "transmission")
+	("transmission" args "transmission")
+
+	{volume "body1"			; Hull 
+		{thickness 15
+			{front 30}		; Lower Hull
+			{top 25}		; Glacis
+			{rear 15}
+			{bottom 7}		; Bottom and Top
+		}
+		{able {holed}}
+		{HighHardness}
+	}
+	{volume "engine"		; Internal
+		{thickness 5}
+		{able {NoWoundDecal 0}}
+	}
+	{volume "mantlet1"
+		{thickness 10}
+	}
+	{volume "mantlet2"
+		{thickness 10}
+	}
+
+	{volume "tshield1"
+		{tags "gun_shield"}
+	}
+	{volume "tshield2"
+		{tags "gun_shield"}
+	}
+	{volume "tshield3"
+		{tags "gun_shield"}
+	}
+	{volume "tshield4"
+		{tags "gun_shield"}
+	}
+	{volume "tshield5"
+		{tags "gun_shield"}
+	}
