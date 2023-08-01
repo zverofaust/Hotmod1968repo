@@ -3706,6 +3706,14 @@
 	("zis5_sound")
 }
 
+{"topas tank"
+	("t70_sound")
+}
+
+{"topas_2ap tank"
+	("t70_sound")
+}
+
 {"brdm-1_pol"
 	("sdkfz222_sound")
 }
