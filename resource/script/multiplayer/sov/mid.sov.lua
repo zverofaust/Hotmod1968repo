@@ -57,23 +57,26 @@ Purchases["mid.sov"] = {
 				
 			-- Doctrine = "Motostrelki"
 			
-			{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_brdm2(sov)"},
 			{priority = 1.0, type = {"Doctine", "Armored", "MG", "Tier2",}, unit = "doctrine_squad_guards_moto(sov)"},
 			{priority = 1.0, type = {"Doctine", "Cannon", "AA", "Tier1",}, unit = "doctrine_squad_zu23(sov)"},
-			{priority = 1.0, type = {"Doctine", "Armored", "AT", "Tier2",}, unit = "doctrine_vehicle_9p122(sov)"},
+			{priority = 1.0, type = {"Doctine", "Armored", "AT", "Tier2",}, unit = "doctrine_vehicle_9p124(sov)"},
 			{priority = 0.3, type = {"Doctine", "Vehicle", "Artillery", "Tier3",}, unit = "doctrine_vehicle_bm14(sov)"},
 				
-			-- Doctrine = "Independent Tank Brigade"
+			-- Doctrine = "Heavy Independent Tank Brigade"
 			
-			{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_squad_guards_btr50(sov)"},
-			{priority = 1.0, type = {"Doctine", "Tank", "Light", "AT", "Tier2",}, unit = "doctrine_squad_guards_mech(sov)"},
+			{priority = 1.0, type = {"Doctine", "Infantry", "Armored", "MG", "Tier1",}, unit = "doctrine_squad_guards_btr50(sov)"},
 			{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_ot55(sov)"},
 			{priority = 1.0, type = {"Doctine", "Tank", "Medium", "AT", "Tier2",}, unit = "doctrine_vehicle_it1(sov)"},
 			{priority = 1.0, type = {"Doctine", "Tank", "Heavy", "Support", "Tier2",}, unit = "doctrine_vehicle_isu152m(sov)"},
 			{priority = 1.0, type = {"Doctine", "Tank", "Heavy", "Tier3",}, unit = "doctrine_vehicle_t10(sov)"},
 			{priority = 1.0, type = {"Doctine", "Tank", "Light", "AA", "Tier2",}, unit = "doctrine_vehicle_shilka(sov)"},
 			
-			-- Doctrine = "VDV Air Brigade"
+			-- Doctrine = "Order of the Red Banner"
+			{priority = 1.0, type = {"Doctine", "Tank", "Light", "Infantry", "AT", "Tier3",}, unit = "doctrine_squad_guards_mech(sov)"},
+			{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_brdm2(sov)"},
+			{priority = 1.0, type = {"Doctine", "Armored", "AT", "Tier2",}, unit = "doctrine_vehicle_9p122(sov)"},
+				
+			-- Doctrine = "VDV Air Assault Brigade"
 			
 			{priority = 1.0, type = {"Doctine", "Tier1",}, unit = "doctrine_squad_spzteam(sov)"},
 			{priority = 1.0, type = {"Doctine", "Tank", "Light", "AT", "Tier2",}, unit = "doctrine_squad_vdv_desantski(sov)"},
@@ -82,13 +85,21 @@ Purchases["mid.sov"] = {
 			{priority = 1.0, type = {"Doctine", "Armored", "AT", "Tier3",}, unit = "doctrine_vehicle_9p110(sov)"},
 			{priority = 0.2, type = {"Doctine", "Helicopter", "Sortie", "Tier3",}, unit = "mil_mi4_heavy_airborne"},
 			
+			-- Doctrine = "VMF Naval Infantry Brigade"
+			
+			-- Doctrine = "Spetsnaz GRU"
+			
+			{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier1",}, unit = "doctrine_squad_gp1958(sov)"},
+			{priority = 1.0, type = {"Doctine", "Infantry", "Tier2",}, unit = "doctrine_squad_spz_demo(sov)"},
+			{priority = 1.0, type = {"Doctine", "Infantry", "Tier3",}, unit = "doctrine_squad_spz(sov)"},
+			{priority = 1.0, type = {"Doctine", "Tank", "Light", "Infantry", "AT", "Tier3",}, unit = "doctrine_squad_spz_desantski(sov)"},
+			
 			-- Doctrine = "Rocket & Artillery Troops"
 			
 			{priority = 1.0, type = {"Doctine", "Cannon", "Support", "Tier1",}, unit = "doctrine_vehicle_d74(sov)"},
 			{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier1",}, unit = "doctrine_vehicle_d20(sov)"},
 			{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier2",}, unit = "doctrine_vehicle_b4(sov)"},
-			{priority = 1.0, type = {"Doctine", "Armored", "AT", "Tier2",}, unit = "doctrine_vehicle_9p124(sov)"},
-			{priority = 1.0, type = {"Doctine", "Tank", "Heavy", "AT", "Tier2",}, unit = "doctrine_vehicle_isu152m(sov)"},
+			
 			{priority = 0.2, type = {"Doctine", "Vehicle", "Artillery", "Tier3",}, unit = "doctrine_vehicle_grad(sov)"},
 			{priority = 0.2, type = {"Doctine", "Vehicle", "Artillery", "Tier3",}, unit = "doctrine_vehicle_bm24(sov)"},
 			
