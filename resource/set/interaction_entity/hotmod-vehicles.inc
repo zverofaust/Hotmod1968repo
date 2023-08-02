@@ -3975,7 +3975,7 @@
 	}
 }
 
-{"t-54am tank"
+{"t-54am_pol tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
 		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
@@ -3996,7 +3996,7 @@
 	}
 }
 
-{"t-54am1 tank"
+{"t-54am1_pol tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
 		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
@@ -4017,7 +4017,28 @@
 	}
 }
 
-{"t-54am2 tank"
+{"t-54am2_pol tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "open" 1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"t-54u_pol tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
 		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}

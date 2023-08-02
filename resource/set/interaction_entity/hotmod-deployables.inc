@@ -60,6 +60,14 @@
 	("gunbag" guntype(dshk_aa_prc)   			bagtype(gunbag_dshk_prc))
 	("gunbag" guntype(82mm_bm37_prc)  			bagtype(gunbag_bm37_prc))
 	("gunbag" guntype(b-10_prc)  				bagtype(gunbag_b10_prc))
+	
+	;///POL
+	("gunbag" guntype(sg43_stand_pol) 			bagtype(gunbag_sg43_pol))
+	("gunbag" guntype(dshk_aa_pol)   			bagtype(gunbag_dshk_pol))
+	("gunbag" guntype(82mm_bm37_pol)  			bagtype(gunbag_bm37_pol))
+	("gunbag" guntype(b-10_pol)  				bagtype(gunbag_b10_pol))
+	("gunbag" guntype(spg9_pol)  				bagtype(gunbag_spg9_pol))
+	("gunbag" guntype(9m14_pol)  				bagtype(gunbag_9m14_pol))
 
 
 	;/// AI
@@ -80,6 +88,12 @@
 	("gunbag" guntype(dshk_aa_prc_ai)   			bagtype(gunbag_dshk_prc))
 	("gunbag" guntype(82mm_bm37_prc_ai)   			bagtype(gunbag_bm37_prc))
 	("gunbag" guntype(b-10_prc_ai)   				bagtype(gunbag_b10_prc))
+	("gunbag" guntype(sg43_stand_pol_ai) 			bagtype(gunbag_sg43_pol))
+	("gunbag" guntype(mg_stand_pk_pol_ai)   		bagtype(gunbag_pk_pol))
+	("gunbag" guntype(dshk_aa_pol_ai)   			bagtype(gunbag_dshk_pol))
+	("gunbag" guntype(82mm_bm37_pol_ai)  			bagtype(gunbag_bm37_pol))
+	("gunbag" guntype(b-10_pol_ai)  				bagtype(gunbag_b10_pol))
+	("gunbag" guntype(spg9_pol_ai)  				bagtype(gunbag_spg9_pol))
 	
 	
 {"dozer"
