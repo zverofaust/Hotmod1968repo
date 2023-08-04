@@ -3712,6 +3712,10 @@
 		{ani_play "open_topright" +1.0 resume}
 		{ani_play "mgun" +1.0 resume}
 	}
+	{on "commander_hatch_close" overload
+		{ani_play "open_topright" -1.0 resume}
+		{ani_play "mgun" -1.0 resume}
+	}
 }
 
 {"topas_2ap tank"
