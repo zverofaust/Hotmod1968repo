@@ -1,0 +1,97 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc" scale(0.6))
+	(include "/properties/selection/cannon.inc" scale(0.7))
+	{props "aagun" "wheeled" "automatic" "vision_lev02_can" "muzzle_kpvt" "trailer" "trailer_light" "detect_cannon_aa" "flak" "aa_short"}
+	{PatherID "cannon.medium"}
+	{targetclass "cannon_zenite"}
+	{targetSelector "cannon_zenite"}
+
+	;volume, component/tag, thickness
+	{Volume "gun"
+		{thickness 8}
+	}
+	{Volume "body"
+		{thickness 8}
+	}
+	{Volume "turret"
+		{thickness 8}
+	}
+	{Volume "turret2"
+		{thickness 8}
+	}
+	{Volume "turret3"
+		{thickness 8}
+	}
+	
+	("armor_light_cannon")
+
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+
+	("crew_wheeled_cannon")
+
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_61K_gunlayer_right" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_61K_gunlayer_left" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{Box
+			{item "ammo hmgun_rus_kpvt" 200}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "mgun"
+			{RestoreIKAfterAim}
+			{Barrels 2}
+			{type "aa"}
+			{weapon "kpv_x2" filled}
+			{gunner "gunner"}
+			{charger "commander"}
+			("hm68_abm_gun")
+			{basic}
+		}
+	}  	
+
+	{extender "cannon"
+		{animation
+			{aim		"Cannon_61K_gunlayer_right"	"Cannon_61K_gunlayer_left"}
+			;{fire		"" 							""}
+			{move		"cannon_pak40_pusher_left" 	"cannon_pak40_pusher_right"}
+			;{reload	"" 							"cannon_flak38_charger_left"}
+			{switch "close"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+	}
+
+	{mass 620}
+	{Extension "zu-2.mdl"}
+	
+	{Chassis "track"
+		("car_trace" fx("tracewheel02a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility_cannon"
+			speed(12.0) ;---------------------------------Max speed.
+			weight(620) ;-------------------------------Weight in Kilograms.
+		)
+	}
+}
