@@ -42,16 +42,16 @@
 
 ; ======Tier1======
 
-; // 3DP Rozpoznawczą on M72 Motorbike
-{"doctrine_vehicle_m72(pol)"
-	("squad_vehicle2_doctrine" side(pol) period(mid) vehicle(m72_pol) crew1(roz_squadlead:1) crew2(roz_rifleman:2) cw(2) cp(0))
-	("doctrine_t1" cool(60) d(mid_pol_pomorska) cost(3))
-}
-
 ; // 2DP PKS Tripod Team
 {"doctrine_team_pk(pol)"
 	("squad_with2types_doctrine" side(pol) period(mid) c1(sup_guncrew_pk:1) c2(sup_guncrew:1))
 	("doctrine_t1" cool(30) d(mid_pol_pomorska) cost(2))
+}
+
+; // 3DP Rozpoznawczą on M72 Motorbike
+{"doctrine_vehicle_m72(pol)"
+	("squad_vehicle2_doctrine" side(pol) period(mid) vehicle(m72_pol) crew1(roz_squadlead:1) crew2(roz_rifleman:2) cw(2) cp(0))
+	("doctrine_t1" cool(60) d(mid_pol_pomorska) cost(3))
 }
 
 ; // 8DP Rozpoznawczą Specjalna Squad
@@ -60,7 +60,19 @@
 	("doctrine_t1" cool(120) d(mid_pol_pomorska) cost(8))
 }
 
+; // 8DP GAZ-69 with Wz.37 light mortar
+{"doctrine_vehicle_gaz69_mortar(pol)"
+	("squad_vehicle2_doctrine" side(pol) period(mid) vehicle(gaz-69_mortar_pol) crew1(roz_squadlead:1) crew2(roz_rifleman:3) cw(2) cp(0))
+	("doctrine_t1" cool(60) d(mid_pol_pomorska) cost(8))
+}
+
 ; ======Tier2======
+
+; // 8DP GAZ_69 with B-10
+{"doctrine_vehicle_gaz69_mortar(pol)"
+	("squad_vehicle2_doctrine" side(pol) period(mid) vehicle(gaz-69_b10_pol) crew1(roz_squadlead:1) crew2(roz_rifleman:3) cw(2) cp(0))
+	("doctrine_t1" cool(120) d(mid_pol_pomorska) cost(8))
+}
 
 ; // 8DP T-54AM1
 {"doctrine_vehicle_t54am1(pol)"
@@ -272,8 +284,13 @@
 
 ;LIGHT
 
+{"gaz-69_dshk_pol"
+	("vehicle" period(mid) cd(60) ci(45) t(vehicle apc) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(3))
+	{cost 80}
+}
+
 {"brdm-1_pol"
-	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(3))
+	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(5))
 	{cost 75}
 }
 

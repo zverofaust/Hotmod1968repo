@@ -1842,6 +1842,16 @@
 	("kubel_sound")
 }
 
+{"m151_m2"
+	("kubel_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "mgun" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "mgun" -1.0 resume}
+	}
+}
+
 {"m151_m40"
 	{on fire "gun"
 		{ani_play "fire"}
@@ -3668,6 +3678,44 @@
 
 ;/*=========== POL Vehicles BEGIN  ===========*/
 
+{"gaz-69_pol"
+	("gaz_sound")
+}
+
+{"gaz-69_dshk_pol"
+	("gaz_sound")
+}
+
+{"gaz-69_b10_pol"
+	("gaz_sound")
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{view start "backblast"}
+		{call "spawn_shell"}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "mgun" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "mgun" -1.0 resume}
+	}
+}
+
+{"gaz-69_mortar_pol"
+	("gaz_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "open_topright" +1.0 resume}
+		{ani_play "mgun" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open_topright" -1.0 resume}
+		{ani_play "mgun" -1.0 resume}
+	}
+}
 {"lublin-51 car"
 	("studebaker_sound")
 	("animation_sound" args "open_left")

@@ -1,0 +1,415 @@
+;SDL
+
+;////////////////// INSTRUCTIONS //////////////////
+;Buttons go as follows, displayed in-game in this order:
+
+; inf1       - infantry squads
+; inf2       - infantry single units
+; empl       - Emplacements, AA, AT, Mortars, Howitzers
+; vehicles   - vehicles, armoured cars, supplies
+; tanks      - main battle tanks, TDs, SPGs
+; doctrine   - specific doctrine setups
+
+; TEMP: Note all levels have been brought down to 1 to remove unit locks.
+; Squads currently have an MP cost of 0 - their cost is currently calculated as the sum of their soldiers cost, see inf_ger.set
+; Check ../settings.set for syntax instructions!!
+; unit limits per game are not defined here but in gamemode presets
+
+;user defined set tags that should be featured on units:
+;all artillery heavyart cannon mediumcan heavycan light medium heavy infantry supply
+;these tags allow player to disable certain sets for custom setups like "no heavy artillery" 
+;//////////////////////////////////////////////////
+
+
+;_________________________________________________
+;|        	Default Strategic Abilities           |
+;|________________________________________________|
+
+;//Artillery Strike dummies
+
+;//Artillery Supports
+
+{"artillery_barrage_smoke_pol"
+	("offmap_support" side(pol) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d1_pol) crew(sup_guncrew:0))
+	{cost 2}{conditions "radio_sov"}{action "airstrike:flare_artillery_smoke"}
+}
+
+;// Helicopter CAS Runs
+
+; removed
+
+;// Airstrikes
+
+{"airstrike_light_rocket_pol"
+	("squad_vehicle" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 3}{action "callin_light_rocket_sov"}
+}
+
+{"airstrike_light_pol"
+	("emplacement" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 2}{action "airstrike:flare_airstrike_light_bomb_sov"}
+}
+
+{"mig-19_airstrike_rocket_light" ;buildable airstrike
+	("emplacement" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_rocket_sov))
+	{cost 3}
+}
+
+{"airstrike_light_wp_pol"
+	("squad_vehicle" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 2}{action "airstrike:flare_airstrike_light_wp_sov"}
+}
+
+{"airstrike_medium_pol"
+	("squad_vehicle" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(su-7_airstrike) crew(sup_pilot:0))
+	{cost 4}{action "airstrike:flare_airstrike_medium_bomb_sov"}
+}
+
+{"airstrike_medium_wp_pol"
+	("squad_vehicle" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(su-7_airstrike) crew(sup_pilot:0))
+	{cost 5}{action "airstrike:flare_airstrike_medium_wp_sov"}
+}
+
+{"airstrike_medium_cluster_pol"
+	("squad_vehicle" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(su-7_airstrike) crew(sup_pilot:0))
+	{cost 6}{action "airstrike:flare_airstrike_medium_cluster_sov"}
+}
+
+{"airstrike_heavy_pol"
+	("squad_vehicle" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
+	{cost 12}{action "airstrike:flare_airstrike_heavy_bomb_sov"}
+}
+
+{"airstrike_heavy_wp_pol"
+	("squad_vehicle" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
+	{cost 15}{action "airstrike:flare_airstrike_heavy_wp_sov"}
+}
+
+{"airstrike_heavy_cluster_pol"
+	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
+	{cost 15}{action "airstrike:flare_airstrike_heavy_cluster_sov"}
+}
+
+{"airstrike_superheavy_pol"
+	("squad_vehicle" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(6) vehicle(yak-28_airstrike) crew(sup_pilot:0))
+	{cost 20}{action "airstrike:flare_airstrike_super_bomb_sov"}
+}
+
+;// OTHER OFFMAP Supports (Paradrops)
+
+{"paradrop_supply_pol"
+	("offmap_support" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(ammo_pallet) crew(sup_pilot:0))
+	{cost 3}{action "airstrike:flare_paradrop_ammo"}
+}
+
+{"paradrop_asu57_pol"
+	("offmap_support" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(asu57) crew(sup_pilot:0))
+	{cost 3}{action "airstrike:flare_paradrop_asu57"}
+}
+
+{"paradrop_asu85_pol"
+	("offmap_support" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(asu-85) crew(sup_pilot:0))
+	{cost 5}{action "airstrike:flare_paradrop_asu85"}
+}
+
+
+;_________________________________________________
+;|             inf1                               |
+;|________________________________________________|
+
+
+("squad_with4types_conquest" side(pol) name(squad_reservist)		period(mid) min_stage(0) max_stage(5)	 c1(rsv_squadlead:1) c2(rsv_lmg:1) c3(rsv_atgren:1) c4(rsv_rifleman:5)	)
+
+("squad_with3types_conquest" side(pol) name(squad_maneuv)			period(mid) min_stage(0) max_stage(5) c1(reg_senior:1) c2(reg_marksman:1) c3(reg_rifleman:2)	)
+("squad_with4types_conquest" side(pol) name(squad_fireteam)			period(mid) min_stage(0) max_stage(5) c1(reg_lmg:1) c2(reg_antitank2:1) c3(reg_atassist2:1) c4(reg_rifleman:1)  )
+("squad_with6types_conquest" side(pol) name(squad_rifle)			period(mid) min_stage(0) max_stage(5) c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_antitank1:1) c5(reg_atassist1:1) c6(reg_rifleman:3)	)
+
+{"squad_reservist_moto(pol)"
+	("squad_vehicle5" period(mid) min_stage(0) max_stage(5) side(pol) cw(0) cp(4) vehicle(topas) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_atgren:1) crew5(rsv_rifleman:5) )
+}
+
+{"squad_rifle_moto(pol)"
+	("squad_vehicle6" period(mid) min_stage(0) max_stage(5) side(pol) cw(0) cp(4) vehicle(topas) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank1:1) crew5(reg_atassist1:1) crew6(reg_rifleman:4)  )
+}
+
+("squad_with4types_conquest" side(pol) name(squad_roz_recon)	period(mid) min_stage(0) max_stage(5)  c1(roz_squadlead:1) c2(roz_antitank:1) c3(roz_marksman:1) c4(roz_rifleman:1) )
+
+;_________________________________________________
+;|             inf2                               |
+;|________________________________________________|
+
+
+("squad_with1types_conquest" 	side(pol) name(single_tankman)			period(mid) min_stage(0) max_stage(5)				c1(sup_tankman:3)								)
+("squad_with1types_conquest" 	side(pol) name(single_supporter)		period(mid) min_stage(0) max_stage(99)				c1(sup_supporter:2) 							)
+("squad_with1types_conquest"	side(pol) name(single_scout)			period(mid) min_stage(0) max_stage(99)				c1(reg_scout:1) 								) 
+("squad_with2types_conquest"	side(pol) name(single_mg_early)			period(mid) min_stage(0) max_stage(5)				c1(reg_mg_dp:1) c2(reg_mgassist_dp:1)			) ;RP-46
+("squad_with2types_conquest"	side(pol) name(single_mg)				period(mid) min_stage(4) max_stage(99)				c1(reg_mg:1) c2(reg_mgassist:1)					) ;PK
+("squad_with1types_conquest" 	side(pol) name(single_atgren)			period(mid) min_stage(0) max_stage(10)				c1(reg_atgren:2) 								)
+("squad_with2types_conquest" 	side(pol) name(single_at)				period(mid) min_stage(0) max_stage(10)				c1(reg_antitank:1) c2(reg_atassist:1)			) ;RPG-2
+("squad_with2types_conquest" 	side(pol) name(single_at2)				period(mid) min_stage(3) max_stage(99)				c1(reg_antitank2:1) c2(reg_atassist2:1)			) ;RPG-7
+("squad_with2types_conquest" 	side(pol) name(single_sniper)			period(mid) min_stage(0) max_stage(99)				c1(roz_sniper:1) c2(roz_spotter:1)				)
+("squad_with1types_conquest" 	side(pol) name(single_flamer)			period(mid) min_stage(0) max_stage(99)				c1(reg_flamer:1) 								)
+("squad_with1types_conquest" 	side(pol) name(single_medic)			period(mid) min_stage(0) max_stage(99)				c1(reg_medic:1) 								)
+("squad_with1types_conquest" 	side(pol) name(single_sapperap)			period(mid) min_stage(0) max_stage(99)				c1(reg_sapper-ap:2) 							)
+("squad_with1types_conquest" 	side(pol) name(single_sapperat)			period(mid) min_stage(0) max_stage(99)				c1(reg_sapper-at:2) 							)
+("squad_with1types_conquest" 	side(pol) name(single_engineer)			period(mid) min_stage(0) max_stage(99)				c1(reg_engineer:2) 								)
+
+;_________________________________________________
+;|                  Emplacements                  |
+;|________________________________________________|
+
+; AI DEFENSIVE EMPLACEMENTS
+
+{"defense_mg_sg43_pol"
+	("emplacement" side(pol) period(mid) min_stage(0) max_stage(5) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(sg43_stand_pol))
+	{cost 60}{not_for_player_sale 1}
+}
+
+{"defense_mg_pk_pol"
+	("emplacement" side(pol) period(mid) min_stage(0) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(mg_stand_pk_pol))
+	{cost 60}{not_for_player_sale 1}
+}
+
+{"defense_mg_dshk_pol"
+	("emplacement" side(pol) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(dshk_aa_pol))
+	{cost 100}{not_for_player_sale 1}
+}
+
+{"defense_mg_zu2_pol"
+	("emplacement" side(pol) period(mid) min_stage(3) max_stage(10) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(zu-2_pol))
+	{cost 150}{not_for_player_sale 1}
+}
+
+{"defense_mg_zpu4_pol"
+	("emplacement" side(pol) period(mid) min_stage(5) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(zpu-4_pol))
+	{cost 200}{not_for_player_sale 1}
+}
+
+{"defense_rcl_b10_pol"
+	("emplacement" side(pol) period(mid) min_stage(2) max_stage(10) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(b-10_pol))
+	{cost 180}{not_for_player_sale 1}
+}
+
+{"defense_rcl_spg9_pol"
+	("emplacement" side(pol) period(mid) min_stage(5) max_stage(99) cw(2) cp(0) crew(sup_supporter:0) condition(barricade) action(spg9_pol))
+	{cost 200}{not_for_player_sale 1}
+}
+
+;AUTOMATIC WEAPONRY
+("squad_weaponteam_conquest" 	side(pol) name(deploy_sg43_con)			period(mid) 	min_stage(0) max_stage(8)			c1(sup_guncrew_sg43:1) c2(sup_guncrew:1) cost(60)) 
+("squad_weaponteam_conquest" 	side(pol) name(deploy_pk_con)			period(mid) 	min_stage(4) max_stage(99)			c1(sup_guncrew_pk:1) c2(sup_guncrew:1) cost(70)) 
+("squad_weaponteam_conquest" 	side(pol) name(deploy_dshk_con)			period(mid) 	min_stage(3) max_stage(99)			c1(sup_guncrew_dshk:1) c2(sup_guncrew:1) cost(100))
+
+{"zu-2_pol"
+	("vehicle" period(mid) min_stage(2) max_stage(15) side(pol) crew(sup_supporter:2) cw(4) cp(3))
+	{cost 175}
+}
+
+{"zpu-4_pol"
+	("vehicle" period(mid) min_stage(4) max_stage(99) side(pol) crew(sup_supporter:2) cw(4) cp(4))
+	{cost 225}
+}
+
+;{"zu-23-2_pol" ;introduced 1972-73 in Poland
+;	("vehicle" period(mid) min_stage(5) max_stage(99) side(pol) crew(sup_supporter:2) cw(4) cp(4))
+;	{cost 250}
+;}
+
+{"57mm_s-60_pol"
+	("vehicle"  side(pol) period(mid) min_stage(5) max_stage(30) cw(4) cp(4) crew(sup_supporter:4))
+	{cost 300}
+}
+
+; AT WEAPONRY
+("squad_weaponteam_conquest" 	side(pol) name(deploy_b10_con)			period(mid) 	min_stage(1) max_stage(15)			c1(sup_guncrew_b10:1) c2(sup_guncrew:1) cost(180))
+("squad_weaponteam_conquest" 	side(pol) name(deploy_spg9_con)			period(mid) 	min_stage(5) max_stage(99)			c1(sup_guncrew_spg9:1) c2(sup_guncrew:1) cost(200))
+("squad_weaponteam_conquest" 	side(pol) name(deploy_9m14_con)			period(mid) 	min_stage(5) max_stage(99)			c1(sup_guncrew_9m14:1) c2(sup_guncrew:1) cost(250))
+
+
+;ARTILLERY 
+
+("squad_weaponteam_conquest" 	side(pol) name(deploy_bm37_con)			period(mid) 	min_stage(0) max_stage(99)			c1(sup_guncrew_bm37:1) c2(sup_guncrew:1) cost(125))
+
+{"120mm_pm38_pol"
+	("vehicle" period(mid) min_stage(3) max_stage(99) side(pol) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 200}
+}
+{"76mm_zis3_pol"
+	("vehicle" period(mid) min_stage(0) max_stage(5) side(pol) crew(sup_supporter:4) cw(4) cp(6))
+	{cost 150}
+}
+;{"gp1958"
+;	("vehicle" period(mid) min_stage(4) max_stage(25) side(pol) crew(vdv_rifleman:4) cw(4) cp(6))
+;	{cost 175}
+;}
+{"d-44_pol"
+	("vehicle" period(mid) min_stage(4) max_stage(25) side(pol) crew(sup_supporter:4) cw(4) cp(6))
+	{cost 185}
+}
+{"m30_pol"
+	("vehicle" period(mid) min_stage(2) max_stage(15) side(pol) crew(sup_guncrew:4) cw(0) cp(10))
+	{cost 290}
+}
+{"d1_pol"
+	("vehicle" side(pol) period(mid) min_stage(2) max_stage(15) crew(sup_guncrew:4) cw(0) cp(14))
+	{cost 400}
+}
+{"bm-14_pol"
+	("vehicle" period(mid) min_stage(5) max_stage(15) side(pol) crew(sup_supporter:2) cw(0) cp(12))
+	{cost 700}
+}
+{"bm-24_pol"
+	("vehicle" period(early) min_stage(8) max_stage(18) side(pol) crew(sup_supporter:2) cw(0) cp(12))
+	{cost 800}
+}
+{"bm-21_pol"
+	("vehicle" period(mid) min_stage(8) max_stage(99) side(pol) crew(sup_supporter:2) cw(0) cp(12))
+	{cost 900}
+}
+
+;_________________________________________________
+;|               Support vehicles                 |
+;|________________________________________________|
+
+;{"ammo_crate"
+;	("squad_vehicle" period(mid) cd(0) ci(00) t(vehicle) side(pol) crew(sup_supporter:0) vehicle(d30a) g(empl12) b(vehicles) cw(0) cp(16))
+;	{cost 100} {conditions "supply"}{action "inf_crate_pol"} 
+;}
+
+{"gaz-69_pol"
+	("vehicle"  period(mid) cd(0) ci(5) g(wheel1) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 5}
+}
+
+{"m72_pol"
+	("vehicle"  period(mid) cd(0) ci(5) g(wheel1) side(pol) t(vehicle) crew(sup_supporter:2) b(vehicles) cw(0) cp(2))
+	{cost 40}
+}
+
+{"lublin-51"
+	("vehicle"  period(mid) cd(0) ci(15) g(wheel2) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 25}
+}
+
+{"lublin-51_ammo"
+	("vehicle"  period(mid) cd(0) ci(15) g(supply1) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 125}
+}
+
+{"lublin-51_eng"
+	("vehicle"  period(mid) cd(0) ci(15) g(supply1) side(pol) t(vehicle) crew(reg_engineer:2) b(vehicles) cw(0) cp(2))
+	{cost 100}
+}
+
+{"ural375_pol"
+	("vehicle"  period(mid) cd(0) ci(5) g(wheel2) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 40}
+}
+
+{"ural375_pol_ammo"
+	("vehicle"  period(mid) cd(60) ci(60) g(supply1) side(pol) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 200}
+}
+
+{"btr-40_pol"
+	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(4))
+	{cost 50}
+}
+
+{"btr-152_pol"
+	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	{cost 70}
+}
+
+{"topas"
+	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	{cost 75}
+}
+
+;_________________________________________________
+;|        		 Fighting Vehicles                |
+;|________________________________________________|
+
+;LIGHT
+
+{"gaz-69_dshk_pol"
+	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(3))
+	{cost 80}
+}
+
+{"brdm-1_pol"
+	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(3))
+	{cost 75}
+}
+
+{"btr-40a_pol"
+	("vehicle" period(mid) cd(30) ci(30) t(vehicle antiair) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(8))
+	{cost 160}
+}
+
+{"2p27_pol"
+	("vehicle" period(mid) cd(60) ci(60) t(light atgm) side(pol) crew(sup_vehicleman:2) g(wheel4) b(tanks) cw(0) cp(8))
+	{cost 375}
+}
+
+{"pt-76_pol"
+	("vehicle" period(mid) cd(0) ci(30) t(light tank) side(pol) crew(sup_tankman:3) g(tank1) b(tanks) cw(0) cp(10))
+	{cost 250}
+}
+
+;Medium
+
+{"t-34-85_pol"
+	("vehicle" period(mid) cd(30) ci(30) t(medium tank) side(pol) crew(sup_tankman:5) g(medium1) b(tanks) cw(0) cp(8))
+	{cost 310}
+}
+
+{"t-54a_pol"
+	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
+	{cost 390}
+}
+
+{"t-54am2_pol"
+	("vehicle" period(mid) cd(200) ci(80) t(medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
+	{cost 420}
+}
+
+{"t-55_pol"
+	("vehicle" period(mid) cd(300) ci(120) t(medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 520}
+}
+
+
+;{"zsu-57-2pl"
+;	("vehicle" period(mid) cd(380) ci(240) t(medium antiair) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+;	{cost 600}
+;}
+
+;_________________________________________________
+;|        		 AI ONLY for purchase             |
+;|________________________________________________|
+
+{"dshk_aa_pol_ai"
+	("vehicle" period(mid) cd(180) ci(15) t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
+	{cost 100}{not_for_player_sale 1}
+}
+
+{"b-10_pol_ai"
+	("vehicle" period(mid) cd(0) ci(15) t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
+	{cost 150}{not_for_player_sale 1}
+}
+
+{"spg9_pol_ai"
+	("vehicle" period(mid) cd(60) ci(30) t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
+	{cost 200}{not_for_player_sale 1}
+}
+
+{"82mm_bm37_pol_ai"
+	("vehicle" period(mid) cd(30) ci(30) t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
+	{cost 175}{not_for_player_sale 1}
+}
+
+;{"mil_mi4_heavy_airborne"
+;	("vehicle" period(mid) cd(300) ci(240) t(helicopter) g(heli) side(pol) crew(sup_pilot:1) cw(0) cp(20))
+;	{cost 900}{not_for_player_sale 1}
+;}
