@@ -48,10 +48,10 @@
 	("doctrine_t1" cool(60) d(mid_pol_pomorska) cost(3))
 }
 
-; // 3DP SPG-9 Team
-{"doctrine_team_spg9(pol)"
-	("squad_with2types_doctrine" side(pol) period(mid) c1(sup_guncrew_spg9:1) c2(sup_guncrew:1))
-	("doctrine_t1" cool(30) d(mid_pol_pomorska) cost(3))
+; // 2DP PKS Tripod Team
+{"doctrine_team_pk(pol)"
+	("squad_with2types_doctrine" side(pol) period(mid) c1(sup_guncrew_pk:1) c2(sup_guncrew:1))
+	("doctrine_t1" cool(30) d(mid_pol_pomorska) cost(2))
 }
 
 ; // 8DP Rozpoznawczą Specjalna Squad
@@ -83,6 +83,12 @@
 ;===================================
 
 ; ======Tier1======
+
+; // 4DP SPG-9 Team
+{"doctrine_team_spg9(pol)"
+	("squad_with2types_doctrine" side(pol) period(mid) c1(sup_guncrew_spg9:1) c2(sup_guncrew:1))
+	("doctrine_t1" cool(30) d(mid_pol_luzycka) cost(4))
+}
 
 ; // 6DP Rifle Squad in TOPAS
 {"doctrine_squad_rifle_mech(pol)"
@@ -164,7 +170,8 @@
 
 
 ;AUTOMATIC WEAPONRY
-("squad_weaponteam" side(pol) name(deploy_sg43) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_sg43:1) 	c2(sup_guncrew:1)	b(empl) t() cost(70))
+("squad_weaponteam" side(pol) name(deploy_sg43) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_sg43:1) 	c2(sup_guncrew:1)	b(empl) t() cost(60))
+;("squad_weaponteam" side(pol) name(deploy_pk) 		period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_pk:1) 	c2(sup_guncrew:1)	b(empl) t() cost(70))
 ("squad_weaponteam" side(pol) name(deploy_dshk) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_dshk:1) 	c2(sup_guncrew:1)	b(empl) t() cost(100))
 
 {"zpu-4_pol"
@@ -226,12 +233,37 @@
 
 {"lublin-51_ammo"
 	("vehicle"  period(mid) cd(0) ci(15) g(supply1) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
-	{cost 100}
+	{cost 125}
 }
 
 {"lublin-51_eng"
 	("vehicle"  period(mid) cd(0) ci(15) g(supply1) side(pol) t(vehicle) crew(reg_engineer:2) b(vehicles) cw(0) cp(2))
 	{cost 100}
+}
+
+{"ural375_pol"
+	("vehicle"  period(mid) cd(0) ci(5) g(wheel2) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 40}
+}
+
+{"ural375_pol_ammo"
+	("vehicle"  period(mid) cd(60) ci(60) g(supply1) side(pol) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 200}
+}
+
+{"btr-40_pol"
+	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(4))
+	{cost 50}
+}
+
+{"btr-152_pol"
+	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	{cost 70}
+}
+
+{"topas"
+	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	{cost 75}
 }
 
 ;_________________________________________________
@@ -272,7 +304,7 @@
 	{cost 390}
 }
 
-{"t-54am_pol"
+{"t-54am2_pol"
 	("vehicle" period(mid) cd(200) ci(80) t(medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
 	{cost 420}
 }

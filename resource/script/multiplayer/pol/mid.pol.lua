@@ -48,7 +48,7 @@ Purchases["mid.pol"] = {
 				{priority = 1.0, type = {"Tank", "Light", "Class3", "Class3",}, unit = "pt-76_pol"},
 				{priority = 1.0, type = {"Tank", "Light", "Class3", "Class3",}, unit = "t-34-85_pol"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "t-54a_pol"},
-				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "t-54am_pol"},
+				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "t-54am2_pol"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "t-55_pol"},
 				
 				

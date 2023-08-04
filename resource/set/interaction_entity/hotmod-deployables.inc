@@ -63,6 +63,7 @@
 	
 	;///POL
 	("gunbag" guntype(sg43_stand_pol) 			bagtype(gunbag_sg43_pol))
+	("gunbag" guntype(mg_stand_pk_pol) 			bagtype(gunbag_pk_pol))
 	("gunbag" guntype(dshk_aa_pol)   			bagtype(gunbag_dshk_pol))
 	("gunbag" guntype(82mm_bm37_pol)  			bagtype(gunbag_bm37_pol))
 	("gunbag" guntype(b-10_pol)  				bagtype(gunbag_b10_pol))

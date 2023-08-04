@@ -3708,6 +3708,10 @@
 
 {"topas tank"
 	("t70_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "open_topright" +1.0 resume}
+		{ani_play "mgun" +1.0 resume}
+	}
 }
 
 {"topas_2ap tank"
