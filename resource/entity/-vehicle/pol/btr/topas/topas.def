@@ -58,11 +58,23 @@
 
 	
 	{extender "inventory"
+		{weapon "mgun" {mask "mountable"}}
 		{box
 			{item "satchel_charge_rus" 1}
+			{item "pk_mounted" filled {user "mgun"}}
 		}
 	}
-	
+	{Weaponry
+		{place "mgun"
+			{LinkBone "mgun2"}
+			{gunner "commander"}
+			{charger "commander"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			{basic}
+			{ai_in_manual}
+		}
+	}
 	
 	{mass 14500}	
 	{Chassis
@@ -90,6 +102,14 @@
 		{switch
 			{terrain "water" "deep_water"}
 		}
+	}
+	
+	{bone "mgun_rot"
+		{limits -7 20}
+	}
+	{bone "mgun_turret"
+        {limits -140 140}
+		{speed2 80}
 	}
 	
 }

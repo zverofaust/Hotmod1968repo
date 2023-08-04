@@ -1,6 +1,6 @@
 ;Exported by: misan
-;Date:        Mon Jul 31 13:25:56 2023
-;File:        D:\Cold War\ModelWIP\POLAND\OT-62 TOPAS\OT-62.max
+;Date:        Thu Aug  3 15:14:15 2023
+;File:        D:\Cold War\ModelWIP\POLAND\OT-62 TOPAS\TOPAS.max
 {Skeleton
 	{animation
 		{sequence "start" {speed 0.15}}
@@ -11,7 +11,10 @@
 		{sequence "open_commander" {speed 0.1}}
 		{sequence "open_right" {speed 0.1}}
 		{sequence "open_left" {speed 0.1}}
+		{sequence "open_topright" {speed 0.1}}
+		{sequence "open_topleft" {speed 0.1}}
 		{sequence "amphib" {speed 0.3}}
+		{sequence "mgun" {speed 0.3}}
 	}
 	{bone "basis"
 		{Orientation
@@ -42,6 +45,11 @@
 					-52.337	-27.0019	-7.28826
 				}
 				{VolumeView "wheelr8.ply"}
+			}
+			{bone "detail11"
+				{parameters "id=body;"}
+				{Position -22.9157	-26.9775	7.94839}
+				{VolumeView "detail11.ply"}
 			}
 			{bone "headlightr"
 				{Position 60.2035	-17.6202	13.4745}
@@ -153,14 +161,6 @@
 			{bone "visor2"
 				{Position 55.4224	-0.0333221	13.4619}
 			}
-			{bone "commander"
-				{Matrix34
-					0.707107	0.707107	0
-					-0.707107	0.707107	0
-					0	0	1
-					41.1789	14.2566	-0.338554
-				}
-			}
 			{bone "driver"
 				{Matrix34
 					0	-1	0
@@ -172,7 +172,7 @@
 			{bone "fxfire1"
 				{Position -21.5451	16.0577	6.47042}
 			}
-			{bone "visor1"
+			{bone "visor3"
 				{Position 49.243	14.9573	25.3562}
 			}
 			{bone "detail10"
@@ -246,30 +246,10 @@
 					-68.8133	0	2.71024
 				}
 			}
-			{bone "detail1"
-				{parameters "id=body;"}
-				{Matrix34
-					0	-0.999657	-0.0261769
-					1	0	0
-					0	-0.0261769	0.999657
-					-31.7628	-1.94113	22.1745
-				}
-				{VolumeView "detail1.ply"}
-			}
 			{bone "hatch_right"
 				{parameters "id=body;"}
 				{Position 12.668	-29.7548	13.4043}
 				{VolumeView "hatch_right.ply"}
-			}
-			{bone "hatch_topr_2"
-				{parameters "id=body;"}
-				{Position 12.0669	-16.9672	24.3116}
-				{VolumeView "hatch_topr_2.ply"}
-			}
-			{bone "hatch_topl_2"
-				{parameters "id=body;"}
-				{Position 12.0669	16.9623	24.3145}
-				{VolumeView "hatch_topl_2.ply"}
 			}
 			{bone "commander_rot"
 				{parameters "id=body;"}
@@ -316,7 +296,7 @@
 					{parameters "id=engine;"}
 					{Position -37.4178	22.848	9.29172}
 					{VolumeView "exhaust.ply"}
-					{bone "fxsmoke1"
+					{bone "point001"
 						{Matrix34
 							-0.707107	0.707107	0
 							-0.707107	-0.707107	0
@@ -355,6 +335,40 @@
 				{parameters "id=body;"}
 				{Position 12.668	30.0235	13.4043}
 				{VolumeView "hatch_left.ply"}
+			}
+			{bone "hatch_topl"
+				{parameters "id=body;"}
+				{Position 12.0669	16.9647	24.3091}
+				{VolumeView "hatch_topl.ply"}
+			}
+			{bone "hatch_topr"
+				{parameters "id=body;"}
+				{Position 12.0669	-16.9645	24.3091}
+				{VolumeView "hatch_topr.ply"}
+			}
+			{bone revolute "mgun_turret"
+				{limits -90 90}
+				{Position 19.3409	-9.80889	23.9094}
+				{bone revolute "mgun_rot"
+					{limits -10 10}
+					{Matrix34
+						0.984808	0	0.173648
+						-0.173648	0	0.984808
+						0	-1	0
+						-4.0828	0	-7.29435
+					}
+					{bone "mgun_help"
+						{Position -8.07279	0	0}
+					}
+					{bone "commander"
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							-14.0226	-20.7286	0.757226
+						}
+					}
+				}
 			}
 		}
 		{bone "wheelsl"

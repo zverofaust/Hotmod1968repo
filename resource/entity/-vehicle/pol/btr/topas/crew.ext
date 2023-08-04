@@ -15,6 +15,14 @@
 		{forward	{begin	"board_body"} {end "seat_passenger"} {base "open_right"}}
 		{reverse	{end	"board_body" -1} {base "open_right"}}
 	}
+	{anm "gunner_r"
+		{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "open_right"}}
+		{reverse	{end	"board_body" -1} {base "open_right"}}
+	}
+	{anm "gunner_l"
+		{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "open_left"}}
+		{reverse	{end	"board_body" -1} {base "open_left"}}
+	}
 }
 
 (define "passenger_invis"
@@ -30,8 +38,8 @@
 )
 
 ("crew_human"		place(driver)	bone()	door(emit1) door2(emit2)	visor(driver)	off({sensor}))
-("crew_human"		place(gunner)   bone()  door(emit1) door2(emit2)    visor(main)		off())
-("crew_human"		place(commander)   bone()  door(emit1) door2(emit2)    visor(commander) off())
+;("crew_human"		place(gunner)   bone()  door(emit1) door2(emit2)    visor(main)		off())
+("crew_human_visible_anm"			place(commander) 	 door(emit1) door2(emit2) visor(mgun)   anm_left(gunner_l)   anm_right(gunner_r))
 
 ("passenger_invis"		place(passenger1)	door(emit3) door2(emit4)			)
 ("passenger_invis"		place(passenger2)	door(emit3) door2(emit4)			)
