@@ -31,7 +31,7 @@
 
 {"artillery_barrage_smoke_pol"
 	("offmap_support" side(pol) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d1_pol) crew(sup_guncrew:0))
-	{cost 2}{conditions "radio_sov"}{action "airstrike:flare_artillery_smoke"}
+	{cost 2}{conditions "radio_pol"}{action "airstrike:flare_artillery_smoke"}
 }
 
 ;// Helicopter CAS Runs
@@ -48,11 +48,6 @@
 {"airstrike_light_pol"
 	("emplacement" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
 	{cost 2}{action "airstrike:flare_airstrike_light_bomb_sov"}
-}
-
-{"mig-19_airstrike_rocket_light" ;buildable airstrike
-	("emplacement" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_rocket_sov))
-	{cost 3}
 }
 
 {"airstrike_light_wp_pol"
@@ -102,11 +97,6 @@
 	{cost 3}{action "airstrike:flare_paradrop_ammo"}
 }
 
-{"paradrop_asu57_pol"
-	("offmap_support" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(asu57) crew(sup_pilot:0))
-	{cost 3}{action "airstrike:flare_paradrop_asu57"}
-}
-
 {"paradrop_asu85_pol"
 	("offmap_support" side(pol) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(asu-85) crew(sup_pilot:0))
 	{cost 5}{action "airstrike:flare_paradrop_asu85"}
@@ -125,6 +115,10 @@
 ("squad_with6types_conquest" side(pol) name(squad_rifle)			period(mid) min_stage(0) max_stage(5) c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_antitank1:1) c5(reg_atassist1:1) c6(reg_rifleman:3)	)
 
 {"squad_reservist_moto(pol)"
+	("squad_vehicle5" period(mid) min_stage(0) max_stage(5) side(pol) cw(0) cp(4) vehicle(btr-152_pol) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_atgren:1) crew5(rsv_rifleman:5) )
+}
+
+{"squad_reservist_moto2(pol)"
 	("squad_vehicle5" period(mid) min_stage(0) max_stage(5) side(pol) cw(0) cp(4) vehicle(topas) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_atgren:1) crew5(rsv_rifleman:5) )
 }
 
@@ -234,14 +228,14 @@
 	("vehicle" period(mid) min_stage(3) max_stage(99) side(pol) crew(sup_supporter:2) cw(0) cp(4))
 	{cost 200}
 }
+;{"57mm_zis2_pol"
+;	("vehicle" period(mid) min_stage(0) max_stage(5) side(pol) crew(sup_supporter:4) cw(4) cp(6))
+;	{cost 160}
+;}
 {"76mm_zis3_pol"
 	("vehicle" period(mid) min_stage(0) max_stage(5) side(pol) crew(sup_supporter:4) cw(4) cp(6))
 	{cost 150}
 }
-;{"gp1958"
-;	("vehicle" period(mid) min_stage(4) max_stage(25) side(pol) crew(vdv_rifleman:4) cw(4) cp(6))
-;	{cost 175}
-;}
 {"d-44_pol"
 	("vehicle" period(mid) min_stage(4) max_stage(25) side(pol) crew(sup_supporter:4) cw(4) cp(6))
 	{cost 185}
@@ -254,77 +248,108 @@
 	("vehicle" side(pol) period(mid) min_stage(2) max_stage(15) crew(sup_guncrew:4) cw(0) cp(14))
 	{cost 400}
 }
+;{"wp-8z"
+;	("vehicle" side(prc) period(mid) min_stage(4) max_stage(99) crew(sup_guncrew:4) cw(0) cp(8))
+;	{cost 450}
+;}
 {"bm-14_pol"
 	("vehicle" period(mid) min_stage(5) max_stage(15) side(pol) crew(sup_supporter:2) cw(0) cp(12))
 	{cost 700}
 }
-{"bm-24_pol"
-	("vehicle" period(early) min_stage(8) max_stage(18) side(pol) crew(sup_supporter:2) cw(0) cp(12))
-	{cost 800}
-}
 {"bm-21_pol"
 	("vehicle" period(mid) min_stage(8) max_stage(99) side(pol) crew(sup_supporter:2) cw(0) cp(12))
-	{cost 900}
+	{cost 1100}
 }
 
 ;_________________________________________________
 ;|               Support vehicles                 |
 ;|________________________________________________|
 
-;{"ammo_crate"
-;	("squad_vehicle" period(mid) cd(0) ci(00) t(vehicle) side(pol) crew(sup_supporter:0) vehicle(d30a) g(empl12) b(vehicles) cw(0) cp(16))
-;	{cost 100} {conditions "supply"}{action "inf_crate_pol"} 
-;}
+
+{"m72_pol"
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_supporter:2) cw(0) cp(1))
+	{cost 35}
+}
 
 {"gaz-69_pol"
-	("vehicle"  period(mid) cd(0) ci(5) g(wheel1) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_supporter:1) cw(0) cp(1))
 	{cost 5}
 }
 
-{"m72_pol"
-	("vehicle"  period(mid) cd(0) ci(5) g(wheel1) side(pol) t(vehicle) crew(sup_supporter:2) b(vehicles) cw(0) cp(2))
-	{cost 40}
-}
-
 {"lublin-51"
-	("vehicle"  period(mid) cd(0) ci(15) g(wheel2) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_supporter:1) cw(0) cp(1))
 	{cost 25}
 }
 
 {"lublin-51_ammo"
-	("vehicle"  period(mid) cd(0) ci(15) g(supply1) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_supporter:1)  cw(0) cp(2))
 	{cost 125}
 }
 
 {"lublin-51_eng"
-	("vehicle"  period(mid) cd(0) ci(15) g(supply1) side(pol) t(vehicle) crew(reg_engineer:2) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(pol) crew(reg_engineer:2) cw(0) cp(2))
 	{cost 100}
 }
 
 {"ural375_pol"
-	("vehicle"  period(mid) cd(0) ci(5) g(wheel2) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	("vehicle"  period(mid) min_stage(4) max_stage(99) side(pol) crew(sup_supporter:1) cw(0) cp(1))
 	{cost 40}
 }
 
-{"ural375_pol_ammo"
-	("vehicle"  period(mid) cd(60) ci(60) g(supply1) side(pol) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+{"ural375_ammo_pol"
+	("vehicle"  period(mid) min_stage(4) max_stage(99) side(pol) crew(sup_supporter:1) cp(2))
 	{cost 200}
 }
 
+{"kraz-255_pol"
+	("vehicle"  period(mid) min_stage(4) max_stage(99) side(pol) crew(sup_supporter:1) cp(2))
+	{cost 70}
+}
+
+{"kraz-255_ammo_pol"
+	("vehicle"  period(mid) min_stage(4) max_stage(99) side(pol) crew(sup_supporter:1) cp(2))
+	{cost 300}
+}
+
 {"btr-40_pol"
-	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(4))
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
 	{cost 50}
 }
 
 {"btr-152_pol"
-	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	("vehicle"  period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
 	{cost 70}
 }
 
 {"topas"
-	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	("vehicle"  period(mid) min_stage(4) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
 	{cost 75}
 }
+
+{"topas_2ap"
+	("vehicle"  period(mid) min_stage(9) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
+	{cost 185}
+}
+
+;{"skot-1"
+;	("vehicle"  period(mid) min_stage(9) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
+;	{cost 80}
+;}
+
+;{"skot-2a"
+;	("vehicle"  period(mid) min_stage(9) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
+;	{cost 175}
+;}
+
+;{"skot-2ap"
+;	("vehicle"  period(mid) min_stage(9) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
+;	{cost 185}
+;}
+
+;{"skot-2am"
+;	("vehicle"  period(mid) min_stage(9) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
+;	{cost 355}
+;}
 
 ;_________________________________________________
 ;|        		 Fighting Vehicles                |
@@ -333,79 +358,134 @@
 ;LIGHT
 
 {"gaz-69_dshk_pol"
-	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(3))
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_vehicleman:3) cw(0) cp(3))
 	{cost 80}
 }
 
+{"gaz-69_b10_pol" ;for 6 Pomorska pow.des (airborne)
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_vehicleman:4) cw(0) cp(3))
+	{cost 135}
+}
+
+{"gaz-69_mortar_pol" ;for 6 Pomorska pow.des (airborne)
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_vehicleman:4) cw(0) cp(3))
+	{cost 185}
+}
+
 {"brdm-1_pol"
-	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(3))
-	{cost 75}
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_vehicleman:3) cw(0) cp(3))
+	{cost 95}
 }
 
 {"btr-40a_pol"
-	("vehicle" period(mid) cd(30) ci(30) t(vehicle antiair) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(8))
-	{cost 160}
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_vehicleman:3) cw(0) cp(8))
+	{cost 155}
+}
+
+{"brdm-2_pol"
+	("vehicle" period(mid) min_stage(5) max_stage(99) side(pol) crew(sup_vehicleman:3) cw(0) cp(5))
+	{cost 125}
 }
 
 {"2p27_pol"
-	("vehicle" period(mid) cd(60) ci(60) t(light atgm) side(pol) crew(sup_vehicleman:2) g(wheel4) b(tanks) cw(0) cp(8))
+	("vehicle" period(mid) cmin_stage(0) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(8))
 	{cost 375}
 }
 
+{"9p110_pol"
+	("vehicle" period(mid) min_stage(5) max_stage(10) side(pol) crew(sup_vehicleman:2) cw(0) cp(6))
+	{cost 475}
+}
+
 {"pt-76_pol"
-	("vehicle" period(mid) cd(0) ci(30) t(light tank) side(pol) crew(sup_tankman:3) g(tank1) b(tanks) cw(0) cp(10))
-	{cost 250}
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_tankman:3) cw(0) cp(10))
+	{cost 225}
+}
+
+{"pt-76p" ;with DSHK, for 7 Luzycka Desantowa
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_tankman:3) cw(0) cp(10))
+	{cost 275}
 }
 
 ;Medium
 
 {"t-34-85_pol"
-	("vehicle" period(mid) cd(30) ci(30) t(medium tank) side(pol) crew(sup_tankman:5) g(medium1) b(tanks) cw(0) cp(8))
-	{cost 310}
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_tankman:5) cw(0) cp(8))
+	{cost 325}
 }
 
 {"t-54a_pol"
-	("vehicle" period(mid) cd(200) ci(60) t(medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
-	{cost 390}
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(12))
+	{cost 400}
 }
 
-{"t-54am2_pol"
-	("vehicle" period(mid) cd(200) ci(80) t(medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
+{"t-54am_pol"
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(12))
 	{cost 420}
 }
 
+{"t-54am1_pol"
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(12))
+	{cost 435}
+}
+
+{"t-54am2_pol"
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(12))
+	{cost 450}
+}
+
+{"t-54u_pol"
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(12))
+	{cost 510}
+}
+
 {"t-55_pol"
-	("vehicle" period(mid) cd(300) ci(120) t(medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(15))
 	{cost 520}
 }
 
+{"t-55a_pol"
+	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(15))
+	{cost 550}
+}
 
-;{"zsu-57-2pl"
-;	("vehicle" period(mid) cd(380) ci(240) t(medium antiair) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+;{"isu-152_pol"
+;	("vehicle" period(mid) min_stage(3) max_stage(15) side(pol) crew(sup_tankman:5) cw(0) cp(10))
+;	{cost 500}
+;}
+
+;{"zsu-57-2_pol"
+;	("vehicle" period(mid) min_stage(0) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(15))
 ;	{cost 600}
 ;}
+
+;{"shilka_pol"
+;	("vehicle" period(mid) min_stage(7) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(14))
+;	{cost 650}
+;}
+
 
 ;_________________________________________________
 ;|        		 AI ONLY for purchase             |
 ;|________________________________________________|
 
 {"dshk_aa_pol_ai"
-	("vehicle" period(mid) cd(180) ci(15) t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
+	("vehicle" period(mid) min_stage(0) max_stage(99) t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
 	{cost 100}{not_for_player_sale 1}
 }
 
 {"b-10_pol_ai"
-	("vehicle" period(mid) cd(0) ci(15) t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
+	("vehicle" period(mid) min_stage(0) max_stage(99) t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
 	{cost 150}{not_for_player_sale 1}
 }
 
 {"spg9_pol_ai"
-	("vehicle" period(mid) cd(60) ci(30) t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
+	("vehicle" period(mid) min_stage(0) max_stage(99)t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
 	{cost 200}{not_for_player_sale 1}
 }
 
 {"82mm_bm37_pol_ai"
-	("vehicle" period(mid) cd(30) ci(30) t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
+	("vehicle" period(mid) min_stage(0) max_stage(99) t(cannon mortar) side(pol) crew(sup_supporter:2) cw(0) cp(10))
 	{cost 175}{not_for_player_sale 1}
 }
 

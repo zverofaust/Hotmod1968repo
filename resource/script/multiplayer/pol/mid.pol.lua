@@ -38,6 +38,8 @@ Purchases["mid.pol"] = {
 				--{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "m30_pol"},
 				--Rocket Artillery
 				
+				--Vehicles
+				{priority = 1.0, type = {"Vehicle", "MG", "Class3",}, unit = "gaz-69_dshk_pol"},
 				--APCs/BTRs
 				--{priority = 1.0, type = {"Armored", "MG", "Class3",}, unit = "btr-40_pol"},
 				{priority = 1.0, type = {"Armored", "MG", "Class3",}, unit = "brdm-1_pol"},
@@ -62,6 +64,8 @@ Purchases["mid.pol"] = {
 				
 				-- Doctrine = "6 Pomorska Dywizja Powietrznodesantowa" 6th Pomeranian Air Assault Division
 				{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_m72(pol)"},
+				{priority = 1.0, type = {"Doctine", "Vehicle", "AT", "Tier2",}, unit = "doctrine_vehicle_gaz69_b10(pol)"},
+				{priority = 1.0, type = {"Doctine", "Vehicle", "Mortar", "Tier2",}, unit = "doctrine_vehicle_gaz69_mortar(pol)"},
 				{priority = 1.0, type = {"Doctine", "Cannon", "AT", "Tier1",}, unit = "spg9_pol_ai"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t54am1(pol)"},
 				{priority = 1.0, type = {"Doctine", "Infantry", "Tier2",}, unit = "doctrine_squad_roz(pol)"},
