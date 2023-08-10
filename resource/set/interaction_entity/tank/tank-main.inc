@@ -7,6 +7,7 @@
 		{call "update_hatch_on_spawn"}	;// updates vehicle hatches
 		{call "add_overlay_sound"}		;// adds terrain specific sounds to enhance the tank track sounds
 		{call "crew_able"}				;// re-enables seats for conquest on unit respawn
+		{tags add "cwsh_active"}
 
 
 		;/*=========== Sounds Begin ===========*/
@@ -95,7 +96,7 @@
 		{add_view	"fire_cooking_aftersmoke"		"smoke3"				"FXfire3"} ;// burn out fx for mp destroy. turret hatch.
 		{add_view	"fire_cooking_aftersmoke"		"smoke3"				"FXfire3_2"} ;// burn out fx for mp destroy. turret hatch.
 		{add_view	"smoke_dead_norm"				"smoke3"				"FXfire5"} ;// burn out fx for mp destroy. open top vehicles.
-		
+
 		{add_view	"fire_vehicle_death_hatch"		"fire_vehicle_death"	"FXfire3"}
 		{add_view	"fire_vehicle_death_hatch"		"fire_vehicle_death"	"FXfire3_2"}
 		{add_view	"smoke_vehicle_death_hatch"		"smoke_vehicle_death"	"FXfire3"}
@@ -126,7 +127,7 @@
 		{add_view	"cooking_hatch_fire"		"cooking_hatch_fire"	"FXfire3"}
 		{view hide  "cooking_hatch_fire"}	;// fx has a glow that will show unless hidden until later called
 		{add_view	"cooking_hatch_smoke"		"cooking_hatch_smoke"	"FXfire3"}
-		
+
 		{add_view	"cooking_presmoke_1"		"cooking_presmoke_1"	"FXfire3_2"}
 		{add_view	"cooking_presmoke_2"		"cooking_presmoke_2"	"FXfire3_2"}
 		{add_view	"cooking_presmoke_3"		"cooking_presmoke_3"	"FXfire3_2"}
@@ -137,7 +138,7 @@
 		{add_view	"cooking_hatch_fire"		"cooking_hatch_fire"	"FXfire3_2"}
 		{view hide  "cooking_hatch_fire"}	;// fx has a glow that will show unless hidden until later called
 		{add_view	"cooking_hatch_smoke"		"cooking_hatch_smoke"	"FXfire3_2"}
-		
+
 		{add_view	"cooking_turret_ring"		"cooking_turret_fire"	"FXfire4"} ;// turret base
 		{add_view	"cooking_turret_smoke"		"cooking_turret_smoke"	"FXfire4"}
 		{add_view	"smoke_after_pen_hatch"		"smoke_after_pen_hatch"	"turret"}
@@ -397,7 +398,7 @@
 				("cut_shield_part" args "flapl2")
 				("cut_shield_part" args "flapl3")
 				("cut_shield_part" args "flapl4")
-				
+
 
 
 				("cut_shield_part" args "detail1")
@@ -524,6 +525,8 @@
 		{if not tagged "exploded"
 			{view start "smoke3"}
 			{play_sound "flame_1" 1}
+			{ani_wind "open" end}
+			{ani_wind "open1" end}
 		}
 	}
 

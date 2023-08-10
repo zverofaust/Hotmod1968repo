@@ -4,6 +4,26 @@
 		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
 	}
 }
+;/*==========MGAA hatch script============*/
+{"with_open_zpu"
+	{on "cwsh_enable_zpu"
+		{tags remove "cwsh_zpu_off"}
+		{delay 1 {call "update_weaponry"}}
+		{call "cwsh_update_hatch"}
+		{call "cwsh_gunner_out"}
+		{call "update_lights"}
+		{play_sound "hatch_heavy"}
+	}
+	{on "cwsh_disable_zpu"
+		{tags add "cwsh_zpu_off"}
+		{delay 0.2 {call "update_weaponry"}}
+		{delay 0.5 {call "cwsh_update_hatch"}}
+		{call "cwsh_gunner_in"}
+		{call "update_lights"}
+		{play_sound "hatch_heavy"}
+	}
+}
+;/*==========MGAA hatch script============*/
 ;/*=========== side fire script===========*/
 {"side_fire"
 
@@ -942,7 +962,7 @@
 		{spawn "detector" "foresight1" x}
 	}
 }
-	
+
 
 
 {"t-54a tank"
@@ -1049,7 +1069,7 @@
 		{spawn "detector" "foresight1" x}
 	}
 }
-	
+
 
 
 {"ot-55"
@@ -1098,7 +1118,7 @@
 		{spawn "detector" "foresight1" x}
 	}
 }
-	
+
 
 
 {"isu-122m tank"
@@ -1145,7 +1165,7 @@
 		{spawn "detector" "foresight1" x}
 	}
 }
-	
+
 
 
 {"zsu-57-2 tank"
@@ -3943,7 +3963,7 @@
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
-	
+
 }
 
 {"t-54a_pol tank"
