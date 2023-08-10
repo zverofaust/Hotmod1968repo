@@ -999,6 +999,7 @@
 	{on spawn
 		{call "update_turret"}
 		{set "turret" 1}
+		{volumes "gun_recoil" disable blast} ;//add by ordos
 	}
 	{on break
 		{if not tagged "exploded"

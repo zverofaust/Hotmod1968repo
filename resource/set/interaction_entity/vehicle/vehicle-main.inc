@@ -268,37 +268,37 @@
 	{if not tagged "cwsh_active"
 		{if not tagged "cwsh_passive"
 			{if not effector "airborne"
-				{kill_delay "cwsh_disable_zpu"}	
-				{if not tagged "cwsh_tempdisable_zpu"	
+				{kill_delay "cwsh_disable_zpu"}
+				{if not tagged "cwsh_tempdisable_zpu"
 					{call "cwsh_disable_zpu"}
 					{tags add "cwsh_tempdisable_zpu"}
 				}
-				{delay 15 "cwsh_disable_zpu"	
+				{delay 15 "cwsh_disable_zpu"
 					{if  tagged "cwsh_tempdisable_zpu"
 						{tags remove "cwsh_tempdisable_zpu"}
 						{call "cwsh_enable_zpu"}
-					}	
-				}	
-			}	
-		}	
+					}
+				}
+			}
+		}
 	}
 )
 
 (define "check_fire"
-	
+
 			{if not effector "airborne"
-				{kill_delay "cwsh_disable_zpu"}	
-				{if not tagged "cwsh_tempdisable_zpu"	
+				{kill_delay "cwsh_disable_zpu"}
+				{if not tagged "cwsh_tempdisable_zpu"
 					{call "cwsh_disable_zpu"}
 					{tags add "cwsh_tempdisable_zpu"}
 				}
-				{delay 9 "cwsh_disable_zpu"	
+				{delay 10 "cwsh_disable_zpu"
 					{if  tagged "cwsh_tempdisable_zpu"
 						{tags remove "cwsh_tempdisable_zpu"}
 						{call "cwsh_enable_zpu"}
-					}	
-				}	
-			}	
+					}
+				}
+			}
 )
 
 ;------------ordos add check attack thing-----------
@@ -309,9 +309,9 @@
 	}
 	{on blast_hit
 			{if not component "gun"
-				;{if not stuff "turret_dir_detector"
-					("check_attack_on_zpu")	
-				;}
+				{if not stuff "turret_dir_detector"
+					("check_attack_on_zpu")
+				}
 			}
 	}
 
@@ -320,7 +320,7 @@
 	{on blast_wreaked sync
 		{vehicle_health_damage_blast}
 	}
-	
+
 	{on destroy
 		{if component "body"
 			{call "explosion"}
@@ -1329,7 +1329,7 @@
 		{if tagged "cwsh_zpu_off"
 			{with_linked_entity "%gunner" {ani_wind "%anim" end}}
 		}
-		{kill_delay "cwsh_disable_zpu"}	
+		{kill_delay "cwsh_disable_zpu"}
 		{if tagged "cwsh_tempdisable_zpu"
 			{delay 15 "cwsh_disable_zpu"
 				{if  tagged "cwsh_tempdisable_zpu"
@@ -1339,22 +1339,22 @@
 			}
 		}
 	}
-	{on "cwsh_gunner_in" overload	
+	{on "cwsh_gunner_in" overload
 		{with_linked_entity "%gunner"
 				{ani_play "%anim"}}
 	}
-	{on "cwsh_gunner_out" overload	
-		{with_linked_entity "%gunner" 
+	{on "cwsh_gunner_out" overload
+		{with_linked_entity "%gunner"
 			{ani_play "%anim" -1}}
 			{delay 1.5
 				{if not tagged "cwsh_tempdisable_zpu"
 					{if not tagged "cwsh_zpu_off"
 						{with_linked_entity "%gunner" {ani_wind "%pose" end}}
-					}	
-				}		
+					}
+				}
 			}
-	}	
-	{on "update_%zpu_mgun" overload	
+	}
+	{on "update_%zpu_mgun" overload
 		{if work "%zpu_mgun"
 			{if tagged "cwsh_zpu_off"
 				{weapon_work "%zpu_mgun" 0}
@@ -1363,29 +1363,29 @@
 		}
 	}
 	{on "update_weaponry"
-	{if work "%zpu_mgun" 
+	{if work "%zpu_mgun"
 			{if tagged "cwsh_zpu_off"
 				{weapon_work "%zpu_mgun" 0}
-			else {weapon_work "%zpu_mgun" 1}	
-			}	
+			else {weapon_work "%zpu_mgun" 1}
+			}
 	}
 
 
 	}
 )
 
-(define "zpu_one_hatch"	
+(define "zpu_one_hatch"
 	{on "cwsh_update_hatch" overload
-		
+
 		{if tagged "cwsh_zpu_off"
-				{call "%gunner_hatch_close"}	
-			else	
-				{call "%gunner_hatch_open"}	
+				{call "%gunner_hatch_close"}
+			else
+				{call "%gunner_hatch_open"}
 		}
-		
-	}	
-	
-	
+
+	}
+
+
 )
 
 (define "zpu_params"
@@ -1402,10 +1402,10 @@
 		{if tagged "cwsh_zpu_off"
 				{call "%gunner_hatch_close"}
 				{call "%secgunner_hatch_close"}
-			else	
+			else
 				{call "%gunner_hatch_open"}
 				{call "%secgunner_hatch_open"}
-				
+
 		}
 	}
 
@@ -1428,7 +1428,7 @@
 		{with_linked_entity "%gunner" {ani_play "%anim"}}
 		{with_linked_entity "%secgunner" {ani_play "%secanim"}}
 	}
-	{on "cwsh_gunner_out" overload	
+	{on "cwsh_gunner_out" overload
 		{with_linked_entity "%gunner" {ani_play "%anim" -1}}
 		{with_linked_entity "%secgunner" {ani_play "%secanim" -1}}
 		{delay 1.5
@@ -1440,24 +1440,24 @@
 			}
 		}
 	}
-	
-	
+
+
 
 	{on "update_weaponry"
-	
-	{if work "%zpu_mgun" 
-			
+
+	{if work "%zpu_mgun"
+
 			{if tagged "cwsh_zpu_off"
-				
+
 				{weapon_work "%zpu_mgun" 0}
-			else {weapon_work "%zpu_mgun" 1}	
-			}	
+			else {weapon_work "%zpu_mgun" 1}
+			}
 	}
-	{if work "%seczpu_mgun" 
+	{if work "%seczpu_mgun"
 			{if tagged "cwsh_zpu_off"
-				{weapon_work "%seczpu_mgun" 0}	
+				{weapon_work "%seczpu_mgun" 0}
 			else {weapon_work "%seczpu_mgun" 1}
-			}		   
+			}
 	}
 
 
@@ -1471,11 +1471,11 @@
 				{call "%gunner_hatch_close"}
 				{call "%secgunner_hatch_close"}
 				{call "%triplegunner_hatch_close"}
-			else	
+			else
 				{call "%gunner_hatch_open"}
 				{call "%secgunner_hatch_open"}
 				{call "%triplegunner_hatch_open"}
-				
+
 		}
 	}
 
@@ -1500,7 +1500,7 @@
 		{with_linked_entity "%secgunner" {ani_play "%secanim"}}
 		{with_linked_entity "%triplegunner" {ani_play "%tripleanim"}}
 	}
-	{on "cwsh_gunner_out" overload	
+	{on "cwsh_gunner_out" overload
 		{with_linked_entity "%gunner" {ani_play "%anim" -1}}
 		{with_linked_entity "%secgunner" {ani_play "%secanim" -1}}
 		{with_linked_entity "%triplegunner" {ani_play "%tripleanim" -1}}
@@ -1514,37 +1514,37 @@
 			}
 		}
 	}
-	
-	
+
+
 
 	{on "update_weaponry"
-	
-		{if work "%zpu_mgun" 
-				
+
+		{if work "%zpu_mgun"
+
 				{if tagged "cwsh_zpu_off"
-					
+
 					{weapon_work "%zpu_mgun" 0}
-				else {weapon_work "%zpu_mgun" 1}	
-				}	
+				else {weapon_work "%zpu_mgun" 1}
+				}
 		}
-		{if work "%seczpu_mgun" 
+		{if work "%seczpu_mgun"
 				{if tagged "cwsh_zpu_off"
-					{weapon_work "%seczpu_mgun" 0}	
+					{weapon_work "%seczpu_mgun" 0}
 				else {weapon_work "%seczpu_mgun" 1}
-				}		   
+				}
 		}
-		{if work "%tripzpu_mgun" 
+		{if work "%tripzpu_mgun"
 			{if tagged "cwsh_zpu_off"
-				{weapon_work "%tripzpu_mgun" 0}	
+				{weapon_work "%tripzpu_mgun" 0}
 			else {weapon_work "%tripzpu_mgun" 1}
-			}		   
+			}
 		}
 
 
 	}
 )
-	
-	
+
+
 
 {on "cwsh_switch_hatch"
      {if not tagged "no_open_mg"

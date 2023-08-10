@@ -3,7 +3,7 @@
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	(include "t-72_ural.ext")
-	{props "heavy" "diesel" "vision_lev04" "muzzle_122mm_128mm" "shell_eject1" "smoke" "ess" "cw_panorama" "side_fire"}
+	{props "heavy" "diesel" "vision_lev04" "muzzle_122mm_128mm" "shell_eject1" "smoke" "ess" "cw_panorama" "side_fire" "with_open_zpu"}
 	{targetclass "tank_heavy"}
 	{targetSelector "tank_medium"}
 	{PatherId "t34"}
@@ -25,8 +25,32 @@
 	{component "shieldr4" {tags "shield"}}
 	
 	("crew_3_human_2_extended")
-	("gunner_visible")
+	;("gunner_visible")
 	;("seat_4_human")
+
+	(define "crew_open"
+	{sensor
+		{visor "top"
+			{vision "human"}
+			{bone "%visorbone"}
+		}
+	}
+	{placer
+		{place "%place"
+			{group "%group"}
+			{linkbone "%bone"}
+			{visor "top"}
+			{openForCrush}
+			{sealable}
+		}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{link "%door" "%place" {anm "%anm_left"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "%anm_right"} {forward putoff} {reverse puton}}
+	}
+)
 
 	{sensor		
 		{visor "driver" 	
@@ -46,16 +70,16 @@
 
 	{boarder
 		{anm "driver"
-			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
-			{reverse {end "emit_tank_1_hold"}}
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} }
+			{reverse {end "emit_tank_1_hold"} }
 		}
 		{anm "left"
-			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
-			{reverse {end "emit_tank_1_hold"}}
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open_charger"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_charger" -1}}
 		}
 		{anm "right"
-			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
-			{reverse {end "emit_tank_1_hold"}}
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open_commander"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_commander" -1}}
 		}
 		{anm "armor"
 			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
@@ -66,6 +90,8 @@
 			{reverse {end "emit_body"}}
 		}
 	}
+
+	("crew_open" place(commander) bone(gunner2)   door2(emit1) anm_right(right)  group(crew))
 	
 	;("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
 	;("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))

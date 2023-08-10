@@ -988,15 +988,20 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_play "open" 1.0 resume}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
+		("check_fire")
 	}
+
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
+
+
 }
 
 {"t-54b tank"
@@ -1288,6 +1293,7 @@
 	{on operatable on
 		{ani_play "flaps"}
 	}
+
 	;{on "spawn_shell_delay" overload
 	;	("shell_eject_delay" args 1.2)
 	;}
@@ -1303,17 +1309,23 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
-
-	{on ik begin "mgun_turret"                ;// turret_mg bone rotates
-         		{tags add "human_in_use"}
-         		{call "update_cw_panorama"}
-    	}
-	{on ik end "mgun_turret"                    ;// turret_mg stops rotation
-	        {delay 3
-			{tags remove "human_in_use"}
-			{call "update_cw_panorama"}
-	        }
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
+	{on "update_cw_panorama" overload
+		{if operatable
+			{if tagged "cwsh_zpu_off"
+				{if not tagged "human_in_use"
+					{if not tagged "contusion"
+						{if crew_in_place "commander"
+							{if not tagged "no_power"
+								{call "cw_panorama_work"}
+							else {call "cw_panorama_off"}}
+						else {call "cw_panorama_off"}}
+					else {call "cw_panorama_off"}}
+				else {call "cw_panorama_instant_off"}}
+			else {call "cw_panorama_instant_off"}}
+		else {call "cw_panorama_instant_off"}}
 	}
+
 }
 
 {"2s3 tank"
@@ -2412,18 +2424,13 @@
 		{ani_play "open_turret" -1.0 resume}
 	}
 	{on "gunner3_hatch_open" overload
-		{if crew_in_place "gunner4"
-			{ani_play "open_top" resume}
-		else
-			{ani_play "open_top" resume}
-		}
+
+		{ani_play "open_top" resume}
+
 	}
 	{on "gunner3_hatch_close" overload
-		{if crew_in_place "gunner4"
-			;nothing
-		else
-			{ani_play "open_top" -1.0 resume}
-		}
+
+		{ani_play "open_top" -1.0 resume}
 	}
 	{on "gunner4_hatch_open" overload
 		{if crew_in_place "gunner3"
@@ -2444,6 +2451,11 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
+	("triplezpu_params"
+		gunner(commander) zpu_mgun(mgun1) anim(into_hatch_leo) pose(seat_gunner_stand)
+		secgunner(gunner3) seczpu_mgun(mgun2) secanim(into_hatch_leo) secpose(seat_gunner_stand)
+		triplegunner(gunner4) tripzpu_mgun(gun) tripleanim(into_hatch_leo) trippose(seat_gunner_stand)
+	)
 }
 {"m113_m40 tank"
 	{on "add_movement_sound" overload
@@ -2463,18 +2475,14 @@
 		{ani_play "open_turret" -1.0 resume}
 	}
 	{on "gunner_hatch_open" overload
-		{if crew_in_place "charger"
-			{ani_play "open_top" resume}
-		else
-			{ani_play "open_top" resume}
-		}
+
+		{ani_play "open_top" resume}
+
 	}
 	{on "gunner_hatch_close" overload
-		{if crew_in_place "charger"
-			;nothing
-		else
-			{ani_play "open_top" -1.0 resume}
-		}
+
+		{ani_play "open_top" -1.0 resume}
+
 	}
 	{on "charger_hatch_open" overload
 		{if crew_in_place "gunner"
@@ -2496,6 +2504,9 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
+	("doublezpu_params"
+		gunner(commander) zpu_mgun(mgun1) anim(into_hatch_leo) pose(seat_gunner_stand)
+		secgunner(gunner) seczpu_mgun(gun) secanim(into_hatch_leo) secpose(seat_gunner_stand))
 }
 {"m125"
 	("pz38_sound")
