@@ -627,6 +627,18 @@
 	}
 }
 
+{"asu-85_late tank"
+	("t70_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+}
+
 {"asu-85_para tank"
 	("t70_sound")
 	{on fire "gun"
@@ -4008,6 +4020,32 @@
 		{spawn "detector" "foresight1" x}
 	}
 	
+}
+
+{"asu-85_pol tank"
+	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"asu-85_late_pol tank"
+	("t70_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+}
+
+{"asu-85_para_pol tank"
+	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
 }
 
 {"t-54a_pol tank"

@@ -2,7 +2,7 @@
 	(include "/properties/tank_assaultgun.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.2))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "td" "light" "-turret" "mantlet" "vision_lev03" "muzzle_85mm_93mm_sides" "diesel"}
+	{props "td" "light" "-turret" "mantlet" "vision_lev03" "muzzle_85mm_93mm_sides" "diesel" "cw_panorama" "smoke" "ess"}
 	(include "asu-85.ext")
 	{targetclass "tank_light"}
 	{targetSelector "tank_light"}
@@ -12,16 +12,20 @@
 		{digit_folder "cw"}
 	}
 	
-	("crew_4_human")
+	("crew_4_human_extended")
 	
 	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open_driver"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_driver"}}
+		}
 		{anm "left"
-			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
-			{reverse {end "emit_tank_1_hold"}}
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open_left"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_left"}}
 		}
 		{anm "right"
-			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open1"}}
-			{reverse {end "emit_tank_1_hold"} {base "open1"}}
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open_right"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_right"}}
 		}
 		{anm "armor"
 			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
@@ -33,22 +37,28 @@
 		}
 	}
 
-	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
-	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
-	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
-	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
-	("seat_human" place(seat5) bone(seat05) door(emit7)  animation(armor))
-	("seat_human" place(seat6) bone(seat06) door(emit8)  animation(armor1))
-	("seat_human" place(seat7) bone(seat07) door(emit1)  animation(armor))
-	("seat_human" place(seat8) bone(seat08) door(emit2)  animation(armor1))
+	("seat_human" place(seat1) bone(seat01) door(emit4)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit5)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit4)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit5)  animation(armor1))
+	("seat_human" place(seat5) bone(seat05) door(emit4)  animation(armor))
+	("seat_human" place(seat6) bone(seat06) door(emit5)  animation(armor1))
+	("seat_human" place(seat7) bone(seat07) door(emit4)  animation(armor))
+	("seat_human" place(seat8) bone(seat08) door(emit5)  animation(armor1))
 
 	{sensor
 		{visor "main"
 			{bone "visor1"}
 		}
-		{visor "around"
-			{bone "visor"}
+		{visor "commander"
+			{vision "tank_commander"}
+			{bone "visor3"}
 		}
+	}
+	
+	{extender "smokescreen"
+		{cooldown 20}
+		{itemTags "can"}
 	}
 	
 	{extender "inventory"
@@ -77,6 +87,14 @@
 			("abm_mgun")
 			{basic}
 		}
+		{place "mgun1"
+			{type "commander"}
+			{weapon "commander_vision"}
+			{foresight "visor3"}
+			{gunner "commander"}
+			{basic}
+			{ai_in_manual}
+		}
 	}
 
 	{mass 15500}
@@ -97,13 +115,16 @@
 
 	{Extension "asu-85.mdl"}
 
-	{bone "mantlet"
+	{bone "gun_rot_v"
 		{limits -15 4}
 		{speed2 5}
 	}
-	
-	{bone "turret"
+	{bone "gun_rot_h"
 		{limits -15 15}
 		{speed2 6}
 	}
+	{bone "visor3"
+		{limits -15 4}
+	}
+		
 }
