@@ -599,7 +599,6 @@
 	}
 }
 
-
 {"btr-50p tank"
 	("t70_sound")
 }
@@ -651,13 +650,29 @@
 {"asu-85_late tank"
 	("t70_sound")
 	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
+		{ani_play "open" +1.0 resume}
 		{ani_play "mgun_aa" +1.0 resume}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 		{ani_play "mgun_aa" -1.0 resume}
 	}
+	{on "update_cw_panorama" overload
+		{if operatable
+			{if tagged "cwsh_zpu_off"
+				{if not tagged "human_in_use"
+					{if not tagged "contusion"
+						{if crew_in_place "commander"
+							{if not tagged "no_power"
+								{call "cw_panorama_work"}
+							else {call "cw_panorama_off"}}
+						else {call "cw_panorama_off"}}
+					else {call "cw_panorama_off"}}
+				else {call "cw_panorama_instant_off"}}
+			else {call "cw_panorama_instant_off"}}
+		else {call "cw_panorama_instant_off"}}
+	}	
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_isu152_gunner2))
 }
 
 {"asu-85_para tank"
@@ -4071,6 +4086,7 @@
 		{ani_play "open" -1.0 resume}
 		{ani_play "mgun_aa" -1.0 resume}
 	}
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
 {"asu-85_para_pol tank"

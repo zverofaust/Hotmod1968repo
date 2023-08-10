@@ -2,7 +2,7 @@
 	(include "/properties/tank_assaultgun.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.2))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "td" "light" "-turret" "mantlet" "vision_lev03" "muzzle_85mm_93mm_sides" "diesel" "cw_panorama" "smoke" "ess"}
+	{props "td" "light" "-turret" "mantlet" "vision_lev03" "muzzle_85mm_93mm_sides" "diesel" "cw_panorama" "smoke" "ess" "with_open_zpu"}
 	(include "asu-85.ext")
 	{targetclass "tank_light"}
 	{targetSelector "tank_medium"}
@@ -21,12 +21,12 @@
 			{reverse {end "emit_tank_1_hold"} {base "open_driver"}}
 		}
 		{anm "left"
-			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open_left"}}
+			{forward {begin "board_Is-2"} {end "seat_isu152_gunner2"} {base "open_left"}}  ;or "seat_commander_hatch" or "seat_gunner_stand"
 			{reverse {end "emit_tank_1_hold"} {base "open_left"}}
 		}
 		{anm "right"
-			{forward {begin "board_Is-2"} {end "seat_commander_hatch"} {base "open_right"}}
-			{reverse {end "emit_tank_1_hold"} {base "open_right"}}
+			{forward {begin "board_Is-2"} {end "seat_isu152_gunner2"} {base "open_commander"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_commander"}}
 		}
 		{anm "armor"
 			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
@@ -38,14 +38,14 @@
 		}
 	}
 
-	("seat_human" place(seat1) bone(seat01) door(emit4)  animation(armor))
-	("seat_human" place(seat2) bone(seat02) door(emit5)  animation(armor1))
-	("seat_human" place(seat3) bone(seat03) door(emit4)  animation(armor))
-	("seat_human" place(seat4) bone(seat04) door(emit5)  animation(armor1))
-	("seat_human" place(seat5) bone(seat05) door(emit4)  animation(armor))
-	("seat_human" place(seat6) bone(seat06) door(emit5)  animation(armor1))
-	("seat_human" place(seat7) bone(seat07) door(emit4)  animation(armor))
-	("seat_human" place(seat8) bone(seat08) door(emit5)  animation(armor1))
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit3)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit4)  animation(armor1))
+	("seat_human" place(seat5) bone(seat05) door(emit5)  animation(armor))
+	("seat_human" place(seat6) bone(seat06) door(emit4)  animation(armor1))
+	("seat_human" place(seat7) bone(seat07) door(emit6)  animation(armor))
+	("seat_human" place(seat8) bone(seat08) door(emit6)  animation(armor1))
 
 	{sensor
 		{visor "main"
@@ -96,6 +96,7 @@
 			{LinkBone		"mgun_bone"}
 			{LinkAnimation	"off"}
 			("abm_mgun")
+			{basic}
 		}
 		{place "mgun1"
 			{type "commander"}
