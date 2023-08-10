@@ -283,6 +283,7 @@
 	(define "update_hatch_event"
 		{on %event
 			("update_hatch" wind(false))
+			{call "update_zpu"}
 			{call "update_cw_panorama"}
 		}
 	)
