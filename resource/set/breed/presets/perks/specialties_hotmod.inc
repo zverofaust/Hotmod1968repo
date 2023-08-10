@@ -20,16 +20,27 @@
 	{"stealth"}
 	{"speed" 1.2}
 	{"stamina" "300%"}
-	{"health" "250%"}
+	{"stamina_regeneration" "200%"}
+	{"health" "150%"}
+	("recon_vision")			
+)
+
+(define "seals"			;// US Navy SEALs
+	{"stealth"}
+	{"stamina" "300%"}
+	{"stamina_regeneration" "200%"}
+	{"health" "200%"}
+	{"health_regeneration" "150%"}
 	{"aimedshot"}			
 )
 
 (define "ranger"			;// US Army Rangers
 	{"stamina" "400%"}
+	{"stamina_regeneration" "125%"}
 	{"speed" 1.2}
 	{"telescope"}
 	{"vision" human_elite}
-	{"health" "200%"}
+	{"health" "175%"}
 )
 
 (define "sniper"		;// Snipers
@@ -38,40 +49,46 @@
 	{"speed" 1.20}
 )
 
-(define "paratrooper"		;// Soviet Paratroopers
-	{"speed" 1.15}
-	{"health" "300%"}
+(define "airborne"		;// US 82nd Airborne
+	{"speed" 1.1}
+	{"health" "250%"}
 	{"stamina" "250%"}
 )
 
 (define "aircav"	;// US Airmobile Cavalry
-	{"speed" 1.15}
-	{"health" "250%"}
+	{"speed" 1.1}
+	{"health" "150%"}
+	{"stamina" "300%"}
+)
+
+(define "paratrooper"	;// Soviet VDV
+	{"speed" 1.1}
+	{"health" "150%"}
 	{"stamina" "300%"}
 )
 
 (define "acav"		;// US Armored Cavalry
-	{"health" "300%"}
+	{"speed" 1.1}
+	{"health" "175%"}
+	{"stamina" "200%"}
 	{"stamina_regeneration" "125%"}
 )
 
 (define "guards"		;// Soviet Guards
 	{"health" "250%"}
-	{"stamina" "150%"}
-	{"stamina_regeneration" "125%"}
 )
 
 (define "redbanner"		;// Soviet Red Banner Guards
-	{"health" "350%"}
+	{"health" "300%"}
 	{"health_regeneration" "150%"}
 	{"stamina" "200%"}
 	{"stamina_regeneration" "125%"}
 )
 
 (define "marines"	;// Marines
-	{"health" "350%"}
-	{"stamina" "220%"}
-	{"stamina_regeneration" "175%"}
+	{"health" "300%"}
+	{"health_regeneration" "125%"}
+	{"stamina_regeneration" "125%"}
 )
 
 (define "basic"			;// Reservists & Conscripts with only basic training
@@ -100,8 +117,6 @@
 (define "militia"	;// Irregular Militia, armed citizenry, etc
 	{"stealth"}
 	{"speed" 1.15}
-	{"stamina" "200%"}
-	{"stamina_regeneration" "110%"}
 )
 
 (define "tankman"			;// Tank Crew
@@ -124,9 +139,9 @@
 )
 
 (define "szturmowy"		;// Polish 'Samodzielny Batalion Szturmowy' Independent Assault Battalion
-	{"health" "350%"}
-	{"health_regeneration" "150%"}
-	{"stamina" "200%"}
+	{"health" "300%"}
+	{"health_regeneration" "125%"}
+	{"stamina" "150%"}
 	{"stamina_regeneration" "125%"}
 )
 

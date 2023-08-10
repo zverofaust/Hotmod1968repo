@@ -29,7 +29,6 @@ Purchases["mid.pol"] = {
 				{priority = 1.0, type = {"Cannon", "AA", "Class3",}, unit = "57mm_s-60_pol"},
 				--Anti Tank
 				{priority = 1.0, type = {"Cannon", "AT", "Class3",}, unit = "b-10_pol_ai"},
-				{priority = 1.0, type = {"Cannon", "AT", "Class3",}, unit = "spg9_pol_ai"},
 				--Mortars
 				{priority = 0.3, type = {"Cannon", "Mortar", "Class2",}, unit = "82mm_bm37_pol_ai"},
 				{priority = 0.3, type = {"Cannon", "Mortar", "Class2",}, unit = "120mm_pm38_pol"},
@@ -39,6 +38,8 @@ Purchases["mid.pol"] = {
 				--{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "m30_pol"},
 				--Rocket Artillery
 				
+				--Vehicles
+				{priority = 1.0, type = {"Vehicle", "MG", "Class3",}, unit = "gaz-69_dshk_pol"},
 				--APCs/BTRs
 				--{priority = 1.0, type = {"Armored", "MG", "Class3",}, unit = "btr-40_pol"},
 				{priority = 1.0, type = {"Armored", "MG", "Class3",}, unit = "brdm-1_pol"},
@@ -49,21 +50,27 @@ Purchases["mid.pol"] = {
 				{priority = 1.0, type = {"Tank", "Light", "Class3", "Class3",}, unit = "pt-76_pol"},
 				{priority = 1.0, type = {"Tank", "Light", "Class3", "Class3",}, unit = "t-34-85_pol"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "t-54a_pol"},
-				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "t-54am_pol"},
+				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "t-54am2_pol"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "t-55_pol"},
 				
 				
 				
-				-- Doctrine = "Batalion Specjalna"
-				{priority = 1.0, type = {"Doctine", "Tier1",}, unit = "doctrine_squad_roz(pol)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t54am1(pol)"},
-				{priority = 1.0, type = {"Doctine", "Armored", "AT", "Tier3",}, unit = "doctrine_vehicle_9p110(pol)"},
-				
-				-- Doctrine = "Batalion Szturmowy"
-				{priority = 1.0, type = {"Doctine", "Armored", "MG", "Tier1",}, unit = "doctrine_squad_rifle_mech(pol)"},
+				-- Doctrine = "7 Łużycka Dywizja Desantowa" 7th Lusatian Landing Division
+				{priority = 1.0, type = {"Doctine", "Armored", "Infantry", "MG", "Tier1",}, unit = "doctrine_squad_rifle_mech(pol)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Tier1",}, unit = "doctrine_vehicle_pt76p(pol)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t55a(pol)"},
 				{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier2",}, unit = "doctrine_vehicle_brdm2(pol)"},
+				{priority = 1.0, type = {"Doctine", "Armored", "Infantry", "MG", "Tier3",}, unit = "doctrine_squad_des_mech(pol)"},
+				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t55a(pol)"},
+				
+				-- Doctrine = "6 Pomorska Dywizja Powietrznodesantowa" 6th Pomeranian Air Assault Division
+				{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_m72(pol)"},
+				{priority = 1.0, type = {"Doctine", "Vehicle", "AT", "Tier2",}, unit = "doctrine_vehicle_gaz69_b10(pol)"},
+				{priority = 1.0, type = {"Doctine", "Vehicle", "Mortar", "Tier2",}, unit = "doctrine_vehicle_gaz69_mortar(pol)"},
+				{priority = 1.0, type = {"Doctine", "Cannon", "AT", "Tier1",}, unit = "spg9_pol_ai"},
+				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t54am1(pol)"},
+				{priority = 1.0, type = {"Doctine", "Infantry", "Tier2",}, unit = "doctrine_squad_roz(pol)"},
+				{priority = 1.0, type = {"Doctine", "Armored", "AT", "Tier3",}, unit = "doctrine_vehicle_9p110(pol)"},
+			
 				
 		}
 	}

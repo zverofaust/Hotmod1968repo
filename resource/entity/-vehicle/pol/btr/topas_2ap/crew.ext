@@ -1,0 +1,45 @@
+{boarder
+	{anm "right"
+		{forward	{begin	"board_body"} {end "seat_driver_car"} {base "open_driver"}}
+		{reverse	{end	"board_body" -1} {base "open_driver"}}
+	}
+	{anm "left"
+		{forward	{begin	"board_body"} {end "seat_driver_car"} {base "open_commander"}}
+		{reverse	{end	"board_body" -1} {base "open_commander"}}
+	}
+	{anm "passenger_l"
+		{forward	{begin	"board_body"} {end "seat_passenger"} {base "open_left"}}
+		{reverse	{end	"board_body" -1} {base "open_left"}}
+	}
+	{anm "passenger_r"
+		{forward	{begin	"board_body"} {end "seat_passenger"} {base "open_right"}}
+		{reverse	{end	"board_body" -1} {base "open_right"}}
+	}
+}
+
+(define "passenger_invis"
+	{placer
+		{place "%place" {group "passenger"}}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{link "%door" "%place" {anm "passenger_l"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "passenger_r"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human"		place(driver)	bone()	door(emit1) door2(emit2)	visor(driver)	off({sensor}))
+("crew_human"		place(gunner)   bone()  door(emit1) door2(emit2)    visor(main)		off())
+("crew_human"		place(commander)   bone()  door(emit1) door2(emit2)    visor(commander) off())
+
+("passenger_invis"		place(passenger1)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger2)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger3)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger4)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger5)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger6)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger7)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger8)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger9)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger10)	door(emit3) door2(emit4)			)

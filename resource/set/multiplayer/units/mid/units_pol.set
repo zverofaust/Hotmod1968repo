@@ -35,66 +35,106 @@
 
 
 ;===================================
+;  6 Pomorska Dywizja Powietrznodesantowa
 ;       Batalion Specjalna
-;         
+;   6th Pomeranian Airborne Division
 ;===================================
 
 ; ======Tier1======
 
+; // 2DP PKS Tripod Team
+{"doctrine_team_pk(pol)"
+	("squad_with2types_doctrine" side(pol) period(mid) c1(sup_guncrew_pk:1) c2(sup_guncrew:1))
+	("doctrine_t1" cool(30) d(mid_pol_pomorska) cost(2))
+}
+
+; // 3DP Rozpoznawczą on M72 Motorbike
+{"doctrine_vehicle_m72(pol)"
+	("squad_vehicle2_doctrine" side(pol) period(mid) vehicle(m72_pol) crew1(roz_squadlead:1) crew2(roz_rifleman:2) cw(2) cp(0))
+	("doctrine_t1" cool(60) d(mid_pol_pomorska) cost(3))
+}
+
 ; // 8DP Rozpoznawczą Specjalna Squad
 {"doctrine_squad_roz(pol)"
 	("squad_with6types_doctrine" side(pol) period(mid) c1(roz_squadlead:1) c2(roz_marksman:1) c3(roz_spotter:1) c4(roz_antitank:1) c5(roz_mg:1) c6(roz_rifleman:3))
-	("doctrine_t1" cool(120) d(mid_pol_spec) cost(8))
+	("doctrine_t1" cool(120) d(mid_pol_pomorska) cost(8))
+}
+
+; // 8DP GAZ-69 with Wz.37 light mortar
+{"doctrine_vehicle_gaz69_mortar(pol)"
+	("squad_vehicle2_doctrine" side(pol) period(mid) vehicle(gaz-69_mortar_pol) crew1(roz_squadlead:1) crew2(roz_rifleman:3) cw(2) cp(0))
+	("doctrine_t1" cool(120) d(mid_pol_pomorska) cost(8))
+}
+
+; ======Tier2======
+
+; // 8DP GAZ_69 with B-10
+{"doctrine_vehicle_gaz69_b10(pol)"
+	("squad_vehicle2_doctrine" side(pol) period(mid) vehicle(gaz-69_b10_pol) crew1(roz_squadlead:1) crew2(roz_rifleman:3) cw(2) cp(0))
+	("doctrine_t2" cool(120) d(mid_pol_pomorska) cost(8))
 }
 
 ; // 8DP T-54AM1
 {"doctrine_vehicle_t54am1(pol)"
 	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(t-54am1_pol) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t2" cool(60) d(mid_pol_spec) cost(8))
+	("doctrine_t2" cool(60) d(mid_pol_pomorska) cost(8))
 }
+
+; ======Tier3======
 
 ; // 10DP 9P110
 {"doctrine_vehicle_9p110(pol)"
 	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(9p110_pol) crew(sup_vehicleman:2) cw(0) cp(0))
-	("doctrine_t3" cool(80) d(mid_pol_spec) cost(10))
+	("doctrine_t3" cool(80) d(mid_pol_pomorska) cost(10))
 }
 
-; ======Tier2======
-; ======Tier3======
-
 ;===================================
+;  7 Łużycka Dywizja Desantowa
 ;       Batalion Szturmowy
-;         
+;  7th Lusatian Landing Division      
 ;===================================
 
 ; ======Tier1======
 
-; // 6DP Rifle Squad in BTR-50PK, to be replaced by TOPAS
+; // 4DP SPG-9 Team
+{"doctrine_team_spg9(pol)"
+	("squad_with2types_doctrine" side(pol) period(mid) c1(sup_guncrew_spg9:1) c2(sup_guncrew:1))
+	("doctrine_t1" cool(30) d(mid_pol_luzycka) cost(4))
+}
+
+; // 6DP Rifle Squad in TOPAS
 {"doctrine_squad_rifle_mech(pol)"
-	("squad_vehicle6_doctrine" side(pol) period(mid) vehicle(btr-50pk) crew1(sup_vehicleman:2) crew2(des_squadlead:1) crew3(des_lmg:1) crew4(des_antitank1:1) crew5(des_atassist1:1) crew6(des_rifleman:4) cw(2) cp(0))
-	("doctrine_t1" cool(60) d(mid_pol_szturm) cost(6))
+	("squad_vehicle6_doctrine" side(pol) period(mid) vehicle(topas) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank1:1) crew5(reg_atassist1:1) crew6(reg_rifleman:4) cw(2) cp(0))
+	("doctrine_t1" cool(60) d(mid_pol_luzycka) cost(6))
 }
 
 ; // 8DP PT-76B with DSzK HMG
 {"doctrine_vehicle_pt76p(pol)"
 	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(pt-76p) crew(sup_tankman:3) cw(0) cp(0))
-	("doctrine_t1" cool(30) d(mid_pol_szturm) cost(8))
+	("doctrine_t1" cool(30) d(mid_pol_luzycka) cost(8))
 }
 
 ; ======Tier2======
 
+
 ; // 6DP BRDM-2 Scout Car
 {"doctrine_vehicle_brdm2(pol)"
 	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(brdm-2) crew(sup_vehicleman:3) cw(2) cp(0))
-	("doctrine_t2" cool(60) d(mid_pol_szturm) cost(6))
+	("doctrine_t2" cool(60) d(mid_pol_luzycka) cost(6))
 }
 
 ; ======Tier3======
 
+; // 14DP Marine Squad in TOPAS-2AP
+{"doctrine_squad_des_mech(pol)"
+	("squad_vehicle6_doctrine" side(pol) period(mid) vehicle(topas_2ap) crew1(sup_vehicleman:2) crew2(des_squadlead:1) crew3(des_lmg:1) crew4(des_antitank:1) crew5(des_atassist:1) crew6(des_rifleman:4) cw(2) cp(0))
+	("doctrine_t3" cool(160) d(mid_pol_luzycka) cost(14))
+}
+
 ; // 15DP T-55A
 {"doctrine_vehicle_t55a(pol)"
 	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(t-55a_pol) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t3" cool(120) d(mid_pol_szturm) cost(15))
+	("doctrine_t3" cool(120) d(mid_pol_luzycka) cost(15))
 }
 
 ;_________________________________________________
@@ -109,10 +149,11 @@
 ("squad_with6types" side(pol) name(squad_rifle)				period(mid) cd(0) ci(20) g(squad_3) c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_antitank1:1) c5(reg_atassist1:1) c6(reg_rifleman:3)									b(inf1) t())
 
 {"squad_reservist_moto(pol)"
-	("squad_vehicle5" period(mid) cd(0) ci(15) side(pol) t(vehicle) vehicle(btr-152_pol) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_atgren:1) crew5(rsv_rifleman:5) 													b(inf1) cw(2) cp(4)){squad_cost_factor 1}
+	("squad_vehicle5" period(mid) cd(0) ci(15) side(pol) t(vehicle) vehicle(topas) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_atgren:1) crew5(rsv_rifleman:5) 													b(inf1) cw(2) cp(4)){squad_cost_factor 1}
 }
+
 {"squad_rifle_moto(pol)"
-	("squad_vehicle6" period(mid) cd(0) ci(30) side(pol) t(vehicle) vehicle(btr-60p) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank1:1) crew5(reg_atassist1:1) crew6(reg_rifleman:4) 						b(inf1) cw(2) cp(9)){squad_cost_factor 1}
+	("squad_vehicle6" period(mid) cd(0) ci(30) side(pol) t(vehicle) vehicle(topas) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank1:1) crew5(reg_atassist1:1) crew6(reg_rifleman:4) 						b(inf1) cw(2) cp(9)){squad_cost_factor 1}
 }
 
 ("squad_with4types" side(pol) name(squad_roz_recon)			period(mid) cd(0) ci(10) g(squad_3) c1(roz_squadlead:1) c2(roz_antitank:1) c3(roz_marksman:1) c4(roz_rifleman:1) 																	b(inf1) t())
@@ -141,7 +182,8 @@
 
 
 ;AUTOMATIC WEAPONRY
-("squad_weaponteam" side(pol) name(deploy_sg43) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_sg43:1) 	c2(sup_guncrew:1)	b(empl) t() cost(70))
+("squad_weaponteam" side(pol) name(deploy_sg43) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_sg43:1) 	c2(sup_guncrew:1)	b(empl) t() cost(60))
+;("squad_weaponteam" side(pol) name(deploy_pk) 		period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_pk:1) 	c2(sup_guncrew:1)	b(empl) t() cost(70))
 ("squad_weaponteam" side(pol) name(deploy_dshk) 	period(mid) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_dshk:1) 	c2(sup_guncrew:1)	b(empl) t() cost(100))
 
 {"zpu-4_pol"
@@ -155,7 +197,7 @@
 }
 
 ; AT WEAPONRY
-("squad_weaponteam" side(pol) name(deploy_spg9) period(mid) cd(30)   ci(60)  g(empl3)	c1(sup_guncrew_spg9:1) c2(sup_guncrew:1)	b(empl) t() cost(200))
+("squad_weaponteam" side(pol) name(deploy_b10) period(mid) cd(30)   ci(60)  g(empl3)	c1(sup_guncrew_b10:1) c2(sup_guncrew:1)	b(empl) t() cost(200))
 
 {"d-44_pol" ;
 	("vehicle" period(mid) cd(30) ci(30) t(cannon antitank) side(pol) crew(sup_supporter:4)  g(empl3) b(empl) cw(4) cp(6))
@@ -203,12 +245,37 @@
 
 {"lublin-51_ammo"
 	("vehicle"  period(mid) cd(0) ci(15) g(supply1) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
-	{cost 100}
+	{cost 125}
 }
 
 {"lublin-51_eng"
 	("vehicle"  period(mid) cd(0) ci(15) g(supply1) side(pol) t(vehicle) crew(reg_engineer:2) b(vehicles) cw(0) cp(2))
 	{cost 100}
+}
+
+{"ural375_pol"
+	("vehicle"  period(mid) cd(0) ci(5) g(wheel2) side(pol) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 40}
+}
+
+{"ural375_ammo_ammo"
+	("vehicle"  period(mid) cd(60) ci(60) g(supply1) side(pol) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 200}
+}
+
+{"btr-40_pol"
+	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(4))
+	{cost 50}
+}
+
+{"btr-152_pol"
+	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	{cost 70}
+}
+
+{"topas"
+	("vehicle"  period(mid) cd(0) ci(15) g(apc) side(pol) t(vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	{cost 75}
 }
 
 ;_________________________________________________
@@ -217,8 +284,13 @@
 
 ;LIGHT
 
+{"gaz-69_dshk_pol"
+	("vehicle" period(mid) cd(60) ci(45) t(vehicle apc) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(3))
+	{cost 80}
+}
+
 {"brdm-1_pol"
-	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(3))
+	("vehicle" period(mid) cd(0) ci(15) t(vehicle apc) side(pol) crew(sup_vehicleman:3) g(wheel3) b(tanks) cw(0) cp(5))
 	{cost 75}
 }
 
@@ -249,7 +321,7 @@
 	{cost 390}
 }
 
-{"t-54am_pol"
+{"t-54am2_pol"
 	("vehicle" period(mid) cd(200) ci(80) t(medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(12))
 	{cost 420}
 }

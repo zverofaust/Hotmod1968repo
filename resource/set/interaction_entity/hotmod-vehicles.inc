@@ -647,6 +647,18 @@
 	}
 }
 
+{"asu-85_late tank"
+	("t70_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+}
+
 {"asu-85_para tank"
 	("t70_sound")
 	{on fire "gun"
@@ -1860,6 +1872,16 @@
 
 {"m151"
 	("kubel_sound")
+}
+
+{"m151_m2"
+	("kubel_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "mgun" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "mgun" -1.0 resume}
+	}
 }
 
 {"m151_m40"
@@ -3688,6 +3710,44 @@
 
 ;/*=========== POL Vehicles BEGIN  ===========*/
 
+{"gaz-69_pol"
+	("gaz_sound")
+}
+
+{"gaz-69_dshk_pol"
+	("gaz_sound")
+}
+
+{"gaz-69_b10_pol"
+	("gaz_sound")
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{view start "backblast"}
+		{call "spawn_shell"}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "mgun" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "mgun" -1.0 resume}
+	}
+}
+
+{"gaz-69_mortar_pol"
+	("gaz_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "open_topright" +1.0 resume}
+		{ani_play "mgun" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open_topright" -1.0 resume}
+		{ani_play "mgun" -1.0 resume}
+	}
+}
 {"lublin-51 car"
 	("studebaker_sound")
 	("animation_sound" args "open_left")
@@ -3724,6 +3784,22 @@
 
 {"btr-152u_pol"
 	("zis5_sound")
+}
+
+{"topas tank"
+	("t70_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "open_topright" +1.0 resume}
+		{ani_play "mgun" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open_topright" -1.0 resume}
+		{ani_play "mgun" -1.0 resume}
+	}
+}
+
+{"topas_2ap tank"
+	("t70_sound")
 }
 
 {"brdm-1_pol"
@@ -3966,6 +4042,32 @@
 
 }
 
+{"asu-85_pol tank"
+	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"asu-85_late_pol tank"
+	("t70_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+}
+
+{"asu-85_para_pol tank"
+	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
 {"t-54a_pol tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
@@ -3987,7 +4089,7 @@
 	}
 }
 
-{"t-54am tank"
+{"t-54am_pol tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
 		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
@@ -4008,7 +4110,7 @@
 	}
 }
 
-{"t-54am1 tank"
+{"t-54am1_pol tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
 		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
@@ -4029,7 +4131,28 @@
 	}
 }
 
-{"t-54am2 tank"
+{"t-54am2_pol tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "open" 1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"t-54u_pol tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
 		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}

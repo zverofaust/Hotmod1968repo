@@ -1,0 +1,48 @@
+;SDL
+(define "crew_inside"
+	{boarder
+		{anm "left"
+			{forward {begin "board_tank"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_tank"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+	}
+)
+(define "crew_open"
+	{placer
+		{place "%place"
+			{group "%group"}
+			{linkbone "%bone"}
+			%extra
+		}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		{link "gunner2" "charger"}
+	}
+)
+
+(define "crew_human"
+	{placer
+		{place "%place"
+			{group "crew"}
+			{visor "%visor"}
+		}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{link "%door" "%place" {anm "left"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "right"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(gunner)		door(emit1) door2(emit2) visor(main))
+("crew_human" place(driver)		door(emit1) door2(emit2) visor(driver))
+("crew_human" place(commander)	door(emit1) door2(emit2) visor(around))
+("crew_open" place(charger)		group(crew)	bone()			door(emit2) animation(charger) extra())
+("crew_open" place(gunner2)		group(crew)	bone(gunner2)	door(emit5) animation(driver1) extra())

@@ -112,7 +112,7 @@
 
 {"f-105_airstrike_bomb_super" ;buildable airstrike
 	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_super_bomb_usa))
-	("doctrine_t1" cool(5) d(mid_usa_air) cost(18))
+	("doctrine_t1" cool(5) d(mid_usa_aircav) cost(18))
 }
 
 
@@ -126,49 +126,35 @@
 
 
 ;===================================
-;          DOCTRINE 1
-;        ARMORED CAVALRY
+;          
+;        ARMORED CAVALRY SQUADRON
 ;===================================
+
+; ======Tier1======
 
 {"doctrine_fac_acav(usa)"
 	("squad_with1types_doctrine" side(usa) period(mid) c1(acav_fac:1) )
 	("doctrine_t1" cool(120) d(mid_usa_acav) cost(5))
 }
 
-; // 8DP US Army Ranger Long-Range Recon Patrol
-{"doctrine_squad_lrrp(usa)"
-	("squad_with5types_doctrine" side(usa) period(mid) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1) c5(rng_grenadier:1))
-	("doctrine_t1" cool(5) d(mid_usa_acav) cost(8))
+; // 10DP Armored Cavalry Rifle Squad in M113 ACAV
+{"doctrine_squad_acav_moto(usa)"
+	("squad_vehicle6_doctrine" side(usa) period(mid) vehicle(m113_acav) crew1(acav_vehicleman:2) crew2(acav_rifleman:4) crew3(acav_squadlead:1) crew4(acav_lat:2) crew5(acav_grenadier:2) crew6(acav_teamlead:1) cw(2) cp(0))
+	("doctrine_t1" cool(60) d(mid_usa_acav) cost(10))
 }
 
-; // 8DP M577 Command Carrier
-;{"doctrine_vehicle_m577_acav(usa)"
-;	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(m577) crew1(sup_vehicleman:2) crew2(sup_supporter:1) cw(0) cp(0))
-;	("doctrine_t1" cool(60) d(mid_usa_acav) cost(8))
-;}
-
-; // 12DP Armored Cavalry Assault Squad in M113 ACAV
-{"doctrine_squad_acav_moto(usa)"
-	("squad_vehicle8_doctrine" side(usa) period(mid) vehicle(m113_acav) crew1(acav_vehicleman:2) crew2(acav_rifleman:3) crew3(acav_squadlead:1) crew4(acav_mg:1) crew5(acav_antitank:1) crew6(acav_mgassist:1) crew7(acav_atassist:1) crew8(acav_grenadier:2) cw(2) cp(0))
+; // 12DP Armored Cavalry Weapon Squad in M113 ACAV
+{"doctrine_squad_acav_weapon_moto(usa)"
+	("squad_vehicle7_doctrine" side(usa) period(mid) vehicle(m113_acav) crew1(acav_vehicleman:2) crew2(acav_rifleman:1) crew3(acav_squadlead:1) crew4(acav_mg:2) crew5(acav_antitank:2) crew6(acav_mgassist:2) crew7(acav_atassist:2) cw(2) cp(0))
 	("doctrine_t1" cool(90) d(mid_usa_acav) cost(12))
 }
 
-; // 20DP M113 ACAV with M40 -- is this really necessary?
-;{"doctrine_vehicle_m113_acav_m40(usa)"
-;	("squad_vehicle6_doctrine" side(usa) period(mid) vehicle(m113_acav_m40) crew1(acav_vehicleman:1) crew2(acav_squadlead:1) crew3(acav_rifleman:2) crew4(acav_mg:2) crew5(acav_antitank:2) crew6(acav_atassist:2)cw(2) cp(0))
-;	("doctrine_t2" cool(90) d(mid_usa_acav) cost(20))
-;}
+; ======Tier2======
 
-; // 20DP M114A2
-{"doctrine_vehicle_m114a2(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m114a2) crew(acav_vehicleman:3) cw(0) cp(0))
-	("doctrine_t2" cool(120) d(mid_usa_acav) cost(20))
-}
-
-; // 15DP M106 Self-Propelled Heavy Mortar
+; // 12DP M106 Self-Propelled Heavy Mortar
 {"doctrine_vehicle_m106(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m106) crew(acav_vehicleman:4) cw(0) cp(0))
-	("doctrine_t2" cool(120) d(mid_usa_acav) cost(15))
+	("doctrine_t2" cool(120) d(mid_usa_acav) cost(12))
 }
 
 ; // 15DP M132 Zippo
@@ -177,16 +163,18 @@
 	("doctrine_t2" cool(120) d(mid_usa_acav) cost(15))
 }
 
+; ======Tier3======
+
+; // 15DP M109 Self-Propelled Howitzer
+{"doctrine_vehicle_m109_acav(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m109) crew(acav_vehicleman:4) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(mid_usa_acav) cost(20))
+}
+
 ; // 18DP M551 ACAV
 {"doctrine_vehicle_m551acav(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m551_acav) crew(acav_vehicleman:4) cw(0) cp(0))
 	("doctrine_t3" cool(240) d(mid_usa_acav) cost(18))
-}
-
-; // 20DP M109 Self-Propelled Howitzer
-{"doctrine_vehicle_m109_acav(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m109) crew(acav_vehicleman:4) cw(0) cp(0))
-	("doctrine_t3" cool(180) d(mid_usa_acav) cost(20))
 }
 
 ; // 20DP UH-1B Huey Gunship
@@ -196,132 +184,11 @@
 }
 
 ;===================================
-;         AIR CAV
-;			
-;===================================
-
-; // 3DP Ammo Drop from UH-1D
-{"doctrine_vehicle_heliammo(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1h_transport_supplies) crew(sup_pilot:4) cw(2) cp(0))
-	("doctrine_t1" cool(30) d(mid_usa_air) cost(3))
-}
-
-{"doctrine_fac_aircav(usa)"
-	("squad_with1types_doctrine" side(usa) period(mid) c1(aircav_fac:1) )
-	("doctrine_t1" cool(60) d(mid_usa_air) cost(5))
-}
-
-; // 8DP Air-Dropped M151 with M40
-;{"doctrine_vehicle_m151_m40(usa)"
-;	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(uh-1h_transport_m151_m40) crew1(sup_pilot:4) crew2(aircav_rifleman:3) cw(0) cp(0))
-;	("doctrine_t1" cool(120) d(mid_usa_air) cost(8))
-;}
-
-; // 8DP Air-Dropped M56 Scorpion
-{"doctrine_vehicle_m56(usa)"
-	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(ch-47_transport_m56) crew1(sup_pilot:4) crew2(aircav_vehicleman:3) cw(0) cp(0))
-	("doctrine_t2" cool(120) d(mid_usa_air) cost(8))
-}
-
-; // 10DP Airmobile Infantry Squad in UH-1D
-{"doctrine_squad_rifle_huey(usa)"
-	("squad_vehicle8_doctrine" side(usa) period(mid)vehicle(uh-1h) crew1(sup_pilot:4) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:1) crew5(aircav_lat:2) crew6(aircav_mgassist:1) crew7(aircav_grenadier:2) crew8(aircav_rifleman:2) cw(2) cp(0))
-	("doctrine_t2" cool(120) d(mid_usa_air) cost(10))
-}
-
-; // 15DP MGR-3 Honest John Launcher
-{"doctrine_vehicle_mgr3(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(mgr-3) crew(aircav_rifleman:4) cw(0) cp(0))
-	("doctrine_t2" cool(240) d(mid_usa_air) cost(15))
-}
-
-; // 10DP Airmobile Weapons Squad in UH-1D (longer cooldown than standard squad)
-{"doctrine_squad_weapons_huey(usa)"
-	("squad_vehicle8_doctrine" side(usa) period(mid)vehicle(uh-1h) crew1(sup_pilot:4) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:1) crew5(aircav_lat:2) crew6(aircav_mgassist:1) crew7(aircav_grenadier:2) crew8(aircav_rifleman:2) cw(2) cp(0))
-	("doctrine_t3" cool(180) d(mid_usa_air) cost(12))
-}
-
-; // 18DP M551 Sheridan
-{"doctrine_vehicle_m551(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m551) crew(aircav_vehicleman:4) cw(0) cp(0))
-	("doctrine_t3" cool(240) d(mid_usa_air) cost(18))
-}
-
-; // 20DP Airmobile Ranger Squad in UH-1D
-{"doctrine_squad_ranger_huey(usa)"
-	("squad_vehicle8_doctrine" side(usa) period(mid) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
-	("doctrine_t3" cool(180) d(mid_usa_air) cost(20))
-}
-
-; // 25DP AH-1G
-{"doctrine_vehicle_ah1g(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ah-1g) crew(sup_pilot:2) cw(0) cp(0))
-	("doctrine_t3" cool(240) d(mid_usa_air) cost(25))
-}
-
-; // 10 DP Chinook Transport/Supply
-;{"doctrine_vehicle_chinook(usa)"
-;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ch-47_chinook_mg) crew(sup_pilot:4) cw(0) cp(0))
-;	("doctrine_t2" cool(240) d(mid_usa_air) cost(10))
-;}
-
-;===================================
-;         ARMORED BRIGADE
-;			
-;===================================
-
-; // 5DP M35 Heavy Ammo (to be replaced with 5-ton M54)
-{"doctrine_vehicle_m35_ammo(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m35_ammo) crew(sup_guncrew:2) cw(2) cp(0))
-	("doctrine_t1" cool(30) d(mid_usa_tank) cost(10))
-}
-
-; // 15DP M551 Sheridan Armored Reconaissance Vehicle
-{"doctrine_vehicle_m551_tank(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m551) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(120) d(mid_usa_tank) cost(20))
-}
-
-; // 20DP M109 Self-Propelled Howitzer
-{"doctrine_vehicle_m109(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m109) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(90) d(mid_usa_tank) cost(20))
-}
-
-; // 25DP M728 CEV
-{"doctrine_vehicle_m728(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m728) crew(acav_engineer:4) cw(0) cp(0))
-	("doctrine_t2" cool(120) d(mid_usa_tank) cost(25))
-}
-
-; // 30DP M110 Self-Propelled Howitzer
-{"doctrine_vehicle_m110(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m110) crew(sup_tankman:5) cw(0) cp(0))
-	("doctrine_t2" cool(240) d(mid_usa_tank) cost(30))
-}
-
-; // 25DP M163 VADS
-{"doctrine_vehicle_m163(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m163) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t3" cool(180) d(mid_usa_tank) cost(25))
-}
-
-; // 40DP M60A1E2 'Starship' pre-production
-{"doctrine_vehicle_m60a1e2(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m60a1e2) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t3" cool(120) d(mid_usa_tank) cost(40))
-}
-
-; // 18 DP UH-1B with 'M22' ATGM Mount
-{"doctrine_vehicle_uh1b_m22(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1b_m22) crew(sup_pilot:2) cw(0) cp(0))
-	("doctrine_t3" cool(180) d(mid_usa_tank) cost(18))
-}
-
-;===================================
-;          USMC
+;     USMC BATTALION LANDING TEAM
 ;            
 ;===================================
+
+; ======Tier1======
 
 {"doctrine_fac_usmc(usa)"
 	("squad_with1types_doctrine" side(usa) period(mid) c1(usmc_fac:1) )
@@ -331,7 +198,7 @@
 ; // 2DP Marine Fireteam
 {"doctrine_squad_usmc_fireteam(usa)"
 	("squad_with4types_doctrine" side(usa) period(mid) c1(usmc_teamlead:1) c2(usmc_mg:1) c3(usmc_antitank:1) c4(usmc_ammo:1))
-	("doctrine_t1" cool(5) d(mid_usa_usmc) cost(3))
+	("doctrine_t1" cool(15) d(mid_usa_usmc) cost(3))
 }
 
 ; // 5DP M98 107mm Howtar
@@ -340,53 +207,32 @@
 	("doctrine_t1" cool(30) d(mid_usa_usmc) cost(5))
 }
 
-; // 8DP Machinegun Squad
-{"doctrine_squad_usmc_mg(usa)"
-	("squad_with3types_doctrine" side(usa) period(mid) c1(usmc_squadlead:1) c2(usmc_mg:3) c3(usmc_mgassist:6))
-	("doctrine_t1" cool(60) d(mid_usa_usmc) cost(8))
+; ======Tier2======
+
+; // 10DP USMC Squad in M113 - to be replaced with LVTP-5
+{"doctrine_squad_usmc_lvtp(usa)"
+	("squad_vehicle6_doctrine" side(usa) period(mid) vehicle(m113_acav) crew1(usmc_vehicleman:2) crew2(usmc_squadlead:1) crew3(usmc_autorifle:2) crew4(usmc_grenadier:2) crew5(usmc_teamlead:1) crew6(usmc_rifleman:4) cw(2) cp(0))
+	("doctrine_t2" cool(60) d(mid_usa_usmc) cost(10))
 }
 
-; // 6DP Marine Squad
-{"doctrine_squad_usmc(usa)"
-	("squad_with7types_doctrine" side(usa) period(mid) c1(usmc_squadlead:1) c2(usmc_teamlead:3) c3(usmc_autorifle:3) c4(usmc_grenadier:1) c5(usmc_lat:3) c6(usmc_rifleman:2) c7(usmc_corpsman))
-	("doctrine_t1" cool(60) d(mid_usa_usmc) cost(10))
+; // 10DP Navy SEAL Underwater Demolition Team (UDT)
+{"doctrine_squad_udt(usa)"
+	("squad_with1types_doctrine" side(usa) period(mid) c1(spec_squadlead:1) c2(spec_demo:2) c3(spec_rifleman:1))
+	("doctrine_t2" cool(120) d(mid_usa_usmc) cost(10))
 }
 
-; // 10DP Mk 18 Mod 0 Automatic Grenade Launcher w/ Navy SEAL Crew
-{"doctrine_vehicle_mk18(usa)"
-	("squad_with2types_doctrine" side(usa) period(mid) c1(spec_guncrew_mk18:1) c2(spec_spotter:1))
-	("doctrine_t1" cool(160) d(mid_usa_usmc) cost(10))
+; // 14DP M50 Ontos airlifted by CH-37
+{"doctrine_vehicle_m50_airlift(usa)"
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(ch-37_transport_m50) crew1(sup_pilot:2) crew2(usmc_vehicleman:3) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(mid_usa_usmc) cost(14))
 }
 
-; // 10DP Airborne Marine Squad
+; ======Tier3======
+
+; // 12DP Airborne Marine Squad
 {"doctrine_squad_usmc_ch37(usa)"
-	("squad_vehicle8_doctrine" side(usa) period(mid) vehicle(ch-37) crew1(sup_pilot:2) crew2(usmc_squadlead:1) crew3(usmc_teamlead:3) crew4(usmc_autorifle:3) crew5(usmc_grenadier:1) crew6(usmc_lat:3) crew7(usmc_rifleman:2) crew8(usmc_corpsman) cw(2) cp(0))
-	("doctrine_t2" cool(180) d(mid_usa_usmc) cost(10))
-}
-
-; // 15DP M50 Ontos
-{"doctrine_vehicle_m50(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m50) crew(usmc_vehicleman:3) cw(2) cp(0))
-	("doctrine_t2" cool(120) d(mid_usa_usmc) cost(15))
-}
-
-; // 15DP M67 Zippo Flame Tank
-{"doctrine_vehicle_m67_zippo(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m67_zippo) crew(usmc_vehicleman:3) cw(2) cp(0))
-	("doctrine_t2" cool(180) d(mid_usa_usmc) cost(15))
-}
-
-; // 20DP M103 Heavy Tank
-{"doctrine_vehicle_m103(usa)"
-	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m103) crew(usmc_vehicleman:5) cw(2) cp(0))
-	("doctrine_t2" cool(300) d(mid_usa_usmc) cost(20))
-}
-
-
-; // 20DP Airborne SEAL Detachment
-{"doctrine_squad_seal_huey(usa)"
-	("squad_vehicle8_doctrine" side(usa) period(mid) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(spec_squadlead:1) crew3(spec_demo:1) crew4(spec_mg:1) crew5(spec_antitank:2) crew6(spec_marksman:1) crew7(spec_grenadier:1) crew8(spec_rifleman:3) cw(2) cp(0))
-	("doctrine_t3" cool(180) d(mid_usa_usmc) cost(20))
+	("squad_vehicle8_doctrine" side(usa) period(mid) vehicle(ch-37) crew1(sup_pilot:2) crew2(usmc_squadlead:1) crew3(usmc_teamlead:1) crew4(usmc_autorifle:3) crew5(usmc_grenadier:1) crew6(usmc_lat:3) crew7(usmc_rifleman:2) crew8(usmc_corpsman:1) cw(2) cp(0))
+	("doctrine_t3" cool(180) d(mid_usa_usmc) cost(12))
 }
 
 ; // 14 DP UH-1B with 'Maxwell' Mount
@@ -396,9 +242,249 @@
 }
 
 ;===================================
+;         AIR CAVALRY SQUADRON
+;			
+;===================================
+
+; ======Tier1======
+
+; // 3DP Ammo Drop from UH-1D
+{"doctrine_vehicle_heliammo(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1h_transport_supplies) crew(sup_pilot:4) cw(2) cp(0))
+	("doctrine_t1" cool(30) d(mid_usa_aircav) cost(3))
+}
+
+; // 10 DP Chinook Transport/Supply
+;{"doctrine_vehicle_chinook(usa)"
+;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ch-47_chinook_mg) crew(sup_pilot:4) cw(0) cp(0))
+;	("doctrine_t2" cool(240) d(mid_usa_aircav) cost(10))
+;}
+
+{"doctrine_fac_aircav(usa)"
+	("squad_with1types_doctrine" side(usa) period(mid) c1(aircav_fac:1) )
+	("doctrine_t1" cool(60) d(mid_usa_aircav) cost(5))
+}
+
+; // 6DP Airlifted M116 Packhow
+{"doctrine_vehicle_m116(usa)"
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(uh-1h_transport_m116) crew1(sup_pilot:4) crew2(aircav_guncrew:4) cw(0) cp(0))
+	("doctrine_t1" cool(60) d(mid_usa_aircav) cost(6))
+}
+
+; ======Tier2======
+
+; // 10DP Airmobile Rifle Squad in UH-1D
+{"doctrine_squad_rifle_huey(usa)"
+	("squad_vehicle6_doctrine" side(usa) period(mid)vehicle(uh-1h) crew1(sup_pilot:4) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_lat:2) crew5(aircav_grenadier:2) crew6(aircav_rifleman:4) cw(2) cp(0))
+	("doctrine_t2" cool(90) d(mid_usa_aircav) cost(10))
+}
+
+; // 12DP Airmobile Weapons Squad in UH-1D
+{"doctrine_squad_weapons_huey(usa)"
+	("squad_vehicle7_doctrine" side(usa) period(mid)vehicle(uh-1h) crew1(sup_pilot:4) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:2) crew5(aircav_antitank:2) crew6(aircav_mgassist:2) crew7(aircav_rifleman:2) cw(2) cp(0))
+	("doctrine_t2" cool(120) d(mid_usa_aircav) cost(12))
+}
+
+; // 8DP Airlifted M151 with M40
+{"doctrine_vehicle_m151_m40(usa)"
+	("squad_vehicle2_doctrine" side(usa) period(mid) vehicle(uh-1h_transport_m151_m40) crew1(sup_pilot:4) crew2(aircav_vehicleman:3) cw(0) cp(0))
+	("doctrine_t2" cool(120) d(mid_usa_aircav) cost(8))
+}
+
+; ======Tier3======
+
+; // 20DP Airmobile Ranger Squad in UH-1D
+{"doctrine_squad_ranger_huey(usa)"
+	("squad_vehicle8_doctrine" side(usa) period(mid) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
+	("doctrine_t3" cool(180) d(mid_usa_aircav) cost(20))
+}
+
+; // 25DP AH-1G
+{"doctrine_vehicle_ah1g(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ah-1g) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(240) d(mid_usa_aircav) cost(25))
+}
+
+; // 25DP US Special Forces Green Light Team with Special Atomic Demolition Munition (Nuclear Mine)
+;{"doctrine_squad_sadm(usa)"
+;	("squad_with1types_doctrine" side(usa) period(mid) c1(spec_squadlead:1) c2(spec_demo_nuke:1) c3(spec_rifleman:1) c4(spec_spotter:1))
+;	("doctrine_t2" cool(240) d(mid_usa_aircav) cost(25))
+;}
+
+;===================================
+;   ARMORED BATALLION TASK FORCE
+;			
+;===================================
+
+; ======Tier1======
+
+; // 5DP M548 tracked Ammo Carrier
+;{"doctrine_vehicle_m548_ammo(usa)"
+;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m548_ammo) crew(sup_supporter:2) cw(2) cp(0))
+;	("doctrine_t1" cool(30) d(mid_usa_armor) cost(5))
+;}
+
+; // 10DP M114A2
+{"doctrine_vehicle_m114a2(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m114a2) crew(sup_vehicleman:3) cw(0) cp(0))
+	("doctrine_t1" cool(120) d(mid_usa_armor) cost(10))
+}
+
+; // 15DP M109 Self-Propelled Howitzer
+{"doctrine_vehicle_m109(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m109) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t1" cool(90) d(mid_usa_armor) cost(15))
+}
+
+; ======Tier2======
+
+; // 15DP M60 (first production)
+{"doctrine_vehicle_m60(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m60_patton) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t2" cool(90) d(mid_usa_armor) cost(15))
+}
+
+; // 20DP M110 Self-Propelled Howitzer
+{"doctrine_vehicle_m110(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m110) crew(sup_tankman:5) cw(0) cp(0))
+	("doctrine_t2" cool(240) d(mid_usa_armor) cost(20))
+}
+
+; ======Tier3======
+
+; // 25DP M163 VADS
+{"doctrine_vehicle_m163(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m163) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(mid_usa_armor) cost(25))
+}
+
+; // 40DP M60A1E2 'Starship' pre-production
+;{"doctrine_vehicle_m60a1e2(usa)"
+;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m60a1e2) crew(sup_tankman:4) cw(0) cp(0))
+;	("doctrine_t3" cool(120) d(mid_usa_armor) cost(40))
+;}
+
+; // 25 DP UH-1B with 'M22' ATGM Mount
+{"doctrine_vehicle_uh1b_m22(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1b_m22) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(mid_usa_armor) cost(25))
+}
+
+;===================================
+;   USMC Expeditionary Brigade
+;			
+;===================================
+
+; ======Tier1======
+
+; // 3DP Marine Scout-Sniper Team
+{"doctrine_squad_usmc_scout(usa)"
+	("squad_with2types_doctrine" side(usa) period(mid) c1(usmc_sniper:1) c2(usmc_spotter:1))
+	("doctrine_t1" cool(30) d(mid_usa_usmc2) cost(3))
+}
+
+; // 10DP Mk 18 Mod 0 Automatic Grenade Launcher w/ Navy SEAL Crew
+{"doctrine_vehicle_mk18(usa)"
+	("squad_with2types_doctrine" side(usa) period(mid) c1(seal_guncrew_mk18:1) c2(seal_spotter:1))
+	("doctrine_t1" cool(160) d(mid_usa_usmc2) cost(10))
+}
+
+; // 10DP Marine Squad
+{"doctrine_squad_usmc(usa)"
+	("squad_with7types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(usmc_squadlead:1) c2(usmc_teamlead:1) c3(usmc_autorifle:3) c4(usmc_grenadier:1) c5(usmc_lat:3) c6(usmc_rifleman:2) c7(usmc_corpsman:1))
+	("doctrine_t1" cool(60) d(mid_usa_usmc2) cost(10))
+}
+
+; ======Tier2======
+
+; // 15DP M50 Ontos
+{"doctrine_vehicle_m50(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m50) crew(usmc_vehicleman:3) cw(2) cp(0))
+	("doctrine_t2" cool(120) d(mid_usa_usmc2) cost(15))
+}
+
+; // 15DP M67 Zippo Flame Tank
+{"doctrine_vehicle_m67_zippo(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m67_zippo) crew(usmc_vehicleman:3) cw(2) cp(0))
+	("doctrine_t2" cool(180) d(mid_usa_usmc2) cost(15))
+}
+
+; ======Tier3======
+
+; // 16 DP UH-1B with 'Maxwell' Mount
+{"doctrine_vehicle_uh1b_maxwell_2(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1b_maxwell) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(mid_usa_usmc2) cost(16))
+}
+
+; // 20DP M103 Heavy Tank
+{"doctrine_vehicle_m103(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m103) crew(usmc_vehicleman:5) cw(2) cp(0))
+	("doctrine_t3" cool(300) d(mid_usa_usmc2) cost(20))
+}
+
+; // 20DP Airborne SEAL Detachment
+{"doctrine_squad_seal_huey(usa)"
+	("squad_vehicle8_doctrine" side(usa) period(mid) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(seal_squadlead:1) crew3(seal_demo:1) crew4(seal_mg:1) crew5(seal_antitank:2) crew6(seal_marksman:1) crew7(seal_grenadier:1) crew8(seal_rifleman:3) cw(2) cp(0))
+	("doctrine_t3" cool(180) d(mid_usa_usmc2) cost(20))
+}
+
+
+;===================================
+;   82nd Airborne Battle Group
+;			
+;===================================
+
+; ======Tier1======
+
+; // 3 DP Ammo Paradrop
+{"doctrine_airdrop_ammo(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(f-105) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_strat" cool(30) d(mid_usa_82nd) cost(3))
+	{action "airstrike:flare_paradrop_ammo"} 
+}
+
+; // 8DP 82nd Airborne Squad
+{"doctrine_squad_82nd(usa)"
+	("squad_with7types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(82nd_squadlead:1) c2(82nd_teamlead:1) c3(82nd_mg:1) c4(82nd_mgassist:1) c5(82nd_antitank:1) c6(82nd_atassist:1) c7(82nd_rifleman:4))
+	("doctrine_t1" cool(60) d(mid_usa_82nd) cost(8))
+}
+
+; // 8DP Air-Dropped M56 Scorpion
+{"doctrine_paradrop_m56(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(f-105) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_t2" cool(60) d(mid_usa_82nd) cost(8))
+	{action "airstrike:flare_paradrop_m56"} 
+}
+
+; ======Tier2======
+
+; // 10DP US Special Forces Recon Team
+{"doctrine_squad_specops(usa)"
+	("squad_with5types_doctrine" side(usa) period(mid) g(doctrine_lvl1) c1(spec_squadlead:1) c2(spec_mg:1) c3(spec_antitank:1) c4(spec_marksman:1) c5(spec_grenadier:1))
+	("doctrine_t2" cool(5) d(mid_usa_82nd) cost(10))
+}
+
+; // 15DP MGR-3 Honest John Launcher towed by Jeep
+{"doctrine_vehicle_mgr3(usa)"
+	("towed_gun_doctrine" side(usa) period(mid) vehicle(m151) crew_v(82nd_guncrew:1) cannon(mgr-3) crew_c(82nd_guncrew:4) cw(0) cp(0))
+	("doctrine_t1" cool(30) d(mid_usa_82nd) cost(15))
+}
+
+; ======Tier3======
+
+; // 18DP M551 Sheridan
+{"doctrine_vehicle_m551(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m551) crew(82nd_vehicleman:4) cw(0) cp(0))
+	("doctrine_t3" cool(240) d(mid_usa_82nd) cost(18))
+}
+
+;===================================
 ;       	DOCTRINE 3
 ;		ARTILLERY BRIGADE
 ;===================================
+
+; ======Tier1======
 
 ; // 5DP M54 Heavy Ammo Truck
 ;{"doctrine_vehicle_m54(usa)"
@@ -412,6 +498,8 @@
 	("doctrine_t1" cool(60) d(mid_usa_artillery) cost(10))
 }
 
+; ======Tier2======
+
 ; // 15DP M114 155mm Howitzer
 {"doctrine_vehicle_m114(usa)"
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m114) crew(sup_guncrew:4) cw(0) cp(0))
@@ -423,6 +511,14 @@
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(uh-1b_ara) crew(sup_pilot:2) cw(0) cp(0))
 	("doctrine_t2" cool(240) d(mid_usa_artillery) cost(15))
 }
+
+; // 20DP M728 CEV
+{"doctrine_vehicle_m728(usa)"
+	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m728) crew(acav_engineer:4) cw(0) cp(0))
+	("doctrine_t2" cool(120) d(mid_usa_artillery) cost(20))
+}
+
+; ======Tier3======
 
 ; // 20DP M115 203mm Howitzer
 {"doctrine_vehicle_m115(usa)"
@@ -441,6 +537,8 @@
 	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(m-28) crew(sup_guncrew:4) cw(0) cp(0))
 	("doctrine_t3" cool(600) d(mid_usa_artillery) cost(80))
 }
+
+; ======Artillery Callins======
 
 ; // 3DP 81mm Mortar Salvo
 {"mortar_barrage_light_usa"
@@ -618,22 +716,22 @@
 ;LIGHT
 
 {"m151_m60"
-	("vehicle"  period(mid) cd(0) ci(15) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:2) b(tanks) cw(0) cp(5))
+	("vehicle"  period(mid) cd(0) ci(15) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:2) b(tanks) cw(0) cp(3))
 	{cost 70}
 }
 
 {"m151_m2"
-	("vehicle"  period(mid) cd(30) ci(30) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(5))
+	("vehicle"  period(mid) cd(30) ci(30) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(3))
 	{cost 100}
 }
 
 {"m151_m40"
-	("vehicle"  period(mid) cd(0) ci(30) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(7))
+	("vehicle"  period(mid) cd(0) ci(30) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(5))
 	{cost 150}
 }
 
 {"m35_guntruck"
-	("vehicle"  period(mid) cd(0) ci(30) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(7))
+	("vehicle"  period(mid) cd(0) ci(30) g(wheel3) side(usa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(5))
 	{cost 225}
 }
 
