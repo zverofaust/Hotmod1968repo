@@ -44,7 +44,7 @@
 
 ; // 2DP PKS Tripod Team
 {"doctrine_team_pk(pol)"
-	("squad_with2types_doctrine" side(pol) period(mid) c1(sup_guncrew_pk:1) c2(sup_guncrew:1))
+	("squad_with2types_doctrine" side(pol) period(mid) c1(pdes_guncrew_pk:1) c2(pdes_guncrew:1))
 	("doctrine_t1" cool(30) d(mid_pol_pomorska) cost(2))
 }
 
@@ -56,38 +56,45 @@
 
 ; // 8DP Rozpoznawczą Specjalna Squad
 {"doctrine_squad_roz(pol)"
-	("squad_with6types_doctrine" side(pol) period(mid) c1(roz_squadlead:1) c2(roz_marksman:1) c3(roz_spotter:1) c4(roz_antitank:1) c5(roz_mg:1) c6(roz_rifleman:3))
+	("squad_with6types_doctrine" side(pol) period(mid) c1(roz_squadlead:1) c2(roz_marksman:1) c3(roz_spotter:1) c4(roz_antitank:1) c5(roz_mg:1) c6(roz_rifleman:1))
 	("doctrine_t1" cool(120) d(mid_pol_pomorska) cost(8))
 }
 
 ; // 8DP GAZ-69 with Wz.37 light mortar
 {"doctrine_vehicle_gaz69_mortar(pol)"
-	("squad_vehicle2_doctrine" side(pol) period(mid) vehicle(gaz-69_mortar_pol) crew1(roz_squadlead:1) crew2(roz_rifleman:3) cw(2) cp(0))
+	("squad_vehicle2_doctrine" side(pol) period(mid) vehicle(gaz-69_mortar_pol) crew1(pdes_squadlead:1) crew2(pdes_rifleman:3) cw(2) cp(0))
 	("doctrine_t1" cool(120) d(mid_pol_pomorska) cost(8))
 }
 
 ; ======Tier2======
 
-; // 8DP GAZ_69 with B-10
+; // 8DP GAZ-69 with B-10
 {"doctrine_vehicle_gaz69_b10(pol)"
-	("squad_vehicle2_doctrine" side(pol) period(mid) vehicle(gaz-69_b10_pol) crew1(roz_squadlead:1) crew2(roz_rifleman:3) cw(2) cp(0))
+	("squad_vehicle2_doctrine" side(pol) period(mid) vehicle(gaz-69_b10_pol) crew1(pdes_squadlead:1) crew2(pdes_rifleman:3) cw(2) cp(0))
 	("doctrine_t2" cool(120) d(mid_pol_pomorska) cost(8))
 }
 
-; // 8DP T-54AM1
+; // 10DP ASU-85
+{"doctrine_vehicle_asu85(pol)"
+	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(asu-85_pol) crew(pdes_vehicleman:4) cw(0) cp(0))
+	("doctrine_t2" cool(120) d(mid_pol_pomorska) cost(10))
+}
+
+; // 11DP T-54AM1
 {"doctrine_vehicle_t54am1(pol)"
 	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(t-54am1_pol) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t2" cool(60) d(mid_pol_pomorska) cost(8))
+	("doctrine_t2" cool(60) d(mid_pol_pomorska) cost(11))
 }
 
 ; ======Tier3======
 
 ; // 10DP 9P110
 {"doctrine_vehicle_9p110(pol)"
-	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(9p110_pol) crew(sup_vehicleman:2) cw(0) cp(0))
+	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(9p110_pol) crew(pdes_vehicleman:2) cw(0) cp(0))
 	("doctrine_t3" cool(80) d(mid_pol_pomorska) cost(10))
 }
 
+; //18DP PowDes Squad in Mi-4
 ;===================================
 ;  7 Łużycka Dywizja Desantowa
 ;       Batalion Szturmowy

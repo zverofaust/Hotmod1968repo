@@ -49,9 +49,9 @@
 	{"speed" 1.20}
 )
 
-(define "airborne"		;// US 82nd Airborne
-	{"speed" 1.1}
-	{"health" "250%"}
+(define "airborne"		;// US 82nd Airborne, Polish Powietrznodesantowa
+	{"speed" 1.15}
+	{"health" "200%"}
 	{"stamina" "250%"}
 )
 
@@ -85,7 +85,7 @@
 	{"stamina_regeneration" "125%"}
 )
 
-(define "marines"	;// Marines
+(define "marines"	;// Marines, VMF, Desantowa
 	{"health" "300%"}
 	{"health_regeneration" "125%"}
 	{"stamina_regeneration" "125%"}
