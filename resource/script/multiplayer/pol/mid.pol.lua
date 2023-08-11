@@ -67,10 +67,14 @@ Purchases["mid.pol"] = {
 				{priority = 1.0, type = {"Doctine", "Vehicle", "AT", "Tier2",}, unit = "doctrine_vehicle_gaz69_b10(pol)"},
 				{priority = 1.0, type = {"Doctine", "Vehicle", "Mortar", "Tier2",}, unit = "doctrine_vehicle_gaz69_mortar(pol)"},
 				{priority = 1.0, type = {"Doctine", "Cannon", "AT", "Tier1",}, unit = "spg9_pol_ai"},
+				{priority = 1.0, type = {"Doctine", "Tank", "Light", "AT", "Tier1",}, unit = "doctrine_vehicle_asu85(pol)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t54am1(pol)"},
 				{priority = 1.0, type = {"Doctine", "Infantry", "Tier2",}, unit = "doctrine_squad_roz(pol)"},
 				{priority = 1.0, type = {"Doctine", "Armored", "AT", "Tier3",}, unit = "doctrine_vehicle_9p110(pol)"},
 			
+				-- Doctrine = "Brygada Obrony Terytorialnej" Territorial Defense Brigade
+				
+				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t54am1(pol)"},
 				
 		}
 	}

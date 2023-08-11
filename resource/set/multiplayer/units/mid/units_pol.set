@@ -80,12 +80,6 @@
 	("doctrine_t2" cool(120) d(mid_pol_pomorska) cost(10))
 }
 
-; // 11DP T-54AM1
-{"doctrine_vehicle_t54am1(pol)"
-	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(t-54am1_pol) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t2" cool(60) d(mid_pol_pomorska) cost(11))
-}
-
 ; ======Tier3======
 
 ; // 10DP 9P110
@@ -111,7 +105,7 @@
 
 ; // 8DP Rifle Squad in TOPAS
 {"doctrine_squad_rifle_mech(pol)"
-	("squad_vehicle6_doctrine" side(pol) period(mid) vehicle(topas) crew1(des_vehicleman:2) crew2(des_squadlead:1) crew3(des_lmg:1) crew4(des_antitank1:1) crew5(des_atassist1:1) crew6(des_rifleman:4) cw(2) cp(0))
+	("squad_vehicle6_doctrine" side(pol) period(mid) vehicle(topas) crew1(des_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank1:1) crew5(reg_atassist1:1) crew6(reg_rifleman:6) cw(2) cp(0))
 	("doctrine_t1" cool(90) d(mid_pol_luzycka) cost(8))
 }
 
@@ -143,6 +137,44 @@
 	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(t-55a_pol) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t3" cool(120) d(mid_pol_luzycka) cost(15))
 }
+
+;===================================
+;     Brygada Obrony Terytorialnej
+;       
+;     Territorial Defense Brigade
+;===================================
+
+; ======Tier1======
+
+; // 6DP WAP Border Troops in BTR-40
+{"doctrine_squad_border_moto(pol)"
+	("squad_vehicle6_doctrine" side(pol) period(mid) vehicle(btr-40_pol) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_antitank:1) crew5(rsv_atassist:1) crew6(rsv_rifleman:2) cw(2) cp(0))
+	("doctrine_t1" cool(30) d(mid_pol_otk) cost(6))
+}
+
+; // 6DP SG43 Squad
+{"doctrine_team_sg43(pol)"
+	("squad_with3types_doctrine" side(pol) period(mid) c1(sup_guncrew_sg43:3) c2(sup_guncrew:3) c3(rsv_rifleman:2))
+	("doctrine_t1" cool(30) d(mid_pol_otk) cost(6))
+}
+
+; // 7DP SU-76
+{"doctrine_vehicle_t54am1(pol)"
+	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(su76_pol) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t1" cool(60) d(mid_pol_otk) cost(7))
+}
+
+; ======Tier2======
+
+; // 11DP T-54AM1
+{"doctrine_vehicle_t54am1(pol)"
+	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(t-54am1_pol) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t2" cool(90) d(mid_pol_otk) cost(11))
+}
+
+; ======Tier3======
+
+
 
 ;_________________________________________________
 ;|             inf1                               |
