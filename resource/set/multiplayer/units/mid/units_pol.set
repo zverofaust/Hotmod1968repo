@@ -153,18 +153,24 @@
 }
 
 ; // 6DP SG43 Squad
-{"doctrine_team_sg43(pol)"
+{"doctrine_squad_sg43(pol)"
 	("squad_with3types_doctrine" side(pol) period(mid) c1(sup_guncrew_sg43:3) c2(sup_guncrew:3) c3(rsv_rifleman:2))
 	("doctrine_t1" cool(30) d(mid_pol_otk) cost(6))
 }
 
 ; // 7DP SU-76
-{"doctrine_vehicle_t54am1(pol)"
+{"doctrine_vehicle_su76(pol)"
 	("squad_vehicle_doctrine" side(pol) period(mid) vehicle(su76_pol) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t1" cool(60) d(mid_pol_otk) cost(7))
 }
 
 ; ======Tier2======
+
+; // 8DP OTK Sapper Team
+{"doctrine_team_sapper(pol)"
+	("squad_with2types_doctrine" side(pol) period(mid) c1(reg_sapper-ap:3) c2(reg_sapper-at:3))
+	("doctrine_t2" cool(120) d(mid_pol_otk) cost(8))
+}
 
 ; // 11DP T-54AM1
 {"doctrine_vehicle_t54am1(pol)"
@@ -353,6 +359,11 @@
 {"t-34-85_pol"
 	("vehicle" period(mid) cd(30) ci(30) t(medium tank) side(pol) crew(sup_tankman:5) g(medium1) b(tanks) cw(0) cp(8))
 	{cost 310}
+}
+
+{"su100_pol"
+	("vehicle" period(mid) cd(120) ci(60) t(medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(10))
+	{cost 330}
 }
 
 {"t-54a_pol"
