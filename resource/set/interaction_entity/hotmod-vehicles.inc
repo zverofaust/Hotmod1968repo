@@ -605,6 +605,11 @@
 
 {"btr-50pvmf tank"
 	("t70_sound")
+	("triplezpu_params"
+		gunner(gunner2) zpu_mgun(mgun1) anim(hm_hatch_cover_sit) pose(seat_isu152_gunner2)
+		secgunner(gunner3) seczpu_mgun(mgun2) secanim(hm_hatch_cover_sit) secpose(seat_isu152_gunner2)
+		triplegunner(gunner4) tripzpu_mgun(gun) tripleanim(hm_hatch_cover_sit) trippose(seat_isu152_gunner2)
+	)
 }
 
 {"btr-50_zis2 tank"
@@ -937,7 +942,7 @@
 
 {"btr-152"
 	("zis5_sound")
-	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover) pose(seat_isu152_gunner2))
+	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover_sit) pose(seat_isu152_gunner2))
 }
 
 {"btr-152u"
@@ -946,12 +951,12 @@
 
 {"btr-60p"
 	("sdkfz234_sound")
-	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover) pose(seat_isu152_gunner2))
+	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover_sit) pose(seat_isu152_gunner2))
 }
 
 {"btr-60pvmf"
 	("sdkfz234_sound")
-	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover) pose(seat_isu152_gunner2))
+	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover_sit) pose(seat_isu152_gunner2))
 }
 
 {"btr-60pa"
@@ -1868,7 +1873,7 @@
 
 {"btr-40"
 	("sdkfz222_sound")
-	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(into_hatch_common) pose(pose_dodge_sg2))
+	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover_sit_nooffset) pose(pose_dodge_sg2))
 }
 
 {"btr-40a"
