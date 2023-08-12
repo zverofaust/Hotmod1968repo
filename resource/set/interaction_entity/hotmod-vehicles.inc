@@ -3909,10 +3909,12 @@
 
 {"btr-40_pol"
 	("sdkfz222_sound")
+	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover_sit_nooffset) pose(pose_dodge_sg2))
 }
 
 {"btr-152_pol"
 	("zis5_sound")
+	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover_sit) pose(seat_isu152_gunner2))
 }
 
 {"btr-152u_pol"
@@ -3929,6 +3931,7 @@
 		{ani_play "open_topright" -1.0 resume}
 		{ani_play "mgun" -1.0 resume}
 	}
+	("zpu_params" gunner(commander) zpu_mgun(mgun)  anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
 }
 
 {"topas_2ap tank"
@@ -3937,6 +3940,13 @@
 
 {"brdm-1_pol"
 	("sdkfz222_sound")
+	{on "gunner2_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "gunner2_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(into_hatch_common) pose(pose_dodge_sg2))
 }
 
 {"btr-40a_pol"
@@ -4161,17 +4171,19 @@
 
 {"pt-76p tank"
 	("t70_sound")
-	{on "gunner_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_play "open1" +1.0 resume}
 		{ani_play "mgun_aa" +1.0 resume}
 	}
-	{on "gunner_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open1" -1.0 resume}
 		{ani_play "mgun_aa" -1.0 resume}
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
+	
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 
 }
 
@@ -4212,15 +4224,17 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_play "open" 1.0 resume}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
+	
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
 {"t-54am_pol tank"
@@ -4233,15 +4247,17 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_play "open" 1.0 resume}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
+	
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
 {"t-54am1_pol tank"
@@ -4254,15 +4270,17 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_play "open" 1.0 resume}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
+	
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
 {"t-54am2_pol tank"
@@ -4275,15 +4293,17 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_play "open" 1.0 resume}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
+	
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
 {"t-54u_pol tank"
@@ -4296,15 +4316,17 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_play "open" 1.0 resume}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
+	
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
 {"t-55_pol tank"
@@ -4317,15 +4339,17 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_play "open" 1.0 resume}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
+	
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
 {"t-55a_pol tank"
@@ -4338,15 +4362,17 @@
 		{link_sound "move"				"vehicle/tracks/t34"}
 		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
 	}
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_play "open" 1.0 resume}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
+	
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
 

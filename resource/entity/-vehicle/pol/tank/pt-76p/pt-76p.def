@@ -3,7 +3,7 @@
 	(include "/properties/shadow/tank.inc" scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	{collider "tank.light"}
-	{props "light" "turret_rotator" "vision_lev04" "amphibia" "muzzle_75mm_76mm_sides" "diesel"}
+	{props "light" "turret_rotator" "vision_lev04" "amphibia" "muzzle_75mm_76mm_sides" "diesel" "with_open_zpu"}
 	{targetclass "tank_light"}
 	{targetSelector "tank_light"}
 	{patherId "t37"}
@@ -19,9 +19,9 @@
 	;("crew_3_human")
 	
 	("crew_inside")
-	("crew_open" place(gunner) bone(gunner2) visorbone(turret_mgun) door(emit1) door2(emit2) anm_left(left) anm_right(right) group(crew))
+	("crew_open" place(charger) bone(gunner2) visorbone(turret_mgun) door(emit1) door2(emit2) anm_left(left) anm_right(right) group(crew))
 	("crew_human" place(driver)		door(emit1) door2(emit2) visor(driver))
-	("crew_human" place(charger)	door(emit1) door2(emit2) visor(none))
+	("crew_human" place(gunner)	door(emit1) door2(emit2) visor(none))
 	
 	{boarder
 		{anm "driver"
@@ -84,8 +84,8 @@
 		{place "mgun"
 			{type "aa"}
 			{weapon "dshk" filled}
-			{gunner "gunner"}
-			{charger "gunner"}
+			{gunner "charger"}
+			{charger "charger"}
 			{LinkBone "mgun_bone"}
 			{LinkAnimation "off"}
 			("abm_mgun")
