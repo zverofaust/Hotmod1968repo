@@ -81,6 +81,8 @@
 ;        Panzergrenadier
 ;===================================
 
+; ======Tier1======
+
 ; // 8DP Nachschubpanzer M39 Ammo Carrier
 {"doctrine_vehicle_m39_ammo(frg)"
 	("squad_vehicle_doctrine" side(frg) period(mid) vehicle(m39g_ammo) crew(sup_vehicleman:2) cw(0) cp(0))
@@ -93,28 +95,32 @@
 	("doctrine_t1" cool(60) d(mid_frg_pzgren) cost(10))
 }
 
+; ======Tier2======
+
+; // 20DP M109G
+{"doctrine_vehicle_m109g(frg)"
+	("squad_vehicle_doctrine" side(frg) period(mid) vehicle(m109g) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t2" cool(120) d(mid_frg_pzgren) cost(20))
+}
+
 ; // 15DP Panzergrenadiers in SPz 12-3 Lang
 {"doctrine_squad_panzergren_hs30(frg)"
 	("squad_vehicle6_doctrine" side(frg) period(mid) g(doctrine_lvl1) vehicle(spz_123) crew1(pzg_vehicleman:3) crew2(pzg_teamlead:1) crew3(pzg_mg:1) crew4(pzg_mgassist:1) crew5(pzg_atassist:1) crew6(pzg_antitank:1) cw(2) cp(0))
-	("doctrine_t1" cool(120) d(mid_frg_pzgren) cost(15))
+	("doctrine_t2" cool(120) d(mid_frg_pzgren) cost(15))
+}
+
+; ======Tier3======
+
+; // 20DP Leopard 1A1
+{"doctrine_vehicle_leopard1a1(frg)"
+	("squad_vehicle_doctrine" side(frg) period(mid) vehicle(leopard_1a1) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t3" cool(120) d(mid_frg_pzgren) cost(20))
 }
 
 ; // 10DP SPz HS.30 with M40 RCL
 {"doctrine_vehicle_spz_m40(frg)"
 	("squad_vehicle3_doctrine" side(frg) period(mid) vehicle(spz_123_m40) crew1(pzg_vehicleman:4) crew2(pzg_mg:1) crew3(pzg_mgassist:1) cw(0) cp(0))
-	("doctrine_t1" cool(80) d(mid_frg_pzgren) cost(10))
-}
-
-; // 20DP Leopard 1A1
-{"doctrine_vehicle_leopard1a1(frg)"
-	("squad_vehicle_doctrine" side(frg) period(mid) vehicle(leopard_1a1) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(120) d(mid_frg_pzgren) cost(20))
-}
-
-; // 20DP M109G
-{"doctrine_vehicle_m109g(frg)"
-	("squad_vehicle_doctrine" side(frg) period(mid) vehicle(m109g) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t1" cool(120) d(mid_frg_pzgren) cost(20))
+	("doctrine_t3" cool(80) d(mid_frg_pzgren) cost(10))
 }
 
 ;_________________________________________________
