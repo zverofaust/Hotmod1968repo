@@ -1,6 +1,6 @@
-; // This script defines the VISION FIELDS of the units. 
+; // This script defines the VISION FIELDS of the units.
 ; // Units can have several vision fields. For example, a human has the forward main vision field and the peripheral one.
-; // 
+; //
 ; // {uncover 15} <- Will spot hidden soldiers in bushes within 15m
 ; // {h_fov 100}  <- Horizontal field of view arc = 100 degree
 ; // {v_fov 180}  <- Vertical field of view arc = 180 degree (straight up or down)
@@ -267,6 +267,13 @@
 	{h_fov 360}
 	{v_fov 170}
 	("spotting" r(0.5))
+}
+
+{"tank_around_small"							; // Tank peripheral / Commander vision
+	{uncover 15}
+	{h_fov 360}
+	{v_fov 170}
+	("spotting" r(0.15))
 }
 
 {"tank_commander"							; // Commander forward Periscope
