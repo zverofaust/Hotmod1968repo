@@ -7,7 +7,8 @@
 		{call "update_hatch_on_spawn"}	;// updates vehicle hatches
 		{call "add_overlay_sound"}		;// adds terrain specific sounds to enhance the tank track sounds
 		{call "crew_able"}				;// re-enables seats for conquest on unit respawn
-		{tags add "cwsh_active"}
+		;{tags add "cwsh_active"}
+		;{tags add "cwsh_passive"}
 
 
 		;/*=========== Sounds Begin ===========*/

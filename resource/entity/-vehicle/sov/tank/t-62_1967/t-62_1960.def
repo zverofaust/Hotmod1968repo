@@ -3,7 +3,7 @@
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	(include "t-62_1967.ext")
-	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "shell_eject" "smoke" "ess"}
+	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "shell_eject" "smoke" "ess" "cw_panorama"}
 	{targetclass "tank_heavy"}
 	{targetSelector "tank_medium"}
 	{PatherId "t34"}
@@ -41,7 +41,21 @@
 	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
 	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
 	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
-	
+	{sensor
+		{visor "gunner"
+			{bone "Visor1"}
+			{vision "tank_range_220"}
+		}
+		{visor "driver"
+			{bone "Visor2"}
+			{vision "tank_driver"}
+		}
+		{visor "commander"
+			{bone "Visor3"}
+			{vision "tank_commander"}
+		}
+		
+	}
 	{extender "inventory"
 		{box
 			{item "ammo bullet115_2a20 apfsds" 8} ; 40 rounds

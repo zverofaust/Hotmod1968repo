@@ -3,7 +3,7 @@
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	(include "t-62k.ext")
-	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "shell_eject" "smoke" "ess" "radio_sov"}
+	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "shell_eject" "smoke" "ess" "radio_sov" "cw_panorama" "with_open_zpu"}
 	{targetclass "tank_heavy"}
 	{targetSelector "tank_medium"}
 	{PatherId "t34"}
@@ -13,7 +13,7 @@
 	}
 	
 	("crew_4_human")
-	("gunner_visible")
+	("charger_visible")
 	;("seat_4_human")
 
 	{boarder
@@ -43,7 +43,23 @@
 	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
 	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
 	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+
+	{sensor
+		{visor "gunner"
+			{bone "Visor1"}
+			{vision "tank_range_220"}
+		}
+		{visor "driver"
+			{bone "Visor2"}
+			{vision "tank_driver"}
+		}
+		{visor "commander"
+			{bone "Visor3"}
+			{vision "tank_commander"}
+		}
 		
+	}
+	
 	{extender "inventory"
 		{box
 			{item "ammo bullet115_2a20 apfsds" 12} ; 40 rounds
@@ -76,8 +92,8 @@
 		{place "mgun"		;aa 
 			{type 			"aa"}
 			{weapon			"dshk" filled}
-			{gunner			"commander"}
-			{charger		"commander"}
+			{gunner			"charger"}
+			{charger		"charger"}
 			{LinkBone		"mgun_help"}
 			{LinkAnimation	"off"}
 			("abm_mgun")

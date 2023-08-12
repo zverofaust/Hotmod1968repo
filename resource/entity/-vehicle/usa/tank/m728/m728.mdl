@@ -166,49 +166,57 @@
 					}
 					{VolumeView "enumerator2.ply"}
 				}
-				{bone revolute "turret_mg"
-					{parameters "ID=turret_mg;"}
-					{speed 0.03}
-					{Position -11.0671	-9.71333	23.8869}
-					{VolumeView "turret_mgun.ply"}
-					{bone "cover1"
-						{parameters "ID=turret_mg;"}
-						{Position -8.54205	-0.00431442	5.96381}
-						{VolumeView "cover1.ply"}
-					}
-					{bone revolute "mgun_rot"
-						{parameters "ID=turret_mg;"}
-						{limits -10 10}
-						{speed 0.03}
-						{Matrix34
-							1	0	0
-							0	0	1
-							0	-1	0
-							11.5686	0	3.82249
-						}
-						{bone "mgun"
-							{Matrix34
-								1	0	0
-								0	0	-1
-								0	1	0
-								0	0	0
-							}
-							{VolumeView "mgun.ply"}
-							{bone "foresight3"
-								{Matrix34
-									1	0	0
-									0	1	0
-									0	0	1
-									22.3528	0.0129862	0.0620956
+					{Bone "cw_panorama_basis"
+                    	{Position -11.0671	-9.71333	23.8869}
+                    	{Bone "cw_panorama"
+								{bone revolute "turret_mg"
+									{parameters "ID=turret_mg;"}
+									{speed 0.03}
+									
+									{VolumeView "turret_mgun.ply"}
+									{bone "cover1"
+										{parameters "ID=turret_mg;"}
+										{Position -8.54205	-0.00431442	5.96381}
+										{VolumeView "cover1.ply"}
+									}
+									{bone revolute "mgun_rot"
+										{parameters "ID=turret_mg;"}
+										{limits -10 10}
+										{speed 0.03}
+										{Matrix34
+											1	0	0
+											0	0	1
+											0	-1	0
+											11.5686	0	3.82249
+										}
+										{bone "mgun"
+											{Matrix34
+												1	0	0
+												0	0	-1
+												0	1	0
+												0	0	0
+											}
+											{VolumeView "mgun.ply"}
+											{bone "foresight3"
+												{Matrix34
+													1	0	0
+													0	1	0
+													0	0	1
+													22.3528	0.0129862	0.0620956
+												}
+											}
+										}
+									}
+									{bone "mgun2"
+										{parameters "ID=turret_mg;"}
+										{VolumeView "mgun2.ply"}
+									}
+									{Bone "visor3"
+				                        {Position 10.53	-1.36	9.29}
+				                    }
 								}
 							}
 						}
-					}
-					{bone "mgun2"
-						{parameters "ID=turret_mg;"}
-						{VolumeView "mgun2.ply"}
-					}
-				}
 				{bone "hatch2"
 					{parameters "ID=turret;"}
 					{Position -20.0288	8.84132	24.5793}

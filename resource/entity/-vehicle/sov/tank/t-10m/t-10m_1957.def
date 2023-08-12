@@ -3,7 +3,7 @@
 	(include "/properties/shadow/tank.inc" scale(1.2))
 	(include "/properties/selection/vehicle.inc" scale(1.2))
 	(include "t-10m.ext")
-	{props "heavy" "vision_lev05" "muzzle_122mm_128mm_sides" "diesel" "detect_tank_heavy" "smoke" "bdsh"}
+	{props "heavy" "vision_lev05" "muzzle_122mm_128mm_sides" "diesel" "detect_tank_heavy" "smoke" "bdsh" "cw_panorama" "with_open_zpu"}
 	{targetclass "tank_heavy"}
 	{targetSelector "tank_heavy"}
 	{collider "tank.heavy"}
@@ -13,7 +13,7 @@
 	}
 	
 	("crew_4_human")
-	("gunner_visible")
+	("charger_visible")
 
 	{boarder
 		{anm "driver"
@@ -36,6 +36,21 @@
 			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
 			{reverse {end "emit_body"}}
 		}
+	}
+	{sensor
+		{visor "gunner"
+			{bone "Visor1"}
+			{vision "tank_range_220"}
+		}
+		{visor "driver"
+			{bone "Visor2"}
+			{vision "tank_driver"}
+		}
+		{visor "commander"
+			{bone "Visor3"}
+			{vision "tank_commander"}
+		}
+		
 	}
 	
 	{extender "smokescreen"
@@ -73,8 +88,8 @@
 		{place "mgun"		;aa (optional until 1972)
 			{type 			"aa"}
 			{weapon			"kpv" filled}
-			{gunner			"commander"}
-			{charger		"commander"}
+			{gunner			"charger"}
+			{charger		"charger"}
 			{foresight 		"foresight3"}
 			("abm_mgun")
 			{basic}

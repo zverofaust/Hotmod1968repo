@@ -312,36 +312,40 @@
 					}
 					{VolumeView "cover2.ply"}
 				}
-				{bone revolute "turret_commander"
-					{parameters "id=turret;"}
-					{Position -8.75202	11.4799	15.0139}
-					{VolumeView "turret_commander.ply"}
-					{bone "cover1"
-						{parameters "id=turret;"}
-						{Position 2.65937	-0.0508919	1.96346}
-						{VolumeView "cover1.ply"}
-					}
-					{bone revolute "vision_rot"
-						{limits -5 10}
-						{Matrix34
-							1	0	0
-							0	0	1
-							0	-1	0
-							5.50574	0.131954	2.24696
+					{Bone "cw_panorama_basis"
+                        {Position -8.75202	11.4799	15.0139}
+                        {Bone "cw_panorama"
+								{bone revolute "turret_commander"
+									{parameters "id=turret;"}
+									{VolumeView "turret_commander.ply"}
+									{bone "cover1"
+										{parameters "id=turret;"}
+										{Position 2.65937	-0.0508919	1.96346}
+										{VolumeView "cover1.ply"}
+									}
+									{bone revolute "vision_rot"
+										{limits -5 10}
+										{Matrix34
+											1	0	0
+											0	0	1
+											0	-1	0
+											5.50574	0.131954	2.24696
+										}
+									}
+									{bone "visor3"
+										{Matrix34
+											1	0	0
+											0	0	1
+											0	-1	0
+											3.376407	0.131954	3.40004
+										}
+									}
+									{bone "spotlight2"
+										{Position 8.82106	0.191238	5.6228}
+									}
+								}
+							}
 						}
-					}
-					{bone "visor1"
-						{Matrix34
-							1	0	0
-							0	0	1
-							0	-1	0
-							3.376407	0.131954	3.40004
-						}
-					}
-					{bone "spotlight2"
-						{Position 8.82106	0.191238	5.6228}
-					}
-				}
 				{bone "detail4"
 					{parameters "id=turret;"}
 					{Matrix34
@@ -419,6 +423,9 @@
 						20.8189	0.355148	4.38521
 					}
 					{VolumeView "mantlet_cover.ply"}
+				}
+				{Bone "visor1"
+                    	{Position 28.12	9.22	4.53}
 				}
 				{bone revolute "foresight5"
 					{limits -6 10}

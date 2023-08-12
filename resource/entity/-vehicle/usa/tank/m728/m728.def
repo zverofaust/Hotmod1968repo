@@ -2,7 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "medium" "diesel" "mg_turret" "vision_lev04" "muzzle_150mm_155mm" "cev" "dozer"}
+	{props "medium" "diesel" "mg_turret" "vision_lev04" "muzzle_150mm_155mm" "cw_panorama" "cev" "dozer"}
 	(include "m728.ext")
 	{targetclass "tank_heavy"}
 	{targetSelector "tank_heavy"}
@@ -49,7 +49,17 @@
 	{sensor
 		{visor "commander"
 			{vision "tank_commander"}
-			{bone "foresight3"}
+			{bone "visor3"}
+		}
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor2"}
+		}
+
+
+		{visor "gunner"
+			{vision "tank_main-h"}
+			{bone "visor1"}
 		}
 	}
 	

@@ -3,7 +3,7 @@
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	(include "it-1.ext")
-	{props "atgm" "medium" "diesel" "vision_lev04"}
+	{props "atgm" "medium" "diesel" "vision_lev04" "cw_panorama"}
 	{targetclass "tank_medium"}
 	{targetSelector "tank_heavy"}
 	{PatherId "t34"}
@@ -33,7 +33,21 @@
 	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
 	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
 	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
-
+	{sensor
+		{visor "gunner"
+			{bone "Visor1"}
+			{vision "tank_range_250"}
+		}
+		{visor "driver"
+			{bone "Visor2"}
+			{vision "tank_driver"}
+		}
+		{visor "commander"
+			{bone "Visor3"}
+			{vision "tank_commander"}
+		}
+		
+	}
 	
 	{extender "shield"
 		{on}

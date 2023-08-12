@@ -2,7 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "medium" "vision_lev04" "muzzle_85mm_93mm" "diesel"}
+	{props "medium" "vision_lev04" "muzzle_85mm_93mm" "diesel" "with_open_zpu"}
 	{extension "type58_tank.mdl"}
 	(include "type58_tank.ext")
 	{targetclass "tank_medium"}
@@ -13,7 +13,7 @@
 	}
 	("tank_medium_tier3")
 	("crew_5_human_extended")
-	("gunner_visible")
+	("charger_visible")
 
 	{placer
 		{place "driver"		{visor "driver"}}
@@ -98,8 +98,8 @@
 		{place "mgun"		;aa 
 			{type 			"aa"}
 			{weapon			"dshk" filled}
-			{gunner			"commander"}
-			{charger		"commander"}
+			{gunner			"charger"}
+			{charger		"charger"}
 			{LinkBone		"mgun_help"}
 			{LinkAnimation	"off"}
 			("abm_mgun")

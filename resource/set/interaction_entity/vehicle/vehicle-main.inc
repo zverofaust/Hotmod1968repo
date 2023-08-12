@@ -1369,6 +1369,12 @@
 			else {weapon_work "%zpu_mgun" 1}
 			}
 	}
+	{if work "%com_optic"
+			{if tagged "cwsh_zpu_off"
+				{weapon_work "%com_optic"1}
+			else {weapon_work "%com_optic" 0}
+			}
+	}
 
 
 	}
@@ -1459,6 +1465,12 @@
 			else {weapon_work "%seczpu_mgun" 1}
 			}
 	}
+	{if work "%com_optic"
+			{if tagged "cwsh_zpu_off"
+				{weapon_work "%com_optic"1}
+			else {weapon_work "%com_optic" 0}
+			}
+	}
 
 
 	}
@@ -1539,6 +1551,12 @@
 			else {weapon_work "%tripzpu_mgun" 1}
 			}
 		}
+		{if work "%com_optic"
+			{if tagged "cwsh_zpu_off"
+				{weapon_work "%com_optic"1}
+			else {weapon_work "%com_optic" 0}
+			}
+	}
 
 
 	}
@@ -1547,7 +1565,7 @@
 
 
 {on "cwsh_switch_hatch"
-     {if not tagged "no_open_mg"
+
 		{if tagged "cwsh_active"
 			{tags remove "cwsh_active"}
 			{tags add "cwsh_passive"}
@@ -1569,7 +1587,7 @@
 				{call "update_cw_panorama"}
 			{damage_report "body" "component/zpu_enabled"}
 		}
-	}
+
 }
 
 
