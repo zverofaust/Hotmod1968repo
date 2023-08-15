@@ -85,6 +85,7 @@
 		{"fortifications" "deploy_ammobag_sov"}
 		
 		{"fortifications" "deploy_sg43_pol"}
+		{"fortifications" "deploy_pk_pol"}
 		{"fortifications" "deploy_dshk_pol"}	
 		{"fortifications" "deploy_bm37_pol"}
 		{"fortifications" "deploy_b10_pol"}
