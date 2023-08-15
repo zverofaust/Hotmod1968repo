@@ -25,9 +25,25 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
-("squad_with1types"	side(pol) name(single_fac)	period(mid) cd(300) ci(300) g(single_fac) c1(reg_fac:1) b(strategic) t()); AKMS
+{"cas_mi4_unarmed_pol"
+	("squad_vehicle" side(pol) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mil_mi4_unarmed_airborne) crew(sup_pilot:1))
+	{cost 5}{conditions ""}{action "airstrike:reconnaissance_50"} 
+}
 
+{"airstrike_light_pol"
+	("squad_vehicle" side(pol) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 5}{conditions ""}{action "airstrike:flare_airstrike_light_bomb_sov"} 
+}
 
+{"airstrike_wp_pol"
+	("squad_vehicle" side(pol) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_light_wp_sov"} 
+}
+
+{"airstrike_cluster_pol"
+	("squad_vehicle" side(pol) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_light_cluster_sov"} 
+}
 
 ;_________________________________________________
 ;|            Doctrines                           |

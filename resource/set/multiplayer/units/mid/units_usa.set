@@ -28,91 +28,56 @@
 ;AIR SUPPORT
 
 
-("squad_with1types"	side(usa) name(single_fac)	period(mid) cd(300) ci(300) g(single_fac) c1(reg_fac:1) b(strategic) t()); M2
+;("squad_with1types"	side(usa) name(single_fac)	period(mid) cd(0) ci(300) g(single_fac) c1(reg_fac:1) b(strategic) t()); M2
 
-;{"cas_ah1_usa"
-;	("squad_vehicle" side(usa) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(ah-1g_airborne) crew(sup_pilot:2))
-;	{cost 0}{conditions ""}{action "airstrike:reconnaissance_50"} 
-;}
-
-;{"cas_uh1_usa"
-;	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
-;	{cost 10}{conditions ""}{action "airstrike:reconnaissance_50"} 
-;}
-
-;{"cas_uh1_ara_usa"
-;	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_ara_airborne) crew(sup_pilot:1))
-	{cost 10}{conditions ""}{action "airstrike:reconnaissance_50"} 
-;}
-
-;{"cas_uh1_maxwell_usa"
-;	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_maxwell_airborne) crew(sup_pilot:1))
-;	{cost 10}{conditions ""}{action "airstrike:reconnaissance_50"} 
-;}
-
-;{"cas_uh1_m22_usa"
-;	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_m22_airborne) crew(sup_pilot:1))
-;	{cost 10}{conditions ""}{action "airstrike:reconnaissance_50"} 
-;}
-
-{"a-4e_airstrike_rocket_light" ;buildable airstrike
-	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_rocket_usa))
-	{cost 3}
+{"cas_uh1_usa"
+	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
+	{cost 8}{conditions ""}{action "airstrike:reconnaissance_50"} 
 }
 
-{"a-4e_airstrike_bomb_light" ;buildable airstrike
-	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_bomb_usa))
-	{cost 5}
+{"cas_uh1_ara_usa"
+	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_ara_airborne) crew(sup_pilot:1))
+	{cost 12}{conditions ""}{action "airstrike:reconnaissance_50"} 
 }
 
-;{"a-4e_airstrike_cluster_light" ;buildable airstrike
-;	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_cluster_usa))
-;	{cost 0}
-;}
-
-;{"a-4e_airstrike_napalm_light" ;buildable airstrike
-;	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_napalm_usa))
-;	{cost 0}
-;}
-
-{"a-4e_airstrike_rocket_heavy" ;buildable airstrike
-	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_rocket_usa))
-	{cost 5}
+{"cas_uh1_maxwell_usa"
+	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_maxwell_airborne) crew(sup_pilot:1))
+	{cost 12}{conditions ""}{action "airstrike:reconnaissance_50"} 
 }
 
-{"a-4e_airstrike_bomb_medium" ;buildable airstrike
-	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_bomb_usa))
-	{cost 8}
+{"cas_uh1_m22_usa"
+	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_m22_airborne) crew(sup_pilot:1))
+	{cost 15}{conditions ""}{action "airstrike:reconnaissance_50"} 
 }
 
-{"a-4e_airstrike_napalm_medium" ;buildable airstrike
-	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_napalm_usa))
-	{cost 10}
+{"cas_ah1_usa"
+	("squad_vehicle" side(usa) cd(0) ci(0) period(mid) cw(0) cp(0) b(strategic) vehicle(ah-1g_airborne) crew(sup_pilot:2))
+	{cost 15}{conditions ""}{action "airstrike:reconnaissance_50"} 
 }
 
-{"a-4e_airstrike_cluster_medium" ;buildable airstrike
-	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_medium_cluster_usa))
-	{cost 10}
+{"airstrike_light_usa"
+	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 5}{conditions ""}{action "airstrike:flare_airstrike_light_bomb_usa"} 
 }
 
-{"f-105_airstrike_bomb_heavy" ;buildable airstrike
-	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_bomb_usa))
-	{cost 12}
+{"airstrike_medium_usa"
+	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_medium_bomb_usa"} 
 }
 
-{"f-105_airstrike_cluster_heavy" ;buildable airstrike
-	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_cluster_usa))
-	("doctrine_t1" cool(5) d(mid_usa_acav) cost(15))
+{"airstrike_heavy_usa"
+	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 12}{conditions ""}{action "airstrike:flare_airstrike_heavy_bomb_usa"} 
 }
 
-{"f-105_airstrike_napalm_heavy" ;buildable airstrike
-	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_heavy_napalm_usa))
-	("doctrine_t1" cool(5) d(mid_usa_usmc) cost(15))
+{"airstrike_napalm_usa"
+	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_light_napalm_usa"} 
 }
 
-{"f-105_airstrike_bomb_super" ;buildable airstrike
-	("emplacement" side(usa) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_super_bomb_usa))
-	("doctrine_t1" cool(5) d(mid_usa_aircav) cost(18))
+{"airstrike_cluster_usa"
+	("squad_vehicle" side(usa) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_light_cluster_usa"} 
 }
 
 
@@ -256,7 +221,7 @@
 
 ; // 10 DP Chinook Transport/Supply
 ;{"doctrine_vehicle_chinook(usa)"
-;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ch-47_chinook_mg) crew(sup_pilot:4) cw(0) cp(0))
+;	("squad_vehicle_doctrine" side(usa) period(mid) vehicle(ch-47_chinook) crew(sup_pilot:4) cw(0) cp(0))
 ;	("doctrine_t2" cool(240) d(mid_usa_aircav) cost(10))
 ;}
 

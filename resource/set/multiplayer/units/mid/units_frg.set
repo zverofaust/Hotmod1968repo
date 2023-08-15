@@ -25,46 +25,29 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
-;{"mortar_barrage_smoke_frg"
-;	("squad_vehicle" side(frg) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(81mm_krh36_frg) crew(sup_guncrew:0))
-;	{cost 2}{conditions "radio_frg"}{action "airstrike:flare_mortar_smoke"}
-;}
-
-;{"mortar_barrage_light_frg"
-;	("squad_vehicle" side(frg) cd(0) ci(30) period(mid) cw(0) cp(5) b(strategic) vehicle(81mm_krh36_frg) crew(sup_guncrew:0))
-	;{cost 3}{conditions "radio_frg"}{action "airstrike:flare_mortar_80"}
-;}
-
-;{"mortar_barrage_medium_frg"
-;	("squad_vehicle" side(frg) cd(0) ci(60) period(mid) cw(0) cp(5) b(strategic) vehicle(120mm_krh40_frg) crew(sup_guncrew:0))
-	{cost 5}{conditions "radio_frg"}{action "airstrike:flare_mortar_120"}
-;}
-
-;{"cas_uh1_frg"
-;	("squad_vehicle" side(frg) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
-;	{cost 10}{conditions "radio_frg"}{action "airstrike:dummy_cas"} 
-;}
-
-("squad_with1types"	side(frg) name(single_fac)	period(mid) cd(0) ci(30) g(single_fac) c1(reg_fac:1) b(strategic) t()); MP1
-
-{"a-4e_airstrike_rocket_light" ;buildable airstrike
-	("emplacement" side(frg) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_rocket_frg))
-	{cost 0}
+{"cas_uh1_frg"
+	("squad_vehicle" side(frg) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
+	{cost 10}{conditions "radio_frg"}{action "airstrike:dummy_cas"} 
 }
 
-{"a-4e_airstrike_bomb_light" ;buildable airstrike
-	("emplacement" side(frg) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition() action(callin_light_bomb_frg))
-	{cost 0}
+{"airstrike_light_frg"
+	("squad_vehicle" side(frg) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 5}{conditions ""}{action "airstrike:flare_airstrike_light_bomb_usa"} 
 }
 
-{"a-4e_airstrike_cluster_light" ;buildable airstrike
-	("emplacement" side(frg) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_cluster_frg))
-	{cost 0}
+{"airstrike_medium_frg"
+	("squad_vehicle" side(frg) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_medium_bomb_usa"} 
 }
 
-{"a-4e_airstrike_napalm_light" ;buildable airstrike
-	("emplacement" side(frg) period(mid) cd(0) ci(0) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_napalm_frg))
-	{cost 0}
+{"airstrike_napalm_frg"
+	("squad_vehicle" side(frg) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_light_napalm_usa"} 
+}
+
+{"airstrike_cluster_frg"
+	("squad_vehicle" side(frg) cd(300) ci(60) period(mid) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_light_cluster_usa"} 
 }
 
 ;_________________________________________________
