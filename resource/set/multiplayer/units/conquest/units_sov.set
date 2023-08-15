@@ -75,24 +75,9 @@
 
 ;// Airstrikes
 
-{"airstrike_light_rocket_sov"
-	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 3}{action "callin_light_rocket_sov"}
-}
-
 {"airstrike_light_sov"
-	("emplacement" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 2}{action "airstrike:flare_airstrike_light_bomb_sov"}
-}
-
-{"mig-19_airstrike_rocket_light" ;buildable airstrike
-	("emplacement" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(0) b(strategic) crew(sup_supporter:0) condition(barricade) action(callin_light_rocket_sov))
-	{cost 3}
-}
-
-{"airstrike_light_wp_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 2}{action "airstrike:flare_airstrike_light_wp_sov"}
+	{cost 2}{action "airstrike:flare_airstrike_light_bomb_sov"}
 }
 
 {"airstrike_medium_sov"
@@ -100,34 +85,24 @@
 	{cost 4}{action "airstrike:flare_airstrike_medium_bomb_sov"}
 }
 
-{"airstrike_medium_wp_sov"
-	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(su-7_airstrike) crew(sup_pilot:0))
-	{cost 5}{action "airstrike:flare_airstrike_medium_wp_sov"}
-}
-
-{"airstrike_medium_cluster_sov"
-	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(su-7_airstrike) crew(sup_pilot:0))
-	{cost 6}{action "airstrike:flare_airstrike_medium_cluster_sov"}
-}
-
 {"airstrike_heavy_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
 	{cost 12}{action "airstrike:flare_airstrike_heavy_bomb_sov"}
 }
 
-{"airstrike_heavy_wp_sov"
-	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
-	{cost 15}{action "airstrike:flare_airstrike_heavy_wp_sov"}
-}
-
-{"airstrike_heavy_cluster_sov"
-	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
-	{cost 15}{action "airstrike:flare_airstrike_heavy_cluster_sov"}
-}
-
 {"airstrike_superheavy_sov"
 	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(6) vehicle(yak-28_airstrike) crew(sup_pilot:0))
 	{cost 20}{action "airstrike:flare_airstrike_super_bomb_sov"}
+}
+
+{"airstrike_wp_sov"
+	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 4}{action "airstrike:flare_airstrike_light_wp_sov"}
+}
+
+{"airstrike_cluster_sov"
+	("squad_vehicle" side(sov) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
+	{cost 6}{action "airstrike:flare_airstrike_light_cluster_sov"}
 }
 
 ;// OTHER OFFMAP Supports (Paradrops)
@@ -160,7 +135,6 @@
 ;;;MID Period
 
 ;;; Conscripts & Tier 0 Troops
-("squad_with1types_conquest" 	side(sov) name(single_fac_con)				period(mid) min_stage(0) max_stage(5)			c1(reg_fac:1)									) ;Makarov
 
 ("squad_with4types_conquest" side(sov) period(early) min_stage(0) max_stage(4) name(squad_conscript_early_con)			c1(con_squadlead:1) c2(con_mg:1) c3(con_atgren:1) c4(con_rifleman:5))
 ("squad_with4types_conquest" side(sov) period(mid) min_stage(0) max_stage(10)  name(squad_conscript_maneuv_con)			c1(con_squadlead:1) c2(con_mg:1) c3(con_marksman:1) c4(con_rifleman:1))

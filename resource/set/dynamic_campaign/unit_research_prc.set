@@ -31,14 +31,22 @@
 
 ;// RADIO & OFFMAP SUPPORTS
 
-	{ tech "radio_1_prc"				requires ""										costs 3  position 4.5 13}
-	{"artillery_barrage_smoke_prc"		requires "radio_1_prc"							costs 0  position 5.5 13}
-	{"airstrike_light_rocket_prc"		requires "radio_1_prc"							costs 4  position 6.5 13}
-	{"airstrike_light_prc"				requires "radio_1_prc"							costs 4  position 7.5 13}
+	{ tech "radio_1_prc"				requires ""										costs 3  position 4.5 12}
+	{"mortar_barrage_smoke_prc"			requires "radio_1_prc"							costs 0  position 5.3 12}	
+	{"mortar_barrage_light_prc"			requires "radio_1_prc"							costs 2  position 6.1 12}
+	{"mortar_barrage_medium_prc"		requires "radio_1_prc"							costs 3  position 6.9 12}
+	{"artillery_barrage_smoke_prc"		requires "mortar_barrage_smoke_prc"				costs 2  position 7.7 12}
+	{"artillery_barrage_light_prc"		requires "mortar_barrage_medium_prc"			costs 3  position 8.5 12}
+	{"artillery_barrage_medium_prc"		requires "artillery_barrage_light_prc"			costs 4  position 9.3 12}
+	{"artillery_barrage_heavy_prc"		requires "artillery_barrage_medium_prc"			costs 5  position 10.1 12}
+	{"artillery_barrage_rocket_prc"		requires "artillery_barrage_heavy_prc"			costs 5  position 10.9 12}
 	
-	{ tech "radio_2_prc"				requires "radio_1_prc"							costs 5  position 4.5 14}	
-	{"airstrike_light_cluster_prc"		requires "radio_2_prc"							costs 3  position 5.5 14}
-	{"airstrike_light_wp_prc"			requires "radio_2_prc"							costs 4  position 6.5 14}
+	{ tech "radio_2_prc"				requires "radio_1_prc"							costs 5  position 5.5 13}
+	{"paradrop_supply_prc"				requires "radio_2_prc"							costs 0  position 6.5 13}	
+	{"airstrike_light_prc"				requires "radio_2_prc"							costs 2  position 7.5 13}	
+	{"airstrike_heavy_prc"				requires "airstrike_light_prc"					costs 6  position 8.5 13}
+	{"airstrike_cluster_prc"			requires "airstrike_light_prc"					costs 3  position 9.5 13}
+	{"airstrike_wp_prc"					requires "airstrike_light_prc"					costs 4  position 10.5 13}
 	
 ;//---SQUADS---
 

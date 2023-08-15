@@ -31,23 +31,25 @@
 	
 ;// RADIO & OFFMAP SUPPORTS
 
-	{ tech "radio_1_usa"			requires ""									costs 3 position 4.6 17}
-	{"airstrike_light_rocket_usa"	requires "radio_1_usa"						costs 3 position 5.6 17}
-	{"airstrike_light_usa"			requires "radio_1_usa"						costs 3 position 6.6 17}
-	{"airstrike_light_napalm_usa"	requires "radio_1_usa"						costs 3 position 7.6 17}
+	{ tech "radio_1_usa"				requires ""										costs 3  position 3.8 17}
+	{"mortar_barrage_smoke_usa"			requires "radio_1_usa"							costs 0  position 4.8 17}	
+	{"mortar_barrage_light_usa"			requires "radio_1_usa"							costs 2  position 5.8 17}
+	{"mortar_barrage_medium_usa"		requires "radio_1_usa"							costs 3  position 6.8 17}
+	{"artillery_barrage_smoke_usa"		requires "mortar_barrage_smoke_usa"				costs 2  position 7.8 17}
+	{"artillery_barrage_light_usa"		requires "mortar_barrage_medium_usa"			costs 3  position 8.8 17}
+	{"artillery_barrage_medium_usa"		requires "artillery_barrage_light_usa"			costs 4  position 9.8 17}
+	{"artillery_barrage_heavy_usa"		requires "artillery_barrage_medium_usa"			costs 5  position 10.8 17}
 	
+	{ tech "radio_2_usa"			requires "radio_1_usa"						costs 3 position 3.8 18}
+	{"paradrop_supply_usa"			requires "radio_2_usa"						costs 0 position 4.8 18}	
+	{"airstrike_light_usa"			requires "radio_2_usa"						costs 3 position 5.8 18}
+	{"airstrike_napalm_usa"			requires "airstrike_light_usa"				costs 3 position 6.8 18}
+	{"airstrike_cluster_usa"		requires "airstrike_light_usa"				costs 4 position 7.8 18}
+	{"airstrike_medium_usa"			requires "airstrike_light_usa"				costs 4 position 8.8 18}
+	{"airstrike_heavy_usa"			requires "airstrike_medium_usa"				costs 4 position 9.8 18}
+	{"airstrike_superheavy_usa"		requires "airstrike_heavy_usa"				costs 6 position 10.8 18}
 	
-	{ tech "radio_2_usa"			requires "radio_1_usa"						costs 3 position 4.6 18}
-	{"airstrike_heavy_rocket_usa"	requires "radio_2_usa"						costs 3 position 5.6 18}
-	{"airstrike_medium_usa"			requires "radio_2_usa"						costs 4 position 6.6 18}
-	{"airstrike_medium_napalm_usa"	requires "radio_2_usa"						costs 5 position 7.6 18}
-	{"airstrike_medium_cluster_usa"	requires "radio_2_usa"						costs 5 position 8.6 18}
-	
-	{ tech "radio_3_usa"			requires "radio_2_usa"						costs 3 position 4.6 19}
-	{"airstrike_heavy_usa"			requires "radio_3_usa"						costs 4 position 5.6 19}
-	{"airstrike_heavy_napalm_usa"	requires "radio_3_usa"						costs 4 position 6.6 19}
-	{"airstrike_heavy_cluster_usa"	requires "radio_3_usa"						costs 4 position 7.6 19}
-	{"airstrike_superheavy_usa"		requires "airstrike_heavy_usa"				costs 6 position 8.6 19}
+	;{ tech "radio_3_usa"			requires "radio_2_usa"						costs 3 position 4.6 19}
 	
 ;//---TEAMS---	
 	

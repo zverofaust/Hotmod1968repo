@@ -29,9 +29,44 @@
 
 ;//Artillery Supports
 
+{"mortar_barrage_smoke_prc"
+	("offmap_support" side(prc) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(82mm_bm37_prc) crew(sup_guncrew:0))
+	{cost 1}{action "airstrike:flare_mortar_smoke"}{condition "radio_prc"}
+}
+
+{"mortar_barrage_light_prc"
+	("offmap_support" side(prc) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(82mm_bm37_prc) crew(sup_guncrew:0))
+	{cost 1}{action "airstrike:flare_mortar_80"}{condition "radio_prc"}
+}
+
+{"mortar_barrage_medium_prc"
+	("offmap_support" side(prc) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(120mm_pm38_prc) crew(sup_guncrew:0))
+	{cost 2}{action "airstrike:flare_mortar_120"}{condition "radio_prc"}
+}
+
 {"artillery_barrage_smoke_prc"
-	("offmap_support" side(prc) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(m30_sov) crew(sup_guncrew:0))
+	("offmap_support" side(prc) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(m30_prc) crew(sup_guncrew:0))
 	{cost 2}{conditions "radio_prc"}{action "airstrike:flare_artillery_smoke"}
+}
+
+{"artillery_barrage_light_prc"
+	("offmap_support" side(prc) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(m30_prc) crew(sup_guncrew:0))
+	{cost 5}{action "airstrike:flare_artillery_105"}
+}
+
+{"artillery_barrage_medium_prc"
+	("offmap_support" side(prc) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(d1_prc) crew(sup_guncrew:0))
+	{cost 8}{action "airstrike:flare_artillery_150"}
+}
+
+{"artillery_barrage_heavy_prc"
+	("offmap_support" side(prc) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(203mm_b4_prc) crew(sup_guncrew:0))
+	{cost 12}{action "airstrike:flare_artillery_203"}
+}
+
+{"artillery_barrage_rocket_prc"
+	("offmap_support" side(prc) min_stage(0) max_stage(99) cw(0) cp(0) vehicle(bm-13-17m_prc) crew(sup_guncrew:0))
+	{cost 12}{action "airstrike:flare_artillery_rocket"}
 }
 
 ; removed
@@ -42,22 +77,22 @@
 
 ;// Airstrikes
 
-{"airstrike_light_rocket_prc"
-	("squad_vehicle" side(prc) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 3}{action "airstrike:flare_airstrike_light_rocket_sov"}
-}
-
 {"airstrike_light_prc"
 	("squad_vehicle" side(prc) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
 	{cost 2}{action "airstrike:flare_airstrike_light_bomb_sov"}
 }
 
-{"airstrike_light_cluster_prc"
+{"airstrike_heavy_prc"
+	("squad_vehicle" side(prc) period(mid) min_stage(0) max_stage(99) cw(0) cp(4) vehicle(yak-28_airstrike) crew(sup_pilot:0))
+	{cost 12}{action "airstrike:flare_airstrike_heavy_bomb_sov"}
+}
+
+{"airstrike_cluster_prc"
 	("squad_vehicle" side(prc) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
 	{cost 3}{action "airstrike:flare_airstrike_light_cluster_sov"}
 }
 
-{"airstrike_light_wp_prc"
+{"airstrike_wp_prc"
 	("squad_vehicle" side(prc) period(mid) min_stage(0) max_stage(99) cw(0) cp(2) vehicle(mig-19_airstrike) crew(sup_pilot:0))
 	{cost 3}{action "airstrike:flare_airstrike_light_wp_sov"}
 }
