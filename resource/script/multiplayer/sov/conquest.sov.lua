@@ -3,7 +3,6 @@ Purchases["conquest.sov"] = {
 		Units = {
 			---[====[
 			-- Infantry
-				
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_conscript_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_conscript_maneuv_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "AT",}, unit = "squad_conscript_fireteam_con(sov)"},
@@ -62,9 +61,8 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Cannon", "AA",}, unit = "zu-2"},
 				{priority = 1.0, type = {"Cannon", "AA",}, unit = "zpu-4"},
 				{priority = 1.0, type = {"Cannon", "AA",}, unit = "zu-23-2"},
-				{priority = 1.0, type = {"Cannon", "AA",}, unit = "37mm_61k_sov"},
+				{priority = 1.0, type = {"Cannon", "AA",}, unit = "57mm_s-60"},
 			--Anti_Tank
-				{priority = 1.0, type = {"Cannon", "AT",}, unit = "76mm_zis3_sov"},
 				{priority = 1.0, type = {"Cannon", "AT",}, unit = "b-10_82mm_ai"},
 				{priority = 1.0, type = {"Cannon", "AT",}, unit = "spg9_ai"},
 				--{priority = 0.5, type = {"Cannon", "AT",}, unit = "t-12"},
@@ -73,12 +71,13 @@ Purchases["conquest.sov"] = {
 				{priority = 0.3, type = {"Cannon", "Mortar",}, unit = "82mm_bm37_sov_ai"},
 				{priority = 0.3, type = {"Cannon", "Mortar",}, unit = "120mm_pm38_sov"},
 			--Infantry_Support
+				{priority = 1.0, type = {"Cannon", "AT",}, unit = "76mm_zis3_sov"},
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "gp1958"},
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "d-44"},
 			--Artillery
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "d-74"},
-				{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "d1"},
-				{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "d-20"},
+				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "d1"},
+				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "d-20"},
 				{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "d-44"},
 				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "d30a"},
 			--Rocket_Artillery
