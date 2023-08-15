@@ -8,7 +8,7 @@
 		{play_sound "bkg_jet"}
 		;{add_view "smoke_flare_red" "smoke" "root"}
 		;{view start "smoke"}
-		;{impulse up -5 rnd_dir 3 com}
+		{impulse up -5 rnd_dir 3 com}
 		{delay 20 {stop_sound "bkg_jet"}{delete}}
 	}
 }
@@ -155,25 +155,25 @@
 
 {"sortie"			;Sorties used to include 8 different animations to randomize direction of bombing run, now just uses flyin_1
 	{on spawn
-		;{delay 0
-			;{if rand 0.33	
-				;{ani_play "flyin_8" callback}	
-				;else rand 0.33			
-				;{ani_play "flyin_7" callback}	
-				;else rand 0.33	
-				;{ani_play "flyin_6" callback}	
-				;else rand 0.33	
-				;{ani_play "flyin_5" callback}	
-				;else rand 0.33
-				;{ani_play "flyin_4" callback}	
-				;else rand 0.33			
-				;{ani_play "flyin_3" callback}	
-				;else rand 0.33	
-				;{ani_play "flyin_2" callback}	
-				;else 
+		{delay 0
+			{if rand 0.33	
+				{ani_play "flyin_8" callback}	
+				else rand 0.33			
+				{ani_play "flyin_7" callback}	
+				else rand 0.33	
+				{ani_play "flyin_6" callback}	
+				else rand 0.33	
+				{ani_play "flyin_5" callback}	
+				else rand 0.33
+				{ani_play "flyin_4" callback}	
+				else rand 0.33			
+				{ani_play "flyin_3" callback}	
+				else rand 0.33	
+				{ani_play "flyin_2" callback}	
+				else 
 				{ani_play "flyin_1" callback}
-			;}
-		;}
+			}
+		}
 	}
 	{on animation_end "flyin_1"
 		{call "rocket_launch"}
@@ -331,14 +331,29 @@
 	(define "bombtype"
 		{on "bomb_drop"
 			{if tagged "hardpoint_count_2"
-				{delay 0.12
+				{delay 0.14
 					{play_sound "release"}
 					{play_sound "bomb"}
-					{spawn "bomb_single_%0" "hardpoint_1" x dir_velocity
+					{spawn "bomb_single_%0" "hardpoint_3" x dir_velocity
 						{impulse up -14 dir -5 forward 47}
 					}
 				}
 				{delay 0.18 
+					{play_sound "release"}
+					{play_sound "bomb"}
+					{spawn "bomb_single_%0" "hardpoint_4" x dir_velocity
+					{impulse up -14 dir -5 forward 53}
+					}
+				}
+			else tagged "hardpoint_count_2_cluster"
+				{delay 0.28
+					{play_sound "release"}
+					{play_sound "bomb"}
+					{spawn "bomb_single_%0" "hardpoint_3" x dir_velocity
+						{impulse up -14 dir -5 forward 47}
+					}
+				}
+				{delay 0.32 
 					{play_sound "release"}
 					{play_sound "bomb"}
 					{spawn "bomb_single_%0" "hardpoint_4" x dir_velocity
@@ -471,63 +486,63 @@
 
 {"airstrike_cluster_light"
 	{on spawn
-		{tags add "hardpoint_count_2"}
+		{tags add "hardpoint_count_2_cluster"}
 	}
 	("bombtype" args cluster)
 }
 
 {"airstrike_medium"
 	{on spawn
-		{tags add "hardpoint_count_4"}
+		{tags add "hardpoint_count_2"}
 	}
 	("bombtype" args 100)
 }
 
 {"airstrike_wp_medium"
 	{on spawn
-		{tags add "hardpoint_count_4"}
+		{tags add "hardpoint_count_2"}
 	}
 	("bombtype" args wp)
 }
 
 {"airstrike_napalm_medium"
 	{on spawn
-		{tags add "hardpoint_count_4"}
+		{tags add "hardpoint_count_2"}
 	}
 	("bombtype" args napalm)
 }
 
 {"airstrike_cluster_medium"
 	{on spawn
-		{tags add "hardpoint_count_4"}
+		{tags add "hardpoint_count_2"}
 	}
 	("bombtype" args cluster)
 }
 
 {"airstrike_heavy"
 	{on spawn
-		{tags add "hardpoint_count_8"}
+		{tags add "hardpoint_count_2"}
 	}
 	("bombtype" args 250)
 }
 
 {"airstrike_wp_heavy"
 	{on spawn
-		{tags add "hardpoint_count_8"}
+		{tags add "hardpoint_count_2"}
 	}
 	("bombtype" args wp)
 }
 
 {"airstrike_napalm_heavy"
 	{on spawn
-		{tags add "hardpoint_count_8"}
+		{tags add "hardpoint_count_2"}
 	}
 	("bombtype" args napalm)
 }
 
 {"airstrike_cluster_heavy"
 	{on spawn
-		{tags add "hardpoint_count_8"}
+		{tags add "hardpoint_count_2"}
 	}
 	("bombtype" args cluster)
 }
@@ -687,6 +702,34 @@
 			{spawn "bomblet_single" "bomb" x dir_velocity
 				{impulse up -10 dir -5 rnd_dir 20}
 			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			{spawn "bomblet_single" "bomb" x dir_velocity
+				{impulse up -10 dir -5 rnd_dir 20}
+			}
+			
 		}
 	}
 }
