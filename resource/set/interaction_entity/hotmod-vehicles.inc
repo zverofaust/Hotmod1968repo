@@ -4232,6 +4232,7 @@
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
+		("check_fire")
 	}
 
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
@@ -4255,6 +4256,7 @@
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
+		("check_fire")
 	}
 
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
@@ -4278,6 +4280,7 @@
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
+		("check_fire")
 	}
 
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
@@ -4301,6 +4304,7 @@
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
+		("check_fire")
 	}
 
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
@@ -4324,6 +4328,7 @@
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
+		("check_fire")
 	}
 
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
@@ -4347,6 +4352,7 @@
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
+		("check_fire")
 	}
 
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
@@ -4370,6 +4376,7 @@
 	}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
+		("check_fire")
 	}
 
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
