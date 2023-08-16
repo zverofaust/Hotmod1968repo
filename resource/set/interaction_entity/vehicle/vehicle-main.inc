@@ -287,6 +287,7 @@
 (define "check_fire"
 
 			{if not effector "airborne"
+			   {if crew_in_place "charger"
 				{kill_delay "cwsh_disable_zpu"}
 				{if not tagged "cwsh_tempdisable_zpu"
 					{call "cwsh_disable_zpu"}
@@ -298,6 +299,7 @@
 						{call "cwsh_enable_zpu"}
 					}
 				}
+			   }
 			}
 )
 

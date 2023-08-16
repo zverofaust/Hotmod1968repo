@@ -3266,10 +3266,10 @@
 
 {"leopard_1"
 	("pz6b_sound")
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_wind "open1" end}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open1" -1.0 resume}
 	}
 	{on fire "gun"
@@ -3282,10 +3282,10 @@
 
 {"leopard_1a1"
 	("pz6b_sound")
-	{on "commander_hatch_open" overload
+	{on "charger_hatch_open" overload
 		{ani_wind "open1" end}
 	}
-	{on "commander_hatch_close" overload
+	{on "charger_hatch_close" overload
 		{ani_play "open1" -1.0 resume}
 	}
 	{on fire "gun"
@@ -4182,7 +4182,7 @@
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
-	
+
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 
 }
@@ -4233,7 +4233,7 @@
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
-	
+
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
@@ -4256,7 +4256,7 @@
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
-	
+
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
@@ -4279,7 +4279,7 @@
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
-	
+
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
@@ -4302,7 +4302,7 @@
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
-	
+
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
@@ -4325,7 +4325,7 @@
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
-	
+
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
@@ -4348,7 +4348,7 @@
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
-	
+
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
@@ -4371,7 +4371,7 @@
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
-	
+
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
