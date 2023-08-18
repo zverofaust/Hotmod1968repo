@@ -72,7 +72,7 @@ Purchases["conquest.sov"] = {
 				{priority = 0.3, type = {"Cannon", "Mortar",}, unit = "120mm_pm38_sov"},
 			--Infantry_Support
 				{priority = 1.0, type = {"Cannon", "AT",}, unit = "76mm_zis3_sov"},
-				{priority = 1.0, type = {"Cannon", "Support",}, unit = "gp1958"},
+				--{priority = 1.0, type = {"Cannon", "Support",}, unit = "gp1958"},
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "d-44"},
 			--Artillery
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "d-74"},
