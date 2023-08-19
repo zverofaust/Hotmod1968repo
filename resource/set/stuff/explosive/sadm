@@ -1,0 +1,46 @@
+{from "pattern throwable"
+	{tag "smallitemin1hand bomb mininuke grenade dynamite"}
+	{entity "sadm"}
+	{inventory {size 3 3}}
+	
+	{mass 10}
+
+	{damage blastwave
+		{energy 225}
+		{area 7 16}
+		{ground_interaction_radius 0.2}
+	}
+
+	{damage add blastwave
+		{energy 20}
+		{area 16 28}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+
+	{damage add blastwave
+		{energy 3}
+		{area 35 55}
+		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+	{damage fire					;burn inner radius
+		{radius 10}
+		{heating 100}
+		{time 25}
+	}
+	{damage add fire				;inflame outer radius
+		{radius 20}
+		{heating 1}
+		{time 25}
+	}
+
+	{special
+		{PrepareTime 20}
+		{PrepareCursor "grenade"}
+		{mode detonate}
+	}
+
+	{throw
+		{range 6.2} ;in-game 7m
+		{startAngle 60}
+	}
+}
