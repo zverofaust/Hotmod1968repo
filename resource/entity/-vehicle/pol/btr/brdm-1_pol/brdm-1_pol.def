@@ -13,7 +13,23 @@
 		{digit_folder "cw"}
 	}
 	
-	(include "crew.ext")
+	(include "/properties/car_crew.ext")
+	("crew_2_human")
+	
+	{boarder
+		{anm "left"
+			{forward {begin "board_tank_right"} {end "pose_dodge_sg2"}{base "open_driver"}}
+			{reverse {end "emit_tank_2_hold"}{base "open_driver" -1}}
+		}
+		{anm "right"
+			{forward {begin "board_tank_right"} {end "pose_dodge_sg2"}{base "open_commander"}}
+			{reverse {end "emit_tank_2_hold"}{base "open_commander" -1}}
+		}
+	}
+
+	("crew_human_2" 	place(driver) 		bone()  		visor(driver) 	)
+	("crew_human_2" 	place(commander) 	bone()  		visor(around) 	)
+	("crew_human_2_v"	 place(gunner2) 	bone(gunner2)  	visor(mgun) 	)
 	
 	{placer
 		{place "driver"		{visor "driver"}{group "crew"}}

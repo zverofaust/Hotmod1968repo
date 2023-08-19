@@ -2,7 +2,7 @@
 	(include "/properties/armoredcar.ext")
 	(include "/properties/shadow/tank.inc" scale(0.8))
 	(include "/properties/selection/vehicle.inc" scale(0.75))
-	{props "tank" "atgm_vehicle" "turret" "wheeled" "amphibia" "vision_lev02" "detect_tank_mg"}
+	{props "tank" "atgm_vehicle" "turret" "with_gun" "wheeled" "amphibia" "vision_lev02" "detect_tank_mg"}
 	{extension "9p110_pol.mdl"}
 	{PatherId "amphibia"}
 	{targetclass "armoredcar"}
@@ -69,16 +69,17 @@
 			{item "ammo 9m14 atgm" 12}
 		}
 	}
- 	{Weaponry
-		("restore_ik_time")
+	{Weaponry
+		{RestoreIKTime 0}
 		{place "gun"
 			{weapon			"atgm_9m14_x6" filled}
+			{RestoreIKAfterAim}
 			{gunner			"gunner"}
 			{charger		"gunner"}
 			{shooter		"shooter"} ;shooter_a
 			{foresight		"foresight1"}
 			{barrels 6}
-			{StationaryFiring}
+			
 			("hm68_abm_atgm")
 		}
 	}
