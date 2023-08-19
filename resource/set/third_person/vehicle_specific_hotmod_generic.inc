@@ -246,7 +246,7 @@
 				{distance 18}
 				{distanceset 1}
 				{delta 0}
-				{linkBone "gun"}
+				{linkBone "visor"}
 				{offset -300 0 300}
 				{gunnerviewoff 1}
 				{camera "zoom1.5"}
@@ -330,7 +330,7 @@
 				{distance 50}
 				{distanceset 1}
 				{delta 0}
-				{linkBone "gun"}
+				{linkBone "visor"}
 				{offset -200 0 200}
 				{gunnerviewoff 1}
 				{camera "zoom1.5"}
@@ -376,7 +376,7 @@
 				{distance 50}
 				{distanceset 1}
 				{delta 0}
-				{linkBone "gun"}
+				{linkBone "visor"}
 				{offset -300 0 300}
 				{gunnerviewoff 1}
 				{camera "zoom1.5"}
@@ -422,7 +422,7 @@
 				{distance 50}
 				{distanceset 1}
 				{delta 0}
-				{linkBone "gun"}
+				{linkBone "visor"}
 				{offset -300 0 300}
 				{gunnerviewoff 1}
 				{camera "zoom1.5"}
@@ -473,7 +473,7 @@
 				{distance 50}
 				{distanceset 1}
 				{delta 0}
-				{linkBone "gun"}
+				{linkBone "visor"}
 				{offset -100 0 400}
 				{gunnerviewoff 1}
 				{camera "zoom2.5"}
