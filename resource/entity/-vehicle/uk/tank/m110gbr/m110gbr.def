@@ -1,0 +1,86 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc" scale(0.9))
+	{props "spg" "light" "-turret" "vision_lev06" "muzzle_170mm_210mm" "shell_eject" "tractor" "open_top" "detect_spg"}
+	(include "m110gbr.ext")
+	{targetclass "tank_light"}
+	{targetSelector "cannon_howitzer"}
+	{patherId "panzer1"}
+	{collider "tank.light"}
+
+{boarder
+	{anm "driver"
+		{forward	{begin	"board_tank"} {end "seat_driver_car"} {base "open_driver"}}
+		{reverse 	{end	"board_tank" -1} {base "open_driver" -1}}
+	}
+	{anm "charger"
+		{forward	{begin	"board_higharmor"} {end "pose_flak38_charger_left"} {base "doorright1"}}
+		{reverse 	{end	"emit_tank_2_hold"} {base "doorright" -1}}
+	}
+	{anm "gunner"
+		{forward	{begin	"board_higharmor"} {end "pose_61k_gunlayer_right"} {base "doorleft" 0.65}}
+		{reverse	{end	"emit_tank_2_hold"} {base "doorleft" -1}}
+	}
+	{anm "commander"
+		{forward	{begin	"board_tank"} {end "seat_driver_car"} {base "open"}}
+		{reverse 	{end	"board_tank" -1} {base "open" -1}}
+	}
+}
+
+	("crew_human"	place(driver) 	 door(emit1) door2(emit1) visor(driver) anm_left(driver) anm_right(driver))
+	("crew_human_visible_anm"	place(charger) 	 door(emit2) door2(emit3) visor(around) anm_left(charger) anm_right(charger))
+	("crew_human_visible_anm"	place(commander) door(emit2) door2(emit3) visor(around) anm_left(commander)  anm_right(commander))
+	("crew_human_visible_anm"	place(gunner) 	 door(emit2) door2(emit3) visor(main)   anm_left(gunner)   anm_right(gunner))
+	("crew_human_visible_anm"	place(charger2)	 door(emit2) door2(emit3) visor(around) anm_left(charger) anm_right(charger))
+	
+	{sensor
+		{visor "around"
+			{vision "vehicle_around"}		;// better vision than a in-closed turret 
+		}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet203_m1 he" 15}	;10 rounds
+		}
+	}
+	
+    {Weaponry
+        ("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "203mm_m201" filling "bullet203_m1 he" 1} 
+			{gunner "gunner"}
+			{charger "charger"}
+			("hm68_abm_spg")
+        }
+    }
+
+	{mass 28000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(54) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8.9);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(23.5) ;-------Weight in Tonnes.
+			power(405) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(150) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(180) ;---------Range in km, off-road.
+		)
+	}
+	
+	{Extension "m110gbr.mdl"}
+
+	{bone "turret"			;gun horizontal
+		{speed2 6}			;degree per second
+		{limits -30 30}
+	}
+	{bone "gun_rot"			;gun vertical
+		{speed2 4}			;degree per second
+		{limits -40 3}		;min down to max up
+	}
+}
