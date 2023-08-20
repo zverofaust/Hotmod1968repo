@@ -32,10 +32,6 @@
 {"mp/usa/mid/sup_guncrew_m29"		("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
 {"mp/usa/mid/sup_guncrew_entac_c"	("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
 {"mp/usa/mid/sup_guncrew_entac_l"	("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
-{"mp/usa/mid/usmc_guncrew"			("usa_guncrew" side(usa)) {cost 13.0}} ; M3
-{"mp/usa/mid/aircav_guncrew"		("usa_guncrew" side(usa)) {cost 16.0}} ; M16
-{"mp/usa/mid/aircav_guncrew_entac_c"	("usa_guncrew" side(usa)) {cost 16.0}} ; M16
-{"mp/usa/mid/aircav_guncrew_entac_l"	("usa_guncrew" side(usa)) {cost 16.0}} ; M16
 
 (define "usa_supporter"
 	{tags "mid %side infantry man"}
@@ -134,6 +130,8 @@
 {"mp/usa/mid/aircav_rifleman"			("usa_aircav" side(usa)) {cost 17.0}} ; M16
 {"mp/usa/mid/aircav_teamlead"			("usa_aircav" side(usa)) {cost 22.0}} ; M16
 {"mp/usa/mid/aircav_squadlead"			("usa_aircav" side(usa)) {cost 30.0}} ; M16
+{"mp/usa/mid/aircav_guncrew"			("usa_aircav" side(usa)) {cost 18.0}} ; M16
+{"mp/usa/mid/aircav_guncrew_entac"		("usa_aircav" side(usa)) {cost 65.0}} ; M16 + ENTAC Backpack
 
 (define "usa_acav"
 	{tags "mid %side infantry man"}
@@ -189,6 +187,28 @@
 {"mp/usa/mid/usmc_squadlead"		("usa_usmc" side(usa)) {cost 28.0}} ; M14
 {"mp/usa/mid/usmc_squadlead_m16"	("usa_usmc" side(usa)) {cost 30.0}} ; M16
 {"mp/usa/mid/usmc_spotter"			("usa_usmc" side(usa)) {cost 27.0}} ; M16
+{"mp/usa/mid/usmc_guncrew"			("usa_usmc" side(usa)) {cost 17.0}} ; M3
+
+(define "usa_airborne"
+	{tags "mid %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 3.0}
+	{score_factor 0.05}
+)
+{"mp/usa/mid/82nd_antitank"			("usa_airborne" side(usa)) {cost 65.0}} ; M16+M67
+{"mp/usa/mid/82nd_atassist"			("usa_airborne" side(usa)) {cost 17.0}} ; M16
+{"mp/usa/mid/82nd_marksman"			("usa_airborne" side(usa)) {cost 65.0}} ; M1C
+{"mp/usa/mid/82nd_mg"				("usa_airborne" side(usa)) {cost 45.0}} ; M60
+{"mp/usa/mid/82nd_mgassist"			("usa_airborne" side(usa)) {cost 20.0}} ; M16
+{"mp/usa/mid/82nd_grenadier"		("usa_airborne" side(usa)) {cost 45.0}} ; M79
+{"mp/usa/mid/82nd_lat"				("usa_airborne" side(usa)) {cost 30.0}} ; M14 + M72 LAW
+{"mp/usa/mid/82nd_rifleman"			("usa_airborne" side(usa)) {cost 17.0}} ; M16
+{"mp/usa/mid/82nd_teamlead"			("usa_airborne" side(usa)) {cost 22.0}} ; M16
+{"mp/usa/mid/82nd_squadlead"		("usa_airborne" side(usa)) {cost 30.0}} ; M16
+{"mp/usa/mid/82nd_guncrew"			("usa_airborne" side(usa)) {cost 18.0}} ; M16
+{"mp/usa/mid/82nd_guncrew_entac"	("usa_airborne" side(usa)) {cost 65.0}} ; M16 + ENTAC Backpack
 
 (define "usa_rangers"
 	{tags "mid %side infantry man"}
