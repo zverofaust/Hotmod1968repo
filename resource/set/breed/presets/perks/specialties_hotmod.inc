@@ -13,6 +13,7 @@
 	{"telescope"}
 	{"vision" human_elite}
 	{"aimedshot"}			;// Silenced Nagant Pistol
+	{"health" "175%"}
 )
 
 
