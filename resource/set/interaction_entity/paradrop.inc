@@ -23,6 +23,18 @@
 	}
 }
 
+{"flare_paradrop_m56"	
+	{on spawn
+		{add_view "smoke_flare_green" "smoke" "root"}
+		{view start "smoke"}
+		{impulse up 5 forward 3 rnd_dir 3 com}
+		{start_sound "vehicle/airborne/cargo_plane_flyby" ambient}
+		{delay 10 {spawn "paradrop_m56"}}
+		{delay 20 {view stop "smoke"}}
+		{delay 20 {delete}}
+	}
+}
+
 {"flare_paradrop_asu57"	
 	{on spawn
 		{add_view "smoke_flare_green" "smoke" "root"}
