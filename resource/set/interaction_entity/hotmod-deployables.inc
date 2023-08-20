@@ -54,6 +54,7 @@
 	("gunbag" guntype(mg_stand_m2g)   			bagtype(gunbag_m2_frg))
 	("gunbag" guntype(81mm_krh36_frg)  			bagtype(gunbag_krh36_frg))
 	("gunbag" guntype(m20g_rcl)   				bagtype(gunbag_m20_frg))
+	("gunbag" guntype(cobra_atgm)   			bagtype(gunbag_cobra_frg))
 
 	;///PRC
 	("gunbag" guntype(sg43_stand_prc) 			bagtype(gunbag_sg43_prc))
