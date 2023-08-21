@@ -23,6 +23,125 @@
 		{play_sound "hatch_heavy"}
 	}
 }
+
+{"tank with_open_zpu"
+
+
+
+	{on "cwsh_switch_hatch"
+		{if tagged "cwsh_active"
+			{tags remove "cwsh_active"}
+			{tags add "cwsh_passive"}
+			{call "cwsh_disable_zpu"}
+			{call "update_cw_panorama"}
+			{damage_report "body" "component/zpu_disabled"}
+		else tagged "cwsh_passive"
+			{tags remove "cwsh_active"}
+			{tags remove "cwsh_passive"}
+			{call "cwsh_enable_zpu"}
+			{call "update_cw_panorama"}
+			{damage_report "body" "component/zpu_careful"}
+		else
+			{tags add "cwsh_active"}
+			{if  tagged "cwsh_tempdisable_zpu"
+				{call "cwsh_enable_zpu"}
+				{tags remove "cwsh_tempdisable_zpu"}
+			}
+			{call "update_cw_panorama"}
+			{damage_report "body" "component/zpu_enabled"}
+		}
+	}
+
+	(define "check_attack_on_zpu"
+		{if not tagged "cwsh_active"
+			{if not tagged "cwsh_passive"
+				{if not effector "airborne"
+					{kill_delay "cwsh_disable_zpu"}
+					{if not tagged "cwsh_tempdisable_zpu"
+						{call "cwsh_disable_zpu"}
+						{tags add "cwsh_tempdisable_zpu"}
+					}
+					{delay 15 "cwsh_disable_zpu"
+						{if  tagged "cwsh_tempdisable_zpu"
+							{tags remove "cwsh_tempdisable_zpu"}
+							{call "cwsh_enable_zpu"}
+							{tags remove "cw_panorama_work"}
+							{call "update_cw_panorama"}
+						}
+					}
+				}
+			}
+		}
+	)
+	{on crew in {call "update_zpu"}}
+	{on crew out {call "update_zpu"}}
+
+	{on bullet_hit
+		("check_attack_on_zpu")
+	}
+	{on blast_hit
+		{if not component "gun"
+			{if not stuff "turret_dir_detector"
+				("check_attack_on_zpu")
+			}
+		}
+	}
+}
+
+{"car with_open_zpu"
+	{on spawn
+		{call "update_weaponry"}
+	}
+	{on operatable on {call "update_zpu"}}
+	{on operatable off {call "update_zpu"}}
+	{on crew in {call "update_zpu"}}
+	{on crew out {call "update_zpu"}}
+	{on "cwsh_switch_hatch"
+		{if tagged "cwsh_passive"
+			{tags add "cwsh_careful"}
+			{tags remove "cwsh_passive"}
+			{call "cwsh_enable_zpu"}
+			{damage_report "body" "component/zpu_careful"}
+		else tagged "cwsh_careful"
+			{tags remove "cwsh_careful"}
+			{if  tagged "cwsh_tempdisable_zpu"
+				{call "cwsh_enable_zpu"}
+				{tags remove "cwsh_tempdisable_zpu"}
+			}
+			{damage_report "body" "component/zpu_enabled"}
+		else
+			{tags remove "cwsh_careful"}
+			{tags add "cwsh_passive"}
+			{call "cwsh_disable_zpu"}
+			{damage_report "body" "component/zpu_disabled"}
+		}
+	}
+	(define "check_attack_on_zpu"
+		{if tagged "cwsh_careful"
+			{if not effector "airborne"
+				{kill_delay "cwsh_disable_zpu"}
+				{if not tagged "cwsh_tempdisable_zpu"
+					{call "cwsh_disable_zpu"}
+					{tags add "cwsh_tempdisable_zpu"}
+				}
+					{delay 15 "cwsh_disable_zpu"
+						{if  tagged "cwsh_tempdisable_zpu"
+							{tags remove "cwsh_tempdisable_zpu"}
+							{call "cwsh_enable_zpu"}
+						}
+					}
+			}
+		}
+	)
+	{on bullet_hit
+		("check_attack_on_zpu")
+	}
+	{on blast_hit
+		{if not component "gun"
+			("check_attack_on_zpu")
+		}
+	}
+}
 ;/*==========MGAA hatch script============*/
 ;/*=========== side fire script===========*/
 {"side_fire"
@@ -153,7 +272,7 @@
 								{if not tagged "no_power"
 									{call "cw_panorama_work"}
 								else {call "cw_panorama_off"}}
-							else {call "cw_panorama_off"}}
+							else {call "cw_panorama_instant_off"}}
 						else {call "cw_panorama_off"}}
 					else {call "cw_panorama_instant_off"}}
                 ;else {call "cw_panorama_off"}}
