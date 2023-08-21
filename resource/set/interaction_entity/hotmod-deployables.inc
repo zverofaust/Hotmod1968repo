@@ -11,7 +11,7 @@
 		}
 	}
 }
-	
+
 	(define "gunbag"
 		{"%guntype"
 			{on "weapon_undeploy" sync
@@ -39,7 +39,7 @@
 	("gunbag" guntype(b-10_82mm)  				bagtype(gunbag_b10))
 	("gunbag" guntype(spg9)  					bagtype(gunbag_spg9))
 	("gunbag" guntype(9m14)   					bagtype(gunbag_9m14))
-	
+
 	;///USA
 	("gunbag" guntype(mg_stand_m1919) 			bagtype(gunbag_m1919))
 	("gunbag" guntype(mg_stand_m60)   			bagtype(gunbag_m60))
@@ -48,7 +48,7 @@
 	("gunbag" guntype(m20_rcl)  	 			bagtype(gunbag_m20))
 	("gunbag" guntype(entac)   					bagtype(gunbag_entac))
 	("gunbag" guntype(mk18_agl)   				bagtype(gunbag_mk18))
-	
+
 	;///FRG
 	("gunbag" guntype(mg3_lafette)   			bagtype(gunbag_mg3))
 	("gunbag" guntype(mg_stand_m2g)   			bagtype(gunbag_m2_frg))
@@ -61,7 +61,7 @@
 	("gunbag" guntype(dshk_aa_prc)   			bagtype(gunbag_dshk_prc))
 	("gunbag" guntype(82mm_bm37_prc)  			bagtype(gunbag_bm37_prc))
 	("gunbag" guntype(b-10_prc)  				bagtype(gunbag_b10_prc))
-	
+
 	;///POL
 	("gunbag" guntype(sg43_stand_pol) 			bagtype(gunbag_sg43_pol))
 	("gunbag" guntype(mg_stand_pk_pol) 			bagtype(gunbag_pk_pol))
@@ -96,13 +96,13 @@
 	("gunbag" guntype(82mm_bm37_pol_ai)  			bagtype(gunbag_bm37_pol))
 	("gunbag" guntype(b-10_pol_ai)  				bagtype(gunbag_b10_pol))
 	("gunbag" guntype(spg9_pol_ai)  				bagtype(gunbag_spg9_pol))
-	
-	
+
+
 {"dozer"
 	{on "hull_down"
 		{able select 0}
 		{ani_play "dozer_down"}
-		{delay 2
+		{delay 15
 			{start_sound "vehicle/deploy/trench"}
 			{spawn "tank_cover2" "root" x}
 			{spawn "building_smoke" "root"}
