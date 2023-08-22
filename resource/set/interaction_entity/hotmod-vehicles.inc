@@ -368,7 +368,10 @@
 	(define "places"
 		{if has_place "%0"
 			{if crew_in_place "%0"
-				{call "%0_hatch_open"}
+			    {if  tagged "cwsh_zpu_off"
+
+			    else {call "%0_hatch_open"}
+			    }
 			else
 				{call "%0_hatch_close"}
 			}
