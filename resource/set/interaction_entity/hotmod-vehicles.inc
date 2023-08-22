@@ -401,11 +401,13 @@
 		("update_hatch" wind(true))
 		{tags remove "cw_panorama_work"}
 		{call "update_cw_panorama"}
+		{call "update_weaponry"}
 	}
 	(define "update_hatch_event"
 		{on %event
 			("update_hatch" wind(false))
 			{call "update_zpu"}
+			{tags remove "cw_panorama_work"}
 			{call "update_cw_panorama"}
 		}
 	)
