@@ -31,10 +31,11 @@
 	}
 	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
 	("crew_human" place(commander) bone(commander) door(emit2) animation(commander))
-	("crew_human" place(seat1) bone(seat01) door(emit3) animation(passenger1))
-	("crew_human" place(seat2) bone(seat02) door(emit4) animation(passenger2))
-	("crew_human" place(seat3) bone(seat03) door(emit3) animation(passenger1))
-	("crew_human" place(seat4) bone(seat04) door(emit4) animation(passenger2))
+	("crew_human" place(seat1) bone(seat01) door(emit3) door2(emit4) animation(passenger1))
+	("crew_human" place(seat2) bone(seat02) door(emit4) door2(emit3) animation(passenger2))
+	("crew_human" place(seat3) bone(seat03) door(emit3) door2(emit4) animation(passenger1))
+	("crew_human" place(seat4) bone(seat04) door(emit4) door2(emit3) animation(passenger2))
+	("crew_human" place(seat5) bone(seat05) door(emit3) door2(emit4) animation(passenger2))
 	
 	{placer
 		{place "driver"		{group "crew"}}
@@ -62,19 +63,10 @@
 	("glass" args "window8")
 	("glass" args "window9")
 	("glass" args "window10")
-	("glass" args "window11")
-	("glass" args "window12")
-	("glass" args "window13")
-	("glass" args "window14")
-	("glass" args "window15")
-	("glass" args "window16")
 	
 	;main body parts
-	("body" args "body")
 	("body" args "body1")
 	("body" args "body2")
-	("body" args "body3")
-	("body" args "body4")
 
 	;main rotor + blades
 	("rotor" args "rotor")
@@ -112,7 +104,7 @@
 			{barrels		6}
 			{gunner			"commander"}
 			{charger		"commander"}
-			{shooter		"shooter"}
+			{shooter		"shooter_b"}
 			{foresight		"foresight1"}
 			{basic}
 		}
@@ -130,12 +122,12 @@
 
 	{Extension "uh-1b_m22.mdl"}
 
-	{bone "gun_rot_h"			;rockets: right/left
-		{speed 0.01}
-		{limits -20 20}			;back to -10 10 as soon as they are able to rotate on their own
+	{bone "foresight1"			;atgms: right/left
+		{speed 0.025}
+		{limits -15 15}
 	}
-	{bone "gun_rot_v"			;rockets: down/up
+	{bone "m22"			;rockets: down/up
 		{speed 0.01}
-		{limits -35 15}
+		{limits -15 15}
 	}
 }

@@ -12,28 +12,29 @@
 
 	{boarder
 		{anm "driver"
-			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "doorleft"}}
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "door_left"}}
 			{reverse 	{end	"board_big-midcar_driver" -1} {base "doorleft" -1}}
 		}
 		{anm "commander"
-			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "doorright"}}
+			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "door_right"}}
 			{reverse 	{end	"board_big-midcar" -1} {base "doorright" -1}}
 		}
 		{anm "passenger1"
-			{forward	{begin 	"board_body"}	{end "seat_passenger"} {base "doorleft1"}}
+			{forward	{begin 	"board_body"}	{end "seat_passenger"}}
 			{reverse 	{end	"emit_tank_1_hold"} {base "doorleft1"}}
 		}
 		{anm "passenger2"
-			{forward	{begin 	"board_body"}	{end "seat_passenger"} {base "doorright1"}}
+			{forward	{begin 	"board_body"}	{end "seat_passenger"}}
 			{reverse 	{end	"emit_tank_1_hold"} {base "doorright1"}}
 		}
 	}
 	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
 	("crew_human" place(commander) bone(commander) door(emit2) animation(commander))
-	("crew_human" place(seat1) bone(seat01) door(emit3) animation(passenger1))
-	("crew_human" place(seat2) bone(seat02) door(emit4) animation(passenger2))
-	("crew_human" place(seat3) bone(seat03) door(emit3) animation(passenger1))
-	("crew_human" place(seat4) bone(seat04) door(emit4) animation(passenger2))
+	("crew_human" place(seat1) bone(seat01) door(emit3) door2(emit4) animation(passenger1))
+	("crew_human" place(seat2) bone(seat02) door(emit4) door2(emit3) animation(passenger2))
+	("crew_human" place(seat3) bone(seat03) door(emit3) door2(emit4) animation(passenger1))
+	("crew_human" place(seat4) bone(seat04) door(emit4) door2(emit3) animation(passenger2))
+	("crew_human" place(seat5) bone(seat05) door(emit3) door2(emit4) animation(passenger2))
 	
 	{placer
 		{place "driver"		{group "crew"}}
@@ -61,19 +62,10 @@
 	("glass" args "window8")
 	("glass" args "window9")
 	("glass" args "window10")
-	("glass" args "window11")
-	("glass" args "window12")
-	("glass" args "window13")
-	("glass" args "window14")
-	("glass" args "window15")
-	("glass" args "window16")
 	
 	;main body parts
-	("body" args "body")
 	("body" args "body1")
 	("body" args "body2")
-	("body" args "body3")
-	("body" args "body4")
 
 	;main rotor + blades
 	("rotor" args "rotor")
@@ -100,7 +92,7 @@
 	
 	{extender "inventory"
 		{box
-            {item "ammo 70mm_ffar" 14}
+            		{item "ammo 70mm_ffar" 14}
 			{item "ammo mgun_usa belt" 2000}
         }
     }
@@ -141,20 +133,20 @@
 
 	{Extension "uh-1b.mdl"}
 
-	{bone "mgun_rot_h"			;miniguns: right/left
-		{speed 0.025}
+	{bone "m21"					;rockets: right/left
+		{speed2 24}
+		{limits -20 10}
+	}
+	{bone "minigun_mount"		;miniguns: down/up
+		{speed2 24}
 		{limits -10 10}
 	}
-	{bone "mgun_rot_v"			;miniguns: down/up
-		{speed 0.025}
-		{limits -25 15}
+	{bone "foresight1"			;miniguns side-to-side
+		{speed2 24}
+		{limits -10 10}
 	}
-	{bone "gun_rot_h"			;rockets: right/left
-		{speed 0.01}
-		{limits -5 5}			;back to -10 10 as soon as they are able to rotate on their own
-	}
-	{bone "gun_rot_v"			;rockets: down/up
-		{speed 0.01}
-		{limits -5 15}
+	{bone "foresight2"			;rockets side-to-side
+		{speed2 24}
+		{limits -10 10}
 	}
 }
