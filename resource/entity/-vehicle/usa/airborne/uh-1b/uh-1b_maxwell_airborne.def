@@ -46,19 +46,10 @@
 	("glass" args "window8")
 	("glass" args "window9")
 	("glass" args "window10")
-	("glass" args "window11")
-	("glass" args "window12")
-	("glass" args "window13")
-	("glass" args "window14")
-	("glass" args "window15")
-	("glass" args "window16")
 	
 	;main body parts
-	("body" args "body")
 	("body" args "body1")
 	("body" args "body2")
-	("body" args "body3")
-	("body" args "body4")
 
 	;main rotor + blades
 	("rotor" args "rotor")
@@ -129,20 +120,16 @@
 
 	{Extension "uh-1b_maxwell.mdl"}
 
-	{bone "gun_rot_h"			;atgms: right/left
+	{bone "foresight1"			;atgms: right/left
 		{speed 0.025}
 		{limits -15 15}
 	}
-	{bone "gun_rot_v"			;atgms: down/up
+	{bone "foresight2"			;rockets: right/left
 		{speed 0.025}
 		{limits -15 15}
 	}
-	{bone "gun2_rot_h"			;rockets: right/left
-		{speed 0.01}
-		{limits -5 5}			;back to -10 10 as soon as they are able to rotate on their own
-	}
-	{bone "gun2_rot_v"			;rockets: down/up
-		{speed 0.01}
-		{limits -5 15}
+	{bone "maxwell"				;launcher: up/down
+		{speed 0.025}
+		{limits -15 15}
 	}
 }

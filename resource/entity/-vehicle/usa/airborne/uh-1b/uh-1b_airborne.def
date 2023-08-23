@@ -46,19 +46,10 @@
 	("glass" args "window8")
 	("glass" args "window9")
 	("glass" args "window10")
-	("glass" args "window11")
-	("glass" args "window12")
-	("glass" args "window13")
-	("glass" args "window14")
-	("glass" args "window15")
-	("glass" args "window16")
 	
 	;main body parts
-	("body" args "body")
 	("body" args "body1")
 	("body" args "body2")
-	("body" args "body3")
-	("body" args "body4")
 
 	;main rotor + blades
 	("rotor" args "rotor")
@@ -126,20 +117,20 @@
 
 	{Extension "uh-1b.mdl"}
 
-	{bone "mgun_rot_h"			;miniguns: right/left
-		{speed 0.025}
+	{bone "m21"					;rockets: right/left
+		{speed2 24}
+		{limits -20 10}
+	}
+	{bone "minigun_mount"		;miniguns: down/up
+		{speed2 24}
 		{limits -10 10}
 	}
-	{bone "mgun_rot_v"			;miniguns: down/up
-		{speed 0.025}
-		{limits -15 15}
+	{bone "foresight1"			;miniguns side-to-side
+		{speed2 24}
+		{limits -10 10}
 	}
-	{bone "gun_rot_h"			;rockets: right/left
-		{speed 0.01}
-		{limits -5 5}			;back to -10 10 as soon as they are able to rotate on their own
-	}
-	{bone "gun_rot_v"			;rockets: down/up
-		{speed 0.01}
-		{limits -5 15}
+	{bone "foresight2"			;rockets side-to-side
+		{speed2 24}
+		{limits -10 10}
 	}
 }
