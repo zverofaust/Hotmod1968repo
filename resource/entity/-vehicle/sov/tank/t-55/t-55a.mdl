@@ -79,28 +79,41 @@
 					}
 					{VolumeView "enumerator2.ply"}
 				}
-				{bone revolute "commander_rot"
-					{parameters "id=turret;"}
-					{Position -10.7656	9.81877	15.136}
-					{VolumeView "commander_rot.ply"}
-					{bone "cover1"
-						{parameters "id=turret;"}
-						{Position 1.93851	0.0231056	2.24844}
-						{VolumeView "cover1.ply"}
-					}
-					{bone "visor1"
-						{Position 5.22759	0.0782299	1.92968}
-					}
-					{bone revolute "vision_rot"
-						{limits -8 8}
-						{Matrix34
-							1	0	0
-							0	0	1
-							0	-1	0
-							5.2573	0.0437412	1.93008
+					{Bone "cw_panorama_basis"
+                    	{Position -10.7656	9.81877	15.136}
+                    	{Bone "cw_panorama"
+								{bone revolute "commander_rot"
+									{parameters "id=turret;"}
+									
+									{VolumeView "commander_rot.ply"}
+									{bone "cover1"
+										{parameters "id=turret;"}
+										{Position 1.93851	0.0231056	2.24844}
+										{VolumeView "cover1.ply"}
+									}
+									{bone "visor3"
+										{Position 5.22759	0.0782299	1.92968}
+									}
+									{bone revolute "vision_rot"
+										{limits -8 8}
+										{Matrix34
+											1	0	0
+											0	0	1
+											0	-1	0
+											5.2573	0.0437412	1.93008
+										}
+									}
+								}
+							}
 						}
-					}
-				}
+				{Bone "visor1"
+                    {Matrix34
+                        1	0	0
+                        0	-0.00279246	-0.999996
+                        0	0.999996	-0.00279246
+                        25.11	6.65	5.11
+                    }
+                }
 				{bone "cover2"
 					{parameters "id=turret;"}
 					{Matrix34
