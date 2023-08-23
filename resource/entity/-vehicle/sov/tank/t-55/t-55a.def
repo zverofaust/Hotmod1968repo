@@ -2,7 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "smoke" "ess"}
+	{props "medium" "diesel" "vision_lev04" "muzzle_100mm_105mm" "smoke" "ess" "cw_panorama"}
 	(include "t-55.ext")
 	{targetclass "tank_medium"}
 	{targetSelector "tank_medium"}
@@ -49,6 +49,22 @@
 		{place "driver"		{visor "driver"}}
 		{place "gunner"		{visor "main"}}
 		{place "commander"	{visor "main"}}
+	}
+
+	{sensor		
+		{visor "driver" 	
+			{vision "tank_driver"}
+			{bone "Visor2"}
+		}
+		{visor "gunner" 
+			{vision "tank_range_230"}
+			{bone "Visor1"}
+		}
+		
+		{visor "commander"				
+			{vision "tank_commander"}
+			{bone "Visor3"}
+		}
 	}
 
 	; smokescreen via injecting fuel into the exhaust system possible
