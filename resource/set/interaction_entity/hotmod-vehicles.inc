@@ -4,6 +4,18 @@
 		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
 	}
 }
+;/*==========AMMO truck explosion script====*/
+{"heavy_supply"
+	{on "_explosion"
+
+		{spawn "hm_explosion_5000kg" "basis" x}
+
+	}
+	{on "blast_body"
+		{call "explosion"}
+
+	}
+}
 ;/*==========MGAA hatch script============*/
 {"with_open_zpu"
 	{on "cwsh_enable_zpu"
