@@ -142,6 +142,7 @@
 	{item "g3"						"ammo" 20 {value 2}}
 	{item "mp2"						"ammo" 20 {value 2}}
 
+	{item "cobra" 			"atgm"	"ammo" 1  {value 15}}
 	{item "mortarfrg_120" "he"		"ammo" 1  {value 9}}
 	{item "mortarfrg_120" "sm"		"ammo" 1  {value 9}}
 )
@@ -274,8 +275,7 @@
 	{item "bullet125_2a46"		"heat"		"ammo" 1 {value 20}}
 
 	;// ATGMs
-	{item "3m6"				"atgm"		"ammo" 1 {value 15}}
-
+	{item "3m6"					"atgm"		"ammo" 1 {value 15}}
 	{item "3m11"				"atgm"		"ammo" 1 {value 15}}
 	{item "9m14"				"atgm"		"ammo" 1 {value 15}}
 	{item "3m7"					"atgm"		"ammo" 1 {value 18}}
