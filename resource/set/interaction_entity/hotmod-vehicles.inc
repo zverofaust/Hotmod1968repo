@@ -1607,6 +1607,27 @@
 	}
 }
 
+{"bmd-2"
+	("bt_sound")
+	
+	{on "gunner_hatch_open" overload
+		{ani_play "open" 1.0 resume}
+	}
+	{on "gunner_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+	{on fire "gun2"
+		{spawn "detector" "foresight6" x}
+	}
+	
+	("zpu_params" gunner(gunner) zpu_mgun(gun2) anim(hm_hatch_cover) pose(seat_commander_hatch))
+}
+
+
 {"2p27" ;// can't figure out how to reset turret to 0
 	("sdkfz222_sound")
 
