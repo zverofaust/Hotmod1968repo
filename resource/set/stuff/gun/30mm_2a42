@@ -1,0 +1,34 @@
+{from "pattern gun"			; L/87.3  "23mm_zu23"
+	{filling "bullet30_2a42" 200}
+	{fireSound "gun/2a42"}
+	{fireSoundclose "gun/2a42"}
+	{reloadSound "flak38"}
+	;{cursor "ironsights/aa"}
+	{calibre 30}
+	;("medium_aa")
+
+	("autocannon_20-35")
+	{range 206 206}
+	("fire rate" rpm(500))
+	("reload time" seconds(4))
+
+	("velocity m/s" ap(970) apcr(1120) he(1175) heat(1))
+	("armor health" damage(60))
+	;("armor health custom" shell(aphe) damage(100) filler(37.4))
+	("37_slope_multipliers")
+
+	; PzGr.18
+	("penetration_medium" shell(ap) range(206) a(65) b(63) c(53) d(44) e(36))
+
+	("penetration_medium" shell(apds) range(206) a(102) b(97) c(81) d(74) e(66))
+
+	("accuracy_direct_auto" r1(0.25) range_ap(206) range_he(226) range_heat(206))
+
+	{parameters "he"										; SPgGr.
+		(mod "mp" {unlimitedRangeTPC 1})	;// unrestricts range in TPC/FPC for shooting at aircraft
+		{FalloffStrength 0}
+	}
+
+;	("accuracy_direct" r1(0.35) range_ap(340) range_he(340) range_heat(340))
+	{toplayerVignette "/texture/common/environment/lens_effects/ivc_crosshair_bmp2"}
+}
