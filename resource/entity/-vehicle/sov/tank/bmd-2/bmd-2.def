@@ -38,7 +38,9 @@
 			}
 		}
 		("crew_human" 				place(driver)					door(emit1) door2(emit2) visor(driver))
-		("crew_human_visible" 		place(gunner)	bone(gunner)	door(emit1) door2(emit2) visor(main))
+		;("crew_human_visible" 		place(gunner)	bone(gunner)	door(emit1) door2(emit2) visor(main))
+		("crew_open" 				place(gunner2)  bone(gunner) 	door(emit1) door2(emit2) anm_left(left) anm_right(right) group(crew))
+
 		
 		("passenger" place(seat1)  door(emit1)  animation(passenger) group(passenger))
 		("passenger" place(seat2)  door(emit2)  animation(passenger) group(passenger))
@@ -66,15 +68,15 @@
 		{place "gun"
 			{RestoreIKAfterAim}
 			{weapon "30mm_2a42" filling "bullet30_2a42 he" 180}
-			{gunner "gunner"}
-			{charger "gunner"}
+			{gunner "gunner2"}
+			{charger "gunner2"}
 			("hm68_abm_auto")
 		}
 		{place "gun2"		;atgm
 			{weapon			"atgm_9m111" filled}
 			{shooter		"shooter"}
-			{gunner 		"gunner"}
-			{charger		"gunner"}
+			{gunner 		"gunner2"}
+			{charger		"gunner2"}
 			{foresight		"foresight"}
 			("hm68_abm_atgm")
 			{StationaryFiring}
@@ -82,8 +84,8 @@
 		}
 		{place "mgun"		;coax
 			{weapon			"pkt" filled}
-			{gunner 		"gunner"}
-			{charger		"gunner"}
+			{gunner 		"gunner2"}
+			{charger		"gunner2"}
 			{foresight		"foresight5"}
 			("abm_mgun")
 			{basic}
