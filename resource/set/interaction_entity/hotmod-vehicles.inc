@@ -421,6 +421,7 @@
 			{call "update_zpu"}
 			{tags remove "cw_panorama_work"}
 			{call "update_cw_panorama"}
+			{call "update_weaponry"}
 		}
 	)
 	("update_hatch_event" event(operatable on))
@@ -1609,22 +1610,27 @@
 
 {"bmd-2"
 	("bt_sound")
-	
-	{on "gunner_hatch_open" overload
+	{on spawn
+		{tags add "bmd2"}
+	}
+
+	{on "gunner2_hatch_open" overload
 		{ani_play "open" 1.0 resume}
 	}
-	{on "gunner_hatch_close" overload
+	{on "gunner2_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
-	
+
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
 	{on fire "gun2"
 		{spawn "detector" "foresight6" x}
 	}
-	
-	("zpu_params" gunner(gunner) zpu_mgun(gun2) anim(hm_hatch_cover) pose(seat_commander_hatch))
+
+	("zpu_params" gunner(gunner2) zpu_mgun(gun2) anim(hm_hatch_cover) pose(seat_commander_hatch))
+
+
 }
 
 
