@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Sat Aug 26 07:50:45 2023
+;Date:        Sat Aug 26 08:57:51 2023
 ;File:        D:\Cold War\ModelWIP\USSR\BMD\BMD-1.max
 {Skeleton
 	{animation
@@ -298,7 +298,7 @@
 								{VolumeView "container_lod3.ply"}
 							}
 							{bone "rocket"
-								{parameters "id=turret_mgun;"}
+								{parameters "id=turret_mg;"}
 								{Matrix34
 									1	0	0
 									0	0.5	0.866026
@@ -341,7 +341,7 @@
 					}
 				}
 				{bone "cover"
-					{parameters "id=gun;"}
+					{parameters "id=turret;"}
 					{Position -2.74943	4.72147	8.91574}
 					{VolumeView "cover.ply"}
 				}
@@ -361,7 +361,7 @@
 							0.220522	0.0146675	0.743137
 						}
 						{VolumeView "mantlet.ply"}
-						{bone "foresight5"
+						{bone "foresight3"
 							{Position 1.31294	-2.9093	0.992496}
 						}
 						{bone "gun"
@@ -370,12 +370,6 @@
 							{VolumeView "gun.ply"}
 							{bone "foresight1"
 								{Position 33.544	-0.0912362	-0.0022583}
-							}
-							{bone "gun1"
-								{Position 9.6521	0.0140563	0.0701714}
-							}
-							{bone "gun2"
-								{Position -17.2324	-0.125063	-0.757435}
 							}
 						}
 					}
@@ -416,9 +410,6 @@
 				}
 				{bone "fxlight"
 					{Position 3.7475	-2.14652	10.9772}
-				}
-				{bone "ammo"
-					{Position 5.40181	-8.94921	-6.58968}
 				}
 			}
 			{bone "detail1"
@@ -678,6 +669,11 @@
 		}
 	}
 }
+{Volume "ammo"
+	{Box 11.4534 9.59225 11.5966}
+	{Bone "turret"}
+	{Position 5.40181	-8.94921	-6.58968}
+}
 {Volume "body1"
 	{Polyhedron "body1.vol"}
 	{Bone "body"}
@@ -749,23 +745,23 @@
 	}
 }
 {Volume "gun2"
-	{Box 7.40844 4.40074 5.76592}
-	{Bone "body"}
+	{Box 6.31136 4.27544 7.7986}
+	{Bone "gun"}
 	{Matrix34
-		-1	0	0
+		1	0	0
 		0	0	1
-		0	1	0
-		-0.942905	-24.4907	25.5856
+		0	-1	0
+		-17.2324	-0.125064	-0.757435
 	}
 }
 {Volume "gun"
-	{Cylinder 1.48397 43.9362}
-	{Bone "body"}
+	{Cylinder 0.872662 47.3767}
+	{Bone "gun"}
 	{Matrix34
-		-1	0	0
+		0	-1	0
 		0	0	1
-		0	1	0
-		-0.0564228	-33.9482	25.6647
+		-1	0	0
+		9.6521	0.0140528	0.0701723
 	}
 }
 {Volume "hole1"
@@ -790,13 +786,8 @@
 }
 {Volume "shield1"
 	{Polyhedron "shield1.vol"}
-	{Bone "body"}
-	{Matrix34
-		0	-1	0
-		1	0	0
-		0	0	1
-		3.15726	-8.22415	28.286
-	}
+	{Bone "cover"}
+	{Position -4.81291	0.0192933	0.228283}
 }
 {Volume "trackleft"
 	{Polyhedron "trackleft.vol"}
@@ -850,11 +841,6 @@
 }
 {Volume "turret"
 	{Polyhedron "turret.vol"}
-	{Bone "body"}
-	{Matrix34
-		0	-1	0
-		1	0	0
-		0	0	1
-		0.0908456	-11.5144	24.6665
-	}
+	{Bone "turret"}
+	{Position 0.320781	-0.000764094	4.94079}
 }
