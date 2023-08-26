@@ -305,6 +305,27 @@
 			}
 )
 
+(define "check_fire_bmd"
+
+			{if not effector "airborne"
+			   {if not tagged "cwsh_zpu_off"
+			   {if crew_in_place "gunner2"
+				{kill_delay "cwsh_disable_zpu"}
+				{if not tagged "cwsh_tempdisable_zpu"
+					{call "cwsh_disable_zpu"}
+					{tags add "cwsh_tempdisable_zpu"}
+				}
+				{delay 10 "cwsh_disable_zpu"
+					{if  tagged "cwsh_tempdisable_zpu"
+						{tags remove "cwsh_tempdisable_zpu"}
+						{call "cwsh_enable_zpu"}
+					}
+				}
+			   }
+			   }
+			}
+)
+
 ;------------ordos add check attack thing-----------
 	{on bullet_hit
 		{if stuff "hesh_type_dmg" {spawn "cw_cumulative_frestrict" inv_normal}
@@ -1367,7 +1388,7 @@
 		}
 	}
 	{on "update_weaponry"
-	     {if not tagged "bmd2"
+
 		{if work "%zpu_mgun"
 				{if tagged "cwsh_zpu_off"
 					{weapon_work "%zpu_mgun" 0}
@@ -1380,27 +1401,6 @@
 				else {weapon_work "%com_optic" 0}
 				}
 		}
-	    else
-		{if work "%zpu_mgun"
-				{if tagged "cwsh_zpu_off"
-					{weapon_work "%zpu_mgun" 0}
-					{weapon_work "mgun" 1}
-					{if work "gun"
-					    {weapon_work "gun" 1}
-
-					}
-				else {weapon_work "%zpu_mgun" 1}
-					{weapon_work "mgun" 0}
-				      {if work "gun"
-					    {weapon_work "gun" 0}
-
-				      }
-				}
-		}
-
-
-
-	    }
 
 
 	}

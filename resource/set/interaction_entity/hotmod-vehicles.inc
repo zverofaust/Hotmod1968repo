@@ -1622,7 +1622,7 @@
 	}
 
 	{on fire "gun"
-		{spawn "detector" "foresight1" x}
+		("check_fire_bmd")
 	}
 	{on fire "gun2"
 		{spawn "detector" "foresight6" x}
