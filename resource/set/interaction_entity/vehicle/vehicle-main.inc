@@ -67,10 +67,14 @@
 		{stop_sound "move_end"}
 		{play_sound "move" 1}
 		{call "exhaust_on"}
-		{if not "animated"						;// Prevents animation from playing when "stop" animation is currently playing
-			;{ani_stop "stop"}
-			{ani_play "start" 1.0 callback}
-			{set "animated" 1}
+		{if not tagged "suspension_down"
+			{if not "animated"						;// Prevents animation from playing when "stop" animation is currently playing
+				;{ani_stop "stop"}
+				{ani_play "start" 1.0 callback}
+				{set "animated" 1}
+			}
+		else {set "animated" 1}
+
 		}
 		{view pause "exhaust2"}
 		{if tagged "vehicle_detect_motion"		;// used for mission scripts
@@ -315,7 +319,7 @@
 					{call "cwsh_disable_zpu"}
 					{tags add "cwsh_tempdisable_zpu"}
 				}
-				{delay 10 "cwsh_disable_zpu"
+				{delay 2 "cwsh_disable_zpu"
 					{if  tagged "cwsh_tempdisable_zpu"
 						{tags remove "cwsh_tempdisable_zpu"}
 						{call "cwsh_enable_zpu"}

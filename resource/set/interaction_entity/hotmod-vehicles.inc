@@ -4,6 +4,45 @@
 		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
 	}
 }
+;/*==========BMD series adjustable suspension script====*/
+{"with_adjustable_suspension"
+
+    {on "suspension_down"
+	{ani_play "suspension_down" 1.0}
+    }
+
+    {on "suspension_up"
+		{ani_play "suspension_up" 1.0}
+		{set "animated" 0}
+
+    }
+
+}
+
+{"tank with_adjustable_suspension"
+	{on "hm68_switch_suspension"
+		{if tagged "suspension_active"
+			{tags remove "suspension_active"}
+			{tags add "suspension_down"}
+			{call "suspension_down"}
+			{damage_report "body" "component/suspension_active"}
+
+		else
+			{tags add "suspension_active"}
+			{tags remove "suspension_down"}
+			{call "suspension_up"}
+			{damage_report "body" "component/suspension_deactive"}
+		}
+	}
+
+}
+
+
+
+
+
+
+
 ;/*==========AMMO truck explosion script====*/
 {"heavy_supply"
 	{on "_explosion"
@@ -1600,8 +1639,17 @@
 
 {"bmd-1"
 	("bt_sound")
+	{on spawn
+		{tags add "suspension_active"}
+	}
+	{on "gunner2_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "gunner2_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
 	{on fire "gun"
-		{spawn "detector" "foresight1" x}
+		{spawn "proj_probe" "foresight1" x}
 	}
 	{on fire "gun2"
 		{spawn "detector" "foresight6" x}
@@ -1611,7 +1659,7 @@
 {"bmd-2"
 	("bt_sound")
 	{on spawn
-		{tags add "bmd2"}
+		{tags add "suspension_active"}
 	}
 
 	{on "gunner2_hatch_open" overload
