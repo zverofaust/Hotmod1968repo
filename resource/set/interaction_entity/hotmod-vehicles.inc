@@ -4,6 +4,48 @@
 		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
 	}
 }
+;/*==========BMD series shell eject script====*/
+{"shell"   
+	{on "spawn_shell" overload
+		{tags add "gun_fired"}
+		{call "spawn_shell_delay_auto"}
+		(define "shell_eject_delay_auto"
+			{delay_ex %0
+				{spawn "shell_cannon_auto" "fx_invers1" x scale 0.014
+					{impulse forward 2.5 0.25 up 0.4 0.2 fx 0.7 0.2 cx -1 com}
+				}
+				{spawn "shell_cannon_auto""fx_invers2" x scale 0.014
+					{impulse forward 2.5 0.25 up 0.4 0.2 fx 0.7 0.2 cx -1 com}
+				}
+				{spawn "shell_cannon_auto""fx_invers3" x scale 0.01
+					{impulse forward 2.5 0.25 up 0.4 0.2 fx 0.7 0.2 cx -1 com}
+				}
+			}
+		)
+	}
+	{on "spawn_shell_delay_auto" overload
+		("shell_eject_delay_auto" args 0)
+	}
+	{on "reload" overload
+		{call "magazine_delay"}
+	}
+	(define "magazine"
+		{on "magazine_delay" %override
+			{delay %cut
+				{tear "piece_small_steel" bone "magazine" copy
+					%impulse
+				}
+				{delay 0
+					{view hide "magazine"}
+					{delay %show
+						{view show "magazine"}
+					}
+				}
+			}
+		}
+	)
+	("magazine" cut(0) show(1.8) override() impulse({impulse up -0.01 com}))
+}
 ;/*==========BMD series adjustable suspension script====*/
 {"with_adjustable_suspension"
 
