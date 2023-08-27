@@ -71,6 +71,7 @@ Purchases["mid.usa"] = {
 				{priority = 0.5, type = {"Doctine", "Infantry", "Armored", "AT", "Tier1",}, unit = "doctrine_squad_acav_weapon_moto(usa)"},			
 				{priority = 1.0, type = {"Doctine", "Armored", "Mortar", "Tier2",}, unit = "doctrine_vehicle_m106(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109_acav(usa)"},
+				{priority = 0.5, type = {"Doctine", "Tank", "Light", "Medium", "Tier2",}, unit = "doctrine_vehicle_m48_acav(usa)"},
 				{priority = 1.0, type = {"Doctine", "Armored", "Support", "Tier2",}, unit = "doctrine_vehicle_m132(usa)"},
 				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "AT", "Tier3",}, unit = "doctrine_vehicle_m551acav(usa)"},
 				
