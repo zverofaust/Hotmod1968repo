@@ -2491,6 +2491,41 @@
 	}
 }
 
+{"m48a3_acav"
+	("pz6_sound")
+	{on spawn
+		{add_view	"flash_gun_big"	"flashbarrel00"	"shooter00"}
+		{add_view	"flash_gun_big"	"flashbarrel01"	"shooter01"}
+	}
+	{on fire "mgun" overload
+		{play_sound "bkg_mg"}
+		{if  name "00"
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		else name "01"
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "open" +1.0 resume}
+		{ani_play "aamg" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+		{ani_play "aamg" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+	}
+	
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
+}
+
 {"m103"
 	("pz6_sound")
 		{on "commander_hatch_open" overload
