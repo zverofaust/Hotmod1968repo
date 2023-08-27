@@ -319,7 +319,7 @@
 					{call "cwsh_disable_zpu"}
 					{tags add "cwsh_tempdisable_zpu"}
 				}
-				{delay 2 "cwsh_disable_zpu"
+				{delay 5 "cwsh_disable_zpu"
 					{if  tagged "cwsh_tempdisable_zpu"
 						{tags remove "cwsh_tempdisable_zpu"}
 						{call "cwsh_enable_zpu"}
