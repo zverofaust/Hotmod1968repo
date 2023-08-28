@@ -77,7 +77,7 @@ Purchases["conquest.usa"] = {
 				--Anti Aircraft
 				{priority = 1.0, type = {"Cannon", "AA",}, unit = "m45_maxson"},
 				--Anti Tank
-				{priority = 1.0, type = {"Cannon", "AT",}, unit = "m20_rc_ai"},
+				{priority = 1.0, type = {"Cannon", "AT",}, unit = "m20_rcl_ai"},
 				{priority = 1.0, type = {"Cannon", "AT",}, unit = "m40"},
 				--Mortars
 				{priority = 0.2, type = {"Cannon", "Mortar",}, unit = "m29_mortar_ai"},
