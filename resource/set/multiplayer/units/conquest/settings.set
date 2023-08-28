@@ -17,7 +17,8 @@
 ; cp() corresponds to CP, that is, the value that units have that fill up how many troops can be fielded
 ; {cost -} corresponds to MP cost of the unit
 ; {level 6} Corresponds to player XP progress in player profile from steam
-; {research_stage 4} corresponds to research stage of dynamic campaign
+; {research_stage 4} corresponds to minimum research stage of dynamic campaign a unit will be available to bots
+; {research_stage_max 5} corresponds to the maximum research stage of dynamic campaign a unit will be available to bots
 ; {squad_cost_factor 1} - adds the cost of the crew / the cost of the squad members with this factor
 ; scf() - adds the cost of the crew / the cost of the squad members with this factor
 ; {round_multiple 5.0} - rounds the total cost of vehicle and crew or squad members to the nearest multiple of this value. in this case the nearest 5
@@ -27,6 +28,7 @@
 (define "generic_v_conquest"
 	{score_factor 0.07}
 	{tags "conquest conquestonly %t"}
+	{charge {delay 0}{interval 0}}
 	{cw %cw}
 	{cp %cp}
 	{research_stage %r}
@@ -210,8 +212,23 @@
 	}
 )
 
+(define "squad_with2types_0vehicle"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 %vehicle () "}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
 (define "squad_with1types_conquest"
 	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1"}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
@@ -225,6 +242,7 @@
 
 (define "squad_with2types_conquest"
 	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2"}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
@@ -238,6 +256,7 @@
 
 (define "squad_with3types_conquest"
 	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3"}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
@@ -251,6 +270,7 @@
 
 (define "squad_with4types_conquest"
 	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4"}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
@@ -264,6 +284,7 @@
 
 (define "squad_with5types_conquest"
 	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5"}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
@@ -277,6 +298,7 @@
 
 (define "squad_with6types_conquest"
 	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6"}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
@@ -290,6 +312,7 @@
 
 (define "squad_with7types_conquest"
 	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7"}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
@@ -303,6 +326,7 @@
 
 (define "squad_with8types_conquest"
 	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8"}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
@@ -316,6 +340,7 @@
 
 (define "squad_with9types_conquest"
 	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 mp/%side/%period/%c9"}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
@@ -329,6 +354,7 @@
 
 (define "squad_with10types_conquest"
 	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 mp/%side/%period/%c9 mp/%side/%period/%c10"}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
