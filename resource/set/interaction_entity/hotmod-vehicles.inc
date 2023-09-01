@@ -5,7 +5,7 @@
 	}
 }
 ;/*==========BMD series shell eject script====*/
-{"shell"   
+{"shell"
 	{on "spawn_shell" overload
 		{tags add "gun_fired"}
 		{call "spawn_shell_delay_auto"}
@@ -51,6 +51,7 @@
 
     {on "suspension_down"
 	{ani_play "suspension_down" 1.0}
+	{set "animated" 1}
     }
 
     {on "suspension_up"
@@ -1700,9 +1701,6 @@
 
 {"bmd-2"
 	("bt_sound")
-	{on spawn
-		{tags add "suspension_active"}
-	}
 
 	{on "gunner2_hatch_open" overload
 		{ani_play "open" 1.0 resume}
@@ -2564,7 +2562,7 @@
 	{on fire "gun"
 		{spawn "detector"  "foresight1" x}
 	}
-	
+
 	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 

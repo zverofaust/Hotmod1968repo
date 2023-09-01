@@ -67,14 +67,10 @@
 		{stop_sound "move_end"}
 		{play_sound "move" 1}
 		{call "exhaust_on"}
-		{if not tagged "suspension_down"
-			{if not "animated"						;// Prevents animation from playing when "stop" animation is currently playing
-				;{ani_stop "stop"}
-				{ani_play "start" 1.0 callback}
-				{set "animated" 1}
-			}
-		else {set "animated" 1}
-
+		{if not "animated"						;// Prevents animation from playing when "stop" animation is currently playing
+			;{ani_stop "stop"}
+			{ani_play "start" 1.0 callback}
+			{set "animated" 1}
 		}
 		{view pause "exhaust2"}
 		{if tagged "vehicle_detect_motion"		;// used for mission scripts
