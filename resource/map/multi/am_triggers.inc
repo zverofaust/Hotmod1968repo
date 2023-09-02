@@ -1,4 +1,4 @@
-(include "/map/nikral's trigger.mi")	
+(include "/map/nikral's trigger.mi")
 			{"parachute"
 				{condition
 					{terms
