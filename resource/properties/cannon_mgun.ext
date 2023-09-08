@@ -7,7 +7,7 @@ actor
 (include "cannon_armor.ext")
 (include "abm.inc")
 (include "mobility.inc")
-(include "selection/cannon.inc" scale(0.4))
+(include "selection/vehicle_small.inc" scale(0.8))
 
 ("brain_vehicle")
 
@@ -18,7 +18,7 @@ actor
 {targetSelector "cannon_bullet"}
 
 {props "mg_stan" "carried" "cannon" "cannon_small" "no_exp_blast"}
-{able "emit_crew_on_injure" "talk"}
+{able "talk" "-emit_passangers_on_enemy"}
 {lodclass "cannon"}
 
 {constrain ground}
@@ -27,12 +27,12 @@ actor
 {extender "inventory"
 	{Box
 		{Size 8 8}
-		{weight 1000}
+		{weight 10000}
 		{item "repair_kit" 1}
 	}
 }
 
-{Weaponry
+{##Weaponry
 	{place "mgun"
 		{type "main"}
 		{gunner "gunner"}
@@ -86,7 +86,7 @@ actor
 		{fire "" ""}
 		{reload "mgun_stan_charger" ""}
 	}
-	{move {obstacle "close"}}
+	{move {workers "driver1" "driver2" minWorkers 2} {obstacle "close"}}
 	{attack {obstacle "open"}}
 }
 
