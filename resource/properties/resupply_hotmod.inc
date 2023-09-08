@@ -82,7 +82,7 @@
 	{item "bullet73_2a28"  "heat"	"ammo" 1  {value 12}}
 	{item "bullet73_2a28"  "he"		"ammo" 1  {value 8}}
 	{item "9m14"			"atgm"		"ammo" 1 {value 15}}
-	{item "gunbag_sov_9m14_launcher"				1 {value 10}}
+	{item "gunbag_sov_9m14"				1 {value 10}}
 )
 
 (define "items_light_usa"
@@ -116,12 +116,12 @@
 	{item "mortarusa_81" 	"sm"	"ammo" 1  {value 5}}
 	{item "mortarusa_107" 	"he"	"ammo" 1  {value 7}}
 	{item "mortarusa_107"	"sm"	"ammo" 1  {value 7}}
-	{item "bullet75_m20" 	"heat"	"ammo" 1  {value 15}}
-	{item "bullet75_m20"  	"he"	"ammo" 1  {value 10}}
+	{item "bullet75_m20" 	"heat"	"ammo" 1  {value 10}}
+	{item "bullet75_m20"  	"he"	"ammo" 1  {value 5}}
 	{item "bullet106_m40" 	"heat"	"ammo" 1  {value 15}}
 	{item "bullet106_m40"  	"he"	"ammo" 1  {value 10}}
 	{item "mgm32a"			"atgm"	"ammo" 1  {value 15}}
-	{item "gunbag_usa_entac_launcher"				1 {value 10}}
+	{item "gunbag_usa_entac"				1 {value 10}}
 
 ;// Grenade
 	{item "40mm_grenade" "he"		 "ammo" 1  {value 5}}
@@ -145,6 +145,8 @@
 	{item "cobra" 			"atgm"	"ammo" 1  {value 15}}
 	{item "mortarfrg_120" "he"		"ammo" 1  {value 9}}
 	{item "mortarfrg_120" "sm"		"ammo" 1  {value 9}}
+	
+	{item "gunbag_frg_cobra"				1 {value 10}}
 )
 
 (define "items_light_generic"
@@ -280,7 +282,7 @@
 	{item "9m14"				"atgm"		"ammo" 1 {value 15}}
 	{item "3m7"					"atgm"		"ammo" 1 {value 18}}
 	{item "9m111"				"atgm"		"ammo" 1 {value 25}}
-	{item "gunbag_sov_9m14_launcher"				1 {value 10}}
+	{item "gunbag_sov_9m14"							1 {value 10}}
 
 	;// Aircraft Stuff
 
@@ -330,8 +332,8 @@
 	{item "bullet75_m6"			"apcbche"	"ammo" 1 {value 5}}
 	{item "bullet75_m6"			"he"		"ammo" 1 {value 4}}
 
-	{item "bullet75_m20" 		"heat"		"ammo" 1  {value 15}} ;// M20 recoilless rifle
-	{item "bullet75_m20"  		"he"		"ammo" 1  {value 10}}
+	{item "bullet75_m20" 		"heat"		"ammo" 1  {value 10}} ;// M20 recoilless rifle
+	{item "bullet75_m20"  		"he"		"ammo" 1  {value 5}}
 
 	{item "bullet76_m1a2"		"apcr"		"ammo" 1 {value 5}}
 	{item "bullet76_m1a2"		"ap"		"ammo" 1 {value 5}}
@@ -371,7 +373,7 @@
 	{item "mgm32a"				"atgm"		"ammo" 1 {value 15}}
 	{item "agm22"				"atgm"		"ammo" 1 {value 15}}
 	{item "mim23"				"sam"		"ammo" 1 {value 20}}
-	{item "gunbag_usa_entac_launcher"				1 {value 10}}
+	{item "gunbag_usa_entac"						1 {value 10}}
 
 	;// Aircraft Stuff
 
@@ -443,23 +445,24 @@
 
 (define "items_gunbags_launchers"
 ;// USA
-	{item "gunbag_usa_entac_launcher"				1 {value 10}}
+	{item "gunbag_usa_entac"						1 {value 10}}
 ;// SOV
-	{item "gunbag_sov_9m14_launcher"				1 {value 10}}
+	{item "gunbag_sov_9m14"							1 {value 10}}
+:// FRG
+	{item "gunbag_frg_cobra"						1 {value 10}}
 )
 
 (define "items_gunbags"
 ;// USA
-	{item "gunbag_usa_entac_controller"				1 {value 20}}
-	{item "gunbag_usa_entac_launcher"				1 {value 10}}
+	{item "gunbag_usa_entac"						1 {value 20}}
 	{item "gunbag_usa_m2"							1 {value 20}}
 	{item "gunbag_usa_m29"							1 {value 15}}
 	{item "gunbag_usa_m60"							1 {value 10}}
 	{item "gunbag_usa_m1919"						1 {value 6}}
+	{item "gunbag_usa_m20"							1 {value 10}}
 	{item "ammobag_usa"								1 {value 20}}
 ;// SOV
-	{item "gunbag_sov_9m14_controller"				1 {value 20}}
-	{item "gunbag_sov_9m14_launcher"				1 {value 10}}
+	{item "gunbag_sov_9m14"							1 {value 20}}
 	{item "gunbag_sov_b10"							1 {value 10}}
 	{item "gunbag_sov_bm37"							1 {value 15}}
 	{item "gunbag_sov_dshk"							1 {value 20}}
@@ -471,6 +474,7 @@
 	{item "gunbag_frg_m2"							1 {value 20}}
 	{item "gunbag_frg_krh36"						1 {value 15}}
 	{item "gunbag_frg_mg3"							1 {value 10}}
+	{item "gunbag_frg_cobra"						1 {value 10}}
 	{item "ammobag_frg"								1 {value 20}}
 ;// PRC
 	{item "gunbag_prc_b10"							1 {value 10}}
