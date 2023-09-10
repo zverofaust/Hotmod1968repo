@@ -56,7 +56,7 @@
 	{"stamina" "250%"}
 )
 
-(define "aircav"	;// US Airmobile Cavalry
+(define "cavalry"	;// US Cavalry (Armored & Airmobile)
 	{"speed" 1.1}
 	{"health" "150%"}
 	{"stamina" "300%"}
@@ -66,13 +66,6 @@
 	{"speed" 1.1}
 	{"health" "150%"}
 	{"stamina" "300%"}
-)
-
-(define "acav"		;// US Armored Cavalry
-	{"speed" 1.1}
-	{"health" "175%"}
-	{"stamina" "200%"}
-	{"stamina_regeneration" "125%"}
 )
 
 (define "guards"		;// Soviet Guards
