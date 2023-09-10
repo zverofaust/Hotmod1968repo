@@ -449,7 +449,7 @@
 	{item "gunbag_usa_entac"						1 {value 10}}
 ;// SOV
 	{item "gunbag_sov_9m14"							1 {value 10}}
-:// FRG
+;// FRG
 	{item "gunbag_frg_cobra"						1 {value 10}}
 )
 
