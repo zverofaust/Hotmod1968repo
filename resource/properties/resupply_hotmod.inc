@@ -141,6 +141,7 @@
 	{item "fal"						"ammo" 20 {value 2}}
 	{item "g3"						"ammo" 20 {value 2}}
 	{item "mp2"						"ammo" 20 {value 2}}
+	{item "walther_mp"				"ammo" 20 {value 2}}
 
 	{item "cobra" 			"atgm"	"ammo" 1  {value 15}}
 	{item "mortarfrg_120" "he"		"ammo" 1  {value 9}}
