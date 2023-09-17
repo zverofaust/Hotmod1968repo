@@ -30,6 +30,10 @@
 		{position 2 0}
 		{condition "helicopter"}
 	}
+	{gc_cp_lock_ammo
+		{position 1 1}
+		{condition "vehicle -helicopter"}
+	}
 	{gc_cp_state_cannon
 		{position 2 0}
 		{condition "cannon"}
@@ -43,8 +47,9 @@
 		{condition "cannon gunbagged"}
 	}
 	{engine_toggle
-		{position 1 1}
-		{condition "vehicle" "single" "-cannon"}
+		{position 2 0}
+		;{condition "vehicle" "single"}
+		{condition "engine"}
 	}
 	{gc_cp_browse_attack
 		{position 0 1}
