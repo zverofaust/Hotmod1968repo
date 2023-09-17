@@ -1,0 +1,192 @@
+;SDL
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+(define "sov_radioman"
+	{tags "era1950 %side infantry man signaller"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.2}
+)
+{"mp/sov/era1950/reg_radioman"				("sov_radioman" side(sov)) {cost 50.0}}
+{"mp/sov/era1950/reg_fac"					("sov_radioman" side(sov)) {cost 10.0}}
+
+(define "sov_guncrew"
+	{tags "era1950 %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/sov/era1950/sup_guncrew"			("sov_guncrew" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/era1950/sup_guncrew_sg43"		("sov_guncrew" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/era1950/sup_guncrew_dshk"		("sov_guncrew" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/era1950/sup_guncrew_b10"		("sov_guncrew" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/era1950/sup_guncrew_bm37"		("sov_guncrew" side(sov)) {cost 5.0}} ; SKS
+
+(define "sov_basic"
+	{tags "era1950 %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/sov/era1950/sup_supporter"			("sov_basic" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/era1950/sup_pilot"				("sov_basic" side(sov)) {cost 5.0}} ; Pistol
+{"mp/sov/era1950/sup_tankman"			("sov_basic" side(sov)) {cost 4.0}} ; Pistol
+{"mp/sov/era1950/sup_vehicleman"		("sov_basic" side(sov)) {cost 4.0}} ; Pistol -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
+{"mp/sov/era1950/con_rifleman"			("sov_basic" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/era1950/con_lmg"				("sov_basic" side(sov)) {cost 20.0}} ; RPD
+{"mp/sov/era1950/con_mg"				("sov_basic" side(sov)) {cost 25.0}} ; RP-46
+{"mp/sov/era1950/con_atgren"			("sov_basic" side(sov)) {cost 15.0}} ; SKS & RKG-3
+{"mp/sov/era1950/con_antitank"			("sov_basic" side(sov)) {cost 35.0}} ; SKS & RPG-2
+{"mp/sov/era1950/con_squadlead"			("sov_basic" side(sov)) {cost 15.0}} ; SKS
+{"mp/sov/era1950/brd_rifleman"			("sov_basic" side(sov)) {cost 5.0}} ; SKS
+{"mp/sov/era1950/brd_mg"				("sov_basic" side(sov)) {cost 25.0}} ; DP
+{"mp/sov/era1950/brd_antitank"			("sov_basic" side(sov)) {cost 35.0}} ; PPs & RPG-2
+{"mp/sov/era1950/brd_squadlead"			("sov_basic" side(sov)) {cost 15.0}} ; SKS
+{"mp/sov/era1950/brd_senior"			("sov_basic" side(sov)) {cost 10.0}} ; SKS
+
+(define "sov_regular"
+	{tags "era1950 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 1.0}
+	{score_factor 0.05}
+)
+{"mp/sov/era1950/reg_ammo"				("sov_regular" side(sov)) {cost 14.0}} ; SKS
+{"mp/sov/era1950/reg_atassist"			("sov_regular" side(sov)) {cost 15.0}} ; SKS & RPG-2 Ammo
+{"mp/sov/era1950/reg_atassist_ak47"		("sov_regular" side(sov)) {cost 18.0}} ; AK47 & RPG-2 Ammo
+{"mp/sov/era1950/reg_atgren"			("sov_regular" side(sov)) {cost 16.0}} ; SKS + RKG-3 Grenades
+{"mp/sov/era1950/reg_lmg"				("sov_regular" side(sov)) {cost 35.0}} ; RPD
+{"mp/sov/era1950/reg_lmgassist"			("sov_regular" side(sov)) {cost 15.0}} ; SKS + RPD Ammo
+{"mp/sov/era1950/reg_lmgassist_ak47"	("sov_regular" side(sov)) {cost 18.0}} ; AK47 + RPD Ammo
+{"mp/sov/era1950/reg_mg"				("sov_regular" side(sov)) {cost 30.0}} ; RP-46
+{"mp/sov/era1950/reg_mgassist"			("sov_regular" side(sov)) {cost 15.0}} ; SKS + DP Ammo
+{"mp/sov/era1950/reg_mgassist_ak47"		("sov_regular" side(sov)) {cost 18.0}} ; AK47 + DP Ammo
+{"mp/sov/era1950/reg_rifleman"			("sov_regular" side(sov)) {cost 12.0}} ; SKS
+{"mp/sov/era1950/reg_rifleman_ak47"		("sov_regular" side(sov)) {cost 15.0}} ; AK47
+{"mp/sov/era1950/reg_senior"			("sov_regular" side(sov)) {cost 16.0}} ; SKS
+{"mp/sov/era1950/reg_senior_ak47"		("sov_regular" side(sov)) {cost 19.0}} ; AK47
+{"mp/sov/era1950/reg_squadlead"			("sov_regular" side(sov)) {cost 25.0}} ; SKS
+{"mp/sov/era1950/reg_squadlead_ak47"	("sov_regular" side(sov)) {cost 28.0}} ; AK47
+
+(define "sov_regular_advanced"
+	{tags "era1950 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.05}
+)
+
+{"mp/sov/era1950/reg_antitank"			("sov_regular_advanced" side(sov)) {cost 50.0}} ; SKS & RPG-2
+{"mp/sov/era1950/reg_antitank_ak47"		("sov_regular_advanced" side(sov)) {cost 40.0}} ; AK47 & RPG-2
+{"mp/sov/era1950/reg_marksman"			("sov_regular_advanced" side(sov)) {cost 40.0}} ; Mosin PU
+{"mp/sov/era1950/reg_flamer"			("sov_regular_advanced" side(sov)) {cost 50.0}} ; RKO
+{"mp/sov/era1950/reg_engineer"			("sov_regular_advanced" side(sov)) {cost 30.0}} ; SKS
+{"mp/sov/era1950/reg_scout"				("sov_regular_advanced" side(sov)) {cost 25.0}} ; PPsh
+
+(define "sov_vdv"
+	{tags "era1950 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 2.0}
+	{score_factor 0.05}
+)
+{"mp/sov/era1950/vdv_antitank"			("sov_vdv" side(sov)) {cost 60.0}} ; AK47 & RPG-2
+{"mp/sov/era1950/vdv_atassist"			("sov_vdv" side(sov)) {cost 20.0}} ; AK47
+{"mp/sov/era1950/vdv_marksman"			("sov_vdv" side(sov)) {cost 65.0}} ; SKS
+{"mp/sov/era1950/vdv_lmg"				("sov_vdv" side(sov)) {cost 50.0}} ; RPD
+{"mp/sov/era1950/vdv_lmgassist"			("sov_vdv" side(sov)) {cost 20.0}} ; AK47
+{"mp/sov/era1950/vdv_rifleman"			("sov_vdv" side(sov)) {cost 17.0}} ; AK47
+{"mp/sov/era1950/vdv_senior"			("sov_vdv" side(sov)) {cost 22.0}} ; AK47
+{"mp/sov/era1950/vdv_squadlead"			("sov_vdv" side(sov)) {cost 30.0}} ; AK47
+{"mp/sov/era1950/vdv_vehicleman"		("sov_vdv" side(sov)) {cost 15.0}} ; AK47
+{"mp/sov/era1950/vdv_guncrew_b10"		("sov_vdv" side(sov)) {cost 17.0}} ; AK47
+
+(define "sov_guards"
+	{tags "era1950 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 3.0}
+	{score_factor 0.05}
+)
+{"mp/sov/era1950/grd_antitank"			("sov_guards" side(sov)) {cost 60.0}} ; AK47 & RPG-2
+{"mp/sov/era1950/grd_atassist"			("sov_guards" side(sov)) {cost 20.0}} ; AK47
+{"mp/sov/era1950/grd_marksman"			("sov_guards" side(sov)) {cost 65.0}} ; SKS
+{"mp/sov/era1950/grd_mg"				("sov_guards" side(sov)) {cost 50.0}} ; RP-46
+{"mp/sov/era1950/grd_mgassist"			("sov_guards" side(sov)) {cost 20.0}} ; AK47
+{"mp/sov/era1950/grd_rifleman"			("sov_guards" side(sov)) {cost 17.0}} ; AK47
+{"mp/sov/era1950/grd_reg_senior"		("sov_guards" side(sov)) {cost 22.0}} ; AK47
+{"mp/sov/era1950/grd_squadlead"			("sov_guards" side(sov)) {cost 30.0}} ; AK47
+{"mp/sov/era1950/grd_vehicleman"		("sov_guards" side(sov)) {cost 15.0}} ; PPS-43
+
+(define "sov_vmf"
+	{tags "era1950 %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+
+(define "sov_spetsnaz"
+	{tags "era1950 %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/sov/era1950/spz_squadlead"	("sov_spetsnaz" side(sov)) {cost 50.0}} ; AK47
+{"mp/sov/era1950/spz_rifleman"	("sov_spetsnaz" side(sov)) {cost 35.0}} ; AK47
+{"mp/sov/era1950/spz_mg"		("sov_spetsnaz" side(sov)) {cost 80.0}} ; RP-46
+{"mp/sov/era1950/spz_antitank"	("sov_spetsnaz" side(sov)) {cost 90.0}} ; RPG-2
+{"mp/sov/era1950/spz_marksman"	("sov_spetsnaz" side(sov)) {cost 100.0}} ; SKS
+{"mp/sov/era1950/spz_demo"		("sov_spetsnaz" side(sov)) {cost 80.0}} ; Satchel Charges
+{"mp/sov/era1950/spz_spotter"	("sov_spetsnaz" side(sov)) {cost 45.0}} ; AK47, Binos
+
+(define "sov_medic"
+	{tags "era1950 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor -0.2}
+)
+{"mp/sov/era1950/reg_medic"			("sov_medic" side(sov)) {cost 40.0}}
+
+
+(define "sov_officer"
+	{tags "era1950 %side infantry man officer"}
+	{cp -25}
+	{basic}
+	{breed}
+	{cw 5}
+	{score_factor 0.2}
+)
+{"mp/sov/era1950/reg_officer"		("sov_officer" side(sov)) {cost 65.0}} ; Pistol; High-value reg_officer target.
+
+
+(define "sov_sniper"
+	{tags "era1950 %side infantry man sniper"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/sov/era1950/spz_sniper"		("sov_sniper" side(sov)) {cost 150.0}} ; Mosin-Nagant PU

@@ -1,0 +1,228 @@
+;SDL
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+(define "usa_radioman"
+	{tags "era1960 %side infantry man signaller"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.2}
+)
+{"mp/usa/era1960/sup_radioman"			("usa_radioman" side(usa)) {cost 50.0}}
+{"mp/usa/era1960/sup_radioman"			("usa_radioman" side(usa)) {cost 50.0}}
+{"mp/usa/era1960/reg_fac"				("usa_radioman" side(usa)) {cost 10.0}}
+
+(define "usa_guncrew"
+	{tags "era1960 %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/usa/era1960/sup_guncrew"				("usa_guncrew" side(usa)) {cost 5.0}} ; M2 Carbine
+{"mp/usa/era1960/sup_guncrew_m1919"			("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/era1960/sup_guncrew_m60"			("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/era1960/sup_guncrew_m2"			("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/era1960/sup_guncrew_m29"			("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/era1960/sup_guncrew_m20"			("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
+{"mp/usa/era1960/sup_guncrew_entac"			("usa_guncrew" side(usa)) {cost 5.0}} ; Pistol
+
+(define "usa_basic"
+	{tags "era1960 %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/usa/era1960/sup_supporter"			("usa_basic" side(usa)) {cost 5.0}} ; M1
+{"mp/usa/era1960/sup_tankman"			("usa_basic" side(usa)) {cost 4.0}} ; M3
+{"mp/usa/era1960/sup_vehicleman"		("usa_basic" side(usa)) {cost 4.0}} ; M3 -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
+{"mp/usa/era1960/sup_pilot"				("usa_basic" side(usa)) {cost 4.0}} ; M3
+{"mp/usa/era1960/rsv_rifleman"			("usa_basic" side(usa)) {cost 5.0}} ; M1
+{"mp/usa/era1960/rsv_lat"				("usa_basic" side(usa)) {cost 15.0}} ; M1 + M31 HEAT Grenade
+{"mp/usa/era1960/rsv_autorifle"			("usa_basic" side(usa)) {cost 18.0}} ; BAR
+{"mp/usa/era1960/rsv_mg"				("usa_basic" side(usa)) {cost 22.0}} ; M60
+{"mp/usa/era1960/rsv_squadlead"			("usa_basic" side(usa)) {cost 15.0}} ; M1
+
+(define "usa_regular"
+	{tags "era1960 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 1.0}
+	{score_factor 0.05}
+)
+{"mp/usa/era1960/reg_ammo"				("usa_regular" side(usa)) {cost 18.0}} ; M14 & Ammobag
+{"mp/usa/era1960/reg_atassist"			("usa_regular" side(usa)) {cost 13.0}} ; M14 & M67 Ammo
+{"mp/usa/era1960/reg_autorifle"			("usa_regular" side(usa)) {cost 25.0}} ; M14A1
+{"mp/usa/era1960/reg_grenadier"			("usa_regular" side(usa)) {cost 30.0}} ; M79
+{"mp/usa/era1960/reg_lat"				("usa_regular" side(usa)) {cost 20.0}} ; M14 + M72 LAW
+{"mp/usa/era1960/reg_lat2"				("usa_regular" side(usa)) {cost 16.0}} ; M14 + M31 HEAT Grenade
+{"mp/usa/era1960/reg_mg"				("usa_regular" side(usa)) {cost 30.0}} ; M60
+{"mp/usa/era1960/reg_mgassist"			("usa_regular" side(usa)) {cost 12.0}} ; M14 & M60 Ammo
+{"mp/usa/era1960/reg_sapper-ap"			("usa_regular" side(usa)) {cost 25.0}} ; M2
+{"mp/usa/era1960/reg_sapper-at"			("usa_regular" side(usa)) {cost 25.0}} ; M2
+{"mp/usa/era1960/reg_rifleman"			("usa_regular" side(usa)) {cost 10.0}} ; M14
+{"mp/usa/era1960/reg_teamlead"			("usa_regular" side(usa)) {cost 14.0}} ; M14
+{"mp/usa/era1960/reg_squadlead"			("usa_regular" side(usa)) {cost 25.0}} ; M14
+
+(define "usa_regular_advanced"
+	{tags "era1960 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.05}
+)
+
+{"mp/usa/era1960/reg_antitank"			("usa_regular" side(usa)) {cost 40.0}} ; M3 + M67
+{"mp/usa/era1960/reg_marksman"			("usa_regular" side(usa)) {cost 40.0}} ; M1C Marksman
+{"mp/usa/era1960/reg_flamer"			("usa_regular" side(usa)) {cost 50.0}} ; ?
+{"mp/usa/era1960/reg_engineer"			("usa_regular" side(usa)) {cost 35.0}} ; M2
+{"mp/usa/era1960/reg_scout"				("usa_regular" side(usa)) {cost 25.0}} ; M2
+
+(define "usa_cav"
+	{tags "era1960 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 2.0}
+	{score_factor 0.05}
+)
+{"mp/usa/era1960/cav_antitank"				("usa_cav" side(usa)) {cost 60.0}} ; M16 + M67
+{"mp/usa/era1960/cav_atassist"				("usa_cav" side(usa)) {cost 20.0}} ; M16
+{"mp/usa/era1960/cav_marksman"				("usa_cav" side(usa)) {cost 65.0}} ; M1C
+{"mp/usa/era1960/cav_mg"					("usa_cav" side(usa)) {cost 40.0}} ; M60
+{"mp/usa/era1960/cav_mgassist"				("usa_cav" side(usa)) {cost 20.0}} ; M16
+{"mp/usa/era1960/cav_grenadier"				("usa_cav" side(usa)) {cost 45.0}} ; M79
+{"mp/usa/era1960/cav_lat"					("usa_cav" side(usa)) {cost 30.0}} ; M14 + M72 LAW
+{"mp/usa/era1960/cav_rifleman"				("usa_cav" side(usa)) {cost 17.0}} ; M16
+{"mp/usa/era1960/cav_vehicleman"			("usa_cav" side(usa)) {cost 15.0}} ; M16
+{"mp/usa/era1960/cav_mgassist"				("usa_cav" side(usa)) {cost 20.0}} ; M16
+{"mp/usa/era1960/cav_teamlead"				("usa_cav" side(usa)) {cost 22.0}} ; M16
+{"mp/usa/era1960/cav_squadlead"				("usa_cav" side(usa)) {cost 30.0}} ; M16
+{"mp/usa/era1960/cav_vehicleman"			("usa_cav" side(usa)) {cost 15.0}} ; M16
+{"mp/usa/era1960/cav_guncrew"				("usa_cav" side(usa)) {cost 15.0}} ; M16
+{"mp/usa/era1960/cav_guncrew_entac"			("usa_cav" side(usa)) {cost 45.0}} ; M16 & ENTAC
+
+(define "usa_usmc"
+	{tags "era1960 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+
+{"mp/usa/era1960/usmc_ammo"				("usa_usmc" side(usa)) {cost 25.0}} ; M14 + M20 & M60 ammo
+{"mp/usa/era1960/usmc_antitank"			("usa_usmc" side(usa)) {cost 55.0}} ; M14 + M20
+{"mp/usa/era1960/usmc_atassist"			("usa_usmc" side(usa)) {cost 18.0}} ; M14 + M20 ammo
+{"mp/usa/era1960/usmc_lat"				("usa_usmc" side(usa)) {cost 25.0}} ; M14 + M72 LAW (later ENERGA)
+{"mp/usa/era1960/usmc_marksman"			("usa_usmc" side(usa)) {cost 60.0}} ; M1C
+{"mp/usa/era1960/usmc_grenadier"		("usa_usmc" side(usa)) {cost 50.0}} ; M79
+{"mp/usa/era1960/usmc_mg"				("usa_usmc" side(usa)) {cost 35.0}} ; M60
+{"mp/usa/era1960/usmc_mgassist"			("usa_usmc" side(usa)) {cost 18.0}} ; M14 + M60 ammo
+{"mp/usa/era1960/usmc_rifleman"			("usa_usmc" side(usa)) {cost 17.0}} ; M14
+{"mp/usa/era1960/usmc_autorifle"		("usa_usmc" side(usa)) {cost 32.0}} ; M14A1
+{"mp/usa/era1960/usmc_teamlead"			("usa_usmc" side(usa)) {cost 20.0}} ; M14
+{"mp/usa/era1960/usmc_squadlead"		("usa_usmc" side(usa)) {cost 30.0}} ; M14
+{"mp/usa/era1960/usmc_vehicleman"		("usa_usmc" side(usa)) {cost 13.0}} ; M3
+{"mp/usa/era1960/usmc_guncrew"			("usa_usmc" side(usa)) {cost 13.0}} ; M3
+
+(define "usa_rangers"
+	{tags "era1960 %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 3}
+	{score_factor 0.05}
+)
+{"mp/usa/era1960/rng_squadlead"	("usa_rangers" side(usa)) {cost 40.0}} ; XM177E2 + XM148
+{"mp/usa/era1960/rng_rifleman"	("usa_rangers" side(usa)) {cost 25.0}} ; M16 + M72
+{"mp/usa/era1960/rng_grenadier"	("usa_rangers" side(usa)) {cost 35.0}} ; XM177E2 + XM148
+{"mp/usa/era1960/rng_mg"		("usa_rangers" side(usa)) {cost 45.0}} ; M60
+{"mp/usa/era1960/rng_antitank"	("usa_rangers" side(usa)) {cost 75.0}} ; M67
+{"mp/usa/era1960/rng_marksman"	("usa_rangers" side(usa)) {cost 80.0}} ; M1C
+{"mp/usa/era1960/rng_demo"		("usa_rangers" side(usa)) {cost 60.0}} ; Satchel Charges
+{"mp/usa/era1960/rng_spotter"	("usa_rangers" side(usa)) {cost 35.0}} ; M16, Binos
+
+(define "usa_specops"
+	{tags "era1960 %side infantry man"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/usa/era1960/spec_squadlead"	("usa_specops" side(usa)) {cost 50.0}} ; XM177E2 + XM148
+{"mp/usa/era1960/spec_rifleman"		("usa_specops" side(usa)) {cost 35.0}} ; XM177
+{"mp/usa/era1960/spec_mg"			("usa_specops" side(usa)) {cost 65.0}} ; M60, to be replaced by Stoner 63
+{"mp/usa/era1960/spec_antitank"		("usa_specops" side(usa)) {cost 90.0}} ; M67
+{"mp/usa/era1960/spec_grenadier" 	("usa_specops" side(usa)) {cost 45.0}} ; M67
+{"mp/usa/era1960/spec_marksman"		("usa_specops" side(usa)) {cost 100.0}} ; XM21
+{"mp/usa/era1960/spec_demo"			("usa_specops" side(usa)) {cost 80.0}} ; Satchel Charges
+{"mp/usa/era1960/spec_demo_sadm"	("usa_specops" side(usa)) {cost 230.0}} ; SADM
+{"mp/usa/era1960/spec_spotter"		("usa_specops" side(usa)) {cost 45.0}} ; M16, Binos
+{"mp/usa/era1960/spec_guncrew_mk18"	("usa_specops" side(usa)) {cost 55.0}} ; M16, Mk18 Mod 0
+
+(define "usa_seals"
+	{tags "era1960 %side infantry man"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/usa/era1960/seal_squadlead"	("usa_seals" side(usa)) {cost 50.0}} ; XM177E2 + XM148
+{"mp/usa/era1960/seal_rifleman"		("usa_seals" side(usa)) {cost 35.0}} ; XM177
+{"mp/usa/era1960/seal_mg"			("usa_seals" side(usa)) {cost 65.0}} ; M60, to be replaced by Stoner 63
+{"mp/usa/era1960/seal_antitank"		("usa_seals" side(usa)) {cost 90.0}} ; Carl G
+{"mp/usa/era1960/seal_grenadier" 	("usa_seals" side(usa)) {cost 45.0}} ; China Lake Grenade Launcher
+{"mp/usa/era1960/seal_marksman"		("usa_seals" side(usa)) {cost 100.0}} ; XM21
+{"mp/usa/era1960/seal_demo"			("usa_seals" side(usa)) {cost 80.0}} ; Satchel Charges
+{"mp/usa/era1960/seal_demo_sadm"	("usa_seals" side(usa)) {cost 230.0}} ; SADM
+{"mp/usa/era1960/seal_spotter"		("usa_seals" side(usa)) {cost 45.0}} ; XM177, Binos
+{"mp/usa/era1960/seal_guncrew_mk18"	("usa_seals" side(usa)) {cost 55.0}} ; XM177, Mk18 Mod 0
+
+(define "usa_medic"
+	{tags "era1960 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor -0.2}
+)
+{"mp/usa/era1960/reg_medic"			("usa_medic" side(usa)) {cost 40.0}}
+{"mp/usa/era1960/usmc_corpsman" 	("usa_medic" side(usa)) {cost 50.0}}
+
+
+(define "usa_officer"
+	{tags "era1960 %side infantry man officer"}
+	{cp -25}
+	{basic}
+	{breed}
+	{cw 5}
+	{score_factor 0.2}
+)
+{"mp/usa/era1960/reg_officer"		("usa_officer" side(usa)) {cost 65.0}} ; Pistol; High-value officer target.
+
+
+(define "usa_sniper"
+	{tags "era1960 %side infantry man sniper"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/usa/era1960/spec_sniper"		("usa_sniper" side(usa)) {cost 150.0}} ; M1903A4
+{"mp/usa/era1960/rng_sniper"		("usa_sniper" side(usa)) {cost 140.0}} ; M1903A4
