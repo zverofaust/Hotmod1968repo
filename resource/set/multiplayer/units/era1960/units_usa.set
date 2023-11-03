@@ -85,9 +85,6 @@
 	{cost 20}{conditions ""}{action "airstrike:flare_airstrike_super_bomb_usa"} 
 }
 
-
-
-
 ;_________________________________________________
 ;|            Doctrines                           |
 ;|________________________________________________|
@@ -255,7 +252,7 @@
 
 ; ======Tier3======
 
-; // 15DP Airmobile Ranger Squad in UH-1D
+; // 15DP US Special Forces Green Light Team with Special Atomic Demolition Munition (Nuclear Mine)
 {"doctrine_squad_sadm(usa)"
 	("squad_with3types_doctrine" side(usa) period(era1960) c1(spec_squadlead:1) c2(spec_rifleman:1) c3(spec_demo_sadm:1) )
 	("doctrine_t3" cool(200) d(era1960_usa_aircav) cost(15))
@@ -273,11 +270,6 @@
 	("doctrine_t3" cool(240) d(era1960_usa_aircav) cost(25))
 }
 
-; // 25DP US Special Forces Green Light Team with Special Atomic Demolition Munition (Nuclear Mine)
-;{"doctrine_squad_sadm(usa)"
-;	("squad_with1types_doctrine" side(usa) period(era1960) c1(spec_squadlead:1) c2(spec_demo_nuke:1) c3(spec_rifleman:1) c4(spec_spotter:1))
-;	("doctrine_t2" cool(240) d(era1960_usa_aircav) cost(25))
-;}
 
 ;===================================
 ;   ARMORED BATALLION TASK FORCE
@@ -729,12 +721,12 @@
 	{cost 275}
 }
 
-;Medium
-
 {"m42"
 	("vehicle" period(era1960) cd(240) ci(120) t(light antiair) side(usa) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(15))
 	{cost 500}
 }
+
+;Medium
 
 {"m48a1"
 	("vehicle" period(era1960) cd(200) ci(90) t(medium tank) side(usa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
@@ -743,7 +735,7 @@
 
 {"m48a3"
 	("vehicle" period(era1960) cd(200) ci(90) t(medium tank) side(usa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
-	{cost 550}
+	{cost 500}
 }
 
 {"m60a1"
@@ -803,4 +795,163 @@
 {"ah-1g_airborne"
 	("vehicle"  period(era1960) cd(300) ci(300) side(usa) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6))
 	{cost 1200}{not_for_player_sale 1}
+}
+
+;_________________________________________________
+;|        		 Doctrine units                   |
+;|________________________________________________|
+
+{"m192"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(usa) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(8))
+	{cost 700}
+}
+
+{"m98_howtar"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(usa) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(8))
+	{cost 245}
+}
+
+{"m114"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(usa) crew(sup_guncrew:4) g(empl5) b(empl) cw(0) cp(8))
+	{cost 500}
+}
+
+{"m115"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(usa) crew(sup_guncrew:4) g(empl5) b(empl) cw(0) cp(8))
+	{cost 800}
+}
+
+{"mgr-3"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(usa) crew(sup_guncrew:4) g(empl5) b(empl) cw(0) cp(8))
+	{cost 850}
+}
+
+{"m-28"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(usa) crew(sup_guncrew:4) g(empl5) b(empl) cw(0) cp(8))
+	{cost 1100}
+}
+
+{"m113_acav"
+	("vehicle"  period(era1960) cd(0) ci(0) g(apc) side(usa) t(doctrineonly vehicle transport apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	{cost 140}
+}
+
+{"m114a2"
+	("vehicle"  period(era1960) cd(0) ci(0) g(apc) side(usa) t(doctrineonly vehicle transport apc) crew(sup_vehicleman:3) b(vehicles) cw(0) cp(6))
+	{cost 275}
+}
+
+{"m106"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(usa) t(doctrineonly vehicle mortar apc) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 400}
+}
+
+{"m132_zippo"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(usa) t(doctrineonly vehicle flamer) crew(sup_vehicleman:3) b(tanks) cw(0) cp(7))
+	{cost 400}
+}
+
+{"m163"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(usa) t(doctrineonly vehicle antiair) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 600}
+}
+
+{"m577"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(usa) t(doctrineonly vehicle command) crew(sup_vehicleman:3) b(tanks) cw(0) cp(7))
+	{cost 500}
+}
+
+{"m109"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(usa) t(doctrineonly tank artillery) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 750}
+}
+
+{"m109_acav"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(usa) t(doctrineonly tank artillery) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 775}
+}
+
+{"m110"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(usa) t(doctrineonly tank artillery) crew(sup_vehicleman:5) b(tanks) cw(0) cp(7))
+	{cost 850}
+}
+
+{"m50"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly light tank) side(usa) crew(sup_tankman:3) g(light3) b(tanks) cw(0) cp(14))
+	{cost 350}
+}
+
+{"m551"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly light tank atgm) side(usa) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(14))
+	{cost 550}
+}
+
+{"m551_acav"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly light tank atgm) side(usa) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(14))
+	{cost 600}
+}
+
+{"m67_zippo"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly medium tank) side(usa) crew(sup_tankman:3) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 500}
+}
+
+{"m48a3_acav"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly medium tank) side(usa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 525}
+}
+
+{"m60_patton"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly medium tank) side(usa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 625}
+}
+
+{"m103"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly heavy tank) side(usa) crew(sup_tankman:5) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 850}
+}
+
+{"m60a1e2"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly medium tank atgm) side(usa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 950}
+}
+
+{"ch-37"
+	("vehicle"  period(era1960) cd(0) ci(0) side(usa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 300}
+}
+
+{"ch-47_chinook"
+	("vehicle"  period(era1960) cd(0) ci(0) side(usa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:4) cw(0) cp(12))
+	{cost 400}
+}
+
+{"ch-37"
+	("vehicle"  period(era1960) cd(0) ci(0) side(usa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:4) cw(0) cp(12))
+	{cost 250}
+}
+
+{"uh-1b"
+	("vehicle"  period(era1960) cd(0) ci(0) side(usa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 650}
+}
+
+{"uh-1b_ara"
+	("vehicle"  period(era1960) cd(0) ci(0) side(usa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 750}
+}
+
+{"uh-1b_maxwell"
+	("vehicle"  period(era1960) cd(0) ci(0) side(usa) t(doctrineonly helicopter atgm) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 800}
+}
+
+{"uh-1b_m22"
+	("vehicle"  period(era1960) cd(0) ci(0) side(usa) t(doctrineonly helicopter atgm) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 800}
+}
+
+{"ah-1g"
+	("vehicle"  period(era1960) cd(0) ci(0) side(usa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 1200}
 }

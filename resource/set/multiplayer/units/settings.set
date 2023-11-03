@@ -137,10 +137,10 @@
 (define "generic_d"
 	{level 1}
 	{research_stage 1}
-	{score_factor 1}
-	{squad_cost_factor 0}
+	{squad_cost_factor 0} ; Cost is NOT the addition of the elements making up the unit, because it is overriden by the doctrine cost.
 	{tags "all doctrine %t"}
 	{button "doctrine"}
+	; squad define must not include cp, cw or score - this is made up of the components who make up the doctrine units.
 )
 
 ; squad setup for vehicle, 1 crew
