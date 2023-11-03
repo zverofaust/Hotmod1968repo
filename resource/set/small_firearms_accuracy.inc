@@ -4,7 +4,8 @@
 		{speed (* 0.70 %mps)}
 	)
 	(define "fire rate"				;// rate of fire in rounds per minute 
-		{recoveryTime (/ 60 %rpm)}
+		{recoveryTime (/ 60 (* %rpm 1.09))}
+		(mod "mp" {recoveryTime (/ 60 (* %rpm 1.14))})	
 	)
 	(define "reload time"			;// reload time for magazine or shell
 		{rechargeTime %seconds}
@@ -37,10 +38,13 @@
 		("sniper_range" r0(0.2) r1(0.4) r2(0.8) r3(1.00) globalaccuracy(1.00))
 	)
 	(define "accuracy_rifle_auto"
-		("rifle_range"	r0(0.2) r1(0.8) r2(1.5) r3(2.25) globalaccuracy(1.00))
+		("rifle_range"	r0(0.2) r1(0.5) r2(1.0) r3(1.50) globalaccuracy(1.00))
 	)
 	(define "accuracy_rifle_auto_sniper"
-		("sniper_range" r0(0.4) r1(0.8) r2(1.5) r3(2.25) globalaccuracy(1.00))
+		("sniper_range" r0(0.4) r1(0.5) r2(1.0) r3(1.50) globalaccuracy(1.00))
+	)
+	(define "accuracy_assault_rifle"
+		("rifle_range"	r0(0.2) r1(0.6) r2(1.25) r3(2.00) globalaccuracy(1.00))
 	)
 	(define "accuracy_shotgun"
 		("rifle_range"	r0(0.2) r1(1.4) r2(0.9) r3(1.25) globalaccuracy(1.00))
@@ -107,9 +111,6 @@
 
 
 ;/*====================Slope Multiplier==================*/
-
-
-	;/*====================Slope Multiplier==================*/
 
 
 	(define "ap_slope_multiplier"	;use for AP and for any other Projectiles not specifically defined below
@@ -285,7 +286,7 @@
 
 	(define "recoil_fg42"
 		{recoil
-			{shoot {0.55 0.20} {0.10 0.50}}		; pitch / +- random and yaw / +- random, per shot, degree
+			{shoot {0.65 0.25} {0.10 0.50}}		; pitch / +- random and yaw / +- random, per shot, degree
 			{maxAngle 8 8}						; max recoil angle (pitch/yaw), degree
 			{restoreTime 0.5 0.025}				; recoil restore time, first -> minimum time, second -> additional time per shot, sec
 			{restoreDelay 0.20}					; delay before restore, sec
