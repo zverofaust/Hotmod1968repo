@@ -1731,26 +1731,37 @@
 
 	{on "reload"
 		{call "reload_delay"}
-		(define "reload_delay"
+		{call "crew_reload_ani"}
+		(define "reload_time"
 			{if tagged "gun_fired"
-				{delay %0 ;4.5
+				{delay (- %0 0.5) ;4.5
 					{tags remove "gun_fired"}
-					{ani_play "shell_eject" -1.0}
-					{ani_play "shell_hatch" -1.0}
+					{call "tank_reloaded"}
 				}
-			else
-				{delay %1 ;0.5
+			else ;//switching ammo
+				{delay 0.75
 					{ani_play "shell_eject" 1.0}
+					{talk "reload"}
 				}
-				{delay %2 ;5
-					{ani_play "shell_eject" -1.0}
+				{delay (- %0 0.5)
+					{call "tank_reloaded"}
 				}
 			}
 		)
+		{delay 2
+			{talk "reload"}
+		}
+	}
+
+	{on "tank_reloaded"
+		{ani_play "shell_eject" -1.0}
+		{delay 0.5
+			{talk "reloaded"}
+		}
 	}
 
 	{on "reload_delay"
-		("reload_delay" args 4.5 0.5 5)
+		("reload_time" args 4.5)	;// weapon reload time
 	}
 }
 

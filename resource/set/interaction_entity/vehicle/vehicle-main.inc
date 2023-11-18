@@ -1937,12 +1937,22 @@
 				{gravity 0.65}
 				{linear_damping 0}
 			}
-			{view start	"flame"}
+			{view start "%0"}
+			{delay 0.05
+				{spawn "fx_piece_flame_%1" "foresight%2" x
+					{impulse forward %3 rnd_dir 0.01 com}
+					{gravity 0.65}
+					{linear_damping 0}
+				}
+			}
 			{delay 0.1
-				{view pause	"flame"}
+				{view pause "%0"}
 			}
 			{if tagged "firing"
-				{call "play_shoot_loop"}
+				{if tagged "looping"
+					{play_sound "loop" 1}
+					{tags remove "looping"}
+				}
 			else
 				{play_sound "start"}
 				{tags add "looping"}
@@ -1957,15 +1967,22 @@
 				}
 			}
 		}
-		{on "play_shoot_loop"
-			{if tagged "looping"
-				{play_sound "loop" 1}
-				{tags remove "looping"}
+	)
+}
+{"rocket vehicle"	;// disables rocket weaponry from working/firing while vehicle is moving
+	(define "rocket_weapon"
+		{on engine on
+			{weapon_work "%0" 0}
+		}
+		{on engine off
+			{if not tagged "%0_brake"
+				{if work "%0"
+					{weapon_work "%0" 1}
+				}
 			}
 		}
 	)
 }
-
 ;/*=========== General Props End ===========*/
 
 {"diesel"	;// alternate fuel type
