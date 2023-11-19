@@ -1,6 +1,6 @@
 {"Nato"
 	{title "mp/alliance/nato"}
-	{armies "usa"}
+	{armies "csa"}
 	{armies "frg"}
 	{icon "/interface/pages/multi/flag_nato"}
 }

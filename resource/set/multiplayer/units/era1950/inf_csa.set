@@ -1,0 +1,209 @@
+;SDL
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+(define "csa_radioman"
+	{tags "era1950 %side infantry man signaller"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.2}
+)
+{"mp/csa/era1950/sup_radioman"			("csa_radioman" side(csa)) {cost 50.0}}
+{"mp/csa/era1950/reg_fac"				("csa_radioman" side(csa)) {cost 10.0}}
+
+(define "csa_guncrew"
+	{tags "era1950 %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/csa/era1950/sup_guncrew"				("csa_guncrew" side(csa)) {cost 5.0}} ; M2 Carbine
+{"mp/csa/era1950/sup_guncrew_m1919"			("csa_guncrew" side(csa)) {cost 5.0}} ; Pistol
+{"mp/csa/era1950/sup_guncrew_m2"			("csa_guncrew" side(csa)) {cost 5.0}} ; Pistol
+{"mp/csa/era1950/sup_guncrew_m29"			("csa_guncrew" side(csa)) {cost 5.0}} ; Pistol
+{"mp/csa/era1950/sup_guncrew_m20"			("csa_guncrew" side(csa)) {cost 5.0}} ; Pistol
+
+(define "csa_basic"
+	{tags "era1950 %side infantry man"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/csa/era1950/sup_supporter"			("csa_basic" side(csa)) {cost 5.0}} ; M1
+{"mp/csa/era1950/sup_tankman"			("csa_basic" side(csa)) {cost 4.0}} ; M3
+{"mp/csa/era1950/sup_vehicleman"		("csa_basic" side(csa)) {cost 4.0}} ; M3 -- for vehicle crews in Motor-Rifle units, NOT the Tank Corps
+{"mp/csa/era1950/sup_pilot"				("csa_basic" side(csa)) {cost 4.0}} ; M3
+{"mp/csa/era1950/rsv_antitank"			("csa_basic" side(csa)) {cost 30.0}} ; M1 & M20 Bazooka (or M18?)
+{"mp/csa/era1950/rsv_rifleman"			("csa_basic" side(csa)) {cost 5.0}} ; M1
+{"mp/csa/era1950/rsv_grenadier"			("csa_basic" side(csa)) {cost 15.0}} ; M1 + M31 HEAT Grenade
+{"mp/csa/era1950/rsv_autorifle"			("csa_basic" side(csa)) {cost 18.0}} ; BAR
+{"mp/csa/era1950/rsv_mg"				("csa_basic" side(csa)) {cost 22.0}} ; M1919A6
+{"mp/csa/era1950/rsv_squadlead"			("csa_basic" side(csa)) {cost 15.0}} ; M1
+
+(define "csa_regular"
+	{tags "era1950 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 1.0}
+	{score_factor 0.05}
+)
+{"mp/csa/era1950/reg_ammo"				("csa_regular" side(csa)) {cost 18.0}} ; M1 & Ammobag
+{"mp/csa/era1950/reg_atassist"			("csa_regular" side(csa)) {cost 13.0}} ; M1 & M20 Bazooka Ammo
+{"mp/csa/era1950/reg_autorifle"			("csa_regular" side(csa)) {cost 16.0}} ; BAR
+{"mp/csa/era1950/reg_grenadier"			("csa_regular" side(csa)) {cost 30.0}} ; M1 + M7 grenade launcher
+{"mp/csa/era1950/reg_mg"				("csa_regular" side(csa)) {cost 30.0}} ; M1919A6 .30 cal
+{"mp/csa/era1950/reg_mgassist"			("csa_regular" side(csa)) {cost 12.0}} ; M1 & .30 cal Ammo
+{"mp/csa/era1950/reg_sapper-ap"			("csa_regular" side(csa)) {cost 25.0}} ; M2
+{"mp/csa/era1950/reg_sapper-at"			("csa_regular" side(csa)) {cost 25.0}} ; M2
+{"mp/csa/era1950/reg_rifleman"			("csa_regular" side(csa)) {cost 10.0}} ; M1
+{"mp/csa/era1950/reg_teamlead"			("csa_regular" side(csa)) {cost 14.0}} ; M1
+{"mp/csa/era1950/reg_squadlead"			("csa_regular" side(csa)) {cost 25.0}} ; M1
+
+
+(define "csa_regular_advanced"
+	{tags "era1950 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.05}
+)
+
+{"mp/csa/era1950/reg_antitank"			("csa_regular" side(csa)) {cost 40.0}} ; M3 + M20 Bazooka
+{"mp/csa/era1950/reg_marksman"			("csa_regular" side(csa)) {cost 40.0}} ; M1C Marksman
+{"mp/csa/era1950/reg_flamer"			("csa_regular" side(csa)) {cost 50.0}} ; M2 Flamethrower
+{"mp/csa/era1950/reg_engineer"			("csa_regular" side(csa)) {cost 35.0}} ; M2 Carbine
+{"mp/csa/era1950/reg_scout"				("csa_regular" side(csa)) {cost 25.0}} ; M2 Carbine
+
+(define "csa_cav"
+	{tags "era1950 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 2.0}
+	{score_factor 0.05}
+)
+{"mp/csa/era1950/cav_antitank"				("csa_cav" side(csa)) {cost 60.0}} ; M2 Carbine + M20 Bazooka
+{"mp/csa/era1950/cav_atassist"				("csa_cav" side(csa)) {cost 20.0}} ; M1
+{"mp/csa/era1950/cav_marksman"				("csa_cav" side(csa)) {cost 65.0}} ; M1C
+{"mp/csa/era1950/cav_autorifle"				("csa_cav" side(csa)) {cost 25.0}} ; BAR
+{"mp/csa/era1950/cav_mg"					("csa_cav" side(csa)) {cost 40.0}} ; M1919A6 .30 cal
+{"mp/csa/era1950/cav_mgassist"				("csa_cav" side(csa)) {cost 20.0}} ; M1
+{"mp/csa/era1950/cav_grenadier"				("csa_cav" side(csa)) {cost 45.0}} ; M1 + M31
+{"mp/csa/era1950/cav_lat"					("csa_cav" side(csa)) {cost 30.0}} ; M1 + M31 HEAT
+{"mp/csa/era1950/cav_rifleman"				("csa_cav" side(csa)) {cost 17.0}} ; M1
+{"mp/csa/era1950/cav_vehicleman"			("csa_cav" side(csa)) {cost 15.0}} ; M3
+{"mp/csa/era1950/cav_teamlead"				("csa_cav" side(csa)) {cost 22.0}} ; M2
+{"mp/csa/era1950/cav_squadlead"				("csa_cav" side(csa)) {cost 30.0}} ; M2
+{"mp/csa/era1950/cav_vehicleman"			("csa_cav" side(csa)) {cost 15.0}} ; M3
+{"mp/csa/era1950/cav_guncrew"				("csa_cav" side(csa)) {cost 15.0}} ; M2
+{"mp/csa/era1950/cav_guncrew_m29"			("csa_cav" side(csa)) {cost 40.0}} ; M2 & M29
+
+(define "csa_usmc"
+	{tags "era1950 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+
+{"mp/csa/era1950/usmc_ammo"				("csa_usmc" side(csa)) {cost 25.0}} ; M1 + Ammo backpack
+{"mp/csa/era1950/usmc_antitank"			("csa_usmc" side(csa)) {cost 55.0}} ; M1 + M20
+{"mp/csa/era1950/usmc_atassist"			("csa_usmc" side(csa)) {cost 18.0}} ; M1 + M20 ammo
+{"mp/csa/era1950/usmc_lat"				("csa_usmc" side(csa)) {cost 25.0}} ; M1 + M31 HEAT
+{"mp/csa/era1950/usmc_marksman"			("csa_usmc" side(csa)) {cost 60.0}} ; M1C
+{"mp/csa/era1950/usmc_grenadier"		("csa_usmc" side(csa)) {cost 50.0}} ; M1 + M7 Rifle Grenade
+{"mp/csa/era1950/usmc_flamer"			("csa_usmc" side(csa)) {cost 55.0}} ; M2 Flamethrower
+{"mp/csa/era1950/usmc_mg"				("csa_usmc" side(csa)) {cost 35.0}} ; M1919A6 .30 cal
+{"mp/csa/era1950/usmc_mgassist"			("csa_usmc" side(csa)) {cost 18.0}} ; M1 + .30 cal ammo
+{"mp/csa/era1950/usmc_rifleman"			("csa_usmc" side(csa)) {cost 17.0}} ; M1
+{"mp/csa/era1950/usmc_autorifle"		("csa_usmc" side(csa)) {cost 32.0}} ; BAR
+{"mp/csa/era1950/usmc_teamlead"			("csa_usmc" side(csa)) {cost 20.0}} ; M2
+{"mp/csa/era1950/usmc_squadlead"		("csa_usmc" side(csa)) {cost 30.0}} ; M2
+{"mp/csa/era1950/usmc_vehicleman"		("csa_usmc" side(csa)) {cost 13.0}} ; M3
+{"mp/csa/era1950/usmc_guncrew"			("csa_usmc" side(csa)) {cost 13.0}} ; M3
+{"mp/csa/era1950/usmc_guncrew_m1919"	("csa_usmc" side(csa)) {cost 13.0}} ; M2 + M1919A4 tripod
+
+(define "csa_rangers"
+	{tags "era1950 %side infantry man"}
+	{cp 3}
+	{basic}
+	{breed}
+	{cw 3}
+	{score_factor 0.05}
+)
+{"mp/csa/era1950/rng_ammo"		("csa_rangers" side(csa)) {cost 45.0}} ; M2 & Ammobag
+{"mp/csa/era1950/rng_squadlead"	("csa_rangers" side(csa)) {cost 40.0}} ; M2
+{"mp/csa/era1950/rng_rifleman"	("csa_rangers" side(csa)) {cost 25.0}} ; M2
+{"mp/csa/era1950/rng_autorifle"	("csa_rangers" side(csa)) {cost 35.0}} ; BAR
+{"mp/csa/era1950/rng_grenadier"	("csa_rangers" side(csa)) {cost 35.0}} ; M1 + M31 HEAT
+{"mp/csa/era1950/rng_mg"		("csa_rangers" side(csa)) {cost 45.0}} ; M1919A6
+{"mp/csa/era1950/rng_antitank"	("csa_rangers" side(csa)) {cost 75.0}} ; M20 Bazooka
+{"mp/csa/era1950/rng_marksman"	("csa_rangers" side(csa)) {cost 80.0}} ; M1C
+{"mp/csa/era1950/rng_demo"		("csa_rangers" side(csa)) {cost 60.0}} ; M2 & Satchel Charges
+{"mp/csa/era1950/rng_spotter"	("csa_rangers" side(csa)) {cost 35.0}} ; M2, Binos
+
+(define "csa_specops"
+	{tags "era1950 %side infantry man"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/csa/era1950/spec_squadlead"	("csa_specops" side(csa)) {cost 50.0}} ; XM177E2 + XM148
+{"mp/csa/era1950/spec_rifleman"		("csa_specops" side(csa)) {cost 35.0}} ; XM177
+{"mp/csa/era1950/spec_mg"			("csa_specops" side(csa)) {cost 65.0}} ; M60, to be replaced by Stoner 63
+{"mp/csa/era1950/spec_antitank"		("csa_specops" side(csa)) {cost 90.0}} ; M67
+{"mp/csa/era1950/spec_grenadier" 	("csa_specops" side(csa)) {cost 45.0}} ; M67
+{"mp/csa/era1950/spec_marksman"		("csa_specops" side(csa)) {cost 100.0}} ; XM21
+{"mp/csa/era1950/spec_demo"			("csa_specops" side(csa)) {cost 80.0}} ; Satchel Charges
+{"mp/csa/era1950/spec_demo_sadm"	("csa_specops" side(csa)) {cost 230.0}} ; SADM
+{"mp/csa/era1950/spec_spotter"		("csa_specops" side(csa)) {cost 45.0}} ; M16, Binos
+{"mp/csa/era1950/spec_guncrew_mk18"	("csa_specops" side(csa)) {cost 55.0}} ; M16, Mk18 Mod 0
+
+(define "csa_medic"
+	{tags "era1950 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor -0.2}
+)
+{"mp/csa/era1950/reg_medic"			("csa_medic" side(csa)) {cost 40.0}}
+{"mp/csa/era1950/usmc_corpsman" 	("csa_medic" side(csa)) {cost 50.0}}
+
+
+(define "csa_officer"
+	{tags "era1950 %side infantry man officer"}
+	{cp -25}
+	{basic}
+	{breed}
+	{cw 5}
+	{score_factor 0.2}
+)
+{"mp/csa/era1950/reg_officer"		("csa_officer" side(csa)) {cost 65.0}} ; Pistol; High-value officer target.
+
+
+(define "csa_sniper"
+	{tags "era1950 %side infantry man sniper"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/csa/era1950/rng_sniper"		("csa_sniper" side(csa)) {cost 140.0}} ; M1903A4

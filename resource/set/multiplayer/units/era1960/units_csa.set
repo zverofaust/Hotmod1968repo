@@ -1,0 +1,957 @@
+;SDL
+
+;////////////////// INSTRUCTIONS //////////////////
+;Buttons go as follows, displayed in-game in this order:
+
+; inf1       - infantry squads
+; inf2       - infantry single units
+; empl       - Emplacements, AA, AT, Mortars, Howitzers
+; vehicles   - vehicles, armoured cars, supplies
+; tanks      - main battle tanks, TDs, SPGs
+; doctrine   - specific doctrine setups
+
+; TEMP: Note all levels have been brought down to 1 to remove unit locks.
+; Squads currently have an MP cost of 0 - their cost is currently calculated as the sum of their soldiers cost, see inf_ger.set
+; Check ../settings.set for syntax instructions!!
+; unit limits per game are not defined here but in gamemode presets
+
+;user defined set tags that should be featured on units:
+;all artillery heavyart cannon mediumcan heavycan light medium heavy infantry supply
+;these tags allow player to disable certain sets for custom setups like "no heavy artillery" 
+;//////////////////////////////////////////////////
+
+
+;_________________________________________________
+;|        	 Offmap Support Abilities             |
+;|________________________________________________|
+
+;AIR SUPPORT
+
+
+;("squad_with1types"	side(csa) name(single_fac)	period(era1960) cd(0) ci(300) g(single_fac) c1(reg_fac:1) b(strategic) t()); M2
+
+{"cas_uh1_csa"
+	("squad_vehicle" side(csa) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(uh-1b_airborne) crew(sup_pilot:1))
+	{cost 8}{conditions ""}{action "airstrike:reconnaissance_50"} 
+}
+
+;{"cas_uh1_ara_csa"
+;	("squad_vehicle" side(csa) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(uh-1b_ara_airborne) crew(sup_pilot:1))
+;	{cost 12}{conditions ""}{action "airstrike:reconnaissance_50"} 
+;}
+
+;{"cas_uh1_maxwell_csa"
+;	("squad_vehicle" side(csa) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(uh-1b_maxwell_airborne) crew(sup_pilot:1))
+;	{cost 12}{conditions ""}{action "airstrike:reconnaissance_50"} 
+;}
+
+;{"cas_uh1_m22_csa"
+;	("squad_vehicle" side(csa) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(uh-1b_m22_airborne) crew(sup_pilot:1))
+;	{cost 15}{conditions ""}{action "airstrike:reconnaissance_50"} 
+;}
+
+;{"cas_ah1_csa"
+;	("squad_vehicle" side(csa) cd(0) ci(0) period(era1960) cw(0) cp(0) b(strategic) vehicle(ah-1g_airborne) crew(sup_pilot:2))
+;	{cost 15}{conditions ""}{action "airstrike:reconnaissance_50"} 
+;}
+
+{"airstrike_light_csa"
+	("squad_vehicle" side(csa) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 5}{conditions ""}{action "airstrike:flare_airstrike_light_bomb_csa"} 
+}
+
+{"airstrike_medium_csa"
+	("squad_vehicle" side(csa) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_medium_bomb_csa"} 
+}
+
+{"airstrike_napalm_csa"
+	("squad_vehicle" side(csa) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_light_napalm_csa"} 
+}
+
+{"airstrike_cluster_csa"
+	("squad_vehicle" side(csa) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(a-4e_airstrike) crew(sup_pilot:0))
+	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_light_cluster_csa"} 
+}
+
+{"airstrike_heavy_csa"
+	("squad_vehicle" side(csa) cd(300) ci(90) period(era1960) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 12}{conditions ""}{action "airstrike:flare_airstrike_heavy_bomb_csa"} 
+}
+
+{"airstrike_superheavy_csa"
+	("squad_vehicle" side(csa) cd(300) ci(120) period(era1960) cw(0) cp(0) b(strategic) vehicle(f-105_airstrike) crew(sup_pilot:0))
+	{cost 20}{conditions ""}{action "airstrike:flare_airstrike_super_bomb_csa"} 
+}
+
+;_________________________________________________
+;|            Doctrines                           |
+;|________________________________________________|
+
+
+
+
+
+;===================================
+;          
+;        ARMORED CAVALRY SQUADRON
+;===================================
+
+; ======Tier1======
+
+; // 10DP Armored Cavalry Rifle Squad in M113 ACAV
+{"doctrine_squad_acav_moto(csa)"
+	("squad_vehicle6_doctrine" side(csa) period(era1960) vehicle(m113_acav) crew1(cav_vehicleman:2) crew2(cav_rifleman:4) crew3(cav_squadlead:1) crew4(cav_lat:2) crew5(cav_grenadier:2) crew6(cav_teamlead:1) cw(2) cp(0))
+	("doctrine_t1" cool(60) d(era1960_csa_acav) cost(10))
+}
+
+; // 12DP Armored Cavalry Weapon Squad in M113 ACAV
+{"doctrine_squad_acav_weapon_moto(csa)"
+	("squad_vehicle7_doctrine" side(csa) period(era1960) vehicle(m113_acav) crew1(cav_vehicleman:2) crew2(cav_rifleman:1) crew3(cav_squadlead:1) crew4(cav_mg:2) crew5(cav_antitank:2) crew6(cav_mgassist:2) crew7(cav_atassist:2) cw(2) cp(0))
+	("doctrine_t1" cool(90) d(era1960_csa_acav) cost(12))
+}
+
+; ======Tier2======
+
+; // 12DP M106 Self-Propelled Heavy Mortar
+{"doctrine_vehicle_m106(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m106) crew(cav_vehicleman:4) cw(0) cp(0))
+	("doctrine_t2" cool(120) d(era1960_csa_acav) cost(12))
+}
+
+; // 12DP M48A3 ACAV
+{"doctrine_vehicle_m48_acav(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m48a3_acav) crew(cav_vehicleman:4) cw(0) cp(0))
+	("doctrine_t2" cool(260) d(era1960_csa_acav) cost(12))
+}
+
+; // 15DP M132 Zippo
+{"doctrine_vehicle_m132(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m132_zippo) crew(cav_vehicleman:3) cw(0) cp(0))
+	("doctrine_t2" cool(120) d(era1960_csa_acav) cost(15))
+}
+
+; ======Tier3======
+
+; // 15DP M109 Self-Propelled Howitzer
+{"doctrine_vehicle_m109_acav(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m109) crew(cav_vehicleman:4) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(era1960_csa_acav) cost(20))
+}
+
+; // 18DP M551 ACAV
+{"doctrine_vehicle_m551acav(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m551_acav) crew(cav_vehicleman:4) cw(0) cp(0))
+	("doctrine_t3" cool(240) d(era1960_csa_acav) cost(18))
+}
+
+; // 20DP UH-1B Huey Gunship
+{"doctrine_vehicle_uh1b(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(uh-1b) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(120) d(era1960_csa_acav) cost(20))
+}
+
+;===================================
+;     USMC BATTALION LANDING TEAM
+;            
+;===================================
+
+; ======Tier1======
+
+; // 2DP Marine Fireteam
+{"doctrine_squad_usmc_fireteam(csa)"
+	("squad_with4types_doctrine" side(csa) period(era1960) c1(usmc_teamlead:1) c2(usmc_mg:1) c3(usmc_antitank:1) c4(usmc_ammo:1))
+	("doctrine_t1" cool(15) d(era1960_csa_usmc) cost(3))
+}
+
+; // 5DP M98 107mm Howtar
+{"doctrine_vehicle_howtar(csa)"
+	("towed_gun_doctrine" side(csa) period(era1960) vehicle(m151) crew_v(sup_supporter:1) cannon(m98_howtar) crew_c(usmc_guncrew:4) cw(0) cp(0))
+	("doctrine_t1" cool(30) d(era1960_csa_usmc) cost(5))
+}
+
+; ======Tier2======
+
+; // 10DP USMC Squad in M113 - to be replaced with LVTP-5
+{"doctrine_squad_usmc_lvtp(csa)"
+	("squad_vehicle6_doctrine" side(csa) period(era1960) vehicle(m113_acav) crew1(usmc_vehicleman:2) crew2(usmc_squadlead:1) crew3(usmc_autorifle:2) crew4(usmc_grenadier:2) crew5(usmc_teamlead:1) crew6(usmc_rifleman:4) cw(2) cp(0))
+	("doctrine_t2" cool(60) d(era1960_csa_usmc) cost(10))
+}
+
+; // 10DP Navy SEAL Underwater Demolition Team (UDT)
+{"doctrine_squad_udt(csa)"
+	("squad_with1types_doctrine" side(csa) period(era1960) c1(spec_squadlead:1) c2(spec_demo:2) c3(spec_rifleman:1))
+	("doctrine_t2" cool(120) d(era1960_csa_usmc) cost(10))
+}
+
+; // 14DP M50 Ontos airlifted by CH-37
+{"doctrine_vehicle_m50_airlift(csa)"
+	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(ch-37_transport_m50) crew1(sup_pilot:2) crew2(usmc_vehicleman:3) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(era1960_csa_usmc) cost(14))
+}
+
+; ======Tier3======
+
+; // 12DP Heli-Borne Marine Squad
+{"doctrine_squad_usmc_ch37(csa)"
+	("squad_vehicle8_doctrine" side(csa) period(era1960) vehicle(ch-37) crew1(sup_pilot:2) crew2(usmc_squadlead:1) crew3(usmc_teamlead:1) crew4(usmc_autorifle:3) crew5(usmc_grenadier:1) crew6(usmc_lat:3) crew7(usmc_rifleman:2) crew8(usmc_corpsman:1) cw(2) cp(0))
+	("doctrine_t3" cool(180) d(era1960_csa_usmc) cost(12))
+}
+
+; // 14 DP UH-1B with 'Maxwell' Mount
+{"doctrine_vehicle_uh1b_maxwell(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(uh-1b_maxwell) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(era1960_csa_usmc) cost(14))
+}
+
+;===================================
+;         AIR CAVALRY SQUADRON
+;			
+;===================================
+
+; ======Tier1======
+
+; // 3DP Ammo Drop from UH-1D
+{"doctrine_vehicle_heliammo(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(uh-1h_transport_supplies) crew(sup_pilot:4) cw(2) cp(0))
+	("doctrine_t1" cool(30) d(era1960_csa_aircav) cost(3))
+}
+
+; // 10 DP Chinook Transport/Supply
+;{"doctrine_vehicle_chinook(csa)"
+;	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(ch-47_chinook) crew(sup_pilot:4) cw(0) cp(0))
+;	("doctrine_t2" cool(240) d(era1960_csa_aircav) cost(10))
+;}
+
+; // 6DP Airlifted M116 Packhow
+{"doctrine_vehicle_m116(csa)"
+	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(uh-1h_transport_m116) crew1(sup_pilot:4) crew2(cav_guncrew:4) cw(0) cp(0))
+	("doctrine_t1" cool(60) d(era1960_csa_aircav) cost(6))
+}
+
+; ======Tier2======
+
+; // 10DP Airmobile Rifle Squad in UH-1D
+{"doctrine_squad_rifle_huey(csa)"
+	("squad_vehicle6_doctrine" side(csa) period(era1960)vehicle(uh-1h) crew1(sup_pilot:4) crew2(cav_squadlead:1) crew3(cav_teamlead:1) crew4(cav_lat:2) crew5(cav_grenadier:2) crew6(cav_rifleman:4) cw(2) cp(0))
+	("doctrine_t2" cool(90) d(era1960_csa_aircav) cost(10))
+}
+
+; // 12DP Airmobile Weapons Squad in UH-1D
+{"doctrine_squad_weapons_huey(csa)"
+	("squad_vehicle7_doctrine" side(csa) period(era1960)vehicle(uh-1h) crew1(sup_pilot:4) crew2(cav_squadlead:1) crew3(cav_teamlead:1) crew4(cav_mg:2) crew5(cav_antitank:2) crew6(cav_mgassist:2) crew7(cav_rifleman:2) cw(2) cp(0))
+	("doctrine_t2" cool(120) d(era1960_csa_aircav) cost(12))
+}
+
+; // 8DP Airlifted M151 with M40
+{"doctrine_vehicle_m151_m40(csa)"
+	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(uh-1h_transport_m151_m40) crew1(sup_pilot:4) crew2(cav_vehicleman:3) cw(0) cp(0))
+	("doctrine_t2" cool(120) d(era1960_csa_aircav) cost(8))
+}
+
+; ======Tier3======
+
+; // 15DP US Special Forces Green Light Team with Special Atomic Demolition Munition (Nuclear Mine)
+{"doctrine_squad_sadm(csa)"
+	("squad_with3types_doctrine" side(csa) period(era1960) c1(spec_squadlead:1) c2(spec_rifleman:1) c3(spec_demo_sadm:1) )
+	("doctrine_t3" cool(200) d(era1960_csa_aircav) cost(15))
+}
+
+; // 20DP Airmobile Ranger Squad in UH-1D
+{"doctrine_squad_ranger_huey(csa)"
+	("squad_vehicle8_doctrine" side(csa) period(era1960) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_mg:1) crew5(rng_antitank:2) crew6(rng_marksman:1) crew7(rng_grenadier:2) crew8(rng_rifleman:2) cw(2) cp(0))
+	("doctrine_t3" cool(180) d(era1960_csa_aircav) cost(20))
+}
+
+; // 25DP AH-1G
+{"doctrine_vehicle_ah1g(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(ah-1g) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(240) d(era1960_csa_aircav) cost(25))
+}
+
+
+;===================================
+;   ARMORED BATALLION TASK FORCE
+;			
+;===================================
+
+; ======Tier1======
+
+; // 5DP M548 tracked Ammo Carrier
+;{"doctrine_vehicle_m548_ammo(csa)"
+;	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m548_ammo) crew(sup_supporter:2) cw(2) cp(0))
+;	("doctrine_t1" cool(30) d(era1960_csa_armor) cost(5))
+;}
+
+; // 10DP M114A2
+{"doctrine_vehicle_m114a2(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m114a2) crew(sup_vehicleman:3) cw(0) cp(0))
+	("doctrine_t1" cool(120) d(era1960_csa_armor) cost(10))
+}
+
+; // 15DP M109 Self-Propelled Howitzer
+{"doctrine_vehicle_m109(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m109) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t1" cool(90) d(era1960_csa_armor) cost(15))
+}
+
+; ======Tier2======
+
+; // 15DP M60 (first production)
+{"doctrine_vehicle_m60(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m60_patton) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t2" cool(90) d(era1960_csa_armor) cost(15))
+}
+
+; // 20DP M110 Self-Propelled Howitzer
+{"doctrine_vehicle_m110(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m110) crew(sup_tankman:5) cw(0) cp(0))
+	("doctrine_t2" cool(240) d(era1960_csa_armor) cost(20))
+}
+
+; ======Tier3======
+
+; // 25DP M163 VADS
+{"doctrine_vehicle_m163(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m163) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(era1960_csa_armor) cost(25))
+}
+
+; // 40DP M60A1E2 'Starship' pre-production
+;{"doctrine_vehicle_m60a1e2(csa)"
+;	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m60a1e2) crew(sup_tankman:4) cw(0) cp(0))
+;	("doctrine_t3" cool(120) d(era1960_csa_armor) cost(40))
+;}
+
+; // 25 DP UH-1B with 'M22' ATGM Mount
+{"doctrine_vehicle_uh1b_m22(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(uh-1b_m22) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(era1960_csa_armor) cost(25))
+}
+
+;===================================
+;   USMC Expeditionary Brigade
+;			
+;===================================
+
+; ======Tier1======
+
+; // 3DP Marine Scout-Sniper Team
+{"doctrine_squad_usmc_scout(csa)"
+	("squad_with2types_doctrine" side(csa) period(era1960) c1(usmc_sniper:1) c2(usmc_spotter:1))
+	("doctrine_t1" cool(30) d(era1960_csa_usmc2) cost(3))
+}
+
+; // 10DP Mk 18 Mod 0 Automatic Grenade Launcher w/ Navy SEAL Crew
+{"doctrine_vehicle_mk18(csa)"
+	("squad_with2types_doctrine" side(csa) period(era1960) c1(seal_guncrew_mk18:1) c2(seal_spotter:1))
+	("doctrine_t1" cool(160) d(era1960_csa_usmc2) cost(10))
+}
+
+; // 10DP Marine Squad
+{"doctrine_squad_usmc(csa)"
+	("squad_with7types_doctrine" side(csa) period(era1960) g(doctrine_lvl1) c1(usmc_squadlead:1) c2(usmc_teamlead:1) c3(usmc_autorifle:3) c4(usmc_grenadier:1) c5(usmc_lat:3) c6(usmc_rifleman:2) c7(usmc_corpsman:1))
+	("doctrine_t1" cool(60) d(era1960_csa_usmc2) cost(10))
+}
+
+; ======Tier2======
+
+; // 15DP M50 Ontos
+{"doctrine_vehicle_m50(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m50) crew(usmc_vehicleman:3) cw(2) cp(0))
+	("doctrine_t2" cool(120) d(era1960_csa_usmc2) cost(15))
+}
+
+; // 15DP M67 Zippo Flame Tank
+{"doctrine_vehicle_m67_zippo(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m67_zippo) crew(usmc_vehicleman:3) cw(2) cp(0))
+	("doctrine_t2" cool(180) d(era1960_csa_usmc2) cost(15))
+}
+
+; ======Tier3======
+
+; // 16 DP UH-1B with 'Maxwell' Mount
+{"doctrine_vehicle_uh1b_maxwell_2(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(uh-1b_maxwell) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(era1960_csa_usmc2) cost(16))
+}
+
+; // 20DP M103 Heavy Tank
+{"doctrine_vehicle_m103(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m103) crew(usmc_vehicleman:5) cw(2) cp(0))
+	("doctrine_t3" cool(300) d(era1960_csa_usmc2) cost(20))
+}
+
+; // 20DP Airborne SEAL Detachment
+{"doctrine_squad_seal_huey(csa)"
+	("squad_vehicle8_doctrine" side(csa) period(era1960) vehicle(uh-1h_sf) crew1(sup_pilot:4) crew2(seal_squadlead:1) crew3(seal_demo:1) crew4(seal_mg:1) crew5(seal_antitank:2) crew6(seal_marksman:1) crew7(seal_grenadier:1) crew8(seal_rifleman:3) cw(2) cp(0))
+	("doctrine_t3" cool(180) d(era1960_csa_usmc2) cost(20))
+}
+
+
+;===================================
+;   82nd Airborne Battle Group
+;			
+;===================================
+
+; ======Tier1======
+
+; // 3 DP Ammo Paradrop
+{"doctrine_airdrop_ammo(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(f-105) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_strat" cool(30) d(era1960_csa_82nd) cost(3))
+	{action "airstrike:flare_paradrop_ammo"} 
+}
+
+; // 8DP 82nd Airborne Squad
+{"doctrine_squad_82nd(csa)"
+	("squad_with7types_doctrine" side(csa) period(era1960) g(doctrine_lvl1) c1(82nd_squadlead:1) c2(82nd_teamlead:1) c3(82nd_mg:1) c4(82nd_mgassist:1) c5(82nd_antitank:1) c6(82nd_atassist:1) c7(82nd_rifleman:4))
+	("doctrine_t1" cool(60) d(era1960_csa_82nd) cost(8))
+}
+
+; // 8DP Air-Dropped M56 Scorpion
+{"doctrine_paradrop_m56(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(f-105) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_t1" cool(60) d(era1960_csa_82nd) cost(8))
+	{action "airstrike:flare_paradrop_m56"} 
+}
+
+; ======Tier2======
+
+; // 10DP 82nd Airborne ENTAC Squad
+{"doctrine_squad_82nd_entac(csa)"
+	("squad_vehicle4_doctrine" side(csa) period(era1960) vehicle(dodge_m37) crew1(82nd_squadlead:1) crew2(82nd_teamlead:1) crew3(82nd_guncrew_entac:3) crew4(82nd_guncrew:3) cw(2) cp(0))
+	("doctrine_t2" cool(60) d(era1960_csa_82nd) cost(10))
+}
+
+; // 10DP US Special Forces Recon Team
+{"doctrine_squad_specops(csa)"
+	("squad_with5types_doctrine" side(csa) period(era1960) g(doctrine_lvl1) c1(spec_squadlead:1) c2(spec_mg:1) c3(spec_antitank:1) c4(spec_marksman:1) c5(spec_grenadier:1))
+	("doctrine_t2" cool(60) d(era1960_csa_82nd) cost(10))
+}
+
+; // 15DP MGR-3 Honest John Launcher towed by Jeep
+{"doctrine_vehicle_mgr3(csa)"
+	("towed_gun_doctrine" side(csa) period(era1960) vehicle(m151) crew_v(82nd_guncrew:1) cannon(mgr-3) crew_c(82nd_guncrew:4) cw(0) cp(0))
+	("doctrine_t2" cool(120) d(era1960_csa_82nd) cost(15))
+}
+
+; ======Tier3======
+
+; // 18DP M551 Sheridan
+{"doctrine_vehicle_m551(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m551) crew(82nd_vehicleman:4) cw(0) cp(0))
+	("doctrine_t3" cool(240) d(era1960_csa_82nd) cost(18))
+}
+
+;===================================
+;       	DOCTRINE 3
+;		ARTILLERY BRIGADE
+;===================================
+
+; ======Tier1======
+
+; // 5DP M54 Heavy Ammo Truck
+;{"doctrine_vehicle_m54(csa)"
+;	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m54) crew(sup_guncrew:1) cw(2) cp(0))
+;	("doctrine_t1" cool(30) d(era1960_csa_artillery) cost(10))
+;}
+
+; // 10DP M577 Command Carrier
+{"doctrine_vehicle_m577_artillery(csa)"
+	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(m577) crew1(sup_vehicleman:2) crew2(sup_supporter:1) cw(0) cp(0))
+	("doctrine_t1" cool(60) d(era1960_csa_artillery) cost(10))
+}
+
+; ======Tier2======
+
+; // 15DP M114 155mm Howitzer
+{"doctrine_vehicle_m114(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m114) crew(sup_guncrew:4) cw(0) cp(0))
+	("doctrine_t2" cool(240) d(era1960_csa_artillery) cost(15))
+}
+
+; // 15 DP UH-1B Airborne Rocket Artillery (ARA)
+{"doctrine_vehicle_uh1b_ara(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(uh-1b_ara) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t2" cool(240) d(era1960_csa_artillery) cost(15))
+}
+
+; // 20DP M728 CEV
+{"doctrine_vehicle_m728(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m728) crew(cav_engineer:4) cw(0) cp(0))
+	("doctrine_t2" cool(120) d(era1960_csa_artillery) cost(20))
+}
+
+; ======Tier3======
+
+; // 20DP M115 203mm Howitzer
+{"doctrine_vehicle_m115(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m115) crew(sup_guncrew:6) cw(0) cp(0))
+	("doctrine_t3" cool(360) d(era1960_csa_artillery) cost(20))
+}
+
+; // 20DP M192 HAWK Launcher
+{"doctrine_vehicle_m192(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m192) crew(sup_guncrew:0) cw(0) cp(0))
+	("doctrine_t3" cool(190) d(era1960_csa_artillery) cost(20))
+}
+
+; // 100DP M-28 Davy Crockett Tactical Nuclear Weapon
+{"doctrine_vehicle_m28(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m-28) crew(sup_guncrew:4) cw(0) cp(0))
+	("doctrine_t3" cool(600) d(era1960_csa_artillery) cost(80))
+}
+
+; ======Artillery Callins======
+
+; // 3DP 81mm Mortar Salvo
+{"mortar_barrage_light_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(m29_mortar) crew(sup_guncrew:0) b(doctrine) cw(0) cp(0))
+	("doctrine_strat" cool(200) d(era1960_csa_artillery) cost(3))
+	{conditions "radio_csa"}{action "airstrike:flare_mortar_80"} 
+}
+
+; // 5DP 107mm Mortar Salvo
+{"mortar_barrage_medium_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(m30_mortar) crew(sup_guncrew:0) b(doctrine) cw(0) cp(0))
+	("doctrine_strat" cool(300) d(era1960_csa_artillery) cost(5))
+	{conditions "radio_csa"}{action "airstrike:flare_mortar_120"} 
+}
+
+; // 5DP 105mm Smoke Barrage
+{"artillery_barrage_smoke_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(m101a1) crew(sup_guncrew:0) b(doctrine) cw(0) cp(0))
+	("doctrine_strat" cool(120) d(era1960_csa_artillery) cost(5))
+	{conditions "radio_csa"}{action "airstrike:flare_artillery_smoke"} 
+}
+
+; // 8DP 105m  Artillery Barrage
+{"artillery_barrage_light_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(m101a1) crew(sup_guncrew:0) b(doctrine) cw(0) cp(0))
+	("doctrine_strat" cool(200) d(era1960_csa_artillery) cost(8))
+	{conditions "radio_csa"}{action "airstrike:flare_artillery_105"} 
+}
+
+; // 12DP 152-155mm Artillery Barrage
+{"artillery_barrage_medium_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(m114) crew(sup_guncrew:0) b(doctrine) cw(0) cp(0))
+	("doctrine_strat" cool(300) d(era1960_csa_artillery) cost(12))
+	{conditions "radio_csa"}{action "airstrike:flare_artillery_150"} 
+}
+
+; // 16DP 203mm Artillery Barrage
+{"artillery_barrage_heavy_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(m115) crew(sup_guncrew:0) b(doctrine) cw(0) cp(0))
+	("doctrine_strat" cool(300) d(era1960_csa_artillery) cost(16))
+	{conditions "radio_csa"}{action "airstrike:flare_artillery_203"} 
+}
+
+;_________________________________________________
+;|             inf1                               |
+;|________________________________________________|
+
+
+("squad_with3types" side(csa) name(squad_reservist)			period(era1960) cd(0) ci(0) g(squad_2) c1(rsv_squadlead:1) c2(rsv_autorifle:2) c3(rsv_rifleman:7)																	b(inf1) t())
+
+("squad_with4types" side(csa) name(squad_fireteamap)		period(era1960) cd(0) ci(0) g(squad_2) c1(reg_teamlead:1) c2(reg_autorifle:1) c3(reg_grenadier:1) c4(reg_rifleman:2)																b(inf1) t())
+("squad_with4types" side(csa) name(squad_fireteamat)		period(era1960) cd(0) ci(0) g(squad_3) c1(reg_teamlead:1) c2(reg_antitank:1) c3(reg_rifleman:2) c4(reg_atassist:1)																b(inf1) t())
+("squad_with6types" side(csa) name(squad_rifle)				period(era1960) cd(0) ci(0) g(squad_4) c1(reg_squadlead:1) c2(reg_autorifle:2) c3(reg_grenadier:2) c4(reg_lat:2) c5(reg_rifleman:2) c6(reg_teamlead:1)									b(inf1) t())
+("squad_with6types" side(csa) name(squad_weapon)			period(era1960) cd(0) ci(15) g(squad_5) c1(reg_squadlead:1) c2(reg_mg:2) c3(reg_mgassist:2) c4(reg_antitank:2) c5(reg_atassist:2) c6(reg_teamlead:1)											b(inf1) t())
+("squad_with4types" side(csa) name(squad_lrrp)				period(era1960) cd(0) ci(60) g(squad_6) c1(rng_squadlead:1) c2(rng_mg:1) c3(rng_antitank:1) c4(rng_marksman:1)															b(inf1) t())
+
+{"squad_rifle_moto(csa)"
+	("squad_vehicle7" period(era1960) cd(0) ci(0) side(csa) t(vehicle) vehicle(m113) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_autorifle:2) crew4(reg_grenadier:2) crew5(reg_teamlead:1) crew6(reg_rifleman:2) crew7(reg_lat:2)		b(inf1) cw(2) cp(8)){squad_cost_factor 1}
+}
+{"squad_weapon_moto(csa)"
+	("squad_vehicle7" period(era1960) cd(0) ci(15) side(csa) t(vehicle) vehicle(m113) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_mg:2) crew4(reg_mgassist:2) crew5(reg_antitank:2) crew6(reg_atassist:2) crew7(reg_teamlead:1)		b(inf1) cw(2) cp(10)){squad_cost_factor 1}
+}
+
+;_________________________________________________
+;|             inf2                               |
+;|________________________________________________|
+
+
+("squad_with1types" 	side(csa) name(single_tankman)			period(era1960) cd(0)   ci(10)  g(single_sup_tankman)		c1(sup_tankman:3)								b(inf2) t())				; M3 Greasegun
+("squad_with1types" 	side(csa) name(single_supporter)		period(era1960) cd(0)   ci(5)  	g(single_rifle)				c1(sup_supporter:2) 							b(inf2) t())				; M1 Garand
+("squad_with1types" 	side(csa) name(single_ammo)				period(era1960) cd(0)   ci(5)  	g(single_ammo)				c1(reg_ammo:2) 									b(inf2) t())				; 
+("squad_with1types"		side(csa) name(single_scout)			period(era1960) cd(0)   ci(30)  g(single_scout)				c1(reg_scout:1) 								b(inf2) t())				; M16A1
+("squad_with2types"		side(csa) name(single_mg)				period(era1960) cd(0)   ci(15)  g(single_mg)				c1(reg_mg:1) c2(reg_mgassist:1)					b(inf2) t())				; M60 GPMG
+("squad_with1types" 	side(csa) name(single_lat)				period(era1960) cd(0)   ci(30)  g(single_lat)				c1(reg_lat:2) 									b(inf2) t())				; M72 LAW
+("squad_with2types" 	side(csa) name(single_at)				period(era1960) cd(0)   ci(30)  g(single_at)				c1(reg_antitank:1) c2(reg_atassist:1)			b(inf2) t())				; M67 RCL
+("squad_with2types" 	side(csa) name(single_sniper)			period(era1960) cd(0)   ci(60)  g(single_sniper)			c1(spec_sniper:1) c2(spec_spotter:1)			b(inf2) t(sniper))			; 
+("squad_with1types" 	side(csa) name(single_flamer)			period(era1960) cd(0)   ci(60)  g(single_flamer)			c1(reg_flamer:1) 								b(inf2) t(flamer))			;
+("squad_with1types" 	side(csa) name(single_medic)			period(era1960) cd(0)   ci(60)  g(single_medic)				c1(reg_medic:1) 								b(inf2) t(reg_medic))		; M2?
+("squad_with1types" 	side(csa) name(single_engineer)			period(era1960) cd(90)  ci(60)  g(single_engineer)			c1(reg_engineer:2) 								b(inf2) t(engineer))		; M2?
+("squad_with1types" 	side(csa) name(single_officer)			period(era1960) cd(120)  ci(120)  g(single_officer)			c1(reg_officer:1) 								b(inf2) t(officer))			; M1911
+
+;_________________________________________________
+;|                  Emplacements                  |
+;|________________________________________________|
+
+;BUILDABLES
+;{"entac_launcher"
+;	("emplacement" side(csa) period(era1960) cd(0) ci(0) cw(0) cp(0) crew(sup_supporter:0) condition(gunbag_csa_entac_launcher) action(entac_launcher))
+;	{cost 0}
+;}
+
+;AUTOMATIC WEAPONRY
+
+("squad_weaponteam" side(csa) name(deploy_m2) 	period(era1960) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_m2:1) c2(sup_guncrew:1)	b(empl) t() cost(100))
+
+{"m45_maxson"
+	("vehicle" period(era1960) cd(60) ci(60) t(cannon antiair) side(csa) crew(sup_supporter:2)  g(empl2) b(empl) cw(0) cp(8))
+	{cost 200}
+}
+
+; AT WEAPONRY
+
+("squad_weaponteam" side(csa) name(deploy_m20) 	period(era1960) cd(0)   ci(30)  g(empl3)	c1(sup_guncrew_m20:1) c2(sup_guncrew:1)	b(empl) t() cost(160))
+
+{"m40"
+	("vehicle" period(era1960) cd(0) ci(30) t(cannon) side(csa) crew(sup_supporter:4)  g(empl3) b(empl) cw(4) cp(4))
+	{cost 200}
+}
+
+("squad_weaponteam" side(csa) name(deploy_entac) 	period(era1960) cd(30)   ci(60)  g(empl3)	c1(sup_guncrew_entac:1) c2(sup_guncrew:1)	b(empl) t() cost(270))
+
+;HOWITZERS
+
+("squad_weaponteam" side(csa) name(deploy_m29) 	period(era1960) cd(0)   ci(30)  g(empl5)	c1(sup_guncrew_m29:1) c2(sup_guncrew:1)	b(empl) t() cost(175))
+
+{"m30_mortar"
+	("vehicle" period(era1960) cd(0) ci(60) t(cannon mortar) side(csa) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(8))
+	{cost 245}
+}
+
+{"m116_packhow"
+	("vehicle" period(era1960) cd(60) ci(60) t(cannon) side(csa) crew(sup_supporter:4) g(empl6) b(empl) cw(0) cp(6))
+	{cost 140}
+}
+
+{"m101a1"
+	("vehicle" period(era1960) cd(120) ci(120) t(cannon) side(csa) crew(sup_supporter:4) g(empl6) b(empl) cw(0) cp(8))
+	{cost 375}
+}
+
+
+;_________________________________________________
+;|               Support vehicles                 |
+;|________________________________________________|
+
+{"m416"
+	("vehicle"  period(era1960) cd(0) ci(5) g(supply) side(csa) t(vehicle supply) crew(sup_supporter:0) b(vehicles) cw(0) cp(2))
+	{cost 75}
+}
+
+{"m151"
+	("vehicle"  period(era1960) cd(0) ci(5) g(wheel1) side(csa) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 5}
+}
+
+{"dodge_m37_ammo"
+	("vehicle"  period(era1960) cd(0) ci(15) g(supply1) side(csa) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 100}
+}
+
+{"dodge_m37_eng"
+	("vehicle"  period(era1960) cd(60) ci(60) g(supply2) side(csa) t(vehicle supply) crew(reg_engineer:2) b(vehicles) cw(0) cp(2))
+	{cost 225}
+}
+
+{"m35"
+	("vehicle"  period(era1960) cd(0) ci(5) g(wheel2) side(csa) t(vehicle transport) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 40}
+}
+
+{"m35_ammo"
+	("vehicle"  period(era1960) cd(60) ci(60) g(supply2) side(csa) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2))
+	{cost 200}
+}
+
+{"m113"
+	("vehicle"  period(era1960) cd(60) ci(30) g(apc) side(csa) t(vehicle transport apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	{cost 100}
+}
+
+;_________________________________________________
+;|        		 Fighting Vehicles                |
+;|________________________________________________|
+
+;LIGHT
+
+{"m151_m60"
+	("vehicle"  period(era1960) cd(0) ci(15) g(wheel3) side(csa) t(light vehicle) crew(sup_supporter:2) b(tanks) cw(0) cp(3))
+	{cost 70}
+}
+
+{"m151_m2"
+	("vehicle"  period(era1960) cd(30) ci(30) g(wheel3) side(csa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(3))
+	{cost 100}
+}
+
+{"m151_m40"
+	("vehicle"  period(era1960) cd(0) ci(30) g(wheel3) side(csa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(5))
+	{cost 150}
+}
+
+{"m35_guntruck"
+	("vehicle"  period(era1960) cd(0) ci(30) g(wheel3) side(csa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(5))
+	{cost 225}
+}
+
+{"m114a1"
+	("vehicle"  period(era1960) cd(30) ci(30) g(light1) side(csa) t(vehicle apc) crew(sup_vehicleman:2) b(tanks) cw(0) cp(7))
+	{cost 200}
+}
+
+{"m113_m40"
+	("vehicle"  period(era1960) cd(30) ci(45) g(light1) side(csa) t(vehicle apc) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 200}
+}
+
+{"m125"
+	("vehicle"  period(era1960) cd(60) ci(60) g(light2) side(csa) t(vehicle mortar apc) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 350}
+}
+
+{"m41"
+	("vehicle" period(era1960) cd(60) ci(60) t(light tank) side(csa) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(10))
+	{cost 275}
+}
+
+{"m42"
+	("vehicle" period(era1960) cd(240) ci(120) t(light antiair) side(csa) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(15))
+	{cost 500}
+}
+
+;Medium
+
+{"m48a1"
+	("vehicle" period(era1960) cd(200) ci(90) t(medium tank) side(csa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 400}
+}
+
+{"m48a3"
+	("vehicle" period(era1960) cd(200) ci(90) t(medium tank) side(csa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 500}
+}
+
+{"m60a1"
+	("vehicle" period(era1960) cd(300) ci(180) t(medium tank) side(csa) crew(sup_tankman:4) g(medium2) b(tanks) cw(0) cp(20))
+	{cost 650}
+}
+
+{"m108"
+	("vehicle"  period(era1960) cd(80) ci(120) g(light2) side(csa) t(vehicle artillery apc) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 550}
+}
+
+;_________________________________________________
+;|        		 AI ONLY for purchase             |
+;|________________________________________________|
+
+{"mg_stand_m60_ai"
+	("vehicle" period(era1960) cd(0) ci(30) t(cannon) side(csa) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 80}{not_for_player_sale 1}
+}
+
+{"mg_stand_m2_ai"
+	("vehicle" period(era1960) cd(30) ci(60) t(cannon) side(csa) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 125}{not_for_player_sale 1}
+}
+
+{"m29_mortar_ai"
+	("vehicle" period(era1960) cd(60) ci(60) t(cannon mortar) side(csa) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 175}{not_for_player_sale 1}
+}
+
+{"m20_rcl_ai"
+	("vehicle" period(era1960) cd(30) ci(30) t(cannon) side(csa) crew(sup_supporter:2) cw(0) cp(4))
+	{cost 160}{not_for_player_sale 1}
+}
+
+{"uh-1b_airborne"
+	("vehicle"  period(era1960) cd(300) ci(240) side(csa) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6))
+	{cost 650}{not_for_player_sale 1}
+}
+
+{"uh-1b_ara_airborne"
+	("vehicle"  period(era1960) cd(300) ci(240) side(csa) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6))
+	{cost 750}{not_for_player_sale 1}
+}
+
+{"uh-1b_maxwell_airborne"
+	("vehicle"  period(era1960) cd(300) ci(240) side(csa) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6))
+	{cost 800}{not_for_player_sale 1}
+}
+
+{"uh-1b_m22_airborne"
+	("vehicle"  period(era1960) cd(300) ci(240) side(csa) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6))
+	{cost 800}{not_for_player_sale 1}
+}
+
+{"ah-1g_airborne"
+	("vehicle"  period(era1960) cd(300) ci(300) side(csa) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6))
+	{cost 1200}{not_for_player_sale 1}
+}
+
+;_________________________________________________
+;|        		 Doctrine units                   |
+;|________________________________________________|
+
+{"m192"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(csa) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(8))
+	{cost 700}
+}
+
+{"m98_howtar"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(csa) crew(sup_supporter:2) g(empl5) b(empl) cw(0) cp(8))
+	{cost 245}
+}
+
+{"m114"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(csa) crew(sup_guncrew:4) g(empl5) b(empl) cw(0) cp(8))
+	{cost 500}
+}
+
+{"m115"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(csa) crew(sup_guncrew:4) g(empl5) b(empl) cw(0) cp(8))
+	{cost 800}
+}
+
+{"mgr-3"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(csa) crew(sup_guncrew:4) g(empl5) b(empl) cw(0) cp(8))
+	{cost 850}
+}
+
+{"m-28"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(csa) crew(sup_guncrew:4) g(empl5) b(empl) cw(0) cp(8))
+	{cost 1100}
+}
+
+{"m113_acav"
+	("vehicle"  period(era1960) cd(0) ci(0) g(apc) side(csa) t(doctrineonly vehicle transport apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6))
+	{cost 140}
+}
+
+{"m114a2"
+	("vehicle"  period(era1960) cd(0) ci(0) g(apc) side(csa) t(doctrineonly vehicle transport apc) crew(sup_vehicleman:3) b(vehicles) cw(0) cp(6))
+	{cost 275}
+}
+
+{"m106"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(csa) t(doctrineonly vehicle mortar apc) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 400}
+}
+
+{"m132_zippo"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(csa) t(doctrineonly vehicle flamer) crew(sup_vehicleman:3) b(tanks) cw(0) cp(7))
+	{cost 400}
+}
+
+{"m163"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(csa) t(doctrineonly vehicle antiair) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 600}
+}
+
+{"m577"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(csa) t(doctrineonly vehicle command) crew(sup_vehicleman:3) b(tanks) cw(0) cp(7))
+	{cost 500}
+}
+
+{"m109"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(csa) t(doctrineonly tank artillery) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 750}
+}
+
+{"m109_acav"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(csa) t(doctrineonly tank artillery) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7))
+	{cost 775}
+}
+
+{"m110"
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(csa) t(doctrineonly tank artillery) crew(sup_vehicleman:5) b(tanks) cw(0) cp(7))
+	{cost 850}
+}
+
+{"m50"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly light tank) side(csa) crew(sup_tankman:3) g(light3) b(tanks) cw(0) cp(14))
+	{cost 350}
+}
+
+{"m551"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly light tank atgm) side(csa) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(14))
+	{cost 550}
+}
+
+{"m551_acav"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly light tank atgm) side(csa) crew(sup_tankman:4) g(light3) b(tanks) cw(0) cp(14))
+	{cost 600}
+}
+
+{"m67_zippo"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly medium tank) side(csa) crew(sup_tankman:3) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 500}
+}
+
+{"m48a3_acav"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly medium tank) side(csa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 525}
+}
+
+{"m60_patton"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly medium tank) side(csa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 625}
+}
+
+{"m103"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly heavy tank) side(csa) crew(sup_tankman:5) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 850}
+}
+
+{"m60a1e2"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly medium tank atgm) side(csa) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15))
+	{cost 950}
+}
+
+{"ch-37"
+	("vehicle"  period(era1960) cd(0) ci(0) side(csa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 300}
+}
+
+{"ch-47_chinook"
+	("vehicle"  period(era1960) cd(0) ci(0) side(csa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:4) cw(0) cp(12))
+	{cost 400}
+}
+
+{"ch-37"
+	("vehicle"  period(era1960) cd(0) ci(0) side(csa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:4) cw(0) cp(12))
+	{cost 250}
+}
+
+{"uh-1b"
+	("vehicle"  period(era1960) cd(0) ci(0) side(csa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 650}
+}
+
+{"uh-1b_ara"
+	("vehicle"  period(era1960) cd(0) ci(0) side(csa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 750}
+}
+
+{"uh-1b_maxwell"
+	("vehicle"  period(era1960) cd(0) ci(0) side(csa) t(doctrineonly helicopter atgm) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 800}
+}
+
+{"uh-1b_m22"
+	("vehicle"  period(era1960) cd(0) ci(0) side(csa) t(doctrineonly helicopter atgm) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 800}
+}
+
+{"ah-1g"
+	("vehicle"  period(era1960) cd(0) ci(0) side(csa) t(doctrineonly helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(12))
+	{cost 1200}
+}
