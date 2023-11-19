@@ -7,8 +7,8 @@
 ; Check ../settings.set for syntax instructions!!
 ;//////////////////////////////////////////////////
 
-(define "pol_radioman_early"
-	{tags "early %side infantry man signaller"}
+(define "pol_radioman_era1950"
+	{tags "era1950 %side infantry man signaller"}
 	{cp 2}
 	{basic}
 	{breed}
@@ -16,76 +16,76 @@
 	{score_factor 0.2}
 )
 (define "pol_radioman"
-	{tags "mid %side infantry man signaller"}
+	{tags "era1960 %side infantry man signaller"}
 	{cp 1}
 	{basic}
 	{breed}
 	{cw 0.5}
 	{score_factor 0.2}
 )
-{"mp/pol/mid/reg_fac"					("pol_radioman_early" side(pol)) {cost 10.0}}
+{"mp/pol/era1960/reg_fac"					("pol_radioman_era1950" side(pol)) {cost 10.0}}
 
 (define "pol_guncrew"
-	{tags "mid %side infantry man"}
+	{tags "era1960 %side infantry man"}
 	{cp 1}
 	{basic}
 	{breed}
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/pol/mid/sup_guncrew"				("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
-{"mp/pol/mid/sup_guncrew_9m14"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
-{"mp/pol/mid/sup_guncrew_sg43"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
-{"mp/pol/mid/sup_guncrew_pk"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
-{"mp/pol/mid/sup_guncrew_dshk"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
-{"mp/pol/mid/sup_guncrew_b10"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
-{"mp/pol/mid/sup_guncrew_spg9"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
-{"mp/pol/mid/sup_guncrew_bm37"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
+{"mp/pol/era1960/sup_guncrew"				("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
+{"mp/pol/era1960/sup_guncrew_9m14"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
+{"mp/pol/era1960/sup_guncrew_sg43"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
+{"mp/pol/era1960/sup_guncrew_pk"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
+{"mp/pol/era1960/sup_guncrew_dshk"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
+{"mp/pol/era1960/sup_guncrew_b10"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
+{"mp/pol/era1960/sup_guncrew_spg9"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
+{"mp/pol/era1960/sup_guncrew_bm37"			("pol_guncrew" side(pol)) {cost 5.0}} ; Pistol
 
 
 (define "pol_basic"
-	{tags "mid %side infantry man lvl1"}
+	{tags "era1960 %side infantry man lvl1"}
 	{cp 1}
 	{basic}
 	{breed}
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/pol/mid/sup_supporter"			("pol_basic" side(pol)) {cost 5.0}} ; SKS
-{"mp/pol/mid/sup_pilot"				("pol_basic" side(pol)) {cost 5.0}} ; Pistol
-{"mp/pol/mid/sup_tankman"			("pol_basic" side(pol)) {cost 4.0}} ; Pistol
-{"mp/pol/mid/sup_vehicleman"		("pol_basic" side(pol)) {cost 4.0}} ; Pistol
+{"mp/pol/era1960/sup_supporter"			("pol_basic" side(pol)) {cost 5.0}} ; SKS
+{"mp/pol/era1960/sup_pilot"				("pol_basic" side(pol)) {cost 5.0}} ; Pistol
+{"mp/pol/era1960/sup_tankman"			("pol_basic" side(pol)) {cost 4.0}} ; Pistol
+{"mp/pol/era1960/sup_vehicleman"		("pol_basic" side(pol)) {cost 4.0}} ; Pistol
 
-{"mp/pol/mid/rsv_rifleman"			("pol_basic" side(pol)) {cost 5.0}} ; SKS
-{"mp/pol/mid/rsv_lmg"				("pol_basic" side(pol)) {cost 20.0}} ; RPD
-{"mp/pol/mid/rsv_atgren"			("pol_basic" side(pol)) {cost 15.0}} ; SKS & RKG-2
-{"mp/pol/mid/rsv_antitank"			("pol_basic" side(pol)) {cost 35.0}} ; SKS & RPG-2
-{"mp/pol/mid/rsv_atassist"			("pol_basic" side(pol)) {cost 8.0}} ; SKS & RPG-2
-{"mp/pol/mid/rsv_squadlead"			("pol_basic" side(pol)) {cost 15.0}} ; AK47
+{"mp/pol/era1960/rsv_rifleman"			("pol_basic" side(pol)) {cost 5.0}} ; SKS
+{"mp/pol/era1960/rsv_lmg"				("pol_basic" side(pol)) {cost 20.0}} ; RPD
+{"mp/pol/era1960/rsv_atgren"			("pol_basic" side(pol)) {cost 15.0}} ; SKS & RKG-2
+{"mp/pol/era1960/rsv_antitank"			("pol_basic" side(pol)) {cost 35.0}} ; SKS & RPG-2
+{"mp/pol/era1960/rsv_atassist"			("pol_basic" side(pol)) {cost 8.0}} ; SKS & RPG-2
+{"mp/pol/era1960/rsv_squadlead"			("pol_basic" side(pol)) {cost 15.0}} ; AK47
 
 (define "pol_regular"
-	{tags "mid %side infantry man"}
+	{tags "era1960 %side infantry man"}
 	{cp 2}
 	{basic}
 	{breed}
 	{cw 1.0}
 	{score_factor 0.05}
 )
-{"mp/pol/mid/reg_ammo"				("pol_regular" side(pol)) {cost 14.0}} ; AK47
-{"mp/pol/mid/reg_atassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 & RPG-7 Ammo
-{"mp/pol/mid/reg_atgren"			("pol_regular" side(pol)) {cost 16.0}} ; AK47 + RPG-43 Grenades
-{"mp/pol/mid/reg_lmg"				("pol_regular" side(pol)) {cost 35.0}} ; RPD
-{"mp/pol/mid/reg_lmgassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 + RPD Ammo
-{"mp/pol/mid/reg_mg"				("pol_regular" side(pol)) {cost 30.0}} ; PK
-{"mp/pol/mid/reg_mg_dp"				("pol_regular" side(pol)) {cost 30.0}} ; RP-46
-{"mp/pol/mid/reg_mgassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 + PK Ammo
-{"mp/pol/mid/reg_mgassist_dp"		("pol_regular" side(pol)) {cost 15.0}} ; AK47 + RP-46 Ammo
-{"mp/pol/mid/reg_rifleman"			("pol_regular" side(pol)) {cost 12.0}} ; AK47
-{"mp/pol/mid/reg_senior"			("pol_regular" side(pol)) {cost 16.0}} ; AK47
-{"mp/pol/mid/reg_squadlead"			("pol_regular" side(pol)) {cost 25.0}} ; AK47
+{"mp/pol/era1960/reg_ammo"				("pol_regular" side(pol)) {cost 14.0}} ; AK47
+{"mp/pol/era1960/reg_atassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 & RPG-7 Ammo
+{"mp/pol/era1960/reg_atgren"			("pol_regular" side(pol)) {cost 16.0}} ; AK47 + RPG-43 Grenades
+{"mp/pol/era1960/reg_lmg"				("pol_regular" side(pol)) {cost 35.0}} ; RPD
+{"mp/pol/era1960/reg_lmgassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 + RPD Ammo
+{"mp/pol/era1960/reg_mg"				("pol_regular" side(pol)) {cost 30.0}} ; PK
+{"mp/pol/era1960/reg_mg_dp"				("pol_regular" side(pol)) {cost 30.0}} ; RP-46
+{"mp/pol/era1960/reg_mgassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 + PK Ammo
+{"mp/pol/era1960/reg_mgassist_dp"		("pol_regular" side(pol)) {cost 15.0}} ; AK47 + RP-46 Ammo
+{"mp/pol/era1960/reg_rifleman"			("pol_regular" side(pol)) {cost 12.0}} ; AK47
+{"mp/pol/era1960/reg_senior"			("pol_regular" side(pol)) {cost 16.0}} ; AK47
+{"mp/pol/era1960/reg_squadlead"			("pol_regular" side(pol)) {cost 25.0}} ; AK47
 
 (define "pol_regular_advanced"
-	{tags "mid %side infantry man"}
+	{tags "era1960 %side infantry man"}
 	{cp 2}
 	{basic}
 	{breed}
@@ -93,15 +93,15 @@
 	{score_factor 0.05}
 )
 
-{"mp/pol/mid/reg_antitank"			("pol_regular" side(pol)) {cost 50.0}} ; AKMS & RPG-2
-{"mp/pol/mid/reg_antitank2"			("pol_regular" side(pol)) {cost 40.0}} ; AKMS & RPG-7
-{"mp/pol/mid/reg_marksman"			("pol_regular" side(pol)) {cost 40.0}} ; SVD
-{"mp/pol/mid/reg_flamer"			("pol_regular" side(pol)) {cost 50.0}} ; RKO
-{"mp/pol/mid/reg_engineer"			("pol_regular" side(pol)) {cost 30.0}} ; SKS
-{"mp/pol/mid/reg_scout"				("pol_regular" side(pol)) {cost 25.0}} ; AKM
+{"mp/pol/era1960/reg_antitank"			("pol_regular" side(pol)) {cost 50.0}} ; AKMS & RPG-2
+{"mp/pol/era1960/reg_antitank2"			("pol_regular" side(pol)) {cost 40.0}} ; AKMS & RPG-7
+{"mp/pol/era1960/reg_marksman"			("pol_regular" side(pol)) {cost 40.0}} ; SVD
+{"mp/pol/era1960/reg_flamer"			("pol_regular" side(pol)) {cost 50.0}} ; RKO
+{"mp/pol/era1960/reg_engineer"			("pol_regular" side(pol)) {cost 30.0}} ; SKS
+{"mp/pol/era1960/reg_scout"				("pol_regular" side(pol)) {cost 25.0}} ; AKM
 
 (define "pol_powietrzno" ; Powietrznodesantowa, Airborne Troops
-	{tags "mid %side infantry man"}
+	{tags "era1960 %side infantry man"}
 	{cp 2}
 	{basic}
 	{breed}
@@ -110,43 +110,43 @@
 )
 
 (define "pol_desantowa" ; Desantowa aka Niebieskie Berety, Blue Berets - Polish Marines
-	{tags "mid %side infantry man"}
+	{tags "era1960 %side infantry man"}
 	{cp 2}
 	{basic}
 	{breed}
 	{cw 2.0}
 	{score_factor 0.05}
 )
-{"mp/pol/mid/des_ammo"				("pol_desantowa" side(pol)) {cost 25.0}} ; AK47 & Ammo
-{"mp/pol/mid/des_antitank"			("pol_desantowa" side(pol)) {cost 55.0}} ; RPG-7
-{"mp/pol/mid/des_atassist"			("pol_desantowa" side(pol)) {cost 18.0}} ; AK47 & RPG-7 Ammo
-{"mp/pol/mid/des_marksman"			("pol_desantowa" side(pol)) {cost 60.0}} ; SWD
-{"mp/pol/mid/des_mg"				("pol_desantowa" side(pol)) {cost 35.0}} ; PK
-{"mp/pol/mid/des_mgassist"			("pol_desantowa" side(pol)) {cost 18.0}} ; AK47 & PK Ammo
-{"mp/pol/mid/des_rifleman"			("pol_desantowa" side(pol)) {cost 17.0}} ; AK47
-{"mp/pol/mid/des_lmg"				("pol_desantowa" side(pol)) {cost 32.0}} ; RPD
-{"mp/pol/mid/des_teamlead"			("pol_desantowa" side(pol)) {cost 20.0}} ; AK47
-{"mp/pol/mid/des_squadlead"			("pol_desantowa" side(pol)) {cost 30.0}} ; AK47
-{"mp/pol/mid/des_vehicleman"		("pol_desantowa" side(pol)) {cost 13.0}} ; AKMS
-{"mp/pol/mid/des_guncrew"			("pol_desantowa" side(pol)) {cost 13.0}} ; AKMS
+{"mp/pol/era1960/des_ammo"				("pol_desantowa" side(pol)) {cost 25.0}} ; AK47 & Ammo
+{"mp/pol/era1960/des_antitank"			("pol_desantowa" side(pol)) {cost 55.0}} ; RPG-7
+{"mp/pol/era1960/des_atassist"			("pol_desantowa" side(pol)) {cost 18.0}} ; AK47 & RPG-7 Ammo
+{"mp/pol/era1960/des_marksman"			("pol_desantowa" side(pol)) {cost 60.0}} ; SWD
+{"mp/pol/era1960/des_mg"				("pol_desantowa" side(pol)) {cost 35.0}} ; PK
+{"mp/pol/era1960/des_mgassist"			("pol_desantowa" side(pol)) {cost 18.0}} ; AK47 & PK Ammo
+{"mp/pol/era1960/des_rifleman"			("pol_desantowa" side(pol)) {cost 17.0}} ; AK47
+{"mp/pol/era1960/des_lmg"				("pol_desantowa" side(pol)) {cost 32.0}} ; RPD
+{"mp/pol/era1960/des_teamlead"			("pol_desantowa" side(pol)) {cost 20.0}} ; AK47
+{"mp/pol/era1960/des_squadlead"			("pol_desantowa" side(pol)) {cost 30.0}} ; AK47
+{"mp/pol/era1960/des_vehicleman"		("pol_desantowa" side(pol)) {cost 13.0}} ; AKMS
+{"mp/pol/era1960/des_guncrew"			("pol_desantowa" side(pol)) {cost 13.0}} ; AKMS
 
 (define "pol_rozpoznawczą" ; Rozpoznawczą Specjalna, Special Recon Infantry (Rangers)
-	{tags "mid %side infantry man"}
+	{tags "era1960 %side infantry man"}
 	{cp 3}
 	{basic}
 	{breed}
 	{cw 1.5}
 	{score_factor 0.05}
 )
-{"mp/pol/mid/roz_squadlead"	("pol_rozpoznawczą" side(pol)) {cost 40.0}} ; AKMS
-{"mp/pol/mid/roz_rifleman"	("pol_rozpoznawczą" side(pol)) {cost 22.0}} ; AKMS
-{"mp/pol/mid/roz_mg"		("pol_rozpoznawczą" side(pol)) {cost 45.0}} ; PK
-{"mp/pol/mid/roz_antitank"	("pol_rozpoznawczą" side(pol)) {cost 75.0}} ; RPG-7
-{"mp/pol/mid/roz_marksman"	("pol_rozpoznawczą" side(pol)) {cost 80.0}} ; SWD
-{"mp/pol/mid/roz_spotter"	("pol_rozpoznawczą" side(pol)) {cost 37.0}} ; AKMS(S)
+{"mp/pol/era1960/roz_squadlead"	("pol_rozpoznawczą" side(pol)) {cost 40.0}} ; AKMS
+{"mp/pol/era1960/roz_rifleman"	("pol_rozpoznawczą" side(pol)) {cost 22.0}} ; AKMS
+{"mp/pol/era1960/roz_mg"		("pol_rozpoznawczą" side(pol)) {cost 45.0}} ; PK
+{"mp/pol/era1960/roz_antitank"	("pol_rozpoznawczą" side(pol)) {cost 75.0}} ; RPG-7
+{"mp/pol/era1960/roz_marksman"	("pol_rozpoznawczą" side(pol)) {cost 80.0}} ; SWD
+{"mp/pol/era1960/roz_spotter"	("pol_rozpoznawczą" side(pol)) {cost 37.0}} ; AKMS(S)
 
 (define "pol_strzelcy" ;Strzelcy Podhalanscy, Mountain Light Infantry
-	{tags "mid %side infantry man"}
+	{tags "era1960 %side infantry man"}
 	{cp 3}
 	{basic}
 	{breed}
@@ -155,7 +155,7 @@
 )
 
 (define "pol_komandosi" ;Komandosi, Special Forces
-	{tags "mid %side infantry man"}
+	{tags "era1960 %side infantry man"}
 	{cp 3}
 	{basic}
 	{breed}
@@ -164,33 +164,33 @@
 )
 
 (define "pol_medic"
-	{tags "mid %side infantry man"}
+	{tags "era1960 %side infantry man"}
 	{cp 3}
 	{basic}
 	{breed}
 	{cw 0.5}
 	{score_factor -0.2}
 )
-{"mp/pol/mid/reg_medic"			("pol_medic" side(pol)) {cost 40.0}}
+{"mp/pol/era1960/reg_medic"			("pol_medic" side(pol)) {cost 40.0}}
 
 
 (define "pol_officer"
-	{tags "mid %side infantry man officer"}
+	{tags "era1960 %side infantry man officer"}
 	{cp -25}
 	{basic}
 	{breed}
 	{cw 5}
 	{score_factor 0.2}
 )
-{"mp/pol/mid/reg_officer"		("pol_officer" side(pol)) {cost 65.0}} ; Pistol; High-value reg_officer target.
+{"mp/pol/era1960/reg_officer"		("pol_officer" side(pol)) {cost 65.0}} ; Pistol; High-value reg_officer target.
 
 
 (define "pol_sniper"
-	{tags "mid %side infantry man sniper"}
+	{tags "era1960 %side infantry man sniper"}
 	{cp 3}
 	{basic}
 	{breed}
 	{cw 0.5}
 	{score_factor 0.05}
 )
-{"mp/pol/mid/roz_sniper"		("pol_sniper" side(pol)) {cost 140.0}} ; Mosin-Nagant
+{"mp/pol/era1960/roz_sniper"		("pol_sniper" side(pol)) {cost 140.0}} ; Mosin-Nagant
