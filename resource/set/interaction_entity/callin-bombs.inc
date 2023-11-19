@@ -79,75 +79,75 @@
 	}
 }
 
-;////////// USA
+;////////// csa
 
-{"flare_airstrike_light_bomb_usa"
+{"flare_airstrike_light_bomb_csa"
 	{on spawn
 		{delay 8 {spawn "a-4e_airstrike_bomb_light" "root" x}}
 	}
 }
 
-{"flare_airstrike_light_napalm_usa"
+{"flare_airstrike_light_napalm_csa"
 	{on spawn
 		{delay 8 {spawn "a-4e_airstrike_napalm_light" "root" x}}
 	}
 }
 
-{"flare_airstrike_light_cluster_usa"
+{"flare_airstrike_light_cluster_csa"
 	{on spawn
 		{delay 8 {spawn "a-4e_airstrike_cluster_light" "root" x}}
 	}
 }
 
-{"flare_airstrike_light_rocket_usa"
+{"flare_airstrike_light_rocket_csa"
 	{on spawn
 		{delay 5 {spawn "a-4e_airstrike_rocket_light" "root" x}}
 	}
 }
 
-{"flare_airstrike_heavy_rocket_usa"
+{"flare_airstrike_heavy_rocket_csa"
 	{on spawn
 		{delay 5 {spawn "a-4e_airstrike_rocket_heavy" "root" x}}
 	}
 }
 
-{"flare_airstrike_medium_bomb_usa"
+{"flare_airstrike_medium_bomb_csa"
 	{on spawn
 		{delay 12 {spawn "a-4e_airstrike_bomb_medium" "root" x}}
 	}
 }
 
-{"flare_airstrike_medium_napalm_usa"
+{"flare_airstrike_medium_napalm_csa"
 	{on spawn
 		{delay 12 {spawn "a-4e_airstrike_napalm_medium" "root" x}}
 	}
 }
 
-{"flare_airstrike_medium_cluster_usa"
+{"flare_airstrike_medium_cluster_csa"
 	{on spawn
 		{delay 12 {spawn "a-4e_airstrike_cluster_medium" "root" x}}
 	}
 }
 
-{"flare_airstrike_heavy_bomb_usa"
+{"flare_airstrike_heavy_bomb_csa"
 	{on spawn
 		{delay 16 {spawn "f-105_airstrike_bomb_heavy" "root" x}}
 	}
 }
 
-{"flare_airstrike_heavy_napalm_usa"
+{"flare_airstrike_heavy_napalm_csa"
 	{on spawn
 		{delay 16 {spawn "f-105_airstrike_napalm_heavy" "root" x}}
 	}
 }
 
-{"flare_airstrike_heavy_cluster_usa"
+{"flare_airstrike_heavy_cluster_csa"
 	{on spawn
 		{delay 16 {spawn "f-105_airstrike_cluster_heavy" "root" x}}
 	}
 }
 
-{"flare_airstrike_super_bomb_usa"
+{"flare_airstrike_super_bomb_csa"
 	{on spawn
 		{delay 16 {spawn "f-105_airstrike_bomb_super" "root" x}}
 	}
