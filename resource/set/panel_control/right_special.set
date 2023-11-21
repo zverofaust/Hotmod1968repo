@@ -19,21 +19,18 @@
 		{condition "vehicle with_open_zpu"}
 	}
 
-	{switch_suspension
-		{position 1 1}
-		{condition "vehicle with_adjustable_suspension"}
-	}
-
 	{examine
 		{position 1 0}
 	}
+	
 	{injection
 		{position 2 0}
 		{condition "human"}
 	}
-	{repair
-		{position 2 0}
-		{condition "vehicle"}
+
+	{call_ally
+		{position 3 0}
+		{condition "human disabled"}
 	}	
 
 ; second row-------------------------
@@ -46,21 +43,31 @@
 		{position 0 1}
 		{condition "tractor"}
 	}
-	{gc_cp_state_supply
+
+	{gc_cp_leave_unit
 		{position 1 1}
+		{condition "vehicle single disabled"}
 	}
-	{medic_switch ; Added by Nikral
-		{position 2 1}
-		{condition "human single medic"}
-	}
-	{plant
+	
+	{gc_cp_state_speed
 		{position 2 1}
 		{condition "human"}
 	}
-	{gc_cp_leave_unit
+	
+	{gc_cp_state_supply
 		{position 2 1}
-		{condition "vehicle single disabled"}
 	}
+	
+	{medic_switch ; Added by Nikral
+		{position 3 1}
+		{condition "human single medic"}
+	}
+	
+	{switch_suspension
+		{position 3 1}
+		{condition "vehicle with_adjustable_suspension"}
+	}
+
 
 
 ; third row-------------------------
@@ -81,7 +88,10 @@
 		{condition "vehicle"}
 		{position 1 2}
 	}
+	
+	; // empty {position 2 2} 
+	
 	{gc_cp_browse_back
-		{position 2 2}
+		{position 3 2}
 	}
 }

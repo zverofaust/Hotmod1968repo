@@ -15,13 +15,34 @@
 			{condition "disabled"}
 		)
 	}
+	
+
 	{gc_cp_state_move
 		{position 1 0}
 	}
+	
 	{gc_cp_state_pose
 		{position 2 0}
 		{condition "human"}
 	}
+	{gc_cp_state_cannon
+		{position 2 0}
+		{condition "cannon"}
+	}
+	{engine_toggle
+		{position 2 0}
+		{condition "engine"}
+	}
+	
+	{examine
+		{position 3 0}
+	;	{condition "human"}
+		{condition "disabled"}
+	}
+	;{reverse_toggle
+	;	{position 3 0}
+	;	{condition "vehicle" "tank"}
+	;}
 	{insertion
 		{position 2 0}
 		{condition "insertion"}
@@ -30,48 +51,75 @@
 		{position 2 0}
 		{condition "helicopter"}
 	}
-	{gc_cp_lock_ammo
-		{position 1 1}
-		{condition "vehicle -helicopter"}
-	}
-	{gc_cp_state_cannon
-		{position 2 0}
-		{condition "cannon"}
-	}
-	{gc_cp_browse_emplacement
-		{position 2 0}
-		{condition "vehicle cev disabled"}
-	}
-	{weapon_undeploy
-		{position 1 1}
-		{condition "cannon gunbagged"}
-	}
-	{engine_toggle
-		{position 2 0}
-		;{condition "vehicle" "single"}
-		{condition "engine"}
-	}
+	
+; // second row-------------------------
+
 	{gc_cp_browse_attack
 		{position 0 1}
+	}
+
+	{gc_cp_lock_ammo
+		{position 1 1}
+		{condition "vehicle disabled"}
 	}
 	{gc_cp_browse_useitem
 		{position 1 1}
 		{condition "human"}
 	}
+	
+	{weapon_undeploy
+		{position 1 1}
+		{condition "cannon gunbagged"}
+	}
+	
 	{gc_cp_browse_special
 		{position 2 1}
 	}
+	
+	{gc_cp_squad_control
+		{position 3 1}
+		{condition "human multiple disabled"}
+	}
+	{repair
+		{position 3 1}
+		{condition "vehicle disabled"}
+	}
+	
+; // third row-------------------------	
+	
 	{rotate
 		{position 0 2}
 	}
+	
+	{gc_cp_browse_emplacement
+		{position 1 2}
+		{condition "human barricade disabled"}
+	}
+	
 	{emit
 		{position 1 2}
 		{condition "vehicle"}
 	}
-	{gc_cp_browse_emplacement
-		{position 1 2}
-		{condition "human disabled"}
+	
+	{gc_cp_state_reload
+		{position 2 2}
+		{condition "human"}
 	}
+	;{gc_cp_state_hatch
+	;	{position 2 2}
+	;	{condition "hatch"}
+	;}
+	
+	{switch_hatch
+		{position 2 2}
+		{condition "vehicle with_open_zpu"}
+	}
+	
+	{sandbag_vehicle
+		{position 2 2}
+		{condition "cannon"}
+	}
+	
 	{gc_cp_command_cancel
 		{position 2 2}
 	}

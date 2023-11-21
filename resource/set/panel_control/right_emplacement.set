@@ -6,16 +6,24 @@
 
 	{barricade_sq
 		{position 0 0}
-		{condition "barricade disabled"}
+		{condition "human barricade disabled"}
 	}
+	
 	{barricade
 		{position 1 0}
-		{condition "barricade disabled"}
+		{condition "human barricade disabled"}
 	}
+	
 	{barbwire
 		{position 2 0}
 		{condition "human barricade disabled"}
 	}
+	
+	{medic_rally
+		{position 3 0}
+		{condition "human disabled"}
+	}
+	
 	{hull_down
 		{position 2 0}
 		{condition "vehicle dozer disabled"}
@@ -25,43 +33,48 @@
 
 	{hedgehog
 		{position 0 1}
-		{condition "barricade disabled"}
+		{condition "human barricade disabled"}
 	}
+	
 	{foxhole
 		{position 1 1}
-		{condition "barricade"}
+		{condition "human barricade disabled"}
 	}
+	
 	{fin_coastal_gun
-		{position 1 1}
-		{condition "barricade"}
-	}
-	{foxhole_big
 		{position 2 1}
-		{condition "barricade disabled"}
+		{condition "human barricade disabled"}
+	}
+	
+	{foxhole_big
+		{position 3 1}
+		{condition "human barricade disabled"}
 	}
 	
 ; third row-------------------------
 
-	{medic_rally
-		{position 0 2}
-		{condition "human "}
-	}
-
+;	{mortar_pit
+;		{position 0 2}
+;		{condition "human barricade disabled"}
+;	}
+	
 	{tank_cover
-		{position 0 2}
-		{condition "barricade"}
-	}
-	{fin_bunker
 		{position 1 2}
-		{condition "barricade"}
+		{condition "human barricade disabled"}
 	}
-	{gc_cp_browse_back
+	
+	{fin_bunker
 		{position 2 2}
+		{condition "human barricade disabled"}
+	}
+	
+	{gc_cp_browse_back
+		{position 3 2}
 	}
 	
 	(define "deploy_weapon"
 		{"%deployable_weapon"
-			{position 0 2}
+			{position 0 3}
 			{condition "human"}
 		}
 	)
