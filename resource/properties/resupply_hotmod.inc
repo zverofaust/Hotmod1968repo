@@ -45,8 +45,8 @@
 
 ;// MG
 	{item "rpd_drum"				"ammo" 75 {value 2}}
-	{item "rpk_drum"				"ammo" 75 {value 2}}
-	{item "rpk_mag"					"ammo" 40 {value 2}}
+	;{item "rpk_drum"				"ammo" 75 {value 2}}
+	;{item "rpk_mag"				"ammo" 40 {value 2}}
 	{item "pk_box"					"ammo" 100 {value 2}}
 	{item "hmgun_rus_kpvt"			"ammo" 50 {value 2}}
 	{item "mgun_rus"				"ammo" 50 {value 2}}
@@ -108,7 +108,7 @@
 ;// AT
 	{item "bazooka"					"ammo" 1  {value 10}}
 	{item "m67"						"ammo" 1  {value 10}}
-	{item "gustav"					"ammo" 1  {value 10}}
+	{item "gustaf"					"ammo" 1  {value 10}}
 	{item "m20"						"ammo" 1  {value 10}}
 
 ;// Light weaponry -- For all man-portable (emplacement) heavy weapons
