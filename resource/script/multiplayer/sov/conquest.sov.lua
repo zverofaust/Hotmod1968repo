@@ -104,7 +104,7 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Tank", "Light", "AT",}, unit = "it-1"},
 				{priority = 0.5, type = {"Tank", "Light", "AA",}, unit = "shilka"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "t-62a"},
-				--{priority = 1.0, type = {"Tank", "Heavy",}, unit = "t-64"},
+				{priority = 0.3, type = {"Tank", "Heavy",}, unit = "t-64_obj432"},
 			--Tanks_heavy
 				{priority = 1.0, type = {"Tank", "Heavy",}, unit = "t-10m_1957"},
 				{priority = 1.0, type = {"Tank", "Heavy",}, unit = "t-10m"},
