@@ -113,12 +113,39 @@
 	{"speed" 1.15}
 )
 
-(define "tankman"			;// Tank Crew
+(define "guncrew"				;// Gun crew Tier 1
+	("skilled_gun")
+)
+
+(define "guncrew_2"				;// Gun crew Tier 2 - USMC, VDV etc
+	("expert_gun")
+)
+
+(define "guncrew_3"				;// Gun crew Tier 3 - Rangers, Spetsnaz, Specops, etc
+	("elite_gun")
+)
+
+(define "crewman"				;// Vehicle crew Tier 1
 	("skilled_repair")
 	("skilled_gun")
 )
 
-(define "vehicleman"			;// Tank Crew
+(define "crewman_t2"			;// Vehicle crew Tier 2 - USMC, VDV etc
+	("skilled_repair")
+	("expert_gun")
+)
+
+(define "crewman_t3"			;// Vehicle crew Tier 3 - Rangers, Spetsnaz, Specops, etc
+	("skilled_repair")
+	("elite_gun")
+)
+
+(define "tankman"				;// Tank crew vanilla
+	("skilled_repair")
+	("skilled_gun")
+)
+
+(define "vehicleman"			;// Vehicle crew vanilla
 	("skilled_repair")
 	("skilled_gun")
 )

@@ -123,10 +123,10 @@
 	{barricade
 		{"fortifications" "barricade_sq"}
 		{"fortifications" "barricade"}
-		
+
 		{"fortifications" "barbwire"}
 		{"fortifications" "hedgehog"}
-		
+
 		{"fortifications" "foxhole"}
 		{"fortifications" "foxhole_big"}
 		{"fortifications" "tank_cover"}
@@ -134,11 +134,13 @@
 		{"fortifications" "heavy_mg_mg34"}
 		{"fortifications" "heavy_mg_maxim"}
 		{"fortifications" "heavy_mg_maxim_m1910_30"}
+		{"fortifications" "heavy_mg_m1917_30cal"}
 	}
 	{"resources" "1000%"}
 	{"resources_regeneration" "0%"}
 	{mechanic factor 1.0}
 )
+
 
 ;/* - Repair Skills - */
 

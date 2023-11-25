@@ -64,6 +64,20 @@
 	{button "vehicles"}
 )
 
+; vehicle with 3 types of crew
+(define "vehicle3"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
+	{content "* ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 )"}
+	{button "vehicles"}
+)
+
+; vehicle with 4 types of crew
+(define "vehicle4"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
+	{content "* ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 )"}
+	{button "vehicles"}
+)
+
 ;//////// THE FOLLOWING SETTINGS CREATE SQUADS WHICH NEED OWN ICONS/////////////
 
 ; special squad setup for offmap supports
@@ -79,9 +93,9 @@
 	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
 	{content "%vehicle ( mp/%side/%period/%crew )"}
 	{button "vehicles"}
-)
+) 
 
-; squad setup for vehicle, 2 crew
+;squad setup for vehicle, 2 crew
 (define "squad_vehicle2"
 	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
 	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 )"}
@@ -201,6 +215,7 @@
 
 (define "squad_weaponteam_conquest"
 	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2"}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
@@ -356,6 +371,90 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 mp/%side/%period/%c9 mp/%side/%period/%c10"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_vehicle_with3types_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "%vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 )"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_vehicle_with7types_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "%vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 )"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_vehicle_with8types_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "%vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 )"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_vehicle_with10types_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "%vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 mp/%side/%period/%c9 mp/%side/%period/%c10 )"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_with5types_1vehicle_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 %vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 ) "}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_with6types_1vehicle_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 %vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 ) "}
 		{tags "conquest conquestonly %side %period"}
 		{level 1}
 		{cost 0}
