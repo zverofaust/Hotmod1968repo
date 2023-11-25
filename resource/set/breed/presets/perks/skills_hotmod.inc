@@ -163,6 +163,10 @@
 
 ;/* - Tank and Cannon Main Gun Weapon Skills - */
 
+(define "elite_gun"
+	{"tank_gun" lvl_6}
+)
+
 (define "expert_gun"
 	{"tank_gun" lvl_4}
 )

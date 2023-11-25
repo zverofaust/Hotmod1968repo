@@ -130,12 +130,12 @@
 	("skilled_gun")
 )
 
-(define "crewman_t2"			;// Vehicle crew Tier 2 - USMC, VDV etc
+(define "crewman_2"			;// Vehicle crew Tier 2 - USMC, VDV etc
 	("skilled_repair")
 	("expert_gun")
 )
 
-(define "crewman_t3"			;// Vehicle crew Tier 3 - Rangers, Spetsnaz, Specops, etc
+(define "crewman_3"			;// Vehicle crew Tier 3 - Rangers, Spetsnaz, Specops, etc
 	("skilled_repair")
 	("elite_gun")
 )
