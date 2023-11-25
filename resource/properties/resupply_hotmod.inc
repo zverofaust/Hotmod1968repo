@@ -133,7 +133,7 @@
 
 (define "items_light_prc"
 	;// Rifle
-	{item "mosin"					"ammo" 10 {value 2}}
+	{item "rifle_rus" "clip"		"ammo" 10 {value 1}}
 )
 
 (define "items_light_frg"
@@ -145,7 +145,7 @@
 
 	{item "cobra" 			"atgm"	"ammo" 1  {value 15}}
 	{item "mortarfrg_120" "he"		"ammo" 1  {value 9}}
-	{item "mortarfrg_120" "sm"		"ammo" 1  {value 9}}
+	;{item "mortarfrg_120" "sm"		"ammo" 1  {value 9}}
 	
 	{item "gunbag_frg_cobra"				1 {value 10}}
 )
