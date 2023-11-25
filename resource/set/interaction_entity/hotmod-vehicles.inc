@@ -1541,6 +1541,17 @@
 	}
 }
 
+{"t64_obj432 tank"
+	("t28_sound")
+	
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+		{delay 1.2
+			{ani_play "eject"}
+		}
+	}
+}
+
 {"t-72_ural tank"
 	("t28_sound")
 	{on operatable on

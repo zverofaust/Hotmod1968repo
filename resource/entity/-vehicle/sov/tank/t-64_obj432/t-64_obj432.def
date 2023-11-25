@@ -1,0 +1,154 @@
+{game_entity		;T-64 base
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc"  scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	(include "t-64_obj432.ext")
+	{props "heavy" "diesel" "vision_lev04" "muzzle_122mm_128mm" "shell_eject1" "smoke" "ess" "cw_panorama"}
+	{targetclass "tank_heavy"}
+	{targetSelector "tank_medium"}
+	{PatherId "t34"}
+
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+
+	{extender "shield"
+		{on}
+	}
+	
+	("crew_3_human_2_extended")
+	;("seat_4_human")
+
+	(define "crew_open"
+	{sensor
+		{visor "top"
+			{vision "human"}
+			{bone "%visorbone"}
+		}
+	}
+	{placer
+		{place "%place"
+			{group "%group"}
+			{linkbone "%bone"}
+			{visor "top"}
+			{openForCrush}
+			{sealable}
+		}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{link "%door" "%place" {anm "%anm_left"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "%anm_right"} {forward putoff} {reverse puton}}
+	}
+)
+
+	{sensor		
+		{visor "driver" 	
+			{vision "tank_driver"}
+			{bone "Visor2"}
+		}
+		{visor "gunner" 
+			{vision "tank_range_250"}
+			{bone "Visor1"}
+		}
+		
+		{visor "commander"			
+			{vision "tank_commander"}
+			{bone "Visor3"}
+		}
+	}
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} }
+			{reverse {end "emit_tank_1_hold"} }
+		}
+		{anm "left"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open_charger"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_charger" -1}}
+		}
+		{anm "right"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "open_commander"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_commander" -1}}
+		}
+		{anm "armor"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_body"}}
+		}
+	}
+	
+	;("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	;("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	;("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	;("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+		
+	{extender "inventory"
+		{box
+			{item "ammo bullet115_2a20 apfsds" 12} ; 40 rounds
+			{item "ammo bullet115_2a20 heat" 10}
+			{item "ammo bullet115_2a20 he" 16}
+			{item "pk_box" 2000}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon			"115mm_d-68t" filling "ammo bullet115_2a20 apfsds" 1}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("hm68_abm_stab_range")
+		}
+		{place "mgun2"
+			{type "coaxial"}
+			{weapon "pkt" filled}
+			{foresight "foresight5"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun1"
+			{type "commander"}
+			{weapon "commander_vision"}
+			{foresight "vision_rot"}
+			{gunner "commander"}
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 37000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
+		("mobility_tank"
+			speed(65)  ;---------Max speed when fully accelerated on road, km/h.
+			reverse(9.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(38.0) ;-------Weight in Tonnes.
+			power(700) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(1000) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(500) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "t-64_obj432.mdl"}
+
+	{bone "turret"			;gun horizontal
+		{speed2 24}			;degree per second
+	}
+	{bone "gun_rot"			;gun vertical
+		{speed2 4}			;degree per second
+		{limits 12 -6}		;min down to max up
+	}
+}
+

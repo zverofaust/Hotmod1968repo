@@ -1,0 +1,79 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 15mm
+	; gun 20mm
+
+	("tank_medium_tier3")
+	
+	;volume, component/tag
+	
+	("shield_tear" args "shieldf" 5)
+	("shield_tear" args "shieldb" 5)
+	("shield_tear" args "shieldt" 5)
+	("shield_tear" args "shieldr1" 5)
+	("shield_tear" args "shieldr2" 5)
+	("shield_tear" args "shieldl1" 5)
+	("shield_tear" args "shieldl2" 5)
+	{component "shieldr" {tags "shield"}}
+	{component "shieldl" {tags "shield"}}
+
+	("fuel" args "fuel")
+	("ammo" args "ammo")
+	("transmission" args "transmission")
+	
+	("tracks" repair(30) thickness(20))
+	("gun" repair(30) thickness(20))
+	;("armor_comp_values" turret(1) body(25))
+	("armor_comp_values" turret(2005) body(2005)) ;for test 
+
+	{volume "body1"			; Full hull
+		{component "body"}
+		{thickness 80
+			;{front 180}		; Glacis
+			{front 130}
+			{top 30}
+			{rear 50}
+			{bottom 30}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	
+	{volume "turret"		; Turret
+		{component "turret"}
+		{thickness 280
+			{front 420}
+			{top 80}
+			{rear 100}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	
+	{volume "turret2"		; Commander Cupola
+		{thickness 100
+			{front 1200}
+			{top 80}
+			{rear 100}
+			{bottom 0}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	{volume "mantlet"		; Gun mask
+		{thickness 320}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	{volume "engine"		
+		{thickness 50}
+	}
+	
+	{volume "trackright"		
+		{Able{holed}}
+	}
+	
+	{volume "trackleft"		
+		{Able{holed}}
+	}
