@@ -67,37 +67,6 @@
 	}
 )
 
-(define "weapon_construction"
-	{Action "%name"
-		{Button "deploy_weapon"}
-		{Cursor "tripod"}
-		{fx "flashred"}
-		{Entity "%entity"}
-		{item "%item"}
-		{item_in_box}
-		{RequireSelect}
-		{NotifySelect}
-		{Spacing %spacing}
-		{Cost %cost}
-		{Rotation %rotation}
-		{AbleRotate}
-		{AbleEnqueue}
-		%d
-		{TerrainRestrictions %restrictions}
-		{Instructions
-			{bind range 1}
-			{disable_action_restart}
-			{free_hands}
-			{reserve_hands}
-			{animations "%animation %animation" random loop totaltime %time paint 1}
-			{install "%entity" %rotation}
-			{unreserve_hands}
-			{fsm_request nocheck "hold-nothing"}
-			%e
-		}
-	}
-)
-
 (define "fortify"
 	{Action "%name"
 		{Cursor "barricade"}
@@ -150,6 +119,39 @@
 	}
 )
 
+; //  ADDED BY HOTMOD
+
+(define "weapon_construction"
+	{Action "%name"
+		{Button "deploy_weapon"}
+		{Cursor "tripod"}
+		{fx "flashred"}
+		{Entity "%entity"}
+		{item "%item"}
+		{item_in_box}
+		{RequireSelect}
+		{NotifySelect}
+		{Spacing %spacing}
+		{Cost %cost}
+		{Rotation %rotation}
+		{AbleRotate}
+		{AbleEnqueue}
+		%d
+		{TerrainRestrictions %restrictions}
+		{Instructions
+			{bind range 1}
+			{disable_action_restart}
+			{free_hands}
+			{reserve_hands}
+			{animations "%animation %animation" random loop totaltime %time paint 1}
+			{install "%entity" %rotation}
+			{unreserve_hands}
+			{fsm_request nocheck "hold-nothing"}
+			%e
+		}
+	}
+)
+
 (define "callin"
 	{Action "%name"
 		{Cursor "cursor_head"}
@@ -184,7 +186,7 @@
 )
 
 (define "building_expendable"
-	("construction"	name(%name) entity(%entity) animation(%animation) time(%time) rotation(%rotation) restrictions("shallow_water water") cost(%cost) d() spacing(%spacing) item(%item) e({remove_from_inventory}) )
+	("construction"	name(%name) entity(%entity) animation(%animation) time(%time) rotation(%rotation) restrictions(%restrictions) cost(%cost) d() spacing(%spacing) item(%item) e({remove_from_inventory}) )
 )
 
 (define "fortification_draggable"
@@ -216,8 +218,8 @@
 ("entrenchment_rotate"		name(fin_bunker)		entity(45mm_pillbox)		animation(stand_dig_01)				time(120)	rotation(-90.0)	spacing(180) cost(50)	item(engineering_fin)	restrictions("bridge bridge_wood rock shallow_water ice water"))
 ("entrenchment_rotate_expendable" name(fin_coastal_gun)	entity(75mm_pillbox_stage1)	animation(stand_dig_01)			time(120)	rotation(180.0)	spacing(180) cost(100)	item(engineering_fin)	restrictions("bridge bridge_wood rock shallow_water ice water"))
 
-; medic rally, ammobags
-("building_expendable"		name(medic_rally)		entity(medic_rally)			animation(squat_construct_sandbag)	time(30)	rotation(0.0)	spacing(100) cost(1)	item(tent_kit))
+; medic rally
+("building_expendable"		name(medic_rally)		entity(medic_rally)			animation(squat_construct_sandbag)	time(30)	rotation(0.0)	spacing(100) cost(1)	item(tent_kit)	restrictions("shallow_water water"))
 
 ;barricade
 ("fortification_draggable"	name(barricade_sq)		entity(barricade_sq)		animation(squat_construct_sandbag)	time(10)	rotation(0.0)	spacing(0)	cost(5))
