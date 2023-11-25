@@ -12,6 +12,7 @@ Purchases["era1960.csa"] = {
 				{priority = 1.0, type = {"Infantry", "Team", "Class1",}, unit = "single_sniper(csa)"},
 				
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_reservist(csa)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_reservist_m14(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_fireteamap(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_fireteamat(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_rifle(csa)"},
