@@ -34,7 +34,7 @@
 	{research_stage %r}
 	{research_stage_max %mr}
 	{squad_cost_factor 1}
-	{round_multiple 1.0}
+	{round_multiple 5.0}
 	{level 1}
 	{button "vehicles"}
 )
@@ -80,14 +80,6 @@
 
 ;//////// THE FOLLOWING SETTINGS CREATE SQUADS WHICH NEED OWN ICONS/////////////
 
-; special squad setup for offmap supports
-(define "offmap_support"
-	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
-	{content "%vehicle ( mp/%side/%period/%crew )"}
-	{button "vehicles"}
-	{squad_cost_factor 0}
-)
-
 ; squad setup for vehicle, 1 crew
 (define "squad_vehicle"
 	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
@@ -95,7 +87,7 @@
 	{button "vehicles"}
 ) 
 
-;squad setup for vehicle, 2 crew
+; squad setup for vehicle, 2 crew
 (define "squad_vehicle2"
 	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
 	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 )"}
@@ -212,20 +204,6 @@
 ; Squads - the defines with _doctrine have a manual cost() and doctrine() that must be specified on the unit.
 ; For the other normal squads the cost is computed as the sum of the cost of the individual soldiers.
 ;--------------------------------------------------------------------------------------------------
-
-(define "squad_weaponteam_conquest"
-	{"%name(%side)"
-		{charge {delay 0}{interval 0}}
-		{content "mp/%side/%period/%c1 mp/%side/%period/%c2"}
-		{tags "conquest conquestonly %side %period"}
-		{level 1}
-		{cost %cost}
-		{research_stage %min_stage}
-		{research_stage_max %max_stage}
-		{squad_cost_factor 1}
-		{button "vehicles"}
-	}
-)
 
 (define "squad_with2types_0vehicle"
 	{"%name(%side)"
@@ -466,6 +444,29 @@
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; HOTMOD
+
+; special squad setup for offmap supports
+(define "offmap_support"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew )"}
+	{button "vehicles"}
+	{squad_cost_factor 0}
+)
+
+(define "squad_weaponteam_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost %cost}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "vehicles"}
+	}
+)
+
 
 ; 3 different vehicles with 1 type of crew for the first two and 2 for the third; for Soviet conscript MG squad
 (define "squad_3vehicle3"
