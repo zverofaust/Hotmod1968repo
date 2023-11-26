@@ -88,7 +88,7 @@
 (define "items_light_usa"
 
 ;// pistol
-	{item "m1911"					"ammo" 8 {value 1}}
+	{item "m1911a1"					"ammo" 8 {value 1}}
 
 ;// smg
 	{item "m3"						"ammo" 30 {value 2}}
@@ -100,7 +100,7 @@
 
 ;// rifle
 	{item "m1_garand"				"ammo" 8 {value 1}}
-	{item "m1903"					"ammo" 5 {value 1}}
+	{item "springfield"				"ammo" 5 {value 1}}
 	{item "m14"						"ammo" 20 {value 1}}
 	{item "m2_carbine"				"ammo" 15 {value 1}}
 	{item "m16"						"ammo" 20 {value 1}}
@@ -109,7 +109,7 @@
 	{item "bazooka"					"ammo" 1  {value 10}}
 	{item "m67"						"ammo" 1  {value 10}}
 	{item "gustaf"					"ammo" 1  {value 10}}
-	{item "m20"						"ammo" 1  {value 10}}
+	{item "m20_superzook"			"ammo" 1  {value 10}}
 
 ;// Light weaponry -- For all man-portable (emplacement) heavy weapons
 	{item "mortarusa_81" 	"he"	"ammo" 1  {value 5}}
