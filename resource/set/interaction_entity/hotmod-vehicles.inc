@@ -1275,16 +1275,6 @@
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
-{"t-64 tank"
-	("is_sound")
-	{on "spawn_shell_delay" overload
-		("shell_eject_delay" args 3 0.25)
-	}
-	{on fire "gun"
-		{spawn "detector" "foresight1" x}
-	}
-}
-
 {"t-55 tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
@@ -1541,8 +1531,8 @@
 	}
 }
 
-{"t64_obj432 tank"
-	("t28_sound")
+{"t-64_obj432 tank"
+	("kv_sound")
 	
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
@@ -1553,7 +1543,7 @@
 }
 
 {"t-72_ural tank"
-	("t28_sound")
+	("kv_sound")
 	{on operatable on
 		{ani_play "flaps"}
 	}
@@ -4095,22 +4085,6 @@
 
 	}
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
-}
-
-{"is2_prc tank"
-	("is_sound")
-	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
-		{ani_play "mgun_aa" +1.0 resume}
-	}
-	{on "commander_hatch_close" overload
-		{ani_play "open" -1.0 resume}
-		{ani_play "mgun_aa" -1.0 resume}
-	}
-	{on fire "gun"
-		{spawn "detector"  "foresight1" x}
-	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_isu152_gunner2))
 }
 
 {"isu152_prc tank"
