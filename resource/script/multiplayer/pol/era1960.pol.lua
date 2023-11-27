@@ -56,25 +56,25 @@ Purchases["era1960.pol"] = {
 				
 				
 				-- Doctrine = "7 Łużycka Dywizja Desantowa" 7th Lusatian Landing Division
-				{priority = 1.0, type = {"Doctine", "Armored", "Infantry", "MG", "Tier1",}, unit = "doctrine_squad_rifle_mech(pol)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Tier1",}, unit = "doctrine_vehicle_pt76p(pol)"},
-				{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier2",}, unit = "doctrine_vehicle_brdm2(pol)"},
-				{priority = 1.0, type = {"Doctine", "Armored", "Infantry", "MG", "Tier3",}, unit = "doctrine_squad_des_mech(pol)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t55a(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "Infantry", "MG", "Tier1",}, unit = "doctrine_squad_rifle_mech(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "Tier1",}, unit = "doctrine_vehicle_pt76p(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Vehicle", "MG", "Tier2",}, unit = "doctrine_vehicle_brdm2(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "Infantry", "MG", "Tier3",}, unit = "doctrine_squad_des_mech(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t55a(pol)"},
 				
 				-- Doctrine = "6 Pomorska Dywizja Powietrznodesantowa" 6th Pomeranian Air Assault Division
-				{priority = 1.0, type = {"Doctine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_m72(pol)"},
-				{priority = 1.0, type = {"Doctine", "Vehicle", "AT", "Tier2",}, unit = "doctrine_vehicle_gaz69_b10(pol)"},
-				{priority = 1.0, type = {"Doctine", "Vehicle", "Mortar", "Tier2",}, unit = "doctrine_vehicle_gaz69_mortar(pol)"},
-				{priority = 1.0, type = {"Doctine", "Cannon", "AT", "Tier1",}, unit = "spg9_pol_ai"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "AT", "Tier1",}, unit = "doctrine_vehicle_asu85(pol)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t54am1(pol)"},
-				{priority = 1.0, type = {"Doctine", "Infantry", "Tier2",}, unit = "doctrine_squad_roz(pol)"},
-				{priority = 1.0, type = {"Doctine", "Armored", "AT", "Tier3",}, unit = "doctrine_vehicle_9p110(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_m72(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Vehicle", "AT", "Tier2",}, unit = "doctrine_vehicle_gaz69_b10(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Vehicle", "Mortar", "Tier2",}, unit = "doctrine_vehicle_gaz69_mortar(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "AT", "Tier1",}, unit = "spg9_pol_ai"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "AT", "Tier1",}, unit = "doctrine_vehicle_asu85(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t54am1(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Tier2",}, unit = "doctrine_squad_roz(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "AT", "Tier3",}, unit = "doctrine_vehicle_9p110(pol)"},
 			
 				-- Doctrine = "Brygada Obrony Terytorialnej" Territorial Defense Brigade
 				
-				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t54am1(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t54am1(pol)"},
 				
 		}
 	}

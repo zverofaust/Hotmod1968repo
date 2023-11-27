@@ -65,11 +65,11 @@ Purchases["era1960.frg"] = {
 				
 			
 			-- Doctrine Mechanized = "Panzergrenadiere"
-				{priority = 1.0, type = {"Doctine", "Armored", "MG", "Tier1",}, unit = "doctrine_squad_panzergren(frg)"},
-				{priority = 1.0, type = {"Doctine", "Armored", "MG", "Tier2",}, unit = "doctrine_squad_panzergren_hs30(frg)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "AT", "Tier2",}, unit = "doctrine_vehicle_spz_m40(frg)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_leopard1a1(frg)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Artillery", "Tier1",}, unit = "doctrine_vehicle_m109g(frg)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "MG", "Tier1",}, unit = "doctrine_squad_panzergren(frg)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "MG", "Tier2",}, unit = "doctrine_squad_panzergren_hs30(frg)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "AT", "Tier2",}, unit = "doctrine_vehicle_spz_m40(frg)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_leopard1a1(frg)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "Artillery", "Tier1",}, unit = "doctrine_vehicle_m109g(frg)"},
 				
 		}
 	}

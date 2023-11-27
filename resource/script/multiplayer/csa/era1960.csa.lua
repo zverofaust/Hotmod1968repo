@@ -68,47 +68,47 @@ Purchases["era1960.csa"] = {
 				
 			
 			-- Doctrine Irregular = "Armored Cavalry Squadron"
-				{priority = 1.0, type = {"Doctine", "Infantry", "Armored", "MG", "Tier1",}, unit = "doctrine_squad_acav_moto(csa)"},
-				{priority = 0.5, type = {"Doctine", "Infantry", "Armored", "AT", "Tier1",}, unit = "doctrine_squad_acav_weapon_moto(csa)"},			
-				{priority = 1.0, type = {"Doctine", "Armored", "Mortar", "Tier2",}, unit = "doctrine_vehicle_m106(csa)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109_acav(csa)"},
-				{priority = 0.5, type = {"Doctine", "Tank", "Light", "Medium", "Tier2",}, unit = "doctrine_vehicle_m48_acav(csa)"},
-				{priority = 1.0, type = {"Doctine", "Armored", "Support", "Tier2",}, unit = "doctrine_vehicle_m132(csa)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Support", "AT", "Tier3",}, unit = "doctrine_vehicle_m551acav(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Armored", "MG", "Tier1",}, unit = "doctrine_squad_acav_moto(csa)"},
+				{priority = 0.5, type = {"Class3", "Doctrine", "Infantry", "Armored", "AT", "Tier1",}, unit = "doctrine_squad_acav_weapon_moto(csa)"},			
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "Mortar", "Tier2",}, unit = "doctrine_vehicle_m106(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109_acav(csa)"},
+				{priority = 0.5, type = {"Class3", "Doctrine", "Tank", "Light", "Medium", "Tier2",}, unit = "doctrine_vehicle_m48_acav(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "Support", "Tier2",}, unit = "doctrine_vehicle_m132(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "Support", "AT", "Tier3",}, unit = "doctrine_vehicle_m551acav(csa)"},
 				
 			-- Doctrine Amphibious = "USMC Battalion Landing Team"
-				{priority = 1.0, type = {"Doctine", "Tier1",}, unit = "doctrine_squad_usmc_fireteam(csa)"},
-				{priority = 1.0, type = {"Doctine", "Cannon", "Mortar", "Tier1",}, unit = "doctrine_vehicle_howtar(csa)"},
-				{priority = 1.0, type = {"Doctine", "Infantry", "Armored", "MG", "Tier2",}, unit = "doctrine_squad_usmc_lvtp(csa)"},
-				{priority = 1.0, type = {"Doctine", "Tier3",}, unit = "doctrine_squad_udt(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tier1",}, unit = "doctrine_squad_usmc_fireteam(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "Mortar", "Tier1",}, unit = "doctrine_vehicle_howtar(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Armored", "MG", "Tier2",}, unit = "doctrine_squad_usmc_lvtp(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tier3",}, unit = "doctrine_squad_udt(csa)"},
 				
 			-- Doctrine Mechanized = "Air Cavalry Squadron"
 				--[[It's all airlifted]]
 	
 			-- Doctrine Tank = "Armor Battalion Task Force"
-				{priority = 1.0, type = {"Doctine", "Armored", "AA", "Tier2",}, unit = "doctrine_vehicle_m114a2(csa)"},			
-				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_m60(csa)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109(csa)"},
-				{priority = 1.0, type = {"Doctine", "Armored", "Artillery", "Tier3",}, unit = "doctrine_vehicle_m110(csa)"},
-				{priority = 1.0, type = {"Doctine", "Armored", "AA", "Tier3",}, unit = "doctrine_vehicle_m163(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "AA", "Tier2",}, unit = "doctrine_vehicle_m114a2(csa)"},			
+				--{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_m60(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Support", "Tier2",}, unit = "doctrine_vehicle_m728(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "Artillery", "Tier3",}, unit = "doctrine_vehicle_m110(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "AA", "Tier3",}, unit = "doctrine_vehicle_m163(csa)"},
 				
 			-- Doctrine Heavy = "USMC Expeditionary Brigade"				
-				{priority = 1.0, type = {"Doctine", "Infantry", "Tier1",}, unit = "doctrine_squad_usmc_scout(csa)"},
-				{priority = 1.0, type = {"Doctine", "Cannon", "MG", "Tier2",}, unit = "doctrine_vehicle_mk18(csa)"},
-				{priority = 1.0, type = {"Doctine", "Infantry", "Tier1",}, unit = "doctrine_squad_usmc(csa)"},
-				{priority = 1.0, type = {"Doctine", "Armored", "Support", "AT", "Tier1",}, unit = "doctrine_vehicle_m50(csa)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Support", "Tier3",}, unit = "doctrine_vehicle_m67_zippo(csa)"},
-				{priority = 1.0, type = {"Doctine", "Tank", "Heavy", "Tier3",}, unit = "doctrine_vehicle_m103(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Tier1",}, unit = "doctrine_squad_usmc_scout(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "MG", "Tier2",}, unit = "doctrine_vehicle_mk18(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Tier1",}, unit = "doctrine_squad_usmc(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "Support", "AT", "Tier1",}, unit = "doctrine_vehicle_m50(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Support", "Tier3",}, unit = "doctrine_vehicle_m67_zippo(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Heavy", "Tier3",}, unit = "doctrine_vehicle_m103(csa)"},
 				
 			-- Doctrine Assault = "Airborne Battle Group"
-				{priority = 1.0, type = {"Doctine", "Infantry", "Tier2",}, unit = "doctrine_squad_82nd(csa)"},
-				{priority = 1.0, type = {"Doctine", "Infantry", "Tier2",}, unit = "doctrine_squad_specops(csa)"},
-				{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_mgr3(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Tier2",}, unit = "doctrine_squad_82nd(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Tier2",}, unit = "doctrine_squad_specops(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_mgr3(csa)"},
 				
 			-- Doctrine Support = "Artillery Brigade"	
-				{priority = 1.0, type = {"Doctine", "Tank", "Medium", "Support", "Tier2",}, unit = "doctrine_vehicle_m728(csa)"},
-				--{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m114(csa)"},
-				--{priority = 1.0, type = {"Doctine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_m115(csa)"},
+				--{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m114(csa)"},
+				--{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_m115(csa)"},
 				
 		}
 	}
