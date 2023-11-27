@@ -2,14 +2,6 @@
 ;Date:        Mon Nov 27 12:02:30 2023
 ;File:        D:\Cold War\ModelWIP\USSR\T-64\T-64.max
 {Skeleton
-	{animation
-		{sequence "start" {speed 0.15}}
-		{sequence "stop" {speed 0.15}}
-		{sequence "fire" {speed 0.2}}
-		{sequence "open_commander" {speed 0.15}}
-		{sequence "open_gunner" {speed 0.15}}
-		{sequence "open1" {speed 0.25}}
-	}
 	{bone "basis"
 		{Orientation
 			1	0	0
@@ -20,16 +12,6 @@
 			{parameters "id=body;"}
 			{Position 3.44264	0.000145735	18.683}
 			{VolumeView "body.ply"}
-			{bone "detail3"
-				{parameters "id=shieldf;"}
-				{Matrix34
-					0.933585	0	-0.358357
-					0	1	0
-					0.358357	0	0.933585
-					52.0988	-0.000142148	2.63858
-				}
-				{VolumeView "detail3.ply"}
-			}
 			{bone "fender_r"
 				{parameters "id=body;"}
 				{Matrix34
@@ -84,11 +66,6 @@
 				{parameters "id=engine;"}
 				{Position -44.2372	9.33878e-05	4.14497}
 				{VolumeView "engine.ply"}
-			}
-			{bone "detail1"
-				{parameters "id=body;"}
-				{Position -6.02637	-0.0381306	7.09077}
-				{VolumeView "detail1.ply"}
 			}
 			{bone revolute "wheell1"
 				{parameters "id=trackleft;Radius=0.3;"}
@@ -222,11 +199,6 @@
 						{parameters "id=shieldt;"}
 						{Position 0.00471115	-0.00508404	0.00111389}
 						{VolumeView "ir.ply"}
-						{bone "detail7"
-							{parameters "id=turret;"}
-							{Position 2.17683	0	0.195869}
-							{VolumeView "detail7.ply"}
-						}
 					}
 				}
 				{bone revolute "gun_rot"
@@ -265,11 +237,6 @@
 						}
 					}
 				}
-				{bone "detail2"
-					{parameters "id=turret;"}
-					{Position 12.3465	-2.41845	11.417}
-					{VolumeView "detail2.ply"}
-				}
 				{bone "gunner_turret"
 					{parameters "id=turret;"}
 					{Position 0.0357093	16.1389	9.58892}
@@ -277,11 +244,6 @@
 					{bone "visor1"
 						{Position 2.29177	0.000379562	3.81992}
 					}
-				}
-				{bone "detail5"
-					{parameters "id=turret;"}
-					{Position -17.6713	3.64209	10.8453}
-					{VolumeView "detail5.ply"}
 				}
 				{bone "cover_gunner"
 					{parameters "id=turret;"}
@@ -309,11 +271,6 @@
 							{parameters "id=turret;"}
 							{Position -0.000531197	0.00139141	-0.798027}
 							{VolumeView "commander_turret.ply"}
-							{bone "detail8"
-								{parameters "id=turret;"}
-								{Position 5.04513	0.00293541	5.38955}
-								{VolumeView "detail8.ply"}
-							}
 							{bone "cover_commander"
 								{parameters "id=turret;"}
 								{Position 0.5849	0.034173	4.01402}
@@ -337,26 +294,6 @@
 							}
 						}
 					}
-				}
-				{bone "detail10"
-					{parameters "id=turret;"}
-					{Matrix34
-						0.891006	0.453991	0
-						-0.453991	0.891006	0
-						0	0	1
-						-22.0606	-11.9148	6.85586
-					}
-					{VolumeView "detail10.ply"}
-				}
-				{bone "detail9"
-					{parameters "id=turret;"}
-					{Matrix34
-						0.882948	-0.469471	0
-						0.469471	0.882948	0
-						0	0	1
-						-22.0578	10.69	6.85586
-					}
-					{VolumeView "detail9.ply"}
 				}
 			}
 			{bone "visor2"
@@ -411,31 +348,6 @@
 					-0.994522	0.104529	0
 					0	0	1
 					-31.9563	24.5704	-0.589951
-				}
-			}
-			{bone "detail4"
-				{parameters "ID=shieldb;"}
-				{Matrix34
-					0.743145	0	-0.669131
-					0.669131	0	0.743145
-					0	-1	0
-					-62.2285	0.452681	2.05866
-				}
-				{VolumeView "detail4.ply"}
-			}
-			{bone "detail11"
-				{parameters "id=body;"}
-				{Position -59.1854	-0.780738	10.9856}
-				{VolumeView "detail11.ply"}
-				{bone "drum1"
-					{parameters "id=shieldd2;"}
-					{Position -1.14723	7.97171	5.51458}
-					{VolumeView "drum1.ply"}
-				}
-				{bone "drum2"
-					{parameters "id=shieldd1;"}
-					{Position -1.14724	-8.26343	5.51458}
-					{VolumeView "drum2.ply"}
 				}
 			}
 		}
@@ -784,21 +696,6 @@
 	{Bone "body"}
 	{Position -0.0275495	0.118752	-0.479145}
 }
-{Volume "comp_armor_body"
-	{Box 39.0953 16.7548 1.06237}
-	{Bone "body"}
-	{Matrix34
-		0	1	0
-		-0.906308	0	0.422618
-		0.422618	0	0.906308
-		49.2338	0.18187	2.56636
-	}
-}
-{Volume "comp_armor_turret"
-	{Polyhedron "comp_armor_turret.vol"}
-	{Bone "turret"}
-	{Position 21.0293	0.00114526	4.98136}
-}
 {Volume "engine"
 	{Box 25.0198 34.1179 13.6472}
 	{Bone "body"}
@@ -834,26 +731,7 @@
 		-2.09802	7.94073	5.54083
 	}
 }
-{Volume "shieldb"
-	{Cylinder 2.12393 55.2783}
-	{Bone "detail4"}
-	{Matrix34
-		0.743145	0.669131	0
-		-0.669131	0.743145	0
-		0	0	1
-		0.011219	-0.080368	0.0410051
-	}
-}
-{Volume "shieldf"
-	{Box 26.4875 3.22426 0.661494}
-	{Bone "detail3"}
-	{Matrix34
-		0	1	0
-		1.17421e-05	0	1
-		1	0	-1.17123e-05
-		-0.0045839	0.0287062	-0.00835799
-	}
-}
+
 {Volume "shieldl1"
 	{Polyhedron "shieldl1.vol"}
 	{Bone "fender_l"}
