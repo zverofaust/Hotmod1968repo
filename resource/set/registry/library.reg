@@ -1,6 +1,8 @@
 {library
 	{vehicles
 		{filter
+		
+		;HOTMOD STUFF
 			{exclude "*/sov/airborne/su-7_airstrike/*"}
 			{exclude "*/sov/airborne/su-7_airstrike_rocket/*"}
 			{exclude "*/sov/airborne/mig-19_airstrike/mig-19_airstrike_*"}
@@ -39,15 +41,56 @@
 			{exclude "*/germany/*"}
 			{exclude "*/finland/*"}
 		
-			{exclude "*/x/*"}
 			{exclude "*/generic/do not use/*"}
+			{exclude "*_ai.def"}
+			{exclude "*_airlift.def"}
+			{exclude "*_airborne.def"}
+			
+			; END HOTMOD STUFF
+			
+			{exclude "*/x/*"}
 			{exclude "*/generic/special/*"}
 			{exclude "*/generic/marine/*"}
 			{exclude "*/generic/train/drg_class75/drg_class75_rus.def*"}
 			{exclude "*/placeholder/*"}
-			{exclude "*_ai.def"}
-			{exclude "*_airlift.def"}
-			{exclude "*_airborne.def"}
+
+			{exclude "*/ussr/cannon/maxim/heavy_mg_maxim.def"}
+			{exclude "*/ussr/cannon/maxim_stand*"}
+			{exclude "*/ussr/cannon/57mm_zis2_late.def"}
+			{exclude "*/ussr/cannon/76mm_m1927_late.def"}
+
+			{exclude "*/germany/cannon/mg42_lafette/heavy_mg_mg34.def"}
+			{exclude "*/germany/cannon/37mm_pak36/37mm_pak36_late*"}
+			{exclude "*/germany/cannon/50mm_pak38/50mm_pak38_late*"}
+			{exclude "*/germany/cannon/75mm_pak9738/75mm_pak9738_late*"}
+			{exclude "*/germany/cannon/80mm_sgrw34/80mm_sgrw34_rapid.def"}
+			{exclude "*/germany/cannon/150mm_sig33/150mm_sig33_late.def"}
+			{exclude "*/germany/cannon/panzernest_krab/panzernest_krab_ger.def"}
+			{exclude "*/germany/special/150mm_sw34/150mm_sw34_ger.def"}
+
+			{exclude "*/finland/airborne/blenheim_mk1/blenheim_mk1_recon.def"}
+			{exclude "*/finland/cannon/maxim_m1910_30/heavy_mg_maxim_m1910_30.def"}
+			{exclude "*/finland/cannon/50mm_pstk38/50mm_pstk38_late*"}
+			{exclude "*/finland/cannon/84mm_k18/84mm_k18_late*"}
+		
+			{exclude "*/usa/cannon/m1917_30cal/heavy_mg_m1917_30cal.def"}
+			{exclude "*/usa/cannon/81mm_m1/81mm_m1_sm*"}
+			{exclude "*/usa/cannon/57mm_m1/57mm_m1_early*"}
+			{exclude "*/usa/cannon/57mm_m1/57mm_m1_late*"}
+			{exclude "*/usa/cannon/155mm_m1a1_longtom/155mm_m1a1_longtom_sm*"}
+			{exclude "*/usa/car/cckw/cckw_inf*"}
+			{exclude "*/usa/btr/m2_halftrack/m2_halftrack_at*"}
+			{exclude "*/usa/btr/m3_halftrack/m3_halftrack_inf*"}
+			{exclude "*/usa/btr/m3_halftrack/m3_halftrack_inf_late*"}
+			{exclude "*/usa/btr/m3a1_halftrack/m3a1_halftrack_inf*"}
+			{exclude "*/usa/btr/m3a1_halftrack/m3a1_halftrack_inf_late*"}
+			{exclude "*/usa/tank_medium/m7_hmc/m7_hmc_sm*"}
+			{exclude "*/usa/tank_medium/m10_gmc/m10_gmc_early*"}
+			{exclude "*/usa/tank_medium/m12_gmc/m12_gmc_sm*"}
+			{exclude "*/usa/tank_medium/m36_gmc/m36_gmc_late*"}
+			{exclude "*/usa/tank_medium/m36_gmc/m36_gmc_t33*"}
+			{exclude "*/usa/tank_medium/m36b1_gmc/m36b1_gmc_late*"}
+			{exclude "*/usa/tank_medium/m36b1_gmc/m36b1_gmc_t33*"}
 		}
 		{optLoc "mp/army/"}
 		{rotation "-40.0 20.0"}
@@ -57,18 +100,19 @@
 		}
 	}
 	{weapons
-		{rotation "20.0 20.0"}
+		{rotation "185.0 15.0"}
 		{entLoc "desc/weapon/"}
-		{Rifles
-			{dir "/set/stuff/rifle/"}
+		{optLoc "main_menu2/library/weapons/"}
+		{a_pistol
+			{dir "/set/stuff/pistol/"}
 			{filter
 				{exclude "*.ammo"}
 				{exclude "*.presets"}
 				{exclude "*.pattern"}
-				{exclude "*mosin_m27_ironsights"}
+				{exclude "*osp30_signal"}
 			}
 		}
-		{SMGs
+		{b_smg
 			{dir "/set/stuff/smg/"}
 			{filter
 				{exclude "*.ammo"}
@@ -76,7 +120,23 @@
 				{exclude "*.pattern"}
 			}
 		}
-		{MGs
+		{c_rifle
+			{dir "/set/stuff/rifle/"}
+			{filter
+				{exclude "*.ammo"}
+				{exclude "*.presets"}
+				{exclude "*.pattern"}
+				{exclude "*ptr*"}
+				{exclude "*mosin_m27_ironsights"}
+				{exclude "*k98_antitank"}
+				{exclude "*mosin_antitank"}
+				{exclude "*garand_grenade_launcher"}
+				{exclude "*m1_carbine_grenade_launcher"}
+				{exclude "*m1a1_carbine_grenade_launcher"}
+				{exclude "*m1903_grenade_launcher"}
+			}
+		}
+		{d_mg
 			{dir "/set/stuff/mgun/"}
 			{filter
 				{exclude "*.ammo"}
@@ -93,33 +153,40 @@
 				{exclude "*mg34_tank_early"}
 				{exclude "*mg34_tank_x2"}
 				{exclude "*mg34_tank_x2_2"}
+				{exclude "*browning_m19a4_x2"}
+				{exclude "*browning_m19a4_left"}
+				{exclude "*browning_m19a4_right"}
+				{exclude "*browning_m19a4_rear"}
+				{exclude "*browning_m19a4_tank"}
+				{exclude "*browning_m2_nomag"}
+				{exclude "*browning_m2_x2"}
+				{exclude "*browning_m2_x4"}
 			}
 		}
-		{Pistols
-			{dir "/set/stuff/pistol/"}
+		{e_at
+			{dir "/set/stuff/rifle/ptr/"}
+			{dir "/set/stuff/rifle/grenade/"}
+			{dir "/set/stuff/bazooka/"}
 			{filter
 				{exclude "*.ammo"}
 				{exclude "*.presets"}
 				{exclude "*.pattern"}
-				{exclude "*osp30_signal"}
+				{exclude "*mosin_grenade_launcher"}
+				{exclude "*k98_grenade_launcher"}
 			}
 		}
-		{ATWeapons
-			{dir "/set/stuff/bazooka/*.weapon"}
-			{filter
-				{exclude "*.ammo"}
-				{exclude "*.presets"}
-				{exclude "*.pattern"}
-			}
-		}
-		{Flamethrowers
+		{f_flamethrower
 			{dir "/set/stuff/flame/"}
 			{filter
+				{exclude "*e4_5_flame_thrower"}
 				{exclude "*ks_24_flame_thrower"}
 				{exclude "*ks_25_flame_thrower"}
+				{exclude "*ks_25_flame_thrower_fin"}
 				{exclude "*ato_41_flame_thrower"}
 				{exclude "*ato_42_flame_thrower"}
-				{exclude "*14mm_flammenwerfer"}
+				{exclude "*14mm_flammenwerfer_pz3"}
+				{exclude "*14mm_flammenwerfer_251_16_l"}
+				{exclude "*14mm_flammenwerfer_251_16_r"}
 				{exclude "*flame_thrower.ammo"}
 				{exclude "*.ammo"}
 				{exclude "*.presets"}
@@ -130,17 +197,49 @@
 	{soldiers
 		{rotation "-40.0 20.0"}
 		{optLoc "mp/army/"}
-		{rus
+		{rus_early
+			{dir "/set/breed/mp/rus/early/*.set"}
+			{entLoc "desc/human/mp/rus/early/"}
+		}
+		{rus_mid
 			{dir "/set/breed/mp/rus/mid/*.set"}
 			{entLoc "desc/human/mp/rus/mid/"}
 		}
-		{ger
+		{rus_late
+			{dir "/set/breed/mp/rus/late/*.set"}
+			{entLoc "desc/human/mp/rus/late/"}
+		}
+		{ger_early
+			{dir "/set/breed/mp/ger/early/*.set"}
+			{entLoc "desc/human/mp/ger/early/"}
+		}
+		{ger_mid
 			{dir "/set/breed/mp/ger/mid/*.set"}
 			{entLoc "desc/human/mp/ger/mid/"}
 		}
-		{fin
+		{ger_late
+			{dir "/set/breed/mp/ger/late/*.set"}
+			{entLoc "desc/human/mp/ger/late/"}
+		}
+		{fin_early
+			{dir "/set/breed/mp/fin/early/*.set"}
+			{entLoc "desc/human/mp/fin/early/"}
+		}
+		{fin_mid
 			{dir "/set/breed/mp/fin/mid/*.set"}
 			{entLoc "desc/human/mp/fin/mid/"}
+		}
+		{fin_late
+			{dir "/set/breed/mp/fin/late/*.set"}
+			{entLoc "desc/human/mp/fin/late/"}
+		}
+		{usa_mid
+			{dir "/set/breed/mp/usa/mid/*.set"}
+			{entLoc "desc/human/mp/usa/mid/"}
+		}
+		{usa_late
+			{dir "/set/breed/mp/usa/late/*.set"}
+			{entLoc "desc/human/mp/usa/late/"}
 		}
 
 	;	{%faction
@@ -155,32 +254,85 @@
 	;	}
 	}
 	{items
-		{rotation "-40.0 20.0"}
+		{rotation "185.0 15.0"}
 		{entLoc "desc/stuff/"}
 		{optLoc "main_menu2/library/items/"}
-		{throwable
-			{dir "/set/stuff/melee"}
+		{ammo
+			{entLoc "desc/ammo/"}
+			{dir "/set/stuff/bazooka/*.ammo"}
+			{dir "/set/stuff/mgun/*.ammo"}
+			{dir "/set/stuff/pistol/*.ammo"}
+			{dir "/set/stuff/smg/*.ammo"}
+			{dir "/set/stuff/rifle/*.ammo"}
+			{filter
+				{exclude "*pistol.ammo"}
+				{exclude "*flare.ammo"}
+				{exclude "*flare_usa.artillery_105.ammo"}
+				{exclude "*flare_usa.artillery_105_vt.ammo"}
+				{exclude "*flare_usa.artillery_155.ammo"}
+				{exclude "*flare_usa.artillery_155_vt.ammo"}
+				{exclude "*flare_usa.artillery_203.ammo"}
+				{exclude "*flare_usa.artillery_203_vt.ammo"}
+				{exclude "*flare_usa.artillery_240.ammo"}
+				{exclude "*flare_usa.mortar_60.ammo"}
+				{exclude "*flare_usa.mortar_81.ammo"}
+				{exclude "*flare.marker.ammo"}
+				{exclude "*flare.signal.ammo"}
+				{exclude "*tt33.ammo"} ; gun model
+				{exclude "*fg42.ammo"} ; gun model
+				{exclude "*shotgun.ammo"} ; gun model
+				{exclude "*shotgun.ammo"} ; gun model
+				{exclude "*stg44.ammo"} ; gun model
+				{exclude "*k98_antitank.ammo"} ; gun model
+				{exclude "*chauchat.ammo"} ; gun model
+				{exclude "*m26.ammo"} ; gun model
+				{exclude "*m26.ammo"} ; gun model
+				{exclude "*madsen.ammo"} ; gun model
+				{exclude "*.presets"}
+				{exclude "*.pattern"}
+			}
+		}
+		{rockets
+			{entLoc "desc/ammo/"}
+			{dir "/set/stuff/reactive/*.ammo"}
+			{filter
+				{exclude "*.presets"}
+				{exclude "*.pattern"}
+			}
+		}
+		{shells
+			{entLoc "desc/ammo/"}
+			{dir "/set/stuff/shell/*.ammo"}
+			{dir "/set/stuff/mortar/*.ammo"}
+			{filter
+				{exclude "*dummy.ap.ammo"}
+				{exclude "*.presets"}
+				{exclude "*.pattern"}
+				{exclude "*mortar_single_60.ammo"}
+				{exclude "*mortar_single_80.ammo"}
+				{exclude "*mortar_single_81.ammo"}
+				{exclude "*mortar_single_120.ammo"}
+			}
+		}
+		{grenades
 			{dir "/set/stuff/grenade"}
 			{filter
 				{exclude "*.presets"}
 				{exclude "*.pattern"}
 			}
 		}
-		{ammo
-			{entLoc "desc/ammo/"}
-			{dir "/set/stuff/shell/*.ammo"}
-			{dir "/set/stuff/reactive/*.ammo"}
-			{dir "/set/stuff/ammo/*.ammo"}
+		{explosives
+			{dir "/set/stuff/explosive"}
 			{filter
-				{exclude "*dummy.ap.ammo"}
+				{exclude "*goliath*"}
 				{exclude "*.presets"}
 				{exclude "*.pattern"}
 			}
 		}
 		{stuff
+			{dir "/set/stuff/melee"}
 			{dir "/set/stuff/med"}
 			{dir "/set/stuff/special"}
-			{dir "/set/stuff/explosive"}
 			{filter
 				{exclude "*canned_meat"}
 				{exclude "*medkit"}
@@ -194,7 +346,6 @@
 				{exclude "*commander_vision"}
 				{exclude "*cumulative_charge"}
 				{exclude "*cumulative_launcher"}
-				{exclude "*goliath*"}
 				{exclude "*lamp"}
 				{exclude "*human"}
 				{exclude "*matchbox"}
@@ -215,6 +366,8 @@
 			{exclude "*dead_horse*"}
 			{exclude "*horse_dead_pose1*"}
 			{exclude "*horse_dead_pose2*"}
+			{exclude "*euro_dead_cow01*"}
+			{exclude "*euro_dead_cow02*"}
 		}
 	}
 }
