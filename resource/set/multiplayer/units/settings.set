@@ -24,47 +24,67 @@
 ; {score 20} - when the unit is killed, it will have an impact on the MP score of 20
 ; {round_multiple 5.0} - the cost of the unit is rounded up or down to this multiple
 
-;/////////////////////////////////////////////////////////////////////
 
+
+;/////////////// THE FOLLOWING SETTINGS FETCH VEHICLES DIRECTLY /////////////////////////
+
+(define "single_unit"
+	{charge
+		{delay %cd}
+		{interval %ci}
+	}
+	{tags "all %t"}
+	{group "%g"}
+	{button "%b"}
+	{score_factor 0.05}
+	{cw %cw}
+	{cp %cp}
+)
+
+(define "emplacement"
+	("single_unit" cd(%cd) ci(%ci) t(%t %side %period) g(%g) b(%b) cw(%cw) cp(%cp))
+	{content "* ( mp/%side/%period/%crew )"}
+	{conditions "%condition"}
+	{action "%action"}
+)
+
+; vehicle with one type of crew, crew adds to MP
+(define "vehicle"
+	("single_unit" cd(%cd) ci(%ci) t(%t %side %period) g(%g) b(%b) cw(%cw) cp(%cp))
+	{content "* ( mp/%side/%period/%crew )"}
+	{squad_cost_factor 1}
+	{round_multiple 5.0}
+)
+
+; vehicle with 2 types of crew, crew adds to MP
+(define "vehicle2"
+	("single_unit" cd(%cd) ci(%ci) t(%t %side %period) g(%g) b(%b) cw(%cw) cp(%cp))
+	{content "* ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 )"}
+	{squad_cost_factor 1}
+	{round_multiple 5.0}
+)
+
+; vehicle with 3 types of crew, crew adds to MP
+(define "vehicle3"
+	("single_unit" cd(%cd) ci(%ci) t(%t %side %period) g(%g) b(%b) cw(%cw) cp(%cp))
+	{content "* ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 )"}
+	{squad_cost_factor 1}
+	{round_multiple 5.0}
+)
+
+;//////// THE FOLLOWING SETTINGS CREATE SQUADS WHICH NEED OWN ICONS/////////////
 
 (define "generic_v"
 	{charge
 		{delay %cd}
 		{interval %ci}
 	}
-	{score_factor 0.05}
+	{squad_cost_factor 1}
 	{tags "all %t"}
 	{group "%g"}
 	{button "%b"}
+	; squad define must not include cp, cw or score - this is made up of the components who make up the doctrine units.
 )
-
-; emplacements
-(define "emplacement"
-	("generic_v" cd(%cd) ci(%ci) t(%t %side %period) g(%g) b(%b) cw(%cw) cp(%cp))
-	{content "* ( mp/%side/%period/%crew )"}
-	{conditions "%condition"}
-	{action "%action"}
-)
-
-;/////////////// THE FOLLOWING SETTINGS FETCH VEHICLES DIRECTLY /////////////////////////
-
-; vehicle with one type of crew
-(define "vehicle"
-	("generic_v" cd(%cd) ci(%ci) t(%t %side %period) g(%g) b(%b) cw(%cw) cp(%cp))
-	{content "* ( mp/%side/%period/%crew )"}
-	{squad_cost_factor 1}
-	{round_multiple 5.0}
-)
-
-; vehicle with 2 types of crew 
-(define "vehicle2"
-	("generic_v" cd(%cd) ci(%ci) t(%t %side %period) g(%g) b(%b) cw(%cw) cp(%cp))
-	{content "* ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 )"}
-	{squad_cost_factor 1}
-	{round_multiple 5.0}
-)
-
-;//////// THE FOLLOWING SETTINGS CREATE SQUADS WHICH NEED OWN ICONS/////////////
 
 ; squad setup for vehicle, 1 crew
 (define "squad_vehicle"
@@ -167,6 +187,12 @@
 	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 ) %vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 )"}
 )
 
+; 3 identical vehicles with 4 types of crew ;// used for early war ger recon doctrine
+(define "squad_3vehicle4_doctrine"
+	("generic_d" t(%side %period))
+	{content "%vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c2 ) %vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c3 mp/%side/%period/%c4 ) %vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c3 mp/%side/%period/%c4 )"}
+)
+
 ; 3 identical vehicles with 2 types of crew
 (define "squad_3vehicle2_doctrine"
 	("generic_d" t(%side %period))
@@ -197,10 +223,34 @@
 	{content "%vehicle1 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3) %vehicle2 ( mp/%side/%period/%crew4)"}
 )
 
+; 2 different vehicles with 2 types of crew for the first one and 2 types of crew for the other one
+(define "squad_2vehicles2_4_doctrine"
+	("generic_d" t(%side %period)) 
+	{content "%vehicle1 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2) %vehicle2 ( mp/%side/%period/%crew3 mp/%side/%period/%crew4)"}
+)
+
 ; 2 different vehicles with 2 types of crew for the first one and 7 type of crew for the other one
 (define "squad_2vehicles2_8_doctrine"
 	("generic_d" t(%side %period)) 
 	{content "%vehicle1 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 ) %vehicle2 ( mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9 mp/%side/%period/%crew10 )"}
+)
+
+; 2 different vehicles with 1 type of crew on both
+(define "squad_2_vehicle_doctrine"
+	("generic_d" t(%side %period)) 
+	{content "%vehicle1 ( mp/%side/%period/%crew ) %vehicle2 ( mp/%side/%period/%crew )"}
+)
+
+; 2 different vehicles with 2 type of crew on both
+(define "squad_2_vehicle2_doctrine"
+	("generic_d" t(%side %period)) 
+	{content "%vehicle1 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 ) %vehicle2 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 )"}
+)
+
+; 3 different *pairs* of vehicles with 1 type of crew for the first pair and one type of crew for the second pair
+(define "squad_3_2vehicles_doctrine"
+	("generic_d" t(%side %period)) 
+	{content "%vehicle1 ( mp/%side/%period/%crew1 ) %vehicle1 ( mp/%side/%period/%crew1 ) %vehicle1 ( mp/%side/%period/%crew1 ) %vehicle2 ( mp/%side/%period/%crew2) %vehicle2 ( mp/%side/%period/%crew2) %vehicle2 ( mp/%side/%period/%crew2 )"}
 )
 
 ; squad setup for vehicle, 4 crew
@@ -227,10 +277,35 @@
 	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7)"}
 )
 
+; squad setup for 2 identical vehicles, 7 crew
+(define "squad_2vehicle7_doctrine"
+	("generic_d" t(%side %period)) 
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 ) %vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 )"}
+)
+
+
+; squad setup for vehicle, 8 crew;
+(define "squad_vehicle8_doctrine"
+	("generic_d" t(%side %period)) 
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 )"}
+)
+
+; squad setup for vehicle, 9 crew;
+(define "squad_vehicle9_doctrine"
+	("generic_d" t(%side %period)) 
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9 )"}
+)
+
+; squad setup for vehicle, 10 crew;
+(define "squad_vehicle10_doctrine"
+	("generic_d" t(%side %period)) 
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9 mp/%side/%period/%crew10 )"}
+)
+
 ; squad setup for 2 vehicle, 10 crew; 5 each
 (define "squad_2vehicle10_doctrine"
 	("generic_d" t(%side %period)) 
-	{content "%vehicle ( mp/%side/%period/%crew mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5) %vehicle ( mp/%side/%period/%crew mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9 mp/%side/%period/%crew10)"}
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5) %vehicle ( mp/%side/%period/%crew mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9 mp/%side/%period/%crew10)"}
 )
 
 ; towed gun
@@ -239,8 +314,20 @@
 	{content "%vehicle ( mp/%side/%period/%crew_v ) %cannon ( mp/%side/%period/%crew_c )"}
 )
 
+; towed gun x2
+(define "towed_2gun_doctrine"
+	("generic_d" t(%side %period)) 
+	{content "%vehicle ( mp/%side/%period/%crew_v ) %cannon ( mp/%side/%period/%crew_c ) %vehicle ( mp/%side/%period/%crew_v ) %cannon ( mp/%side/%period/%crew_c )"}
+)
+
 ; towed truck with 4 infantry types plus towed cannon
 (define "towed4_gun_doctrine"
+	("generic_d" t(%side %period)) 
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 ) %cannon ( mp/%side/%period/%crew_c )"}
+)
+
+; towed truck with 6 infantry types plus towed cannon
+(define "towed6_gun_doctrine"
 	("generic_d" t(%side %period)) 
 	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 ) %cannon ( mp/%side/%period/%crew_c )"}
 )
@@ -249,8 +336,6 @@
 ; Squads - the defines with _doctrine have a manual cost() and doctrine() that must be specified on the unit.
 ; For the other normal squads the cost is computed as the sum of the cost of the individual soldiers.
 ;--------------------------------------------------------------------------------------------------
-
-
 
 (define "squad_with1types"
 	{"%name(%side)"
