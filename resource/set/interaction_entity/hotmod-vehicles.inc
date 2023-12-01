@@ -2690,6 +2690,23 @@
 	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
+{"m114_crv tank"
+	("pz38_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "open" resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on "gunner4_hatch_open" overload
+		{ani_wind "open2" end}
+	}
+	{on "gunner4_hatch_close" overload
+		{ani_play "open2" -1.0 resume}
+	}
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
+}
+
 {"m114a1 tank"
 	("pz38_sound")
 	{on "gunner4_hatch_open" overload
