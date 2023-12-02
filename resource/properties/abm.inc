@@ -84,6 +84,44 @@
 	)
 )
 
+(define "abm_dymamic_rocket"
+	("accuracy_by_motion"
+		max_linear(5) accuracy_by_linear(0.4)
+		max_angular(8) accuracy_by_angular(0.4)
+		disorder_time(%dispersion) order_time(%zeroing)
+	)
+)
+
+
+;-----------------------------------------Small--------------------------------
+
+(define "abm_mgun"
+	("accuracy_by_motion"
+		max_linear(8) accuracy_by_linear(0.4)
+		max_angular(30) accuracy_by_angular(0.5)
+		disorder_time(0.6) order_time(2)
+	)
+)
+(define "abm_human"
+	("accuracy_by_motion"
+		max_linear(15) accuracy_by_linear(0.5)				;// aim accuracy on actor movement
+		max_angular(15) accuracy_by_angular(0.4)				;// aim accuracy on aim movement
+		disorder_time(0.5) order_time(2.0)
+	)
+)
+
+;------------------------------------------Plane-------------------------------
+
+(define "abm_rear_mg"
+	("accuracy_by_motion"
+		max_linear(50) accuracy_by_linear(0.8)
+		max_angular(5) accuracy_by_angular(0.4)
+		disorder_time(1) order_time(2)
+	)
+)
+
+;;;;;;;;;;;;;;;;;; HOTMOD added
+
 (define "hm68_abm_mortar"	;for Mortar cannons
 	("accuracy_by_motion"
 		max_linear(5) accuracy_by_linear(0.5)
@@ -217,32 +255,5 @@
 		max_linear(20) accuracy_by_linear(0.6)
 		max_angular(15) accuracy_by_angular(0.5)
 		disorder_time(2) order_time(2)
-	)
-)
-
-;-----------------------------------------Small--------------------------------
-
-(define "abm_mgun"
-	("accuracy_by_motion"
-		max_linear(8) accuracy_by_linear(0.4)
-		max_angular(30) accuracy_by_angular(0.5)
-		disorder_time(0.6) order_time(2)
-	)
-)
-(define "abm_human"
-	("accuracy_by_motion"
-		max_linear(15) accuracy_by_linear(0.5)				;// aim accuracy on actor movement
-		max_angular(15) accuracy_by_angular(0.4)				;// aim accuracy on aim movement
-		disorder_time(0.5) order_time(2.0)
-	)
-)
-
-;------------------------------------------Plane-------------------------------
-
-(define "abm_rear_mg"
-	("accuracy_by_motion"
-		max_linear(50) accuracy_by_linear(0.8)
-		max_angular(5) accuracy_by_angular(0.4)
-		disorder_time(1) order_time(2)
 	)
 )
