@@ -257,11 +257,11 @@
 	{item "bullet115_2a20"		"he"		"ammo" 1 {value 10}}
 	{item "bullet115_2a20"		"heat"		"ammo" 1 {value 15}}
 
-	{item "bullet122_d49"		"he"		"ammo" 1 {value 8}}
-	{item "bullet122_d49"		"aphe"		"ammo" 1 {value 8}}
-	{item "bullet122_d49"		"aphebc"	"ammo" 1 {value 10}}
-	{item "bullet122_d49"		"apds"		"ammo" 1 {value 15}}
-	{item "bullet122_d49"		"heat"		"ammo" 1 {value 20}}
+	;{item "bullet122_d49"		"he"		"ammo" 1 {value 8}}
+	;{item "bullet122_d49"		"aphe"		"ammo" 1 {value 8}}
+	;{item "bullet122_d49"		"aphebc"	"ammo" 1 {value 10}}
+	;{item "bullet122_d49"		"apds"		"ammo" 1 {value 15}}
+	;{item "bullet122_d49"		"heat"		"ammo" 1 {value 20}}
 
 	{item "bullet122_m62"		"he"		"ammo" 1 {value 8}}
 	{item "bullet122_m62"		"aphe"		"ammo" 1 {value 8}}
@@ -339,7 +339,6 @@
 	{item "bullet76_m1a2"		"apcr"		"ammo" 1 {value 5}}
 	{item "bullet76_m1a2"		"ap"		"ammo" 1 {value 5}}
 	{item "bullet76_m1a2"		"he"		"ammo" 1 {value 5}}
-	{item "bullet76_m1a2"		"sm"		"ammo" 1 {value 5}}
 
 	{item "bullet76_m32"		"apcr"		"ammo" 1 {value 5}}
 	{item "bullet76_m32"		"ap"		"ammo" 1 {value 5}}
