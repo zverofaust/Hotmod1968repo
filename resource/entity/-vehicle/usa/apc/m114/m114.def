@@ -1,0 +1,135 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "light" "vision_lev03" "shield" "amphibia" "detect_tank_light" "with_open_zpu"}
+	{extension "m114.mdl"}
+	(include "m114.ext")
+	{targetclass "tank_light"}
+	{targetSelector "tank_zenite"}
+	{PatherID "t37"}
+	{collider "tank.light"}
+
+	{extender "enumerator"
+		{digit_folder "nato"}
+	}
+
+	;("crew_3_human_3")
+
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "commander"	{visor "main"}{sealable}}
+		;{place "gunner4"	{visor "mgun"}{sealable}}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward 	{begin "board_sd232_driver"}	{end "seat_commander_hatch"} {base "open_driver"}}
+			{reverse 	{end "board_sd232_driver" -1} {base "open_driver"}}
+		}
+		{anm "turret"
+			{forward 	{begin "board_sd232_driver"}	{end "seat_commander_hatch"} {base "open_turret"}}
+			{reverse 	{end "board_sd232_driver" -1} {base "open_turret"}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_body"} {end "seat_commander_hatch"} {base "open_back"}}
+			{reverse	{end	"board_body" -1} {base "open_back"}}
+		}
+	}
+	
+	("crew_inside")	
+	("crew_human" place(driver)						door(emit1) door2(emit1)  	anm_left(driver) 		anm_right(driver) visor(driver))
+	("crew_open"  place(commander) 					bone(commander) visorbone(mgun_rot) door(emit2) door2(emit3) anm_left(turret) anm_right(passenger) group(crew))
+	("crew_human" place(seat1)						door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
+	("crew_human" place(seat2)						door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
+	("crew_human" place(seat3)						door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
+
+	{sensor
+		{visor "main"
+			{vision "tank_commander"}
+			{bone "turret"}
+		}
+		{visor "around"
+			{vision "vehicle_scout"}
+			{bone "turret"}
+		}
+		{Visor "driver"
+			{vision "tank_driver"}
+			{bone "body"}
+		}
+	}
+	
+	{extender "shield" {on}}
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_usa" 1000}
+			;{item "ammo mgun_usa belt" 2000}
+			{item "m72_law weapon" filled}
+			{item "m72_law weapon" filled}
+			{item "m72_law weapon" filled}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "mgun"
+			{weapon			"browning_m2" filled}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+		}
+		;{place "mgun2"
+		;	{weapon "browning_m19a4" filled}
+		;	{gunner "gunner4"}
+		;	{charger "gunner4"}
+		;	;{foresight "foresight5"}
+		;	{LinkBone		"mgun2_help"}
+		;	{LinkAnimation	"off"}
+		;	{basic}
+		;	{ai_in_manual}
+		;}
+	}
+
+	{mass 6800}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.2) len(0.76))
+		("mobility_tank"
+			speed(58) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(10) ;--------Max speed in reverse on road, km/h.
+			traverse(42) ;-------Track traverse, per second, in degrees.
+			weight(6.8) ;-------Weight in Tonnes.
+			power(160) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(235) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(443) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}
+
+	{bone "mgun_rot"
+		{limits -10 25}
+		{speed2 25}
+	}
+	{bone "mgun_rot_h"
+		{limits -6 6}
+		{speed2 35}
+	}
+	{bone "turret"
+		{speed2 35}
+	}
+}
