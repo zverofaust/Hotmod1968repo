@@ -742,66 +742,6 @@
 	}
 }
 
-;/// Added from Valour mod
-(define "m4a3_sound"
-	{on "add_movement_sound" overload
-		{link_sound "engine_start"		"vehicle/engine/m4a3/start"}
-		{link_sound "engine_stop"		"vehicle/engine/m4a3/stop"}
-		{link_sound "engine_idle"		"vehicle/engine/m4a3/idle"}
-		{link_sound "engine_full"		"vehicle/engine/m4a3/full"}
-		{link_sound "exhaust"			"vehicle/engine/m4a3/exhaust"}
-		{link_sound "move"				"vehicle/tracks/m4a2"}
-		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
-	}
-)
-(define "m24_sound"
-	{on "add_movement_sound" overload
-		{link_sound "engine_start"		"vehicle/engine/m24/start"}
-		{link_sound "engine_stop"		"vehicle/engine/m24/stop"}
-		{link_sound "engine_idle"		"vehicle/engine/m24/idle"}
-		{link_sound "engine_full"		"vehicle/engine/m24/full"}
-		{link_sound "exhaust"			"vehicle/engine/m24/exhaust"}
-		{link_sound "move"				"vehicle/tracks/m24"}
-		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
-		{link_sound "rotate_gun" 		"vehicle/turret/gun/gun_vertical"}
-	}
-)
-(define "us_halftrack_sound"
-	{on "add_movement_sound" overload
-		{link_sound "engine_start"		"vehicle/engine/us_halftrack/start"}
-		{link_sound "engine_stop"		"vehicle/engine/us_halftrack/stop"}
-		{link_sound "engine_idle"		"vehicle/engine/us_halftrack/idle"}
-		{link_sound "engine_full"		"vehicle/engine/us_halftrack/full"}
-		{link_sound "exhaust"			"vehicle/engine/sdkfz251/exhaust"}
-		{link_sound "move"				"vehicle/tracks/m3a1"}
-		{link_sound "rotate_turret" 	"vehicle/turret/gun/gun_horizontal"}
-		{link_sound "rotate_gun" 		"vehicle/turret/gun/gun_vertical"}
-	}
-)
-(define "m10_sound"
-	{on "add_movement_sound" overload
-		{link_sound "engine_start"		"vehicle/engine/m4/start"}
-		{link_sound "engine_stop"		"vehicle/engine/m4/stop"}
-		{link_sound "engine_idle"		"vehicle/engine/m4/idle"}
-		{link_sound "engine_full"		"vehicle/engine/m4/full"}
-		{link_sound "exhaust"			"vehicle/engine/m4/exhaust"}
-		{link_sound "move"				"vehicle/tracks/m4"}
-		{link_sound "rotate_turret" 	"vehicle/turret/gun/gun_horizontal"}
-		{link_sound "rotate_gun" 		"vehicle/turret/gun/gun_vertical"}
-	}
-)
-(define "m26_sound"
-	{on "add_movement_sound" overload
-		{link_sound "engine_start"		"vehicle/engine/m26/start"}
-		{link_sound "engine_stop"		"vehicle/engine/m26/stop"}
-		{link_sound "engine_idle"		"vehicle/engine/m26/idle"}
-		{link_sound "engine_full"		"vehicle/engine/m26/full"}
-		{link_sound "exhaust"			"vehicle/engine/m26/exhaust"}
-		{link_sound "move"				"vehicle/tracks/m26"}
-		{link_sound "rotate_turret"		"vehicle/turret/hydraulic/hydraulic_heavy"}
-		{link_sound "rotate_gun" 		"vehicle/turret/gun/gun_vertical"}
-	}
-)
 ;/*=========== SOVIET Vehicles  ===========*/
 
 {"pt-76 tank"
@@ -2205,11 +2145,11 @@
 
 
 {"m151"
-	("kubel_sound")
+	("willys_mb_sound")
 }
 
 {"m151_m2"
-	("kubel_sound")
+	("willys_mb_sound")
 	{on "commander_hatch_open" overload
 		{ani_play "mgun" +1.0 resume}
 	}
@@ -2231,7 +2171,7 @@
 }
 
 {"m151_m40_airlift"
-	("kubel_sound")
+	("willys_mb_sound")
 	{on fire "gun"
 
 		{spawn "detector"  "foresight1" x}
@@ -2239,19 +2179,19 @@
 	}
 }
 {"m151_prc77"
-	("kubel_sound")
+	("willys_mb_sound")
 }
 
 {"m35"
-	("opel_sound")
+	("cckw_sound")
 }
 
 {"m35_ammo"
-	("opel_sound")
+	("cckw_sound")
 }
 
 {"m35_guntruck"
-	("opel_sound")
+	("cckw_sound")
 	{on "init_gun"
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
 		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
@@ -2284,63 +2224,44 @@
 }
 
 {"cckw353_fuel"
-	("studebaker_sound")
+	("cckw_sound")
 	("animation_sound" args "open_left")
 	("animation_sound" args "open_right")
 }
 
 {"dodge_m37"
-	("kubel_sound")
+	("wc51_sound")
 }
 
 {"dodge_m37_ammo"
-	("kubel_sound")
+	("wc51_sound")
 }
 
 {"dodge_m37_engi"
-	("kubel_sound")
+	("wc51_sound")
 }
 
-{"m16gmc tank"
-	("us_halftrack_sound")
-	{on spawn
-		{link_sound "bkg_hmg" "weapon/shot/bkg/gun/hmg/"}
-		{add_view "flash_gun_hmg_dshk"			"flashbarrel00"	"shooter00"}
-		{add_view "flash_gun_hmg_dshk"			"flashbarrel01"	"shooter01"}
-		{add_view "flash_gun_hmg_dshk"			"flashbarrel02"	"shooter02"}
-		{add_view "flash_gun_hmg_dshk"			"flashbarrel03"	"shooter03"}
-		{add_view "zenit_gilz"			"shell"			"FXshell1"}
-		{add_view "zenit_gilz"			"shell"			"FXshell2"}
-		{add_view "zenit_gilz"			"shell"			"FXshell3"}
-		{add_view "zenit_gilz"			"shell"			"FXshell4"}
-	}
-	{on fire "mgun1" overload
-		(define "fire_barrel"
-			name "%0"
-				{call "fire_barrel%0"}
-				{view start "flashbarrel%0"}
-				{ani_play "fire%0"}
-				{delay 0.2
-					{view pause "flashbarrel%0"}
-				}
-		)
-		{if	("fire_barrel" args 00)
-		else ("fire_barrel" args 01)
-		else ("fire_barrel" args 02)
-		else ("fire_barrel" args 03)
-		}
-		{play_sound "bkg_hmg"}
-		{ani_play "recoil"}
-		{call "spawn_shell"}
-	}
-}
+{"m16_mgmc tank"
+	("m3_halftrack_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
 
-{"m16gmc tank"
-	("us_halftrack_sound")
+	{on "add_weapon_sound" overload
+		("M2HB_M45_Mount")
+	}
+
+	("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
+
+	{on "reload"
+		{ani_play "reload_mgun" 1.0}
+	}
+	{on "reload_delay" overload
+		("reload_time" args 30)	;// weapon reload time
+	}
 }
 
 {"m41"
-	("pz3_sound")
+	("m24_chaffee_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -2357,7 +2278,7 @@
 }
 
 {"m41_early"
-	("pz3_sound")
+	("m24_chaffee_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -2462,7 +2383,7 @@
 }
 
 {"m46_patton tank"
-	("pz6_sound")
+	("m26_pershing_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -2477,7 +2398,7 @@
 }
 
 {"m47_patton tank"
-	("pz6_sound")
+	("m26_pershing_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -2493,7 +2414,7 @@
 }
 
 {"m48"
-	("pz6_sound")
+	("m26_pershing_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -2509,7 +2430,7 @@
 }
 
 {"m48a1"
-	("pz6_sound")
+	("m26_pershing_sound")
 	{on fire "gun"
 
 		{spawn "detector"  "foresight1" x}
@@ -2518,7 +2439,7 @@
 }
 
 {"m48a3"
-	("pz6_sound")
+	("m26_pershing_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -2533,7 +2454,7 @@
 }
 
 {"m48a3_acav"
-	("pz6_sound")
+	("m26_pershing_sound")
 	{on spawn
 		{add_view	"flash_gun_big"	"flashbarrel00"	"shooter00"}
 		{add_view	"flash_gun_big"	"flashbarrel01"	"shooter01"}
@@ -2568,7 +2489,7 @@
 }
 
 {"m103"
-	("pz6_sound")
+	("m26_pershing_sound")
 		{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -2603,7 +2524,7 @@
 }
 
 {"m103_usmc"
-	("pz6_sound")
+	("m26_pershing_sound")
 		{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -2637,7 +2558,7 @@
 }
 
 {"m60_patton"
-	("pz5_sound")
+	("m26_pershing_sound")
 	{on fire "gun"
 
 		{spawn "detector"  "foresight1" x}
@@ -2646,7 +2567,7 @@
 }
 
 {"m60a1"
-	("pz5_sound")
+	("m26_pershing_sound")
 	{on fire "gun"
 
 		{spawn "detector"  "foresight1" x}
@@ -2655,7 +2576,7 @@
 }
 
 {"m60a1e2"
-	("pz5_sound")
+	("m26_pershing_sound")
 	{on fire "gun"
 
 		{spawn "detector"  "foresight1" x}
@@ -2664,7 +2585,7 @@
 }
 
 {"m728"
-	("pz5_sound")
+	("m26_pershing_sound")
 	{on spawn
 		{link_sound "dozer" "vehicle/misc/dozer"}
 	}
@@ -2676,22 +2597,22 @@
 }
 
 {"m39_apc tank"
-	("pz2_sound")
+	("m4_sherman_sound")
 	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
 {"m39_eng tank"
-	("pz2_sound")
+	("m4_sherman_sound")
 	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
 {"m39_ammo tank"
-	("pz2_sound")
+	("m4_sherman_sound")
 	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
-{"m114_crv tank"
-	("pz38_sound")
+{"m114 tank"
+	("m3_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_play "open" resume}
 	}
@@ -2708,7 +2629,7 @@
 }
 
 {"m114a1 tank"
-	("pz38_sound")
+	("m3_stuart_sound")
 	{on "gunner4_hatch_open" overload
 		{ani_wind "open2" end}
 	}
@@ -2718,7 +2639,7 @@
 }
 
 {"m114a2 tank"
-	("pz38_sound")
+	("m3_stuart_sound")
 	{on "gunner4_hatch_open" overload
 		{ani_wind "open2" end}
 	}
@@ -2728,11 +2649,11 @@
 }
 
 {"m577"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 }
 
 {"m113 tank"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_play "open_turret" resume}
 	}
@@ -2743,7 +2664,7 @@
 }
 
 {"m113a1 tank"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -2753,12 +2674,12 @@
 }
 
 {"m163 tank"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	("zpu_params" gunner(gunner) zpu_mgun(gun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
 {"m113_acav tank"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_play "open_turret" resume}
 	}
@@ -2796,16 +2717,8 @@
 }
 
 {"m113_acav_m40 tank"
-	{on "add_movement_sound" overload
-		{link_sound "engine_start"		"vehicle/engine/hetzer/start"}
-		{link_sound "engine_stop"		"vehicle/engine/hetzer/stop"}
-		{link_sound "engine_idle"		"vehicle/engine/hetzer/idle"}
-		{link_sound "engine_full"		"vehicle/engine/hetzer/full"}
-		{link_sound "exhaust"			"vehicle/engine/hetzer/exhaust"}
-		{link_sound "move"				"vehicle/tracks/hetzer"}
-		{link_sound "rotate_turret"		"vehicle/turret/cannon/small/cannon_small_horizontal"}
-		{link_sound "rotate_gun"		"vehicle/turret/cannon/small/cannon_small_vertical"}
-	}
+	("m5a1_stuart_sound")
+	
 	{on "commander_hatch_open" overload
 		{ani_play "open_turret" resume}
 	}
@@ -2847,16 +2760,8 @@
 	)
 }
 {"m113_m40 tank"
-	{on "add_movement_sound" overload
-		{link_sound "engine_start"		"vehicle/engine/hetzer/start"}
-		{link_sound "engine_stop"		"vehicle/engine/hetzer/stop"}
-		{link_sound "engine_idle"		"vehicle/engine/hetzer/idle"}
-		{link_sound "engine_full"		"vehicle/engine/hetzer/full"}
-		{link_sound "exhaust"			"vehicle/engine/hetzer/exhaust"}
-		{link_sound "move"				"vehicle/tracks/hetzer"}
-		{link_sound "rotate_turret"		"vehicle/turret/cannon/small/cannon_small_horizontal"}
-		{link_sound "rotate_gun"		"vehicle/turret/cannon/small/cannon_small_vertical"}
-	}
+	("m5a1_stuart_sound")
+	
 	{on "commander_hatch_open" overload
 		{ani_play "open_turret" resume}
 	}
@@ -2898,7 +2803,7 @@
 		secgunner(gunner) seczpu_mgun(gun) secanim(into_hatch_leo) secpose(seat_gunner_stand))
 }
 {"m125"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 
 	{on "commander_hatch_open" overload
 		{ani_play "open_turret" resume}
@@ -2940,7 +2845,7 @@
 }
 
 {"m106"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open_turret" end}
 	}
@@ -2985,7 +2890,7 @@
 }
 
 {"m106_acav"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open_turret" end}
 	}
@@ -3030,7 +2935,7 @@
 }
 
 {"m132_zippo"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on spawn
 		{add_view "flamer_fire_tank" "flame" "foresight1"}
 	}
@@ -3043,7 +2948,7 @@
 }
 
 {"m67_zippo"
-	("pz6_sound")
+	("m26_pershing_sound")
 	{on spawn
 		{add_view "flamer_fire_tank" "flame" "foresight1"}
 	}
@@ -3056,7 +2961,7 @@
 }
 
 {"m50"
-	("pz2_sound")
+	("m3_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -3100,7 +3005,7 @@
 }
 
 {"m50_airlift"
-	("pz2_sound")
+	("m3_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -3139,7 +3044,7 @@
 }
 
 {"m56"
-	("pz2_sound")
+	("m3_stuart_sound")
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -3153,7 +3058,7 @@
 }
 
 {"m56_airlift"
-	("pz2_sound")
+	("m3_stuart_sound")
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -3165,7 +3070,7 @@
 }
 
 {"m56_para"
-	("pz2_sound")
+	("m3_stuart_sound")
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -3177,14 +3082,14 @@
 }
 
 {"m110"
-	("pz3_sound")
+	("m5a1_stuart_sound")
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 5)
 	}
 }
 
 {"m109"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_play "open"}
 	}
@@ -3195,7 +3100,7 @@
 }
 
 {"m109_acav"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_play "open"}
 	}
@@ -3206,7 +3111,7 @@
 }
 
 {"m108"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_play "open"}
 	}
@@ -3216,39 +3121,14 @@
 	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
-{"m36gmc tank"
-	("m10_sound")
-	{on fire "gun"
-
-		{spawn "detector"  "foresight1" x}
-
-	}
-}
-
 {"m4a3e8 tank"
-	("m4a3_sound")
+	("m4a3_sherman_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
-	{on fire "gun"
-
-		{spawn "detector"  "foresight1" x}
-
-	}
-}
-
-{"m24_chaffee tank"
-	("pz38_sound")
-	{on "commander_hatch_open" overload
-		{ani_wind "open2" end}
-	}
-	{on "commander_hatch_close" overload
-		{ani_play "open2" -1.0 resume}
-	}
-
 	{on fire "gun"
 
 		{spawn "detector"  "foresight1" x}
@@ -3280,38 +3160,21 @@
 	("animation_sound" args "open_right")
 }
 
-{"gaz-51 car"
-	("studebaker_sound")
-	("animation_sound" args "open_left")
-	("animation_sound" args "open_right")
-}
-
-{"gaz-51_ammo car"
-	("studebaker_sound")
-	("animation_sound" args "open_left")
-	("animation_sound" args "open_right")
-}
-
-{"gaz-51_eng car"
-	("studebaker_sound")
-	("animation_sound" args "open_left")
-	("animation_sound" args "open_right")
-}
 
 {"m39g_apc tank"
-	("pz2_sound")
+	("m4_sherman_sound")
 }
 
 {"m39g_eng tank"
-	("pz2_sound")
+	("m4_sherman_sound")
 }
 
 {"m39g_ammo tank"
-	("pz2_sound")
+	("m4_sherman_sound")
 }
 
 {"m113g tank"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_play "open_turret" resume}
 	}
@@ -3322,7 +3185,7 @@
 }
 
 {"m113g_early tank"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_play "open_turret" resume}
 	}
@@ -3522,7 +3385,7 @@
 }
 
 {"m47frg tank"
-	("pz6_sound")
+	("m26_pershing_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -3538,7 +3401,7 @@
 }
 
 {"m47g tank"
-	("pz6_sound")
+	("m26_pershing_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -3553,7 +3416,7 @@
 }
 
 {"m48g"
-	("pz6_sound")
+	("m26_pershing_sound")
 	{on fire "gun"
 		{spawn "detector"  "foresight1" x}
 
@@ -3561,7 +3424,7 @@
 }
 
 {"m48a2c"
-	("pz6b_sound")
+	("m26_pershing_sound")
 	{on fire "gun"
 		{spawn "detector"  "foresight1" x}
 
@@ -3569,7 +3432,7 @@
 }
 
 {"leopard_1"
-	("pz6b_sound")
+	("m26_pershing_sound")
 	{on "charger_hatch_open" overload
 		{ani_wind "open1" end}
 	}
@@ -3585,7 +3448,7 @@
 }
 
 {"leopard_1a1"
-	("pz6b_sound")
+	("m26_pershing_sound")
 	{on "charger_hatch_open" overload
 		{ani_wind "open1" end}
 	}
@@ -3601,14 +3464,14 @@
 }
 
 {"m110g"
-	("pz3_sound")
+	("m5a1_stuart_sound")
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 5)
 	}
 }
 
 {"m109g"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -3619,7 +3482,7 @@
 }
 
 {"m108g"
-	("pz38_sound")
+	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -3629,7 +3492,7 @@
 }
 
 {"m41frg"
-	("pz3_sound")
+	("m24_chaffee_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -3644,7 +3507,7 @@
 }
 
 {"m41g"
-	("pz3_sound")
+	("m24_chaffee_sound")
 	{on "commander_hatch_open" overload
 		{ani_wind "open" end}
 	}
@@ -3659,7 +3522,7 @@
 }
 
 {"m42g"
-	("pz3_sound")
+	("m24_chaffee_sound")
 	{on "init_gun"
 		{add_view "tank_canon_fire_37_47"			"flashbarrel00"	"shooter00"}
 		{add_view "tank_canon_fire_37_47"			"flashbarrel01"	"shooter01"}
