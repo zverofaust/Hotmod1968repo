@@ -1,7 +1,7 @@
 {"mud_sp_mesh"   ;// fx test
 	{on spawn
 		{scale from 0.1 to 1 time 0.001}
-		{delay 1.0
+		{delay 1.0 
 			{delete}
 		}
 	}
@@ -48,20 +48,79 @@
 	}
 }
 
-{"wp_piece"		;// fx - white phosphorus
+{"wp_piece"		;// fx - white phosphorus 
 	{on spawn
 		{add_view "wp_flare" "wp" "root"}
 		{view start "wp"}
 		{delay 0.05
 			{volumes "body" enable contact}
-			{fire radius 0.3 time 0.5 heating 3 follow}
-			{fire radius 0.15 time 15 heating 0.1 follow}
+			{delay 0.5
+				{fire radius 0.5 time 0.5 heating 5 follow}
+				{fire radius 0.3 time 15 heating 0.1 follow}
+			}
 		}
 		{delay 25 10
 			{delete}
 		}
 	}
 }
+
+(define "killzone_dummy"
+	{"killzone_dummy_%cal"
+		{on spawn
+			{delay %delay
+				{spawn "killzone_%cal"}
+				{delete}
+			}
+		}
+	}
+)
+("killzone_dummy" cal(75) delay(0.15))
+("killzone_dummy" cal(88) delay(0.15))
+("killzone_dummy" cal(105) delay(0.2))
+("killzone_dummy" cal(122) delay(0.2))
+("killzone_dummy" cal(150) delay(0.25))
+("killzone_dummy" cal(200) delay(0.3))
+
+{"killzone"
+	{on spawn
+		{delay 0.1
+			{delete}
+		}
+	}
+	{on contact
+		{delay 0.01
+			{delete}
+		}
+	}
+}
+
+(define "fx_service_entity"
+	{"fx_%fx"
+		{on spawn
+			{spawn "%fx"}
+			{delete}
+		}
+	}
+)
+("fx_service_entity" fx(aero_die))
+("fx_service_entity" fx(ex_air_big))
+("fx_service_entity" fx(ex_air_big2))
+("fx_service_entity" fx(ex_air_he_size3))
+("fx_service_entity" fx(ex_air_he_size5))
+("fx_service_entity" fx(ex_air_sm))
+("fx_service_entity" fx(ex_air_small))
+("fx_service_entity" fx(ex_bul_sm))
+("fx_service_entity" fx(ex_bul_sm_w))
+("fx_service_entity" fx(ex_he_size2))
+("fx_service_entity" fx(ex_he_size3))
+("fx_service_entity" fx(ex_he_size4))
+("fx_service_entity" fx(ex_he_size5))
+("fx_service_entity" fx(ex_size1_water))
+("fx_service_entity" fx(ex_size2_water))
+("fx_service_entity" fx(ex_size3_water))
+("fx_service_entity" fx(ex_size4_water))
+("fx_service_entity" fx(vehicle_die))
 
 {"part"
 	{on "check_delete_part"				;// called only inside tear, so with_effector swaps entity & effector for flag check
@@ -109,9 +168,9 @@
 			{spawn "#_guts02a" {impulse up 2 1 dir 2 1}}
 			{spawn "#_hand05" {impulse up 2 1 dir 2 1}}
 			{spawn "#_head02" {impulse up 2 2 dir 3 2}}
-			{if rand 0.5
+			{if rand 0.5 
 				{spawn "#_lowtor03" {impulse up 2 2 dir 3 2}}
-			else rand 0.5
+			else rand 0.5 
 				{spawn "#_halflimb02" {impulse up 2 2 dir 3 2}}
 				{spawn "#_leg04" {impulse up 2 2 dir 3 2}}
 			}
@@ -121,9 +180,9 @@
 			{spawn "#_guts02a" {impulse up 2 1 dir 2 1}}
 			{spawn "#_hand05" {impulse up 2 1 dir 2 1}}
 			{spawn "#_head02" {impulse up 2 2 dir 3 2}}
-			{if rand 0.5
+			{if rand 0.5 
 				{spawn "#_lowtor03" {impulse up 2 2 dir 3 2}}
-			else rand 0.5
+			else rand 0.5 
 				{spawn "#_halflimb02" {impulse up 2 2 dir 3 2}}
 				{spawn "#_leg04" {impulse up 2 2 dir 3 2}}
 			}
@@ -133,9 +192,9 @@
 			{spawn "#_guts02a" {impulse up 2 1 dir 2 1}}
 			{spawn "#_hand05" {impulse up 2 1 dir 2 1}}
 			{spawn "#_head02" {impulse up 2 2 dir 3 2}}
-			{if rand 0.5
+			{if rand 0.5 
 				{spawn "#_lowtor03" {impulse up 2 2 dir 3 2}}
-			else rand 0.5
+			else rand 0.5 
 				{spawn "#_halflimb02" {impulse up 2 2 dir 3 2}}
 				{spawn "#_leg04" {impulse up 2 2 dir 3 2}}
 			}
@@ -145,9 +204,9 @@
 			{spawn "#_guts02a" {impulse up 2 1 dir 2 1}}
 			{spawn "#_hand05" {impulse up 2 1 dir 2 1}}
 			{spawn "#_head02" {impulse up 2 2 dir 3 2}}
-			{if rand 0.5
+			{if rand 0.5 
 				{spawn "#_lowtor03" {impulse up 2 2 dir 3 2}}
-			else rand 0.5
+			else rand 0.5 
 				{spawn "#_halflimb02" {impulse up 2 2 dir 3 2}}
 				{spawn "#_leg04" {impulse up 2 2 dir 3 2}}
 			}
@@ -157,9 +216,9 @@
 			{spawn "#_guts02a" {impulse up 2 1 dir 2 1}}
 			{spawn "#_hand05" {impulse up 2 1 dir 2 1}}
 			{spawn "#_head02" {impulse up 2 2 dir 3 2}}
-			{if rand 0.5
+			{if rand 0.5 
 				{spawn "#_lowtor03" {impulse up 2 2 dir 3 2}}
-			else rand 0.5
+			else rand 0.5 
 				{spawn "#_halflimb02" {impulse up 2 2 dir 3 2}}
 				{spawn "#_leg04" {impulse up 2 2 dir 3 2}}
 			}
@@ -169,9 +228,9 @@
 			{spawn "#_guts02a" {impulse up 2 1 dir 2 1}}
 			{spawn "#_hand05" {impulse up 2 1 dir 2 1}}
 			{spawn "#_head02" {impulse up 2 2 dir 3 2}}
-			{if rand 0.5
+			{if rand 0.5 
 				{spawn "#_lowtor03" {impulse up 2 2 dir 3 2}}
-			else rand 0.5
+			else rand 0.5 
 				{spawn "#_halflimb02" {impulse up 2 2 dir 3 2}}
 				{spawn "#_leg04" {impulse up 2 2 dir 3 2}}
 			}
@@ -229,16 +288,40 @@
 	}
 }
 
+{"part concrete"
+	{on ground_hit
+		{if "crush"
+			{if rand 0.2
+				{call "destroy_part"}
+			}
+		}
+		{set "ground_hit" 1}
+	}
+	{on contact
+		{if effector "vehicle"
+			{if "ground_hit"
+				{call "destroy_part"}
+			else "crush"
+				{call "destroy_part"}
+			}
+		}
+	}
+	{on "destroy_part" overload
+		{spawn "piece_crush"}
+		{delete}
+	}
+}
+
 {"medium part"
 	{on spawn
-		{delay 0.1
+		{delay 0.05
 			{volumes disable bullet contact blast touch}	;//prevent destroing at spawn moment
 		}
 		{delay 1 {volumes enable bullet contact blast}}
 	}
 	{on blast_hit
 		{if min_energy 20
-			{hide 1}
+			{call "destroy_part"}
 		else min_energy 10
 			{impulse up 10 0.3 dir 5 0.5}
 		else min_energy 5
@@ -249,39 +332,77 @@
 	}
 	{on bullet_hit
 		{if stuff "bullet"
-			{impulse up 0.5 0.5 dir 0.5 0.5}
+			{if min_mass 100
+				; do nothing
+			else min_mass 55		;// wood medium part
+				{impulse up 0.5 0.5 dir 0.5 0.5}
+			}
 		else stuff "shell"
-			{hide 0.5}
+			{call "destroy_part"}
+		else stuff "zenite"
+			{call "destroy_part"}
 		}
 	}
 	{on contact
 		{impulse up 0.1 0.1 dir 0.1 0.1}
 	}
+	{on "destroy_part"
+		{hide 0.5}
+	}
+}
+
+{"medium part ice"
+	{on blast_hit
+		{if min_energy 10
+			{hide 1}
+		}
+	}
+	{on contact overload
+		{impulse up 0.04 0.02 dir 0.02 0.01}
+		{##if effector "cannon"
+			; do nothing
+		else effector "vehicle"
+			{delete}
+		}
+	}
+}
+
+{"big part concrete"
+	{on contact
+		{if effector "vehicle"
+			{if "ground_hit"
+				{call "destroy_part"}
+			else "crush"
+				{call "destroy_part"}
+			}
+		}
+	}
+	{on "destroy_part" overload
+		{spawn "piece_crush_big"}
+		{delete}
+	}
 }
 
 {"big part"
 	{on spawn
-		{delay 0.1
-			{volumes disable touch}
-		}
+		{delay 0.1 {volumes disable touch}}
+		{delay 1 {volumes enable bullet contact blast}}
 	}
 	{on blast_hit
 		{if min_energy 25
-			{hide 1}
+			{call "destroy_part"}
 		else min_energy 15
 			{impulse up 10 0.3 dir 5 0.5}
-		else min_energy 8
+		else min_energy 8 
 			{impulse up 5 0.3 dir 5 0.5}
 		else min_energy 0.5
 			{impulse up 1 0.3 dir 1 0.5}
 		}
 	}
 	{on bullet_hit
-		{if stuff "big shell"
-			{impulse up 5 1 dir 5 1}
-		 else stuff "shell"
-			{impulse up 1 0.3 dir 1 0.5}
-		 else stuff "zenite"
+		{if stuff "shell"
+			{call "destroy_part"}
+		else stuff "zenite"
 			{impulse up 0.2 0.1 dir 0.1 0.05}
 		}
 	}
@@ -289,6 +410,7 @@
 		{impulse up 0.1 0.1 dir 0.1 0.1}
 	}
 }
+
 
 {"building_part part"
 	{on blast_hit
@@ -314,29 +436,29 @@
 
 {"wood part"
 	{on spawn
-		{delay 2
+		{delay 0.1
 			{volumes enable float}
 		}
 	}
-;//	{on ground_hit
-;//		{if terrain "water"
-;//			{call "kick"}
-;//		else terrain "deep_water"
-;//			{call "kick"}
-;//		}
-;//	}
-;//	{on "kick"
-;//		{delay 15
-;//			{kill_delay "kick_process"}
-;//		}
-;//		{call "kick_process"}
-;//	}
-;//	{on "kick_process"
-;//		{delay 0.3 0.1 "kick_process"
-;//			{impulse up 1}
-;//			{call "kick_process"}
-;//		}
-;//	}
+	{on ground_hit
+		{if terrain_pp "water"
+			;{call "kick"}
+		else terrain_pp "deep_water"
+			;{call "kick"}
+		}
+	}
+	{on "kick"
+		{delay 15
+			{kill_delay "kick_process"}
+		}
+		{call "kick_process"}
+	}
+	{on "kick_process"
+		{delay 0.5 0.1 "kick_process"
+			{impulse up 0.01}
+			{call "kick_process"}
+		}
+	}
 }
 
 {"lamp_kerosene"
@@ -355,7 +477,7 @@
 			}
 		}
 	}
-	{on contact
+	{on contact 
 		{if can_crush
 			{if not tagged "broken"
 				{call "break"}
@@ -369,7 +491,7 @@
 	}
 }
 
-{"fx_piece_flame"			;// fx entity that causes burn/heat damage for flamethrowers
+{"fx_piece_flame"			;// fx entity that causes burn/heat damage for flamethrowers 
 	{on spawn
 		{volumes "body" disable contact}
 		{gravity 1}
@@ -378,15 +500,15 @@
 			;{add_view "fire_flame_thrower_fly" "fire1" "root"}
 			{view start "fire1"}
 		}
-		{delay 0.05
+		{delay 0.1
 			{volumes "body" enable contact}
 			{call "fire_radius"}
 		}
-		{delay 0.1
+		{delay 0.15 0.05
 			{add_view "fire_flame_thrower_fly4" "fire2" "root"}
 			{view start "fire2"}
 		}
-		{delay 2
+		{delay 0.3 0.05
 			{add_view "fire_flame_thrower_fly4_1" "fire3" "root"}
 			{view start "fire3"}
 			{view stop "fire2"}
@@ -394,13 +516,13 @@
 	}
 	{on contact
 		{volumes disable contact}
-		{fire radius 1 time 1 heating 0.5 effector follow}
+		{fire radius 1 time 1 heating 0.3 effector follow}
 		{if rand 0.2
 			{call_synced "spawn_fire_die"}
 		}
 		{call "end"}
 	}
-
+	
 	{on "spawn_fire_die"
 		{spawn "fire_die"}
 	}
@@ -428,7 +550,7 @@
 				else terrain_fx "shallow_water"
 				else
 				{spawn "fire_flame_thrower" dir_velocity}
-				{if rand 0.3
+				{if rand 0.15
 					{call_synced "ground_end_fire"}
 				}
 			}
@@ -437,11 +559,23 @@
 	}
 	{on "ground_end_fire"
 		{fire radius 1.2 time 20 heating 0.25}
-		{spawn "fire_flame_thrower_ground" offset 0 0 -10}
+		{spawn "fire_flame_thrower_ground" offset 0 0 -5}
 		{spawn "burned_spot01" random_orientation}
 	}
 	{on "delete_time"}
 	{on "fire_radius"}
+}
+
+;// Hand Held Flamethrowers
+{"fx_piece_flame 20"			;// causes flamer thrower fuel to burn up after delay (disables far shooting)
+	{on "delete_time" overload
+		{delay 0.7
+			{call "end"}
+		}
+	}
+	{on "fire_radius" overload
+		{fire radius 1 time 0.7 heating 0.65 follow}
+	}
 }
 
 {"fx_piece_flame 30"			;// causes flamer thrower fuel to burn up after delay (disables far shooting)
@@ -451,10 +585,9 @@
 		}
 	}
 	{on "fire_radius" overload
-		{fire radius 0.9 time 1.1 heating 0.75 follow}
+		{fire radius 1 time 1.1 heating 0.65 follow}
 	}
 }
-
 {"fx_piece_flame 40"			;// causes flamer thrower fuel to burn up after delay (disables far shooting)
 	{on "delete_time" overload
 		{delay 1.4
@@ -462,10 +595,11 @@
 		}
 	}
 	{on "fire_radius" overload
-		{fire radius 0.9 time 1.4 heating 0.75 follow}
+		{fire radius 1 time 1.4 heating 0.65 follow}
 	}
 }
 
+;// Vehicle Flamethrowers
 {"fx_piece_flame 45"			;// causes flamer thrower fuel to burn up after delay (disables far shooting)
 	{on "delete_time" overload
 		{delay 1.2
@@ -473,7 +607,7 @@
 		}
 	}
 	{on "fire_radius" overload
-		{fire radius 0.9 time 1.2 heating 0.75 follow}
+		{fire radius 1.2 time 1.2 heating 0.75 follow}
 	}
 }
 
@@ -484,7 +618,7 @@
 		}
 	}
 	{on "fire_radius" overload
-		{fire radius 0.9 time 1.5 heating 0.75 follow}
+		{fire radius 1.2 time 1.5 heating 0.75 follow}
 	}
 }
 
@@ -495,10 +629,11 @@
 		}
 	}
 	{on "fire_radius" overload
-		{fire radius 0.9 time 1.8 heating 0.75 follow}
+		{fire radius 1.2 time 1.8 heating 0.75 follow}
 	}
 }
 
+;////----added for Hotmod
 {"fx_piece_flame 100"			;// causes flamer thrower fuel to burn up after delay (disables far shooting)
 	{on "delete_time" overload
 		{delay 2
@@ -520,6 +655,7 @@
 		{fire radius 0.9 time 1.8 heating 0.75 follow}
 	}
 }
+;////----added for Hotmod
 
 {"burn_piece"					;// spawned entity that attaches fire damage to entities it contacts (ex. 125mm_ampulomet)
 	{on contact
@@ -683,7 +819,9 @@
 	}
 	{on contact
 		{if effector "vehicle"
-			{call "break"}
+			{if not effector "bicycle"
+				{call "break"}
+			}
 		}
 	}
 	{on blast
@@ -754,8 +892,6 @@
 	{on bullet_hit
 		{if not linked
 			{if stuff "shell"
-				{call "shell_physics"}
-			else stuff "cumulative_charge"
 				{call "shell_physics"}
 			else
 				{call "bullet_physics"}
@@ -843,6 +979,196 @@
 			{delete}
 		}
 	}
+}
+
+{"parachute_attach"
+	{inflammation_time 7}
+	{on spawn
+		{ani_wind "flight" end}
+	}
+
+	{on "start" overload
+		{tags add "_flight"}
+		{physics_work 1}
+		{impulse up -0.01 forward 0.9} ;//Forward 1 
+		{gravity 0.35}
+
+		;//Backward 2
+		;{delay 0.6 {tags add "backward_2"}}
+		{delay 0.6 "parachute_swing" {impulse forward -0.1}}
+		{delay 0.7 "parachute_swing" {impulse forward -0.1}}
+		{delay 0.8 "parachute_swing" {impulse forward -0.1}}
+		{delay 0.9 "parachute_swing" {impulse forward -0.1}}
+		{delay 1.0 "parachute_swing" {impulse forward -0.1}}
+		{delay 1.1 "parachute_swing" {impulse forward -0.1}}
+		{delay 1.2 "parachute_swing" {impulse forward -0.1}}
+		{delay 1.3 "parachute_swing" {impulse forward -0.1}}
+		{delay 1.4 "parachute_swing" {impulse forward -0.1}}
+		{delay 1.5 "parachute_swing" {impulse forward -0.1}}
+		{delay 1.6 "parachute_swing" {impulse forward -0.1}}
+		{delay 1.7 "parachute_swing" {impulse forward -0.05}}
+		{delay 1.8 "parachute_swing" {impulse forward -0.05}}
+		{delay 1.9 "parachute_swing" {impulse forward -0.05}}
+		{delay 2.0 "parachute_swing" {impulse forward -0.05}}
+		{delay 2.1 "parachute_swing" {impulse forward -0.05}}
+		{delay 2.2 "parachute_swing" {impulse forward -0.05}}
+		{delay 2.3 "parachute_swing" {impulse forward -0.05}}
+		;{delay 2.3 {tags remove "backward_2"}}
+
+		;//Forward 3
+		;{delay 2.8 {tags add "forward_3"}}
+		{delay 2.8 "parachute_swing" {impulse forward 0.05}}
+		{delay 2.9 "parachute_swing" {impulse forward 0.05}}
+		{delay 3.0 "parachute_swing" {impulse forward 0.05}}
+		{delay 3.1 "parachute_swing" {impulse forward 0.05}}
+		{delay 3.2 "parachute_swing" {impulse forward 0.05}}
+		{delay 3.3 "parachute_swing" {impulse forward 0.05}}
+		{delay 3.4 "parachute_swing" {impulse forward 0.05}}
+		{delay 3.5 "parachute_swing" {impulse forward 0.05}}
+		{delay 3.6 "parachute_swing" {impulse forward 0.05}}
+		{delay 3.7 "parachute_swing" {impulse forward 0.05}}
+		{delay 3.8 "parachute_swing" {impulse forward 0.05}}
+		{delay 3.9 "parachute_swing" {impulse forward 0.05}}
+		{delay 4.0 "parachute_swing" {impulse forward 0.05}}
+		{delay 4.1 "parachute_swing" {impulse forward 0.05}}
+		{delay 4.2 "parachute_swing" {impulse forward 0.05}}
+		{delay 4.3 "parachute_swing" {impulse forward 0.05}}
+		;{delay 4.3 {tags remove "forward_3"}}
+
+		;//Backward 4
+		;{delay 5.2 {tags add "backward_4"}}
+		{delay 5.2 "parachute_swing" {impulse forward -0.025}}
+		{delay 5.3 "parachute_swing" {impulse forward -0.025}}
+		{delay 5.4 "parachute_swing" {impulse forward -0.025}}
+		{delay 5.5 "parachute_swing" {impulse forward -0.025}}
+		{delay 5.6 "parachute_swing" {impulse forward -0.025}}
+		{delay 5.7 "parachute_swing" {impulse forward -0.025}}
+		{delay 5.8 "parachute_swing" {impulse forward -0.025}}
+		{delay 5.9 "parachute_swing" {impulse forward -0.025}}
+		{delay 6.0 "parachute_swing" {impulse forward -0.05}}
+		{delay 6.1 "parachute_swing" {impulse forward -0.025}}
+		{delay 6.2 "parachute_swing" {impulse forward -0.025}}
+		{delay 6.3 "parachute_swing" {impulse forward -0.025}}
+		{delay 6.4 "parachute_swing" {impulse forward -0.025}}
+		{delay 6.5 "parachute_swing" {impulse forward -0.025}}
+		{delay 6.6 "parachute_swing" {impulse forward -0.025}}
+		{delay 6.7 "parachute_swing" {impulse forward -0.025}}
+		;{delay 6.7 {tags remove "backward_4"}}
+
+		;//Forward 5
+		;{delay 7.6 {tags add "forward_5"}}
+		{delay 7.6 "parachute_swing" {impulse forward 0.012}}
+		{delay 7.7 "parachute_swing" {impulse forward 0.012}}
+		{delay 7.8 "parachute_swing" {impulse forward 0.012}}
+		{delay 7.9 "parachute_swing" {impulse forward 0.025}}
+		{delay 8.0 "parachute_swing" {impulse forward 0.025}}
+		{delay 8.1 "parachute_swing" {impulse forward 0.025}}
+		{delay 8.2 "parachute_swing" {impulse forward 0.025}}
+		{delay 8.3 "parachute_swing" {impulse forward 0.05}}
+		{delay 8.4 "parachute_swing" {impulse forward 0.025}}
+		{delay 8.5 "parachute_swing" {impulse forward 0.025}}
+		{delay 8.6 "parachute_swing" {impulse forward 0.025}}
+		{delay 8.7 "parachute_swing" {impulse forward 0.025}}
+		{delay 8.8 "parachute_swing" {impulse forward 0.025}}
+		;{delay 8.8 {tags remove "forward_5"}}
+
+		;//Backward 6
+		;{delay 10.0 {tags add "backward_6"}}
+		{delay 10.0 "parachute_swing" {impulse forward -0.012}}
+		{delay 10.1 "parachute_swing" {impulse forward -0.012}}
+		{delay 10.2 "parachute_swing" {impulse forward -0.012}}
+		{delay 10.3 "parachute_swing" {impulse forward -0.025}}
+		{delay 10.4 "parachute_swing" {impulse forward -0.025}}
+		{delay 10.5 "parachute_swing" {impulse forward -0.025}}
+		{delay 10.6 "parachute_swing" {impulse forward -0.025}}
+		{delay 10.7 "parachute_swing" {impulse forward -0.025}}
+		{delay 10.8 "parachute_swing" {impulse forward -0.025}}
+		{delay 10.9 "parachute_swing" {impulse forward -0.025}}
+		{delay 11.0 "parachute_swing" {impulse forward -0.025}}
+		{delay 11.1 "parachute_swing" {impulse forward -0.025}}
+		;{delay 11.1 {tags remove "backward_6"}}
+
+		;//Forward 7
+		;{delay 12.5 {tags add "forward_7"}}
+		{delay 12.5 "parachute_swing" {impulse forward 0.012}}
+		{delay 12.6 "parachute_swing" {impulse forward 0.012}}
+		{delay 12.7 "parachute_swing" {impulse forward 0.012}}
+		{delay 12.8 "parachute_swing" {impulse forward 0.025}}
+		{delay 12.9 "parachute_swing" {impulse forward 0.025}}
+		{delay 13.0 "parachute_swing" {impulse forward 0.025}}
+		{delay 13.1 "parachute_swing" {impulse forward 0.025}}
+		{delay 13.2 "parachute_swing" {impulse forward 0.025}}
+		{delay 13.3 "parachute_swing" {impulse forward 0.025}}
+		{delay 13.4 "parachute_swing" {impulse forward 0.025}}
+		{delay 13.5 "parachute_swing" {impulse forward 0.025}}
+		;{delay 13.5 {tags remove "forward_7"}}
+
+		;//Backward 8
+		;{delay 14.7 {tags add "backward_8"}}
+		{delay 14.7 "parachute_swing" {impulse forward -0.012}}
+		{delay 14.8 "parachute_swing" {impulse forward -0.012}}
+		{delay 14.9 "parachute_swing" {impulse forward -0.012}}
+		{delay 15.0 "parachute_swing" {impulse forward -0.025}}
+		{delay 15.1 "parachute_swing" {impulse forward -0.025}}
+		{delay 15.2 "parachute_swing" {impulse forward -0.025}}
+		{delay 15.3 "parachute_swing" {impulse forward -0.025}}
+		{delay 15.4 "parachute_swing" {impulse forward -0.025}}
+		{delay 15.5 "parachute_swing" {impulse forward -0.025}}
+		{delay 15.6 "parachute_swing" {impulse forward -0.025}}
+		{delay 15.7 "parachute_swing" {impulse forward -0.025}}
+		;{delay 15.7 {tags remove "backward_8"}}
+
+		;//Forward 9
+		;{delay 16.8 {tags add "forward_9"}}
+		{delay 16.8 "parachute_swing" {impulse forward 0.012}}
+		{delay 16.9 "parachute_swing" {impulse forward 0.012}}
+		{delay 17.0 "parachute_swing" {impulse forward 0.012}}
+		{delay 17.1 "parachute_swing" {impulse forward 0.025}}
+		{delay 17.2 "parachute_swing" {impulse forward 0.025}}
+		{delay 17.3 "parachute_swing" {impulse forward 0.025}}
+		{delay 17.4 "parachute_swing" {impulse forward 0.012}}
+		;{delay 17.4 {tags remove "forward_9"}}
+
+	}
+	{on ground_hit
+		{kill_delay "parachute_swing"}
+		{ani_play "landing" callback}
+		{tags remove "_flight"}
+		{with_linked_entity "attach"
+			{tags remove "can_die"}
+			{unlink}
+		}
+		{physics_work 0}
+	}
+	{on animation_end "landing"
+		{delete}
+	}
+
+	{on "burn"
+		{if not burned
+			{burn volume "chute" fx "smoke_dead_tree" time 20 1}
+			{start_sound "fire/tree/"}
+			{tags add "burned"}
+		}
+	}
+}
+
+{"parachute_attach ammo_crate"
+	{on spawn
+		{call "start"}
+	}
+	{on ground_hit overload
+		{kill_delay "parachute_swing"}
+		{ani_play "landing" callback}
+		{tags remove "_flight"}
+		{with_linked_entity "attach"
+			{unlink}
+			{ani_wind "close" begin}
+			{impulse up 0.01}
+		}
+		{physics_work 0}
+	}
+
 }
 
 {"parachute_cargo_attach"
@@ -1240,7 +1566,7 @@
 			{inactive 1}
 		}
 	}
-
+	
 }
 {"pointer_bait"				;// mission objective icon/helper
 	{on spawn
@@ -1348,6 +1674,21 @@
 	}
 }
 
+{"artillery_minimap_signal_light"
+	{on spawn
+		(mod "mp"
+			{delay 0.75
+				{delete}
+			}
+		)
+		(mod not "mp"
+			{delay 1.00
+				{delete}
+			}
+		)
+	}
+}
+
 {"map_point_tagger"
 	{on spawn
 		{tags add "flag"}
@@ -1409,228 +1750,7 @@
 	}
 }
 
-;//////////////////////armor comp /////////////////////////
-{"hm68_cumulative_assistor"
-	{on spawn {delay 0.7 {delete}}}
-	{on ground_hit	{delete}}
-	{on contact	{delete}}
-}
 
-{"cumulative_assistor_1gen"
-
-	{on overlap begin
-		{with_effector {call "armor_comp_on_1gen"}}
-		{tags add "cumulative_assistor_spawn"}
-	}
-}
-
-
-
-(define "cw_assist_spawner"
-	{on spawn
-		{spawn "%0" "sp_point1" x}
-		{spawn "%0" "sp_point2" x}
-		{spawn "%0" "sp_point3" x}
-		{spawn "%0" "sp_point4" x}
-		{spawn "%0" "sp_point5" x}
-		{spawn "%0" "sp_point6" x}
-		{spawn "%0" "sp_point7" x}
-		{spawn "%0" "sp_point8" x}
-		{spawn "%0" "sp_point9" x}
-		{spawn "%0" "sp_point10" x}
-		{spawn "%0" "sp_point11" x}
-		{spawn "%0" "sp_point12" x}
-		{spawn "%0" "sp_point13" x}
-		{spawn "%0" "sp_point14" x}
-		{spawn "%0" "sp_point15" x}
-		{spawn "%0" "sp_point16" x}
-		{spawn "%0" "sp_point17" x}
-		{spawn "%0" "sp_point18" x}
-		{spawn "%0" "sp_point19" x}
-		{spawn "%0" "sp_point20" x}
-		{spawn "%0" "sp_point21" x}
-		{spawn "%0" "sp_point22" x}
-		{spawn "%0" "sp_point23" x}
-		{spawn "%0" "sp_point24" x}
-		{spawn "%0" "sp_point25" x}
-		{spawn "%0" "sp_point26" x}
-		{spawn "%0" "sp_point27" x}
-		{spawn "%0" "sp_point28" x}
-		{spawn "%0" "sp_point29" x}
-		{spawn "%0" "sp_point30" x}
-		{spawn "%0" "sp_point31" x}
-		{spawn "%0" "sp_point32" x}
-		{spawn "%0" "sp_point33" x}
-		{spawn "%0" "sp_point34" x}
-		{spawn "%0" "sp_point35" x}
-		{spawn "%0" "sp_point36" x}
-		{spawn "%0" "sp_point37" x}
-		{spawn "%0" "sp_point38" x}
-		{spawn "%0" "sp_point39" x}
-		{spawn "%0" "sp_point40" x}
-		{spawn "%0" "sp_point41" x}
-		{spawn "%0" "sp_point42" x}
-		{spawn "%0" "sp_point43" x}
-		{spawn "%0" "sp_point44" x}
-		{spawn "%0" "sp_point45" x}
-		{spawn "%0" "sp_point46" x}
-		{spawn "%0" "sp_point47" x}
-		{spawn "%0" "sp_point48" x}
-		{spawn "%0" "sp_point49" x}
-		{spawn "%0" "sp_point50" x}
-		{spawn "%0" "sp_point51" x}
-		{spawn "%0" "sp_point52" x}
-		{spawn "%0" "sp_point53" x}
-		{spawn "%0" "sp_point54" x}
-		{spawn "%0" "sp_point55" x}
-		{spawn "%0" "sp_point56" x}
-		{spawn "%0" "sp_point57" x}
-		{spawn "%0" "sp_point58" x}
-		{spawn "%0" "sp_point59" x}
-		{spawn "%0" "sp_point60" x}
-		{spawn "%0" "sp_point61" x}
-		{spawn "%0" "sp_point62" x}
-		{spawn "%0" "sp_point63" x}
-		{spawn "%0" "sp_point64" x}
-		{spawn "%0" "sp_point65" x}
-		{spawn "%0" "sp_point66" x}
-		{spawn "%0" "sp_point67" x}
-		{spawn "%0" "sp_point68" x}
-		{spawn "%0" "sp_point69" x}
-		{spawn "%0" "sp_point70" x}
-		{spawn "%0" "sp_point71" x}
-		{spawn "%0" "sp_point72" x}
-		{spawn "%0" "sp_point73" x}
-		{spawn "%0" "sp_point74" x}
-		{spawn "%0" "sp_point75" x}
-		{spawn "%0" "sp_point76" x}
-		{spawn "%0" "sp_point77" x}
-		{spawn "%0" "sp_point78" x}
-		{spawn "%0" "sp_point79" x}
-		{spawn "%0" "sp_point80" x}
-		{spawn "%0" "sp_point81" x}
-		{spawn "%0" "sp_point82" x}
-		{spawn "%0" "sp_point83" x}
-		{spawn "%0" "sp_point84" x}
-		{spawn "%0" "sp_point85" x}
-		{spawn "%0" "sp_point86" x}
-		{spawn "%0" "sp_point87" x}
-		{spawn "%0" "sp_point88" x}
-		{spawn "%0" "sp_point89" x}
-		{spawn "%0" "sp_point90" x}
-		{spawn "%0" "sp_point91" x}
-		{spawn "%0" "sp_point92" x}
-		{spawn "%0" "sp_point93" x}
-		{spawn "%0" "sp_point94" x}
-		{spawn "%0" "sp_point95" x}
-		{spawn "%0" "sp_point96" x}
-		{spawn "%0" "sp_point97" x}
-		{spawn "%0" "sp_point98" x}
-		{spawn "%0" "sp_point99" x}
-		{spawn "%0" "sp_point100" x}
-		{spawn "%0" "sp_point101" x}
-		{spawn "%0" "sp_point102" x}
-		{spawn "%0" "sp_point103" x}
-		{spawn "%0" "sp_point104" x}
-		{spawn "%0" "sp_point105" x}
-		{spawn "%0" "sp_point106" x}
-		{spawn "%0" "sp_point107" x}
-		{spawn "%0" "sp_point108" x}
-		{spawn "%0" "sp_point109" x}
-		{spawn "%0" "sp_point110" x}
-		{spawn "%0" "sp_point111" x}
-		{spawn "%0" "sp_point112" x}
-		{spawn "%0" "sp_point113" x}
-		{spawn "%0" "sp_point114" x}
-		{spawn "%0" "sp_point115" x}
-		{spawn "%0" "sp_point116" x}
-		{spawn "%0" "sp_point117" x}
-		{spawn "%0" "sp_point118" x}
-		{spawn "%0" "sp_point119" x}
-		{spawn "%0" "sp_point120" x}
-		{delay 0.1 {delete}}
-
-	}
-)
-
-{"armor_comp_assistor" ("cw_assist_spawner" args hm68_cumshell_assistor)}
-;{"cw_cumshassist_spawner_1gen" ("cw_assist_spawner" args cw_cumshell_assistor_1gen)}
-
-{"detector"
-	{on spawn
-	      {delay 0.2
-		{delete}
-	     }
-	}
-	{on bullet_hit overload
-	       {impulse up 0.01 com}
-	       {gravity 0.01}
-	       {volumes "body" disable all}
-
-	      {if stuff "heat_shell"
-		 	{spawn "armor_comp_assistor" "missile_point" x}
-	       else stuff "rocketlauncher"
-	       	 	{spawn "armor_comp_assistor" "missile_point" x}
-	       else stuff "cumulative_charge"
-	      	 	{spawn "armor_comp_assistor" "missile_point" x}
-	       else stuff "hesh"
-	       		 {spawn "armor_comp_assistor" "missile_point" x}
-	     }
-
-	}
-}
-
-{"detector_big"
-	{on spawn
-	      {delay 0.2
-		{delete}
-	     }
-	}
-	{on bullet_hit overload
-	       {impulse up 0.01 com}
-	       {gravity 0.01}
-	       {volumes "body" disable all}
-
-	      {if stuff "heat_shell"
-		 	{spawn "armor_comp_assistor" "missile_point" x}
-	       else stuff "rocketlauncher"
-	       	 	{spawn "armor_comp_assistor" "missile_point" x}
-	       else stuff "cumulative_charge"
-	      	 	{spawn "armor_comp_assistor" "missile_point" x}
-	       else stuff "hesh"
-	       		 {spawn "armor_comp_assistor" "missile_point" x}
-	     }
-
-	}
-}
-
-
-{"detector_extra_big"
-	{on spawn
-	      {delay 0.2
-		{delete}
-	     }
-	}
-	{on bullet_hit overload
-	       {impulse up 0.01 com}
-	       {gravity 0.01}
-	       {volumes "body" disable all}
-
-	      {if stuff "heat_shell"
-		 	{spawn "armor_comp_assistor" "missile_point" x}
-	       else stuff "rocketlauncher"
-	       	 	{spawn "armor_comp_assistor" "missile_point" x}
-	       else stuff "cumulative_charge"
-	      	 	{spawn "armor_comp_assistor" "missile_point" x}
-	       else stuff "hesh"
-	       		 {spawn "armor_comp_assistor" "missile_point" x}
-	     }
-
-	}
-}
-
-
-;/////////////////////armor comp /////////////////////////
 
 ;// register engine-used props
 
@@ -1655,6 +1775,7 @@
 {"trailer"}
 {"tractor"}
 {"turn_over"}
+{"captor"} 			;// source code: used for bots move orders and stop distance from flags
 
 {"round_sandbag"}
 {"round_sandbag2"}
