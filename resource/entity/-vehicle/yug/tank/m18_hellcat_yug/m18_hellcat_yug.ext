@@ -1,0 +1,97 @@
+;SDL
+	
+	; armor notes
+	; tracks and wheels 15mm
+	; gun 15mm
+	; spare tracks 15mm
+	; 
+
+	("tank_light_tier1")
+
+	("shield_track" args "shield1" 15)
+	("shield" args "shieldL1" 5)
+	("shield" args "shieldL2" 5)
+	("shield" args "shieldL3" 5)
+	("shield" args "shieldL4" 5)
+	("shield" args "shieldL5" 5)
+	("shield" args "shieldL6" 5)
+	("shield" args "shieldL7" 5)
+	("shield" args "shieldR1" 5)
+	("shield" args "shieldR2" 5)
+	("shield" args "shieldR3" 5)
+	("shield" args "shieldR4" 5)
+	("shield" args "shieldR5" 5)
+	("shield" args "shieldR6" 5)
+	("shield" args "shieldR7" 5)
+
+	("tracks" repair(30) thickness(15))
+	("gun" repair(30) thickness(25))
+
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("transmission" args "transmission")
+
+	{component "shieldl1" {tags "cut_part"}}
+	{component "shieldl2" {tags "cut_part"}}
+	{component "shieldl3" {tags "cut_part"}}
+	{component "shieldl4" {tags "cut_part"}}
+	{component "shieldl5" {tags "cut_part"}}
+	{component "shieldl6" {tags "cut_part"}}
+	{component "shieldl7" {tags "cut_part"}}
+	{component "shieldr1" {tags "cut_part"}}
+	{component "shieldr2" {tags "cut_part"}}
+	{component "shieldr3" {tags "cut_part"}}
+	{component "shieldr4" {tags "cut_part"}}
+	{component "shieldr5" {tags "cut_part"}}
+	{component "shieldr6" {tags "cut_part"}}
+	{component "shieldr7" {tags "cut_part"}}
+
+	{volume "body1"
+		{thickness 12.7
+			{rear 5}
+			{bottom 8}
+		}
+	}
+	{volume "body2"
+		{thickness 12.7
+			{top 8}
+			{rear 5}
+			{bottom 8}
+		}
+	}
+	{volume "engine1"		; 
+		{thickness 12.7
+			{front 5}
+			{bottom 8}
+		}
+	}
+	{volume "engine2"		; 
+		{thickness 12.7
+			{front 5}
+			{top 8}
+		}
+	}
+	{volume "turret1"		; main part
+		{thickness 12.7
+			{front 25.4}
+			{top 8}
+		}
+		{able {holed}}
+	}
+	{volume "turret2"		; back part
+		{thickness 12.7
+			{top 13}
+		}
+		{able {holed}}
+	}
+	{volume "turret3"		; mgun mount place
+		{thickness 12.7}
+		{able {holed}}
+	}
+	{volume "turret4"		; 
+		{thickness 25.4}
+	}
