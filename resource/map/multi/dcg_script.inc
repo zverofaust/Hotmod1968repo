@@ -1,4 +1,4 @@
-(include "/map/nikral's trigger.mi")			
+(include "/map/nikral's trigger.mi")
 			{"random_cmp_def"
 				{condition
 				}
@@ -5899,294 +5899,6 @@
 					}
 				}
 			}
-			{"dcg/ai_air_decide"
-				{condition
-					{terms
-						{"1.event"
-							{id "ai_air_possible"}
-						}
-						{"2.cmp_i"
-							{var "ai_air_on$"}
-							{op "=="}
-							{value 0}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{ignore_captured_by_user 0}
-									{tag fpc1}
-									{zone "gamezone"}
-								}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag player}
-											{zone "fpc1"}
-											{type human}
-											{state "not dead"}
-										}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"set_i"
-										{var "ai_air_on$"}
-										{op "="}
-										{value 1}
-									}
-								}
-								{"default"}
-							}
-						}
-						{"default"}
-					}
-					{"delay"
-						{time 2}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "ai_air_on$"}
-								{op "=="}
-								{value 0}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag fpc2}
-											{zone "gamezone"}
-										}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"switch"
-										{"case"
-											{condition
-												{type entities}
-												{selector
-													{ignore_captured_by_user 0}
-													{tag player}
-													{zone "fpc2"}
-													{type human}
-													{state "not dead"}
-												}
-											}
-											{"delay"
-												{time 0.1}
-											}
-											{"set_i"
-												{var "ai_air_on$"}
-												{op "="}
-												{value 2}
-											}
-										}
-										{"default"}
-									}
-								}
-								{"default"}
-							}
-						}
-						{"default"}
-					}
-					{"delay"
-						{time 2}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "ai_air_on$"}
-								{op "=="}
-								{value 0}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag fpc3}
-											{zone "gamezone"}
-										}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"switch"
-										{"case"
-											{condition
-												{type entities}
-												{selector
-													{ignore_captured_by_user 0}
-													{tag player}
-													{zone "fpc3"}
-													{type human}
-													{state "not dead"}
-												}
-											}
-											{"delay"
-												{time 0.1}
-											}
-											{"set_i"
-												{var "ai_air_on$"}
-												{op "="}
-												{value 3}
-											}
-										}
-										{"default"}
-									}
-								}
-								{"default"}
-							}
-						}
-						{"default"}
-					}
-					{"delay"
-						{time 2}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "ai_air_on$"}
-								{op "=="}
-								{value 0}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag fpc4}
-											{zone "gamezone"}
-										}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"switch"
-										{"case"
-											{condition
-												{type entities}
-												{selector
-													{ignore_captured_by_user 0}
-													{tag player}
-													{zone "fpc4"}
-													{type human}
-													{state "not dead"}
-												}
-											}
-											{"delay"
-												{time 0.1}
-											}
-											{"set_i"
-												{var "ai_air_on$"}
-												{op "="}
-												{value 4}
-											}
-										}
-										{"default"}
-									}
-								}
-								{"default"}
-							}
-						}
-						{"default"}
-					}
-					{"delay"
-						{time 2}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "ai_air_on$"}
-								{op "=="}
-								{value 0}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag fpc5}
-											{zone "gamezone"}
-										}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"switch"
-										{"case"
-											{condition
-												{type entities}
-												{selector
-													{ignore_captured_by_user 0}
-													{tag player}
-													{zone "fpc5"}
-													{type human}
-													{state "not dead"}
-												}
-											}
-											{"delay"
-												{time 0.1}
-											}
-											{"set_i"
-												{var "ai_air_on$"}
-												{op "="}
-												{value 5}
-											}
-										}
-										{"default"}
-									}
-								}
-								{"default"}
-							}
-						}
-						{"default"}
-					}
-					{"delay"
-						{time 50}
-					}
-					{"trigger"
-						{name "dcg/ai_air_decide"}
-					}
-				}
-			}
 			{"dcg/def_team"
 				{condition
 					{terms
@@ -6547,887 +6259,6 @@
 					}
 				}
 			}
-			{"dcg/ai_airstrike"
-				{condition
-					{terms
-						{"1.event"
-							{id "ai_air_on"}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag enemy_air}
-						}
-						{tag_remove enemy_air}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "user_team$"}
-								{op "=="}
-								{value 1}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"actor_to_waypoint"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag airstrike_ger}
-											}
-											{tag
-												{tag airstrike_rus}
-											}
-											{tag
-												{tag airstrike_fin}
-											}
-										}
-										{include
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-									{amount 1
-									}
-								}
-								{waypoint "0"}
-								{clone}
-								{approach "safe teleport & rotate"}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"actor_to_waypoint"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag airstrike_ger}
-											}
-											{tag
-												{tag airstrike_rus}
-											}
-											{tag
-												{tag airstrike_fin}
-											}
-										}
-										{include
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-									{amount 1
-									}
-								}
-								{waypoint "6"}
-								{clone}
-								{approach "safe teleport & rotate"}
-							}
-						}
-					}
-				}
-			}
-			{"dcg/ai_airstrike_do"
-				{condition
-					{expression "(1 & 2 & 4) | (1 & 3 & !4)"}
-					{terms
-						{"1.event"
-							{id "ai_air_on"}
-						}
-						{"2.near"
-							{units
-								{ignore_captured_by_user 0}
-								{tag enemy_air}
-								{type vehicle}
-								{state inhabited}
-							}
-							{near_to
-								{ignore_captured_by_user 0}
-								{tag spawn_a}
-							}
-							{distance 76}
-						}
-						{"3.near"
-							{units
-								{ignore_captured_by_user 0}
-								{tag enemy_air}
-								{type vehicle}
-								{state inhabited}
-							}
-							{near_to
-								{ignore_captured_by_user 0}
-								{tag spawn_b}
-							}
-							{distance 76}
-						}
-						{"4.cmp_i"
-							{var "user_team$"}
-							{op "=="}
-							{value 1}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 4.5}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{ignore_captured_by_user 0}
-									{tag ai_air_target}
-									{zone "gamezone"}
-								}
-							}
-							{"delay"
-								{time 0.1}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag _user}
-											}
-										}
-										{include
-											{zone
-												{zone "gamezone"}
-											}
-											{state
-												{state "operatable user_control"}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-											{state
-												{state linked}
-											}
-										}
-									}
-								}
-								{tag_add ai_air_target}
-							}
-						}
-					}
-					{"delay"
-						{time 1.1}
-					}
-					{"switch"
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"air_attack"
-								{selector
-									{ignore_captured_by_user 0}
-									{tag enemy_air}
-									{type vehicle}
-									{state inhabited}
-								}
-								{drop "orders sensor senseless"}
-								{enemies
-									{ignore_captured_by_user 0}
-									{tag ai_air_target}
-								}
-								{attack_altitude 46}
-							}
-						}
-					}
-				}
-			}
-			{"dcg/ai_air_chance"
-				{condition
-					{terms
-						{"1.event"
-							{id "airplane_set"}
-						}
-						{"2.cmp_i"
-							{var "user_team$"}
-							{op ">"}
-							{value 0}
-						}
-						{"3.cmp_i"
-							{var "user_is_defender$"}
-							{op "=="}
-							{value 1}
-						}
-						{"4.cmp_i"
-							{var "tier2$"}
-							{op "=="}
-							{value 1}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type rand}
-								{value 0.2}
-							}
-							{"delay"
-								{time 660}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.2}
-							}
-							{"delay"
-								{time 900}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.2}
-							}
-							{"delay"
-								{time 950}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.2}
-							}
-							{"delay"
-								{time 800}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 700}
-							}
-						}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type rand}
-								{value 0.25}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"trigger"
-								{name "dcg/ai_air_chance"}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"event"
-								{event "ai_air_possible"}
-								{mode set}
-								{delay 0}
-							}
-						}
-					}
-				}
-			}
-			{"dcg/ai_air_on"
-				{condition
-					{terms
-						{"1.event"
-							{id "dcg"}
-						}
-						{"2.cmp_i"
-							{var "enemyid$"}
-							{op ">"}
-							{value 0}
-						}
-						{"3.entities"
-							{selector
-								{ignore_captured_by_user 0}
-								{tag _user}
-								{zone "gamezone"}
-								{state operatable}
-							}
-						}
-						{"4.cmp_i"
-							{var "ai_air_on$"}
-							{op ">"}
-							{value 0}
-						}
-						{"5.cmp_i"
-							{var "dcg_on$"}
-							{op ">"}
-							{value 0}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 0.1}
-					}
-					{"event"
-						{event "ai_air_on"}
-						{mode set}
-						{delay 0}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag ai_air_target}
-						}
-						{tag_remove ai_air_target}
-					}
-					{"delay"
-						{time 5}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag _user}
-											}
-										}
-										{include
-											{zone
-												{zone "combat"}
-											}
-											{prop
-												{prop vehicle}
-											}
-											{state
-												{state operatable}
-											}
-											{state
-												{state user_control}
-											}
-										}
-										{exclude
-											{tag
-												{tag destroyed}
-											}
-										}
-									}
-								}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 5}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag _user}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{prop
-														{prop vehicle}
-													}
-													{state
-														{state operatable}
-													}
-													{state
-														{state user_control}
-													}
-												}
-												{exclude
-													{tag
-														{tag destroyed}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "5"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 2}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag _user}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{prop
-														{prop vehicle}
-													}
-													{state
-														{state operatable}
-													}
-													{state
-														{state user_control}
-													}
-												}
-												{exclude
-													{tag
-														{tag destroyed}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "2"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 3}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag _user}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{prop
-														{prop vehicle}
-													}
-													{state
-														{state operatable}
-													}
-													{state
-														{state user_control}
-													}
-												}
-												{exclude
-													{tag
-														{tag destroyed}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "3"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 4}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag _user}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{prop
-														{prop vehicle}
-													}
-													{state
-														{state operatable}
-													}
-													{state
-														{state user_control}
-													}
-												}
-												{exclude
-													{tag
-														{tag destroyed}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "4"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"default"
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag _user}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{prop
-														{prop vehicle}
-													}
-													{state
-														{state operatable}
-													}
-													{state
-														{state user_control}
-													}
-												}
-												{exclude
-													{tag
-														{tag destroyed}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "1"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 5}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag _user}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{state
-														{state "operatable user_control"}
-													}
-												}
-												{exclude
-													{state
-														{state inactive}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "5"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 2}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag _user}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{state
-														{state "operatable user_control"}
-													}
-												}
-												{exclude
-													{state
-														{state inactive}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "2"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 3}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag _user}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{state
-														{state "operatable user_control"}
-													}
-												}
-												{exclude
-													{state
-														{state inactive}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "3"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"case"
-									{condition
-										{type cmp_i}
-										{var "ai_air_on$"}
-										{op "=="}
-										{value 4}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag _user}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{state
-														{state "operatable user_control"}
-													}
-												}
-												{exclude
-													{state
-														{state inactive}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "4"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-								{"default"
-									{"delay"
-										{time 0.1}
-									}
-									{"entity_state"
-										{selector
-											{source advanced}
-											{ignore_captured_by_user 0}
-											{group
-												{select
-													{tag
-														{tag _user}
-													}
-												}
-												{include
-													{zone
-														{zone "gamezone"}
-													}
-													{state
-														{state "operatable user_control"}
-													}
-												}
-												{exclude
-													{state
-														{state inactive}
-													}
-												}
-											}
-											{sort
-												{type waypoint}
-												{wpid "1"}
-											}
-											{amount 1
-											}
-										}
-										{tag_add ai_air_target}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
 			{"dcg/init"
 				{condition
 					{expression "1"}
@@ -7519,6 +6350,9 @@
 											{tag
 												{tag airstrike_fin}
 											}
+											{tag
+												{tag airstrike_usa}
+											}
 										}
 									}
 								}
@@ -7561,6 +6395,9 @@
 											}
 											{tag
 												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
 											}
 										}
 									}
@@ -7605,6 +6442,9 @@
 											{tag
 												{tag airstrike_ger}
 											}
+											{tag
+												{tag airstrike_usa}
+											}
 										}
 									}
 								}
@@ -7647,6 +6487,9 @@
 											}
 											{tag
 												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_rus}
 											}
 										}
 									}
@@ -7730,6 +6573,9 @@
 											{tag
 												{tag airstrike_fin}
 											}
+											{tag
+												{tag airstrike_usa}
+											}
 										}
 										{include
 											{prop
@@ -7775,6 +6621,9 @@
 											}
 											{tag
 												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
 											}
 										}
 										{include
@@ -7822,6 +6671,9 @@
 											{tag
 												{tag airstrike_fin}
 											}
+											{tag
+												{tag airstrike_usa}
+											}
 										}
 										{include
 											{prop
@@ -7868,6 +6720,9 @@
 											{tag
 												{tag airstrike_fin}
 											}
+											{tag
+												{tag airstrike_usa}
+											}
 										}
 										{include
 											{prop
@@ -7912,6 +6767,9 @@
 											}
 											{tag
 												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
 											}
 										}
 										{include
@@ -7982,7 +6840,7 @@
 						{"case"
 							{condition
 								{type side}
-								{side sov}
+								{side rus}
 							}
 							{"delay"
 								{time 0.1}
@@ -7996,7 +6854,7 @@
 						{"case"
 							{condition
 								{type side}
-								{side csa}
+								{side ger}
 							}
 							{"delay"
 								{time 0.1}
@@ -8010,7 +6868,7 @@
 						{"case"
 							{condition
 								{type side}
-								{side prc}
+								{side fin}
 							}
 							{"delay"
 								{time 0.1}
@@ -8021,20 +6879,20 @@
 								{value 3}
 							}
 						}
-						;{"case"
-						;	{condition
-						;		{type side}
-						;		{side usa}
-						;	}
-						;	{"delay"
-						;		{time 0.1}
-						;	}
-						;	{"set_i"
-						;		{var "user_nation$"}
-						;		{op "="}
-						;		{value 4}
-						;	}
-						;}
+						{"case"
+							{condition
+								{type side}
+								{side usa}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 4}
+							}
+						}
 						{"default"
 							{"delay"
 								{time 0.1}
@@ -8311,81 +7169,7 @@
 						{name "dcg/players_units"}
 					}
 				}
-			}
-			{"dcg/warning_air"
-				{condition
-					{expression "!1 & 2"}
-					{terms
-						{"1.event"
-							{id "talk_on"}
-						}
-						{"2.trigger"
-							{name "dcg/ai_airstrike"}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 0.1}
-					}
-					{"event"
-						{event "talk_on"}
-						{mode set}
-						{delay 0}
-					}
-					{"delay"
-						{time 6}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type rand}
-								{value 0.5}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"talk"
-								{selector
-									{ignore_captured_by_user 0}
-									{amount 1
-									}
-									{tag player}
-									{zone "gamezone"}
-									{type human}
-									{state "not dead"}
-								}
-								{text "mission/multi/enemy_plane_alert2"}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.1}
-							}
-							{"talk"
-								{selector
-									{ignore_captured_by_user 0}
-									{amount 1
-									}
-									{tag player}
-									{zone "gamezone"}
-									{type human}
-									{state "not dead"}
-								}
-								{text "mission/multi/enemy_plane_alert1"}
-							}
-						}
-					}
-					{"delay"
-						{time 8}
-					}
-					{"event"
-						{event "talk_on"}
-						{mode reset}
-						{delay 0}
-					}
-				}
-			}
+			}			
 			{"dcg/warning_mines"
 				{condition
 					{expression "1 & 2 & !3 & 4"}
