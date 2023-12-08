@@ -35,11 +35,11 @@ Purchases["era1960.csa"] = {
 				{priority = 0.2, type = {"Cannon", "Mortar", "Class2",}, unit = "m29_mortar_ai"},
 				{priority = 0.2, type = {"Cannon", "Mortar", "Class2",}, unit = "m30_mortar"},
 				--Infantry_Support
-				{priority = 1.0, type = {"Cannon", "Support", "Class3",}, unit = "m116_packhow"},
+				{priority = 1.0, type = {"Cannon", "Support", "Class3",}, unit = "75mm_m116"},
 				--Artillery
-				--{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "m101a1"},
-				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m114"},
-				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "m115"},	
+				--{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "105mm_m101a1"},
+				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "155mm_m114"},
+				--{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "203mm_m115"},	
 				--Rocket Artillery
 	
 			--APCs/BTRs

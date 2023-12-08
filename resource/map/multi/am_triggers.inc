@@ -4779,16 +4779,16 @@
 									}
 								}
 								{include
-									{prop
-										{prop human}
-									}
 									{state
 										{state operatable}
 									}
 								}
 								{exclude
 									{tag
-										{tag bot}
+										{tag _bot}
+									}
+									{tag
+										{tag _ai}
 									}
 									{tag
 										{tag hidden}
@@ -4802,7 +4802,7 @@
 						{tag_add _ai}
 					}
 					{"delay"
-						{time 0.2}
+						{time 0.4}
 					}
 					{"entity_state"
 						{selector
@@ -4810,8 +4810,8 @@
 							{ignore_captured_by_user 0}
 							{group
 								{select
-									{zone
-										{zone "global"}
+									{tag
+										{tag _ai}
 									}
 								}
 								{include
@@ -4819,7 +4819,7 @@
 										{prop tank}
 									}
 									{state
-										{state inhabited}
+										{state operatable}
 									}
 								}
 								{exclude
@@ -4843,8 +4843,8 @@
 							{ignore_captured_by_user 0}
 							{group
 								{select
-									{zone
-										{zone "global"}
+									{tag
+										{tag _ai}
 									}
 								}
 								{include
@@ -4852,7 +4852,7 @@
 										{prop car}
 									}
 									{state
-										{state inhabited}
+										{state operatable}
 									}
 								}
 								{exclude
@@ -4876,8 +4876,8 @@
 							{ignore_captured_by_user 0}
 							{group
 								{select
-									{zone
-										{zone "global"}
+									{tag
+										{tag _ai}
 									}
 								}
 								{include
@@ -4885,7 +4885,7 @@
 										{prop vehicle}
 									}
 									{state
-										{state inhabited}
+										{state operatable}
 									}
 								}
 								{exclude
@@ -4921,7 +4921,7 @@
 							{tag _ai}
 							{zone "global"}
 							{type human}
-							{state "not dead"}
+							{state operatable}
 						}
 						{remove personage}
 					}
@@ -4951,15 +4951,22 @@
 										{tag _ai}
 									}
 								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state operatable}
+									}
+								}
 								{exclude
 									{tag
-										{tag bot}
+										{tag _bot}
 									}
 								}
 							}
 						}
 						{tag_add bot}
-						{tag_remove _ai}
 					}
 					{"delay"
 						{time 0.5}
@@ -5013,8 +5020,8 @@
 							{ignore_captured_by_user 0}
 							{group
 								{select
-									{zone
-										{zone "global"}
+									{tag
+										{tag _ai}
 									}
 								}
 								{include
@@ -5033,6 +5040,7 @@
 							}
 						}
 						{tag_add _bot}
+						{tag_remove _ai}
 					}
 					{"delay"
 						{time 1}
@@ -5261,6 +5269,11 @@
 						{op "="}
 						{value 0}
 					}
+					{"set_i"
+						{var "ignore_same_user$"}
+						{op "="}
+						{value 0}
+					}
 					{"delay"
 						{time 4}
 					}
@@ -5306,6 +5319,11 @@
 								{op "="}
 								{value 3}
 							}
+							{"set_i"
+								{var "ignore_same_user$"}
+								{op "="}
+								{value 1}
+							}
 						}
 						{"case"
 							{condition
@@ -5348,6 +5366,11 @@
 								{op "="}
 								{value 6}
 							}
+							{"set_i"
+								{var "ignore_same_user$"}
+								{op "="}
+								{value 1}
+							}
 						}
 						{"case"
 							{condition
@@ -5368,6 +5391,11 @@
 								{var "mp$"}
 								{op "="}
 								{value 8}
+							}
+							{"set_i"
+								{var "ignore_same_user$"}
+								{op "="}
+								{value 1}
 							}
 						}
 						{"default"

@@ -1,0 +1,95 @@
+;SDL
+	
+	; armor notes
+	; tracks and wheels 15mm
+	; gun 15mm
+	; spare tracks 15mm
+	; 
+
+	("tank_medium_tier2")
+
+	("shield_track" args "detail7a" 20)
+	("shield_track" args "detail7b" 20)
+	("shield_track" args "detail8a" 20)
+	("shield_track" args "detail8b" 20)
+	("shield_track" args "detail9a" 20)
+	("shield_track" args "detail9b" 20)
+	("shield_track" args "detail10a" 20)
+	("shield_track" args "detail10b" 20)
+
+	("tracks" repair(30) thickness(20))
+	("gun" repair(30) thickness(30))
+
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("transmission" args "transmission")
+
+	{volume "body1"			;upper
+		{thickness 19.5
+			{top 19.5}
+			{front 38}
+			{rear 5}
+		}
+	}
+	{volume "body2"			;lower
+		{thickness 25.4
+			{front 107.8}
+			{rear 5}
+			{top 50.8}		;front
+		}
+	}
+	{volume "body3"			;ring
+		{thickness 19.5}
+	}
+	{volume "engine1"		; upper
+		{thickness 19.5
+			{front 5}
+			{top 10}
+		}
+	}
+	{volume "engine2"		; lower
+		{thickness 25.4
+			{rear 19.5}
+			{front 10}
+		}
+	}
+	{volume "turret1"		; main part
+		{thickness 31.7}
+		{able {holed}}
+	}
+	{volume "turret2"		; rear part
+		{thickness 25.4}
+	}
+	{volume "turret3"		; 
+		{thickness 31.7
+			{left 50.8}		;side
+		}
+	}
+	{volume "turret4"
+		{thickness 31.7
+			{left 50.8}		;side
+		}
+	}
+	{volume "mantlet"
+		{thickness 76.2}
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "armor1"		; sideskirt
+		{thickness 5}
+	}
+	{volume "armor2"		; sideskirt
+		{thickness 5}
+	}
+	{volume "armor3"		; sideskirt
+		{thickness 5}
+	}
+	{volume "armor4"		; wood
+		{thickness 15}
+		{material "wood"}
+		{tags "wood"}
+	}

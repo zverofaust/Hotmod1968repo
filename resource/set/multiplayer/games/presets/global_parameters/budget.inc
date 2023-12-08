@@ -11,7 +11,7 @@
 				{restore	"1.00	1.00	0.5 	0.25	0.10	0.05"}
 			}
 		}
-		{buttons "inf1 inf2 empl vehicles tanks strategic"}
+		{buttons "inf1 inf2 empl vehicles tanks strat"}
 	}
 	{hero
 		{resource 

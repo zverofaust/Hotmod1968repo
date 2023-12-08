@@ -35,11 +35,11 @@ Purchases["era1960.frg"] = {
 				{priority = 0.3, type = {"Cannon", "Mortar", "Class2",}, unit = "81mm_krh36_frg_ai"},
 				{priority = 0.3, type = {"Cannon", "Mortar", "Class1",}, unit = "120mm_krh40_frg"},
 				--Infantry_Support
-				--{priority = 1.0, type = {"Cannon", "Support", "Class3",}, unit = "m116g"},
+				--{priority = 1.0, type = {"Cannon", "Support", "Class3",}, unit = "75mm_m116g"},
 				--Artillery
-				--{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "m101g"},
-				--{priority = 1.0, type = {"Cannon", "Artillery", "Class2",}, unit = "m114g"},
-				--{priority = 1.0, type = {"Cannon", "Artillery", "Class1",}, unit = "m115g"},	
+				--{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "105mm_m101g"},
+				--{priority = 1.0, type = {"Cannon", "Artillery", "Class2",}, unit = "155mm_m114g"},
+				--{priority = 1.0, type = {"Cannon", "Artillery", "Class1",}, unit = "203mm_m115g"},	
 				--Rocket Artillery
 	
 			--APCs/BTRs

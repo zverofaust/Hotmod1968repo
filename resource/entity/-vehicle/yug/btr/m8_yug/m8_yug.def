@@ -1,0 +1,157 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	(include "/properties/tank_crew.ext")
+	{props "tank" "turret" "wheeled" "with_gun" "vision_lev02" "muzzle_37mm_47mm" "muzzle_hmg_m2hb" "open_top"}
+	(include "m8_yug.ext")
+	{extension "m8_yug.mdl"}
+	{targetclass "armoredcar"}
+	{targetSelector "tank_light"}
+	{patherId "sdkfz232"}
+
+	{extender "shield" {on}}
+
+	{boarder
+		{anm "gunner"
+			{forward {begin "board_MiddleArmor"} {end "seat_m8_gunner"}}
+			{reverse {end "emit_tank_1"}}
+		}
+		{anm "charger"
+			{forward {begin "board_MiddleArmor"} {end "seat_m8_charger"}}
+			{reverse {end "emit_tank_1"}}
+		}
+		{anm "driver"
+			{forward {begin "board_MiddleArmor"} {end "seat_m8_driver"}}
+			{reverse {end "emit_tank_1"}}
+		}
+		{anm "commander"
+			{forward {begin "board_MiddleArmor"} {end "seat_m8_driver"}}
+			{reverse {end "emit_tank_1"}}
+		}
+		{anm "gunner2"
+			{forward {begin "board_MiddleArmor"} {end "seat_m3a1_gunner50"}}
+			{reverse {end "emit_tank_1"}}
+		}
+		{anm "armor1"
+			{forward {begin "board_MiddleArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_1"}}
+		}
+	}
+
+	(define "crew_human"
+		{placer
+			{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {shadow} %off}}
+		}
+		{boarder
+			{door "emit1"}
+			{door "emit2"}
+			{link "emit1" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+			{link "emit2" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	{sensor
+		{visor "main"
+			{vision "tank_range_200"}
+			{bone "foresight1"}
+		}
+		{visor "around"
+			{vision "vehicle_around"}		;// better vision than a in-closed turret 
+		}
+	}
+
+	{placer
+		{place "gunner" {visor "main"}}
+		{place "commander" {visor "around"}}
+		{place "charger" {visor "none"}}
+	}
+
+	("crew_human" place(driver)		door(emit1) bone(driver)	animation(driver)		group(crew)	off({sensor}))
+	("crew_human" place(commander)	door(emit2) bone(commander)	animation(commander)	group(crew)	off({sensor}))
+	("crew_human" place(gunner)		door(emit1) bone(gunner)	animation(gunner)		group(crew)	off({sensor}))
+	("crew_human" place(charger)	door(emit2) bone(charger)	animation(charger)		group(crew)	off({sensor}))
+	("crew_human" place(gunner2)	door(emit4) bone(gunner2)	animation(gunner2)		group(passengers)	off())
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor1))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+	("seat_human" place(seat5) bone(seat05) door(emit7)  animation(armor1))
+	("seat_human" place(seat6) bone(seat06) door(emit8)  animation(armor1))
+
+	{extender "inventory"
+		{box
+			{item "ammo bulletusa_37 apcbc" 23}	;80 rounds ;30/60/10% AP,HE,CAN
+			{item "ammo bulletusa_37 he" 56}
+			{item "ammo hmgun_usa" 300}			;400 rounds
+			{item "ammo mgun_usa belt" 1250}			;1500 rounds
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "37mm_m6" filling "bulletusa_37 apcbc" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic"
+				zeroing(2.0)
+				dispersion(0.2)
+			)
+		}
+		{place "mgun1"
+			{type "coaxial"}
+			{weapon "browning_m19a4" filled}
+			{foresight "foresight4"}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun"
+			{type "aa"}
+			{weapon "browning_m2" filled}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{ai_in_manual}
+			{basic}
+		}
+	}
+
+	{mass 7890}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel03") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.08) wheell("wlr") wheelr("wrr") bonel("FXtraceL2") boner("FXtraceR2"))
+		("mobility_car"
+			speed(88) ;----------------------------------Max speed.
+			speedatmaxturn(22) ;-------------------------Max speed at max turn. 
+			reverse(17) ;--------------------------------Max speed in Reverse.
+			weight(7.89) ;-------------------------------Weight in Tonnes.
+			power(110) ;---------------------------------Horse Power.
+			fuel(200) ;----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(500) ;---------------------------------Range in Kilometers.
+		)
+	}
+
+	{bone "gun_rot"
+		{limits -10 20}
+		{speed2 8}
+	}
+	{bone "turret"
+		("turret_light" power_traverse(0)) ;// manual
+	}
+	{bone "mgun_holder1"
+		{limits -5 5}
+	}
+	{bone "mgun_1_rot1"
+		{speed2 60}
+	}
+	{bone "mgun_1_rot2"
+		{speed2 60}
+	}
+}

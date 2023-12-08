@@ -1,0 +1,51 @@
+{game_entity
+	(include "m201_mg.inc")
+	{props "muzzle_hmg_m2hb"}
+	{extension "m201_50cal.mdl"}
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_willis_driver"} {end "seat_kubel_driver"} {base "doorleft1"}}
+			{reverse {end "board_willis_driver" -1} {base "doorleft1" -1}}
+		}
+		{anm "commander"
+			{forward {begin "board_willis"} {end "seat_kubel_commander"} {base "doorright1"}}
+			{reverse {end "board_willis" -1} {base "doorright1" -1}}
+		}
+		{anm "left"
+			{forward {begin "board_LowTank_stand"} {end "willys_mb_50cal_mgunner"}}	;placeholder pose
+			{reverse {end "emit_tank_1_hold" 1}}
+		}
+		{anm "right"
+			{forward {begin "board_LowTank_stand"} {end "willys_mb_50cal_mgunner"}}	;placeholder pose
+			{reverse {end "emit_tank_1_hold" 1}}
+		}
+	}
+
+	{extender "inventory"
+		{Box
+			{item "ammo hmgun_usa" 400}			; 5 boxes
+		}
+	}
+
+	{Weaponry
+		{place "mgun"
+			{type "main"}
+			{weapon "browning_m2" filled}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{ai_in_manual}
+			{basic}
+		}
+	}
+	{bone "mgun_a_rot1"
+		{speed2 60}
+	}
+	{bone "mgun_a_rot2"
+		{speed2 60}
+	}
+}
+

@@ -13,7 +13,7 @@
 {sensor
 	{Visor "hearing"
 		{vision "noise_detection"}
-		{bone "basis"}
+		{bone "hearing_bone"}
 	}
 	{RecognizeTime 0.01}
 	{InformRange 50 75}		;// first = AI , second = USER
@@ -151,7 +151,10 @@
 	("main_weapon" args "barrel5" %thickness gun)
 	("main_weapon" args "barrel6" %thickness gun)
 	("main_weapon" args "barrel7" %thickness gun)
-
+	("main_weapon" args "barrel8" %thickness gun)
+	("main_weapon" args "barrel9" %thickness gun)
+	("main_weapon" args "barrel10" %thickness gun)
+	
 	("main_weapon" args "breach" 2 gun)
 	("main_weapon" args "breech" 2 gun)
 
@@ -161,9 +164,13 @@
 	}
 )
 
+{volume "breach" {able {NoWoundDecal}}}
+{volume "breech" {able {NoWoundDecal}}}
+
 (define "gun1"
 	("main_weapon" args "barrel11" %thickness gun1)
 	("main_weapon" args "barrel12" %thickness gun1)
+	("main_weapon" args "barrel13" %thickness gun1)
 
 	{component "gun1"
 		{RepairTime %repair}
@@ -174,12 +181,14 @@
 (define "gun2"
 	("main_weapon" args "barrel21" %thickness gun2)
 	("main_weapon" args "barrel22" %thickness gun2)
+	("main_weapon" args "barrel23" %thickness gun2)
 
 	{component "gun2"
 		{RepairTime %repair}
 		{RepairOrder 1}
 	}
 )
+
 
 (define "make_component"
 	{volume %0
@@ -213,7 +222,11 @@
 
 	("make_component" args "standc" "body")
 	("make_component" args "standl" "body")
+	("make_component" args "standl1" "body")
+	("make_component" args "standl2" "body")
 	("make_component" args "standr" "body")
+	("make_component" args "standr1" "body")
+	("make_component" args "standr2" "body")
 
 	{component "body"
 		{RepairTime %repair}
@@ -422,6 +435,16 @@
 ("holes" volume(hole) number(13))
 ("holes" volume(hole) number(14))
 ("holes" volume(hole) number(15))
+("holes" volume(hole) number(16))
+("holes" volume(hole) number(17))
+("holes" volume(hole) number(18))
+("holes" volume(hole) number(19))
+("holes" volume(hole) number(20))
+("holes" volume(hole) number(21))
+("holes" volume(hole) number(22))
+("holes" volume(hole) number(23))
+("holes" volume(hole) number(24))
+("holes" volume(hole) number(25))
 
 
 (define "glass"
@@ -430,7 +453,7 @@
 		{material "glass"}
 		{tags "glass"}
 		{component %0}
-		{able {visible 0}{obstacle 0}}
+		{able {visible 0}{obstacle 0}{window}}
 	}
 	{component %0
 		{tags "glass"}
@@ -485,13 +508,13 @@
 (define "solid_wheel"
 	{volume %0
 		{thickness 10}
-		{tags "wheel"}
+		{tags "wheel" "no_target"}
 		{component %0}
 		{able {NoWoundDecal}}
 	}
 	{component %0
 		{RepairTime 10}
-		{tags "wheel"}
+		{tags "wheel" "no_target"}
 		{RepairOrder 10}
 	}
 )
@@ -499,7 +522,7 @@
 (define "track_wheels"
 	{volume "track%0%1"
 		{tags "mover" "track"}
-		{able {NoWoundDecal}}
+		;{able {NoWoundDecal}}
 		{thickness %2}
 		{component "track%0"}
 	}
@@ -509,12 +532,12 @@
 	{volume "trackleft"
 		{thickness %thickness}
 		{tags "mover" "track"}
-		{able {NoWoundDecal} {holed}}
+		{able {NoWoundDecal} {holed} {contact_ground 0}}
 	}
 	{volume "trackright"
 		{thickness %thickness}
 		{tags "mover" "track"}
-		{able {NoWoundDecal} {holed}}
+		{able {NoWoundDecal} {holed} {contact_ground 0}}
 	}
 
 	("track_wheels" args left 1 %thickness)
@@ -607,8 +630,28 @@
 	}
 )
 
+(define "shield_part"
+	{volume %0
+		{thickness %1}
+		{tags %2}
+		{component %2}
+	}
+)
+
 (define "shield_cover"		;// for canvas covers on cars and trucks. Setup as "shields" so they can be toggled on/off
 	{volume "shield_cover"
+		{thickness 0.01}
+		{material "fabric"}
+		{able {NoWoundDecal}}
+		{component "shield_cover"}
+	}
+	{volume "shield_cover1"
+		{thickness 0.01}
+		{material "fabric"}
+		{able {NoWoundDecal}}
+		{component "shield_cover"}
+	}
+	{volume "shield_cover2"
 		{thickness 0.01}
 		{material "fabric"}
 		{able {NoWoundDecal}}
@@ -633,11 +676,26 @@
 	}
 )
 
+(define "gun_shield"		;// reserved for shields around gun on open top SPG. Allows crew to be hurt/stun when penetrated. No vehicle component damage
+	{volume %0
+		{thickness %1}
+		{tags "gun_shield"}
+	}
+)
+
 (define "shield_part"
 	{volume %0
 		{thickness %1}
 		{tags %2}
 		{component %2}
+	}
+)
+
+
+(define "armor"				;// reserved for extra spaced armor. When penned nothing happens to vehicle/crew components.
+	{volume %0
+		{thickness %1}
+		{tags "armor"}
 	}
 )
 
@@ -681,12 +739,20 @@
 ("armor_tag" args "armor6")
 ("armor_tag" args "armor7")
 ("armor_tag" args "armor8")
+("armor_tag" args "armor9")
+("armor_tag" args "armor10")
+("armor_tag" args "armor11")
+("armor_tag" args "armor12")
 ("armor_tag" args "armor13")
 ("armor_tag" args "armor14")
 ("armor_tag" args "armor_mg_port")
 ("armor_tag" args "armor_driver")
 ("armor_tag" args "armor_mantlet")
 ("armor_tag" args "armor_hull")
+("armor_tag" args "armor_front1")
+("armor_tag" args "armor_front2")
+("armor_tag" args "armor_front3")
+("armor_tag" args "armor_front4")
 ;/*========================================*/
 {volume "inventory" {able clear}{thickness 2}}
 ;/*========================================*/

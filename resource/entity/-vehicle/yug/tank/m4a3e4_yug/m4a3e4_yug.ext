@@ -1,0 +1,136 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 20mm
+	; gun 25mm
+
+	("tank_medium_tier2")
+
+	("tracks" repair(30) thickness(20))
+	("gun" repair(30) thickness(25))
+
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("ammo" args "ammo5")
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("fuel" args "fuel3")
+	("fuel" args "fuel4")
+	("transmission" args "transmission")
+
+	{volume "body1"			; Hull lower Front
+		{thickness 38.1
+			{front 107.9}	; 
+			{top 51}		; front upper part 
+			{rear 10}
+			{bottom 25.4}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "body2"			; 
+		{thickness 38.1
+			{front 63.5}
+			{top 19.5}
+			{bottom 9.5}
+		}
+	}
+	{volume "body3"
+		{thickness 19.5
+			{left 39}
+			{right 39}
+		}
+	}
+	{volume "body4"
+		{thickness 63.5}
+	}
+	{volume "body5"
+		{thickness 63.5}
+	}
+	{volume "body6"
+		{thickness 63.5}
+	}
+	{volume "body7"			; Hull lower middle
+		{thickness 38.1
+			{top 51}
+			{rear 10}
+			{bottom 25.4}
+		}
+	}
+	{volume "body8"			; Hull lower Front right
+		{thickness 38.1
+			{front 107.9}	; 
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "body9"			; Hull lower Front left
+		{thickness 38.1
+			{front 107.9}	; 
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "engine1"
+		{thickness 38.1
+			{front 19.5}
+			{bottom 25.4}
+		}
+	}
+	{volume "engine2"
+		{thickness 38.1
+			{front 10}
+			{top 19.5}
+			{bottom 9.5}
+		}
+	}
+	{volume "engine3"
+		{thickness 38.1
+			{front 9.5}
+			{top 9.5}
+			{bottom 9.5}
+		}
+	}
+	{volume "turret1"
+		{thickness 51
+			{top 19.5}
+			{front 76}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "turret2"
+		{thickness 51
+			{front 76}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "turret3"
+		{thickness 89}
+		{CastSteel 0.8063}
+	}
+	{volume "turret4"
+		{thickness 51}
+		{CastSteel 0.8063}
+	}
+	{volume "mantlet"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 51}
+		{CastSteel 0.8063}
+	}
+	{volume "armor1"	; rear engine grill
+		{thickness 4}
+	}
+	{volume "armor2"	; rear engine grill
+		{thickness 4}
+	}
+	{volume "armor3"	; turret ring armor
+		{thickness 19.5
+			{top 5.9}
+		}
+	}
+	{volume "cupola"
+		{thickness 51
+			{top 19.5}
+		}
+		{CastSteel 0.8063}
+	}

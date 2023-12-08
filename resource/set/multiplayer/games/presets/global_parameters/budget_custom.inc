@@ -14,7 +14,7 @@
 					{limitmax	50000}
 					{speedset	"2000 2500 3000 3500 4000 4500 5000 6000 10000"}
 				}
-				{buttons "inf1 inf2 empl vehicles tanks strategic"}
+				{buttons "inf1 inf2 empl vehicles tanks strat"}
 			}
 			{hero
 				{resource 
