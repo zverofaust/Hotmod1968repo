@@ -475,26 +475,30 @@
 }
 
 {"cannon_small"					;// allows cannon to be crushed by armored cars, when normally they cannot.
-	{on contact sync
+	{on contact
 		{if not impregnable
 			{if effector "armored_car"
 				{call "crush_damage"}
 			else effector "truck"
-			;	{call "crush_damage"}
+				;// do nothing
 			else effector "car"
-			;	{call "crush_damage"}
+				;// do nothing
 			}
 		}
 	}
 	{on "crush_damage" overload
 		{if effector_velocity 10
-			{component destroy}
-			{if volume "body"
-				{set "crush" 1}
-				{call "explosion"}
-			}
+			{call_synced "crush_destroy_sync"}
 		else effector_velocity 5
 			{component break}
+		}
+	}
+
+	{on blast_hit
+		{if min_energy 3.15
+			{call "explosion"}
+			{component destroy}
+			{call "stat_break"}
 		}
 	}
 }
@@ -1640,39 +1644,21 @@
 
 
 {"m45_maxson"
-	{on "init_gun"
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel02"	"shooter02"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel03"	"shooter03"}
-		{add_view "zenit_gilz"			"shell"			"FXshell1"}
-		{add_view "zenit_gilz"			"shell"			"FXshell2"}
-		{add_view "zenit_gilz"			"shell"			"FXshell3"}
-		{add_view "zenit_gilz"			"shell"			"FXshell4"}
-		{call "update_gun"}
+	("handle_ik")
+	{on "add_weapon_sound" overload
+		("M2HB_M45_Mount")
 	}
-	{on "add_movement_sound"
-		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
-		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+
+	("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
+
+	{on "reload"
+		{ani_play "reload_mgun" 1.0}
 	}
-	{on fire "mgun1" overload
-		(define "fire_barrel"
-			name "%0"
-				{call "fire_barrel%0"}
-				{view start "flashbarrel%0"}
-				{ani_play "fire%0"}
-				{delay 0.2
-					{view pause "flashbarrel%0"}
-				}
-		)
-		{if	("fire_barrel" args 00)
-		else ("fire_barrel" args 01)
-		else ("fire_barrel" args 02)
-		else ("fire_barrel" args 03)
-		}
-		{ani_play "recoil"}
-		{call "spawn_shell"}
+	{on "reload_delay" overload
+		("reload_time" args 30)		;// weapon reload time
 	}
+
+	("cannon_small")
 }
 
 {"m20_rcl"
@@ -1692,6 +1678,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
+	
 }
 
 {"m40"
@@ -1712,6 +1699,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
+	
 }
 
 {"m-28"
@@ -1745,6 +1733,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
+	
 
 }
 
