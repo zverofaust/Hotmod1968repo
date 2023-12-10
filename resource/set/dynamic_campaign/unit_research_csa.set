@@ -163,13 +163,13 @@
 ;//---Artillery---
 
 	{"75mm_m116"			requires	"csa_artillery_1960"				costs 0 position 1 13}
-	{"105mm_m101a1"			requires	"m116_packhow"						costs 2 position 2 13}
-	{"155mm_m114"			requires	"m101a1"							costs 3 position 2.9 13}
-	{"155mm_m59_longtom"	requires	"m101a1"							costs 4 position 4.7 13}
-	{"203mm_m115"			requires	"m114"								costs 4 position 3.8 13}
-	{"m-28"					requires	"m59_longtom"						costs 20 position 3 11}
+	{"105mm_m101a1"			requires	"75mm_m116"							costs 2 position 2 13}
+	{"155mm_m114"			requires	"105mm_m101a1"						costs 3 position 2.9 13}
+	{"155mm_m59_longtom"	requires	"105mm_m101a1"						costs 4 position 4.7 13}
+	{"203mm_m115"			requires	"155mm_m114"						costs 4 position 3.8 13}
+	{"m-28"					requires	"155mm_m59_longtom"					costs 20 position 3 11}
 	{"mgr-3"				requires	"squad_aircav_fireteam_con(csa)"	costs 6 position 7.5 5.4}
-	{"uh-1h_transport_mgr3"	requires	"mgr-3"						costs 6 position 8.5 5.4}
+	{"uh-1h_transport_mgr3"	requires	"mgr-3"								costs 6 position 8.5 5.4}
 	
 
 ;---Trucks---
@@ -197,7 +197,7 @@
 	{"m106_acav"			requires	"m113_acav"				costs 2 position 1.2 9.1}
 	
 	{"m114a1"				requires	"csa_acav_1960"			costs 0 position 1.1 7.8}
-	{"m114a2"				requires	"m114a1"				costs 2 position 2 7.4}
+	{"m114a2"				requires	"m114a1"				costs 5 position 2 7.4}
 	
 	{"m113_m40"				requires	"m113"					costs 2 position 4.9 10.8}
 	{"m125"					requires	"m113"					costs 2 position 5.8 11.8}
@@ -239,10 +239,10 @@
 	
 ;---SPGs---
 	
-	{"m108"					requires	"m101a1 csa_tanks_1960"		costs 0 position 2 14.5}
-	{"m109"					requires	"m114 csa_tanks_1960"		costs 3 position 2.9 14.5}
-	{"m109_acav"			requires	"m106_acav"					costs 3 position 0.4 9.1}
-	{"m110"					requires	"m115 csa_tanks_1960"		costs 5 position 3.8 14.5}
+	{"m108"					requires	"105mm_m101a1 csa_tanks_1960"	costs 0 position 2 14.5}
+	{"m109"					requires	"155mm_m114 csa_tanks_1960"		costs 3 position 2.9 14.5}
+	{"m109_acav"			requires	"m106_acav"						costs 3 position 0.4 9.1}
+	{"m110"					requires	"203mm_m115 csa_tanks_1960"		costs 5 position 3.8 14.5}
 	
 ;---Helis---
 
