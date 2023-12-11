@@ -1,0 +1,114 @@
+;Exported by:	 guita
+;Date:			 01.06.2023 16:07:59
+;File:			 D:\Git\3D_Scenes\GoH_3D_human_usa\weapons\m1_garand\m1_garand_export.max
+{skeleton
+	{animation
+		{sequence "recoil" {speed 4}}
+		{sequence "reload" {speed 4}}
+	}
+	{bone "garand"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{LODView
+			{VolumeView "garand.ply"}
+			{VolumeView "garand_lod1.ply"}
+			{VolumeView "garand_lod2.ply"}
+			{VolumeView "garand_lod3.ply"}
+		}
+		{bone "magazine"
+			{Position 2.2168 	 0.7129 	 -0.0225}
+			{LODView
+				{VolumeView "magazine.ply"}
+				{VolumeView "magazine_lod1.ply"}
+				{VolumeView "magazine_lod2.ply"}
+				{VolumeView "magazine_lod3.ply"}
+			}
+		}
+		{bone "hammer"
+			{Position 1.4012 	 0.7396 	 -0.619}
+			{VolumeView "hammer.ply"}
+		}
+		{bone "bolt2"
+			{Position 2.489 	 1.424 	 0.0664}
+			{LODView
+				{VolumeView "bolt2.ply"}
+				{VolumeView "bolt2_lod1.ply"}
+				{VolumeView "bolt2_lod2.ply"}
+			}
+		}
+		{bone "bolt"
+			{Position 5.4975 	 1.3274 	 0.5946}
+			{LODView
+				{VolumeView "bolt.ply"}
+				{VolumeView "bolt_lod1.ply"}
+				{VolumeView "bolt_lod2.ply"}
+			}
+		}
+		{bone "handle"
+			{matrix34
+				1 	 0 	 0
+				0 	 0 	 -1
+				0 	 1 	 0
+				4.8915 	 1.7781 	 -0.0159
+			}
+		}
+		{bone "fxshell"
+			{matrix34
+				0 	 1 	 0
+				0 	 0 	 -1
+				-1 	 0 	 0
+				1.6683 	 1.464 	 0.0286
+			}
+		}
+		{bone "foresight12"
+			{Position 15.3517 	 1.3998 	 0.0158}
+		}
+	}
+}
+{volume "body"
+	{box 21.433 2.17382 0.984371}
+	{bone "garand"}
+	{matrix34
+		0.9969 	 0.0791 	 0
+		-0.0791 	 0.9969 	 0
+		0 	 0 	 1
+		4.7895 	 0.3146 	 -0.0531
+	}
+}
+{volume "magazine"
+	{box 0.683139 0.988768 0.610854}
+	{bone "magazine"}
+	{Position -0.3184 	 0.099 	 0.0375}
+}
+{volume "select"
+	{box 22.1538 3.86723 1.33634}
+	{bone "garand"}
+	{Position 4.6196 	 0.058 	 0.0409}
+}
+{extender "preview"
+	{"stuff"
+		{camera
+			{origin 4.8225 	 -0.3499 	 -26.8353}
+			{lookat 4.6875 	 -0.3427 	 -8.6241}
+			{fov 45}
+			{horizon 86.8}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 7.7785 	 -12.5198 	 -0.5505}
+			}
+			{"1"
+				{type directional}
+				{direction -0.0294 	 0.2276 	 0.4442}
+			}
+			{"2"
+				{type point}
+				{position 15.3871 	 5.2623 	 -5.1726}
+			}
+		}
+	}
+}

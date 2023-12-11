@@ -97,6 +97,7 @@
 	{item "hmgun_usa"				"ammo" 50 {value 5}}
 	{item "mgun_usa" "belt"			"ammo" 50 {value 2}}
 	{item "m60_box" 				"ammo" 100 {value 2}}
+	{item "bar_lmg" 				"ammo" 20 {value 1}}
 
 ;// rifle
 	{item "m1_garand"				"ammo" 8 {value 1}}

@@ -1,0 +1,98 @@
+;Exported by:	 guita
+;Date:			 26.11.2023 16:26:13
+;File:			 D:\Git\3D_Scenes\GoH_3D_human_usa\weapons\bar\export\bar_m1918a2_export.max
+{skeleton
+	{animation
+		{sequence "recoil" {speed 0.9}}
+	}
+	{bone "bar_m1918a2"
+		{parameters "id=mgun;"}
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{LODView
+			{VolumeView "bar_m1918a2.ply"}
+			{VolumeView "bar_m1918a2_lod1.ply"}
+			{VolumeView "bar_m1918a2_lod2.ply"}
+			{VolumeView "bar_m1918a2_lod3.ply"}
+		}
+		{bone "foresight12"
+			{Position 19.4609 	 1.651 	 0.0025}
+		}
+		{bone "fxshell"
+			{matrix34
+				0 	 0.4226 	 0.9063
+				0 	 0.9063 	 -0.4226
+				-1 	 0 	 0
+				3.8541 	 1.7944 	 0.2092
+			}
+		}
+		{bone "handle"
+			{matrix34
+				1 	 0 	 0
+				0 	 0 	 -1
+				0 	 1 	 0
+				0.8219 	 1.8001 	 0
+			}
+		}
+		{bone "bolt"
+			{Position 1.911 	 1.6957 	 0.0018}
+			{LODView
+				{VolumeView "bolt.ply"}
+				{VolumeView "bolt_lod1.ply"}
+				{VolumeView "bolt_lod2.ply"}
+				{VolumeView "bolt_lod3.ply"}
+			}
+		}
+		{bone "magazine"
+			{Position 3.7886 	 0.0597 	 0.0018}
+			{LODView
+				{VolumeView "magazine.ply"}
+				{VolumeView "magazine_lod1.ply"}
+				{VolumeView "magazine_lod2.ply"}
+				{VolumeView "magazine_lod3.ply"}
+			}
+		}
+	}
+}
+{volume "body"
+	{polyhedron "body.vol"}
+	{bone "bar_m1918a2"}
+	{Position 6.2748 	 0.3635 	 -0.9084}
+}
+{volume "magazine"
+	{polyhedron "magazine.vol"}
+	{bone "magazine"}
+	{Position 0.0437 	 0.0033 	 -0.4612}
+}
+{volume "select"
+	{box 26.8767 6.08268 3.93994}
+	{bone "bar_m1918a2"}
+	{Position 6.5086 	 -0.1011 	 0.0688}
+}
+{extender "preview"
+	{"stuff"
+		{camera
+			{origin 6.707 	 -11.3055 	 -62.4087}
+			{lookat 6.707 	 -0.3397 	 0.0128}
+			{fov 23.9132}
+			{horizon -0.326259}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction 0.0031 	 0.481 	 0.1366}
+			}
+			{"1"
+				{type point}
+				{position -2.1147 	 6.8173 	 -4.0062}
+			}
+			{"2"
+				{type point}
+				{position -2.8012 	 -17.1117 	 -18.2799}
+			}
+		}
+	}
+}
