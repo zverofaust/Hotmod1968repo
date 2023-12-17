@@ -109,7 +109,6 @@
 ;// AT
 	{item "bazooka"					"ammo" 1  {value 10}}
 	{item "m67"						"ammo" 1  {value 10}}
-	{item "gustaf"					"ammo" 1  {value 10}}
 	{item "m20_superzook"			"ammo" 1  {value 10}}
 
 ;// Light weaponry -- For all man-portable (emplacement) heavy weapons
@@ -144,6 +143,10 @@
 	{item "mp2"						"ammo" 20 {value 2}}
 	{item "walther_mp"				"ammo" 20 {value 2}}
 
+;// AT
+	{item "gustaf"					"ammo" 1  {value 10}}
+	{item "pzf44"					"ammo" 1  {value 6}}
+	
 	{item "cobra" 			"atgm"	"ammo" 1  {value 15}}
 	{item "mortarfrg_120" "he"		"ammo" 1  {value 9}}
 	;{item "mortarfrg_120" "sm"		"ammo" 1  {value 9}}
@@ -253,6 +256,10 @@
 	{item "bullet100_d10"		"he"		"ammo" 1 {value 5}}
 	{item "bullet100_d10"		"heat"		"ammo" 1 {value 12}}
 	{item "bullet100_d10"		"apds"		"ammo" 1 {value 10}}
+	
+	{item "bullet100_t12"		"he"		"ammo" 1 {value 5}}
+	{item "bullet100_t12"		"heat"		"ammo" 1 {value 12}}
+	{item "bullet100_t12"		"apfsds"	"ammo" 1 {value 10}}
 
 	{item "bullet115_2a20"		"apfsds"	"ammo" 1 {value 15}}
 	{item "bullet115_2a20"		"he"		"ammo" 1 {value 10}}
