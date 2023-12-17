@@ -3967,6 +3967,23 @@
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(into_hatch_common) pose(seat_gunner_stand))
 }
 
+{"is2_prc tank"
+	("is_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_isu152_gunner2))
+}
+
 {"isu152_prc tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/is/start"}
