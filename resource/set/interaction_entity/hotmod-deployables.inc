@@ -1,13 +1,17 @@
 {"gunbagged"
 	{on spawn
-		{tags add "gunbagged"}
+		{delay 0.1
+			{tags add "gunbagged"}
+		}
 	}
 }
 
 {"gunbag"
 	{on spawn
-		{if not linked "human"
-			{tags add "gunbag"}
+		{delay 0.1
+			{if not linked "human"
+				{tags add "gunbag"}
+			}
 		}
 	}
 }
