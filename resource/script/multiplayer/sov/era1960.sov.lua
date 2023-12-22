@@ -79,7 +79,7 @@ Purchases["era1960.sov"] = {
 				
 			-- Doctrine = "VDV Air Assault Brigade"
 			
-			{priority = 1.0, type = {"Class3", "Doctrine", "Tier1",}, unit = "doctrine_squad_spzteam(sov)"},
+			{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Tier1",}, unit = "doctrine_squad_spzteam(sov)"},
 			{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "AT", "Tier2",}, unit = "doctrine_squad_vdv_desantski(sov)"},
 			{priority = 1.0, type = {"Class1", "Doctrine", "Tank", "Light", "AT", "Tier3",}, unit = "doctrine_squad_spz_desantski(sov)"},
 			{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "AA", "Tier1",}, unit = "doctrine_squad_zu2(sov)"},
