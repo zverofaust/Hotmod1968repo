@@ -13,7 +13,7 @@
 ;	"xxx"		--> add tag
 ; 32 collider id limit
 ; list of used colliderId's:
-;	"nothing" "tree" "bush" "rock" "construction" "human" "human_tpc" "particle" "particle.big" "flame" "stuff" "mine.ap" "mine.at"
+;	"nothing" "tree" "bush" "rock" "construction" "human" "human_tpc" "particle" "particle.big" "flame" "stuff" "mine.ap" "mine.at" "mine.ap.grenade"
 ;	"car" "moto" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "cannon" "cannon_small" "sandbag" "local"
 {Colliders	; default collider profile must be first
 
@@ -46,7 +46,7 @@
 	}
 	{"human"
 		{ColliderId		"human"}
-		{CollideWith	"bush" "mine.ap"}
+		{CollideWith	"bush" "mine.ap" "mine.ap.grenade"}
 		{NoContactsAtAll}
 	}
 	{"human_tpc" from "human"
@@ -101,11 +101,6 @@
 		{CollideWith	"human" "cannon" "cannon_small"}
 	}
 	
-	{"radio_signal"
-		{ColliderId		"radio_signal"}
-		{CollideWith	"cannon" "cannon_small"}
-	}
-	
 	;/*=========== Stuff ===========*/
 	{"stuff"
 		{ColliderId		"stuff"}
@@ -118,6 +113,9 @@
 		{CollideWith	"human" "stuff" "particle"}
 		{RejectColliderByVolume}
 		{PointCollider}
+	}
+	{"mine.ap.grenade" from "grenade"
+		{ColliderId		"mine.ap"}
 	}
 	{"ammo" from "particle.big"
 		{collideWith "human" "stuff" "particle" "ammo"}
@@ -145,7 +143,7 @@
 
 	{"moto" from "vehicle"
 		{ColliderId		"moto"}
-		{CollideWith	"construction" "rock" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.ap"}
+		{CollideWith	"construction" "rock" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
 	}
 	{"cannon" from "vehicle"
 		{ColliderId		"cannon"}
@@ -228,9 +226,5 @@
 	{"local"
 		{ColliderId		"local"}
 		{CollideWith	"local"}
-	}
-	{"bomb_event"
-		{ColliderId		"bomb_event"}
-		{CollideWith	"vehicle"} ;airborne doesn't have its own id so we have to blanket this stuff
 	}
 }
