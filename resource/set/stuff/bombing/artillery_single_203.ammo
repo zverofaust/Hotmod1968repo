@@ -1,8 +1,13 @@
-{from "air_bomb" ;based on M106 203mm HE shell
+{from "air_bomb"
 	{tag "shell size5 fg he -bomb"}
 	{inventory
 		{noView}
 	}
-	("he_level_3" weight(90) filler(12))
+	("he_level_5" weight(90.7) filler(16.66))
+	{damage add blastwave
+		{energy 1.5}
+		{area 22 30}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
 	{entity "artillery_single_203"}
 }
