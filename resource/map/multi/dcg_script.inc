@@ -5899,6 +5899,294 @@
 					}
 				}
 			}
+			{"dcg/ai_air_decide"
+				{condition
+					{terms
+						{"1.event"
+							{id "ai_air_possible"}
+						}
+						{"2.cmp_i"
+							{var "ai_air_on$"}
+							{op "=="}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{ignore_captured_by_user 0}
+									{tag fpc1}
+									{zone "gamezone"}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag player}
+											{zone "fpc1"}
+											{type human}
+											{state "not dead"}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"set_i"
+										{var "ai_air_on$"}
+										{op "="}
+										{value 1}
+									}
+								}
+								{"default"}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 2}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "ai_air_on$"}
+								{op "=="}
+								{value 0}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag fpc2}
+											{zone "gamezone"}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{ignore_captured_by_user 0}
+													{tag player}
+													{zone "fpc2"}
+													{type human}
+													{state "not dead"}
+												}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"set_i"
+												{var "ai_air_on$"}
+												{op "="}
+												{value 2}
+											}
+										}
+										{"default"}
+									}
+								}
+								{"default"}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 2}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "ai_air_on$"}
+								{op "=="}
+								{value 0}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag fpc3}
+											{zone "gamezone"}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{ignore_captured_by_user 0}
+													{tag player}
+													{zone "fpc3"}
+													{type human}
+													{state "not dead"}
+												}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"set_i"
+												{var "ai_air_on$"}
+												{op "="}
+												{value 3}
+											}
+										}
+										{"default"}
+									}
+								}
+								{"default"}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 2}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "ai_air_on$"}
+								{op "=="}
+								{value 0}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag fpc4}
+											{zone "gamezone"}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{ignore_captured_by_user 0}
+													{tag player}
+													{zone "fpc4"}
+													{type human}
+													{state "not dead"}
+												}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"set_i"
+												{var "ai_air_on$"}
+												{op "="}
+												{value 4}
+											}
+										}
+										{"default"}
+									}
+								}
+								{"default"}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 2}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "ai_air_on$"}
+								{op "=="}
+								{value 0}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag fpc5}
+											{zone "gamezone"}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{ignore_captured_by_user 0}
+													{tag player}
+													{zone "fpc5"}
+													{type human}
+													{state "not dead"}
+												}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"set_i"
+												{var "ai_air_on$"}
+												{op "="}
+												{value 5}
+											}
+										}
+										{"default"}
+									}
+								}
+								{"default"}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 50}
+					}
+					{"trigger"
+						{name "dcg/ai_air_decide"}
+					}
+				}
+			}
 			{"dcg/def_team"
 				{condition
 					{terms
@@ -7169,7 +7457,7 @@
 						{name "dcg/players_units"}
 					}
 				}
-			}			
+			}
 			{"dcg/warning_mines"
 				{condition
 					{expression "1 & 2 & !3 & 4"}

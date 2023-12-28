@@ -2857,7 +2857,7 @@
 								}
 								{distance
 									{mode near_than}
-									{meters 45}
+									{meters 55}
 								}
 								{detection visible}
 							}
@@ -2913,6 +2913,9 @@
 											}
 											{tag
 												{tag _scr_mi}
+											}
+											{tag
+												{tag dont_recrew}
 											}
 											{state
 												{state inactive}
@@ -4086,7 +4089,7 @@
 								}
 								{distance
 									{mode near_than}
-									{meters 45}
+									{meters 50}
 								}
 								{detection visible}
 							}
@@ -4138,6 +4141,9 @@
 											}
 											{tag
 												{tag _scr_mi}
+											}
+											{tag
+												{tag dont_recrew}
 											}
 											{tag
 												{tag repairing}
