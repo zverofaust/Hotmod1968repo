@@ -225,7 +225,15 @@
 			("rnd_art_bomb" delay(7))
 			("rnd_art_bomb" delay(7.5))
 			("rnd_art_bomb" delay(8))
-			{hide 9}
+			("rnd_art_bomb" delay(12.5))
+			("rnd_art_bomb" delay(13))
+			("rnd_art_bomb" delay(13.5))
+			("rnd_art_bomb" delay(14))
+			("rnd_art_bomb" delay(18.5))
+			("rnd_art_bomb" delay(19))
+			("rnd_art_bomb" delay(19.5))
+			("rnd_art_bomb" delay(20))
+			{hide 21}
 		}
 	}
 }
