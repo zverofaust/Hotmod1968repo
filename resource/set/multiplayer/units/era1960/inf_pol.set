@@ -46,10 +46,11 @@
 {"mp/pol/era1960/sup_tankman"			("pol_basic" side(pol)) {cost 4.0}} ; Pistol
 {"mp/pol/era1960/sup_vehicleman"		("pol_basic" side(pol)) {cost 4.0}} ; Pistol
 
-{"mp/pol/era1960/rsv_rifleman"			("pol_basic" side(pol)) {cost 5.0}} ; SKS
-{"mp/pol/era1960/rsv_lmg"				("pol_basic" side(pol)) {cost 20.0}} ; RPD
-{"mp/pol/era1960/rsv_atgren"			("pol_basic" side(pol)) {cost 15.0}} ; SKS & RKG-2
-{"mp/pol/era1960/rsv_antitank"			("pol_basic" side(pol)) {cost 35.0}} ; SKS & RPG-2
+{"mp/pol/era1960/rsv_rifleman"			("pol_basic" side(pol)) {cost 6.0}} ; SKS
+{"mp/pol/era1960/rsv_lmg"				("pol_basic" side(pol)) {cost 10.0}} ; RPD
+{"mp/pol/era1960/rsv_mg"				("pol_basic" side(pol)) {cost 20.0}} ; PK
+{"mp/pol/era1960/rsv_atgren"			("pol_basic" side(pol)) {cost 12.0}} ; SKS & RKG-2
+{"mp/pol/era1960/rsv_antitank"			("pol_basic" side(pol)) {cost 30.0}} ; SKS & RPG-2
 {"mp/pol/era1960/rsv_atassist"			("pol_basic" side(pol)) {cost 8.0}} ; SKS & RPG-2
 {"mp/pol/era1960/rsv_squadlead"			("pol_basic" side(pol)) {cost 15.0}} ; AK47
 
@@ -64,7 +65,7 @@
 {"mp/pol/era1960/reg_ammo"				("pol_regular" side(pol)) {cost 14.0}} ; AK47
 {"mp/pol/era1960/reg_atassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 & RPG-7 Ammo
 {"mp/pol/era1960/reg_atgren"			("pol_regular" side(pol)) {cost 16.0}} ; AK47 + RPG-43 Grenades
-{"mp/pol/era1960/reg_lmg"				("pol_regular" side(pol)) {cost 35.0}} ; RPD
+{"mp/pol/era1960/reg_lmg"				("pol_regular" side(pol)) {cost 20.0}} ; RPD
 {"mp/pol/era1960/reg_lmgassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 + RPD Ammo
 {"mp/pol/era1960/reg_mg"				("pol_regular" side(pol)) {cost 30.0}} ; RP-46
 {"mp/pol/era1960/reg_mgassist"			("pol_regular" side(pol)) {cost 15.0}} ; AK47 + PK Ammo
@@ -117,6 +118,28 @@
 {"mp/pol/era1960/des_squadlead"			("pol_desantowa" side(pol)) {cost 30.0}} ; AK47
 {"mp/pol/era1960/des_vehicleman"		("pol_desantowa" side(pol)) {cost 13.0}} ; AKMS
 {"mp/pol/era1960/des_guncrew"			("pol_desantowa" side(pol)) {cost 13.0}} ; AKMS
+
+(define "pol_powietrznodesantowa" ; Airborne Infantry
+	{tags "era1960 %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 2.0}
+	{score_factor 0.05}
+)
+{"mp/pol/era1960/pdes_ammo"				("pol_powietrznodesantowa" side(pol)) {cost 25.0}} ; AK47 & Ammo
+{"mp/pol/era1960/pdes_antitank"			("pol_powietrznodesantowa" side(pol)) {cost 55.0}} ; RPG-7
+{"mp/pol/era1960/pdes_atassist"			("pol_powietrznodesantowa" side(pol)) {cost 18.0}} ; AK47 & RPG-7 Ammo
+{"mp/pol/era1960/pdes_marksman"			("pol_powietrznodesantowa" side(pol)) {cost 60.0}} ; SWD
+{"mp/pol/era1960/pdes_mg"				("pol_powietrznodesantowa" side(pol)) {cost 35.0}} ; PK
+{"mp/pol/era1960/pdes_mgassist"			("pol_powietrznodesantowa" side(pol)) {cost 18.0}} ; AK47 & PK Ammo
+{"mp/pol/era1960/pdes_rifleman"			("pol_powietrznodesantowa" side(pol)) {cost 17.0}} ; AK47
+{"mp/pol/era1960/pdes_lmg"				("pol_powietrznodesantowa" side(pol)) {cost 32.0}} ; RPD
+{"mp/pol/era1960/pdes_teamlead"			("pol_powietrznodesantowa" side(pol)) {cost 20.0}} ; AK47
+{"mp/pol/era1960/pdes_squadlead"		("pol_powietrznodesantowa" side(pol)) {cost 30.0}} ; AK47
+{"mp/pol/era1960/pdes_vehicleman"		("pol_powietrznodesantowa" side(pol)) {cost 13.0}} ; AKMS
+{"mp/pol/era1960/pdes_guncrew"			("pol_powietrznodesantowa" side(pol)) {cost 13.0}} ; AKMS
+{"mp/pol/era1960/pdes_guncrew_pk"		("pol_powietrznodesantowa" side(pol)) {cost 25.0}} ; AKMS & PK Tripod Backpack
 
 (define "pol_rozpoznawczą" ; Rozpoznawczą Specjalna, Special Recon Infantry (Rangers)
 	{tags "era1960 %side infantry man"}
