@@ -86,6 +86,9 @@ function PIter:moveNext()
 	end
 end
 
+local spawnPoint = BotApi.Instance.spawnPointName
+local spawnSide = string.sub(spawnPoint,1,1)
+
 function GetRandomItem(items, getRate)
 	local item_rates = {}
 	
@@ -102,15 +105,15 @@ function GetRandomItem(items, getRate)
 	if printDebug then
 		if caller == "GetNextUnitToSpawn" then
 			---[[
-			print("Print: Possible Units, Priority Default, Modified, TTS for", "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team)
+			print("Print: Possible Units, Priority Default, Modified, TTS for", "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team, "SpawnPoint", spawnPoint, "SpawnSide", spawnSide)
 			for j, item_rate in pairs(item_rates) do
 				local tts2 = BotApi.Commands:TimeToSpawnUnit(item_rate.i.unit)
 				print("------ Unit", item_rate.i.unit, item_rate.i.priority, item_rate.r, (tts2 / 1000))
 			end
 			--]]
 		elseif caller == "order" then
-			---[[
-			print("Print: Flag Move Order, Priority Default, Modified for", "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team)
+			--[[
+			print("Print: Flag Move Order, Priority Default, Modified for", "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team, "SpawnPoint", spawnPoint, "SpawnSide", spawnSide)
 			for j, item_rate in pairs(item_rates) do
 				print("------ Flag", item_rate.i.name, item_rate.i.priority, item_rate.r)
 			end
@@ -155,36 +158,36 @@ function GetFlagOwner(flag)
 end
 
 function GetFlagLocation(flag)
-	local team = BotApi.Instance.team
+	local side = spawnSide
 	local gameMode = BotApi.Instance.gameMode
 	local flagLocations = {
 		["battle_zones"] = {
 			f1 = FlagLocation.Center, --A--
-			f2 = team == 'a' and FlagLocation.Friendly or FlagLocation.Enemy, --B--
-			f3 = team == 'a' and FlagLocation.Enemy or FlagLocation.Friendly, --C--
+			f2 = side == 'a' and FlagLocation.Friendly or FlagLocation.Enemy, --B--
+			f3 = side == 'a' and FlagLocation.Enemy or FlagLocation.Friendly, --C--
 			f4 = FlagLocation.Center, --D--
 			f5 = FlagLocation.Center, --E--
 			f6 = FlagLocation.Center, --F-- f9 B+F
 			f7 = FlagLocation.Center, --G-- f8 C+G
-			f8 = team == 'a' and FlagLocation.Enemy or FlagLocation.Friendly, --H--
-			f9 = team == 'a' and FlagLocation.Friendly or FlagLocation.Enemy, --I--
+			f8 = side == 'a' and FlagLocation.Enemy or FlagLocation.Friendly, --H--
+			f9 = side == 'a' and FlagLocation.Friendly or FlagLocation.Enemy, --I--
 
 			center1 = FlagLocation.Center,
 			center2 = FlagLocation.Center,
 			center3 = FlagLocation.Center,
 			center4 = FlagLocation.Center,
 			center5 = FlagLocation.Center,
-			team_a_back1 = team == 'a' and FlagLocation.Friendly or FlagLocation.Enemy,
-			team_a_back2 = team == 'a' and FlagLocation.Friendly or FlagLocation.Enemy,
-			team_a_back3 = team == 'a' and FlagLocation.Friendly or FlagLocation.Enemy,
-			team_b_back1 = team == 'a' and FlagLocation.Enemy or FlagLocation.Friendly,
-			team_b_back2 = team == 'a' and FlagLocation.Enemy or FlagLocation.Friendly,
-			team_b_back3 = team == 'a' and FlagLocation.Enemy or FlagLocation.Friendly,
+			team_a_back1 = side == 'a' and FlagLocation.Friendly or FlagLocation.Enemy,
+			team_a_back2 = side == 'a' and FlagLocation.Friendly or FlagLocation.Enemy,
+			team_a_back3 = side == 'a' and FlagLocation.Friendly or FlagLocation.Enemy,
+			team_b_back1 = side == 'a' and FlagLocation.Enemy or FlagLocation.Friendly,
+			team_b_back2 = side == 'a' and FlagLocation.Enemy or FlagLocation.Friendly,
+			team_b_back3 = side == 'a' and FlagLocation.Enemy or FlagLocation.Friendly,
 			["default"] = 1,
 		},
 		["ammunition"] = {
-			base_flag_a = team == 'a' and FlagLocation.FriendlyBase or FlagLocation.EnemyBase,
-			base_flag_b = team == 'a' and FlagLocation.EnemyBase or FlagLocation.FriendlyBase,
+			base_flag_a = side == 'a' and FlagLocation.FriendlyBase or FlagLocation.EnemyBase,
+			base_flag_b = side == 'a' and FlagLocation.EnemyBase or FlagLocation.FriendlyBase,
 			["default"] = FlagLocation.Center,
 		},
 		["default"] = {
@@ -406,7 +409,7 @@ function GetUnitToSpawn(units)
 		"soldier_pzfaust",
 		"soldier_atr",
 		"soldier_atr_grenade",
-		"soldier_at",
+		"soldier_bazooka",
 	}
 	local sceneUnits = BotApi.Scene:QueryScene(searchProps, 5)
 
@@ -422,7 +425,7 @@ function GetUnitToSpawn(units)
 		["soldier_pzfaust"] = {"BotInfantry", "BotATInfantry"},
 		["soldier_atr"] = {"BotInfantry", "BotATInfantry"},
 		["soldier_atr_grenade"] = {"BotInfantry", "BotATInfantry"},
-		["soldier_at"] = {"BotInfantry", "BotATInfantry"},
+		["soldier_bazooka"] = {"BotInfantry", "BotATInfantry"},
 	}
 	
 	local botUnits = sceneUnits[BotApi.Instance.playerId][2]
@@ -536,7 +539,7 @@ function UpdateUnitToSpawn(purchase)
 end
 
 function OnGameStart()
-	print("Print: AI Bot is player#" .. BotApi.Instance.playerId .. ", nation " .. BotApi.Instance.army .. ", on team " .. BotApi.Instance.team .. " which has " .. BotApi.Instance.teamSize .. " player(s)")
+	print("Print: AI Bot is player#" .. BotApi.Instance.playerId .. ", nation " .. BotApi.Instance.army .. ", on team " .. BotApi.Instance.team .. " which has " .. BotApi.Instance.teamSize .. " player(s) and has spawned on side", spawnSide)
 	GetFlagLocations()
 
 	math.randomseed(os.time()*BotApi.Instance.hostId)
