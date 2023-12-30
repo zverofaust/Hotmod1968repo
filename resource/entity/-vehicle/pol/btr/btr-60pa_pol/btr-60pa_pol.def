@@ -1,0 +1,95 @@
+{game_entity			;BTR-60PA
+	(include "/properties/armoredcar.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "apc" "tank" "wheeled" "multi_board" "vision_lev02" "amphibia" "tractor" "tractor_medium" "with_open_zpu"}
+	{able "emit_passengers_on_enemy"}
+	(include "btr-60pa_pol.ext")
+	{targetclass "armoredcar"}
+	{targetSelector "tank_zenite"}
+	
+	(include "/properties/resupply_hotmod.inc")
+	("apc_ammo")
+	
+	{patherId "amphibia"} 
+	
+ 	;Crew: driver, commander, 8 passengers
+
+	(include "crew.ext")
+
+	{placer
+		{place "driver"	{visor "driver"}}
+		{place "gunner2"	{visor "mgun"}}
+		{place "passenger1"	{visor "around"}{group "passenger"}}
+	}
+ 
+	{sensor
+		{visor "mgun"
+			{bone "mgun_rot"}
+		}
+	}
+
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_rus" 750}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "mgun"
+			{weapon			"dshk" filled}
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			{LinkBone		"mgun_bone"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+		}
+	}
+
+	{mass 10200}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility_btr"
+			speed(70) ;----------------------------------Max speed.
+			speedatmaxturn(17) ;-------------------------Max speed at max turn.
+			reverse(22) ;--------------------------------Max speed in Reverse.
+			weight(10.2) ;------------------------------Weight in Tonnes.
+			power(180) ;----------------------------------Horse Power.
+			fuel(290) ;----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(500) ;---------------------------------Range in Kilometers.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}	
+	{Extension "btr-60pa_pol.mdl"}
+	
+	{bone "mgun_a_rot2" ; vertical
+		{limits -6 30}
+		{speed2 60}
+	}
+	{bone "mgun_a_rot1" ; horizontal (with gunner)
+        {limits -33 33}
+		{speed2 60}
+	}
+}
+
+
+
+
