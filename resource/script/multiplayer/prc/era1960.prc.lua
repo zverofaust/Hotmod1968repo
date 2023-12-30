@@ -14,11 +14,9 @@ Purchases["era1960.prc"] = {
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_militia(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_militia_ambush(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_conscript(prc)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class2", "AT",}, unit = "squad_conscript_antitank(prc)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_rifle(prc)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_autorifle(prc)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_guards(prc)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class1",}, unit = "squad_guards_assault(prc)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_conscript_at(prc)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_conscript_mg(prc)"},
+			
 
 				-- Cannons	
 				--HMGs
@@ -26,7 +24,7 @@ Purchases["era1960.prc"] = {
 				--Anti Aircraft
 				{priority = 1.0, type = {"Cannon", "AA", "Class2",}, unit = "zpu-4_prc"},
 				--Anti Tank
-				{priority = 1.0, type = {"Cannon", "AT", "Class3",}, unit = "b-10_prc_ai"},
+				{priority = 1.0, type = {"Cannon", "AT", "Class3",}, unit = "m20_prc_ai"},
 				--Mortars
 				{priority = 0.3, type = {"Cannon", "Mortar", "Class2",}, unit = "82mm_bm37_prc_ai"},
 				{priority = 0.3, type = {"Cannon", "Mortar", "Class2",}, unit = "120mm_pm38_prc"},
@@ -35,17 +33,13 @@ Purchases["era1960.prc"] = {
 				--Artillery
 				--{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "m30_prc"},
 				--Rocket Artillery
-				{priority = 0.2, type = {"Cannon", "Artillery", "Class1",}, unit = "type63_mrl"},
+				--{priority = 0.2, type = {"Cannon", "Artillery", "Class1",}, unit = "type63_mrl"},
 				
 				--APCs/BTRs
-				{priority = 1.0, type = {"Armored", "MG", "Class3",}, unit = "btr-40_type55"},
 				
 				--Tanks	
 				{priority = 1.0, type = {"Tank", "Light", "Class3", "Support", "Class3",}, unit = "su76_prc"},
 				{priority = 1.0, type = {"Tank", "Light", "Class3", "Class3",}, unit = "t-34-85_prc"},
-				{priority = 1.0, type = {"Tank", "Light", "Class3", "AT", "Class2",}, unit = "su100_prc"},
-				{priority = 1.0, type = {"Tank", "Light", "Class3", "Class2",}, unit = "type58_tank"},
-				{priority = 1.0, type = {"Tank", "Light", "Class3", "Class1",}, unit = "type59"},
 				
 				
 				
