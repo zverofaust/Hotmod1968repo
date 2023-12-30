@@ -1,0 +1,215 @@
+;Exported by: misan
+;Date:        Tue May 30 13:03:14 2023
+;File:        D:\Cold War\ModelWIP\USA\M20 RCL\M20 RCL.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.08}}
+		{sequence "close" {speed 0.3}}
+	}
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "emit2"
+			{Matrix34
+				0.587785	0.809017	0
+				-0.809017	0.587785	0
+				0	0	1
+				-12.5992	-13.6155	0
+			}
+		}
+		{bone "emit1"
+			{Position -9.04262	8.89359	0}
+		}
+		{bone "driver1"
+			{Position 5.2013	7.60022	-0.433044}
+		}
+		{bone "driver2"
+			{Position 9.55648	-5.98277	0}
+		}
+		{bone "commander"
+			{Position -9.84751	-13.3626	0}
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position 0.393783	0	7.65278}
+			{VolumeView "body.ply"}
+			{bone "stand_l"
+				{parameters "id=body;"}
+				{Matrix34
+					0.891006	0.452263	-0.0395679
+					-0.453991	0.887616	-0.0776562
+					0	0.0871556	0.996195
+					1.32788	1.58284	0.749159
+				}
+				{VolumeView "stand_l.ply"}
+			}
+			{bone "stand_r"
+				{parameters "id=body;"}
+				{Matrix34
+					0.891007	-0.453369	0.02376
+					0.453991	0.889785	-0.0466318
+					0	0.052336	0.99863
+					1.32788	-1.583	0.749159
+				}
+				{VolumeView "stand_r.ply"}
+			}
+			{bone "stand_b"
+				{parameters "id=body;"}
+				{Matrix34
+					0.866025	0	0.5
+					0	1	0
+					-0.5	0	0.866025
+					-1.65878	-0.00664318	0.693937
+				}
+				{VolumeView "stand_b.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "id=turret;"}
+				{Position 0	0	3.13316}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "id=turret;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						2.07621	0.0096127	3.38745
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "screw"
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							4.53317	-0.499288	0.0102997
+						}
+						{VolumeView "screw.ply"}
+					}
+					{bone "gun"
+						{parameters "id=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							-2.00932	0.25718	0.00961256
+						}
+						{VolumeView "gun.ply"}
+						{bone "sight"
+							{parameters "id=gun;"}
+							{Position 0.203191	0	1.67642}
+							{VolumeView "sight.ply"}
+							{bone "visor"
+								{Position 7.34854	2.05538	0.771511}
+							}
+						}
+						{bone "breech"
+							{parameters "id=gun;"}
+							{Position -9.24878	0	-0.992893}
+							{VolumeView "breech.ply"}
+							{bone "breech_handle"
+								{parameters "id=gun;"}
+								{Position -0.340753	0	2.68473}
+								{VolumeView "breech_handle.ply"}
+							}
+						}
+						{bone "fxshot"
+							{Matrix34
+								-1	0	0
+								0	-1	0
+								0	0	1
+								-8.81193	0	1.6939
+							}
+						}
+						{bone "fx_invers"
+							{Matrix34
+								-1	0	0
+								0	-1	0
+								0	0	1
+								-9.3359	0	1.6939
+							}
+						}
+						{bone "foresight1"
+							{Position 38.2489	0	1.6939}
+						}
+					}
+				}
+			}
+		}
+		{bone "gunner"
+			{Position -6.27387	6.96367	0}
+		}
+	}
+}
+{Volume "body1"
+	{Box 3.44153 3.69285 3.28839}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		0.270085	0.0548428	1.11765
+	}
+}
+{Volume "body2"
+	{Cylinder 0.648146 16.3463}
+	{Bone "stand_b"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-8.01674	0.00664465	-0.0317784
+	}
+}
+{Volume "body3"
+	{Cylinder 0.648146 14.5482}
+	{Bone "stand_l"}
+	{Matrix34
+		-0.310238	0.948659	0.0616283
+		0.512391	0.112257	0.851383
+		0.800754	0.295709	-0.520911
+		6.57717	2.20485	-3.75964
+	}
+}
+{Volume "body4"
+	{Cylinder 0.648146 14.5482}
+	{Bone "stand_r"}
+	{Matrix34
+		0.292819	0.955426	0.0376474
+		0.567729	-0.20541	0.797177
+		0.769377	-0.212055	-0.602571
+		6.53818	-1.96776	-4.42997
+	}
+}
+{Volume "gun1"
+	{Cylinder 1.27418 40.214}
+	{Bone "gun"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		18.2338	0.0108912	1.66013
+	}
+}
+{Volume "gun2"
+	{Cylinder 2.20434 7.72109}
+	{Bone "gun"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-5.7055	0.0108893	1.66013
+	}
+}
+{Volume "turret"
+	{Box 2.32635 4.02989 8.15137}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	0	1
+		0	1	0
+		-1	0	0
+		0.802749	-1.56305	-0.0837063
+	}
+}
