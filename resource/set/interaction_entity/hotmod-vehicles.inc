@@ -3707,6 +3707,10 @@
 	("gaz_sound")
 }
 
+{"gaz67b_prc"
+	("gaz_sound")
+}
+
 {"nj-130 car"
 	("studebaker_sound")
 	("animation_sound" args "open_left")

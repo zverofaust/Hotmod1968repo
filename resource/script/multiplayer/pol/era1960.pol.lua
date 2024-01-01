@@ -29,7 +29,6 @@ Purchases["era1960.pol"] = {
 				{priority = 1.0, type = {"Cannon", "Support", "Class3",}, unit = "d-44_pol"},
 				--Artillery
 
-
 				--Rocket Artillery
 				
 				--Vehicles
@@ -47,17 +46,18 @@ Purchases["era1960.pol"] = {
 				
 				
 				-- Doctrine = "7 Łużycka Dywizja Desantowa" 7th Lusatian Landing Division
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Squad", "Class3",}, unit = "doctrine_squad_des_fireteam(pol)"},
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Squad", "Class3",}, unit = "doctrine_squad_des_fireteam_heavy(pol)"},
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Squad", "Class3",}, unit = "doctrine_squad_des(pol)"},
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_des_reservist_moto(pol)"},
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_des_moto(pol)"},
 				
-				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light",}, unit = "doctrine_vehicle_pt76_des(pol)"},
-				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Medium",}, unit = "doctrine_vehicle_t54am1(pol)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_des_fireteam(pol)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_des_fireteam_heavy(pol)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_des(pol)"},
+				{priority = 1.0, type = {"Infantry", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_des_reservist_moto(pol)"},
+				{priority = 1.0, type = {"Infantry", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_des_moto(pol)"},
 				
+				{priority = 1.0, type = {"Class3", "Tank", "Light",}, unit = "doctrine_vehicle_pt76_des(pol)"},
+						
 				{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "AT", "Tier1",}, unit = "spg9_pol_ai"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Vehicle", "MG", "Tier2",}, unit = "doctrine_vehicle_brdm2(pol)"},
+				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t54am1(pol)"},		
 				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "Infantry", "MG", "Tier3",}, unit = "doctrine_squad_des_mech(pol)"},
 				
 				
@@ -67,35 +67,40 @@ Purchases["era1960.pol"] = {
 				{priority = 1.0, type = {"Infantry", "Doctrine", "Squad", "Class3",}, unit = "doctrine_squad_pdes_fireteam_heavy(pol)"},
 				{priority = 1.0, type = {"Infantry", "Doctrine", "Squad", "Class3",}, unit = "doctrine_squad_pdes(pol)"},
 				
-				{priority = 1.0, type = {"Class3", "Doctrine", "Vehicle", "AT",}, unit = "doctrine_vehicle_gaz69_b10(pol)"},
-				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "AT",}, unit = "doctrine_vehicle_asu85_pdes(pol)"},
+				{priority = 1.0, type = {"Class3", "Vehicle", "AT",}, unit = "doctrine_vehicle_gaz69_b10(pol)"},
+				{priority = 1.0, type = {"Class3", "Tank", "Light", "AT",}, unit = "doctrine_vehicle_asu85_pdes(pol)"},
 				
 				{priority = 1.0, type = {"Class3", "Doctrine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_m72(pol)"},
-				{priority = 1.0, type = {"Class2", "Doctrine", "Vehicle", "Mortar", "Tier2",}, unit = "doctrine_vehicle_gaz69_mortar(pol)"},
-				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Squad", "Light", "AT", "Tier1",}, unit = "doctrine_squad_pdes_desantski(pol)"},
+				{priority = 1.0, type = {"Class2", "Doctrine", "Vehicle", "Mortar", "Tier1",}, unit = "doctrine_vehicle_gaz69_mortar(pol)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Squad", "Light", "AT", "Tier2",}, unit = "doctrine_squad_pdes_desantski(pol)"},
 				{priority = 1.0, type = {"Class1", "Doctrine", "Infantry", "Tier2",}, unit = "doctrine_squad_roz(pol)"},
 				{priority = 1.0, type = {"Class1", "Doctrine", "Armored", "AT", "Tier3",}, unit = "doctrine_vehicle_9p110(pol)"},
 			
 				-- Doctrine = "1 Praski Pułk Zmechanizowany" 1st Prague Mechanized Regiment
 				
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Squad", "Class3",}, unit = "doctrine_squad_rifle_fireteam(pol)"},
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Squad", "Class3",}, unit = "doctrine_squad_rifle_fireteam_heavy(pol)"},
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Squad", "Class3",}, unit = "doctrine_squad_rifle(pol)"},		
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_reservist_moto(pol)"},
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_rifle_moto(pol)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_rifle_fireteam(pol)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_rifle_fireteam_heavy(pol)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_rifle(pol)"},		
+				{priority = 1.0, type = {"Infantry", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_reservist_moto(pol)"},
+				{priority = 1.0, type = {"Infantry", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_rifle_moto(pol)"},
 				
-				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "AT", "Medium",}, unit = "doctrine_vehicle_su100(pol)"},
-				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium",}, unit = "doctrine_vehicle_t54a(pol)"},
-				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium",}, unit = "doctrine_vehicle_t54am2(pol)"},
-				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t55(pol)"},
-				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_t55a(pol)"},
+				{priority = 1.0, type = {"Class3", "Tank", "AT", "Medium",}, unit = "doctrine_vehicle_su100(pol)"},
+				{priority = 1.0, type = {"Class3", "Tank", "Medium",}, unit = "doctrine_vehicle_t54a(pol)"},
+				{priority = 1.0, type = {"Class3", "Tank", "Medium",}, unit = "doctrine_vehicle_t54am2(pol)"},
+				{priority = 1.0, type = {"Class2", "Tank", "Medium",}, unit = "doctrine_vehicle_t55(pol)"},
+				
+				{priority = 1.0, type = {"Class2", "Doctrine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_m72(pol)"},
+				{priority = 1.0, type = {"Class2", "Doctrine", "Infantry", "Squad", "Armored", "Tier2",}, unit = "doctrine_squad_rifle_mech(pol)"},
+				{priority = 1.0, type = {"Class1", "Doctrine", "Tank", "Medium", "Tier3",}, unit = "doctrine_vehicle_t55a(pol)"},
+				{priority = 1.0, type = {"Class1", "Doctrine", "Vehicle", "Artillery", "Tier3",}, unit = "doctrine_vehicle_bm14(pol)"},
 				
 				-- Doctrine = "Dywizjon Artylerii/Brygada Obrony Terytorialnej" Artillery/Territorial Defene Forces Division
 				
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Armored", "Squad", "MG", "Tier1",}, unit = "doctrine_squad_border_moto(pol)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Squad", "Tier2",}, unit = "doctrine_team_sapper(pol)"},
-				{priority = 1.0, type = {"Class2", "Doctrine", "Vehicle", "Artillery", "Tier3",}, unit = "doctrine_vehicle_bm14(pol)"},
-				
+				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Squad", "Armored", "Tier1",}, unit = "doctrine_squad_border_moto(pol)"},
+				{priority = 1.0, type = {"Class1", "Doctrine", "Tank", "Heavy", "AT", "Tier3",}, unit = "doctrine_vehicle_isu152(pol)"},
+				{priority = 1.0, type = {"Class1", "Doctrine", "Vehicle", "Artillery", "Tier3",}, unit = "doctrine_vehicle_bm21(pol)"},
 		}
 	}
 }

@@ -116,14 +116,14 @@ Purchases["era1960.csa"] = {
 				{priority = 1.0, type = {"Armored", "AA", "Class2",}, unit = "doctrine_vehicle_m42_armor(csa)"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "doctrine_vehicle_m48a1_armor(csa)"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "doctrine_vehicle_m48a3_armor(csa)"},
-				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "doctrine_vehicle_m60_armor(csa)"},
+				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "doctrine_vehicle_m60(csa)"},
+				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "doctrine_vehicle_m60a1(csa)"},
 				{priority = 1.0, type = {"Armored", "Artillery", "SPG", "Class3",}, unit = "doctrine_vehicle_m108_armor(csa)"},
-				{priority = 1.0, type = {"Armored", "Artillery", "SPG", "Class2",}, unit = "doctrine_vehicle_m109_armor(csa)"},
 				
-				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "AA", "Tier2",}, unit = "doctrine_vehicle_m114a2(csa)"},			
-				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_m60a1(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "AA", "Tier1",}, unit = "doctrine_vehicle_m114a2(csa)"},			
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier1",}, unit = "doctrine_vehicle_m109_armor(csa)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Support", "Tier2",}, unit = "doctrine_vehicle_m728(csa)"},
-				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "Artillery", "Tier3",}, unit = "doctrine_vehicle_m110(csa)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m110(csa)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Armored", "AA", "Tier3",}, unit = "doctrine_vehicle_m163(csa)"},
 		
 				

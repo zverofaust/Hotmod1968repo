@@ -45,9 +45,7 @@ Purchases["era1960.prc"] = {
 				
 				--Tanks	
 				{priority = 1.0, type = {"Tank", "Light", "Support", "Class3",}, unit = "su76_prc"},
-				{priority = 1.0, type = {"Tank", "Light", "Class3",}, unit = "t-34-85_prc"},
-				
-				
+				{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "t-34-85_prc"},
 				
 				-- Doctrine = "Catalogue A/Northern Army"
 			
