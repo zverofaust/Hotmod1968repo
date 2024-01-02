@@ -513,3 +513,167 @@
 				{distanceset 1200}
 			}
 		}
+		
+		{"spg.short"
+			{clip
+				{viewMin		-20	}	; camera rotate upward limit (looking down)
+				{viewMax		30	}	; camera rotate downward limit (looking up)
+				{distanceMin	1	}	; camera min distance from object. value / 20 = meters
+				{distanceMax	350	}	; camera max distance from object. value / 20 = meters
+			}
+			{level ;0
+				{linkBone "basis"}
+				{faroffset 0 0 85}
+				{nearoffset -65 0 65}
+				;{hide_crosshair 1}
+				{hide_hitmarker 1}
+				{blur_strength 2}
+				{disable_fow 0}
+			}
+			{level ;1
+				{zoom}
+				{vision_modes_active}
+				{vignette "/texture/common/environment/lens_effects/zoom_vignette_artillery_01"}
+				{blur_mask "/texture/common/environment/lens_effects/zoom_vignette_infantry_01_mask"}
+				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_01"}
+				{refraction_mask "/texture/common/environment/lens_effects/zoom_vignette_artillery_bp"}
+				{distance 50}
+				{distanceset 1}
+				{delta 0}
+				{linkBone "basis"}
+				{offset -300 0 300}
+				{gunnerviewoff 1}
+				{camera "zoom1.5"}
+				{ManualAccuracyZoom}
+				{blur_strength 10}
+				{disable_fow 1}
+				{no_rim_light}
+				{soundEffect "opentop_vehicle"}
+			}
+			{level ;3
+				{camera "zoom3.5"}
+				{offset 0 0 800}
+			}
+			{level ;4
+				{camera "zoom4"}
+				{offset 500 0 1200}
+				{distanceset 500}
+			}
+		}
+		{"spg.medium"
+			{clip
+				{viewMin		-25	}	; camera rotate upward limit (looking down)
+				{viewMax		30	}	; camera rotate downward limit (looking up)
+				{distanceMin	1	}	; camera min distance from object. value / 20 = meters
+				{distanceMax	350	}	; camera max distance from object. value / 20 = meters
+			}
+			{level ;0
+				{linkBone "basis"}
+				{faroffset 0 0 85}
+				{nearoffset -65 0 65}
+				;{hide_crosshair 1}
+				{hide_hitmarker 1}
+				{blur_strength 2}
+				{disable_fow 0}
+			}
+			{level ;1
+				{zoom}
+				{vision_modes_active}
+				{vignette "/texture/common/environment/lens_effects/zoom_vignette_artillery_01"}
+				{blur_mask "/texture/common/environment/lens_effects/zoom_vignette_infantry_01_mask"}
+				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_01"}
+				{refraction_mask "/texture/common/environment/lens_effects/zoom_vignette_artillery_bp"}
+				{distance 50}
+				{distanceset 1}
+				{delta 0}
+				{linkBone "basis"}
+				{offset -300 0 300}
+				{gunnerviewoff 1}
+				{camera "zoom1.5"}
+				{ManualAccuracyZoom}
+				{blur_strength 10}
+				{disable_fow 1}
+				{no_rim_light}
+				{soundEffect "opentop_vehicle"}
+			}
+			{level ;3
+				{camera "zoom3.5"}
+				{offset 0 0 800}
+			}
+			{level ;4
+				{camera "zoom4"}
+				{offset 500 0 1200}
+				{distanceset 500}
+			}
+			{level ;5
+				{camera "zoom5"}
+				{offset 800 0 1600}
+				{distanceset 800}
+			}
+		}
+		{"spg.long"
+			{clip
+				{viewMin		-30	}	; camera rotate upward limit (looking down)
+				{viewMax		30	}	; camera rotate downward limit (looking up)
+				{distanceMin	1	}	; camera min distance from object. value / 20 = meters
+				{distanceMax	350	}	; camera max distance from object. value / 20 = meters
+			}
+			{level ;0
+				{linkBone "basis"}
+				{faroffset 0 0 85}
+				{nearoffset -65 0 65}
+				;{hide_crosshair 1}
+				{hide_hitmarker 1}
+				{blur_strength 2}
+				{disable_fow 0}
+			}
+			{level ;1
+				{zoom}
+				{vision_modes_active}
+				{vignette "/texture/common/environment/lens_effects/zoom_vignette_artillery_01"}
+				{blur_mask "/texture/common/environment/lens_effects/zoom_vignette_infantry_01_mask"}
+				{lens_dirt_mask "/texture/common/environment/lens_effects/dirty_lens_scope_01"}
+				{refraction_mask "/texture/common/environment/lens_effects/zoom_vignette_artillery_bp"}
+				{distance 50}
+				{distanceset 1}
+				{delta 0}
+				{linkBone "basis"}
+				{offset -100 0 400}
+				{gunnerviewoff 1}
+				{camera "zoom2.5"}
+				{ManualAccuracyZoom}
+				{blur_strength 10}
+				{disable_fow 1}
+				{no_rim_light}
+				{soundEffect "opentop_vehicle"}
+			}
+			{level ;3
+				{camera "zoom3.0"}
+				{offset 0 0 600}
+			}
+			{level ;3
+				{camera "zoom3.5"}
+				{offset 200 0 800}
+				{distanceset 200}
+			}
+			{level ;4
+				{camera "zoom4"}
+				{offset 400 0 1200}
+				{distanceset 400}
+			}
+			{level ;4
+				{camera "zoom4.5"}
+				{offset 600 0 1400}
+				{distanceset 500}
+			}
+			{level ;5
+				{camera "zoom5"}
+				{offset 800 0 1600}
+				{distanceset 800}
+			}
+			{level ;6
+				{camera "zoom6"}
+				{offset 1200 0 2000}
+				{distanceset 1200}
+			}
+		}
