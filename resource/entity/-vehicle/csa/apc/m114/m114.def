@@ -15,20 +15,15 @@
 		{digit_folder "nato"}
 	}
 
-	;("crew_3_human_3")
-
-	{placer
-		{place "driver"		{visor "driver"}{group "crew"}}
-		{place "commander"	{visor "main"}{group "crew"}{sealable}}
-		;{place "gunner4"	{visor "mgun"}{sealable}}
-	}
+	("crew_2_human_2")
+	("gunner_visible")
 	
 	{boarder
-		{anm "driver"
+		{anm "left"
 			{forward 	{begin "board_sd232_driver"}	{end "seat_commander_hatch"} {base "open_driver"}}
 			{reverse 	{end "board_sd232_driver" -1} {base "open_driver"}}
 		}
-		{anm "turret"
+		{anm "right"
 			{forward 	{begin "board_sd232_driver"}	{end "seat_commander_hatch"} {base "open_turret"}}
 			{reverse 	{end "board_sd232_driver" -1} {base "open_turret"}}
 		}
@@ -38,13 +33,17 @@
 		}
 	}
 	
-	("crew_human" place(driver)						door(emit1) door2(emit1)  	anm_left(driver) 		anm_right(driver) visor(driver))
-	("crew_open"  place(commander) 					bone(commander) visorbone(mgun_rot) door(emit2) door2(emit3) anm_left(turret) anm_right(passenger) group(crew))
 	
 	("crew_human" place(seat1)						door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
 	("crew_human" place(seat2)						door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
 	("crew_human" place(seat3)						door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
 
+	{placer
+		{place "driver"		{visor "driver"}{group "crew"}}
+		{place "commander"	{visor "mgun"}{group "crew"}{sealable}}
+		;{place "gunner4"	{visor "mgun"}{sealable}}
+	}
+	
 	{sensor
 		{visor "main"
 			{vision "tank_commander"}
