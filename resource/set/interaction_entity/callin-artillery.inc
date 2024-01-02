@@ -74,11 +74,39 @@
 		{call "explosion"}
 	}
 	{on "explosion"
-		{stuff_detonate}
-		{spawn "shell_smoke"
-			{delay 45
-				{delete}
+		(define "spawn_volume"
+			{spawn "smoke_volume_%0" offset %1 %2 0
+				{delay %3 {hide 1}}
 			}
+		)
+		{spawn "smoke_volume_cylinder"
+			{add_view "smoke_size4" "smoke1" "root"}
+			{view start "smoke1"}
+			{delay 81
+				{view stop "smoke1"}
+			}
+			{delay 85
+				{hide 1}
+			}
+		}
+		{stuff_detonate}
+		{delay 2
+			("spawn_volume" args cylinder 150 0 84)
+			("spawn_volume" args cylinder -150 0 84)
+			("spawn_volume" args cylinder 0 150 84)
+			("spawn_volume" args cylinder 0 -150 84)
+			("spawn_volume" args cylinder 104 104 84)
+			("spawn_volume" args cylinder -104 -104 84)
+			("spawn_volume" args cylinder -104 104 84)
+			("spawn_volume" args cylinder 104 -104 84)
+
+			("spawn_volume" args cylinder 50 50 84)
+			("spawn_volume" args cylinder -50 -50 84)
+			("spawn_volume" args cylinder -50 50 84)
+			("spawn_volume" args cylinder 50 -50 84)
+		}
+		{delay 90
+			{hide 1}
 		}
 	}
 }
@@ -96,8 +124,40 @@
 		{call "explosion"}
 	}
 	{on "explosion"
+		(define "spawn_volume"
+			{spawn "smoke_volume_%0" offset %1 %2 0
+				{delay %3 {hide 1}}
+			}
+		)
+		{spawn "smoke_volume_cylinder"
+			{add_view "smoke_size4" "smoke1" "root"}
+			{view start "smoke1"}
+			{delay 81
+				{view stop "smoke1"}
+			}
+			{delay 85
+				{hide 1}
+			}
+		}
 		{stuff_detonate}
-		{spawn "shell_smoke"}
+		{delay 2
+			("spawn_volume" args cylinder 150 0 84)
+			("spawn_volume" args cylinder -150 0 84)
+			("spawn_volume" args cylinder 0 150 84)
+			("spawn_volume" args cylinder 0 -150 84)
+			("spawn_volume" args cylinder 104 104 84)
+			("spawn_volume" args cylinder -104 -104 84)
+			("spawn_volume" args cylinder -104 104 84)
+			("spawn_volume" args cylinder 104 -104 84)
+
+			("spawn_volume" args cylinder 50 50 84)
+			("spawn_volume" args cylinder -50 -50 84)
+			("spawn_volume" args cylinder -50 50 84)
+			("spawn_volume" args cylinder 50 -50 84)
+		}
+		{delay 90
+			{hide 1}
+		}
 	}
 }
 
