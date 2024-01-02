@@ -25,29 +25,48 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
-;{"cas_z5_unarmed_prc"
-;	("squad_vehicle" side(prc) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(z-5_unarmed_airborne) crew(sup_pilot:1))
-;	{cost 5}{conditions ""}{action "airstrike:reconnaissance_50"} 
+;{"cas_mi4_unarmed_prc"
+;	("strategic_doctrine" side(prc) period(era1960) vehicle(mil_mi4_unarmed_airborne) crew(sup_pilot:2) b(strategic) cw(0) cp(0))
+;	("universal_strat" cd(300) ci(120) cost(8))
+;	{conditions ""}{action "airstrike:reconnaissance_50"} 
 ;}
 
-{"airstrike_light_prc"
-	("squad_vehicle" side(prc) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 5}{conditions ""}{action "airstrike:flare_airstrike_light_bomb_sov"} 
+{"airstrike_medium_prc"
+	("strategic_doctrine" side(prc) period(era1960) vehicle(su-7_airstrike) crew(sup_pilot:0) b(strategic) cw(0) cp(0))
+	("universal_strat" cd(300) ci(300) cost(8))
+	{conditions ""}{action "airstrike:flare_airstrike_medium_bomb_sov"} 
 }
 
 {"airstrike_wp_prc"
-	("squad_vehicle" side(prc) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_light_wp_sov"} 
+	("strategic_doctrine" side(prc) period(era1960) vehicle(mig-19_airstrike) crew(sup_pilot:0) b(strategic) cw(0) cp(0))
+	("universal_strat" cd(300) ci(300) cost(8))
+	{conditions ""}{action "airstrike:flare_airstrike_light_napalm_sov"} 
 }
 
-{"airstrike_cluster_prc"
-	("squad_vehicle" side(prc) cd(300) ci(60) period(era1960) cw(0) cp(0) b(strategic) vehicle(mig-19_airstrike) crew(sup_pilot:0))
-	{cost 8}{conditions ""}{action "airstrike:flare_airstrike_light_cluster_sov"} 
+{"artillery_barrage_smoke_prc"
+	("strategic_doctrine" side(prc) period(era1960) vehicle(m30_prc) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("universal_strat" cd(90) ci(60) cost(4))
+	{conditions ""}{action "airstrike:flare_artillery_smoke"} 
 }
 
-{"airstrike_heavy_prc"
-	("squad_vehicle" side(prc) cd(300) ci(90) period(era1960) cw(0) cp(0) b(strategic) vehicle(yak-28_airstrike) crew(sup_pilot:0))
-	{cost 12}{conditions ""}{action "airstrike:flare_airstrike_heavy_bomb_sov"} 
+{"artillery_barrage_light_prc"
+	("strategic_doctrine" side(prc) period(era1960) vehicle(m30_prc) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("universal_strat" cd(300) ci(120) cost(8))
+	{conditions ""}{action "airstrike:flare_artillery_105"} 
+}
+
+; // era1960_prc_artillery 152mm artillery barrage
+{"artillery_barrage_medium_prc"
+	("strategic_doctrine" side(prc) period(era1960) vehicle(d1_prc) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("doctrine_t2" cool(400) d(era1960_prc_artillery) cost(12))
+	{conditions ""}{action "airstrike:flare_artillery_150"} 
+}
+
+; // era1960_prc_artillery 203mm artillery barrage
+{"artillery_barrage_rocket_prc"
+	("strategic_doctrine" side(prc) period(era1960) vehicle(bm-14_prc) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("doctrine_t3" cool(600) d(era1960_prc_artillery) cost(16))
+	{conditions ""}{action "airstrike:flare_artillery_rocket"} 
 }
 
 ;_________________________________________________
