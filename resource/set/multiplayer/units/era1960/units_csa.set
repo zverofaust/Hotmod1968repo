@@ -127,7 +127,7 @@
 
 ; // 15DP M109 Self-Propelled Howitzer
 {"doctrine_vehicle_m109_acav(csa)"
-	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m109_acav) crew(acav_vehicleman:4) cw(0) cp(0))
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m109_acav) crew(acav_vehicleman:5) cw(0) cp(0))
 	("doctrine_t3" cool(180) d(era1960_csa_acav) cost(20))
 }
 
@@ -292,7 +292,7 @@
 
 ; // 15DP M109 Self-Propelled Howitzer
 {"doctrine_vehicle_m109_armor(csa)"
-	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m109) crew(sup_tankman:4) cw(0) cp(0))
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m109) crew(sup_tankman:5) cw(0) cp(0))
 	("doctrine_t1" cool(180) d(era1960_csa_armor) cost(15))
 }
 
@@ -586,6 +586,11 @@
 	cost(5))
 }
 
+{"dodge_m37"
+	("vehicle"  period(era1960) cd(0) ci(15) g(wheel1) side(csa) t(vehicle) crew(sup_supporter:1) b(vehicles) cw(0) cp(2) 
+	cost(15))
+}
+
 {"dodge_m37_ammo"
 	("vehicle"  period(era1960) cd(0) ci(15) g(supply1) side(csa) t(vehicle supply) crew(sup_supporter:1) b(vehicles) cw(0) cp(2) 
 	cost(100))
@@ -685,10 +690,10 @@
 
 ("vehicle_doctrine" vehicle(m103) side(csa) name(doctrine_vehicle_m103_usmc) d(era1960_csa_usmc) period(era1960) cd(120) ci(300) g(heavy1) c1(sup_tankman:5) b(tanks) t())
 
-("vehicle_doctrine" vehicle(m108) side(csa) name(doctrine_vehicle_m108_acav) d(era1960_csa_acav) period(era1960) cd(160) ci(160) g(spg1) c1(sup_tankman:4) b(tanks) t())
-("vehicle_doctrine" vehicle(m108) side(csa) name(doctrine_vehicle_m108_armor) d(era1960_csa_armor) period(era1960) cd(160) ci(160) g(spg1) c1(sup_tankman:4) b(tanks) t())
+("vehicle_doctrine" vehicle(m108) side(csa) name(doctrine_vehicle_m108_acav) d(era1960_csa_acav) period(era1960) cd(160) ci(160) g(spg1) c1(sup_tankman:5) b(tanks) t())
+("vehicle_doctrine" vehicle(m108) side(csa) name(doctrine_vehicle_m108_armor) d(era1960_csa_armor) period(era1960) cd(160) ci(160) g(spg1) c1(sup_tankman:5) b(tanks) t())
 
-;("vehicle_doctrine" vehicle(m109) side(csa) name(doctrine_vehicle_m109_armor) d(era1960_csa_armor) period(era1960) cd(240) ci(240) g(spg1) c1(sup_tankman:4) b(tanks) t())
+;("vehicle_doctrine" vehicle(m109) side(csa) name(doctrine_vehicle_m109_armor) d(era1960_csa_armor) period(era1960) cd(240) ci(240) g(spg1) c1(sup_tankman:5) b(tanks) t())
 
 ;_________________________________________________
 ;|        		 AI ONLY Purchases                |
@@ -890,17 +895,17 @@
 }
 
 {"m108"
-	("vehicle"  period(era1960) cd(80) ci(120) t(doctrineonly vehicle artillery)  side(csa) crew(sup_vehicleman:4) g(spg) b(tanks) cw(0) cp(7) 
+	("vehicle"  period(era1960) cd(80) ci(120) t(doctrineonly vehicle artillery)  side(csa) crew(sup_vehicleman:5) g(spg) b(tanks) cw(0) cp(7) 
 	cost(550))
 }
 
 {"m109"
-	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(csa) t(doctrineonly tank artillery) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7)
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(csa) t(doctrineonly tank artillery) crew(sup_vehicleman:5) b(tanks) cw(0) cp(7)
 	cost(750))
 }
 
 {"m109_acav"
-	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(csa) t(doctrineonly tank artillery) crew(sup_vehicleman:4) b(tanks) cw(0) cp(7)
+	("vehicle"  period(era1960) cd(0) ci(0) g(light2) side(csa) t(doctrineonly tank artillery) crew(sup_vehicleman:5) b(tanks) cw(0) cp(7)
 	cost(775))
 }
 
