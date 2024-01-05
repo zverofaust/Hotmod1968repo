@@ -1185,7 +1185,7 @@
 		("check_fire")
 	}
 
-	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 
 
 }
@@ -1533,7 +1533,7 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"it-1 tank"
@@ -2274,7 +2274,7 @@
 
 	}
 
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"m41_early"
@@ -2290,7 +2290,7 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"m42"
@@ -2331,7 +2331,7 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"m551_acav"
@@ -2348,7 +2348,7 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"m551_airlift"
@@ -2364,7 +2364,7 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"m26_pershing tank"
@@ -2410,7 +2410,7 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(pose_mgun_pz6))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(pose_mgun_pz6))
 }
 
 {"m48"
@@ -2660,7 +2660,7 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open_turret" -1.0 resume}
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"m113a1 tank"
@@ -2710,7 +2710,7 @@
 
 
 	("triplezpu_params"
-		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand)
+		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
 		secgunner(gunner3) seczpu_mgun(mgun2) secanim(hm_hatch_cover_sit_nooffset) secpose(seat_gunner_stand)
 		triplegunner(gunner4) tripzpu_mgun(mgun3) tripleanim(hm_hatch_cover_sit_nooffset) trippose(seat_gunner_stand)
 	)
@@ -2754,7 +2754,7 @@
 
 	}
 	("triplezpu_params"
-		gunner(commander) zpu_mgun(mgun1) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand)
+		gunner(commander) zpu_mgun(mgun1) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
 		secgunner(gunner3) seczpu_mgun(mgun2) secanim(hm_hatch_cover_sit_nooffset) secpose(seat_gunner_stand)
 		triplegunner(gunner4) tripzpu_mgun(gun) tripleanim(hm_hatch_cover_sit_nooffset) trippose(seat_gunner_stand)
 	)
@@ -2799,7 +2799,7 @@
 
 	}
 	("doublezpu_params"
-		gunner(commander) zpu_mgun(mgun1) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand)
+		gunner(commander) zpu_mgun(mgun1) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
 		secgunner(gunner) seczpu_mgun(gun) secanim(hm_hatch_cover_sit_nooffset) secpose(seat_gunner_stand))
 }
 {"m125"
@@ -2838,7 +2838,7 @@
 	}
 
 	("triplezpu_params"
-		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand)
+		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
 		secgunner(gunner3) seczpu_mgun(gun) secanim(hm_hatch_cover_sit_nooffset) secpose(pose_mortar_gunner)
 		triplegunner(charger) tripzpu_mgun(gun) tripleanim(hm_hatch_cover_sit_nooffset) trippose(pose_mortar_120sgrw42_commander)
 	)
@@ -2883,7 +2883,7 @@
 	}
 
 	("triplezpu_params"
-		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand)
+		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
 		secgunner(gunner3) seczpu_mgun(gun) secanim(hm_hatch_cover_sit_nooffset) secpose(pose_mortar_gunner)
 		triplegunner(charger) tripzpu_mgun(gun) tripleanim(hm_hatch_cover_sit_nooffset) trippose(pose_mortar_120sgrw42_commander)
 	)
@@ -2928,7 +2928,7 @@
 	}
 
 	("triplezpu_params"
-		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand)
+		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
 		secgunner(gunner3) seczpu_mgun(gun) secanim(hm_hatch_cover_sit_nooffset) secpose(pose_mortar_gunner)
 		triplegunner(charger) tripzpu_mgun(gun) tripleanim(hm_hatch_cover_sit_nooffset) trippose(pose_mortar_120sgrw42_commander)
 	)
@@ -3160,6 +3160,24 @@
 	("animation_sound" args "open_right")
 }
 
+{"m16_frg tank"
+	("m3_halftrack_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+
+	{on "add_weapon_sound" overload
+		("M2HB_M45_Mount")
+	}
+
+	("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
+
+	{on "reload"
+		{ani_play "reload_mgun" 1.0}
+	}
+	{on "reload_delay" overload
+		("reload_time" args 30)	;// weapon reload time
+	}
+}
 
 {"m39g_apc tank"
 	("m4_sherman_sound")
@@ -3181,7 +3199,7 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open_turret" -1.0 resume}
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"m113g_early tank"
@@ -3192,7 +3210,7 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open_turret" -1.0 resume}
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"spz_112"
@@ -3397,7 +3415,7 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(pose_mgun_pz6))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(pose_mgun_pz6))
 }
 
 {"m47g tank"
@@ -3412,7 +3430,7 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(pose_mgun_pz6))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(pose_mgun_pz6))
 }
 
 {"m48g"
@@ -3444,7 +3462,7 @@
 		("check_fire")
 
 	}
-	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"leopard_1a1"
@@ -3460,7 +3478,7 @@
 		("check_fire")
 
 	}
-	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"m110g"
@@ -3478,7 +3496,7 @@
 	{on "commander_hatch_close" overload
 		{ani_play "open" -1.0 resume}
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"m108g"
@@ -3503,7 +3521,7 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"m41g"
@@ -3518,7 +3536,7 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"m42g"
@@ -3845,7 +3863,7 @@
 		{ani_play "open1" -1.0 resume}
 	}
 
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"su76_prc tank"
@@ -3904,7 +3922,7 @@
 		("check_fire")
 
 	}
-	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"type58_tank tank"
@@ -3968,7 +3986,7 @@
 		("check_fire")
 
 	}
-	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"is2_prc tank"
@@ -4407,7 +4425,7 @@
 		("check_fire")
 	}
 
-	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"t-54am_pol tank"
@@ -4431,7 +4449,7 @@
 		("check_fire")
 	}
 
-	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"t-54am1_pol tank"
@@ -4455,7 +4473,7 @@
 		("check_fire")
 	}
 
-	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"t-54am2_pol tank"
@@ -4479,7 +4497,7 @@
 		("check_fire")
 	}
 
-	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"t-54u_pol tank"
@@ -4503,7 +4521,7 @@
 		("check_fire")
 	}
 
-	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"t-55_pol tank"
