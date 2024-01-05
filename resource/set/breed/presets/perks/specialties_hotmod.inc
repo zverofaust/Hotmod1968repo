@@ -62,6 +62,18 @@
 	{"stamina" "300%"}
 )
 
+(define "jager"	;// West German Jagertruppen
+	{"speed" 1.1}
+	{"health" "150%"}
+	{"stamina" "300%"}
+	{"health_regeneration" "125%"}
+	{"stamina_regeneration" "125%"}
+)
+
+(define "pzgren"	;// West German Panzergrenadiers
+	{"health" "250%"}
+)
+
 (define "paratrooper"	;// Soviet VDV
 	{"speed" 1.1}
 	{"health" "150%"}
