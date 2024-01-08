@@ -1,0 +1,48 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 15mm
+	; gun 20mm
+
+	("tank_medium_tier1")
+
+	("shield" args "radar1" 10)	; Radar
+	("shield" args "radar2" 10)	; Radar
+	("shield" args "radar3" 10)	; Radar
+	("shield" args "radar4" 10)	; Radar
+	("shield" args "radar5" 10)	; Radar
+	
+	("shield_tear" args "shield1" 5)	
+	("shield_tear" args "shield2" 5)	
+	
+	("fuel" args "fuel")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+
+	{volume "body1"			; Upper Hull
+		{thickness 10}
+	}
+	{volume "body2"			; Lower Hull
+		{thickness 10}
+	}
+	
+	{volume "body3"			; Driver
+		{thickness 10}
+	}
+	
+	{volume "engine"
+		{thickness 20}
+	}
+	
+	{volume "turret"		; Main Turret 
+		{thickness 9}
+	}
+	
+	{volume "turret2"		; Commander Cupola
+		{thickness 9}
+	}
+	
+	;{component "radar" {tags "cut_part"}}

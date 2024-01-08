@@ -876,14 +876,124 @@
 	}
 }
 
-{"shilka tank"
+{"zsu-23-4 tank"
 	("t70_sound")
-	{on "event_no_crew"
-		{ani_stop "radar"}
+	
+	{on "gunner_hatch_open"
+		{if not tagged "sight_open"
+			{ani_play "sight_cover" +1.0 resume}
+			{tags add "sight_open"}
+		}
 	}
-	{on "event_with_crew"
-		{ani_play "radar" loop resume}
+	
+	{on "gunner_hatch_close"
+		{ani_play "sight_cover" -1.0 resume}
+		{tags remove "sight_open"}
 	}
+	
+	{on "commander_hatch_open"
+		{if not tagged "radar_up"
+			{ani_play "radar_up" +1.0 resume}
+			{tags add "radar_up"}
+			{delay 1
+				{ani_play "radar_spin" loop resume}
+			}
+		else tagged "radar_up"
+			{delay 1
+				{ani_play "radar_spin" loop resume}
+			}
+		}
+	}
+	
+	{on "commander_hatch_close"
+		
+		{ani_play "radar_up" -1.0 resume}
+		{delay 3
+			{ani_stop "radar_spin"}
+		}
+	}
+	
+	{on "init_gun" overload
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel02"	"shooter02"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel03"	"shooter03"}
+		{add_view "zenit_gilz"			"shell"			"FXshell1"}
+		{add_view "zenit_gilz"			"shell"			"FXshell2"}
+		{add_view "zenit_gilz"			"shell"			"FXshell3"}
+		{add_view "zenit_gilz"			"shell"			"FXshell4"}
+		{call "update_gun"}
+	}
+	{on fire "mgun" overload
+		{play_sound "bkg_mg"}
+		{if  name "00"
+			{ani_wind "fire00" end}
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		}
+		{if  name "01"
+			{ani_wind "fire01" end}
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
+		{if  name "02"
+			{ani_wind "fire02" end}
+			{view start "flashbarrel02"}
+			{delay 0.2
+				{view pause "flashbarrel02"}
+			}
+		}
+		{if  name "03"
+			{ani_wind "fire03" end}
+			{view start "flashbarrel03"}
+			{delay 0.2
+				{view pause "flashbarrel03"}
+			}
+		}
+	}
+}
+
+{"zsu-23-4b tank"
+	("t70_sound")
+	
+	{on "gunner_hatch_open"
+		{if not tagged "sight_open"
+			{ani_play "sight_cover" +1.0 resume}
+			{tags add "sight_open"}
+		}
+	}
+	
+	{on "gunner_hatch_close"
+		{ani_play "sight_cover" -1.0 resume}
+		{tags remove "sight_open"}
+	}
+	
+	{on "commander_hatch_open"
+		{if not tagged "radar_up"
+			{ani_play "radar_up" +1.0 resume}
+			{tags add "radar_up"}
+			{delay 1
+				{ani_play "radar_spin" loop resume}
+			}
+		else tagged "radar_up"
+			{delay 1
+				{ani_play "radar_spin" loop resume}
+			}
+		}
+	}
+	
+	{on "commander_hatch_close"
+		
+		{ani_play "radar_up" -1.0 resume}
+		{delay 3
+			{ani_stop "radar_spin"}
+		}
+	}
+	
 	{on "init_gun" overload
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
