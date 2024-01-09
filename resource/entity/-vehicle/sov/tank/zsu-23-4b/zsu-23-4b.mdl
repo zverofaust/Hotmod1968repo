@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Sun Jan  7 16:57:03 2024
+;Date:        Tue Jan  9 10:17:24 2024
 ;File:        D:\Cold War\ModelWIP\USSR\ZSU-23-4 Shilka\Shilka.max
 {Skeleton
 	{animation
@@ -11,10 +11,11 @@
 		{sequence "fire02" {speed 0.3}}
 		{sequence "fire03" {speed 0.3}}
 		{sequence "radar_up" {speed 0.2}}
-		{sequence "radar_spin" {speed 0.05}}
+		{sequence "radar_spin" {speed 0.2}}
 		{sequence "sight_cover" {speed 0.3}}
-		{sequence "open_commander" {speed 0.2}}
+		{sequence "open_left" {speed 0.2}}
 		{sequence "open_driver" {speed 0.1}}
+		{sequence "open_right" {speed 0.2}}
 		{sequence "open1" {speed 0.3}}
 	}
 	{bone "basis"
@@ -226,7 +227,7 @@
 					}
 				}
 				{bone revolute "gun_rot"
-					{parameters "id=gun;ikmax=80;"}
+					{parameters "id=gun;"}
 					{limits -2 80}
 					{Matrix34
 						1	0	0
@@ -336,20 +337,10 @@
 						}
 					}
 				}
-				{bone "turret_boxl"
-					{parameters "id=shield1;"}
-					{Position 19.494	21.6878	7.28983}
-					{VolumeView "turret_boxl.ply"}
-				}
 				{bone "turret_details_1967"
 					{parameters "id=turret;"}
 					{Position -4.65383	-0.157574	7.99953}
 					{VolumeView "turret_details_1967.ply"}
-				}
-				{bone "turret_pipe"
-					{parameters "id=turret;"}
-					{Position -4.65383	-0.157574	7.99953}
-					{VolumeView "turret_pipe.ply"}
 				}
 				{bone "detail12"
 					{parameters "id=turret;"}
@@ -361,16 +352,16 @@
 					{Position -39.8618	23.1077	6.27802}
 					{VolumeView "detail2.ply"}
 				}
-				{bone "turret_boxr"
-					{parameters "id=shield2;"}
-					{Position 19.494	-21.6322	7.28983}
-					{VolumeView "turret_boxr.ply"}
-				}
 				{bone "visor1"
 					{Position -5.30698	0.0203245	16.9203}
 				}
 				{bone prizmatic "gun_cover_anchor1"
 					{Position 9.90917	0.0203247	13.1675}
+				}
+				{bone "cover_gunner"
+					{parameters "id=turret;"}
+					{Position -20.5046	-5.56826	13.9749}
+					{VolumeView "cover_gunner.ply"}
 				}
 			}
 			{bone "side_doors_1965"
@@ -753,22 +744,22 @@
 }
 {Volume "shield1"
 	{Box 10.8499 5.44173 9.03333}
-	{Bone "turret_boxl"}
+	{Bone "turret"}
 	{Matrix34
 		0.866025	-0.5	0
 		0.5	0.866025	0
 		0	0	1
-		-0.0073204	-0.00153732	-1.12311
+		19.4867	21.6863	6.16672
 	}
 }
 {Volume "shield2"
 	{Box 10.8499 5.44173 9.03333}
-	{Bone "turret_boxr"}
+	{Bone "turret"}
 	{Matrix34
-		-0.866026	-0.5	0
-		0.5	-0.866026	0
+		-0.866025	-0.5	0
+		0.5	-0.866025	0
 		0	0	1
-		-0.00731659	0.0186367	-1.12311
+		19.4867	-21.6135	6.16672
 	}
 }
 {Volume "trackleft"
