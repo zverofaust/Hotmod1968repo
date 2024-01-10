@@ -708,34 +708,45 @@
 				{add_view "smoke_engine" "burn_fire_smoke" "FXfire1"}
 				;{add_view "smoke_black" "burn_fire" "FXfire1"}
 				{view start "burn_fire"}
-				{burn time 12}
-				{tags add "burned"}
-				{play_sound "flame" 1}
-				{set "burn_fire" 1}
-				{call "stat_break"}
-				{tags add "no_scavenge"}
-				{delay 4 2
-					{call "check_burn_emit"}
-				}
-				{delay 10 2
-					{components "engine" break}
-					{start_sound "crush/medium/metal"}
-					{delay 5 4
-						{call "hull_destroyed"}
-						{call "car_destroyed"}
-					}
-				}
-				{delay 180
-					{view start "burn_fire_smoke"}
-					{delay 900
-						{view stop "burn_fire_smoke"}
-					}
-					{delay 2
-						{view stop "burn_fire"}
-					}
-					{stop_sound "flame"}
-					{set "burn_fire" 0}
-					{able "burning" 0}
+				   {delay 20
+					    {if not tagged "antifire_work"
+						{burn time 12}
+						{tags add "burned"}
+						{play_sound "flame" 1}
+						{set "burn_fire" 1}
+						{call "stat_break"}
+						{tags add "no_scavenge"}
+
+
+						{delay 4 2
+							{unlink_trailer}
+							{call "check_burn_emit"}
+						}
+						{delay 10 2
+							{components "engine" break}
+							{start_sound "crush/medium/metal"}
+							{delay 5 4
+								{call "hull_destroyed"}
+								{call "car_destroyed"}
+							}
+
+
+						}
+						{delay 180
+							{view start "burn_fire_smoke"}
+							{delay 900
+								{view stop "burn_fire_smoke"}
+							}
+							{delay 2
+								{view stop "burn_fire"}
+							}
+							{stop_sound "flame"}
+							{set "burn_fire" 0}
+							{able "burning" 0}
+						}
+
+
+					 }
 				}
 			}
 		}

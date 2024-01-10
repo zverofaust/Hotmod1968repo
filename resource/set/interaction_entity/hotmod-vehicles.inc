@@ -4,6 +4,36 @@
 		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
 	}
 }
+
+;/*==========anti fire script========*/
+
+{"tank antifire"
+
+    {on "wes81_antifire"
+
+	{tags add "antifire_work"}
+	{damage_report "engine" "component/antifire"}
+	{tags remove "burned"}
+	{tags remove "no_scavenge"}
+	{view stop "burn_fire"}
+	{stop_sound "flame"}
+	{view stop "burn_fire_smoke"}
+	{set "burn_fire" 0}
+	{able "burning" 0}
+
+	
+	{delay 20
+		
+			{tags remove "antifire_work"}
+			{burn stop_retry}
+	}
+
+
+    }
+  
+
+}
+
 ;/*==========BMD series shell eject script====*/
 {"shell"
 	{on "spawn_shell" overload

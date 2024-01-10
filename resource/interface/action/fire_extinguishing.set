@@ -1,0 +1,17 @@
+{action
+	{target ground}
+	{fx "flashred"}
+	{able_vehicle}
+	{notifyselect}
+	{item "fire_extinguisher"}
+	{item_in_box}
+	
+	{NotifySelect}
+	{button "vehicle/fire_extinguisher"}
+	{instant ; only instant instructions supported
+		{if props "vehicle"
+			{effect "wes81_antifire"}
+			{remove_from_inventory}
+		}
+	}	
+}
