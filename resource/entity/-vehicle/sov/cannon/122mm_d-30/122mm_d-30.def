@@ -48,7 +48,11 @@
 			{forward {end "pose_seat_cannon_left" 10}}
 		}
 	}
-
+	
+	("shield_group" args "shield1" 8 "shield")
+	("shield_group" args "shield2" 8 "shield")
+	("shield" args "shield_lower" 8)
+	
 	("wheel" args "wheelright")
 	("wheel" args "wheelleft")
 	("gun" repair(30) thickness(30))
@@ -72,7 +76,7 @@
 
 	{mass 3000}
 
-	{Extension "d30.mdl"}
+	{Extension "122mm_d-30.mdl"}
 
 	(include "/properties/selection/cannon.inc"  scale(0.7))
 
@@ -105,7 +109,12 @@
 		{speed2 3}
 	}
 	
-	 {bone "turret"
-		{speed2 8}
+	{bone "gun_rot"
+		{limits -5 75}
+		{speed2 14}
+	}
+	
+	{bone "turret"
+		{speed2 12}
 	}
 }
