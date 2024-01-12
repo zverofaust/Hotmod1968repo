@@ -55,20 +55,6 @@
 	{conditions ""}{action "airstrike:flare_artillery_105"} 
 }
 
-; // era1960_pol_artillery 155mm artillery barrage
-{"artillery_barrage_medium_pol"
-	("strategic_doctrine" side(pol) period(era1960) vehicle(d1_pol) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
-	("doctrine_t2" cool(400) d(era1960_pol_artillery) cost(12))
-	{conditions ""}{action "airstrike:flare_artillery_150"} 
-}
-
-; // era1960_pol_artillery 203mm artillery barrage
-{"artillery_barrage_rocket_pol"
-	("strategic_doctrine" side(pol) period(era1960) vehicle(bm-14_pol) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
-	("doctrine_t3" cool(600) d(era1960_pol_artillery) cost(16))
-	{conditions ""}{action "airstrike:flare_artillery_rocket"} 
-}
-
 
 ;_________________________________________________
 ;|            Doctrines                           |
@@ -281,7 +267,7 @@
 
 ; // 15DP ISU-152
 {"doctrine_vehicle_isu152(pol)"
-	("squad_vehicle_doctrine" side(pol) period(era1960) vehicle(isu152_pol) crew(sup_tankman:5) cw(0) cp(0))
+	("squad_vehicle_doctrine" side(pol) period(era1960) vehicle(isu-152_pol) crew(sup_tankman:5) cw(0) cp(0))
 	("doctrine_t3" cool(280) d(era1960_pol_artillery) cost(15))
 }
 
@@ -289,6 +275,22 @@
 {"doctrine_vehicle_bm21(pol)"
 	("squad_vehicle_doctrine" side(pol) period(era1960) vehicle(bm-21_pol) crew(sup_supporter:2) cw(0) cp(0))
 	("doctrine_t3" cool(600) d(era1960_pol_artillery) cost(18))
+}
+
+; ======Strategic Call-ins======
+
+; // era1960_pol_artillery 155mm artillery barrage
+{"artillery_barrage_medium_pol"
+	("strategic_doctrine" side(pol) period(era1960) vehicle(d1_pol) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("doctrine_t2" cool(400) d(era1960_pol_artillery) cost(12))
+	{conditions ""}{action "airstrike:flare_artillery_150"} 
+}
+
+; // era1960_pol_artillery 203mm artillery barrage
+{"artillery_barrage_rocket_pol"
+	("strategic_doctrine" side(pol) period(era1960) vehicle(bm-14_pol) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("doctrine_t3" cool(600) d(era1960_pol_artillery) cost(16))
+	{conditions ""}{action "airstrike:flare_artillery_rocket"} 
 }
 
 ;_________________________________________________
@@ -602,6 +604,10 @@
 
 {"t-55a_pol"
 	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly medium tank) side(pol) crew(sup_tankman:4) g(medium1) b(tanks) cw(0) cp(15) cost(575))
+}
+
+{"isu-152_pol"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly heavy tank td) side(pol) crew(sup_tankman:5) g(medium1) b(tanks) cw(0) cp(12) cost(550))
 }
 
 ;{"zsu-57-2pl"

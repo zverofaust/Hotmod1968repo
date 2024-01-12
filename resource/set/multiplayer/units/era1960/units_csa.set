@@ -45,13 +45,6 @@
 	{conditions ""}{action "airstrike:flare_airstrike_light_napalm_csa"} 
 }
 
-
-{"airstrike_heavy_csa"
-	("strategic_doctrine" side(csa) period(era1960) vehicle(f-105_airstrike) crew(sup_pilot:0) b(strategic) cw(0) cp(0))
-	("doctrine_t2" cool(600) d(era1960_csa_82nd) cost(16))
-	{conditions ""}{action "airstrike:flare_airstrike_heavy_bomb_csa"} 
-}
-
 ;ARTILLERY SUPPORT
 
 {"artillery_barrage_smoke_csa"
@@ -64,20 +57,6 @@
 	("strategic_doctrine" side(csa) period(era1960) vehicle(105mm_m101a1) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
 	("universal_strat" cd(300) ci(120) cost(8))
 	{conditions ""}{action "airstrike:flare_artillery_105"} 
-}
-
-; // era1960_csa_artillery 155mm artillery barrage
-{"artillery_barrage_medium_csa"
-	("strategic_doctrine" side(csa) period(era1960) vehicle(155mm_m114) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
-	("doctrine_t2" cool(400) d(era1960_csa_artillery) cost(12))
-	{conditions ""}{action "airstrike:flare_artillery_150"} 
-}
-
-; // era1960_csa_artillery 203mm artillery barrage
-{"artillery_barrage_heavy_csa"
-	("strategic_doctrine" side(csa) period(era1960) vehicle(203mm_m115) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
-	("doctrine_t3" cool(600) d(era1960_csa_artillery) cost(16))
-	{conditions ""}{action "airstrike:flare_artillery_203"} 
 }
 
 ;_________________________________________________
@@ -264,6 +243,13 @@
 	("doctrine_t3" cool(240) d(era1960_csa_aircav) cost(25))
 }
 
+; ======Strategic Callins======
+
+{"airstrike_heavy_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(f-105_airstrike) crew(sup_pilot:0) b(strategic) cw(0) cp(0))
+	("doctrine_t2" cool(600) d(era1960_csa_82nd) cost(16))
+	{conditions ""}{action "airstrike:flare_airstrike_heavy_bomb_csa"} 
+}
 
 ;===================================
 ;   ARMORED BATALLION TASK FORCE
@@ -443,6 +429,22 @@
 {"doctrine_vehicle_m28(csa)"
 	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m-28) crew(sup_guncrew:4) cw(0) cp(0))
 	("doctrine_t3" cool(600) d(era1960_csa_artillery) cost(80))
+}
+
+; ======Doctrine Callin======
+
+; // era1960_csa_artillery 155mm artillery barrage
+{"artillery_barrage_medium_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(155mm_m114) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("doctrine_t2" cool(400) d(era1960_csa_artillery) cost(12))
+	{conditions ""}{action "airstrike:flare_artillery_150"} 
+}
+
+; // era1960_csa_artillery 203mm artillery barrage
+{"artillery_barrage_heavy_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(203mm_m115) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("doctrine_t3" cool(600) d(era1960_csa_artillery) cost(16))
+	{conditions ""}{action "airstrike:flare_artillery_203"} 
 }
 
 ;_________________________________________________

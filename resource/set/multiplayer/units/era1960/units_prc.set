@@ -55,20 +55,6 @@
 	{conditions ""}{action "airstrike:flare_artillery_105"} 
 }
 
-; // era1960_prc_artillery 152mm artillery barrage
-{"artillery_barrage_medium_prc"
-	("strategic_doctrine" side(prc) period(era1960) vehicle(d1_prc) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
-	("doctrine_t2" cool(400) d(era1960_prc_artillery) cost(12))
-	{conditions ""}{action "airstrike:flare_artillery_150"} 
-}
-
-; // era1960_prc_artillery 203mm artillery barrage
-{"artillery_barrage_rocket_prc"
-	("strategic_doctrine" side(prc) period(era1960) vehicle(bm-14_prc) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
-	("doctrine_t3" cool(600) d(era1960_prc_artillery) cost(16))
-	{conditions ""}{action "airstrike:flare_artillery_rocket"} 
-}
-
 ;_________________________________________________
 ;|            Doctrines                           |
 ;|________________________________________________|
@@ -202,6 +188,22 @@
 {"doctrine_vehicle_d20(prc)"
 	("squad_vehicle_doctrine" side(prc) period(era1960) vehicle(d-20_prc) crew(sup_guncrew:4) cw(0) cp(0))
 	("doctrine_t3" cool(300) d(era1960_prc_artillery) cost(16))
+}
+
+; ======Doctrine Callins======
+
+; // era1960_prc_artillery 152mm artillery barrage
+{"artillery_barrage_medium_prc"
+	("strategic_doctrine" side(prc) period(era1960) vehicle(d1_prc) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("doctrine_t2" cool(400) d(era1960_prc_artillery) cost(12))
+	{conditions ""}{action "airstrike:flare_artillery_150"} 
+}
+
+; // era1960_prc_artillery 203mm artillery barrage
+{"artillery_barrage_rocket_prc"
+	("strategic_doctrine" side(prc) period(era1960) vehicle(bm-14_prc) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("doctrine_t3" cool(600) d(era1960_prc_artillery) cost(16))
+	{conditions ""}{action "airstrike:flare_artillery_rocket"} 
 }
 
 ;_________________________________________________

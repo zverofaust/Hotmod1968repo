@@ -45,12 +45,6 @@
 	{conditions ""}{action "airstrike:flare_airstrike_light_napalm_sov"} 
 }
 
-{"airstrike_heavy_sov"
-	("strategic_doctrine" side(sov) period(era1960) vehicle(yak-28_airstrike) crew(sup_pilot:0) b(strategic) cw(0) cp(0))
-	("doctrine_t2" cool(600) d(era1960_sov_vdv) cost(16))
-	{conditions ""}{action "airstrike:flare_airstrike_heavy_bomb_sov"} 
-}
-
 ;ARTILLERY SUPPORT
 
 {"artillery_barrage_smoke_sov"
@@ -63,20 +57,6 @@
 	("strategic_doctrine" side(sov) period(era1960) vehicle(d30a) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
 	("universal_strat" cd(300) ci(120) cost(8))
 	{conditions ""}{action "airstrike:flare_artillery_105"} 
-}
-
-; // era1960_sov_artillery 152mm artillery barrage
-{"artillery_barrage_medium_sov"
-	("strategic_doctrine" side(sov) period(era1960) vehicle(d-20) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
-	("doctrine_t2" cool(400) d(era1960_sov_artillery) cost(12))
-	{conditions ""}{action "airstrike:flare_artillery_150"} 
-}
-
-; // era1960_sov_artillery 203mm artillery barrage
-{"artillery_barrage_heavy_sov"
-	("strategic_doctrine" side(sov) period(era1960) vehicle(203mm_b4_sov) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
-	("doctrine_t3" cool(600) d(era1960_sov_artillery) cost(16))
-	{conditions ""}{action "airstrike:flare_artillery_203"} 
 }
 
 ;_________________________________________________
@@ -273,6 +253,16 @@
 	("doctrine_t3" cool(140) d(era1960_sov_vdv) cost(25))
 }
 
+; ======Strategic Callin======
+
+{"airstrike_heavy_sov"
+	("strategic_doctrine" side(sov) period(era1960) vehicle(yak-28_airstrike) crew(sup_pilot:0) b(strategic) cw(0) cp(0))
+	("doctrine_t2" cool(600) d(era1960_sov_vdv) cost(16))
+	{conditions ""}{action "airstrike:flare_airstrike_heavy_bomb_sov"} 
+}
+
+
+
 ;===================================
 ;       VMF Naval Infantry Brigade
 ;            
@@ -345,6 +335,23 @@
 	("squad_vehicle_doctrine" side(sov) period(era1960) vehicle(bm-24m) crew(sup_supporter:2) cw(0) cp(0))
 	("doctrine_t3" cool(180) d(era1960_sov_artillery) cost(25))
 }
+
+; ======Strategic Call-ins======
+
+; // era1960_sov_artillery 152mm artillery barrage
+{"artillery_barrage_medium_sov"
+	("strategic_doctrine" side(sov) period(era1960) vehicle(d-20) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("doctrine_t2" cool(400) d(era1960_sov_artillery) cost(12))
+	{conditions ""}{action "airstrike:flare_artillery_150"} 
+}
+
+; // era1960_sov_artillery 203mm artillery barrage
+{"artillery_barrage_heavy_sov"
+	("strategic_doctrine" side(sov) period(era1960) vehicle(203mm_b4_sov) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("doctrine_t3" cool(600) d(era1960_sov_artillery) cost(16))
+	{conditions ""}{action "airstrike:flare_artillery_203"} 
+}
+
 
 ;_________________________________________________
 ;|             inf1                               |
