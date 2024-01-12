@@ -1037,7 +1037,7 @@
 	("cannon_big")
 }
 
-{"122mm_d30a"
+{"122mm_d-30"
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
