@@ -314,6 +314,8 @@
 	{item "82mm_rs82"						"ammo" 1 {value 15}}
 	{item "132mm_bm13"						"ammo" 1 {value 20}}
 	{item "300mm_bm30"						"ammo" 1 {value 30}}
+	{item "rocket240_m24"						"ammo" 1 {value 30}}
+	
 
 	;// Hotmod Stuff
 
