@@ -91,6 +91,7 @@ Purchases["era1960.pol"] = {
 				
 				{priority = 1.0, type = {"Class2", "Doctrine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_m72(pol)"},
 				{priority = 1.0, type = {"Class2", "Doctrine", "Infantry", "Squad", "Armored", "Tier2",}, unit = "doctrine_squad_rifle_mech(pol)"},
+				{priority = 1.0, type = {"Class2", "Doctrine", "Infantry", "Squad", "AT", "Armored", "Tier2",}, unit = "doctrine_squad_at_mech(pol)"},
 				{priority = 1.0, type = {"Class1", "Doctrine", "Tank", "Medium", "Tier3",}, unit = "doctrine_vehicle_t55a(pol)"},
 				{priority = 1.0, type = {"Class1", "Doctrine", "Vehicle", "Artillery", "Tier3",}, unit = "doctrine_vehicle_bm14(pol)"},
 				

@@ -4349,6 +4349,37 @@
 	("t70_sound")
 }
 
+{"skot-1"
+	("sdkfz234_sound")
+}
+
+{"skot-1a"
+	("sdkfz234_sound")
+	{on "gunner2_hatch_open" overload
+		{ani_wind "open_gunner" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "gunner2_hatch_close" overload
+		{ani_play "open_gunner" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+
+	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+}
+
+{"skot-2a"
+	("sdkfz234_sound")
+}
+
+{"skot-2am"
+	("sdkfz234_sound")
+}
+
+{"skot-2ap"
+	("sdkfz234_sound")
+}
+
+
 {"brdm-1_pol"
 	("sdkfz222_sound")
 	{on "gunner2_hatch_open" overload

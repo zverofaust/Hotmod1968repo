@@ -169,36 +169,35 @@
 	("doctrine_t1" cool(120) d(era1960_pol_tank) cost(3))
 }
 
-; // 6DP 122mm M-30 Howitzer
-{"doctrine_vehicle_m30_tank(pol)"
-	("squad_vehicle_doctrine" side(pol) period(era1960) vehicle(m30_pol) crew(sup_guncrew:4) cw(2) cp(0))
-	("doctrine_t1" cool(120) d(era1960_pol_tank) cost(6))
-}
-
-; ======Tier2======
-
 ; // 6DP 9M14 Malyutka Team
 {"doctrine_squad_9m14(pol)"
 	("squad_with4types_doctrine" side(pol) period(era1960) c1(sup_guncrew_9m14:1) c2(sup_guncrew:1) c3(reg_antitank:1) c4(reg_atassist:1) cw(2) cp(0))
 	("doctrine_t1" cool(180) d(era1960_pol_tank) cost(6))
 }
 
+
+; ======Tier2======
+
 ; // 8DP FUG Scout Car
 
 ; // 12DP Rifle Squad in SKOT-2A
 {"doctrine_squad_rifle_mech(pol)"
-	("squad_vehicle6_doctrine" side(pol) period(era1960) vehicle(btr-60pb_pol) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_atassist:1) crew6(reg_rifleman:4) cw(2) cp(0))
-	("doctrine_t3" cool(160) d(era1960_pol_tank) cost(12))
+	("squad_vehicle6_doctrine" side(pol) period(era1960) vehicle(skot-2a) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_atassist:1) crew6(reg_rifleman:4) cw(2) cp(0))
+	("doctrine_t2" cool(160) d(era1960_pol_tank) cost(12))
 }
-
-;// 12DP Rifle Squad in SKOT-2AP
-
-; ======Tier3======
 
 ; // 15DP T-55A
 {"doctrine_vehicle_t55a(pol)"
 	("squad_vehicle_doctrine" side(pol) period(era1960) vehicle(t-55a_pol) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t2" cool(120) d(era1960_pol_tank) cost(15))
+}
+
+; ======Tier3======
+
+; // 18DP AT Squad in SKOT-2A
+{"doctrine_squad_at_mech(pol)"
+	("squad_vehicle3_doctrine" side(pol) period(era1960) vehicle(skot-2am) crew1(sup_vehicleman:2) crew2(reg_antitank:3) crew3(reg_atassist:3) cw(2) cp(0))
+	("doctrine_t3" cool(280) d(era1960_pol_tank) cost(18))
 }
 
 ; // 16DP BM-13N on ZIL-157
@@ -210,7 +209,7 @@
 ; // 20DP ZSU-23-4
 {"doctrine_vehicle_shilka(pol)"
 	("squad_vehicle_doctrine" side(pol) period(era1960) vehicle(zsu-23-4_pol) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t2" cool(420) d(era1960_pol_tank) cost(25))
+	("doctrine_t3" cool(420) d(era1960_pol_tank) cost(25))
 }
 
 ;// 14DP IS-3???
@@ -324,7 +323,7 @@
 ("squad_with7types_doc" side(pol) name(doctrine_squad_rifle) d(era1960_pol_tank) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_squadlead:1) c2(reg_antitank:1) c3(reg_atassist:1) c4(reg_lmg:1) c5(reg_senior:1) c6(reg_marksman:1) c7(reg_rifleman:3) b(inf1) t())
 
 ("squad_vehicle_with5types_doc" side(pol) name(doctrine_squad_reservist_moto) d(era1960_pol_tank) period(era1960) scf(0.85) cd(0) ci(60) g(squad_3_mech) vehicle(btr-152_pol) c1(sup_vehicleman:2) c2(rsv_squadlead:1) c3(rsv_lmg:1) c4(rsv_atgren:1) c5(rsv_rifleman:5) b(inf1) t())
-("squad_vehicle_with8types_doc" side(pol) name(doctrine_squad_rifle_moto) d(era1960_pol_tank) period(era1960) scf(0.85) cd(60) ci(120) g(squad_3_mech) vehicle(btr-152_pol) c1(des_vehicleman:2) c2(des_squadlead:1) c3(des_lmg:1) c4(des_marksman:1) c5(des_senior:1) c6(des_antitank:1) c7(des_atassist:1) c8(des_rifleman:2) b(inf1) t())
+("squad_vehicle_with8types_doc" side(pol) name(doctrine_squad_rifle_moto) d(era1960_pol_tank) period(era1960) scf(0.85) cd(60) ci(120) g(squad_3_mech) vehicle(skot-1a) c1(sup_vehicleman:2) c2(reg_squadlead:1) c3(reg_lmg:1) c4(reg_marksman:1) c5(reg_senior:1) c6(reg_antitank:1) c7(reg_atassist:1) c8(reg_rifleman:2) b(inf1) t())
 
 
 ;_________________________________________________
@@ -424,6 +423,10 @@
 
 {"topas"
 	("vehicle"  period(era1960) cd(0) ci(15) g(apc1) side(pol) t(vehicle transport) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6) cost(75))
+}
+
+{"skot-1a"
+	("vehicle"  period(era1960) cd(0) ci(15) g(apc1) side(pol) t(vehicle transport) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6) cost(105))
 }
 
 ;_________________________________________________
@@ -544,8 +547,24 @@
 	("vehicle" period(era1960) cd(180) ci(60) t(doctrineonly cannon) side(pol) crew(sup_supporter:4) g(empl5) b(empl) cw(0) cp(10) cost(550))
 }
 
+{"skot-1"
+	("vehicle"  period(era1960) cd(0) ci(15) g(apc1) side(pol) t(doctrineonly vehicle transport) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6) cost(60))
+}
+
+{"skot-2a"
+	("vehicle"  period(era1960) cd(0) ci(15) g(apc1) side(pol) t(doctrineonly vehicle transport) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6) cost(170))
+}
+
+{"skot-2am"
+	("vehicle"  period(era1960) cd(0) ci(15) g(apc2) side(pol) t(doctrineonly vehicle transport) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6) cost(250))
+}
+
+{"skot-2ap"
+	("vehicle"  period(era1960) cd(0) ci(15) g(apc2) side(pol) t(doctrineonly vehicle transport) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6) cost(175))
+}
+
 {"topas_2ap"
-	("vehicle"  period(era1960) cd(0) ci(15) g(apc) side(pol) t(doctrineonly vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6) cost(175))
+	("vehicle"  period(era1960) cd(0) ci(15) g(apc2) side(pol) t(doctrineonly vehicle apc) crew(sup_vehicleman:2) b(vehicles) cw(0) cp(6) cost(175))
 }
 
 {"brdm-2_pol"

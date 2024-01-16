@@ -1,0 +1,172 @@
+{game_entity			;BTR-60PA
+	(include "/properties/armoredcar.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "apc" "tank" "wheeled" "multi_board" "vision_lev02" "amphibia" "tractor" "tractor_medium" "with_open_zpu"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "tank_zenite"}
+	
+	(include "/properties/resupply_hotmod.inc")
+	("apc_ammo")
+	
+	{patherId "amphibia"} 
+	
+	{placer
+		{place "driver"	{visor "driver"}}
+		{place "commander"	{visor "main"}}
+		{place "gunner2"	{visor "mgun"}}
+	}
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "open_front_left" 0.5}}
+			{reverse	{end	"board_body" -1} {base "open_front_left" 0.5}}
+		}
+		{anm "right"
+			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "open_front_right" 0.5}}
+			{reverse	{end	"board_body" -1} {base "open_front_right" 0.5}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "open_rear" 0.5}}
+			{reverse	{end	"board_body" -1} {base "open_rear" 0.75}}
+		}
+	}
+
+	("crew_human_2" 	place(driver)		bone()	door(emit1) door2(emit2) visor(driver))
+	("crew_human_2" 	place(commander)	bone()	door(emit1) door2(emit2) visor(main))
+	("crew_human_2_v" 	place(gunner2)		bone(gunner2)	door(emit2) door2(emit3))
+	
+	("passenger_human" place(seat1)		bone()	door(emit3)	animation(passenger) group(passenger))
+	("passenger_human" place(seat2)		bone()	door(emit4)	animation(passenger) group(passenger))
+	("passenger_human" place(seat3)		bone()	door(emit3)	animation(passenger) group(passenger))
+	("passenger_human" place(seat4)		bone()	door(emit4)	animation(passenger) group(passenger))
+	("passenger_human" place(seat5)		bone()	door(emit3)	animation(passenger) group(passenger))
+	("passenger_human" place(seat6)		bone()	door(emit4)	animation(passenger) group(passenger))
+	("passenger_human" place(seat7)		bone()	door(emit3)	animation(passenger) group(passenger))
+	("passenger_human" place(seat8)		bone()	door(emit4) animation(passenger) group(passenger))
+	("passenger_human" place(seat9)		bone()	door(emit3) animation(passenger) group(passenger))
+	("passenger_human" place(seat10)	bone()	door(emit4) animation(passenger) group(passenger))
+
+
+	{extender "enumerator"
+		{digit_folder "basic"}
+	}
+
+	{extender "inventory"
+		{box
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+	; armour stuff
+	
+	("armoredcar_tier1")
+	
+	("fuel" args "fuel")
+	("transmission" args "transmission")
+	{volume "transmission" {able {NoWoundDecal 0}}}
+	
+	{volume "engine"		
+		{thickness 10}
+	}
+
+	("solid_wheel" args "wheelright1")
+	("solid_wheel" args "wheelleft1")
+	("solid_wheel" args "wheelright2")
+	("solid_wheel" args "wheelleft2")
+	("solid_wheel" args "wheelright3")
+	("solid_wheel" args "wheelleft3")
+	("solid_wheel" args "wheelright4")
+	("solid_wheel" args "wheelleft4")
+	
+	{volume "body"
+		{thickness 7
+			{front	11}
+		}
+	}
+	{volume "body1"
+		{thickness 7
+			{front	11}
+		}
+	}
+	{volume "body2"
+		{thickness 7
+			{front	11}
+		}
+	}
+	{volume "body3"
+		{thickness 7
+			{front	11}
+		}
+	}
+	{volume "body4"
+		{thickness 7
+			{front	11}
+		}
+	}
+	{volume "body5"
+		{thickness 7
+		}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_rus" 750}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "mgun"
+			{weapon			"dshk" filled}
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			("abm_mgun")
+		}
+	}
+	
+	{mass 10200}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility_btr"
+			speed(70) ;----------------------------------Max speed.
+			speedatmaxturn(17) ;-------------------------Max speed at max turn.
+			reverse(22) ;--------------------------------Max speed in Reverse.
+			weight(10.2) ;------------------------------Weight in Tonnes.
+			power(180) ;----------------------------------Horse Power.
+			fuel(290) ;----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(500) ;---------------------------------Range in Kilometers.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}	
+	{Extension "skot-1a.mdl"}
+	
+	{bone "turret_mgun" ;
+		{speed2 34}
+	}
+	
+	{bone "mgun_rot" ; vertical
+		{limits -6 30}
+		{speed2 60}
+	}
+}
+
+
+
+
