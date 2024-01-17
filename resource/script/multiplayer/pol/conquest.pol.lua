@@ -69,6 +69,8 @@ Purchases["conquest.pol"] = {
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "t-55a_pol"},
 			--SPG
 				
+				{priority = 0.5, type = {"Tank", "Light", "AA",}, unit = "zsu-23-4_pol"},
+				
 			--Air Assets
 		}
 	}
