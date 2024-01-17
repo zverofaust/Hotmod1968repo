@@ -79,7 +79,7 @@ Purchases["conquest.sov"] = {
 				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "d1"},
 				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "d-20"},
 				{priority = 1.0, type = {"Cannon", "Artillery",}, unit = "d-44"},
-				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "d30a"},
+				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "122mm_d-30"},
 			--Rocket_Artillery
 			--Wheel_vehicles
 				{priority = 2.0, type = {"Armored", "MG",}, unit = "brdm-1"},
@@ -102,7 +102,7 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Tank", "Medium", "AA",}, unit = "zsu-57-2"},
 				{priority = 1.0, type = {"Tank", "Light", "AT",}, unit = "su-122-54"},
 				{priority = 1.0, type = {"Tank", "Light", "AT",}, unit = "it-1"},
-				{priority = 0.5, type = {"Tank", "Light", "AA",}, unit = "shilka"},
+				{priority = 0.5, type = {"Tank", "Light", "AA",}, unit = "zsu-23-4b"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "t-62a"},
 				{priority = 0.3, type = {"Tank", "Heavy",}, unit = "t-64_obj432"},
 			--Tanks_heavy
