@@ -10,6 +10,7 @@ Purchases["conquest.pol"] = {
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_reservist_moto(pol)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_reservist_moto2(pol)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_moto(pol)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_moto2(pol)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_roz_recon(pol)"},
 				
 				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_at(pol)"},
