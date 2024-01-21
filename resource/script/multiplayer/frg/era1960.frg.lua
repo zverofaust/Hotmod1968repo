@@ -82,6 +82,10 @@ Purchases["era1960.frg"] = {
 						
 			-- Doctrine Support = "Artilleriekompanie"	
 				
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam(frg)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam_heavy(frg)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery(frg)"},				
+				
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Tier1",}, unit = "doctrine_squad_bgs(frg)"},
 		}
 	}

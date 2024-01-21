@@ -97,6 +97,10 @@ Purchases["era1960.pol"] = {
 				
 				-- Doctrine = "Dywizjon Artylerii/Brygada Obrony Terytorialnej" Artillery/Territorial Defene Forces Division
 				
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam(pol)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam_heavy(pol)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery(pol)"},	
+				
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Armored", "Squad", "MG", "Tier1",}, unit = "doctrine_squad_border_moto(pol)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Squad", "Tier2",}, unit = "doctrine_team_sapper(pol)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Squad", "Armored", "Tier1",}, unit = "doctrine_squad_border_moto(pol)"},

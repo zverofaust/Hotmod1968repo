@@ -105,7 +105,10 @@ Purchases["era1960.sov"] = {
 		
 			
 			-- Doctrine = "Rocket & Artillery Troops"
-			
+			{priority = 1.0, type = {"Class3", "Infantry", "Squad",}, unit = "doctrine_squad_maneuv_artillery(sov)"},
+			{priority = 1.0, type = {"Class3", "Infantry", "Squad", "AT",}, unit = "doctrine_squad_fireteam_artillery(sov)"},
+			{priority = 1.0, type = {"Class3", "Infantry", "Squad",}, unit = "doctrine_squad_rifle_artillery(sov)"},
+				
 			{priority = 1.0, type = {"Class2", "Doctrine", "Cannon", "Artillery", "Tier1",}, unit = "doctrine_vehicle_d30(sov)"},
 			{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "Support", "Tier1",}, unit = "doctrine_vehicle_d74(sov)"},
 			{priority = 1.0, type = {"Class2", "Doctrine", "Cannon", "Artillery", "Tier1",}, unit = "doctrine_vehicle_d20(sov)"},

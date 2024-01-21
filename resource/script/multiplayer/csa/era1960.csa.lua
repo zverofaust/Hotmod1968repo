@@ -142,6 +142,11 @@ Purchases["era1960.csa"] = {
 				
 				
 			-- Doctrine Support = "Artillery Brigade"	
+			
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam(csa)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam_heavy(csa)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery(csa)"},
+				
 				--{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m114(csa)"},
 				--{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_m115(csa)"},
 				
