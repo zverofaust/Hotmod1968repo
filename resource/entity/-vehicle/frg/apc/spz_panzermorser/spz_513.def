@@ -1,0 +1,104 @@
+{game_entity		;SPz Lang typ 51-3
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	(include "spz_523.ext")
+	{props "spg" "light" "vision_lev04" "muzzle_75mm_76mm" "mortar" "diesel" "smoke" "8shot" "with_open_zpu"}
+	{targetclass "tank_light"}
+	{targetSelector "tank_zenite"}
+	{PatherId "t34"}
+
+	{extender "shield" {on}}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	{placer
+		{place "driver"		{visor "driver"}{group "crew"}}
+		{place "commander"	{visor "mgun"}{group "crew"}{sealable}}
+		{place "gunner3"	{group "crew"}}
+		{place "charger"	{group "crew"}}
+	}	
+		
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base ""}}
+			{reverse {end "emit_t34_hold"} {base ""}}
+		}
+		{anm "commander"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base ""}}
+			{reverse {end "emit_tank_1_hold"} {base ""}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_body"} {end "pose_mortar_gunner"} {base ""}}
+			{reverse	{end	"board_body" -1} {base ""}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_body"} {end "pose_mortar_120sgrw42_commander"} {base ""}}
+			{reverse	{end	"board_body" -1} {base ""}}
+		}
+	}
+	
+	("crew_driver" 															   	door(emit0) door2(emit1) door3(emit2) 									group(crew))
+	("crew_open" place(commander) 		bone(gunner2) visorbone(mgun_rot_h2)  	door(emit1) door2(emit2) anm_left(commander) 	anm_right(commander) 			group(crew))
+	("crew_open" place(gunner3) 		bone(gunner) 	visorbone(krh36) 		door(emit1) door2(emit2) anm_left(gunner)	anm_right(gunner) 			group(crew))
+	("crew_open" place(charger) 		bone(charger) 	visorbone(krh36)		door(emit1) door2(emit2) anm_left(charger) 	anm_right(charger) 			group(crew))
+	
+	{extender "smokescreen"
+		{cooldown 5}
+		{itemTags "grenade nbk39"}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "mortarfin_81 he" 45}
+			{item "mortarfin_81 sm" 15}
+			{item "ammo mgun_ger belt" 2500}			
+			;{item "geballteladung_3kg" 1}
+			{item "nbk39 grenade" 5}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "weapon 81mm_krh36" filling "mortarfin_81 he" 1}
+			{RestoreIKAfterAim}
+			{gunner "gunner3"}
+			{charger "charger"}
+			{basic}
+			{Rotate}
+			("hm68_abm_mortar")
+		}
+		{place "mgun2"
+			{weapon			"mg1_drum" filled}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			{basic}
+			{ai_in_manual}
+			("abm_mgun")
+		}
+	}
+
+	{mass 14600}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
+		("mobility_tank"
+			speed(58)  ;---------Max speed when fully accelerated on road, km/h.
+			reverse(9.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(14.6) ;-------Weight in Tonnes.
+			power(220) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(1100) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(270) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "spz_513.mdl"}
+
+}

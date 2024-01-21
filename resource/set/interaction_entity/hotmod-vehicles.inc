@@ -3560,6 +3560,7 @@
 
 }
 
+
 {"spz_123"
 	("pz2_sound")
 }
@@ -3622,6 +3623,147 @@
 	("doublezpu_params" gunner(gunner2) zpu_mgun(gun1) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand)
 			    secgunner(charger) seczpu_mgun(gun1) secanim(hm_hatch_cover_sit_nooffset) secpose(seat_gunner_stand))
 }
+
+{"spz_513"
+	("pz2_sound")
+	
+	{on "commander_hatch_open" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_back" resume}
+		}
+	}
+	
+	{on "commander_hatch_close" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_back" -1.0 resume}
+		}	
+	}
+
+	{on "gunner3_hatch_open" overload
+		{if crew_in_place "commander"
+			;nothing
+		else crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_back" resume}
+		}
+	}
+	
+	{on "gunner3_hatch_close" overload
+		{if crew_in_place "charger"
+			;nothing
+		else crew_in_place "commander"
+			;nothing
+		else
+			{ani_play "open_back" -1.0 resume}
+		}
+	}
+	
+	{on "charger_hatch_open" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else crew_in_place "commander"
+			;nothing
+		else
+			{ani_play "open_back" resume}
+		}
+	}
+	
+	{on "charger_hatch_close" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else crew_in_place "commander"
+			;nothing
+		else
+			{ani_play "open_back" -1.0 resume}
+		}
+	}
+
+	("triplezpu_params"
+		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
+		secgunner(gunner3) seczpu_mgun(gun) secanim(hm_hatch_cover_sit_nooffset) secpose(pose_mortar_gunner)
+		triplegunner(charger) tripzpu_mgun(gun) tripleanim(hm_hatch_cover_sit_nooffset) trippose(pose_mortar_120sgrw42_commander)
+	)
+}
+
+{"spz_523"
+	("pz2_sound")
+	
+	{on "commander_hatch_open" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_back" resume}
+		}
+	}
+	
+	{on "commander_hatch_close" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_back" -1.0 resume}
+		}	
+	}
+
+	{on "gunner3_hatch_open" overload
+		{if crew_in_place "commander"
+			;nothing
+		else crew_in_place "charger"
+			;nothing
+		else
+			{ani_play "open_back" resume}
+		}
+	}
+	
+	{on "gunner3_hatch_close" overload
+		{if crew_in_place "charger"
+			;nothing
+		else crew_in_place "commander"
+			;nothing
+		else
+			{ani_play "open_back" -1.0 resume}
+		}
+	}
+	
+	{on "charger_hatch_open" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else crew_in_place "commander"
+			;nothing
+		else
+			{ani_play "open_back" resume}
+		}
+	}
+	
+	{on "charger_hatch_close" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else crew_in_place "commander"
+			;nothing
+		else
+			{ani_play "open_back" -1.0 resume}
+		}
+	}
+
+	("triplezpu_params"
+		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
+		secgunner(gunner3) seczpu_mgun(gun) secanim(hm_hatch_cover_sit_nooffset) secpose(pose_mortar_gunner)
+		triplegunner(charger) tripzpu_mgun(gun) tripleanim(hm_hatch_cover_sit_nooffset) trippose(pose_mortar_120sgrw42_commander)
+	)
+}
+
 
 {"m47frg tank"
 	("m26_pershing_sound")
