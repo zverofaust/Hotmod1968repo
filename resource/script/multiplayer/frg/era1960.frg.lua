@@ -57,14 +57,26 @@ Purchases["era1960.frg"] = {
 				--{priority = 1.0, type = {"Plane", "Sortie", "Class2",}, unit = "airstrike_napalm_frg"},
 			--Offmap Supports
 				
+			-- Doctrine Armor = "Panzertruppe"
 			
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_panzer_fireteam(frg)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3", "AT",}, unit = "doctrine_squad_panzer_fireteam_heavy(frg)"},			
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_panzer(frg)"},		
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_reservist_panzer_mech(frg)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_panzer_mech(frg)"},
+				
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_leopard1a1(frg)"},
+				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m110g(frg)"},
+				
 			-- Doctrine Mechanized = "Panzergrenadiere"
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_pzgren_fireteam(frg)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_pzgren_fireteam_heavy(frg)"},
-				{priority = 0.5, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_pzgren_fireteam_marksman(frg)"},	
+				{priority = 0.5, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_jager_fireteam_marksman(frg)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_jager_fireteam(frg)"},					
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_pzgren(frg)"},				
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_reservist_mech(frg)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_pzgren_mech(frg)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_jager(frg)"},
 			
 				{priority = 1.0, type = {"Tank", "Light", "AT", "Class2",}, unit = "doctrine_vehicle_rakjpz1_pzgren(frg)"},
 				{priority = 1.0, type = {"Tank", "Light", "AT", "Class2",}, unit = "doctrine_vehicle_m42_pzgren(frg)"},
@@ -77,8 +89,6 @@ Purchases["era1960.frg"] = {
 				
 				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Light", "AT", "Tier3",}, unit = "doctrine_vehicle_spz_m40(frg)"},
 				{priority = 1.0, type = {"Class2", "Doctrine", "Armored", "MG", "Tier2",}, unit = "doctrine_squad_panzergren_mech_hs30(frg)"},
-				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_leopard1a1(frg)"},
-				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Light", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m110g(frg)"},
 						
 			-- Doctrine Support = "Artilleriekompanie"	
 				
