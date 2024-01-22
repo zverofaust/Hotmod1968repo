@@ -53,10 +53,11 @@
 
 (define "cavalry"	;// US Cavalry (Armored & Airmobile)
 	{"speed" 1.1}
-	{"stamina" "300%"}
+	{"stamina" "200%"}
+	{"health_regeneration" "125%"}
 )
 
-(define "jager"	;// West German Jagertruppen
+(define "jager"	;// West German Jager light infantry
 	{"speed" 1.1}
 	{"stamina" "300%"}
 	{"stamina_regeneration" "125%"}
@@ -109,7 +110,6 @@
 
 (define "militia"	;// Irregular Militia, armed citizenry, etc
 	{"stealth"}
-	{"speed" 1.15}
 )
 
 (define "guncrew"				;// Gun crew Tier 1
