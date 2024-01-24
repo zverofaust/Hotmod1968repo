@@ -93,7 +93,7 @@
 ; ======Tier2======
 
 ; // 12DP Guards Motostrelki Squad in BTR-60PB
-{"doctrine_squad_guards_moto(sov)"
+{"doctrine_squad_guards_moto2(sov)"
 	("squad_vehicle8_doctrine" side(sov) period(era1960) vehicle(btr-60pb) crew1(sup_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(0))
 	("doctrine_t2" cool(120) d(era1960_sov_motostrelki) cost(12))
 }
@@ -122,15 +122,21 @@
 
 
 ; // 8DP Guards Mechanized Squad in BTR-50PK
-{"doctrine_squad_guards_btr50(sov)"
-	("squad_vehicle8_doctrine" side(sov) period(era1960) vehicle(btr-50pk) crew1(sup_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(0))
-	("doctrine_t1" cool(60) d(era1960_sov_tank) cost(8))
-}
+;{"doctrine_squad_guards_btr50(sov)"
+;	("squad_vehicle8_doctrine" side(sov) period(era1960) vehicle(btr-50pk) crew1(sup_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_mgassist:1) crew6(grd_atassist:1) crew7(grd_marksman:1) crew8(grd_rifleman:2) cw(2) cp(0))
+;	("doctrine_t1" cool(60) d(era1960_sov_tank) cost(8))
+;}
 
 ; // 10DP OT-55 Flamethrower Tank
 {"doctrine_vehicle_ot55(sov)"
 	("squad_vehicle_doctrine" side(sov) period(era1960) vehicle(ot-55) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t2" cool(160) d(era1960_sov_tank) cost(10))
+}
+
+; // 10DP SU-122-54
+{"doctrine_vehicle_su12254(sov)"
+	("squad_vehicle_doctrine" side(sov) period(era1960) vehicle(su-122-54) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t1" cool(300) d(era1960_sov_tank) cost(10))
 }
 
 ; ======Tier2======
@@ -139,12 +145,6 @@
 {"doctrine_vehicle_isu152m(sov)"
 	("squad_vehicle_doctrine" side(sov) period(era1960) vehicle(isu-152m) crew(sup_tankman:5) cw(0) cp(0))
 	("doctrine_t2" cool(160) d(era1960_sov_tank) cost(12))
-}
-
-; // 12DP SU-122-54
-{"doctrine_vehicle_su12254(sov)"
-	("squad_vehicle_doctrine" side(sov) period(era1960) vehicle(su-122-54) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t2" cool(300) d(era1960_sov_tank) cost(12))
 }
 
 ; // 20DP ZSU-23-4
@@ -223,7 +223,7 @@
 
 ; // 12DP RPU-14 Rocket Launcher
 {"doctrine_vehicle_rpu14(sov)"
-	("squad_vehicle_doctrine" side(sov) period(era1960) vehicle(rpu-14) crew(vdv_crewman:4) cw(0) cp(0))
+	("squad_vehicle_doctrine" side(sov) period(era1960) vehicle(rpu-14) crew(vdv_rifleman:4) cw(0) cp(0))
 	("doctrine_t2" cool(400) d(era1960_sov_vdv) cost(12))
 }
 
@@ -361,36 +361,37 @@
 ("squad_with3types" side(sov) name(squad_conscript)				period(era1960) cd(0) ci(0) g(squad_1) c1(con_squadlead:1) c2(con_atgren:1) c3(con_rifleman:6)			b(inf1) t())
 ("squad_with4types" side(sov) name(squad_conscript_mg)			period(era1960) cd(0) ci(0) g(squad_1) c1(con_squadlead:1) c2(con_mg:1) c3(con_atgren:1) c4(con_rifleman:5)		b(inf1) t())
 ("squad_with3types" side(sov) name(squad_conscript_at)			period(era1960) cd(0) ci(0) g(squad_1) c1(con_squadlead:1) c2(con_antitank:1) c3(con_rifleman:6)		b(inf1) t())
+("squad_with6types" side(sov) name(squad_rifle)					period(era1960) cd(0) ci(0) g(squad_1) c1(reg_squadlead:1) c2(reg_lmg:1) c3(reg_lmgassist:1) c4(reg_antitank:1) c5(reg_atassist:1) c6(reg_rifleman:3)		b(inf1) t())
 
-; // ----- MOTOSTRELKI (era1960_sov_motostrelki) -----
 
-("squad_with4types_doc" side(sov) name(doctrine_squad_maneuv_motostrelki) 		d(era1960_sov_motostrelki) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_senior:1) c2(reg_marksman:1) c3(reg_lmg:1) c4(reg_lmgassist:1) b(inf1) t())
-("squad_with4types_doc" side(sov) name(doctrine_squad_fireteam_motostrelki) 	d(era1960_sov_motostrelki) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_senior:1) c2(reg_rifleman:1) c3(reg_antitank:1) c4(reg_atassist:1) b(inf1) t())
-("squad_with6types_doc" side(sov) name(doctrine_squad_rifle_motostrelki)	 	d(era1960_sov_motostrelki) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_squadlead:1) c2(reg_lmg:1) c3(reg_lmgassist:1) c4(reg_antitank:1) c5(reg_atassist:1) c6(reg_rifleman:3) b(inf1) t())
+; // ----- Motostrelki (era1960_sov_motostrelki) -----
+;foot squads
+("squad_with7types_doc" side(sov) name(doctrine_squad_guards_motostrelki)	 	d(era1960_sov_motostrelki) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(grd_squadlead:1) c2(grd_lmg:1) c3(grd_lmgassist:1) c4(rd_antitank:1) c5(grd_atassist:1) c6(grd_rifleman:2) c7(grd_marksman:1) b(inf1) t())
 
+;mounted squads
 ("squad_vehicle_with4types_doc" side(sov) name(doctrine_squad_conscript_moto) d(era1960_sov_motostrelki) period(era1960) scf(0.85) cd(60) ci(60) g(squad_3_mech) vehicle(btr-60p) c1(sup_vehicleman:2) c2(con_squadlead:1) c3(con_atgren:1) c4(con_rifleman:6) b(inf1) t())
 ("squad_vehicle_with7types_doc" side(sov) name(doctrine_squad_rifle_moto) d(era1960_sov_motostrelki) period(era1960) scf(0.85) cd(60) ci(60) g(squad_3_mech) vehicle(btr-60pa) c1(sup_vehicleman:2) c2(reg_squadlead:1) c3(reg_lmg:1) c4(reg_lmgassist:1) c5(reg_antitank:1) c6(reg_atassist:1) c7(reg_rifleman:3) b(inf1) t())
+("squad_vehicle_with8types_doc" side(sov) name(doctrine_squad_guards_moto) d(era1960_sov_motostrelki) period(era1960) scf(0.85) cd(60) ci(60) g(squad_3_mech) vehicle(btr-60pa) c1(sup_vehicleman:2) c2(grd_squadlead:1) c3(grd_lmg:1) c4(grd_lmgassist:1) c5(grd_antitank:1) c6(grd_atassist:1) c7(grd_rifleman:2) c8(grd_marksman:1) b(inf1) t())
 
-; // ----- Indep Tank (era1960_sov_tank) -----
+; // ----- Independant Tank (era1960_sov_tank) -----
+;foot squads
+("squad_with7types_doc" side(sov) name(doctrine_squad_guards_tank)	 	d(era1960_sov_tank) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(grd_squadlead:1) c2(grd_lmg:1) c3(grd_lmgassist:1) c4(rd_antitank:1) c5(grd_atassist:1) c6(grd_rifleman:2) c7(grd_marksman:1) b(inf1) t())
 
-("squad_with4types_doc" side(sov) name(doctrine_squad_maneuv_tank) 		d(era1960_sov_tank) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_senior:1) c2(reg_marksman:1) c3(reg_lmg:1) c4(reg_lmgassist:1) b(inf1) t())
-("squad_with4types_doc" side(sov) name(doctrine_squad_fireteam_tank) 	d(era1960_sov_tank) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_senior:1) c2(reg_rifleman:1) c3(reg_antitank:1) c4(reg_atassist:1) b(inf1) t())
-("squad_with6types_doc" side(sov) name(doctrine_squad_rifle_tank)	 	d(era1960_sov_tank) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_squadlead:1) c2(reg_lmg:1) c3(reg_lmgassist:1) c4(reg_antitank:1) c5(reg_atassist:1) c6(reg_rifleman:3) b(inf1) t())
-
+;mounted squads
 ("squad_vehicle_with4types_doc" side(sov) name(doctrine_squad_conscript_mech) 	d(era1960_sov_tank) period(era1960) scf(0.85) cd(60) ci(60) g(squad_3_mech) vehicle(btr-50p) c1(sup_vehicleman:2) c2(con_squadlead:1) c3(con_atgren:1) c4(con_rifleman:6) b(inf1) t())
 ("squad_vehicle_with7types_doc" side(sov) name(doctrine_squad_rifle_mech) 		d(era1960_sov_tank) period(era1960) scf(0.85) cd(60) ci(60) g(squad_3_mech) vehicle(btr-50pk) c1(sup_vehicleman:2) c2(reg_squadlead:1) c3(reg_lmg:1) c4(reg_lmgassist:1) c5(reg_antitank:1) c6(reg_atassist:1) c7(reg_rifleman:3) b(inf1) t())
+("squad_vehicle_with8types_doc" side(sov) name(doctrine_squad_guards_btr50) 	d(era1960_sov_tank) period(era1960) scf(0.85) cd(60) ci(60) g(squad_3_mech) vehicle(btr-50pk) c1(sup_vehicleman:2) c2(grd_squadlead:1) c3(grd_lmg:1) c4(grd_lmgassist:1) c5(grd_antitank:1) c6(grd_atassist:1) c7(grd_rifleman:2) c8(grd_marksman:1) b(inf1) t())
+
 
 ; // ----- VDV (era1960_sov_vdv) -----
+;foot squads
+("squad_with7types_doc" side(sov) name(doctrine_squad_vdv_light)	 	d(era1960_sov_vdv) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(vdv_squadlead:1) c2(vdv_lmg:1) c3(vdv_lmgassist:1) c4(vdv_antitank:1) c5(vdv_atassist:1) b(inf1) t())
+("squad_with7types_doc" side(sov) name(doctrine_squad_vdv)	 			d(era1960_sov_vdv) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(vdv_squadlead:1) c2(vdv_lmg:1) c3(vdv_lmgassist:1) c4(vdv_antitank:1) c5(vdv_atassist:1) c6(vdv_marksman:1) c7(vdv_rifleman:2) b(inf1) t())
 
-("squad_with4types_doc" side(sov) name(doctrine_squad_maneuv_vdv) 		d(era1960_sov_vdv) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(vdv_senior:1) c2(vdv_marksman:1) c3(vdv_lmg:1) c4(vdv_lmgassist:1) b(inf1) t())
-("squad_with4types_doc" side(sov) name(doctrine_squad_fireteam_vdv) 	d(era1960_sov_vdv) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(vdv_senior:1) c2(vdv_rifleman:1) c3(vdv_antitank:1) c4(vdv_atassist:1) b(inf1) t())
-("squad_with6types_doc" side(sov) name(doctrine_squad_rifle_vdv)	 	d(era1960_sov_vdv) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(vdv_squadlead:1) c2(vdv_lmg:1) c3(vdv_lmgassist:1) c4(vdv_antitank:1) c5(vdv_atassist:1) c6(vdv_rifleman:3) b(inf1) t())
+("squad_with4types_doc" side(sov) name(doctrine_squad_vdv_antitank)	 	d(era1960_sov_vdv) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(vdv_squadlead:1) c2(vdv_antitank:3) c3(vdv_atassist:3) c4(vdv_senior:1) b(inf1) t())
 
 ; // ----- Artillery (era1960_sov_artillery) -----
 
-("squad_with4types_doc" side(sov) name(doctrine_squad_maneuv_artillery) 	d(era1960_sov_artillery) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_senior:1) c2(reg_marksman:1) c3(reg_lmg:1) c4(reg_lmgassist:1) b(inf1) t())
-("squad_with4types_doc" side(sov) name(doctrine_squad_fireteam_artillery) 	d(era1960_sov_artillery) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_senior:1) c2(reg_rifleman:1) c3(reg_antitank:1) c4(reg_atassist:1) b(inf1) t())
-("squad_with6types_doc" side(sov) name(doctrine_squad_rifle_artillery)	 	d(era1960_sov_artillery) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_squadlead:1) c2(reg_lmg:1) c3(reg_lmgassist:1) c4(reg_antitank:1) c5(reg_atassist:1) c6(reg_rifleman:3) b(inf1) t())
 
 
 ;_________________________________________________

@@ -115,13 +115,13 @@
 
 ; // 10DP SPz HS.30 with 120mm Mortar
 {"doctrine_vehicle_spz_morser(frg)"
-	("squad_vehicle_doctrine" side(frg) period(era1960) vehicle(spz_523) crew1(sup_vehicleman:4) cw(0) cp(0))
+	("squad_vehicle_doctrine" side(frg) period(era1960) vehicle(spz_523) crew(sup_vehicleman:4) cw(0) cp(0))
 	("doctrine_t2" cool(120) d(era1960_frg_panzer) cost(10))
 }
 
 ; // 15DP M109G
 {"doctrine_vehicle_m109(frg)"
-	("squad_vehicle_doctrine" side(frg) period(era1960) vehicle(m109g) crew1(sup_tankman:4) cw(0) cp(0))
+	("squad_vehicle_doctrine" side(frg) period(era1960) vehicle(m109g) crew(sup_tankman:4) cw(0) cp(0))
 	("doctrine_t2" cool(120) d(era1960_frg_panzer) cost(15))
 }
 
@@ -193,12 +193,10 @@
 ("squad_with3types" side(frg) name(squad_reservist)				period(era1960) cd(0) ci(0) g(squad_1) c1(rsv_squadlead:1) c2(rsv_grenadier:1) c3(rsv_rifleman:8)						b(inf1) t())
 ("squad_with5types" side(frg) name(squad_reservist_mg)			period(era1960) cd(0) ci(0) g(squad_1) c1(rsv_squadlead:1) c2(rsv_mg:1) c3(rsv_mgassist:1) c4(rsv_grenadier:1) c5(rsv_rifleman:6)						b(inf1) t())
 ("squad_with3types" side(frg) name(squad_reservist_at)			period(era1960) cd(0) ci(0) g(squad_1) c1(rsv_squadlead:1) c2(rsv_antitank:1) c3(rsv_rifleman:8)						b(inf1) t())
+("squad_with7types" side(frg) name(squad_rifle)					period(era1960) cd(0) ci(0) g(squad_1) c1(reg_squadlead:1) c2(reg_teamlead:1) c3(reg_mg:1) c4(reg_mgassist:1) c5(reg_rifleman:4) c6(reg_antitank:1) c7(reg_atassist:1)						b(inf1) t())
+
 
 ; // ----- Pagertruppe (era1960_frg_panzer) -----
-
-("squad_with4types_doc" side(frg) name(doctrine_squad_panzer_fireteam) d(era1960_frg_panzer) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_teamlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_rifleman:2) b(inf1) t())
-("squad_with4types_doc" side(frg) name(doctrine_squad_panzer_fireteam_heavy) d(era1960_frg_panzer) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_teamlead:1) c2(reg_antitank:1) c3(reg_atassist:1) c4(reg_rifleman:2) b(inf1) t())
-("squad_with7types_doc" side(frg) name(doctrine_squad_panzer) d(era1960_frg_panzer) period(era1960) scf(1) cd(0) ci(30) g(squad_2) c1(reg_squadlead:1) c2(reg_teamlead:1) c3(reg_mg:1) c4(reg_mgassist:1) c5(reg_rifleman:4) c6(reg_antitank:1) c7(reg_atassist:1) b(inf1) t())
 
 ("squad_vehicle_with4types_doc" side(frg) name(doctrine_squad_reservist_panzer_mech) d(era1960_frg_panzer) period(era1960) scf(0.85) cd(30) ci(30) g(squad_3_mech) vehicle(m113g_early) c1(sup_vehicleman:2) c2(rsv_squadlead:1) c3(rsv_grenadier:1) c4(rsv_rifleman:8) b(inf1) t())
 ("squad_vehicle_with8types_doc" side(frg) name(doctrine_squad_panzer_mech) d(era1960_frg_panzer) period(era1960) scf(0.85) cd(60) ci(60) g(squad_3_mech) vehicle(m113g) c1(sup_vehicleman:2) c2(reg_squadlead:1) c3(reg_teamlead:1) c4(reg_mg:1) c5(reg_mgassist:1) c6(reg_rifleman:4) c7(reg_atassist:1) c8(reg_antitank:1) b(inf1) t())
@@ -206,21 +204,14 @@
 
 ; // ----- Panzerkampfkompanie (era1960_frg_pzgren) -----
 
-("squad_with4types_doc" side(frg) name(doctrine_squad_jager_fireteam) d(era1960_frg_pzgren) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(jag_teamlead:1) c2(jag_mg:1) c3(jag_mgassist:1) c4(jag_rifleman:2) b(inf1) t())
-("squad_with3types_doc" side(frg) name(doctrine_squad_jager_fireteam_marksman) d(era1960_frg_pzgren) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(jag_teamlead:1) c2(jag_marksman:1) c3(jag_rifleman:3) b(inf1) t())
-("squad_with4types_doc" side(frg) name(doctrine_squad_pzgren_fireteam) d(era1960_frg_pzgren) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(pzg_teamlead:1) c2(pzg_mg:1) c3(pzg_mgassist:1) c4(pzg_rifleman:2) b(inf1) t())
-("squad_with4types_doc" side(frg) name(doctrine_squad_pzgren_fireteam_heavy) d(era1960_frg_pzgren) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(pzg_teamlead:1) c2(pzg_antitank:1) c3(pzg_atassist:1) c4(pzg_rifleman:2) b(inf1) t())
-("squad_with7types_doc" side(frg) name(doctrine_squad_jager) d(era1960_frg_pzgren) period(era1960) scf(1) cd(0) ci(30) g(squad_2) c1(jag_squadlead:1) c2(jag_teamlead:1) c3(jag_mg:1) c4(jag_mgassist:1) c5(jag_rifleman:4) c6(jag_antitank:1) c7(jag_atassist:1) b(inf1) t())
+("squad_with6types_doc" side(frg) name(doctrine_squad_jager) d(era1960_frg_pzgren) period(era1960) scf(1) cd(0) ci(30) g(squad_2) c1(jag_squadlead:1) c2(jag_teamlead:1) c3(jag_mg:1) c4(jag_mgassist:1) c5(jag_rifleman:5) c6(jag_antitank:1) b(inf1) t())
+("squad_with8types_doc" side(frg) name(doctrine_squad_jager_marksman) d(era1960_frg_pzgren) period(era1960) scf(1) cd(0) ci(30) g(squad_2) c1(jag_squadlead:1) c2(jag_teamlead:1) c3(jag_mg:1) c4(jag_mgassist:1) c5(jag_rifleman:4) c8(jag_marksman:2) b(inf1) t())
 ("squad_with7types_doc" side(frg) name(doctrine_squad_pzgren) d(era1960_frg_pzgren) period(era1960) scf(1) cd(0) ci(30) g(squad_2) c1(pzg_squadlead:1) c2(pzg_teamlead:1) c3(pzg_mg:1) c4(pzg_mgassist:1) c5(pzg_rifleman:4) c6(pzg_antitank:1) c7(pzg_atassist:1) b(inf1) t())
 
 ("squad_vehicle_with4types_doc" side(frg) name(doctrine_squad_reservist_mech) d(era1960_frg_pzgren) period(era1960) scf(0.85) cd(30) ci(30) g(squad_3_mech) vehicle(m113g_early) c1(sup_vehicleman:2) c2(rsv_squadlead:1) c3(rsv_grenadier:1) c4(rsv_rifleman:8) b(inf1) t())
 ("squad_vehicle_with8types_doc" side(frg) name(doctrine_squad_pzgren_mech) d(era1960_frg_pzgren) period(era1960) scf(0.85) cd(60) ci(60) g(squad_3_mech) vehicle(m113g) c1(pzg_vehicleman:2) c2(pzg_squadlead:1) c3(pzg_teamlead:1) c4(pzg_mg:1) c5(pzg_mgassist:1) c6(pzg_rifleman:4) c7(pzg_atassist:1) c8(pzg_antitank:1) b(inf1) t())
 
 ; // ----- Artilleriekompanie (era1960_frg_artillery) -----
-
-("squad_with4types_doc" side(frg) name(doctrine_squad_artillery_fireteam) d(era1960_frg_artillery) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_teamlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_rifleman:2) b(inf1) t())
-("squad_with4types_doc" side(frg) name(doctrine_squad_artillery_fireteam_heavy) d(era1960_frg_artillery) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_teamlead:1) c2(reg_antitank:1) c3(reg_atassist:1) c4(reg_rifleman:2) b(inf1) t())
-("squad_with7types_doc" side(frg) name(doctrine_squad_artillery) d(era1960_frg_artillery) period(era1960) scf(1) cd(0) ci(30) g(squad_2) c1(reg_squadlead:1) c2(reg_teamlead:1) c3(reg_mg:1) c4(reg_mgassist:1) c5(reg_rifleman:4) c6(reg_antitank:1) c7(reg_atassist:1) b(inf1) t())
 
 
 ;_________________________________________________
@@ -375,7 +366,7 @@
 
 ("vehicle_doctrine" vehicle(m42g) side(frg) name(doctrine_vehicle_m42) d(era1960_frg_panzer) period(era1960) cd(120) ci(120) g(light4) c1(sup_tankman:4) b(tanks) t(antiair))
 
-("vehicle_doctrine" vehicle(m47g) side(frg) name(doctrine_vehicle_m47) d(era1960_frg_panzer) period(era1960) cd(160) ci(90) g(medium1) c1(sup_tankman:4) b(tanks) t())
+("vehicle_doctrine" vehicle(m47g) side(frg) name(doctrine_vehicle_m47) d(era1960_frg_panzer) period(era1960) cd(160) ci(90) g(medium1) c1(sup_tankman:5) b(tanks) t())
 
 ("vehicle_doctrine" vehicle(m48g) side(frg) name(doctrine_vehicle_m48a1) d(era1960_frg_panzer) period(era1960) cd(200) ci(120) g(medium1) c1(sup_tankman:4) b(tanks) t())
 

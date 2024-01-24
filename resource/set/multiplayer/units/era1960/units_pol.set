@@ -270,10 +270,10 @@
 	("doctrine_t3" cool(280) d(era1960_pol_artillery) cost(15))
 }
 
-; // 18DP BM-21 Grad
+; // 22DP BM-21 Grad
 {"doctrine_vehicle_bm21(pol)"
 	("squad_vehicle_doctrine" side(pol) period(era1960) vehicle(bm-21_pol) crew(sup_supporter:2) cw(0) cp(0))
-	("doctrine_t3" cool(600) d(era1960_pol_artillery) cost(18))
+	("doctrine_t3" cool(600) d(era1960_pol_artillery) cost(22))
 }
 
 ; ======Strategic Call-ins======
@@ -300,36 +300,30 @@
 ("squad_with4types" side(pol) name(squad_reservist)			period(era1960) cd(0) ci(0) g(squad_1) c1(rsv_squadlead:1) c2(rsv_lmg:1) c3(rsv_atgren:1) c4(rsv_rifleman:5)																			b(inf1) t())
 ("squad_with4types" side(pol) name(squad_reservist_mg)		period(era1960) cd(0) ci(0) g(squad_1) c1(rsv_squadlead:1) c2(rsv_mg:1) c3(rsv_atgren:1) c4(rsv_rifleman:5)																			b(inf1) t())
 ("squad_with4types" side(pol) name(squad_reservist_at)		period(era1960) cd(0) ci(0) g(squad_1) c1(rsv_squadlead:1) c2(rsv_antitank:1) c3(rsv_lmg:1) c4(rsv_rifleman:5)																			b(inf1) t())
+("squad_with6types" side(pol) name(squad_rifle)				period(era1960) cd(0) ci(0) g(squad_1) c1(reg_squadlead:1) c2(reg_antitank:1) c3(reg_atassist:1) c4(reg_lmg:1) c5(reg_senior:1) c6(reg_rifleman:4)																			b(inf1) t())
 
 ; // ----- Pomorska Dywizja Powietrznodesantowa (era1960_pol_pomorska) -----
 
-("squad_with4types_doc" side(pol) name(doctrine_squad_pdes_fireteam) d(era1960_pol_pomorska) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(pdes_senior:1) c2(pdes_lmg:1) c3(pdes_marksman:1) c4(pdes_rifleman:1) b(inf1) t())
-("squad_with4types_doc" side(pol) name(doctrine_squad_pdes_fireteam_heavy) d(era1960_pol_pomorska) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(pdes_senior:1) c2(pdes_antitank:1) c3(pdes_atassist:1) c4(pdes_rifleman:1) b(inf1) t())
 ("squad_with7types_doc" side(pol) name(doctrine_squad_pdes) d(era1960_pol_pomorska) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(pdes_squadlead:1) c2(pdes_antitank:1) c3(pdes_atassist:1) c4(pdes_lmg:1) c5(pdes_senior:1) c6(pdes_marksman:1) c7(pdes_rifleman:3) b(inf1) t())
 
 ; // ----- Łużycka Dywizja Desantowa (era1960_pol_luzycka) -----
 
-("squad_with4types_doc" side(pol) name(doctrine_squad_des_fireteam) d(era1960_pol_luzycka) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(des_senior:1) c2(des_lmg:1) c3(des_marksman:1) c4(des_rifleman:1) b(inf1) t())
-("squad_with4types_doc" side(pol) name(doctrine_squad_des_fireteam_heavy) d(era1960_pol_luzycka) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(des_senior:1) c2(des_antitank:1) c3(des_atassist:1) c4(des_rifleman:1) b(inf1) t())
-("squad_with7types_doc" side(pol) name(doctrine_squad_des) d(era1960_pol_luzycka) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(des_squadlead:1) c2(des_antitank:1) c3(des_atassist:1) c4(des_lmg:1) c5(des_senior:1) c6(des_marksman:1) c7(des_rifleman:3) b(inf1) t())
+("squad_with6types_doc" side(pol) name(doctrine_squad_des) d(era1960_pol_luzycka) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(des_squadlead:1) c2(des_antitank:1) c3(des_atassist:1) c4(des_lmg:1) c5(des_senior:1) c6(des_rifleman:4) b(inf1) t())
+("squad_with6types_doc" side(pol) name(doctrine_squad_des_marksman) d(era1960_pol_luzycka) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(des_squadlead:1) c2(des_antitank:1) c3(des_atassist:1) c4(des_lmg:1) c5(des_senior:1) c6(des_marksman:2) b(inf1) t())
+("squad_with7types_doc" side(pol) name(doctrine_squad_des_antitank) d(era1960_pol_luzycka) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(des_squadlead:1) c2(des_antitank:3) c3(des_atassist:3) c4(des_lmg:1) c5(des_senior:1)  b(inf1) t())
+
 
 ("squad_vehicle_with5types_doc" side(pol) name(doctrine_squad_des_reservist_moto) d(era1960_pol_luzycka) period(era1960) scf(0.85) cd(0) ci(60) g(squad_3_mech) vehicle(topas) c1(sup_vehicleman:2) c2(rsv_squadlead:1) c3(rsv_lmg:1) c4(rsv_atgren:1) c5(rsv_rifleman:5) b(inf1) t())
 ("squad_vehicle_with8types_doc" side(pol) name(doctrine_squad_des_moto) d(era1960_pol_luzycka) period(era1960) scf(0.85) cd(60) ci(120) g(squad_3_mech) vehicle(topas) c1(des_vehicleman:2) c2(des_squadlead:1) c3(des_lmg:1) c4(des_marksman:1) c5(des_senior:1) c6(des_antitank:1) c7(des_atassist:1) c8(des_rifleman:2) b(inf1) t())
 
 ; // ----- Praski Pułk Zmechanizowany (era1960_pol_tank) -----
 
-("squad_with4types_doc" side(pol) name(doctrine_squad_rifle_fireteam) d(era1960_pol_tank) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_senior:1) c2(reg_lmg:1) c3(reg_marksman:1) c4(reg_rifleman:2) b(inf1) t())
-("squad_with4types_doc" side(pol) name(doctrine_squad_rifle_fireteam_heavy) d(era1960_pol_tank) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_senior:1) c2(reg_antitank:1) c3(reg_atassist:1) c4(reg_rifleman:1) b(inf1) t())
-("squad_with7types_doc" side(pol) name(doctrine_squad_rifle) d(era1960_pol_tank) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_squadlead:1) c2(reg_antitank:1) c3(reg_atassist:1) c4(reg_lmg:1) c5(reg_senior:1) c6(reg_marksman:1) c7(reg_rifleman:3) b(inf1) t())
 
 ("squad_vehicle_with5types_doc" side(pol) name(doctrine_squad_reservist_moto) d(era1960_pol_tank) period(era1960) scf(0.85) cd(0) ci(60) g(squad_3_mech) vehicle(btr-152_pol) c1(sup_vehicleman:2) c2(rsv_squadlead:1) c3(rsv_lmg:1) c4(rsv_atgren:1) c5(rsv_rifleman:5) b(inf1) t())
 ("squad_vehicle_with8types_doc" side(pol) name(doctrine_squad_rifle_moto) d(era1960_pol_tank) period(era1960) scf(0.85) cd(60) ci(120) g(squad_3_mech) vehicle(skot-1a) c1(sup_vehicleman:2) c2(reg_squadlead:1) c3(reg_lmg:1) c4(reg_marksman:1) c5(reg_senior:1) c6(reg_antitank:1) c7(reg_atassist:1) c8(reg_rifleman:2) b(inf1) t())
 
 ; // ----- Dywizjon Artylerii (era1960_pol_artillery) -----
 
-("squad_with4types_doc" side(pol) name(doctrine_squad_artillery_fireteam) d(era1960_pol_artillery) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_senior:1) c2(reg_lmg:1) c3(reg_marksman:1) c4(reg_rifleman:2) b(inf1) t())
-("squad_with4types_doc" side(pol) name(doctrine_squad_artillery_fireteam_heavy) d(era1960_pol_artillery) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_senior:1) c2(reg_antitank:1) c3(reg_atassist:1) c4(reg_rifleman:1) b(inf1) t())
-("squad_with7types_doc" side(pol) name(doctrine_squad_artillery) d(era1960_pol_artillery) period(era1960) scf(1) cd(0) ci(30) g(squad_1) c1(reg_squadlead:1) c2(reg_antitank:1) c3(reg_atassist:1) c4(reg_lmg:1) c5(reg_senior:1) c6(reg_marksman:1) c7(reg_rifleman:3) b(inf1) t())
 
 
 ;_________________________________________________

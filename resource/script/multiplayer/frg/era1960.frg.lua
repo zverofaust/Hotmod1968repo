@@ -13,7 +13,8 @@ Purchases["era1960.frg"] = {
 				
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_reservist(frg)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_reservist_mg(frg)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_reservist_at(frg)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "AT", "Class3",}, unit = "squad_reservist_at(frg)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_rifle(frg)"},
 
 			-- Cannons	
 				--HMGs
@@ -59,9 +60,6 @@ Purchases["era1960.frg"] = {
 				
 			-- Doctrine Armor = "Panzertruppe"
 			
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_panzer_fireteam(frg)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3", "AT",}, unit = "doctrine_squad_panzer_fireteam_heavy(frg)"},			
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_panzer(frg)"},		
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_reservist_panzer_mech(frg)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_panzer_mech(frg)"},
 				
@@ -72,18 +70,17 @@ Purchases["era1960.frg"] = {
 				{priority = 1.0, type = {"Tank", "Medium", "AT", "Class2",}, unit = "doctrine_vehicle_leopard1(frg)"},
 				
 				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_leopard1a1(frg)"},
-				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Artillery", "Tier3",}, unit = "doctrine_vehicle_m109(frg)"},
-				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m110g(frg)"},
+				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Mortar", "Tier3",}, unit = "doctrine_vehicle_spz_morser(frg)"},
+				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m109(frg)"},
+				{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Artillery", "Tier1",}, unit = "doctrine_vehicle_m110g(frg)"},
 				
 			-- Doctrine Mechanized = "Panzergrenadiere"
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_pzgren_fireteam(frg)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3", "AT",}, unit = "doctrine_squad_pzgren_fireteam_heavy(frg)"},
-				{priority = 0.5, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_jager_fireteam_marksman(frg)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_jager_fireteam(frg)"},					
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_pzgren(frg)"},				
+				
+				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_jager(frg)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_jager_marksman(frg)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "AT", "Class3",}, unit = "doctrine_squad_pzgren(frg)"},				
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_reservist_mech(frg)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_pzgren_mech(frg)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_jager(frg)"},
 			
 				{priority = 1.0, type = {"Tank", "Light", "AT", "Class2",}, unit = "doctrine_vehicle_rakjpz1(frg)"},
 				
@@ -91,10 +88,6 @@ Purchases["era1960.frg"] = {
 				{priority = 1.0, type = {"Class2", "Doctrine", "Armored", "MG", "Tier2",}, unit = "doctrine_squad_panzergren_mech_hs30(frg)"},
 						
 			-- Doctrine Support = "Artilleriekompanie"	
-				
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam(frg)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam_heavy(frg)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery(frg)"},				
 				
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Tier1",}, unit = "doctrine_squad_bgs(frg)"},
 		}

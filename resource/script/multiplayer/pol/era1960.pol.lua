@@ -13,8 +13,9 @@ Purchases["era1960.pol"] = {
 				
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_reservist(pol)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_reservist_mg(pol)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_reservist_at(pol)"},
-
+				{priority = 1.0, type = {"Infantry", "Squad", "AT", "Class3",}, unit = "squad_reservist_at(pol)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_rifle(pol)"},
+				
 				-- Cannons	
 				--HMGs
 				{priority = 1.0, type = {"Cannon", "MG", "Class2",}, unit = "dshk_aa_pol_ai"},
@@ -47,8 +48,6 @@ Purchases["era1960.pol"] = {
 				
 				-- Doctrine = "7 Łużycka Dywizja Desantowa" 7th Lusatian Landing Division
 				
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_des_fireteam(pol)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_des_fireteam_heavy(pol)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_des(pol)"},
 				{priority = 1.0, type = {"Infantry", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_des_reservist_moto(pol)"},
 				{priority = 1.0, type = {"Infantry", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_des_moto(pol)"},
@@ -63,8 +62,6 @@ Purchases["era1960.pol"] = {
 				
 				-- Doctrine = "6 Pomorska Dywizja Powietrznodesantowa" 6th Pomeranian Air Assault Division
 				
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Squad", "Class3",}, unit = "doctrine_squad_pdes_fireteam(pol)"},
-				{priority = 1.0, type = {"Infantry", "Doctrine", "Squad", "Class3",}, unit = "doctrine_squad_pdes_fireteam_heavy(pol)"},
 				{priority = 1.0, type = {"Infantry", "Doctrine", "Squad", "Class3",}, unit = "doctrine_squad_pdes(pol)"},
 				
 				{priority = 1.0, type = {"Class3", "Vehicle", "AT",}, unit = "doctrine_vehicle_gaz69_b10(pol)"},
@@ -77,10 +74,7 @@ Purchases["era1960.pol"] = {
 				{priority = 1.0, type = {"Class1", "Doctrine", "Armored", "AT", "Tier3",}, unit = "doctrine_vehicle_9p110(pol)"},
 			
 				-- Doctrine = "1 Praski Pułk Zmechanizowany" 1st Prague Mechanized Regiment
-				
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_rifle_fireteam(pol)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_rifle_fireteam_heavy(pol)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_rifle(pol)"},		
+					
 				{priority = 1.0, type = {"Infantry", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_reservist_moto(pol)"},
 				{priority = 1.0, type = {"Infantry", "Armored", "Squad", "MG", "Class3",}, unit = "doctrine_squad_rifle_moto(pol)"},
 				
@@ -97,9 +91,6 @@ Purchases["era1960.pol"] = {
 				
 				-- Doctrine = "Dywizjon Artylerii/Brygada Obrony Terytorialnej" Artillery/Territorial Defene Forces Division
 				
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam(pol)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam_heavy(pol)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery(pol)"},	
 				
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Armored", "Squad", "MG", "Tier1",}, unit = "doctrine_squad_border_moto(pol)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Squad", "Tier2",}, unit = "doctrine_team_sapper(pol)"},

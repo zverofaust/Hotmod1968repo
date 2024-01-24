@@ -14,7 +14,7 @@ Purchases["era1960.prc"] = {
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_militia(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_militia_ambush(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_conscript(prc)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_conscript_at(prc)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "AT", "Class3",}, unit = "squad_conscript_at(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_conscript_mg(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_rifle(prc)"},
 			

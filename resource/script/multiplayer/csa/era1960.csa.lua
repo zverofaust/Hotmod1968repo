@@ -13,7 +13,8 @@ Purchases["era1960.csa"] = {
 				
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_reservist(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_reservist_mg(csa)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "squad_reservist_at(csa)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "AT", "Class3",}, unit = "squad_reservist_at(csa)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "squad_rifle(csa)"},
 		
 			-- Cannons	
 				--HMGs
@@ -57,8 +58,8 @@ Purchases["era1960.csa"] = {
 				
 			
 			-- Doctrine Irregular = "Armored Cavalry Squadron"
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_acav_fireteam(csa)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_acav_fireteam_heavy(csa)"},
+				--{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_acav_fireteam(csa)"},
+				--{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_acav_fireteam_heavy(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_acav(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_acav_weapon(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_acav_reservist_moto(csa)"},
@@ -77,8 +78,7 @@ Purchases["era1960.csa"] = {
 				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "Support", "AT", "Tier3",}, unit = "doctrine_vehicle_m551_acav(csa)"},
 				
 			-- Doctrine Amphibious = "USMC Marine Expeditionary Unit"
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_usmc_fireteam(csa)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_usmc_fireteam_heavy(csa)"},
+				
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_usmc(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_usmc_mg(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_usmc_antitank(csa)"},
@@ -100,15 +100,13 @@ Purchases["era1960.csa"] = {
 				{priority = 1.0, type = {"Class3", "Doctrine", "Tier3",}, unit = "doctrine_squad_udt(csa)"},
 				
 			-- Doctrine Mechanized = "Air Cavalry Squadron"
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_aircav_fireteam(csa)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_aircav_fireteam_heavy(csa)"},
+				
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_aircav(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_aircav_weapon(csa)"},
 	
 			-- Doctrine Tank = "Armor Battalion Task Force"
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_armor_fireteam(csa)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_armor_fireteam_heavy(csa)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_armor(csa)"},
+				
+				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_armor_weapon(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_armor_reservist_moto(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_armor_rifle_moto(csa)"},
 				
@@ -128,8 +126,7 @@ Purchases["era1960.csa"] = {
 		
 				
 			-- Doctrine Assault = "Airborne Battle Group"
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_82nd_fireteam(csa)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_82nd_fireteam_heavy(csa)"},
+				
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_82nd(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_82nd_weapon(csa)"},
 				
@@ -143,9 +140,7 @@ Purchases["era1960.csa"] = {
 				
 			-- Doctrine Support = "Artillery Brigade"	
 			
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam(csa)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_fireteam_heavy(csa)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery(csa)"},
+				--{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_artillery_weapon(csa)"},
 				
 				--{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "Artillery", "Tier2",}, unit = "doctrine_vehicle_m114(csa)"},
 				--{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_m115(csa)"},
