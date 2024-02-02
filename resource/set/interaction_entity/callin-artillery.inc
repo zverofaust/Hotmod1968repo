@@ -61,6 +61,51 @@
 	}
 }
 
+{"artillery_single_105"			;// Settings for all shells that fall to ground
+	{on "explosion"
+		{stuff_detonate}
+		{blastwave c4 25 	r0 0.6 r1 3.2}
+		{blastwave c4 8 	r0 4.15 r1 6.85}
+		{blastwave c4 0.5 	r0 6.72 r1 9.08}
+	}
+}
+
+{"artillery_single_150"			;// Settings for all shells that fall to ground
+	{on "explosion"
+		{stuff_detonate}
+		{blastwave c4 35 	r0 1.6 r1 4.2}
+		{blastwave c4 10 	r0 6.15 r1 10.85}
+		{blastwave c4 1.0 	r0 10.72 r1 15.08}
+	}
+}
+
+{"artillery_single_203"			;// Settings for all shells that fall to ground
+	{on "explosion"
+		{stuff_detonate}
+		{blastwave c4 45	r0 2.6 r1 5.2}
+		{blastwave c4 13.05 r0 13.15 r1 18.85}
+		{blastwave c4 1.5 	r0 20.72 r1 30.08}
+	}
+}
+
+{"artillery_single_rocket"			;// Settings for all shells that fall to ground
+	{on "explosion"
+		{stuff_detonate}
+		{blastwave c4 25 	r0 0.6 r1 3.2}
+		{blastwave c4 8 	r0 4.15 r1 6.85}
+		{blastwave c4 0.5 	r0 6.72 r1 9.08}
+	}
+}
+
+{"artillery_single_rocket_heavy"			;// Settings for all shells that fall to ground
+	{on "explosion"
+		{stuff_detonate}
+		{blastwave c4 45 r0 2.6 r1 5.2}
+		{blastwave c4 13.05 r0 13.15 r1 18.85}
+		{blastwave c4 1.538 r0 20.72 r1 30.08}
+	}
+}
+
 {"smoke_shell_small"			;// Settings for all shells that fall to ground
 	{on spawn
 		{add_view "pfaust_tail" "trace" "tail"}
