@@ -414,10 +414,10 @@
 	   	{if component "body"
 	   	 else volume "inventory"
 		 	{call "blast_body"}
-				
-		}			
+
+		}
 	   ;//ordos-----
-		
+
 	}
 
 	{on break_armor_again
@@ -703,6 +703,22 @@
 		("hide_wheel_spawn" component(wheelright6) bone(wheelr6))
 		("hide_wheel_spawn" component(wheelright7) bone(wheelr7))
 		("hide_wheel_spawn" component(wheelright8) bone(wheelr8))
+		("hide_wheel_spawn" component(wheell1) bone(wheell1))
+		("hide_wheel_spawn" component(wheell2) bone(wheell2))
+		("hide_wheel_spawn" component(wheell3) bone(wheell3))
+		("hide_wheel_spawn" component(wheell4) bone(wheell4))
+		("hide_wheel_spawn" component(wheell5) bone(wheell5))
+		("hide_wheel_spawn" component(wheell6) bone(wheell6))
+		("hide_wheel_spawn" component(wheell7) bone(wheell7))
+		("hide_wheel_spawn" component(wheell8) bone(wheell8))
+		("hide_wheel_spawn" component(wheelr1) bone(wheelr1))
+		("hide_wheel_spawn" component(wheelr2) bone(wheelr2))
+		("hide_wheel_spawn" component(wheelr3) bone(wheelr3))
+		("hide_wheel_spawn" component(wheelr4) bone(wheelr4))
+		("hide_wheel_spawn" component(wheelr5) bone(wheelr5))
+		("hide_wheel_spawn" component(wheelr6) bone(wheelr6))
+		("hide_wheel_spawn" component(wheelr7) bone(wheelr7))
+		("hide_wheel_spawn" component(wheelr8) bone(wheelr8))
 		("hide_wheel_spawn" component(wheelfront) bone(wheelfront))
 	}
 
@@ -773,6 +789,22 @@
 		("check_wheel" component(wheelright6))
 		("check_wheel" component(wheelright7))
 		("check_wheel" component(wheelright8))
+		("check_wheel" component(wheell1))
+		("check_wheel" component(wheell2))
+		("check_wheel" component(wheell3))
+		("check_wheel" component(wheell4))
+		("check_wheel" component(wheell5))
+		("check_wheel" component(wheell6))
+		("check_wheel" component(wheell7))
+		("check_wheel" component(wheell8))
+		("check_wheel" component(wheelr1))
+		("check_wheel" component(wheelr2))
+		("check_wheel" component(wheelr3))
+		("check_wheel" component(wheelr4))
+		("check_wheel" component(wheelr5))
+		("check_wheel" component(wheelr6))
+		("check_wheel" component(wheelr7))
+		("check_wheel" component(wheelr8))
 		("check_wheel" component(wheelfront))
 		{call "check_work_mover"}
 	}
@@ -833,6 +865,22 @@
 		("hide_wheel" component(wheelright6) bone(wheelr6))
 		("hide_wheel" component(wheelright7) bone(wheelr7))
 		("hide_wheel" component(wheelright8) bone(wheelr8))
+		("hide_wheel" component(wheell1) bone(wheell1))
+		("hide_wheel" component(wheell2) bone(wheell2))
+		("hide_wheel" component(wheell3) bone(wheell3))
+		("hide_wheel" component(wheell4) bone(wheell4))
+		("hide_wheel" component(wheell5) bone(wheell5))
+		("hide_wheel" component(wheell6) bone(wheell6))
+		("hide_wheel" component(wheell7) bone(wheell7))
+		("hide_wheel" component(wheell8) bone(wheell8))
+		("hide_wheel" component(wheelr1) bone(wheelr1))
+		("hide_wheel" component(wheelr2) bone(wheelr2))
+		("hide_wheel" component(wheelr3) bone(wheelr3))
+		("hide_wheel" component(wheelr4) bone(wheelr4))
+		("hide_wheel" component(wheelr5) bone(wheelr5))
+		("hide_wheel" component(wheelr6) bone(wheelr6))
+		("hide_wheel" component(wheelr7) bone(wheelr7))
+		("hide_wheel" component(wheelr8) bone(wheelr8))
 		("hide_wheel" component(wheelfront) bone(wheelfront))		;// kettenkrad
 		{if not tagged "impluse"
 			{impulse up 0.3}
@@ -904,6 +952,22 @@
 		("show_wheel" component(wheelright6) bone(wheelr6))
 		("show_wheel" component(wheelright7) bone(wheelr7))
 		("show_wheel" component(wheelright8) bone(wheelr8))
+		("show_wheel" component(wheell1) bone(wheell1))
+		("show_wheel" component(wheell2) bone(wheell2))
+		("show_wheel" component(wheell3) bone(wheell3))
+		("show_wheel" component(wheell4) bone(wheell4))
+		("show_wheel" component(wheell5) bone(wheell5))
+		("show_wheel" component(wheell6) bone(wheell6))
+		("show_wheel" component(wheell7) bone(wheell7))
+		("show_wheel" component(wheell8) bone(wheell8))
+		("show_wheel" component(wheelr1) bone(wheelr1))
+		("show_wheel" component(wheelr2) bone(wheelr2))
+		("show_wheel" component(wheelr3) bone(wheelr3))
+		("show_wheel" component(wheelr4) bone(wheelr4))
+		("show_wheel" component(wheelr5) bone(wheelr5))
+		("show_wheel" component(wheelr6) bone(wheelr6))
+		("show_wheel" component(wheelr7) bone(wheelr7))
+		("show_wheel" component(wheelr8) bone(wheelr8))
 		("show_wheel" component(wheelfront) bone(wheelfront))		;// kettenkrad
 	}
 
@@ -965,6 +1029,22 @@
 		("check_wheel_x2" component(wheelright6))
 		("check_wheel_x2" component(wheelright7))
 		("check_wheel_x2" component(wheelright8))
+		("check_wheel_x2" component(wheell1))
+		("check_wheel_x2" component(wheell2))
+		("check_wheel_x2" component(wheell3))
+		("check_wheel_x2" component(wheell4))
+		("check_wheel_x2" component(wheell5))
+		("check_wheel_x2" component(wheell6))
+		("check_wheel_x2" component(wheell7))
+		("check_wheel_x2" component(wheell8))
+		("check_wheel_x2" component(wheelr1))
+		("check_wheel_x2" component(wheelr2))
+		("check_wheel_x2" component(wheelr3))
+		("check_wheel_x2" component(wheelr4))
+		("check_wheel_x2" component(wheelr5))
+		("check_wheel_x2" component(wheelr6))
+		("check_wheel_x2" component(wheelr7))
+		("check_wheel_x2" component(wheelr8))
 		("check_wheel_x2" component(wheelfront))
 		{call "check_work_mover"}
 	}
