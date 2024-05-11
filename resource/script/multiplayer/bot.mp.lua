@@ -12,14 +12,46 @@ local Context = {
 
 local captureFriendlySideFlag = true
 local firstPurchase = 2
+local isEvacAttacker = false
+local isEvacDefender = false
+
+function SetEvacBot()
+    if BotApi.Instance.gameMode == "evacuation" and BotApi.Instance.team == "a" then
+        isEvacDefender = true
+    end
+	if BotApi.Instance.gameMode == "evacuation" and BotApi.Instance.team == "b" then
+        isEvacAttacker = true
+    end
+end
+
+function GetDifficultyNumber()
+    local difficulty = BotApi.Instance.difficulty
+    local difficultyMap = {
+		easy = 3,
+        normal = 6,
+        hard = 9,
+        heroic = 12
+    }
+    return difficultyMap[difficulty] or 1
+end
 
 function GameModeSpawnCooldown()
-	local cooldown = firstPurchase > 0 
-	and math.random(StartSpawnTime.Min, StartSpawnTime.Max) 
-	or math.random(SpawnCooldownTime.Min, SpawnCooldownTime.Max)
-	firstPurchase = firstPurchase - 1
-	return cooldown
+	local difficultyMultiplier = GetDifficultyNumber()
+	local EvacAttackerBuyWindow = 1000 * 10 -- Bot has x seconds to buy units from source. Do not change.
+
+    if isEvacAttacker then
+        local adjustedEvac = EvacAttackerBuyWindow / difficultyMultiplier
+        return adjustedEvac
+    end
+
+    if firstPurchase > 0 then
+        firstPurchase = firstPurchase - 1
+		return math.random(StartSpawnTime.Min, StartSpawnTime.Max)
+	end
+
+	return math.random(SpawnCooldownTime.Min, SpawnCooldownTime.Max)
 end
+
 
 gameModeSpawnTimer = 0
 function SetSpawnCooldownTimer()
@@ -104,7 +136,7 @@ function GetRandomItem(items, getRate)
 	local caller = debug.getinfo(2, "n").name  -- checks which function called GetRandomItem
 	if printDebug then
 		if caller == "GetNextUnitToSpawn" then
-			---[[
+			--[[
 			print("Print: Possible Units, Priority Default, Modified, TTS for", "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team, "SpawnPoint", spawnPoint, "SpawnSide", spawnSide)
 			for j, item_rate in pairs(item_rates) do
 				local tts2 = BotApi.Commands:TimeToSpawnUnit(item_rate.i.unit)
@@ -112,7 +144,7 @@ function GetRandomItem(items, getRate)
 			end
 			--]]
 		elseif caller == "order" then
-			--[[
+			---[[
 			print("Print: Flag Move Order, Priority Default, Modified for", "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team, "SpawnPoint", spawnPoint, "SpawnSide", spawnSide)
 			for j, item_rate in pairs(item_rates) do
 				print("------ Flag", item_rate.i.name, item_rate.i.priority, item_rate.r)
@@ -167,8 +199,8 @@ function GetFlagLocation(flag)
 			f3 = side == 'a' and FlagLocation.Enemy or FlagLocation.Friendly, --C--
 			f4 = FlagLocation.Center, --D--
 			f5 = FlagLocation.Center, --E--
-			f6 = FlagLocation.Center, --F-- f9 B+F
-			f7 = FlagLocation.Center, --G-- f8 C+G
+			f6 = FlagLocation.Center, --F--
+			f7 = FlagLocation.Center, --G--
 			f8 = side == 'a' and FlagLocation.Enemy or FlagLocation.Friendly, --H--
 			f9 = side == 'a' and FlagLocation.Friendly or FlagLocation.Enemy, --I--
 
@@ -189,6 +221,10 @@ function GetFlagLocation(flag)
 			base_flag_a = side == 'a' and FlagLocation.FriendlyBase or FlagLocation.EnemyBase,
 			base_flag_b = side == 'a' and FlagLocation.EnemyBase or FlagLocation.FriendlyBase,
 			["default"] = FlagLocation.Center,
+		},
+		["evacuation"] = {
+			base_flag_a = side == 'a' and FlagLocation.EvacFriendlyBase or FlagLocation.EnemyBase,
+			["default"] = 1,
 		},
 		["default"] = {
 			["default"] = 1,
@@ -247,7 +283,7 @@ function GetFlagLocations()
 			enemySide = enemySide + 1
 		end
 	end
-	if printDebug then print("centerSide:", centerSide, "friendlySide:", friendlySide, "enemySide:", enemySide) end
+	-- if printDebug then print("centerSide:", centerSide, "friendlySide:", friendlySide, "enemySide:", enemySide) end
 
 	-- Some maps are only middle flags
 	if friendlySide == 0 then
@@ -266,7 +302,6 @@ end
 
 function GetFlagToCapture(flagPoints, getPriority, getPosition)
 	local alliedFlags, opponentFlags, neutralFlags, totalFlags = 0, 0, 0, 0
-	local capturableFlags = totalFlags - alliedFlags
 	local teamIsLosing
 
 	for i, flag in pairs(BotApi.Scene.Flags) do
@@ -286,8 +321,10 @@ function GetFlagToCapture(flagPoints, getPriority, getPosition)
 		teamIsLosing = false
 	end
 
-	if printDebug then print("alliedFlags:", alliedFlags, "opponentFlags:", opponentFlags, "neutralFlags:", neutralFlags, "totalFlags:", totalFlags, "capturableFlags:", capturableFlags) end
-	if printDebug then print("teamIsLosing:", teamIsLosing) end
+	local capturableFlags = totalFlags - alliedFlags
+
+	--if printDebug then print("alliedFlags:", alliedFlags, "opponentFlags:", opponentFlags, "neutralFlags:", neutralFlags, "totalFlags:", totalFlags, "capturableFlags:", capturableFlags) end
+	--if printDebug then print("teamIsLosing:", teamIsLosing) end
 
 	if capturableFlags > alliedFlags then
 		searchDestroy = 0.60
@@ -368,6 +405,14 @@ function GetNextUnitToSpawn(purchase)
 	return unit
 end
 
+function GetCurrentSpawnWaitTime()
+    if isEvacAttacker then
+        return EvacUnitSpawnWaitTime
+    else
+        return UnitSpawnWaitTime
+    end
+end
+
 function GetUnitToSpawn(units)
 	if not units then
 		return nil
@@ -378,12 +423,15 @@ function GetUnitToSpawn(units)
 	local teamSize = BotApi.Instance.teamSize
 	local income = BotApi.Commands:Income(BotApi.Instance.playerId)
 
+ -- Choose appropriate UnitSpawnWaitTime based on isEvacAttacker
+ 	local currentUnitSpawnWaitTime = GetCurrentSpawnWaitTime()
+
 	--if printDebug then print("player#".. BotApi.Instance.playerId.. " Unit, TTS, Min TTS") end
 	for i, unit in pairs(units) do
 		local min_team = unit.min_team  -- not used
 		local min_income = unit.min_income -- not used
 		local tts = BotApi.Commands:TimeToSpawnUnit(unit.unit)
-		local min_tts = UnitSpawnWaitTime + gameModeSpawnTimer
+		local min_tts = currentUnitSpawnWaitTime + gameModeSpawnTimer
 		local available = BotApi.Commands:IsUnitAvailable(unit.unit)
 		
 		if not min_income then min_income = -1 end
@@ -416,6 +464,7 @@ function GetUnitToSpawn(units)
 	local unitCounts = {
 		BotInfantry = 0,
 		BotATInfantry = 0,
+		BotTanks = 0,
 	}
 	
 	local propertyToVariable = {
@@ -464,24 +513,30 @@ function GetUnitToSpawn(units)
 		end
 
 		-- Bot buys infantry first
-		if unitCounts.BotInfantry < 20 then
+		if unitCounts.BotInfantry < 15 then -- minimum amount of infantry
 			if UnitType("Infantry") then
 				priorityMultiplier = priorityMultiplier
-			else
+			elseif not UnitType("Doctrine") then
 				priorityMultiplier = priorityMultiplier * 0.1
 			end
-		elseif unitCounts.BotInfantry > 30 then
+		elseif unitCounts.BotInfantry >= 25 then -- maximum amount of infantry
 			if UnitType("Infantry") and not UnitType("AT") then
 				priorityMultiplier = priorityMultiplier * 0.1
 			end
 		end
 
-		if unitCounts.BotInfantry < 10 and unitCounts.BotATInfantry <= 2 then
+		if unitCounts.BotInfantry > 10 and unitCounts.BotATInfantry <= 2 then
 			if UnitType("Infantry") and UnitType("AT") then
 				priorityMultiplier = priorityMultiplier * 4
 			end
 		elseif unitCounts.BotATInfantry >= 5 then
 			if UnitType("Infantry") and UnitType("AT") then
+				priorityMultiplier = priorityMultiplier * 0.1
+			end
+		end
+
+		if unitCounts.BotInfantry + unitCounts.BotATInfantry >= 25 and unitCounts.BotATInfantry >= 2 then
+			if UnitType("Infantry") then
 				priorityMultiplier = priorityMultiplier * 0.1
 			end
 		end
@@ -507,8 +562,8 @@ function GetUnitToSpawn(units)
 				priorityMultiplier = priorityMultiplier * 0.80 * 0.25
 			end
 		end
-	
-		-- Global priorities for different class of cannons
+		
+		-- Global priorities for Hotmod Sorties
 		if UnitType("Sortie") then
 			if UnitType("Class1") then
 				priorityMultiplier = priorityMultiplier * 0.30
@@ -519,6 +574,7 @@ function GetUnitToSpawn(units)
 			end
 		end
 		
+	
 		-- Global priorities for different class of all other vehicles and infantry teams
 		if not UnitType("Cannon") or not UnitType("Squad") then
 			if UnitType("Class1") then
@@ -540,7 +596,10 @@ end
 
 function OnGameStart()
 	print("Print: AI Bot is player#" .. BotApi.Instance.playerId .. ", nation " .. BotApi.Instance.army .. ", on team " .. BotApi.Instance.team .. " which has " .. BotApi.Instance.teamSize .. " player(s) and has spawned on side", spawnSide)
+	print("Print: player#" .. BotApi.Instance.playerId .. ", has a difficulty of " .. BotApi.Instance.difficulty)
+	
 	GetFlagLocations()
+	SetEvacBot()
 
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
@@ -610,10 +669,11 @@ function TrySpawnUnit()
 		spawningUnit = true
 		return
 	end
-
+	
+	local currentUnitSpawnWaitTime = GetCurrentSpawnWaitTime()
 	---[[ -- TODO: Move to GetUnitToSpawn()
 	local tts = BotApi.Commands:TimeToSpawnUnit(unit)
-	local min_tts = UnitSpawnWaitTime + gameModeSpawnTimer
+	local min_tts = currentUnitSpawnWaitTime + gameModeSpawnTimer
 	if tts > min_tts then
 		print("Print: !!WARNING!! player#".. BotApi.Instance.playerId.. " tried to purchase: ".. unit .." but the TTS (unit timer) is greater than UnitSpawnWaitTime ".. (tts / 1000) .."s verses ".. (min_tts / 1000) .."s")
 		KillSpawnWaitTimer()
@@ -632,7 +692,7 @@ function TrySpawnUnit()
 			function()
 				Context.SpawnWait.WaitTimer = nil
 				UpdateUnitToSpawn(Context.Purchase)
-			end, UnitSpawnWaitTime + 1000)
+			end, currentUnitSpawnWaitTime + 1000)
 	end
 	local spawningUnit = nil
 end
@@ -657,24 +717,28 @@ end
 function GotoNextWaypoint(squad)
 	local waypoints = BotApi.Scene.Waypoints
 	BotApi.Commands:CaptureFlag(squad, waypoints[math.random(#waypoints)]) --captureflag is basically gothereandattack
-	if printDebug then print("Print: #captureFlag call inside GoToNextWaypoint") end
+	--if printDebug then print("Print: #captureFlag call inside GoToNextWaypoint") end
 end
 
 function OnWaypoint(args)
-	if printDebug then print("Print: #GotoNextWaypoint call inside OnWaypoint") end
+	--if printDebug then print("Print: #GotoNextWaypoint call inside OnWaypoint") end
 	GotoNextWaypoint(args.squadId)
 end
 
 	-- NOTE: Returns true if squad tagged "_lua_mi" or "_lua_alert".
 	-- NOTE: "_lua_mi" = reserved for mission script use.
 	-- NOTE: "_lua_alert" = squad abruptly runs into enemy force seek&destroy.
+
 function IsSquadInScript(squad)
 	if BotApi.Scene:IsSquadTagged(squad, "_lua_mi") then
-		if printDebug then print("Print: SQUADinSCRIPT thus no action squad", squad, "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team) end
+		--if printDebug then print("Print: SQUADinSCRIPT thus no action squad", squad, "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team) end
 		return true
-	elseif BotApi.Scene:IsSquadTagged(squad, "_lua_alert") then
-		if printDebug then print("Print: SQUADinALERT thus seek by squad", squad, "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team) end
-		BotApi.Commands:SeekAndDestroy(squad)
+	end
+	if BotApi.Scene:IsSquadTagged(squad, "_lua_alert") then
+		--if printDebug then print("Print: SQUADinALERT thus seek by squad", squad, "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team) end
+		if not isEvacDefender then
+			BotApi.Commands:SeekAndDestroy(squad)
+		end
 		return true
 	end
 end
@@ -690,7 +754,7 @@ function CaptureFlag(squad)
 	local flag = GetFlagToCapture(BotApi.Scene.Flags, GetFlagPriority, GetFlagPosition)
 
 	if not flag then
-		if printDebug then print("Print: No Flags so SeekAndDestroy by squad", squad, "Player#",BotApi.Instance.playerIdon, "Team", BotApi.Instance.team) end
+		--if printDebug then print("Print: No Flags so SeekAndDestroy by squad", squad, "Player#",BotApi.Instance.playerIdon, "Team", BotApi.Instance.team) end
 		BotApi.Commands:SeekAndDestroy(squad)
 		return
 	end
@@ -701,15 +765,19 @@ function CaptureFlag(squad)
 
 	if IsSquadToIgnore(squad) then
 		local rndAI = math.random()
+		if isEvacDefender then
+			return
+		end
+
 		if searchDestroy > rndAI then
-			if printDebug then print("Print: [see_enemy] seek by squad", squad, "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team) end
+			--if printDebug then print("Print: [see_enemy] seek by squad", squad, "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team) end
 			BotApi.Commands:SeekAndDestroy(squad)
 		else
-			if printDebug then print("Print: [see_enemy] donothing by squad", squad, "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team) end
+			--if printDebug then print("Print: [see_enemy] donothing by squad", squad, "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team) end
 			return
 		end
 	else
-		if printDebug then print("Print: [notags] ctf by squad", squad, "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team, "Flag name: ", flag.name) end
+		--if printDebug then print("Print: [notags] ctf by squad", squad, "Player#",BotApi.Instance.playerId, "Team", BotApi.Instance.team, "Flag name: ", flag.name) end
 		BotApi.Commands:CaptureFlag(squad, flag.name)
 	end
 end
@@ -736,7 +804,7 @@ function OnGameSpawn(args)
 		SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod.MP)
 	else
 		GotoNextWaypoint(args.squadId)
-		if printDebug then print("Print: #waypoints != 0") end
+		--if printDebug then print("Print: #waypoints != 0") end
 	end
 end
 
