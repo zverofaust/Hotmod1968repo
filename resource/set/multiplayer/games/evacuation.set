@@ -1,0 +1,59 @@
+{game
+	{order 90}
+	{parameters "base_capture_time=120;base_release_time=20;ammo_table=50,100,150,200;flag_capture_time=70;flag_release_time=20;flag_capture_factor=1.0;supply_waves=1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,39;"}
+	; base_capture_time= means it takes x seconds to capture a base from being neutral
+	; base_release_time= means it takes x seconds to neutralize a base
+	; ammo_table= amount of resources gained for captureing ammo points. Is taken from future resources 1st, then payback.
+	; flag_capture_time= means it takes x seconds to capture a flag/map point
+	; flag_release_time= means it takes x seconds to neutralize a flag/map point
+	; flag_capture_factor= means all unit capture weight is multiplied by this value
+	; supply_waves= sets which attack wave numbers will activate a new supply point (deactivates old one if not captures yet)
+	{settings
+		{options			gameDuration waveTime preparationTime enableHardcore enableManualControlMode enableSpectators}
+		{optionsAdvanced	friendlyFire randomSpawnPoints fogOfWar showPiercing showDamageReports}
+		{optionsRanked		}
+		{fogOfWar			fog_realistic}
+		{difficulty			multiplayer}
+		{gameDuration		"40 min"}	; min
+		{impregnableTimeout	5}			; sec
+		{floraRespawn		0}
+
+		{preparationTime	15}			; default time in seconds game is in "paused state" before game starts
+		{preparationTimeMin	0}
+		{preparationTimeMax	60}
+
+		{firstWaveTime		300}		; default time in seconds before 1st attack wave starts
+		{firstWaveTimeMin	0}
+		{firstWaveTimeMax	900}
+
+		{waveTime			300}		; default time in seconds between each attack wave after 1st wave
+		{waveTimeMin		120}
+		{waveTimeMax		600}
+
+		{friendlyFire}
+		{showPiercing}
+		{showDamageReports}
+		{useUnitLevelRestrictions 0}
+		{enableBots}
+		{useManualCharge none}
+		{enableManualControlMode dc_mode}
+	}
+	{teamSettings
+		{teamsMode normal}
+		{armySelectionMode alliance}
+		{teams
+			{"a"
+				{title "mp/settings/team#defenders"}
+			}
+			{"b"
+				{title "mp/settings/team#attackers"}
+				{maxTeamPlayers 0}
+				{aiTeamPlayers 4}
+			}
+		}
+		{alliances
+			(include "presets/alliances_generic.inc")
+		}
+	}
+	(include "presets/laststand_era1960.inc")
+}
