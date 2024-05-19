@@ -1,7 +1,10 @@
-;Exported by: Артем
-;Date:        Mon Jul 20 17:29:54 2015
-;File:        D:\Autodesk\Low poly\freelance\DMS 2.0\Weapons\M72 LAW\M72 LAW export.max
+;Exported by: ART
+;Date:        Mon Jun 29 12:08:10 2020
+;File:        E:\Autodesk\Low poly\freelance\DMS 2.0\Weapon 2.0\M72 LAW\export\M72 Law.max
 {Skeleton
+	{animation
+		{sequence "bipod_open" {speed 0.7}}
+	}
 	{bone "m72_law"
 		{parameters "ID=mgun;"}
 		{Orientation
@@ -12,100 +15,185 @@
 		{LODView
 			{VolumeView "m72_law.ply"}
 			{VolumeView "m72_law_lod1.ply"}
+			{VolumeView "m72_law_lod2.ply"}
+			{VolumeView "m72_law_lod3.ply"}
+		}
+		{bone "subcaliber_barrel"
+			{Position 3.48445	0.00228149	0.430238}
+			{LODView
+				{VolumeView "subcaliber_barrel.ply"}
+				{VolumeView "subcaliber_barrel_lod1.ply"}
+				{VolumeView "subcaliber_barrel_lod2.ply"}
+				{VolumeView "subcaliber_barrel_lod3.ply"}
+			}
+			{bone "m72_rocket"
+				{parameters "ID=mgun;"}
+				{Position 1.47782	2.48249e-005	-0.38605}
+				{LODView
+					{VolumeView "m72_rocket.ply"}
+					{VolumeView "m72_rocket_lod1.ply"}
+					{VolumeView "m72_rocket_lod2.ply"}
+					{VolumeView "m72_rocket_lod3.ply"}
+				}
+			}
+			{bone "fxshot"
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					-3.3254	-0.004077	-0.434974
+				}
+			}
+		}
+		{bone "trigger_arming"
+			{Position 5.00227	0.00230688	1.19404}
+			{LODView
+				{VolumeView "trigger_arming.ply"}
+				{VolumeView "trigger_arming_lod1.ply"}
+				{VolumeView "trigger_arming_lod2.ply"}
+				{VolumeView "trigger_arming_lod3.ply"}
+			}
+		}
+		{bone "rear_sight"
+			{Matrix34
+				0	0	1
+				0	1	0
+				-1	0	0
+				2.16029	0.000731394	1.36121
+			}
+			{LODView
+				{VolumeView "rear_sight.ply"}
+				{VolumeView "rear_sight_lod1.ply"}
+				{VolumeView "rear_sight_lod2.ply"}
+				{VolumeView "rear_sight_lod3.ply"}
+			}
+			{bone "glass_rear"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					-0.00119817	-0.00175166	1.07524
+				}
+				{VolumeView "glass_rear.ply"}
+			}
+		}
+		{bone "cover"
+			{Matrix34
+				-0.951057	0	-0.309017
+				0	1	0
+				0.309017	0	-0.951057
+				1.02835	0.00230602	-0.832913
+			}
+			{LODView
+				{VolumeView "cover.ply"}
+				{VolumeView "cover_lod1.ply"}
+				{VolumeView "cover_lod2.ply"}
+				{VolumeView "cover_lod3.ply"}
+			}
+		}
+		{bone "front_sight"
+			{Matrix34
+				0	0	1
+				0	1	0
+				-1	0	0
+				12.1039	0.00230791	0.841922
+			}
+			{LODView
+				{VolumeView "front_sight.ply"}
+				{VolumeView "front_sight_lod1.ply"}
+				{VolumeView "front_sight_lod2.ply"}
+				{VolumeView "front_sight_lod3.ply"}
+			}
+			{bone "glass_front"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					0.0832748	0	0.808253
+				}
+				{VolumeView "glass_front.ply"}
+			}
 		}
 		{bone "handle"
-			{Position -2.94926	0.00340278	-0.720698}
+			{Matrix34
+				1	0	0
+				0	1	0
+				0	0	1
+				4.2751	0.00340337	1.37011
+			}
 		}
 		{bone "foresight3"
 			{Matrix34
 				1	0	0
 				0	0	1
 				0	-1	0
-				12.9061	-0.00179634	-0.0748121
+				12.6839	-0.00179442	-0.00473644
 			}
-		}
-		{bone "fxshot"
-			{Matrix34
-				-1	0	0
-				0	0	1
-				0	1	0
-				-4.2735	-0.00179634	-0.0748121
-			}
-		}
-		{bone "m72_rocket"
-			{parameters "ID=mgun;"}
-			{Matrix34
-				1	0	0
-				0	0	1
-				0	-1	0
-				-2.12006	0.00451706	-0.0644098
-			}
-			{VolumeView "m72_rocket.ply"}
 		}
 	}
 }
 {Volume "body"
-	{Cylinder 0.972967 16.9122}
+	{Cylinder 0.932103 17.149}
 	{Bone "m72_law"}
 	{Matrix34
 		0	0	1
 		0	-1	0
 		1	0	0
-		4.34423	-0.0182915	-0.0481872
+		4.04579	-0.018284	0.0218899
 	}
 }
 {Volume "select"
-	{Box 23.1833 9.11718 2.39379}
+	{Box 23.1833 9.11718 3.39918}
 	{Bone "m72_law"}
 	{Matrix34
 		1	0	0
 		0	0	1
 		0	-1	0
-		4.69656	-0.00202644	-0.517092
+		4.4743	-0.0884693	-0.107832
 	}
 }
 {Extender "preview"
-	{"Stuff"
+	{"Stuff_primary"
 		{camera
-			{origin 4.30658	44.6348	1.32952}
-			{lookat 4.30658	-0.00839675	0.354471}
+			{origin 6.41636	31.6415	3.38264}
+			{lookat 6.40966	-0.0124871	0.473441}
 			{fov 23.9132}
-			{horizon -0.0279765}
+			{horizon 0.305828}
 		}
 		{lights
 			{"0"
 				{type point}
-				{position 3.55263	23.5971	-2.73307}
+				{position 3.1705	2.74102	-10.3818}
 			}
 			{"1"
-				{type directional}
-				{direction 0.000730804	-0.305602	-0.395736}
+				{type point}
+				{position 12.2996	20.2469	7.01377}
 			}
 			{"2"
-				{type point}
-				{position 3.39276	-8.57603	-27.6194}
+				{type directional}
+				{direction 0.000724997	-0.285263	-0.410639}
 			}
 		}
 	}
-	{"Stuff_primary"
+	{"Stuff"
 		{camera
-			{origin 4.30658	47.8491	1.39972}
-			{lookat 4.30658	-0.00839675	0.354471}
+			{origin 6.42213	31.4465	4.11006}
+			{lookat 6.40499	-0.0384041	0.412431}
 			{fov 23.9132}
-			{horizon 7.97376}
+			{horizon -0.0559529}
 		}
 		{lights
 			{"0"
 				{type point}
-				{position 3.55263	23.5971	-2.73307}
+				{position 14.1412	18.2801	9.52937}
 			}
 			{"1"
 				{type directional}
-				{direction 0.000730804	-0.305602	-0.395736}
+				{direction -0.00294103	-0.273625	-0.418475}
 			}
 			{"2"
 				{type point}
-				{position 3.39276	-8.57603	-27.6194}
+				{position 3.1705	1.85588	-3.87227}
 			}
 		}
 	}
