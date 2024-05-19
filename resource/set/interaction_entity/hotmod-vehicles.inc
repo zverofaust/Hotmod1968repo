@@ -3628,50 +3628,23 @@
 	("pz2_sound")
 	
 	{on "commander_hatch_open" overload
-		{if crew_in_place "gunner3"
-			;nothing
-		else crew_in_place "charger"
-			;nothing
-		else
-			{ani_play "open_back" resume}
-		}
+		{ani_play "open_back" resume}
 	}
-	
 	{on "commander_hatch_close" overload
-		{if crew_in_place "gunner3"
-			;nothing
-		else crew_in_place "charger"
-			;nothing
-		else
-			{ani_play "open_back" -1.0 resume}
-		}	
+		{ani_play "open_back" -1.0 resume}
 	}
 
 	{on "gunner3_hatch_open" overload
-		{if crew_in_place "commander"
-			;nothing
-		else crew_in_place "charger"
-			;nothing
-		else
-			{ani_play "open_back" resume}
-		}
+		{ani_play "open_back" resume}
 	}
 	
 	{on "gunner3_hatch_close" overload
-		{if crew_in_place "charger"
-			;nothing
-		else crew_in_place "commander"
-			;nothing
-		else
-			{ani_play "open_back" -1.0 resume}
-		}
+		{ani_play "open_back" -1.0 resume}
 	}
 	
 	{on "charger_hatch_open" overload
 		{if crew_in_place "gunner3"
-			;nothing
-		else crew_in_place "commander"
-			;nothing
+			{ani_play "open_back" resume}
 		else
 			{ani_play "open_back" resume}
 		}
@@ -3679,8 +3652,6 @@
 	
 	{on "charger_hatch_close" overload
 		{if crew_in_place "gunner3"
-			;nothing
-		else crew_in_place "commander"
 			;nothing
 		else
 			{ani_play "open_back" -1.0 resume}
@@ -3698,50 +3669,23 @@
 	("pz2_sound")
 	
 	{on "commander_hatch_open" overload
-		{if crew_in_place "gunner3"
-			;nothing
-		else crew_in_place "charger"
-			;nothing
-		else
-			{ani_play "open_back" resume}
-		}
+		{ani_play "open_back" resume}
 	}
-	
 	{on "commander_hatch_close" overload
-		{if crew_in_place "gunner3"
-			;nothing
-		else crew_in_place "charger"
-			;nothing
-		else
-			{ani_play "open_back" -1.0 resume}
-		}	
+		{ani_play "open_back" -1.0 resume}
 	}
 
 	{on "gunner3_hatch_open" overload
-		{if crew_in_place "commander"
-			;nothing
-		else crew_in_place "charger"
-			;nothing
-		else
-			{ani_play "open_back" resume}
-		}
+		{ani_play "open_back" resume}
 	}
 	
 	{on "gunner3_hatch_close" overload
-		{if crew_in_place "charger"
-			;nothing
-		else crew_in_place "commander"
-			;nothing
-		else
-			{ani_play "open_back" -1.0 resume}
-		}
+		{ani_play "open_back" -1.0 resume}
 	}
 	
 	{on "charger_hatch_open" overload
 		{if crew_in_place "gunner3"
-			;nothing
-		else crew_in_place "commander"
-			;nothing
+			{ani_play "open_back" resume}
 		else
 			{ani_play "open_back" resume}
 		}
@@ -3749,8 +3693,6 @@
 	
 	{on "charger_hatch_close" overload
 		{if crew_in_place "gunner3"
-			;nothing
-		else crew_in_place "commander"
 			;nothing
 		else
 			{ani_play "open_back" -1.0 resume}
