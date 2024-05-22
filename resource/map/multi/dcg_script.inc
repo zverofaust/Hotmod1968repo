@@ -6641,6 +6641,9 @@
 											{tag
 												{tag airstrike_usa}
 											}
+											{tag
+												{tag airstrike_rus}
+											}
 										}
 									}
 								}
@@ -6679,13 +6682,16 @@
 									{group
 										{select
 											{tag
-												{tag airstrike_rus}
+												{tag airstrike_ger}
 											}
 											{tag
 												{tag airstrike_fin}
 											}
 											{tag
 												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_rus}
 											}
 										}
 									}
@@ -6725,13 +6731,16 @@
 									{group
 										{select
 											{tag
-												{tag airstrike_rus}
-											}
-											{tag
 												{tag airstrike_ger}
 											}
 											{tag
+												{tag airstrike_fin}
+											}
+											{tag
 												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_rus}
 											}
 										}
 									}
@@ -6775,6 +6784,9 @@
 											}
 											{tag
 												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
 											}
 											{tag
 												{tag airstrike_rus}
