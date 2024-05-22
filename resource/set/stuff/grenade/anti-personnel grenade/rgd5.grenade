@@ -1,18 +1,15 @@
 {from "pattern anti-personnel"
-	{tag "shell wp_size1"}
+	{tag "size1"}
 	{inventory {size 1 1}}
 	{entity "grenade_rgd5"}
-	{mass 0.75}
 
 	{damage add blastwave
-		{energy 0.6}
-		{area 4 10}
+		{energy 0.7}
+		{area 3 9}
 		{ground_interaction_radius 0} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
 	}
+	
 	{special
-		{PrepareTime 3.6}
-	}
-	{throw
-		{range 28.7}  ;in-game 30m
+		{PrepareTime 4}
 	}
 }
