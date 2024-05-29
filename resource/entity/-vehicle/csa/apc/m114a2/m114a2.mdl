@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Thu Dec  7 09:23:04 2023
+;Date:        Wed May 29 12:19:21 2024
 ;File:        D:\Cold War\ModelWIP\USA\M114\M114.max
 {Skeleton
 	{animation
@@ -63,6 +63,11 @@
 				{parameters "id=engine;"}
 				{Position 2.58363	-11.883	10.2976}
 				{VolumeView "engine.ply"}
+			}
+			{bone "detail3"
+				{parameters "id=body;"}
+				{Position -22.319	-11.8424	12.3933}
+				{VolumeView "detail3.ply"}
 			}
 			{bone "cover_driver"
 				{parameters "id=body;"}
@@ -250,7 +255,7 @@
 			{VolumeView "wheelsr.ply"}
 			{bone prizmatic "suspension_r1"
 				{limits -0.1 0.1}
-				{Position 22.9859	-1.18964	-2.61115}
+				{Position 22.9859	-1.18964	-2.52151}
 				{bone revolute "wheelr2"
 					{parameters "id=trackright;Radius=0.4;"}
 					{Matrix34
@@ -264,7 +269,7 @@
 			}
 			{bone prizmatic "suspension_r2"
 				{limits -0.1 0.1}
-				{Position 8.39535	-1.18964	-2.61115}
+				{Position 8.39535	-1.18964	-2.52151}
 				{bone revolute "wheelr3"
 					{parameters "id=trackright;Radius=0.4;"}
 					{Matrix34
@@ -278,7 +283,7 @@
 			}
 			{bone prizmatic "suspension_r3"
 				{limits -0.1 0.1}
-				{Position -7.26106	-1.18964	-2.61115}
+				{Position -7.26106	-1.18964	-2.52151}
 				{bone revolute "wheelr4"
 					{parameters "id=trackright;Radius=0.4;"}
 					{Matrix34
@@ -292,7 +297,7 @@
 			}
 			{bone prizmatic "suspension_r4"
 				{limits -0.1 0.1}
-				{Position -22.2101	-1.18963	-2.61115}
+				{Position -22.2101	-1.18963	-2.52151}
 				{bone revolute "wheelr5"
 					{parameters "id=trackright;Radius=0.4;"}
 					{Matrix34
@@ -310,13 +315,13 @@
 				{VolumeView "trackr.ply"}
 			}
 			{bone "fxtracer1"
-				{Position 23.1386	-2.71949	-8.91421}
+				{Position 23.1386	-2.71949	-8.87446}
 			}
 			{bone "fxtracer2"
-				{Position 0.310878	-2.71948	-8.91421}
+				{Position 0.310878	-2.71948	-8.87446}
 			}
 			{bone "fxtracer3"
-				{Position -22.0562	-2.71948	-8.91421}
+				{Position -22.0562	-2.71948	-8.87446}
 			}
 		}
 		{bone "wheelsl"
@@ -324,7 +329,7 @@
 			{VolumeView "wheelsl.ply"}
 			{bone prizmatic "suspension_l1"
 				{limits -0.1 0.1}
-				{Position 22.9857	1.18157	-2.61118}
+				{Position 22.9857	1.18157	-2.52155}
 				{bone revolute "wheell2"
 					{parameters "id=trackleft;Radius=0.4;"}
 					{Matrix34
@@ -338,7 +343,7 @@
 			}
 			{bone prizmatic "suspension_l2"
 				{limits -0.1 0.1}
-				{Position 8.39521	1.18157	-2.61118}
+				{Position 8.39521	1.18157	-2.52155}
 				{bone revolute "wheell3"
 					{parameters "id=trackleft;Radius=0.4;"}
 					{Matrix34
@@ -352,7 +357,7 @@
 			}
 			{bone prizmatic "suspension_l3"
 				{limits -0.1 0.1}
-				{Position -7.2612	1.18157	-2.61118}
+				{Position -7.2612	1.18157	-2.52155}
 				{bone revolute "wheell4"
 					{parameters "id=trackleft;Radius=0.4;"}
 					{Matrix34
@@ -366,7 +371,7 @@
 			}
 			{bone prizmatic "suspension_l4"
 				{limits -0.1 0.1}
-				{Position -22.2102	1.18157	-2.61118}
+				{Position -22.2102	1.18157	-2.52155}
 				{bone revolute "wheell5"
 					{parameters "id=trackleft;Radius=0.4;"}
 					{Matrix34
@@ -384,13 +389,13 @@
 				{VolumeView "trackl.ply"}
 			}
 			{bone "fxtracel3"
-				{Position -22.0563	2.40294	-8.91425}
+				{Position -22.0563	2.40294	-8.8745}
 			}
 			{bone "fxtracel2"
-				{Position 0.310743	2.40294	-8.91425}
+				{Position 0.310743	2.40294	-8.8745}
 			}
 			{bone "fxtracel1"
-				{Position 23.1385	2.40293	-8.91425}
+				{Position 23.1385	2.40293	-8.8745}
 			}
 		}
 		{bone "emit1"
@@ -445,7 +450,7 @@
 	}
 }
 {Volume "engine"
-	{Box 16.5766 13.528 12.6622}
+	{Polyhedron "engine.vol"}
 	{Bone "body"}
 	{Position 2.51403	-5.3941	1.88639}
 }
@@ -499,8 +504,18 @@
 		0.00475311	0.177687	0.0608358
 	}
 }
+{Volume "trackleft"
+	{Polyhedron "trackleft.vol"}
+	{Bone "wheelsl"}
+	{Position -0.0229668	2.40278	-1.11025}
+}
+{Volume "trackright"
+	{Polyhedron "trackright.vol"}
+	{Bone "wheelsr"}
+	{Position -0.022832	-2.53292	-1.11021}
+}
 {Volume "transmission"
-	{Cylinder 3.57597 25.6905}
+	{Cylinder 3.03958 25.6905}
 	{Bone "body"}
 	{Matrix34
 		1	0	0
@@ -518,14 +533,4 @@
 		0	0	1
 		-1.18451	0.000908852	-0.0327072
 	}
-}
-{Volume "trackleft"
-	{Polyhedron "trackleft.vol"}
-	{Bone "wheelsl"}
-	{Position -0.0229668	2.40278	-1.11025}
-}
-{Volume "trackright"
-	{Polyhedron "trackright.vol"}
-	{Bone "wheelsr"}
-	{Position -0.022832	-2.53292	-1.11021}
 }
