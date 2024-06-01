@@ -1,0 +1,29 @@
+{from "pattern reactive"		; "Type 63 MRL"
+	{filling "ammo rocket115_m55" 12}
+	{fireSound "reactive/katy_burst/"}
+	{calibre 107}
+
+	("rocket_artillery")
+	{spreading
+		{radiusTable
+			{0 0}
+			{125 10}
+			{250 20}
+			{375 40}
+			{500 60}
+		}
+	}
+	
+	{range 360 400} ;//8km
+	{minRange 75}
+	
+	{burst 
+		{min 12}
+		{noaiming}
+	}
+
+	("fire rate" rpm(90))
+	("velocity" mps(346))
+	("reload time" seconds(60))
+	{gravity 3}
+}

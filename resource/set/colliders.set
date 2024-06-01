@@ -14,7 +14,7 @@
 ; 32 collider id limit
 ; list of used colliderId's:
 ;	"nothing" "tree" "bush" "rock" "construction" "human" "human_tpc" "particle" "particle.big" "flame" "stuff" "mine.ap" "mine.at" "mine.ap.grenade"
-;	"car" "moto" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "cannon" "cannon_small" "sandbag" "local"
+;	"car" "moto" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "cannon" "cannon_small" "sandbag" "local" "nbczone"
 {Colliders	; default collider profile must be first
 
 	;/*=========== Basic ===========*/
@@ -100,7 +100,17 @@
 		{ColliderId		"killzone"}
 		{CollideWith	"human" "cannon" "cannon_small"}
 	}
-	
+	{"nbczone"
+		{ColliderId		"nbczone"}
+	}
+	{"chemicalzone"
+		{ColliderId		"nbczone"}
+		{CollideWith	"human" "animal" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy"}
+	}
+	{"radiationzone"
+		{ColliderId		"nbczone"}
+		{CollideWith	"human" "animal" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy"}
+	}
 	;/*=========== Stuff ===========*/
 	{"stuff"
 		{ColliderId		"stuff"}
