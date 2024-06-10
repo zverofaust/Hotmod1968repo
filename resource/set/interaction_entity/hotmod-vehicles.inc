@@ -3,6 +3,39 @@
 	{on spawn
 		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
 	}
+	
+	{on contact
+		{if effector "chemicalzone"
+			{if not tagged "nbc_protection"
+				{tags add "chemically_castrated"}
+				{able "burning" 1}
+				{crew_emit}
+				{drop_orders}
+				{reset_manual_control}
+				{delay 5
+					{able "burning" 0}
+				}
+			}
+		}
+		{if effector "radiationzone"
+			{if not tagged "nbc_protection"
+				{tags add "irradiated"}
+			}
+		}
+		{if effector "killzone_mininuke"
+			{if not tagged "nbc_protection"
+				{able "burning" 1}
+				{crew_emit}
+				{drop_orders}
+				{reset_manual_control}
+			else tagged "nbc_protection"
+				{able "burning" 1}
+				{delay 5
+					{able "burning" 0}
+				}
+			}
+		}
+	}
 }
 
 ;/*==========anti fire script========*/

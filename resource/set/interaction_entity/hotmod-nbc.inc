@@ -1,6 +1,7 @@
 {"shell_radiation" ;// based on chlorine shell from Some Desperate Glory
 	{on spawn
 		{add_view "smoke_radiation"		"cloud" "root"}
+		{spawn "killzone_dummy_mininuke"}
 		{call "activate"}
 	}
 	
@@ -20,6 +21,15 @@
 	}
 }
 
+{"killzone_dummy_mininuke"
+	{on spawn
+		{delay 0.5
+			{spawn "killzone_mininuke"}
+			{delete}
+		}
+	}
+}
+	
 {"shell_chemical" ;// normal chlorine shell from Some Desperate Glory
 	{on spawn
 		{add_view "mustard_escape"		"escape" "root"}
@@ -30,7 +40,7 @@
 	
 	{on "spawn_zone"
 		{spawn "chemical_zone_400"}
-		{delay 5
+		{delay 2.5
 			{call "spawn_zone"}
 		}
 	}
@@ -71,13 +81,9 @@
 		{delay 20
 			{stop_sound "gas_hiss"}
 		}
-		{delay 145
+		{delay 120  ; two minute timer?
 			{view stop "cloud1"}
-		}
-		{delay 175
 			{stop_sound "gas_sound"}
-		}
-		{delay 180
 			{view stop "cloud2"}
 			{hide 1}
 		}
