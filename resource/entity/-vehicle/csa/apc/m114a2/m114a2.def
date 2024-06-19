@@ -22,29 +22,27 @@
 		;{place "gunner4"	{visor "mgun"}{sealable}}
 	}
 	
+	(include "/properties/hotmod_crew.ext")
+	
 	{boarder
-		{anm "left"
-			{forward 	{begin "board_sd232_driver"}	{base "door_back"}}
-			{reverse 	{end "board_sd232_driver" -1} {base "door_back"}}
-		}
-		{anm "right"
-			{forward 	{begin "board_sd232_driver"}	{base "door_back"}}
-			{reverse 	{end "board_sd232_driver" -1} {base "door_back"}}
-		}
-		{anm "gunner4"
-			{forward 	{begin "board_ba-20m"} {end "seat_gunner_stand"} {base "door_back"}}
-			{reverse	{end "board_ba-20m" -1} {base "door_back"}}
-		}
 		{anm "driver"
-			{forward	{begin	"board_middlearmor"} {base "open_driver"}}
-			{reverse	{end "emit_t34_hold"} {base "open_driver"}}
+			{forward 	{begin "board_body"} {end "seat_commander_hatch"} {base "open_driver"}}
+			{reverse 	{end "board_body" -1} {base "open_driver"}}
+		}
+		{anm "turret"
+			{forward 	{begin "board_body"} {end "seat_commander_hatch"} {base "open_turret"}}
+			{reverse 	{end "board_body" -1} {base "open_turret"}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_sd222_driver"} {end "seat_commander_hatch"} {base "open_back"}}
+			{reverse	{end	"board_sd222_driver" -1} {base "open_back"}}
 		}
 	}
 	
-	("crew_inside")
-	("crew_human" place(driver)		door(emit1) door2(emit2) visor(driver))
-	("crew_human" place(commander)	door(emit1) door2(emit2) visor(scout))
-	("crew_human" place(charger)	door(emit1) door2(emit2) visor(around))
+	("crew" place(driver)	bone()	door(emit1) door2(emit1)  	animation(driver) 	visor(driver))
+	("crew" place(commander) bone()	door(emit2) door2(emit2) 	animation(turret) 	visor(main))
+	("crew" place(seat1)	bone()	door(emit3) door2(emit3) 	animation(passenger) visor(none))
+	("crew" place(seat2)	bone()	door(emit3) door2(emit3) 	animation(passenger) visor(none))
 
 	{sensor
 		{visor "main"

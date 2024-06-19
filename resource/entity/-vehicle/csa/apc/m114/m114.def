@@ -15,28 +15,30 @@
 		{digit_folder "nato"}
 	}
 
-	("crew_2_human_2")
-	("gunner_visible")
+	;("crew_2_human_2")
+	;("gunner_visible")
+	
+	(include "/properties/hotmod_crew.ext")
 	
 	{boarder
-		{anm "left"
-			{forward 	{begin "board_sd232_driver"}	{end "seat_commander_hatch"} {base "open_driver"}}
-			{reverse 	{end "board_sd232_driver" -1} {base "open_driver"}}
+		{anm "driver"
+			{forward 	{begin "board_body"} {end "seat_commander_hatch"} {base "open_driver"}}
+			{reverse 	{end "board_body" -1} {base "open_driver"}}
 		}
-		{anm "right"
-			{forward 	{begin "board_sd232_driver"}	{end "seat_commander_hatch"} {base "open_turret"}}
-			{reverse 	{end "board_sd232_driver" -1} {base "open_turret"}}
+		{anm "turret"
+			{forward 	{begin "board_body"} {end "seat_commander_hatch"} {base "open_turret"}}
+			{reverse 	{end "board_body" -1} {base "open_turret"}}
 		}
 		{anm "passenger"
-			{forward	{begin	"board_body"} {end "seat_commander_hatch"} {base "open_back"}}
-			{reverse	{end	"board_body" -1} {base "open_back"}}
+			{forward	{begin	"board_sd222_driver"} {end "seat_commander_hatch"} {base "open_back"}}
+			{reverse	{end	"board_sd222_driver" -1} {base "open_back"}}
 		}
 	}
 	
-	
-	;("crew_human" place(seat1)						door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
-	;("crew_human" place(seat2)						door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
-	;("crew_human" place(seat3)						door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
+	("crew" place(driver)	bone()	door(emit1) door2(emit1)  	animation(driver) 	visor(driver))
+	("crew" place(commander) bone(gunner2)	door(emit2) door2(emit2) 	animation(turret) 	visor(main))
+	("crew" place(seat1)	bone()	door(emit3) door2(emit3) 	animation(passenger) visor(none))
+	("crew" place(seat2)	bone()	door(emit3) door2(emit3) 	animation(passenger) visor(none))
 
 	{placer
 		{place "driver"		{visor "driver"}{group "crew"}}

@@ -15,34 +15,34 @@
 	}
 
 	;("crew_3_human_3")
-
+	
 	{placer
 		{place "driver"		{visor "driver"}}
 		{place "commander"	{visor "main"}}
 		;{place "gunner4"	{visor "mgun"}{sealable}}
 	}
 	
+	(include "/properties/hotmod_crew.ext")
+	
 	{boarder
 		{anm "driver"
-			{forward 	{begin "board_sd232_driver"}	{end "seat_commander_hatch"} {base "open_driver"}}
-			{reverse 	{end "board_sd232_driver" -1} {base "open_driver"}}
+			{forward 	{begin "board_body"} {end "seat_commander_hatch"} {base "open_driver"}}
+			{reverse 	{end "board_body" -1} {base "open_driver"}}
 		}
 		{anm "turret"
-			{forward 	{begin "board_sd232_driver"}	{end "seat_commander_hatch"} {base "open_turret"}}
-			{reverse 	{end "board_sd232_driver" -1} {base "open_turret"}}
+			{forward 	{begin "board_body"} {end "seat_commander_hatch"} {base "open_turret"}}
+			{reverse 	{end "board_body" -1} {base "open_turret"}}
 		}
 		{anm "passenger"
-			{forward	{begin	"board_body"} {end "seat_commander_hatch"} {base "open_back"}}
-			{reverse	{end	"board_body" -1} {base "open_back"}}
+			{forward	{begin	"board_sd222_driver"} {end "seat_commander_hatch"} {base "open_back"}}
+			{reverse	{end	"board_sd222_driver" -1} {base "open_back"}}
 		}
 	}
 	
-	("crew_inside")
-	("crew_human" place(driver)		door(emit1) door2(emit1)  	anm_left(driver) 	anm_right(driver) visor(driver))
-	("crew_human" place(commander)	door(emit2) door2(emit3) 	anm_left(turret) 	anm_right(passenger) visor(main))
-	("crew_human" place(seat1)		door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
-	("crew_human" place(seat2)		door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
-	("crew_human" place(seat3)		door(emit3) door2(emit3) 	anm_left(passenger) anm_right(passenger) visor(none))
+	("crew" place(driver)	bone()	door(emit1) door2(emit1)  	animation(driver) 	visor(driver))
+	("crew" place(commander) bone()	door(emit2) door2(emit2) 	animation(turret) 	visor(main))
+	("crew" place(seat1)	bone()	door(emit3) door2(emit3) 	animation(passenger) visor(none))
+	("crew" place(seat2)	bone()	door(emit3) door2(emit3) 	animation(passenger) visor(none))
 
 	{sensor
 		{visor "main"
