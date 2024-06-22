@@ -1,4 +1,4 @@
-(include "/map/nikral's trigger.mi")
+(include "/map/nikral's trigger.mi")			
 			{"random_cmp_def"
 				{condition
 				}
@@ -7617,7 +7617,6 @@
 									{ignore_captured_by_user 0}
 									{group
 										{select
-											{select
 											{tag
 												{tag airstrike_ger}
 											}
@@ -7630,7 +7629,6 @@
 											{tag
 												{tag airstrike_rus}
 											}
-										}
 										}
 									}
 								}
@@ -7668,7 +7666,6 @@
 									{ignore_captured_by_user 0}
 									{group
 										{select
-											{select
 											{tag
 												{tag airstrike_ger}
 											}
@@ -7681,58 +7678,6 @@
 											{tag
 												{tag airstrike_rus}
 											}
-										}
-										}
-									}
-								}
-							}
-							{"delay"
-								{time 1}
-							}
-							{"set_i"
-								{var "dcg_on$"}
-								{op "+"}
-								{value 1}
-							}
-							{"delay"
-								{time 1}
-							}
-							{"event"
-								{event "airplane_set"}
-								{mode set}
-								{delay 0}
-							}
-						}
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "bot_army$"}
-								{op "=="}
-								{value 5}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{select
-											{tag
-												{tag airstrike_ger}
-											}
-											{tag
-												{tag airstrike_fin}
-											}
-											{tag
-												{tag airstrike_usa}
-											}
-											{tag
-												{tag airstrike_rus}
-											}
-										}
 										}
 									}
 								}
@@ -7806,18 +7751,7 @@
 									{ignore_captured_by_user 0}
 									{group
 										{select
-											{tag
-												{tag airstrike_ger}
-											}
-											{tag
-												{tag airstrike_rus}
-											}
-											{tag
-												{tag airstrike_fin}
-											}
-											{tag
-												{tag airstrike_usa}
-											}
+											
 										}
 										{include
 											{prop
@@ -7855,18 +7789,7 @@
 									{ignore_captured_by_user 0}
 									{group
 										{select
-											{tag
-												{tag airstrike_ger}
-											}
-											{tag
-												{tag airstrike_rus}
-											}
-											{tag
-												{tag airstrike_fin}
-											}
-											{tag
-												{tag airstrike_usa}
-											}
+											
 										}
 										{include
 											{prop
@@ -7904,18 +7827,7 @@
 									{ignore_captured_by_user 0}
 									{group
 										{select
-											{tag
-												{tag airstrike_ger}
-											}
-											{tag
-												{tag airstrike_rus}
-											}
-											{tag
-												{tag airstrike_fin}
-											}
-											{tag
-												{tag airstrike_usa}
-											}
+											
 										}
 										{include
 											{prop
@@ -7953,18 +7865,7 @@
 									{ignore_captured_by_user 0}
 									{group
 										{select
-											{tag
-												{tag airstrike_ger}
-											}
-											{tag
-												{tag airstrike_rus}
-											}
-											{tag
-												{tag airstrike_fin}
-											}
-											{tag
-												{tag airstrike_usa}
-											}
+											
 										}
 										{include
 											{prop
@@ -8001,18 +7902,7 @@
 									{ignore_captured_by_user 0}
 									{group
 										{select
-											{tag
-												{tag airstrike_ger}
-											}
-											{tag
-												{tag airstrike_rus}
-											}
-											{tag
-												{tag airstrike_fin}
-											}
-											{tag
-												{tag airstrike_usa}
-											}
+											
 										}
 										{include
 											{prop
@@ -8110,7 +8000,7 @@
 						{"case"
 							{condition
 								{type side}
-								{side frg}
+								{side prc}
 							}
 							{"delay"
 								{time 0.1}
@@ -8124,7 +8014,7 @@
 						{"case"
 							{condition
 								{type side}
-								{side pol}
+								{side frg}
 							}
 							{"delay"
 								{time 0.1}
@@ -8133,6 +8023,20 @@
 								{var "user_nation$"}
 								{op "="}
 								{value 4}
+							}
+						}
+						{"case"
+							{condition
+								{type side}
+								{side pol}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 5}
 							}
 						}
 						{"default"
@@ -17017,7 +16921,7 @@
 									{type human}
 									{state operatable}
 								}
-								{text "mission/multi/display_defense_csa"}
+								;{text "mission/multi/display_defense_ger"}
 							}
 						}
 						{"case"
@@ -17040,7 +16944,7 @@
 									{type human}
 									{state operatable}
 								}
-								{text "mission/multi/display_defense_prc"}
+								;{text "mission/multi/display_defense_fin"}
 							}
 						}
 						{"case"
@@ -17063,30 +16967,7 @@
 									{type human}
 									{state operatable}
 								}
-								{text "mission/multi/display_defense_frg"}
-							}
-						}
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "bot_army$"}
-								{op "=="}
-								{value 5}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"talk"
-								{selector
-									{ignore_captured_by_user 0}
-									{amount 1
-									}
-									{tag player}
-									{zone "gamezone"}
-									{type human}
-									{state operatable}
-								}
-								{text "mission/multi/display_defense_pol"}
+								;{text "mission/multi/display_defense_usa"}
 							}
 						}
 						{"default"
@@ -17103,7 +16984,7 @@
 									{type human}
 									{state operatable}
 								}
-								{text "mission/multi/display_defense_sov"}
+								;{text "mission/multi/display_defense_rus"}
 							}
 						}
 					}
