@@ -8455,7 +8455,7 @@
 									{type human}
 									{state "not dead"}
 								}
-								{text "mission/multi/enemy_plane_alert2"}
+								;{text "mission/multi/enemy_plane_alert2"}
 							}
 						}
 						{"default"
@@ -8472,7 +8472,7 @@
 									{type human}
 									{state "not dead"}
 								}
-								{text "mission/multi/enemy_plane_alert1"}
+								;{text "mission/multi/enemy_plane_alert1"}
 							}
 						}
 					}
