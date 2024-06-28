@@ -4728,6 +4728,13 @@
 	}
 }
 
+{"pt-76b_pol tank"
+	("t70_sound")
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
 {"pt-76p tank"
 	("t70_sound")
 	{on "charger_hatch_open" overload
