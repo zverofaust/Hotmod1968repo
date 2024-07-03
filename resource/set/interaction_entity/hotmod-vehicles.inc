@@ -182,6 +182,9 @@
 }
 
 {"tank with_open_zpu"
+
+
+
 	{on "cwsh_switch_hatch"
 		{if tagged "cwsh_active"
 			{tags remove "cwsh_active"}
@@ -205,6 +208,7 @@
 			{damage_report "body" "component/zpu_enabled"}
 		}
 	}
+
 	(define "check_attack_on_zpu"
 		{if not tagged "cwsh_active"
 			{if not tagged "cwsh_passive"
@@ -3735,19 +3739,6 @@
 	)
 }
 
-{"kanjpz"
-	("pz3_sound")
-	{on "commander_hatch_open" overload
-		{ani_wind "open1" end}
-	}
-	{on "commander_hatch_close" overload
-		{ani_play "open1" -1.0 resume}
-	}
-	{on fire "gun"
-		{spawn "detector"  "foresight1" x}
-	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
-}
 
 {"m47frg tank"
 	("m26_pershing_sound")

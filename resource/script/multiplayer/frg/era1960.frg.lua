@@ -46,7 +46,6 @@ Purchases["era1960.frg"] = {
 				{priority = 1.0, type = {"Tank", "Light", "Class3",}, unit = "spz_112"},
 				{priority = 1.0, type = {"Tank", "Light", "Class2",}, unit = "m41g"},
 				{priority = 1.0, type = {"Tank", "Light", "AA", "Class2",}, unit = "m42g"},
-				{priority = 1.0, type = {"Tank", "Light", "AT", "Class2",}, unit = "kanjpz"},
 
 				--{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "m47frg"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "m47g"},
