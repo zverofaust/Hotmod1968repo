@@ -1,0 +1,125 @@
+{game_entity		;SPz 12-3 Lang
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	(include "rakjpz_2.ext")
+	{props "atgm" "light" "vision_lev04" "muzzle_20mm_25mm_auto" "diesel" "smoke" "8shot" "cw_panorama"}
+	{targetclass "tank_light"}
+	{targetSelector "tank_heavy"}
+	{PatherId "t34"}
+
+	("crew_4_human")
+	;("gunner_visible")
+
+	;{extender "shield" {on}}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	{boarder
+		{anm "left"
+			{forward {begin "board_HighArmor"} {end "seat_gunner_stand"} {base "open_commander"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_driver"}}
+		}
+		{anm "right"
+			{forward {begin "board_HighArmor"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_commander"}}
+		}
+		{anm "armor"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_body"}}
+		}
+	}
+
+	;("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	;("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	;("seat_human" place(seat3) bone(seat03) door(emit3)  animation(armor))
+	;("seat_human" place(seat4) bone(seat04) door(emit4)  animation(armor1))
+	;("seat_human" place(seat5) bone(seat05) door(emit5)  animation(armor))
+	;("seat_human" place(seat6) bone(seat06) door(emit4)  animation(armor1))
+	;("seat_human" place(seat7) bone(seat07) door(emit6)  animation(armor))
+	;("seat_human" place(seat8) bone(seat08) door(emit6)  animation(armor1))
+	
+	{extender "smokescreen"
+		{cooldown 5}
+		{itemTags "grenade nbk39"}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "ammo agm22 atgm" 14}
+			{item "ammo mgun_ger belt" 2000}
+			{item "nbk39 grenade" 5}
+			{item "mg1_drum" 1}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "atgm_agm-22_x2_rakjpz2" filling "agm22 atgm" 2}
+			{gunner "gunner"}
+			{charger "charger"}
+			{barrels		2}
+			{shooter		"shooter"}
+			{foresight		"foresight"}
+			{rotate}
+			{StationaryFiring}
+			("hm68_abm_atgm")
+		}
+		{place "mgun2"		;hull
+			{type "hull"}
+			{weapon			"mg1_tank" filled}
+			{foresight		"foresight4"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+			{rotate}
+		}
+	}
+
+	{mass 14600}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
+		("mobility_tank"
+			speed(77) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(45);---------Max speed in reverse on road, km/h.
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(25.5) ;-------Weight in Tonnes.
+			power(500) ;---------Engine Power, in hp.
+			track(4) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(400) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(385) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "rakjpz_2.mdl"}
+	
+	{bone "sight_pole"			;gun horizontal
+		{speed2 24}				;degree per second
+		{limits 90 -90}
+	}
+	
+	{bone "sight"			;gun horizontal
+		{speed2 28}				;degree per second
+		{limits -10 25}
+	}
+	
+	{bone "mgun2_vrot"			;gun horizontal
+		{speed2 22}				;degree per second
+		{limits -15 15}
+	}
+	
+	{bone "mgun2_hrot"			;gun horizontal
+		{speed2 26}				;degree per second
+		{limits -15 15}
+	}
+}

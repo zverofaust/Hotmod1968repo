@@ -3749,6 +3749,40 @@
 	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
+{"rakjpz_2"
+	("pz3_sound")
+
+	{on "gunner_hatch_open"
+		{ani_play "sight_up" resume}
+		{if not tagged "reloading"
+			{ani_play "weapon_up" resume}
+		}
+	}
+	
+	{on "gunner_hatch_close"
+		{ani_play "sight_down" resume}
+		{if not tagged "reloading"
+			{ani_play "weapon_down" resume}
+		}
+	}
+	
+	{on "reload"
+		{if name "gun"
+			{tags add "reloading"}
+			;{ik_enable "sight_pole" 0}
+			{talk "reload"}
+			{delay 1
+				{ani_play "weapon_down"}
+				{delay 9
+					{tags remove "reloading"}
+					{talk "reloaded"}
+					{ani_play "weapon_up"}
+				}
+			}
+		}
+	}
+}
+
 {"m47frg tank"
 	("m26_pershing_sound")
 	{on "commander_hatch_open" overload

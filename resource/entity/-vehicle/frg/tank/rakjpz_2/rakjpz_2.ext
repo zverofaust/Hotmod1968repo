@@ -1,0 +1,61 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 20mm
+	; gun 20mm
+
+	;durability from properties/armor.ext
+	("tank_light_tier2")
+	
+	;volume, component/tag
+	
+	("tracks" repair(30) thickness(20))
+	
+	("fuel" args "fuel")
+	("ammo" args "ammo")
+
+	("shield_tear" args "shieldr1" 10)
+	("shield_tear" args "shieldr2" 10)
+	("shield_tear" args "shieldl1" 10)
+	("shield_tear" args "shieldl2" 10)
+	("shield_tear" args "shield1" 10)
+	("shield_tear" args "shield2" 10)
+	
+	("transmission" args "transmission")
+	
+	{volume "body1"	; superstructure
+		{thickness 30
+			{front 50}		
+		}
+	}
+	
+	{volume "body2"	; mid hull
+		{thickness 30
+			{front 50}		
+		}
+	}
+	
+	{volume "body3"	; engine compartment
+		{thickness 30
+			{front 0}		
+		}
+	}
+	
+	{volume "body4"	; bottom hull
+		{thickness 30
+			{top 0}
+			
+		}
+	}
+	
+	{volume "engine"	
+		{thickness 10}
+	}
+	
+	{volume "trackright"
+		{Able{holed}}
+	}
+	
+	{volume "trackleft"
+		{Able{holed}}
+	}

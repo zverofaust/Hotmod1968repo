@@ -68,6 +68,7 @@ Purchases["era1960.frg"] = {
 				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "doctrine_vehicle_m47(frg)"},
 				{priority = 1.0, type = {"Tank", "Medium", "AT", "Class2",}, unit = "doctrine_vehicle_m48a1(frg)"},
 				{priority = 1.0, type = {"Tank", "Medium", "AT", "Class2",}, unit = "doctrine_vehicle_m48a2(frg)"},
+				{priority = 1.0, type = {"Tank", "Light", "AT", "Class2",}, unit = "doctrine_vehicle_rakjpz2(frg)"},
 				{priority = 1.0, type = {"Tank", "Medium", "AT", "Class2",}, unit = "doctrine_vehicle_leopard1(frg)"},
 				
 				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier2",}, unit = "doctrine_vehicle_leopard1a1(frg)"},
