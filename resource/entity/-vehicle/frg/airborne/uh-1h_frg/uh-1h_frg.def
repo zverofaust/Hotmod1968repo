@@ -1,0 +1,174 @@
+{game_entity
+	(include "/properties/helicopter.ext")
+	(include "/properties/shadow/airborn.inc" scale(2.5))
+	(include "/properties/selection/airborne.inc" scale(2.00))
+	(include "/properties/car_crew.ext")
+	{props "helo" "-insertion"}
+	{PatherID "helicopter"}
+	{targetclass "helicopter"}
+	{targetSelector "helicopter"}
+
+	("helicopter_tier1")
+		
+	{extender "enumerator"}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse 	{end	"board_big-midcar_driver" -1} {base "doorleft" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "doorright"}}
+			{reverse 	{end	"board_big-midcar" -1} {base "doorright" -1}}
+		}
+		{anm "passenger"
+			{forward	{begin 	"board_tank"}	{end "seat_passenger"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "passenger-a"
+			{forward	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "passenger-b"
+			{forward	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "gunner1"
+			{forward	{begin	"board_SdKfz251-1"} {end "seat_passenger"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "passenger-c"
+			{forward	{end "pose_flak30_gunner"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(commander) bone(commander) door(emit2) animation(commander))
+	("crew_human" place(gunner1)	door(emit4) bone(gunner1)    animation(gunner1)	group(crew))
+	("crew_human" place(gunner2)	door(emit3) bone(gunner2)    animation(gunner1)	group(crew))
+	
+	("crew_human" place(seat1) bone(seat01) door(emit3) group(passenger) animation(passenger-a))
+	("crew_human" place(seat2) bone(seat02) door(emit4) group(passenger) animation(passenger-a))
+	("crew_human" place(seat3) bone(seat03) door(emit3) group(passenger) animation(passenger-b))
+	("crew_human" place(seat4) bone(seat04) door(emit4) group(passenger) animation(passenger-b))
+	("crew_human" place(seat5) bone(seat05) door(emit3) group(passenger) animation(passenger-a))
+	("crew_human" place(seat6) bone(seat06) door(emit4) group(passenger) animation(passenger-b))
+	("crew_human" place(seat7) bone(seat07) door(emit3) group(passenger) animation(passenger))
+	("crew_human" place(seat8) bone(seat08) door(emit3) group(passenger) animation(passenger))
+	("crew_human" place(seat9) bone(seat09) door(emit4) group(passenger) animation(passenger-c))
+	("crew_human" place(seat10) bone(seat10) door(emit3) group(passenger) animation(passenger-c))
+
+	{placer
+		{place "driver"		{group "crew"}}
+		{place "commander"	{group "crew"}}
+		{place "gunner1" {useVision} {visor "gunner1"}}
+		{place "gunner2" {useVision} {visor "gunner2"}}
+	}
+	
+	{Sensor
+		{Visor "main"
+			{bone	 "pivot_back"}
+		}
+		{Visor "gunner1"
+			{vision "vehicle_top_mgun"}
+			{bone	"visor3"}
+		}
+		{Visor "gunner2"
+			{vision "vehicle_top_mgun"}
+			{bone	"visor2"}
+		}
+	}
+
+;volume/component, thickness
+	("glass" args "window1")
+	("glass" args "window2")
+	("glass" args "window3")
+	("glass" args "window4")
+	("glass" args "window5")
+	("glass" args "window6")
+	("glass" args "window7")
+	("glass" args "window8")
+	("glass" args "window9")
+	("glass" args "window10")
+	("glass" args "window11")
+	("glass" args "window12")
+	("glass" args "window13")
+	("glass" args "window14")
+	("glass" args "window15")
+	("glass" args "window16")
+	
+	;main body parts
+	("body" args "body")
+	("body" args "body1")
+	("body" args "body2")
+	("body" args "body3")
+	("body" args "body4")
+
+	;main rotor + blades
+	("rotor" args "rotor")
+	("rotor" args "propeller")
+	("rotor" args "propeller1")
+
+	;back rotor + blades
+	("rotor_b" args "rotor_b")
+	("rotor_b" args "propeller_b")
+	("rotor_b" args "propeller_b1")
+	
+	;engines
+	("engine" args "engine")
+	
+	{Obstacle "in_air"
+        {Obb2
+            {Center 10 0}
+            {Extent 190 160}
+            {Axis -1 0}
+        }
+        {rotate}
+    }
+    {ObstacleId "helicopter" "in_air"}
+	
+	{extender "inventory"
+		{Box
+			{item "ammo m60_box" 	2000}
+		}
+	}
+
+	{Weaponry
+		{place "dummy"
+			{type			"dummy"}
+			{rotate}
+			{weapon			"dummy"}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{basic}
+		}
+		{place "mgun1"
+			{weapon 		"m60d" filled}
+			{gunner			"gunner1"}
+			{charger		"gunner1"}
+			{LinkBone		"mgun1_link"}
+			{LinkAnimation	"off"}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun2"
+			{weapon 		"m60d" filled}
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			{LinkBone		"mgun2_link"}
+			{LinkAnimation	"off"}
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 6000}
+
+	{ObstacleId "helicopter"}
+	
+	{Chassis "helicopter"
+		{Locomotion ("locomotion_transport")}
+	}
+	
+	{Extension "uh-1h_frg.mdl"}
+}
