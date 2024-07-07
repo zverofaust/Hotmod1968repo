@@ -55,8 +55,8 @@ Purchases["era1960.frg"] = {
 				{priority = 1.0, type = {"Tank", "Medium", "Class1",}, unit = "leopard_1"},
 			--SPG
 			--Air Assets
-				{priority = 0.2, type = {"Helicopter", "Sortie", "Support", "Class3",}, unit = "alouette_ii_frg_airborne"},
-				{priority = 0.2, type = {"Helicopter", "Sortie", "AT", "Class1",}, unit = "alouette_ii_ss10_frg_airborne"},
+				{priority = 0.2, type = {"Helicopter", "Sortie", "Support", "Class3",}, unit = "alouette_ii_airborne_frg"},
+				{priority = 0.2, type = {"Helicopter", "Sortie", "AT", "Class1",}, unit = "alouette_ii_ss10_airborne_frg"},
 			--Offmap Supports
 			-- Doctrine Armor = "Panzertruppe"
 			
