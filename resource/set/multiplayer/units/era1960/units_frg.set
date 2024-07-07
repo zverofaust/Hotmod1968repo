@@ -25,8 +25,8 @@
 ;|        	Default Strategic Abilities           |
 ;|________________________________________________|
 
-{"cas_uh1_frg"
-	("strategic_doctrine" side(frg) period(era1960) vehicle(uh-1b_airborne) crew(sup_pilot:2) b(strategic) cw(0) cp(0))
+{"cas_alouette_frg"
+	("strategic_doctrine" side(frg) period(era1960) vehicle(alouette_ii_frg_airborne) crew(sup_pilot:2) b(strategic) cw(0) cp(0))
 	("universal_strat" cd(300) ci(1200) cost(8))
 	{conditions ""}{action "airstrike:reconnaissance_50"} 
 }
@@ -97,6 +97,12 @@
 	("doctrine_t3" cool(120) d(era1960_frg_pzgren) cost(20))
 }
 
+; // 20 DP Alouette II with 4 x SS.10 ATGM Mount
+{"doctrine_vehicle_alouette_ss10(frg)"
+	("squad_vehicle_doctrine" side(frg) period(era1960) vehicle(alouette_ii_ss10_frg) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(180) d(era1960_frg_pzgren) cost(20))
+}
+
 ;===================================
 ;          DOCTRINE 2
 ;        Achtung Panzer
@@ -125,12 +131,18 @@
 	("doctrine_t2" cool(120) d(era1960_frg_panzer) cost(15))
 }
 
+; // 15DP Raketenjagdpanzer 2
+{"doctrine_vehicle_rakjpz2(frg)"
+	("squad_vehicle_doctrine" side(frg) period(era1960) vehicle(rakjpz_2) crew(sup_tankman:4) cw(0) cp(0))
+	("doctrine_t2" cool(120) d(era1960_frg_panzer) cost(15))
+}
+
 ; ======Tier3======
 
 ; // 20DP Leopard 1A1
 {"doctrine_vehicle_leopard1a1(frg)"
 	("squad_vehicle_doctrine" side(frg) period(era1960) vehicle(leopard_1a1) crew(sup_tankman:4) cw(0) cp(0))
-	("doctrine_t3" cool(120) d(era1960_frg_panzer) cost(20))
+	("doctrine_t3" cool(240) d(era1960_frg_panzer) cost(20))
 }
 
 ; // 20DP M110G
@@ -172,14 +184,14 @@
 
 ; // era1960_frg_artillery 155mm artillery barrage
 {"artillery_barrage_medium_frg"
-	("strategic_doctrine" side(frg) period(era1960) vehicle(155mm_m114) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("strategic_doctrine" side(frg) period(era1960) vehicle(155mm_m114g) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
 	("doctrine_t2" cool(400) d(era1960_frg_artillery) cost(12))
 	{conditions ""}{action "airstrike:flare_artillery_150"} 
 }
 
 ; // era1960_frg_artillery 203mm artillery barrage
 {"artillery_barrage_heavy_frg"
-	("strategic_doctrine" side(frg) period(era1960) vehicle(203mm_m115) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
+	("strategic_doctrine" side(frg) period(era1960) vehicle(203mm_m115g) crew(sup_guncrew:0) b(strategic) cw(0) cp(0))
 	("doctrine_t3" cool(600) d(era1960_frg_artillery) cost(16))
 	{conditions ""}{action "airstrike:flare_artillery_203"} 
 }
@@ -371,8 +383,6 @@
 
 ("vehicle_doctrine" vehicle(m42g) side(frg) name(doctrine_vehicle_m42) d(era1960_frg_panzer) period(era1960) cd(120) ci(120) g(light4) c1(sup_tankman:4) b(tanks) t(antiair))
 
-("vehicle_doctrine" vehicle(rakjpz_2) side(frg) name(doctrine_vehicle_rakjpz2) d(era1960_frg_panzer) period(era1960) cd(240) ci(120) g(light4) c1(sup_tankman:4) b(tanks) t(antiair))
-
 ("vehicle_doctrine" vehicle(m47g) side(frg) name(doctrine_vehicle_m47) d(era1960_frg_panzer) period(era1960) cd(160) ci(90) g(medium1) c1(sup_tankman:5) b(tanks) t())
 
 ("vehicle_doctrine" vehicle(m48g) side(frg) name(doctrine_vehicle_m48a1) d(era1960_frg_panzer) period(era1960) cd(200) ci(120) g(medium1) c1(sup_tankman:4) b(tanks) t())
@@ -417,6 +427,21 @@
 {"40mm_bofors_l70_frg"
 	("vehicle" period(era1960) cd(60) ci(60) t(doctrineonly cannon antiair) side(frg) crew(sup_supporter:4)  g(empl2) b(empl) cw(0) cp(8)
 	cost(300))
+}
+
+{"155mm_m114g"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(frg) crew(sup_guncrew:4) g(empl5) b(empl) cw(0) cp(8) 
+	cost(500))
+}
+
+{"155mm_m59g"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(frg) crew(sup_guncrew:6) g(empl5) b(empl) cw(0) cp(8) 
+	cost(650))
+}
+
+{"203mm_m115g"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon mortar) side(frg) crew(sup_guncrew:6) g(empl5) b(empl) cw(0) cp(8) 
+	cost(800))
 }
 
 {"m39g_ammo"
@@ -487,4 +512,22 @@
 {"leopard_1a1"
 	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly medium) side(frg) crew(sup_tankman:4) g() b(tanks) cw(0) cp(4)
 	cost(750)) 
+}
+
+{"alouette_ii_airborne_frg"
+	("vehicle"  period(era1960) cd(60) ci(120) side(frg) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6) 
+	cost(200))
+	{not_for_player_sale 1}
+}
+
+{"alouette_ii_ss10_frg"
+	("vehicle"  period(era1960) cd(300) ci(240) side(frg) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6) 
+	cost(600))
+	{not_for_player_sale 1}
+}
+
+{"alouette_ii_ss10_airborne_frg"
+	("vehicle"  period(era1960) cd(300) ci(240) side(frg) t(helicopter) g(heli) crew(sup_pilot:2) cw(0) cp(6) 
+	cost(600))
+	{not_for_player_sale 1}
 }

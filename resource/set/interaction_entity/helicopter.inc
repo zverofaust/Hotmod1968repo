@@ -157,6 +157,7 @@
 				{set "engine_on" 1}
 				{tags remove "engine_turned_off"}
 				{ani_play "engine_work" loop}
+				{ani_play "bob" loop}
 				{play_sound "engine_work" 1}
 			else
 				{chassis_work 0}
@@ -224,6 +225,7 @@
 	{on animation_end "engine_start"
 		{chassis_work 1}
 		{ani_play "engine_work" loop}
+		{ani_play "bob" loop}
 		{play_sound "engine_work" 1}
 	}
 
