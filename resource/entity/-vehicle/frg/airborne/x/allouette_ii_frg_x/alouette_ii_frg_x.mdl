@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Sat Jul  6 09:51:55 2024
+;Date:        Mon Jul  8 08:59:13 2024
 ;File:        D:\Cold War\ModelWIP\France\Alouette II\Alouette II.max
 {Skeleton
 	{bone revolute "basis"
@@ -14,66 +14,46 @@
 		{bone "heli_ani"
 			{Position 0	0	3.22264}
 			{bone "body"
+				{parameters "id=body;"}
 				{Position -34.3426	0	18.3068}
 				{VolumeView "body.ply"}
-				{bone "aileron_l"
-					{Position -73.3383	13.8278	13.7894}
-					{VolumeView "aileron_l.ply"}
-				}
-				{bone "aileron_r"
-					{Position -73.3383	-13.9706	13.7894}
-					{VolumeView "aileron_r.ply"}
-				}
-				{bone "rotor_b"
-					{Position -98.8208	4.99607	16.4184}
-					{VolumeView "rotor_b.ply"}
-					{bone "propeller_b"
-						{Position -1.35687	1.32659	12.3533}
-						{VolumeView "propeller_b.ply"}
-					}
-					{bone "propeller_b1"
-						{Position 1.34555	1.32659	-12.4188}
-						{VolumeView "propeller_b1.ply"}
-					}
-					{bone "rotor_work"
-						{Matrix34
-							1	0	0
-							0	0	-1
-							0	1	0
-							0.00906372	1.83725	0.0127106
-						}
-						{visibility 0}
-						{VolumeView "rotor_work.ply"}
-					}
-				}
 				{bone "engine"
 					{VolumeView "engine.ply"}
 				}
 				{bone "window7"
+					{parameters "id=window7;"}
 					{VolumeView "window7.ply"}
 				}
 				{bone "window1"
+					{parameters "id=window1;"}
 					{VolumeView "window1.ply"}
 				}
 				{bone "window3"
+					{parameters "id=window3;"}
 					{VolumeView "window3.ply"}
 				}
 				{bone "window5"
+					{parameters "id=window5;"}
 					{VolumeView "window5.ply"}
 				}
 				{bone "window8"
+					{parameters "id=window8;"}
 					{VolumeView "window8.ply"}
 				}
 				{bone "window2"
+					{parameters "id=window2;"}
 					{VolumeView "window2.ply"}
 				}
 				{bone "window4"
+					{parameters "id=window4;"}
 					{VolumeView "window4.ply"}
 				}
 				{bone "window6"
+					{parameters "id=window6;"}
 					{VolumeView "window6.ply"}
 				}
 				{bone "doorleft"
+					{parameters "id=body;"}
 					{Matrix34
 						0.994523	-0.00121781	0.104508
 						-0.0103172	-0.996192	0.0865726
@@ -82,6 +62,7 @@
 					}
 					{VolumeView "doorleft.ply"}
 					{bone "window10"
+						{parameters "id=window10;"}
 						{Matrix34
 							0.994523	-0.0103171	-0.104004
 							-0.00121778	-0.996192	0.087177
@@ -91,6 +72,7 @@
 						{VolumeView "window10.ply"}
 					}
 					{bone "window9"
+						{parameters "id=window9;"}
 						{Matrix34
 							0.994523	-0.0103171	-0.104004
 							-0.00121778	-0.996192	0.087177
@@ -101,6 +83,7 @@
 					}
 				}
 				{bone "doorright"
+					{parameters "id=body;"}
 					{Matrix34
 						0.994523	-0.00121781	0.104507
 						-0.00789969	0.996196	0.0867843
@@ -109,6 +92,7 @@
 					}
 					{VolumeView "doorright.ply"}
 					{bone "window11"
+						{parameters "id=window11;"}
 						{Matrix34
 							0.994523	-0.00789982	-0.104216
 							-0.00121769	0.996196	-0.0871346
@@ -118,6 +102,7 @@
 						{VolumeView "window11.ply"}
 					}
 					{bone "window12"
+						{parameters "id=window12;"}
 						{Matrix34
 							0.994523	-0.00789982	-0.104216
 							-0.00121769	0.996196	-0.0871346
@@ -162,6 +147,55 @@
 				}
 				{bone "seat03"
 					{Position 40.4158	-0.0547924	-13.1189}
+				}
+				{bone "enumerator1"
+					{Matrix34
+						-0.997564	0.0697464	0.00121736
+						0	-0.0174523	0.999848
+						0.069757	0.997412	0.0174098
+						52.2407	14.0535	-13.1427
+					}
+					{VolumeView "enumerator1.ply"}
+				}
+				{bone "enumerator2"
+					{Position 52.2407	-13.1929	-13.1427}
+					{VolumeView "enumerator2.ply"}
+				}
+				{bone "tail"
+					{parameters "id=body;"}
+					{VolumeView "tail.ply"}
+					{bone "aileron_r"
+						{parameters "id=body;"}
+						{Position -73.3383	-13.9706	13.7894}
+						{VolumeView "aileron_r.ply"}
+					}
+					{bone "aileron_l"
+						{parameters "id=body;"}
+						{Position -73.3383	13.8278	13.7894}
+						{VolumeView "aileron_l.ply"}
+					}
+					{bone "rotor_b"
+						{Position -98.8208	4.99607	16.4184}
+						{VolumeView "rotor_b.ply"}
+						{bone "propeller_b"
+							{Position -1.35687	1.32659	12.3533}
+							{VolumeView "propeller_b.ply"}
+						}
+						{bone "propeller_b1"
+							{Position 1.34555	1.32659	-12.4188}
+							{VolumeView "propeller_b1.ply"}
+						}
+						{bone "rotor_work"
+							{Matrix34
+								1	0	0
+								0	0	-1
+								0	1	0
+								0.00906372	1.83725	0.0127106
+							}
+							{visibility 0}
+							{VolumeView "rotor_work.ply"}
+						}
+					}
 				}
 			}
 		}

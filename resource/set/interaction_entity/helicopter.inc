@@ -183,6 +183,7 @@
 				{tags remove "altitude"}
 				{set "engine_on" 0}
 				{ani_stop "engine_work"}
+				{ani_stop "bob"}
 				{ani_play "engine_stop"}
 				{stop_sound "engine_work"}
 				{stop_sound "fly"}
@@ -202,6 +203,7 @@
 			{set "engine_on" 0}
 			{ani_stop "engine_start"}
 			{ani_stop "engine_work"}
+			{ani_stop "bob"}
 			{ani_play "engine_stop"}
 			{stop_sound "engine_start"}
 			{stop_sound "uh1h_engine_idle"}
