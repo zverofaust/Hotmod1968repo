@@ -100,15 +100,10 @@
 		{ColliderId		"killzone"}
 		{CollideWith	"human" "cannon" "cannon_small"}
 	}
-	{"nbczone"
-		{ColliderId		"nbczone"}
-	}
-	{"chemicalzone"
-		{ColliderId		"nbczone"}
+	{"chemicalzone" from "killzone"
 		{CollideWith	"human" "animal" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy"}
 	}
-	{"radiationzone"
-		{ColliderId		"nbczone"}
+	{"radiationzone" from "killzone"
 		{CollideWith	"human" "animal" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy"}
 	}
 	;/*=========== Stuff ===========*/
@@ -128,7 +123,7 @@
 		{ColliderId		"mine.ap"}
 	}
 	{"ammo" from "particle.big"
-		{collideWith "human" "stuff" "particle" "ammo"}
+		{collideWith "human" "stuff" "particle"}
 		{rejectColliderByVolume}
 	}
 
@@ -142,7 +137,7 @@
 	;/*=========== Vehicles ===========*/
 	{"vehicle"
 		{ColliderId		"nothing"}
-		{CollideWith	"construction" "rock" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "ammo"}
+		{CollideWith	"construction" "rock" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big"}
 		{UseRamVolume	"cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy"}
 		{NoContactWith	"particle" "particle.big" "human" "bush" "stuff" "mine.at" "mine.ap" "flame"}
 		{Blocking
@@ -237,4 +232,5 @@
 		{ColliderId		"local"}
 		{CollideWith	"local"}
 	}
+
 }
