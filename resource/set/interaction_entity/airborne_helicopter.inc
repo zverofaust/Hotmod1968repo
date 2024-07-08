@@ -1032,3 +1032,51 @@
 	}
 
 }
+
+
+
+
+{"alouette_ii_mg_frg"
+	{on "init_gun" overload
+		{add_view "flash_gun_big"			"flashbarrel00"	"shooter00"}
+		{add_view "flash_gun_big"			"flashbarrel01"	"shooter01"}
+		{add_view "flash_gun_big"			"flashbarrel02"	"shooter02"}
+		{add_view "flash_gun_big"			"flashbarrel03"	"shooter03"}
+		{add_view "shell_mgun"			"shell"			"FXshell1"}
+		{add_view "shell_mgun"			"shell"			"FXshell2"}
+		{add_view "shell_mgun"			"shell"			"FXshell3"}
+		{add_view "shell_mgun"			"shell"			"FXshell4"}
+		{call "update_gun"}
+	}
+	{on fire "mgun" overload
+		{play_sound "bkg_mg"}
+		{if  name "00"
+			{ani_wind "fire00" end}
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		}
+		{if  name "01"
+			{ani_wind "fire01" end}
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
+		{if  name "02"
+			{ani_wind "fire02" end}
+			{view start "flashbarrel02"}
+			{delay 0.2
+				{view pause "flashbarrel02"}
+			}
+		}
+		{if  name "03"
+			{ani_wind "fire03" end}
+			{view start "flashbarrel03"}
+			{delay 0.2
+				{view pause "flashbarrel03"}
+			}
+		}
+	}
+}

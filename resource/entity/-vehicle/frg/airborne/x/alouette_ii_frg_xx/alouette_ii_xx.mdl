@@ -1,0 +1,56 @@
+;Exported by: misan
+;Date:        Mon Jul  8 09:58:43 2024
+;File:        D:\Cold War\ModelWIP\France\Alouette II\Alouette II_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position -34.3426	0	21.5295}
+			{VolumeView "body.ply"}
+			{bone "rotor"
+				{Position 22.8563	0.262097	31.7554}
+				{VolumeView "rotor.ply"}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Position 53.4165	0.265188	1.78039}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body"}
+	{Position 11.4707	0.0471511	-1.17487}
+}
+{Volume "rotor"
+	{Cylinder 4.75625 24.3071}
+	{Bone "rotor"}
+	{Position -0.003479	0.0294394	-8.2361}
+}
+{Volume "strutl"
+	{Cylinder 1.04665 47.8747}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		36.3233	20.049	-20.426
+	}
+}
+{Volume "strutr"
+	{Cylinder 1.04665 47.8747}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		36.3233	-19.1283	-20.426
+	}
+}

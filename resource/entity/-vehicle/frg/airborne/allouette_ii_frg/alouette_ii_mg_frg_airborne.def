@@ -1,0 +1,146 @@
+{game_entity		;Alouette II unarmed
+	(include "/properties/airborne_helicopter.ext")
+	(include "/properties/shadow/airborn.inc" scale(2.5))
+	(include "/properties/selection/airborne.inc" scale(2.00))
+	(include "/properties/car_crew.ext")
+	{props "helo" "vision_lev02_air"}
+	{PatherID "bf109"}
+	{targetSelector "airborne_bullet"}
+
+	("helicopter_tier1")
+	
+	{extender "enumerator"}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "door_left"}}
+			{reverse 	{end	"board_big-midcar_driver" -1} {base "doorleft" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "door_right"}}
+			{reverse 	{end	"board_big-midcar" -1} {base "doorright" -1}}
+		}
+		{anm "passenger1"
+			{forward	{begin 	"board_body"}	{end "seat_passenger"} {base "door_left"}}
+			{reverse 	{end	"emit_tank_1_hold"} {base "door_left"}}
+		}
+		{anm "passenger2"
+			{forward	{begin 	"board_body"}	{end "seat_passenger"} {base "door_right"}}
+			{reverse 	{end	"emit_tank_1_hold"} {base "door_right"}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(commander) bone(commander) door(emit2) animation(commander))
+	("crew_human" place(seat1) bone(seat01) door(emit1) door2(emit2) animation(passenger1))
+	("crew_human" place(seat2) bone(seat02) door(emit1) door2(emit2) animation(passenger2))
+	("crew_human" place(seat3) bone(seat03) door(emit1) door2(emit2) animation(passenger1))
+	
+	{placer
+		{place "driver"		{group "crew"}}
+		{place "commander"	{group "crew"}}
+		{place "seat1"		{group "passenger"}}
+		{place "seat2"		{group "passenger"}}
+		{place "seat3"		{group "passenger"}}
+	}
+	
+	{Sensor
+		{Visor "main"
+			{bone	 "pivot_back"}
+		}
+	}
+	
+	;volume/component, thickness
+	("glass" args "window1")
+	("glass" args "window2")
+	("glass" args "window3")
+	("glass" args "window4")
+	("glass" args "window5")
+	("glass" args "window6")
+	("glass" args "window7")
+	("glass" args "window8")
+	("glass" args "window9")
+	("glass" args "window10")
+	("glass" args "window11")
+	("glass" args "window12")
+	
+	;main body parts
+	("body" args "body1")
+	("body" args "body2")
+	("body" args "body3")
+
+	;main rotor + blades
+	("rotor" args "rotor")
+	("rotor" args "propeller")
+	("rotor" args "propeller1")
+	("rotor" args "propeller2")
+
+	;back rotor + blades
+	("rotor_b" args "rotor_b")
+	("rotor_b" args "propeller_b")
+	("rotor_b" args "propeller_b1")
+	
+	;engines
+	("engine" args "engine")
+
+	{Obstacle "in_air"
+        {Obb2
+            {Center 10 0}
+            {Extent 190 160}
+            {Axis -1 0}
+        }
+        {rotate}
+    }
+    {ObstacleId "helicopter" "in_air"}
+	
+	{extender "inventory"
+		{box
+			{item "ammo mgun_ger belt" 2400}
+		}
+	}
+	
+	{Weaponry
+		{place "mgun"
+			{weapon "mg1_x4" filled}
+			{barrels 4}
+			{foresight "foresight4"}
+			{shooter "shooter"}
+			{charger "driver"}
+			{gunner "driver"}
+			{ai_in_manual}
+			{basic}
+			{rotate}
+		}
+	}
+
+	{mass 4309}
+	
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+	{Chassis "airborne"
+		("heli_model"
+			speed(185)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(10) ;//-----Climb rate at sea level, in m/s
+			turn(800) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(400) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(1.1) ;//---Aerodynamic efficiency rating (0-3)
+			weight(5100) ;//--------Weight in kg.
+			power(1680) ;//---------Horse Power.
+			fuel(650) ;//-----------Fuel capacity in Liters.
+			range(755) ;//----------Distance can travel with full fuel tank, in km.
+			roll_rate(25) ;//-------Roll rate, in degrees per second.
+			roll_angle(60) ;//------Maximum roll angle, in degrees.
+		)
+	}
+
+	{Extender "detail"
+		{random 0}
+	}
+
+	{Extension "alouette_ii_frg.mdl"}
+
+	;{bone "foresight1"			
+	;	{speed2 24}
+	;	{limits -10 10}
+	;}
+}
