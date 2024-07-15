@@ -9,44 +9,45 @@
 
 
 	;volume, component/tag, thickness
-
-	{Volume "body"
-		{thickness 5}
-	}
 	{Volume "body1"
 		{thickness 5}
 	}
 	{Volume "body2"
 		{thickness 5}
 	}
-	{Volume "body3"
-		{thickness 5}
-	}
+
 	{Volume "engine"
 		{thickness 15}
 	}
 	
 	;volume/component, thickness
-	("glass" args "glass_doorl1" 1)
-	("glass" args "glass_doorr1" 1)
-	("glass" args "glass_front" 1)
-	("glass" args "glass_back" 1)
+	("glass" args "glass1" 1)
+	("glass" args "glass2" 1)
+	("glass" args "glass3" 1)
+	("glass" args "glass4" 1)
+	("glass" args "glass5" 1)
 
-	("fuel" args "fuel")
+	("armor" args "bodyback" 5)
+	("armor" args "bodyback1" 5)
+	("armor" args "bodyback2" 5)
+	("armor" args "bodyback3" 5)
+	("armor" args "bodyback4" 5)
+	
+	("fuel" args "fuel1")
 	("transmission" args "transmission")
 	
 	("crew_2_human")
-	("passenger_10_human")
+	("passenger_12_human")
 
 	("board_animation"
 		place(driver)
-		board_begin(board_big-midcar_driver)
+		board_begin(board_body)
 		board_end(seat_driver_car)
 		base(doorleft)
 	)
 	("board_animation"
 		place(commander)
-		board_begin(board_big-midcar)
+		board_begin(board_body)
 		board_end(seat_passenger)
 		base(doorright)
 	)

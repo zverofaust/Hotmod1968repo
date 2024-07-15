@@ -26,7 +26,7 @@
 	{ tech "csa_artillery_1960"			requires ""							costs 3  position 1 12}
 	{ tech "csa_tanks_1960"				requires ""							costs 5  position 0 14.5}
 	{ tech "csa_afv_1960"				requires ""							costs 4  position 5.8 9.1}
-	{ tech "csa_trucks_1960"			requires ""							costs 2  position 9 10.6}
+	{ tech "csa_trucks_1960"			requires ""							costs 2  position 9 9.5}
 	{ tech "csa_heli_1960"				requires ""							costs 5  position 7 13.5}
 	
 ;// RADIO & OFFMAP SUPPORTS
@@ -179,13 +179,15 @@
 	{"m151_m40"			requires	"m151_m60"					costs 2 position 4.9 10}
 	{"uh-1h_transport_m151_m40"		requires	"uh-1h_transport_m40"	 	costs 2 position 10.5 5.4}
 	
-	{"dodge_m37"		requires	"csa_trucks_1960"			costs 0 position 10 10.6}
-	{"dodge_m37_ammo"	requires	"dodge_m37"					costs 1 position 11 10.6}
-	{"m35"				requires	"dodge_m37"					costs 2 position 10 11.5}
-	{"m35_ammo"			requires	"m35"						costs 2 position 11 11.5}
-	{"m35_arty"			requires	"m35_ammo"					costs 4 position 11 12.4}
-	;{"m35_guntruck"	requires	""							costs 2 position 6 31}
-	{"cckw353_fuel"		requires	"m35"						costs 2 position 9 11.5}
+	{"dodge_m37"		requires	"csa_trucks_1960"			costs 0 position 9 10.6}
+	{"dodge_m37_ammo"	requires	"dodge_m37"					costs 1 position 10 10.6}
+	{"m35"				requires	"dodge_m37"					costs 2 position 9 11.5}
+	{"m35_mg"			requires	"m35"						costs 2 position 8 11.5}
+	{"m35_ammo"			requires	"m35"						costs 2 position 10 11.5}
+	{"m35_arty"			requires	"m35_ammo"					costs 4 position 10 12.4}
+	{"m35_ammo_mg"		requires	"m35_ammo"					costs 2 position 11 11.5}
+	{"m35_guntruck"		requires	"m35_mg m16gmc"				costs 2 position 6.7 10.6}
+	{"m49c_fuel"		requires	"m35"						costs 3 position 8 12.4}
 	{"uh-1h_transport_supplies"		requires	"squad_aircav_recon_con(csa)"	 	costs 1 position 10.5 3.6}
 
 ;---BTRs (aka M113s)---
@@ -199,7 +201,7 @@
 	{"m114a1"				requires	"csa_acav_1960"			costs 0 position 1.1 7.8}
 	{"m114a2"				requires	"m114a1"				costs 5 position 2 7.4}
 	
-	{"m113_m40"				requires	"m113"					costs 2 position 4.9 10.8}
+	{"m113_m40"				requires	"m113"					costs 2 position 4.9 10.9}
 	{"m125"					requires	"m113"					costs 2 position 5.8 11.8}
 	{"m106"					requires	"m125"					costs 3 position 6.7 11.8}
 	

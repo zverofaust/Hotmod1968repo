@@ -2464,12 +2464,47 @@
 				}
 		)
 		{if	("fire_barrel" args 00)
+			{ani_play "fire"}
 		else ("fire_barrel" args 01)
 		else ("fire_barrel" args 02)
 		else ("fire_barrel" args 03)
 		}
-		{ani_play "recoil"}
+		;{ani_play "fire"}
 		{call "spawn_shell"}
+	}
+	
+	{on "reload"
+		{if name "mgun1"
+			{tags add "reloading"}
+			;{ik_enable "sight_pole" 0}
+			{talk "reload"}
+			{delay 1
+				{tear "piece_small_steel" bone "magazine01" copy
+					{impulse up -0.01 com}
+					{bone hide "magazine01"}
+				}
+				{tear "piece_small_steel" bone "magazine02" copy
+					{impulse up -0.01 com}
+					{bone hide "magazine02"}
+				}
+				{tear "piece_small_steel" bone "magazine03" copy
+					{impulse up -0.01 com}
+					{bone hide "magazine03"}
+				}
+				{tear "piece_small_steel" bone "magazine04" copy
+					{impulse up -0.01 com}
+					{bone hide "magazine04"}
+				}
+				{delay 10
+					{tags remove "reloading"}
+					{talk "reloaded"}
+					{bone show "magazine01"}
+					{bone show "magazine02"}
+					{bone show "magazine03"}
+					{bone show "magazine04"}
+				}
+			}
+		}
 	}
 }
 

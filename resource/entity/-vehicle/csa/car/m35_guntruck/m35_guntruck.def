@@ -9,58 +9,75 @@
 	{targetclass "cannon_zenite"}
 	{targetSelector "cannon_zenite"}
 
-	(include "crew.ext")
-
+	;(include "crew.ext")
+	
+	{boarder
+		{anm "gunner"
+			{forward {begin "board_body"} {end "pose_maxson"} {base "doorback"}}
+			{reverse {end "emit_body" 1} {base "doorback"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_body"} {end "seat_commander_hatch"} {base "doorright"}}
+			{reverse	{end	"emit_body" 1} {base "doorright" -1}}
+		}
+		{anm "driver"
+			{forward	{begin	"board_body"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse	{end	"emit_body"} {base "doorright" -1}}
+		}
+	}
+	
+	("crew_human"	place(driver)		bone(driver)	door(emit1) animation(driver)	 	group(crew))
+	("crew_human"	place(commander)	bone(commander)	door(emit2) animation(commander)	 group(crew))
+	("crew_human"	place(gunner)		bone(gunner)	door(emit3) animation(gunner)	 	group(crew))
+	
 	;volume, component/tag, thickness
 	
 	{extender "shield"
 		{on}
 	}
 	
-	{Volume "body"
-		{able {holed}}
-		{thickness 5}
-	}
 	{Volume "body1"
 		{thickness 5}
 	}
 	{Volume "body2"
 		{thickness 5}
 	}
-	{Volume "body3"
-		{thickness 5}
-	}
+
 	{Volume "engine"
 		{thickness 15}
 	}
 	
-	{volume "turret" {thickness 8}}
+	{volume "turret" {thickness 10}}
 	
 	("gun" repair(30) thickness(10))
 	("turret" repair(30))
 	
-	{volume "hole1" {able clear {hole}{touch 1}}}
-	
 	;volume/component, thickness
-	("shield_tear" args "shieldl1" 5)
-	("shield_tear" args "shieldl2" 5)
-	("shield_tear" args "shieldr1" 5)
-	("shield_tear" args "shieldr2" 5)
-	("shield_tear" args "shield1" 5)
-	("shield_tear" args "shield2" 5)
+	("shield_tear" args "shieldl1" 10)
+	("shield_tear" args "shieldl2" 10)
+	("shield_tear" args "shieldr1" 10)
+	("shield_tear" args "shieldr2" 10)
+	("shield_tear" args "shieldf" 10)
+	("shield_tear" args "shieldb" 10)
 	
-	("glass" args "glass_doorl1" 1)
-	("glass" args "glass_doorr1" 1)
-	("glass" args "glass_front" 1)
-	("glass" args "glass_back" 1)
+	("armor" args "bodyback" 5)
+	("armor" args "bodyback1" 5)
+	("armor" args "bodyback2" 5)
+	("armor" args "bodyback3" 5)
+	("armor" args "bodyback4" 5)
+	
+	("glass" args "glass1" 1)
+	("glass" args "glass2" 1)
+	("glass" args "glass3" 1)
+	("glass" args "glass4" 1)
 
-	("fuel" args "fuel")
+	("fuel" args "fuel1")
 	("transmission" args "transmission")
 
 	{extender "inventory"
 		{box
 			{clear}
-			{item "ammo hmgun_usa" 2000}
+			{item "ammo hmgun_usa" 4000}
 			{item "ammo m60_box" 4000}
 		}
 	}
@@ -68,19 +85,18 @@
 		{place "mgun1"
 			{type "aa"}
 			{weapon "browning_m2x4" filled}
-			{foresight "foresight4"}
+			{foresight "foresight"}
 			{charger "gunner"}
 			{Barrels 4}
 			("hm68_abm_spaa")
 			{basic}
 		}
 		{place "mgun2"
-			{LinkBone "mgun2"}
-			{weapon "m60d" filled}
+			{weapon "browning_m2" filled}
 			{gunner "commander"}
 			{charger "commander"}
 			;{foresight "foresight5"}
-			{LinkBone		"mgun"}
+			{LinkBone		"mgun_help"}
 			{LinkAnimation	"off"}
 			{basic}
 			{ai_in_manual}
@@ -112,10 +128,22 @@
 
 	{Extension "m35_guntruck.mdl"}
 	
-	{bone "mgun_turret"
-		{speed2 80}
+	{bone "turret"
+		{limits -125 125}
+		{speed2 28}
 	}
-	{bone "mgun_mount"
-		{speed2 50}
+	
+	{bone "gun_rot"
+		{limits -5 80}
+		{speed2 32}
+	}
+	
+	{bone "mgun_rot_h"
+		{limits -20 20}
+		{speed2 60}
+	}
+	{bone "mgun_rot"
+		{speed2 60}
+		{limits -10 25}
 	}
 }
