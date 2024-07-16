@@ -1,5 +1,5 @@
 ;Exported by: misan
-;Date:        Mon Jul 15 04:44:14 2024
+;Date:        Tue Jul 16 09:51:24 2024
 ;File:        D:\Cold War\ModelWIP\USA\M35 Truck\M35.max
 {Skeleton
 	{animation
@@ -8,6 +8,7 @@
 		{sequence "doorleft" {speed 0.15}}
 		{sequence "doorright" {speed 0.15}}
 		{sequence "doorback" {speed 0.15}}
+		{sequence "fire" {speed 0.3}}
 	}
 	{bone "basis"
 		{parameters "SteerMax=25;WheelRadius=0.58;"}
@@ -88,10 +89,6 @@
 			{bone "bodyback"
 				{parameters "id=body;"}
 				{VolumeView "bodyback.ply"}
-				;{bone "ammobox"
-				;	{Position 16.9063	9.49986	-2.32338}
-				;	{VolumeView "ammobox.ply"}
-				;}
 				{bone "detail1"
 					{parameters "id=body;"}
 					{Position -25.736	0	3.35833}
@@ -290,6 +287,14 @@
 			{bone "visor2"
 				{Position 33.6737	-8.86884	12.7715}
 			}
+			{bone "link2"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					-59.7462	0.111325	-11.0183
+				}
+			}
 		}
 		{bone "pivot_back"
 			{Position -28.5166	0	10.6923}
@@ -480,6 +485,16 @@
 		-25.8241	-0.412168	-2.76763
 	}
 }
+{Volume "cabback"
+	{Polyhedron "cabback.vol"}
+	{Bone "body"}
+	{Position 14.6955	-0.556093	-6.80768}
+}
+{Volume "cabtop"
+	{Polyhedron "cabtop.vol"}
+	{Bone "body"}
+	{Position 22.5569	-0.520734	18.3401}
+}
 {Volume "engine"
 	{Box 20.6233 16.4756 23.7341}
 	{Bone "body"}
@@ -498,6 +513,21 @@
 		0	0.9	0
 		0	0	0.9
 		5.19819	-15.2376	-14.3308
+	}
+}
+{Volume "fuel2"
+	{Polyhedron "fuel2.vol"}
+	{Bone "body"}
+	{Position -25.246	0.0824727	4.47256}
+}
+{Volume "fuel3"
+	{Box 51.8028 9.0414 80.3054}
+	{Bone "body"}
+	{Matrix34
+		0	-0.9	0
+		0	0	0.9
+		-0.9	0	0
+		-25.3393	0.058389	-0.677407
 	}
 }
 {Volume "glass1"
@@ -520,10 +550,220 @@
 		-0.242049	-0.126394	-0.0540696
 	}
 }
+{Volume "glass3"
+	{Box 15.4323 10.7925 1.61383}
+	{Bone "doorleft"}
+	{Matrix34
+		-0.897808	0.0627812	0
+		0	0	0.9
+		0.0627812	0.897808	0
+		-8.34423	0.0137868	8.03082
+	}
+}
+{Volume "glass4"
+	{Box 15.4323 10.7925 1.61383}
+	{Bone "doorright"}
+	{Matrix34
+		-0.897808	-0.0627805	0
+		0	0	0.9
+		-0.0627804	0.897808	0
+		-8.34423	-0.296537	8.55385
+	}
+}
+{Volume "glass5"
+	{Box 14.1468 5.5711 1.61383}
+	{Bone "body"}
+	{Matrix34
+		0	-0.9	0
+		0	0	0.9
+		-0.9	0	0
+		12.131	-0.345567	13.4957
+	}
+}
+{Volume "gun1"
+	{Box 2.12973 2.68349 18.4858}
+	{Bone "bodyback"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-30.5576	-8.37324	17.581
+	}
+}
+{Volume "gun2"
+	{Box 2.12973 2.68349 18.4858}
+	{Bone "bodyback"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-30.5576	10.2887	17.581
+	}
+}
+{Volume "gun3"
+	{Box 2.12973 2.68349 18.4858}
+	{Bone "bodyback"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-24.7994	-10.645	12.6665
+	}
+}
+{Volume "gun4"
+	{Box 2.12973 2.68349 18.4858}
+	{Bone "bodyback"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-24.7994	12.599	12.6665
+	}
+}
+{Volume "magazine01"
+	{Box 6.07081 10.2799 3.60201}
+	{Bone "bodyback"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-31.5829	-14.3043	18.6349
+	}
+}
+{Volume "magazine02"
+	{Box 6.07081 10.2799 3.60201}
+	{Bone "bodyback"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-31.5829	16.237	18.6349
+	}
+}
+{Volume "magazine03"
+	{Box 6.07081 10.2799 3.60201}
+	{Bone "bodyback"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-25.9586	-16.4937	13.8554
+	}
+}
+{Volume "magazine04"
+	{Box 6.07081 10.2799 3.60201}
+	{Bone "bodyback"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-25.9586	18.4436	13.8554
+	}
+}
 {Volume "ram"
 	{Polyhedron "ram.vol"}
 	{Bone "body"}
 	{Position 1.55946	0.0448109	-28.6389}
+}
+{Volume "shieldb1"
+	{Box 77.024 28.077 1.01347}
+	{Bone "bodyback"}
+	{Matrix34
+		-0.9	0	0
+		0	0	0.9
+		0	0.9	0
+		-25.8876	21.531	9.87545
+	}
+}
+{Volume "shieldb2"
+	{Box 77.024 28.077 1.01347}
+	{Bone "bodyback"}
+	{Matrix34
+		-0.9	0	0
+		0	0	0.9
+		0	0.9	0
+		-25.8876	-21.942	9.87545
+	}
+}
+{Volume "shieldb3"
+	{Box 47.549 28.01 0.989317}
+	{Bone "bodyback"}
+	{Matrix34
+		0	-0.9	0
+		0	0	0.9
+		-0.9	0	0
+		-41.9968	-0.279872	9.84604
+	}
+}
+{Volume "shieldb4"
+	{Box 47.549 28.01 0.989317}
+	{Bone "bodyback"}
+	{Matrix34
+		0	-0.9	0
+		0	0	0.9
+		-0.9	0	0
+		9.1396	-0.279872	9.84605
+	}
+}
+{Volume "shieldb5"
+	{Cylinder 11.479 43.2341}
+	{Bone "bodyback"}
+	{Matrix34
+		-0.9	0	0
+		0	0	0.9
+		0	0.9	0
+		-52.0866	1.32195	7.28794
+	}
+}
+{Volume "shieldb"
+	{Box 49.7306 12.9775 0.86769}
+	{Bone "shieldb"}
+	{Matrix34
+		0	-0.9	0
+		0	0	0.9
+		-0.9	0	0
+		-0.00315788	-0.0299515	-1.05143
+	}
+}
+{Volume "shieldf"
+	{Box 39.6593 11.2706 1.46188}
+	{Bone "windshield_frame"}
+	{Matrix34
+		0	-0.9	0
+		0	0	0.9
+		-0.9	0	0
+		32.9995	-0.0251522	13.0154
+	}
+}
+{Volume "shieldl1"
+	{Box 21.7888 29.4274 1.37745}
+	{Bone "doorleft"}
+	{Matrix34
+		-0.897808	0.062781	0
+		0	0	0.9
+		0.062781	0.897808	0
+		-10.23	1.22008	0.681156
+	}
+}
+{Volume "shieldl2"
+	{Polyhedron "shieldl2.vol"}
+	{Bone "bodyback"}
+	{Position 1.13204	23.7326	9.13369}
+}
+{Volume "shieldr1"
+	{Box 21.7888 29.4274 1.37745}
+	{Bone "doorright"}
+	{Matrix34
+		-0.897808	-0.0627807	0
+		0	0	0.9
+		-0.0627807	0.897808	0
+		-10.23	-1.22316	1.20418
+	}
+}
+{Volume "shieldr2"
+	{Polyhedron "shieldr2.vol"}
+	{Bone "bodyback"}
+	{Position 1.13204	-24.0918	9.13369}
 }
 {Volume "transmission"
 	{Cylinder 4.92098 94.8553}
@@ -535,7 +775,46 @@
 		2.2804	-0.828679	-15.7604
 	}
 }
-
+{Volume "tshield"
+	{Box 11.3722 5.85263 0.451715}
+	{Bone "bodyback"}
+	{Matrix34
+		0	1	0
+		0.469472	0	0.882948
+		0.882948	0	-0.469472
+		-32.0079	1.04481	17.6374
+	}
+}
+{Volume "turret1"
+	{Polyhedron "turret1.vol"}
+	{Bone "bodyback"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		-29.1249	0.993255	4.23938
+	}
+}
+{Volume "turret2"
+	{Cylinder 6.5606 1.95686}
+	{Bone "bodyback"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-28.4559	7.55647	14.9679
+	}
+}
+{Volume "turret3"
+	{Cylinder 6.5606 1.95686}
+	{Bone "bodyback"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-28.4559	-5.72315	14.9679
+	}
+}
 {Volume "wheelleft1"
 	{Cylinder 11.0533 5.46278}
 	{Bone "wheell1"}
