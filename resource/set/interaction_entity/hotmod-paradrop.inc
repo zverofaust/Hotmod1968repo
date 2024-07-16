@@ -35,6 +35,18 @@
 	}
 }
 
+{"flare_paradrop_m102"	
+	{on spawn
+		{add_view "smoke_flare_green" "smoke" "root"}
+		{view start "smoke"}
+		{impulse up 5 forward 3 rnd_dir 3 com}
+		{start_sound "vehicle/airborne/cargo_plane_flyby" ambient}
+		{delay 10 {spawn "paradrop_m102"}}
+		{delay 20 {view stop "smoke"}}
+		{delay 20 {delete}}
+	}
+}
+
 {"flare_paradrop_asu57"	
 	{on spawn
 		{add_view "smoke_flare_green" "smoke" "root"}
@@ -115,70 +127,3 @@
 	}
 }
 
-{"paradrop_asu57"			;// Seems redunant
-	{on spawn
-		{spawn "paradrop_asu57_dummy" random_position 1000}
-	}
-}
-
-{"paradrop_bmd1"			;// Seems redunant
-	{on spawn
-		{spawn "paradrop_bmd1_dummy" random_position 1000}
-	}
-}
-
-{"paradrop_m56"			;// Seems redunant
-	{on spawn
-		{spawn "paradrop_m56_dummy" random_position 1000}
-	}
-}
-
-{"paradrop_asu-85"			;// Seems redunant
-	{on spawn
-		{spawn "paradrop_asu-85_dummy" random_position 1000}
-	}
-}
-
-{"paradrop_m56_dummy"			;// The real deal
-	{on spawn
-		{start_sound "vehicle/airborne/cargo_plane_flyby" ambient}
-		{delay 7
-			{start_sound "vehicle/deploy/tent"}
-			{spawn "m56_para" offset -250 0 1000}
-			{hide 1}
-		}
-	}
-}
-
-{"paradrop_asu57_dummy"			;// The real deal
-	{on spawn
-		{start_sound "vehicle/airborne/cargo_plane_flyby" ambient}
-		{delay 7
-			{start_sound "vehicle/deploy/tent"}
-			{spawn "asu57_para" offset -250 0 1000}
-			{hide 1}
-		}
-	}
-}
-
-{"paradrop_asu-85_dummy"			;// The real deal
-	{on spawn
-		{start_sound "vehicle/airborne/cargo_plane_flyby" ambient}
-		{delay 7
-			{start_sound "vehicle/deploy/tent"}
-			{spawn "asu-85_para" offset -250 0 1000}
-			{hide 1}
-		}
-	}
-}
-
-{"paradrop_bmd1_dummy"			;// The real deal
-	{on spawn
-		{start_sound "vehicle/airborne/cargo_plane_flyby" ambient}
-		{delay 7
-			{start_sound "vehicle/deploy/tent"}
-			{spawn "bmd-1_para" offset -250 0 1000}
-			{hide 1}
-		}
-	}
-}

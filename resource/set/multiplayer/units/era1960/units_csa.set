@@ -221,6 +221,12 @@
 	("doctrine_t2" cool(120) d(era1960_csa_aircav) cost(8))
 }
 
+; // 10DP Airlifted M102 Howitzer
+{"doctrine_vehicle_m102_airlift(csa)"
+	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(uh-1h_transport_m102) crew1(sup_pilot:4) crew2(aircav_guncrew:4) cw(0) cp(0))
+	("doctrine_t2" cool(160) d(era1960_csa_aircav) cost(10))
+}
+
 ; // 14DP Airmobile Weapons Squad in UH-1D
 {"doctrine_squad_weapons_huey(csa)"
 	("squad_vehicle7_doctrine" side(csa) period(era1960)vehicle(uh-1h) crew1(sup_pilot:4) crew2(aircav_squadlead:1) crew3(aircav_teamlead:1) crew4(aircav_mg:2) crew5(aircav_antitank:2) crew6(aircav_mgassist:2) crew7(aircav_rifleman:2) cw(2) cp(0))
@@ -337,6 +343,13 @@
 	("doctrine_t1" cool(60) d(era1960_csa_82nd) cost(4))
 }
 
+; // 8DP Air-Dropped M102 Howitzer
+{"doctrine_paradrop_m102(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(f-105) crew(sup_pilot:0) cw(0) cp(0))
+	("doctrine_t1" cool(120) d(era1960_csa_82nd) cost(8))
+	{action "airstrike:flare_paradrop_m102"} 
+}
+
 ; // 10DP 82nd Airborne ENTAC Squad
 {"doctrine_squad_82nd_entac(csa)"
 	("squad_vehicle4_doctrine" side(csa) period(era1960) vehicle(dodge_m37) crew1(82nd_squadlead:1) crew2(82nd_teamlead:1) crew3(82nd_guncrew_entac:3) crew4(82nd_guncrew:3) cw(2) cp(0))
@@ -348,7 +361,7 @@
 ; // 8DP Air-Dropped M56 Scorpion
 {"doctrine_paradrop_m56(csa)"
 	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(f-105) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(60) d(era1960_csa_82nd) cost(8))
+	("doctrine_t2" cool(120) d(era1960_csa_82nd) cost(8))
 	{action "airstrike:flare_paradrop_m56"} 
 }
 
@@ -571,6 +584,9 @@
 
 ("vehicle_doctrine" vehicle(105mm_m101a1) side(csa) name(doctrine_vehicle_m101_artillery) d(era1960_csa_artillery) period(era1960) cd(120) ci(120) g(empl6) c1(sup_guncrew:4) b(empl) t())
 
+("vehicle_doctrine" vehicle(105mm_m102) side(csa) name(doctrine_vehicle_m102_82nd) d(era1960_csa_82nd) period(era1960) cd(120) ci(120) g(empl6) c1(82nd_guncrew:4) b(empl) t())
+("vehicle_doctrine" vehicle(105mm_m102) side(csa) name(doctrine_vehicle_m102_aircav) d(era1960_csa_aircav) period(era1960) cd(120) ci(120) g(empl6) c1(aircav_guncrew:4) b(empl) t())
+
 ("vehicle_doctrine" vehicle(155mm_m114) side(csa) name(doctrine_vehicle_m114_artillery) d(era1960_csa_artillery) period(era1960) cd(240) ci(240) g(empl6) c1(sup_guncrew:4) b(empl) t())
 
 
@@ -777,6 +793,11 @@
 {"105mm_m101a1"
 	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon) side(csa) crew(sup_supporter:4) g(empl6) b(empl) cw(0) cp(8) 
 	cost(375))
+}
+
+{"105mm_m102"
+	("vehicle" period(era1960) cd(0) ci(0) t(doctrineonly cannon) side(csa) crew(82nd_guncrew:4) g(empl6) b(empl) cw(0) cp(8) 
+	cost(400))
 }
 
 {"155mm_m114"
