@@ -1,0 +1,86 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	(include "/properties/shadow/tank.inc" scale(0.6))
+	(include "/properties/selection/cannon.inc" scale(0.7))
+	{props "aagun" "wheeled" "automatic" "vision_lev02_can" "muzzle_20mm_25mm_auto" "cannon_sandbag_small" "trailer" "trailer_light" "detect_cannon_aa" "flak" "aa_medium"}
+	{PatherID "cannon.medium"}
+	{targetclass "cannon_zenite"}
+	{targetSelector "cannon_zenite"}
+
+	("gun" repair(30) thickness(20))
+	
+	("armor_light_cannon")
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_cannon")
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "AAgun_flak37_gunner" 10}}
+		}
+		{anm "commander"
+			{forward	{end "AAgun_flak37_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "AAgun_flak37_gunner" 10}}
+		}
+		{anm "seat2"
+			{forward {end "AAgun_flak37_charger" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet23_zu23 aphe" 250}		;
+			{item "bullet23_zu23 he" 250}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{type "aa"}
+			{Barrels 2}
+			{weapon "23mm_zu-23-2" filling "bullet23_zu23 he" 250}
+			{gunner "gunner"}
+			{charger "commander"}
+			("hm68_abm_gun")
+			{basic}
+		}
+	}  		
+	{mass 950}
+	{Extension "zu-23-2_pol.mdl"}
+
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "AAgun_flak37_gunner_aim" "AAgun_flak37_charger_aim"}
+			;{fire "AAgun_flak37_gunner_fire" "AAgun_flak37_charger_fire"}
+			{reload "AAgun_flak37_gunner_reload" "AAgun_flak37_charger_reload"}
+		}
+		{move {workers "driver1" "driver2" minWorkers 2} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+		{rotate_ik_Limit 0}
+	}
+	
+	{Chassis "track"
+		("car_trace" fx("tracewheel02a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility_cannon"
+			speed(8.0) ;---------------------------------Max speed.
+			weight(950) ;-------------------------------Weight in Kilograms.
+		)
+	}
+	
+	{bone "gun_rot"
+	      {limits 65 -10}
+		  {speed2 24}
+	}
+}

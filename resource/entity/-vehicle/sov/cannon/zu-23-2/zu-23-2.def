@@ -7,36 +7,7 @@
 	{targetclass "cannon_zenite"}
 	{targetSelector "cannon_zenite"}
 
-	{Volume "gun1"
-		{thickness 8}
-	}
-	{Volume "gun2"
-		{thickness 8}
-	}
-	{Volume "gun_rot"
-		{thickness 8}
-	}
-	{Volume "gun_rot1"
-		{thickness 8}
-	}
-	{Volume "gun_rot2"
-		{thickness 8}
-	}
-	{Volume "gun_rot3"
-		{thickness 8}
-	}
-	{Volume "gun_rot4"
-		{thickness 8}
-	}
-	{Volume "gun_rot5"
-		{thickness 8}
-	}
-	{Volume "turret"
-		{thickness 8}
-	}
-	{Volume "turret3"
-		{thickness 8}
-	}
+	("gun" repair(30) thickness(20))
 	
 	("armor_light_cannon")
 
@@ -59,10 +30,10 @@
 			{forward {end "cannon_pak40_pusher_right" 10}}
 		}
 		{anm "seat1"
-			{forward {end "pose_seat_cannon_left" 10}}
+			{forward {end "AAgun_flak37_gunner" 10}}
 		}
 		{anm "seat2"
-			{forward {end "pose_seat_cannon_right" 10}}
+			{forward {end "AAgun_flak37_charger" 10}}
 		}
 	}
 
@@ -76,7 +47,7 @@
 		{place "gun"
 			{type "aa"}
 			{Barrels 2}
-			{weapon "23mm_zu-23-2" filling "bullet23_zu23 he" 200}
+			{weapon "23mm_zu-23-2" filling "bullet23_zu23 he" 250}
 			{gunner "gunner"}
 			{charger "commander"}
 			("hm68_abm_gun")
@@ -109,6 +80,7 @@
 	}
 	
 	{bone "gun_rot"
-	      {limits -65 10}
+	      {limits 65 -10}
+		  {speed2 24}
 	}
 }
