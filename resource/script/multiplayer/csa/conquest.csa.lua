@@ -86,7 +86,7 @@ Purchases["conquest.csa"] = {
 				--Infantry_Support
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "75mm_m116"},
 				--Artillery
-				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "m101a1"},
+				{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "105mm_m101a1"},
 				--{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "m114"},
 				--{priority = 0.5, type = {"Cannon", "Artillery",}, unit = "m59_longtom"},
 				--{priority = 0.1, type = {"Cannon", "Artillery",}, unit = "m115"},	
