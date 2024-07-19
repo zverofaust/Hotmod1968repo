@@ -801,6 +801,23 @@
 	}
 }
 
+;/*=========== CIVILIAN Vehicles  ===========*/
+
+
+{"rand_tex"
+	{on spawn
+		{if rand 0.2 {delay 0.1 {tex_mod "r1"}}}
+		{if rand 0.2 {delay 0.1 {tex_mod "r2"}}}
+		{if rand 0.2 {delay 0.1 {tex_mod "r3"}}}
+		{if rand 0.2 {delay 0.1 {tex_mod "r4"}}}
+		{if rand 0.2 {delay 0.1 {tex_mod "r5"}}}
+		{if rand 0.2 {delay 0.1 {tex_mod "r6"}}}		
+		{if rand 0.2 {delay 0.1 {tex_mod "r7"}}}	
+		{if rand 0.2 {delay 0.1 {tex_mod "r8"}}}
+	}
+}
+
+
 ;/*=========== SOVIET Vehicles  ===========*/
 
 {"pt-76 tank"
