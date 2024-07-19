@@ -21,7 +21,7 @@
 
 	{ tech "csa_inf_1960"				requires ""							costs 0  position 0 3}
 	{ tech "csa_aircav_1960"			requires ""							costs 5  position 5.6 3.4}
-	{ tech "csa_acav_1960"				requires ""							costs 5  position 0.2 7.8}
+	{ tech "csa_acav_1960"				requires ""							costs 5  position 1.1 7.8}
 	{ tech "csa_usmc_1960"				requires ""							costs 5  position 7 7.2}
 	{ tech "csa_artillery_1960"			requires ""							costs 3  position 1 12}
 	{ tech "csa_tanks_1960"				requires ""							costs 5  position 0 14.5}
@@ -164,11 +164,13 @@
 
 	{"75mm_m116"			requires	"csa_artillery_1960"				costs 0 position 1 13}
 	{"105mm_m101a1"			requires	"75mm_m116"							costs 2 position 2 13}
+	{"105mm_m102"			requires	"squad_aircav_fireteam_con(csa)"	costs 2 position 7.5 4.5}
+	{"uh-1h_transport_m102"	requires	"105mm_m102"								costs 6 position 8.5 4.5}
 	{"155mm_m114"			requires	"105mm_m101a1"						costs 3 position 2.9 13}
 	{"155mm_m59_longtom"	requires	"105mm_m101a1"						costs 4 position 4.7 13}
 	{"203mm_m115"			requires	"155mm_m114"						costs 4 position 3.8 13}
 	{"m-28"					requires	"155mm_m59_longtom"					costs 20 position 3 11}
-	{"mgr-3"				requires	"squad_aircav_fireteam_con(csa)"	costs 6 position 7.5 5.4}
+	{"mgr-3"				requires	"105mm_m102"						costs 4 position 7.5 5.4}
 	{"uh-1h_transport_mgr3"	requires	"mgr-3"								costs 6 position 8.5 5.4}
 	
 
@@ -193,17 +195,19 @@
 ;---BTRs (aka M113s)---
 
 	{"m16gmc"				requires	"csa_afv_1960"			costs 2 position 6.7 9.1}	
-	{"m113"					requires	"csa_afv_1960"			costs 1 position 5.8 10.9}
-	{"m113_acav"			requires	"m114a1"				costs 2 position 2 8.2}
+	{"m113"					requires	"csa_afv_1960"			costs 1 position 5.8 11.8}
+	
+	{"m114"					requires	"csa_afv_1960"			costs 1 position 5.8 10.9}
+	{"m114a1"				requires	"m114"					costs 2 position 4.9 10.9}
+	{"m114a2"				requires	"m114a1"				costs 5 position 4.0 10.9}
+	
+	{"m113_m40"				requires	"m113"					costs 2 position 4.9 11.8}
+	{"m125"					requires	"m113"					costs 2 position 5.8 12.7}
+	{"m106"					requires	"m125"					costs 3 position 6.7 12.7}
+	
+	{"m113_acav"			requires	"csa_acav_1960"			costs 2 position 2 7.8}
 	{"m113_acav_m40"		requires	"m113_acav"				costs 2 position 2 9.1}
 	{"m106_acav"			requires	"m113_acav"				costs 2 position 1.2 9.1}
-	
-	{"m114a1"				requires	"csa_acav_1960"			costs 0 position 1.1 7.8}
-	{"m114a2"				requires	"m114a1"				costs 5 position 2 7.4}
-	
-	{"m113_m40"				requires	"m113"					costs 2 position 4.9 10.9}
-	{"m125"					requires	"m113"					costs 2 position 5.8 11.8}
-	{"m106"					requires	"m125"					costs 3 position 6.7 11.8}
 	
 	{"m132_zippo"			requires	"m113_acav"				costs 3 position 3.6 9.1}
 	{"m163"					requires	"m16gmc"				costs 6 position 7.6 9.1}
