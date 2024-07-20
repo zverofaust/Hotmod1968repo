@@ -29,9 +29,9 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_moto2_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_mech_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_shock_moto_con(sov)"},
-				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_shock_mech_con(sov)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_shock_moto2_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_mg_moto_con(sov)"},
-				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_mg_mech_con(sov)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_mg_moto2_con(sov)"},
 				
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_vdv_recon_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "AT",}, unit = "squad_vdv_hunter_con(sov)"},
@@ -42,7 +42,6 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_spz_recon_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "AT",}, unit = "squad_spz_sabo_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_spz_con(sov)"},
-				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_spz_asu85_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_spz_bmd1_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_spz_scout_moto_con(sov)"},
 				
