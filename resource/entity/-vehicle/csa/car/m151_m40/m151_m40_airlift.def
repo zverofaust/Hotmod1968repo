@@ -46,13 +46,13 @@
 	("crew_human"		place(driver)		bone(driver)			door(emit1)		animation(driver) 		 	group(crew))
 	("crew_human"		place(gunner)		bone(gunner)			door(emit3)		animation(gunner)			group(crew))
 	("crew_human"		place(charger) 		bone(charger)			door(emit4)		animation(charger) 	 		group(crew))
-	("crew_human"		place(commander) 	bone(commander)			door(emit2)		animation(commander) 	 	group(passenger))
+	("crew_human"		place(commander) 	bone(commander)			door(emit2)		animation(commander) 	 	group(crew))
 	
 	{placer
-		{place "driver"		{group "crew"} {visor "driver"}}
-		{place "gunner"		{group "crew"} {visor "gunner"}}
-		{place "charger"	{group "crew"} {visor "charger"}}
-		{place "commander"	{group "passenger"} {visor "commander"}}
+		{place "driver"		{visor "driver"}}
+		{place "gunner"		{visor "gunner"} {turnoff {targetable 0}}}
+		{place "charger"	{visor "charger"}}
+		{place "commander"	{visor "commander"}}
 	}
 	
 	{sensor

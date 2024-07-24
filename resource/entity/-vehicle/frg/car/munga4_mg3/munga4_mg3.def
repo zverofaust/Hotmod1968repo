@@ -59,25 +59,26 @@
 			{forward	{begin	"board_kubel_leftpassenger"} {end "seat_driver_car"}}
 			{reverse 	{end	"board_kubel_leftpassenger" -1}}
 		}
-		{anm "commander"
-			{forward	{begin	"board_Kubel_rightpassenger"} {end "seat_passenger"}}
-			{reverse 	{end	"board_Kubel_rightpassenger" -1}}
-		}
 		{anm "gunner"
 			{forward	{begin	"board_dodge_bodyback"} {end "seat_kubel_gunner2"}}
 			{reverse	{end	"emit_tank_2_hold" -1}}
 		}
+		{anm "commander"
+			{forward	{begin	"board_Kubel_rightpassenger"} {end "seat_passenger"}}
+			{reverse 	{end	"board_Kubel_rightpassenger" -1}}
+		}
 	}
 	
 	{placer
-		{place "driver"		{group "crew"}		 {visor "driver"}}
-		{place "gunner"		{group "crew"}		 {visor "gunner"}}
-		{place "commander"	{group "passenger"}  {visor "commander"}}
+		{place "driver"		{visor "driver"}}
+		{place "gunner"		{visor "gunner"} {turnoff {targetable 0}}}
+		{place "commander"	{visor "commander"}}
 	}
 	
+	("crew_inside")
 	("crew_human"		place(driver)		bone(driver)				door(emit1)		animation(driver) 		group(crew))
 	("crew_human"		place(gunner)		bone(gunner)				door(emit3)		animation(gunner)		group(crew))
-	("crew_human"		place(commander) 	bone(commander)				door(emit2)		animation(commander) 	group(passenger))
+	("crew_human"		place(commander) 	bone(commander)				door(emit2)		animation(commander) 	group(crew))
 	
 	{sensor
 		{visor "commander"
