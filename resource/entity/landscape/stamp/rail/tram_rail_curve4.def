@@ -1,0 +1,36 @@
+{game_entity 
+	(include "/properties/railway_part.inc")
+	{props "steel"}
+	{DecalView 
+		{Sprite "tram_rail_curve4.mtl"
+			{Scale 0.15}
+		}
+		{orientation normal}
+		{layer grounddecal }
+		{UseDirection }
+	}
+	{DecalView "broken"
+		{Sprite "tram_rail_curve4_x.mtl"
+			{Scale 0.15}
+		}
+		{orientation normal}
+		{layer grounddecal }
+		{UseDirection }
+	}
+	{volume "body3"
+		{tags "body"}
+		{Box 280 140 2}
+		{bone "root"}
+		{position 0 0 5}
+		{able clear {blast}}
+	}
+	{extender "railway"
+		{LinkPoint 900 550.7}
+		{LinkPoint 700 1000}
+		{LinkPoint 1160 473.5}
+		{LinkPoint 500 300}
+		{path 0 1 2}
+		{path 0 3}
+	}
+	{lodclass "decor_decal"}
+}
