@@ -5,6 +5,9 @@
 			{spawn "ex_he_size6"}
 			{spawn "crater_massive" terrain_texmod}
 			
+		else stuff "handflammpatrone"							; 50mm WP shells
+			{spawn "ex_wp_size1"}								; initial explosion fx
+			
 		else stuff "bomb size5"								; 1000kg+ bomb
 			{start_sound "detonation/he_size5/bkg/" use_position}
 			{spawn "shockwave_sphere"}
