@@ -1,0 +1,101 @@
+;Exported by: aeste
+;Date:        Sun Jul 28 22:56:13 2024
+;File:        E:\Cold War\ModelWIP\Smallarms\Handflammpatrone\Handflammpatrone.max
+{Skeleton
+	{animation
+		{sequence "bipod_open" {speed 0.2}}
+	}
+	{bone "dm34"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "dm34.ply"}
+		{bone "trigger"
+			{Matrix34
+				0.984808	0.173648	0
+				0	0	-1
+				-0.173648	0.984808	0
+				1.13536	1.28167	0
+			}
+			{VolumeView "trigger.ply"}
+		}
+		{bone "foresight3"
+			{Matrix34
+				1	0	0
+				0	0	-1
+				0	1	0
+				10.0141	1.66151	0
+			}
+		}
+		{bone "grip"
+			{Matrix34
+				-0.224951	0.97437	0
+				0	0	-1
+				-0.97437	-0.224951	0
+				0.704735	1.74843	0
+			}
+			{VolumeView "grip.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 0.749895 10.0122}
+	{Bone "dm34"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		5.00611	1.66251	-0.00558403
+	}
+}
+{Volume "select"
+	{Box 5.5 5.5 14.4434}
+	{Bone "dm34"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		4.92623	1.2919	-0.0374132
+	}
+}
+{Extender "preview"
+	{"stuff"
+		{camera
+			{origin 6.37402	-1.4916	15.681}
+			{lookat 5.23009	-1.20332	-0.656442}
+			{fov 45}
+			{horizon 104.109}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 23.3604	-14.2285	28.7114}
+			}
+			{"1"
+				{type point}
+				{position -4.25188	-3.38528	10.3198}
+			}
+		}
+	}
+	{"stuff_primary"
+		{camera
+			{origin 6.30437	-3.16558	16.1565}
+			{lookat 5.35243	-1.07267	-0.385528}
+			{fov 45}
+			{horizon 160.324}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 26.5463	-1.65131	19.0708}
+			}
+			{"1"
+				{type point}
+				{position -0.645869	-13.5088	0.679116}
+			}
+		}
+	}
+}

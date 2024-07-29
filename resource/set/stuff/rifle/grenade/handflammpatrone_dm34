@@ -1,0 +1,28 @@
+{from "pattern rifle_grenade"
+	{tag "ap" "shoot_walking" "shoot_walking_ai" "shoot_walking_manual"}
+	{entity "handflammpatrone_dm34"}
+	{filling "ammo dm34" 1}
+	{fillingVisible "grenade"}
+	{fireSound "gun/ampulomet"}
+	{fireSoundclose "gun/ampulomet"}
+	{clickSound "empty_gun_shot"}
+	{reloadSound "flare"}
+	{calibre 40}
+	{mass 8.2}
+	
+	{inventory
+		{size 4 1}
+		{link_bone "backpacks"}
+		{handle_bone "tank_back"}	;// when weapon is shouldered (not equipped) this bone on the weapon is linked to the {link_bone} defined above
+		{weight 100}
+		{fsm "smg"}
+	}
+	
+	{ammoLocked}
+	
+	("reload time" seconds(8))
+	{gravity 0.65}
+	{speed 45}
+	
+	{range 30 35}
+}
