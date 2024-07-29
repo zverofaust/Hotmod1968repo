@@ -1,0 +1,123 @@
+;Exported by: aeste
+;Date:        Mon Jul 29 11:28:57 2024
+;File:        E:\Cold War\ModelWIP\Smallarms\Strela-2\Strela-2.max
+{Skeleton
+	{animation
+		{sequence "bipod_open" {speed 0.2}}
+	}
+	{bone "strela2"
+		{parameters "id=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{LODView
+			{VolumeView "strela2.ply"}
+			{VolumeView "strela2_lod1.ply"}
+			{VolumeView "strela2_lod2.ply"}
+		}
+		{bone "fxshot"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-18.2448	-0.00657699	1.05556
+			}
+		}
+		{bone "foresight1"
+			{Position 14.0683	-0.00657699	1.0541}
+		}
+		{bone "sight2"
+			{Matrix34
+				0	-0.707107	-0.707107
+				0	0.707107	-0.707107
+				1	0	0
+				5.98099	0.811049	1.85103
+			}
+			{LODView
+				{VolumeView "sight2.ply"}
+				{VolumeView "sight2_lod1.ply"}
+				{VolumeView "sight2_lod2.ply"}
+			}
+		}
+		{bone "sight1"
+			{Matrix34
+				0	0.707107	0.707107
+				0	0.707107	-0.707107
+				-1	0	0
+				11.1897	0.811049	1.85103
+			}
+			{LODView
+				{VolumeView "sight1.ply"}
+				{VolumeView "sight1_lod1.ply"}
+				{VolumeView "sight1_lod2.ply"}
+			}
+		}
+		{bone "rocket"
+			{Position -0.603756	0	1.0505}
+			{LODView
+				{VolumeView "rocket.ply"}
+				{VolumeView "rocket_lod1.ply"}
+				{VolumeView "rocket_lod2.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 2.22675 4.65978 32.389}
+	{Bone "strela2"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-2.09327	-0.013937	-0.124831
+	}
+}
+{Volume "select"
+	{Box 7.5 7.5 37.1257}
+	{Bone "strela2"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-2.22453	0.0203437	0.709164
+	}
+}
+{Extender "preview"
+	{"stuff"
+		{camera
+			{origin 0.16442	43.9845	0.0178442}
+			{lookat -1.80463	1.07023	0.0178452}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 3.35808	26.1022	23.1233}
+			}
+			{"1"
+				{type point}
+				{position 3.35807	-7.81793	-6.42729}
+			}
+		}
+	}
+	{"stuff_primary"
+		{camera
+			{origin -3.90869	41.0575	2.55482}
+			{lookat -2.22346	-0.0946465	0.461905}
+			{fov 45}
+			{horizon 4.98939}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position -2.75192	10.3197	12.5899}
+			}
+			{"1"
+				{type point}
+				{position 24.4402	28.7114	0.732418}
+			}
+		}
+	}
+}
