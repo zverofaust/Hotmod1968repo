@@ -19,7 +19,7 @@
 	("phrase_voice" args %0 rus 5 %1)
 	("phrase_voice" args %0 rus 6 %1)
 	("phrase_voice" args %0 rus 7 %1)
-	
+
 	("phrase_voice" args %0 ger 1 %1)
 	("phrase_voice" args %0 ger 2 %1)
 	("phrase_voice" args %0 ger 3 %1)
@@ -28,49 +28,80 @@
 	("phrase_voice" args %0 ger 6 %1)
 	("phrase_voice" args %0 ger 7 %1)
 	("phrase_voice" args %0 ger 8 %1)
-	
+
 	("phrase_voice" args %0 ger_officer 1 %1)
 	("phrase_voice" args %0 ger_medic   1 %1)
 	("phrase_voice" args %0 ger_sniper  1 %1)
-	
+
 	("phrase_voice" args %0 spa 1 %1)
-	
-	("phrase_voice" args %0 fin 1 %1)	
-	("phrase_voice" args %0 fin 2 %1)	
-	("phrase_voice" args %0 fin 3 %1)	
-	("phrase_voice" args %0 fin 4 %1)	
+
+	("phrase_voice" args %0 fin 1 %1)
+	("phrase_voice" args %0 fin 2 %1)
+	("phrase_voice" args %0 fin 3 %1)
+	("phrase_voice" args %0 fin 4 %1)
 	("phrase_voice" args %0 fin 5 %1)
-	
-	("phrase_voice" args %0 usa 1 %1)	
-	("phrase_voice" args %0 usa 2 %1)	
-	("phrase_voice" args %0 usa 3 %1)	
+
+	("phrase_voice" args %0 usa 1 %1)
+	("phrase_voice" args %0 usa 2 %1)
+	("phrase_voice" args %0 usa 3 %1)
 	("phrase_voice" args %0 usa 4 %1)
-	("phrase_voice" args %0 usa 5 %1)
-	("phrase_voice" args %0 usa 6 %1)
-	
+;	("phrase_voice" args %0 usa 5 %1)
+
+	("phrase_voice" args %0 usa_officer 1 %1)
+	("phrase_voice" args %0 usa_medic 1 %1)
+	("phrase_voice" args %0 usa_medic 2 %1)
+	("phrase_voice" args %0 usa_sniper 1 %1)
+
+;	("phrase_voice" args %0 fra 1 %1)
+
 	("phrase_voice" args %0 chi 1 %1)	
 	("phrase_voice" args %0 chi 2 %1)
 	
 	("phrase_voice" args %0 pol 1 %1)
+)
+
+(define "phrases_cannon"	; args: actor | language | voice | foldername
+	("phrase_voice" args %0 rus 1 %1)
+	("phrase_voice" args %0 rus 2 %1)
+
+	("phrase_voice" args %0 ger 1 %1)
+
+	("phrase_voice" args %0 fin 1 %1)
+	("phrase_voice" args %0 fin 2 %1)
+	("phrase_voice" args %0 fin 3 %1)
+
+	("phrase_voice" args %0 usa 1 %1)
+;	("phrase_voice" args %0 usa 2 %1)
+;	("phrase_voice" args %0 usa 3 %1)
+;	("phrase_voice" args %0 usa 4 %1)
+
+	("phrase_voice" args %0 chi 1 %1)
+	("phrase_voice" args %0 chi 2 %1)
 	
+;	("phrase_voice" args %0 fra 1 %1)
 )
 
 (define "phrases_tank"	; args: actor | language | voice | foldername
 	("phrase_voice" args %0 rus 1 %1)
-	("phrase_voice" args %0 rus 2 %1)
-	("phrase_voice" args %0 rus 3 %1)
 
 	("phrase_voice" args %0 ger 1 %1)
-	("phrase_voice" args %0 ger 2 %1)
-	("phrase_voice" args %0 ger 3 %1)
 
-	("phrase_voice" args %0 fin 1 %1)	
-	("phrase_voice" args %0 fin 2 %1)	
-	("phrase_voice" args %0 fin 5 %1)
+	("phrase_voice" args %0 fin 1 %1)
+	("phrase_voice" args %0 fin 2 %1)
+	("phrase_voice" args %0 fin 3 %1)
+
+	("phrase_voice" args %0 usa 1 %1)
+	("phrase_voice" args %0 usa 2 %1)
+	("phrase_voice" args %0 usa 3 %1)
+;	("phrase_voice" args %0 usa 4 %1)
 	
 	("phrase_voice" args %0 pol 1 %1)
 	
-	("phrase_voice" args %0 usa 1 %1)
+	("phrase_voice" args %0 chi 1 %1)
+	("phrase_voice" args %0 chi 1 %1)
+	("phrase_voice" args %0 chi 1 %1)
+	
+;	("phrase_voice" args %0 fra 1 %1)
 )
 
 (define "human_phrases"	; args: actor | foldername
@@ -78,7 +109,7 @@
 )
 
 (define "cannon_phrases"
-	("phrases" args cannon %0)
+	("phrases_cannon" args cannon %0)
 )
 
 (define "tank_phrases"
