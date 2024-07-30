@@ -1,0 +1,128 @@
+;Exported by: Caspar
+;Date:        Wed Feb  7 13:13:03 2018
+;File:        H:\!_Work\Tractor\3D\Tractor_trailer_Export.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				0	-10.017	0
+			}
+			{LODView
+				{VolumeView "body.ply"}
+				{VolumeView "body_lod1.ply"}
+				{VolumeView "body_lod2.ply"}
+			}
+			{bone "link1"
+				{Position 23.9669	-10.0282	7.37894}
+			}
+			{bone "pivot_front"
+				{Matrix34
+					-1	0	0
+					0	0	-1
+					0	-1	0
+					0	6.54977	4.84886
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Radius=0.238;"}
+					{Position -0.373314	0.0117836	0.0366821}
+					{LODView
+						{VolumeView "wheell.ply"}
+						{VolumeView "wheell_lod1.ply"}
+					}
+				}
+				{bone "fxtracel1"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.270601	4.84886	-2.74954
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Position -5.53729	-6.17589	10.7246}
+}
+{Volume "body2"
+	{Box 1.47336 1.50788 16.7762}
+	{Bone "body"}
+	{Position 0.443135	6.56057	13.4219}
+}
+{Volume "body3"
+	{Box 0.928218 1.50788 13.7565}
+	{Bone "body"}
+	{Matrix34
+		-0.34202	0	-0.939693
+		0	1	0
+		0.939693	0	-0.34202
+		18.4428	-10.027	9.40248
+	}
+}
+{Volume "body4"
+	{Box 1.72383 1.68882 12.5822}
+	{Bone "body"}
+	{Position 4.66759	-8.55055	6.81453}
+}
+{Volume "body5"
+	{Box 1.72383 1.68882 12.5822}
+	{Bone "body"}
+	{Position -4.88901	0.110126	6.81453}
+}
+{Volume "body6"
+	{Box 1.72383 1.68882 12.5822}
+	{Bone "body"}
+	{Position -14.5887	8.75571	6.81453}
+}
+{Volume "body7"
+	{Box 1.72383 15.3316 8.6817}
+	{Bone "body"}
+	{Matrix34
+		0.951861	0.25505	0.170032
+		-0.258819	0.965926	0
+		-0.164238	-0.0440076	0.985439
+		-11.97	8.08038	3.06795
+	}
+}
+{Volume "body8"
+	{Box 1.72383 15.3316 8.6817}
+	{Bone "body"}
+	{Matrix34
+		0.951861	0.25505	0.170032
+		-0.258819	0.965926	0
+		-0.164238	-0.0440076	0.985439
+		-2.27006	0.42077	3.19435
+	}
+}
+{Volume "body9"
+	{Box 1.72383 15.3316 8.6817}
+	{Bone "body"}
+	{Matrix34
+		0.951861	0.25505	0.170032
+		-0.258819	0.965926	0
+		-0.164238	-0.0440076	0.985439
+		7.06908	-8.43144	3.19435
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 5.02738 2.35587}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		0	0	-2.79708
+	}
+}

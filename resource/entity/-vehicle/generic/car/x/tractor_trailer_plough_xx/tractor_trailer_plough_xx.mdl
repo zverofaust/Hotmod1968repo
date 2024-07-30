@@ -1,0 +1,101 @@
+;Exported by: Caspar
+;Date:        Wed Feb  7 16:03:33 2018
+;File:        H:\!_Work\Tractor\3D\Tractor_trailer_Export.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body_xx"
+			{parameters "ID=body;"}
+			{Orientation
+				-1	0	0
+				0	-1	0
+				0	0	1
+			}
+			{VolumeView "body_xx.ply"}
+			{bone "wheell"
+				{parameters "ID=wheelleft;Radius=0.238;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					0.373315	16.5301	4.83707
+				}
+				{LODView
+					{VolumeView "wheell.ply"}
+					{VolumeView "wheell_lod1.ply"}
+				}
+			}
+			{bone "part1"
+				{Position 6.57036	1.23886	4.31994}
+				{VolumeView "part1.ply"}
+			}
+			{bone "part2"
+				{Position -2.96725	9.89621	4.31994}
+				{VolumeView "part2.ply"}
+			}
+			{bone "part3"
+				{Position -12.6335	18.5504	4.31994}
+				{VolumeView "part3.ply"}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Box 1.59992 1.61994 16.7031}
+	{Bone "body_xx"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0.454086	16.5793	13.4445
+	}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body_xx"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		11.8764	-5.71202	10.6859
+	}
+}
+{Volume "part1"
+	{Box 2.70699 14.172 11.0972}
+	{Bone "part1"}
+	{Matrix34
+		-0.882874	-0.32134	-0.342452
+		0.34202	-0.939693	0
+		-0.3218	-0.117125	0.939535
+		0.246792	0.0898247	-0.387373
+	}
+}
+{Volume "part2"
+	{Box 2.70699 14.172 11.0972}
+	{Bone "part2"}
+	{Matrix34
+		-0.882874	-0.32134	-0.342452
+		0.34202	-0.939693	0
+		-0.3218	-0.117125	0.939535
+		-0.154946	0.668413	-0.387373
+	}
+}
+{Volume "part3"
+	{Box 2.70699 14.172 11.0972}
+	{Bone "part3"}
+	{Matrix34
+		-0.882874	-0.32134	-0.342452
+		0.34202	-0.939693	0
+		-0.3218	-0.117125	0.939535
+		0.140083	-0.383904	-0.387373
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 5.02738 2.35587}
+	{Bone "wheell"}
+	{Position 0	0	2.79708}
+}
