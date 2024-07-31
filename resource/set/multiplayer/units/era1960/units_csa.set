@@ -217,7 +217,7 @@
 
 ; // 8DP Airlifted M151 with M40
 {"doctrine_vehicle_m151_m40(csa)"
-	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(uh-1h_transport_m151_m40) crew1(sup_pilot:4) crew2(aircav_vehicleman:3) cw(0) cp(0))
+	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(uh-1h_transport_m151_m40) crew1(sup_pilot:4) crew2(aircav_vehicleman:4) cw(0) cp(0))
 	("doctrine_t2" cool(120) d(era1960_csa_aircav) cost(8))
 }
 
@@ -493,6 +493,9 @@
 
 ; // ----- AIR CAVALRY (era1960_csa_aircav) -----
 
+("squad_vehicle_with8types_doc" side(csa) name(doctrine_squad_aircav_test) d(era1960_csa_aircav) period(era1960) scf(0.85) cd(60) ci(120) g(squad_3_mech) vehicle(ch-47_transport_squad) c1(aircav_vehicleman:4) c2(aircav_squadlead:2) c3(aircav_mg:4) c4(aircav_mgassist:4) c5(aircav_teamlead:2) c6(aircav_antitank:4) c7(aircav_atassist:4) c8(aircav_rifleman:6) b(inf1) t())
+
+
 ;//foot squads
 ("squad_with5types_doc" side(csa) name(doctrine_squad_aircav) d(era1960_csa_aircav) period(era1960) scf(1) cd(0) ci(60) g(squad_2) c1(aircav_squadlead:1) c2(aircav_lat:2) c3(aircav_teamlead:1) c4(aircav_grenadier:2) c5(aircav_rifleman:4) b(inf1) t())
 ("squad_with6types_doc" side(csa) name(doctrine_squad_aircav_weapon) d(era1960_csa_aircav) period(era1960) scf(1) cd(0) ci(60) g(squad_2) c1(aircav_squadlead:1) c2(aircav_mg:2) c3(aircav_mgassist:2) c4(aircav_teamlead:1) c5(aircav_antitank:2) c6(aircav_atassist:2) b(inf1) t())
@@ -532,6 +535,7 @@
 ("squad_with2types"		side(csa) name(single_mg)				period(era1960) cd(0)   ci(15)  g(single_mg)				c1(reg_mg:1) c2(reg_mgassist:1)					b(inf2) t())				; M60 GPMG
 ("squad_with1types" 	side(csa) name(single_lat)				period(era1960) cd(0)   ci(30)  g(single_lat)				c1(reg_lat:2) 									b(inf2) t())				; M72 LAW
 ("squad_with2types" 	side(csa) name(single_at)				period(era1960) cd(0)   ci(30)  g(single_at)				c1(reg_antitank:1) c2(reg_atassist:1)			b(inf2) t())				; M67 RCL
+("squad_with2types" 	side(csa) name(single_aa)				period(era1960) cd(300) ci(120) g(single_aa)				c1(reg_antiair:1) c2(reg_aaassist:1)			b(inf2) t(antiair))			; FIM-43 MANPAD
 ("squad_with2types" 	side(csa) name(single_sniper)			period(era1960) cd(0)   ci(60)  g(single_sniper)			c1(spec_sniper:1) c2(spec_spotter:1)			b(inf2) t(sniper))			; 
 ("squad_with1types" 	side(csa) name(single_flamer)			period(era1960) cd(0)   ci(60)  g(single_flamer)			c1(reg_flamer:1) 								b(inf2) t(flamer))			;
 ("squad_with1types" 	side(csa) name(single_medic)			period(era1960) cd(0)   ci(60)  g(single_medic)				c1(reg_medic:1) 								b(inf2) t(reg_medic))		; M2?
@@ -656,7 +660,7 @@
 }
 
 {"m151_m40"
-	("vehicle"  period(era1960) cd(30) ci(30) g(wheel3) side(csa) t(light vehicle) crew(sup_supporter:3) b(tanks) cw(0) cp(5) 
+	("vehicle"  period(era1960) cd(30) ci(30) g(wheel3) side(csa) t(light vehicle) crew(sup_supporter:4) b(tanks) cw(0) cp(5) 
 	cost(150))
 }
 
