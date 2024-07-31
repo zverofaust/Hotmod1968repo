@@ -49,35 +49,35 @@
 	}
 	
 	{on "insertion"			;// UI button to toggle insertion
-		{chassis_work 0}
+		{tags add "heli_landing"}
 		{able select 0}
-		{ani_play "lower" callback}
+		(define "eject"
+				{delay %0 %1
+					{with_linked_entity "seat%0"
+						{unlink}
+					}
+				}
+		)		
+		
+		
 	}
 	
 	{on animation_end "lower"
-		{delay 0.5
+		{delay 0.8
 			{with_linked_entity "attach"
 				{unlink}
 				{impulse up 0.1 com}
 			}
-			{delay 0.2
-				{with_linked_entity "seat01"
-					{unlink}
-				}
-				{with_linked_entity "seat02"
-					{unlink}
-				}
-				{delay 0.4
-					{with_linked_entity "seat03"
-						{unlink}
-					}
-					{with_linked_entity "seat04"
-						{unlink}
-					}
-					{ani_play "pause" callback}
-				}
+			{with_linked_entity "attach2"
+				{unlink}
+				{impulse up 0.1 com}
 			}
-		}			
+			{with_linked_entity "attach3"
+				{unlink}
+				{impulse up 0.1 com}
+			}
+			{ani_play "pause" callback}
+		}
 	}
 	
 	{on animation_end "pause"

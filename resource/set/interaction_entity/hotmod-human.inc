@@ -273,4 +273,35 @@
 		{call "die"}
 		{tags add "no_revive"}
 	}
+	
+	{on board out 					;// exiting a vehicle
+		{if linked "airborne"
+			{delay 0.01
+				{call "eject"}
+				{volumes disable contact}			;// stops humans from "colliding" with plane when ejecting.
+				{volumes enable bullet}
+				{delay 1 {volumes enable contact blast}}
+			}
+		}
+		{if linked "helicopter"
+			{delay 0.01
+				{call "eject"}
+				{volumes disable contact}			;// stops humans from "colliding" with plane when ejecting.
+				{volumes enable bullet}
+				{delay 1 {volumes enable contact blast}}
+			}
+		}
+		{if linked "parachute_attach"
+			{set "not_knocked" 1}			;// helps stops {knock_down} call when thrown off from plane
+			{delay 0
+				{physics_work 1}
+				{if tagged "die_parachute"
+					{throw_off up 0.5 0.2 forward 1 0.5 die force}
+				else
+					{throw_off up 0.5 0.2 forward 1 0.5}
+				}
+			}
+		}
+	}
+	
 }

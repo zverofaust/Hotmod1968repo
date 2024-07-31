@@ -29,4 +29,7 @@
 		}
 	}
 }
+
+("flash_fx" tag(grenadelauncher)		flash(flash_shotgun)	foresight(4))
+
 ;///////

@@ -1,4 +1,5 @@
 (include "/map/nikral's trigger.mi")
+(include "/map/hotmod_triggers.mi")
 			{"parachute"
 				{condition
 					{terms

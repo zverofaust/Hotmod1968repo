@@ -1,0 +1,272 @@
+;=============================================
+;
+;           Attempt to Create Script for Gas Masks
+;
+;=============================================
+
+(define "group_nbc"
+	{group	
+		{include
+			{prop
+				{prop human}
+			}
+			{with_item
+				{type existance}
+				{item "sov_gasmask_gp5"}
+			}
+		}
+	}
+)
+
+(define "group_no_nbc"
+	{group
+		{include
+			{tag
+				{tag nbc}
+			}
+		}
+		{exclude
+			{with_item
+				{type existance}
+				{item "sov_gasmask_gp5"}
+			}
+		}
+	}
+)
+
+{"has nbc protection"
+	{condition
+		{terms
+			{"1.entities"
+				{selector
+					{source advanced}
+					{ignore_captured_by_user 0}
+					("group_nbc")
+				}
+			}
+		}
+	}
+	{actions
+		{"entity_state"
+			{selector
+				{source advanced}
+				{ignore_captured_by_user 0}
+				("group_nbc")
+			}
+			{tag_add nbc}
+		}
+		{"delay"
+			{time 0.5}
+		}
+		{"trigger"
+			{name "has nbc protection"}
+		}
+	}
+}
+
+{"has no nbc protection"
+	{condition
+		{terms
+			{"1.entities"
+				{selector
+					{source advanced}
+					{ignore_captured_by_user 0}
+					("group_no_nbc")
+				}
+			}
+		}
+	}
+	{actions
+		{"entity_state"
+			{selector
+				{source advanced}
+				{ignore_captured_by_user 0}
+				("group_no_nbc")
+			}
+			{tag_remove nbc}
+		}
+		{"delay"
+			{time 0.5}
+		}
+		{"trigger"
+			{name "has no nbc protection"}
+		}
+	}
+}
+
+;=============================================
+;
+;           Helicopter Behaviour
+;
+;=============================================
+
+{"heli_landing"
+	{condition
+		{terms
+			{"1.entities"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag heli_landing}
+					{state operatable}
+				}
+			}
+		}
+	}
+	{actions
+		{"air_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_landing}
+				{amount 1}
+			}
+			{drop orders}
+			{ground}
+			{stop_engine 0}
+		}
+		{"delay"
+			{time 5}
+		}
+		{"entity_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_landing}
+				{amount 1}
+			}
+			{tag_remove heli_landing}
+			{tag_add heli_unloading}
+		}
+	}
+} 
+
+{"heli_unloading"
+	{condition
+		{terms
+			{"1.entities"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag heli_unloading}
+					{state operatable}
+				}
+			}
+		}
+	}
+	{actions
+		{"emit"
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_unloading}
+				{amount 1}
+			}
+			{drop orders}
+			{emit
+				{mode passengers}
+			}
+		}
+		{"delay"
+			{time 15}
+		}
+		{"entity_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_unloading}
+				{amount 1}
+			}
+			{tag_remove heli_unloading}
+			{tag_add heli_leaving}
+		}
+		{"trigger"
+			{name "heli_unloading"}
+		}
+	}
+} 
+
+{"heli_leaving"
+	{condition
+		{terms
+			{"1.entities"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag heli_leaving}
+					{state operatable}
+				}
+			}
+		}
+	}
+	{actions
+		{"entity_state"  ; Added this
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_leaving}
+				{amount 1}
+			}
+			{tag_add heli_leaving_assigning}
+		}
+		{"air_state"
+			{selector
+				{ignore_captured_by_user 0}
+				;{tag heli_leaving}
+				{tag heli_leaving_assigning}
+				;{amount 1}
+			}
+			{drop orders}
+			{altitude 25}
+		}
+		{"actor_to_waypoint"
+			{selector
+				{ignore_captured_by_user 0}
+				;{tag heli_leaving}
+				{tag heli_leaving_assigning}
+				;{amount 1}
+			}
+			{waypoint "9999"}
+		}
+		{"delay"
+			;{time 30}
+			{time 0.1}
+		}
+		{"entity_state"
+			{selector
+				{ignore_captured_by_user 0}
+				;{tag heli_leaving}
+				{tag heli_leaving_assigning}
+				;{amount 1}
+			}
+			{tag_remove heli_leaving}
+		}
+		{"entity_state"  ;Added this
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_leaving_assigning}
+			}
+			{tag_remove heli_leaving_assigning}
+		}
+		{"trigger"
+			{name "heli_leaving"}
+		}
+	}
+} 
+
+
+
+; {"heli_left"  ; Don't need this
+; 	{condition
+; 		{terms
+; 			{"1.entities"
+; 				{selector
+; 					{ignore_captured_by_user 0}
+; 					{tag heli_left} 
+; 					{state operatable}
+; 				}
+; 			}
+; 		}
+; 	}
+; 	{actions
+; 		{"delete"
+; 			{selector
+; 				{ignore_captured_by_user 0}
+; 				{tag heli_left}
+; 				{amount 1}
+; 			}
+; 		}
+; 	}
+; } 
