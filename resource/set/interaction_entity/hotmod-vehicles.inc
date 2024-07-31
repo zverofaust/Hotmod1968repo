@@ -3,7 +3,7 @@
 	{on spawn
 		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
 	}
-	
+
 	{on contact
 		{if effector "chemicalzone"
 			{if not tagged "nbc_protection"
@@ -54,16 +54,16 @@
 	{set "burn_fire" 0}
 	{able "burning" 0}
 
-	
+
 	{delay 20
-		
+
 			{tags remove "antifire_work"}
 			{burn stop_retry}
 	}
 
 
     }
-  
+
 
 }
 
@@ -718,20 +718,34 @@
 		{call "update_mg_turret"}
 	}
 	{on break
+	   {if component "turret_mg"
 		{if not tagged "exploded"
+			{call "kill_commander"}
 			{call "update_mg_turret"}
 			{damage_report "turret" "component/turret_broken"}
+		}
 		}
 	}
 	{on "update_mg_turret"
 		{if work "turret_mg"
 			{if work "body"
 				{ik_enable "turret_mg" 1}
+				{weapon_work "mgun"  1}
 			 else
 				{ik_enable "turret_mg" 0}
+				{weapon_work "mgun"  0}
+
+				{delay 0.1
+				   {call "cw_panorama_off"}
+				}
 			}
 		else
 			{ik_enable "turret_mg" 0}
+			{weapon_work "mgun"  0}
+
+			{delay 0.1
+				   {call "cw_panorama_off"}
+				}
 		}
 	}
 	{on repair
@@ -811,8 +825,8 @@
 		{if rand 0.2 {delay 0.1 {tex_mod "r3"}}}
 		{if rand 0.2 {delay 0.1 {tex_mod "r4"}}}
 		{if rand 0.2 {delay 0.1 {tex_mod "r5"}}}
-		{if rand 0.2 {delay 0.1 {tex_mod "r6"}}}		
-		{if rand 0.2 {delay 0.1 {tex_mod "r7"}}}	
+		{if rand 0.2 {delay 0.1 {tex_mod "r6"}}}
+		{if rand 0.2 {delay 0.1 {tex_mod "r7"}}}
 		{if rand 0.2 {delay 0.1 {tex_mod "r8"}}}
 	}
 }
@@ -954,19 +968,19 @@
 
 {"zsu-23-4 tank"
 	("t70_sound")
-	
+
 	{on "gunner_hatch_open"
 		{if not tagged "sight_open"
 			{ani_play "sight_cover" +1.0 resume}
 			{tags add "sight_open"}
 		}
 	}
-	
+
 	{on "gunner_hatch_close"
 		{ani_play "sight_cover" -1.0 resume}
 		{tags remove "sight_open"}
 	}
-	
+
 	{on "commander_hatch_open"
 		{if not tagged "radar_up"
 			{ani_play "radar_up" +1.0 resume}
@@ -980,15 +994,15 @@
 			}
 		}
 	}
-	
+
 	{on "commander_hatch_close"
-		
+
 		{ani_play "radar_up" -1.0 resume}
 		{delay 3
 			{ani_stop "radar_spin"}
 		}
 	}
-	
+
 	{on "init_gun" overload
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
@@ -1035,19 +1049,19 @@
 
 {"zsu-23-4b tank"
 	("t70_sound")
-	
+
 	{on "gunner_hatch_open"
 		{if not tagged "sight_open"
 			{ani_play "sight_cover" +1.0 resume}
 			{tags add "sight_open"}
 		}
 	}
-	
+
 	{on "gunner_hatch_close"
 		{ani_play "sight_cover" -1.0 resume}
 		{tags remove "sight_open"}
 	}
-	
+
 	{on "commander_hatch_open"
 		{if not tagged "radar_up"
 			{ani_play "radar_up" +1.0 resume}
@@ -1061,15 +1075,15 @@
 			}
 		}
 	}
-	
+
 	{on "commander_hatch_close"
-		
+
 		{ani_play "radar_up" -1.0 resume}
 		{delay 3
 			{ani_stop "radar_spin"}
 		}
 	}
-	
+
 	{on "init_gun" overload
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
@@ -1116,19 +1130,19 @@
 
 {"zsu-23-4m tank"
 	("t70_sound")
-	
+
 	{on "gunner_hatch_open"
 		{if not tagged "sight_open"
 			{ani_play "sight_cover" +1.0 resume}
 			{tags add "sight_open"}
 		}
 	}
-	
+
 	{on "gunner_hatch_close"
 		{ani_play "sight_cover" -1.0 resume}
 		{tags remove "sight_open"}
 	}
-	
+
 	{on "commander_hatch_open"
 		{if not tagged "radar_up"
 			{ani_play "radar_up" +1.0 resume}
@@ -1142,15 +1156,15 @@
 			}
 		}
 	}
-	
+
 	{on "commander_hatch_close"
-		
+
 		{ani_play "radar_up" -1.0 resume}
 		{delay 3
 			{ani_stop "radar_spin"}
 		}
 	}
-	
+
 	{on "init_gun" overload
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
@@ -1740,7 +1754,7 @@
 
 {"t-64_obj432 tank"
 	("kv_sound")
-	
+
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 		{delay 1.2
@@ -2489,7 +2503,7 @@
 		;{ani_play "fire"}
 		{call "spawn_shell"}
 	}
-	
+
 	{on "reload"
 		{if name "mgun1"
 			{tags add "reloading"}
@@ -3020,7 +3034,7 @@
 
 {"m113_acav_m40 tank"
 	("m5a1_stuart_sound")
-	
+
 	{on "commander_hatch_open" overload
 		{ani_play "open_turret" resume}
 	}
@@ -3063,7 +3077,7 @@
 }
 {"m113_m40 tank"
 	("m5a1_stuart_sound")
-	
+
 	{on "commander_hatch_open" overload
 		{ani_play "open_turret" resume}
 	}
@@ -3707,7 +3721,7 @@
 
 {"spz_513"
 	("pz2_sound")
-	
+
 	{on "commander_hatch_open" overload
 		{ani_play "open_back" resume}
 	}
@@ -3718,11 +3732,11 @@
 	{on "gunner3_hatch_open" overload
 		{ani_play "open_back" resume}
 	}
-	
+
 	{on "gunner3_hatch_close" overload
 		{ani_play "open_back" -1.0 resume}
 	}
-	
+
 	{on "charger_hatch_open" overload
 		{if crew_in_place "gunner3"
 			{ani_play "open_back" resume}
@@ -3730,7 +3744,7 @@
 			{ani_play "open_back" resume}
 		}
 	}
-	
+
 	{on "charger_hatch_close" overload
 		{if crew_in_place "gunner3"
 			;nothing
@@ -3748,7 +3762,7 @@
 
 {"spz_523"
 	("pz2_sound")
-	
+
 	{on "commander_hatch_open" overload
 		{ani_play "open_back" resume}
 	}
@@ -3759,11 +3773,11 @@
 	{on "gunner3_hatch_open" overload
 		{ani_play "open_back" resume}
 	}
-	
+
 	{on "gunner3_hatch_close" overload
 		{ani_play "open_back" -1.0 resume}
 	}
-	
+
 	{on "charger_hatch_open" overload
 		{if crew_in_place "gunner3"
 			{ani_play "open_back" resume}
@@ -3771,7 +3785,7 @@
 			{ani_play "open_back" resume}
 		}
 	}
-	
+
 	{on "charger_hatch_close" overload
 		{if crew_in_place "gunner3"
 			;nothing
@@ -3810,14 +3824,14 @@
 			{ani_play "weapon_up" resume}
 		}
 	}
-	
+
 	{on "gunner_hatch_close"
 		{ani_play "sight_down" resume}
 		{if not tagged "reloading"
 			{ani_play "weapon_down" resume}
 		}
 	}
-	
+
 	{on "reload"
 		{if name "gun"
 			{tags add "reloading"}
@@ -5045,19 +5059,19 @@
 
 {"zsu-23-4_pol tank"
 	("t70_sound")
-	
+
 	{on "gunner_hatch_open"
 		{if not tagged "sight_open"
 			{ani_play "sight_cover" +1.0 resume}
 			{tags add "sight_open"}
 		}
 	}
-	
+
 	{on "gunner_hatch_close"
 		{ani_play "sight_cover" -1.0 resume}
 		{tags remove "sight_open"}
 	}
-	
+
 	{on "commander_hatch_open"
 		{if not tagged "radar_up"
 			{ani_play "radar_up" +1.0 resume}
@@ -5071,15 +5085,15 @@
 			}
 		}
 	}
-	
+
 	{on "commander_hatch_close"
-		
+
 		{ani_play "radar_up" -1.0 resume}
 		{delay 3
 			{ani_stop "radar_spin"}
 		}
 	}
-	
+
 	{on "init_gun" overload
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
 		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
