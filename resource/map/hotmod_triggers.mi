@@ -96,11 +96,12 @@
 
 ;=============================================
 ;
-;           Helicopter Behaviour
+;           Helicopter Behaviour:
+;				Passengers
 ;
 ;=============================================
 
-{"heli_landing"
+{"heli_transport/heli_landing"
 	{condition
 		{terms
 			{"1.entities"
@@ -108,37 +109,38 @@
 					{ignore_captured_by_user 0}
 					{tag heli_landing}
 					{state operatable}
+					{amount 1}
 				}
 			}
 		}
 	}
 	{actions
+		{"trigger"
+			{name "heli_transport/heli_landing"}
+		}
 		{"air_state"
 			{selector
 				{ignore_captured_by_user 0}
-				{tag heli_landing}
 				{amount 1}
+				{tag heli_landing}
 			}
 			{drop orders}
 			{ground}
 			{stop_engine 0}
 		}
-		{"delay"
-			{time 5}
-		}
 		{"entity_state"
 			{selector
 				{ignore_captured_by_user 0}
-				{tag heli_landing}
 				{amount 1}
+				{tag heli_landing}
 			}
-			{tag_remove heli_landing}
 			{tag_add heli_unloading}
+			{tag_remove heli_landing}
 		}
 	}
 } 
 
-{"heli_unloading"
+{"heli_transport/heli_unloading"
 	{condition
 		{terms
 			{"1.entities"
@@ -151,13 +153,36 @@
 		}
 	}
 	{actions
-		{"emit"
+		{"trigger"
+			{name "heli_transport/heli_unloading"}
+		}
+		{"entity_state"
 			{selector
 				{ignore_captured_by_user 0}
 				{tag heli_unloading}
 				{amount 1}
 			}
-			{drop orders}
+			{tag_remove heli_unloading}
+			{tag_add heli_unloading_assigning}
+		}
+		{"delay"
+			{time 5}
+		}
+		{"entity_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_unloading_assigning}
+				{amount 1}
+			}
+			{tag_remove heli_unloading_assigning}
+			{tag_add heli_unloading_working}
+		}
+		{"emit"
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_unloading_working}
+				{amount 1}
+			}
 			{emit
 				{mode passengers}
 			}
@@ -168,19 +193,16 @@
 		{"entity_state"
 			{selector
 				{ignore_captured_by_user 0}
-				{tag heli_unloading}
+				{tag heli_unloading_working}
 				{amount 1}
 			}
-			{tag_remove heli_unloading}
+			{tag_remove heli_unloading_working}
 			{tag_add heli_leaving}
-		}
-		{"trigger"
-			{name "heli_unloading"}
 		}
 	}
 } 
 
-{"heli_leaving"
+{"heli_transport/heli_leaving"
 	{condition
 		{terms
 			{"1.entities"
@@ -193,80 +215,168 @@
 		}
 	}
 	{actions
+		{"trigger"
+			{name "heli_transport/heli_leaving"}
+		}
 		{"entity_state"  ; Added this
 			{selector
 				{ignore_captured_by_user 0}
 				{tag heli_leaving}
 				{amount 1}
 			}
+			{tag_remove heli_leaving}
 			{tag_add heli_leaving_assigning}
+		}
+		{"delay"
+			{time 0.1}
 		}
 		{"air_state"
 			{selector
 				{ignore_captured_by_user 0}
-				;{tag heli_leaving}
 				{tag heli_leaving_assigning}
-				;{amount 1}
+				{amount 1}
 			}
-			{drop orders}
 			{altitude 25}
 		}
 		{"actor_to_waypoint"
 			{selector
 				{ignore_captured_by_user 0}
-				;{tag heli_leaving}
 				{tag heli_leaving_assigning}
-				;{amount 1}
 			}
-			{waypoint "9999"}
+			{waypoint "0"}
 		}
-		{"delay"
-			;{time 30}
-			{time 0.1}
+		{"entity_state"  ; Added this
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_leaving_assigning}
+				{amount 1}
+			}
+			{tag_remove heli_leaving_assigning}
+		}
+	}
+}
+
+
+;=============================================
+;
+;           Helicopter Behaviour:
+;				Underslinging
+;
+;=============================================
+
+
+{"heli_transport/heli_lowering"
+	{condition
+		{terms
+			{"1.entities"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag heli_lowering}
+					{state operatable}
+					{amount 1}
+				}
+			}
+		}
+	}
+	{actions
+		{"trigger"
+			{name "heli_transport/heli_lowering"}
+		}
+		{"air_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{amount 1}
+				{tag heli_lowering}
+			}
+			{drop orders}
+			{altitude 10}
 		}
 		{"entity_state"
 			{selector
 				{ignore_captured_by_user 0}
-				;{tag heli_leaving}
-				{tag heli_leaving_assigning}
-				;{amount 1}
+				{amount 1}
+				{tag heli_lowering}
 			}
-			{tag_remove heli_leaving}
-		}
-		{"entity_state"  ;Added this
-			{selector
-				{ignore_captured_by_user 0}
-				{tag heli_leaving_assigning}
-			}
-			{tag_remove heli_leaving_assigning}
-		}
-		{"trigger"
-			{name "heli_leaving"}
+			{tag_add heli_unslinging}
+			{tag_remove heli_lowering}
 		}
 	}
 } 
 
-
-
-; {"heli_left"  ; Don't need this
-; 	{condition
-; 		{terms
-; 			{"1.entities"
-; 				{selector
-; 					{ignore_captured_by_user 0}
-; 					{tag heli_left} 
-; 					{state operatable}
-; 				}
-; 			}
-; 		}
-; 	}
-; 	{actions
-; 		{"delete"
-; 			{selector
-; 				{ignore_captured_by_user 0}
-; 				{tag heli_left}
-; 				{amount 1}
-; 			}
-; 		}
-; 	}
-; } 
+{"heli_transport/heli_unslinging"
+	{condition
+		{terms
+			{"1.entities"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag heli_unslinging}
+					{state operatable}
+				}
+			}
+		}
+	}
+	{actions
+		{"trigger"
+			{name "heli_transport/heli_unslinging"}
+		}
+		{"entity_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_unslinging}
+				{amount 1}
+			}
+			{tag_remove heli_unslinging}
+			{tag_add heli_unslinging_assigning}
+		}
+		{"delay"
+			{time 1}
+		}
+		{"entity_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_unslinging_assigning}
+				{amount 1}
+			}
+			{tag_remove heli_unslinging_assigning}
+			{tag_add heli_unslinging_working}
+		}
+		{"delay"
+			{time 5}
+		}
+		{"air_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{amount 1}
+				{tag heli_unslinging_working}
+			}
+			{drop orders}
+			{ground}
+			{stop_engine 0}
+		}
+		{"delay"
+			{time 5}
+		}
+		{"emit"
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_unslinging_working}
+				{amount 1}
+			}
+			{emit
+				{mode passengers}
+			}
+		}
+		{"delay"
+			{time 5}
+		}
+		{"entity_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{tag heli_unslinging_working}
+				{amount 1}
+			}
+			{tag_remove heli_unslinging_working}
+			{tag_add heli_leaving}
+		}
+	}
+} 

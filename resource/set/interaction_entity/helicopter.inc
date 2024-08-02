@@ -48,20 +48,6 @@
 		}
 	}
 	
-	{on "insertion"			;// UI button to toggle insertion
-		{tags add "heli_landing"}
-		{able select 0}
-		(define "eject"
-				{delay %0 %1
-					{with_linked_entity "seat%0"
-						{unlink}
-					}
-				}
-		)		
-		
-		
-	}
-	
 	{on animation_end "lower"
 		{delay 0.8
 			{with_linked_entity "attach"
@@ -506,6 +492,31 @@
 		{start_sound "vehicle/airborne/air_attack" ambient}
 	}
 }
+
+(define "helicopter_type"
+	{"helicopter %prop"
+		{on "insertion"			;// UI button to toggle insertion
+			{tags add "%tag"}
+			{able select 0}
+			{delay 5
+				{with_linked_entity "attach"
+					{unlink}
+					{impulse up 0.1 com}
+				}
+			}
+		}
+	}
+)
+
+
+	
+("helicopter_type" 	prop(heli_passenger_light)				tag(heli_landing))
+("helicopter_type" 	prop(heli_passenger_heavy)				tag(heli_landing))
+
+("helicopter_type" 	prop(heli_sling_light)					tag(heli_lowering))
+("helicopter_type" 	prop(heli_sling_heavy)					tag(heli_lowering))
+
+
 
 {"helicopter no_explosion"
 	{on ground_hit sync

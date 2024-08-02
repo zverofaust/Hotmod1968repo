@@ -4,7 +4,7 @@
 		{event "gamestart"}
 		{event "init"}
 		{waypoints
-			{"9999"
+			{"0"
 				{position 2000 -2000 0}
 				{radius 100}
 				{commands
