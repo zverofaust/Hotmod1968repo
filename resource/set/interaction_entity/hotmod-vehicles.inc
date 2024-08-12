@@ -3476,6 +3476,12 @@
 	("animation_sound" args "open_right")
 }
 
+{"man630 car"
+	("opel_maultier_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
 {"m16_frg tank"
 	("m3_halftrack_sound")
 	("animation_sound" args "open_left")
