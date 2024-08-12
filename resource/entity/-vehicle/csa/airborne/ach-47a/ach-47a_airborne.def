@@ -1,0 +1,240 @@
+{actor		;CH-47A
+	(include "/properties/airborne_helicopter.ext")
+	(include "/properties/shadow/airborn.inc" scale(2.2))
+	(include "/properties/selection/airborne.inc" scale(2.00))
+	(include "/properties/car_crew.ext")
+	{props "helo" "vision_lev02_air"}
+	{targetclass "helicopter"}
+	{targetSelector "helicopter"}
+	
+	("helicopter_tier2")
+	
+	{PatherID "bf109"}
+	
+	;volume/component, thickness
+	("glass" args "window1")
+	("glass" args "window2")
+	("glass" args "window3")
+	("glass" args "window4")
+	("glass" args "window5")
+	("glass" args "window6")
+	("glass" args "window7")
+	("glass" args "window8")
+	("glass" args "window9")
+	("glass" args "window10")
+	("glass" args "window11")
+	("glass" args "window12")
+	("glass" args "window13")
+	("glass" args "window14")
+	("glass" args "window15")
+	("glass" args "window16")
+	("glass" args "window17")
+	("glass" args "window18")
+	("glass" args "window19")
+	
+	;main body parts
+	("body" args "body")
+	("body" args "body1")
+	("body" args "body2")
+	("body" args "body3")
+	("body" args "body4")
+	("body" args "body5")
+	
+	;main rotor + blades
+	("rotor" args "rotor")
+	("rotor" args "propeller")
+	("rotor" args "propeller1")
+	("rotor" args "propeller2")
+
+	;back rotor + blades
+	("rotor_b" args "rotor_b")
+	("rotor_b" args "propeller_b")
+	("rotor_b" args "propeller_b1")
+	("rotor_b" args "propeller_b2")
+
+	("wheel" args "wheell")
+	("wheel" args "wheelr")
+	("wheel" args "wheelf")
+	
+	;engine
+	("engine" args "engine")
+	("engine" args "engine1")
+	
+	{boarder
+		{anm "crew"
+			{forward	{begin	"board_plane_left"} {end "seat_passenger"} {base "doorright"}}
+			{reverse	{end	"board_plane_left" -1} {base "doorright"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_plane_left"} {end "pose_mgun_pz6"} {base "doorright"}}
+			{reverse	{end	"board_plane_left" -1} {base "doorright"}}
+		}
+		{anm "gunner_r"
+			{forward	{begin	"board_dodge_bodyback"} {end "m2_50cal_tripod_gunner"}}
+			{reverse	{end	"emit_body"}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_dodge_bodyback"} {end "seat_passenger"}}
+			{reverse	{end	"emit_body"}}
+		}
+	}
+	
+	("crew_human"		place(driver)		bone(driver)		door(emit2) animation(crew)	group(crew))
+	("crew_human"		place(commander) 	bone(commander) 	door(emit2) animation(crew)	group(crew))
+	("crew_human"		place(gunner1)		bone(gunner1)		door(emit2) animation(gunner)	group(crew))
+	("crew_human"		place(gunner2) 		bone(gunner2) 		door(emit2) animation(gunner)	group(crew))
+	("crew_human"		place(gunner3) 		bone(gunner3) 		door(emit3) animation(gunner)	group(crew))
+	("crew_human"		place(gunner4) 		bone(gunner4) 		door(emit4) animation(gunner)	group(crew))
+	("crew_human"		place(gunner5) 		bone(gunner5) 		door(emit3) animation(gunner_r)	group(crew))
+	
+	
+
+	{Placer
+		{place "driver"		{visor "main"}}
+		{place "gunner1"	{visor "mgunr1"}}
+		{place "gunner2"	{visor "mgunl1"}}
+		{place "gunner3"	{visor "mgunr2"}}
+		{place "gunner4"	{visor "mgunl2"}}
+		{place "gunner5"	{visor "mgunr"}}
+	}
+
+	{Sensor
+		{Visor "main"
+			{bone	 "pivot_back"}
+		}
+		{Visor "mgunr1"
+			{vision "vehicle_top_mgun"}
+			{bone	"mgun_turret_r1"}
+		}
+		{Visor "mgunl1"
+			{vision "vehicle_top_mgun"}
+			{bone	"mgun_turret_l1"}
+		}
+		{Visor "mgunr2"
+			{vision "vehicle_top_mgun"}
+			{bone	"mgun_turret_r2"}
+		}
+		{Visor "mgunl2"
+			{vision "vehicle_top_mgun"}
+			{bone	"mgun_turret_l2"}
+		}
+		{Visor "mgunr"
+			{vision "vehicle_top_mgun"}
+			{bone	"mgun_turret_rear"}
+		}
+		
+	}
+	
+	{extender "inventory"
+		{Box
+			{item "ammo hmgun_usa" 5000}
+			{item "bullet20_hs820 he" 1000}
+			{item "ammo 70mm_ffar" 38}
+		}
+	}
+
+	{Weaponry
+		{place "gun"
+			{rotate}
+			{weapon			"20mm_m139_x2" filling"bullet20_hs820 he" 1000}
+			{barrels 		2}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter_"}
+			{foresight		"foresight3"}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "gun2"
+			{rotate}
+			{weapon			"70mm_ffar_19x2" filled}
+			{barrels		38}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter_a"}
+			{foresight		"foresight2"}
+			{basic}
+		}
+		{place "mgun1"
+			{rotate}
+			{weapon			"40mm_m129" filling "ammo 40mm_grenade he" 300}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{foresight		"foresight1"}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun2"
+			{gunner			"gunner1"}
+			{charger		"gunner1"}
+			{LinkBone		"mgun_r1"}
+			{LinkAnimation	"off"}
+			{weapon 		"browning_m2_nomag" filled}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun3"
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			{LinkBone		"mgun_l1"}
+			{LinkAnimation	"off"}
+			{weapon 		"browning_m2_nomag" filled}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun4"
+			{gunner			"gunner3"}
+			{charger		"gunner3"}
+			{LinkBone		"mgun_r2"}
+			{LinkAnimation	"off"}
+			{weapon 		"browning_m2_nomag" filled}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun5"
+			{gunner			"gunner4"}
+			{charger		"gunner4"}
+			{LinkBone		"mgun_l2"}
+			{LinkAnimation	"off"}
+			{weapon 		"browning_m2_nomag" filled}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun6"
+			{gunner			"gunner5"}
+			{charger		"gunner5"}
+			{LinkBone		"mgun_rear"}
+			{LinkAnimation	"off"}
+			{weapon 		"browning_m2_nomag" filled}
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 14970}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+	{Chassis "airborne"
+		("heli_model"
+			speed(185)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(10) ;//-----Climb rate at sea level, in m/s
+			turn(800) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(400) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(1.1) ;//---Aerodynamic efficiency rating (0-3)
+			weight(5100) ;//--------Weight in kg.
+			power(1680) ;//---------Horse Power.
+			fuel(650) ;//-----------Fuel capacity in Liters.
+			range(755) ;//----------Distance can travel with full fuel tank, in km.
+			roll_rate(25) ;//-------Roll rate, in degrees per second.
+			roll_angle(60) ;//------Maximum roll angle, in degrees.
+		)
+	}
+	
+	{Extender "detail"
+		{random 0}
+	}
+	
+	{Extension "ach-47a.mdl"}
+	
+}
