@@ -1,0 +1,196 @@
+;Exported by: aeste
+;Date:        Sat Aug 24 06:59:02 2024
+;File:        E:\Cold War\ModelWIP\China\Type 63 Launcher\Type 63 Launcher XX.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{Position -0.0441877	0.00109601	7.28133}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{Matrix34
+					0.965926	-0.258819	0
+					0.258819	0.965926	0
+					0	0	1
+					-1.95934	0	3.91868
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun"
+					{parameters "id=gun;"}
+					{Matrix34
+						0.970296	0	-0.241922
+						0.241922	0	0.970296
+						0	-1	0
+						-3.10272	0	7.3475
+					}
+					{VolumeView "gun.ply"}
+				}
+			}
+			{bone "leg1"
+				{Matrix34
+					0.535762	0.705698	0.463626
+					0.00182196	0.548112	-0.836403
+					-0.844367	0.448958	0.292372
+					4.89836	-9.3069	2.10331
+				}
+				{VolumeView "leg1.ply"}
+			}
+			{bone "pipe"
+				{Matrix34
+					0.963598	-0.258107	0.0697142
+					0.258901	0.965901	-0.00243451
+					-0.0667087	0.0203949	0.997564
+					-4.89158	8.88015	5.07528
+				}
+			}
+			{bone revolute "wheell"
+				{parameters "id=wheelleft;Radius=0.50;Support;"}
+				{Matrix34
+					0.984307	-0.107276	0.140115
+					0.149504	0.0851251	-0.98509
+					0.0937491	0.990579	0.0998273
+					0	13.4774	0
+				}
+				{VolumeView "wheell.ply"}
+			}
+			{bone revolute "wheelr"
+				{parameters "id=wheelright;Radius=0.50;Support;"}
+				{Matrix34
+					0.970526	0.171329	0.169485
+					0.200367	-0.182877	-0.962502
+					-0.133909	0.968092	-0.211816
+					0	-13.5406	0
+				}
+				{VolumeView "wheelr.ply"}
+			}
+		}
+	}
+}
+{Obstacle "obstacle"
+	{Obb2
+		{Center -0.037272 0.0775771}
+		{Extent 7.60591 14.9434}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Obstacle "obstacle2"
+	{Obb2
+		{Center -23.82 -5.00829}
+		{Extent 19.1275 2.05807}
+		{Axis -0.965926 0.258819}
+	}
+	{Rotate}
+}
+{Obstacle "obstacle3"
+	{Obb2
+		{Center -23.82 5.46998}
+		{Extent 19.1275 2.05807}
+		{Axis -0.965926 -0.258819}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 8.91924 19.0065 3.39781}
+	{Bone "body"}
+	{Position -1.4752	-0.0655906	1.83741}
+}
+{Volume "body2"
+	{Box 2.5 2.5 17.2014}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-3.36953	8.94648	2.16671
+	}
+}
+{Volume "body3"
+	{Box 2.5 2.5 17.2015}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-3.3696	-8.90546	2.16671
+	}
+}
+{Volume "body4"
+	{Cylinder 0.744293 27.8599}
+	{Bone "body"}
+	{Matrix34
+		0.235985	-0.965914	0.1064
+		-0.344489	0.0192275	0.938594
+		-0.908647	-0.258147	-0.328209
+		-24.8483	4.9288	-2.03145
+	}
+}
+{Volume "body5"
+	{Cylinder 0.744293 27.8599}
+	{Bone "body"}
+	{Matrix34
+		0.245107	0.96364	0.1064
+		0.344658	0.0159688	-0.938593
+		-0.906164	0.266727	-0.328212
+		-24.8137	-5.07325	-2.0315
+	}
+}
+{Volume "gun1"
+	{Box 11.8673 9.08211 8.35555}
+	{Bone "gun"}
+	{Matrix34
+		0	0	1
+		0	1	0
+		-1	0	0
+		0.928472	0.336231	-0.0885008
+	}
+}
+{Volume "gun2"
+	{Box 11.504 8.67847 17.0711}
+	{Bone "gun"}
+	{Matrix34
+		0	0	1
+		0	1	0
+		-1	0	0
+		4.56653	0.376596	-0.027952
+	}
+}
+{Volume "leg1"
+	{Cylinder 0.801222 14.5496}
+	{Bone "leg1"}
+	{Matrix34
+		-0.000277366	0.920202	-0.391445
+		-0.0326712	0.391227	0.919714
+		0.999466	0.0130441	0.0299546
+		7.36719	0.146125	0.284476
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Position -1.18434	0.249961	3.84906}
+}
+{Volume "wheelleft"
+	{Cylinder 7.52761 3.07868}
+	{Bone "wheell"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		-0.00462128	0.0353589	-0.512955
+	}
+}
+{Volume "wheelright"
+	{Cylinder 7.52761 3.07868}
+	{Bone "wheelr"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		-0.00462113	0.035357	0.577404
+	}
+}
