@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Layout xmlns="http://www.digitalmindsoft.eu/xmllayout"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.digitalmindsoft.eu/xmllayout ../../../LayoutSchema.xsd"
+        version="1" skin="main_menu_dark_skin">
+    <Properties>
+        <!--<button.size.x>128</button.size.x>-->
+        <!--<button.size.y>64</button.size.y>-->
+    </Properties>
+    <Content>
+        <DockPanel hgap="4">
+            <Children>
+                <FlowPanel id="unit_floater" placement="left">
+                    <Children>
+                        <GridPanel id="unit_container" cols="3" hgap="2" vgap="2">
+                            <Children>
+                                <!-- floater items here  -->
+                            </Children>
+                        </GridPanel>
+                    </Children>
+                </FlowPanel>
+                <FlowPanel direction="vertical" valign="bottom" placement="center" gap="8">
+                    <Children>
+                        <StackPanel>
+                            <Children>
+                                <StepScrollPane gap="2"
+                                                upButtonResource="/interface/scene/unit_icon/scroll_up"
+                                                downButtonResource="/interface/scene/unit_icon/scroll_down"
+                                                buttonHeight="16"
+                                                visibleElements="6"
+                                                id="unit_types_container">
+                                    <Children>
+                                        <!-- item types here -->
+                                    </Children>
+                                </StepScrollPane>
+                            </Children>
+                        </StackPanel>
+<!--                        <DialogRef refid="gui_spacer_horizontal" />-->
+                    </Children>
+                </FlowPanel>
+            </Children>
+        </DockPanel>
+    </Content>
+</Layout>

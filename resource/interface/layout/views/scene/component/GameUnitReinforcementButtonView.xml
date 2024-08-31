@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Layout xmlns="http://www.digitalmindsoft.eu/xmllayout"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.digitalmindsoft.eu/xmllayout ../../../LayoutSchema.xsd"
+        version="1" skin="main_menu_dark_skin">
+    <Content>
+        <BackgroundPanel backgroundResource="/interface/scene/unit_icon/stub" sizeMode="fromResource">
+            <Enable value="false"/>
+            <Children>
+                <StackPanel id="unit_button_placeholder">
+                    <Ables mouse="false" keyboard="false"/>
+                </StackPanel>
+                <FlowPanel direction="vertical" halign="left">
+                    <Insets top="3" left="3" right="0"/>
+                    <Children>
+                        <StaticText id="unit_desc">
+                            <Text value="name"  />
+                        </StaticText>
+                    </Children>
+                </FlowPanel>
+                <FlowPanel direction="vertical" halign="right" valign="bottom">
+                    <Insets bottom="0" left="6" right="6"/>
+                    <Children>
+                        <StaticText id="unit_amount">
+                            <Text value="1/1"/>
+                            <TextClip value="true"/>
+                        </StaticText>
+                    </Children>
+                </FlowPanel>
+                <FlowPanel direction="vertical" halign="center" valign="center">
+                    <Children>
+                        <StaticText id="unit_time">
+                            <Text value="4:00"/>
+                            <TextClip value="true"/>
+                        </StaticText>
+                    </Children>
+                </FlowPanel>
+            </Children>
+        </BackgroundPanel>
+    </Content>
+</Layout>

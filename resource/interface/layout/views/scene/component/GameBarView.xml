@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Layout xmlns="http://www.digitalmindsoft.eu/xmllayout"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.digitalmindsoft.eu/xmllayout ../../../LayoutSchema.xsd"
+        version="1" skin="main_menu_dark_skin">
+    <Content>
+        <BackgroundPanel backgroundResource="/interface/pages/multi/gamebar/multi_bar_background" sizeMode="fromContent">
+            <Insets top="15" bottom="15" left="20" right="20"/>
+            <Alphabuffer value="true"/>
+            <Children>
+                <PercentPanel direction="horizontal">
+                    <Insets left="5" top="5" right="5" bottom="5"/>
+                    <Children>
+                        <StackPanel percent="0.5">
+                            <Children>
+                                <FlowPanel id="game_team_left" direction="vertical" halign="stretch" gap="5">
+                                    <Insets right="9" />
+                                </FlowPanel>
+                            </Children>
+                        </StackPanel>
+                        <StackPanel>
+                            <MinSize x="115"/>
+                            <Children>
+                                <DockPanel>
+                                    <Children>
+                                        <DialogRef refid="gui_spacer_vertical" placement="left"/>
+                                        <FlowPanel placement="center" halign="center" valign="center" direction="horizontal">
+                                            <Children>
+                                                <StackPanel id="game_clock_container">
+                                                    <PreferredSize x="60" y="32"/>
+                                                </StackPanel>
+                                            </Children>
+                                        </FlowPanel>
+                                        <DialogRef refid="gui_spacer_vertical" placement="right"/>
+                                    </Children>
+                                </DockPanel>
+                            </Children>
+                        </StackPanel>
+                        <StackPanel percent="0.5">
+                            <Children>
+                                <FlowPanel id="game_team_right" direction="vertical" halign="stretch" gap="5">
+                                    <Insets left="9"/>
+                                </FlowPanel>
+                            </Children>
+                        </StackPanel>
+                    </Children>
+                </PercentPanel>
+            </Children>
+        </BackgroundPanel>
+    </Content>
+</Layout>

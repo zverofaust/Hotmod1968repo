@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Layout xmlns="http://www.digitalmindsoft.eu/xmllayout"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.digitalmindsoft.eu/xmllayout ../../../LayoutSchema.xsd"
+        version="1" skin="main_menu_dark_skin_small">
+    <Content>
+        <StackPanel>
+            <PreferredSize x="324" y="240"/>
+            <Children>
+                <FlowPanel placement="left" direction="vertical" valign="bottom" gap="0">
+                    <Children>
+                        <BackgroundPanel backgroundResource="">
+                            <PreferredSize x="64" y="180"/>
+                            <Children>
+                                <SceneMenuPanel gap="0"  direction="vertical" itemSize="81" >
+                                    <Insets bottom="15"/>
+                                    <Item action="gc_cp_state_inventory"/>
+                                    <Item action="gc_cp_state_objectives"/>
+                                </SceneMenuPanel>
+                            </Children>
+                        </BackgroundPanel>
+                    </Children>
+                </FlowPanel>
+            <PercentPanel direction="vertical" >
+            <Children>
+                <PercentPanel direction="horizontal" gap="2" percent="1">
+                    <Insets left="52"/>
+                    <Children>
+                        <BackgroundPanel percent="0.5" backgroundResource="/interface/scene/controlbar/veh_select_background" sizeMode="fromResource" zoomMode="fill">
+                            <Insets right="2"/>
+                            <Children>
+                                <StackPanel id="viewport"/>
+                                <FlowPanel id="kill_counter_container" direction="vertical" halign="right">
+                                    <Ables mouse="false" />
+                                </FlowPanel>
+                            </Children>
+                        </BackgroundPanel>
+                        <StackPanel percent="0.5">
+                            <Insets top="38"/>
+                            <Children>
+                                <DockPanel>
+                                    <Children>
+                                        <BackgroundPanel placement="center" backgroundResource="/interface/scene/controlbar/vehicle_bkg">
+                                            <Insets all="2"/>
+<!--                                            <PreferredSize y="118"/>-->
+                                            <Children>
+                                                <FlowPanel direction="vertical" halign="stretch" placement="bottom" gap="2">
+                                                    <Children>
+                                                        <StaticText id="txt_cls">
+                                                            <Text value="Unit Type"/>
+                                                            <TextStyle value="x.s(12)e(shadow)" />
+                                                            <TextClip value="true"/>
+                                                        </StaticText>
+                                                        <StaticText id="txt_name">
+                                                            <Text value="Unit Name"/>
+                                                            <TextStyle value="x.s(12)e(shadow)" />
+                                                            <TextClip value="true"/>
+                                                        </StaticText>
+                                                    </Children>
+                                                </FlowPanel>
+                                                <StackPanel placement="center">
+                                                </StackPanel>
+                                                <BackgroundPanel placement="top" backgroundResource="">
+                                                    <Insets top="35" bottom="2" left="2" right="2"/>
+                                                    <Children>
+                                                        <FlowPanel direction="vertical" halign="stretch" gap="1" placement="bottom">
+                                                            <Children>
+                                                                <DockPanel id="pnl_primary">
+                                                                    <PreferredSize x="1" y="1"/>
+                                                                    <Children>
+                                                                        <PictureDialog placement="left" resource="" zoomMode="fit" centerX="true" centerY="true"/>
+                                                                        <StaticText placement="center" id="txt_primary">
+                                                                            <Visible value="false"/>
+                                                                            <TextStyle value="s(1)" />
+                                                                        </StaticText>
+                                                                    </Children>
+                                                                </DockPanel>
+                                                                <DockPanel id="pnl_secondary">
+                                                                    <PreferredSize x="1" y="1"/>
+                                                                    <Children>
+                                                                        <PictureDialog placement="left" resource="" zoomMode="fit" centerX="true" centerY="true"/>
+                                                                        <StaticText placement="center" id="txt_secondary">
+                                                                            <Visible value="false"/>
+                                                                            <TextStyle value="s(1)" />
+                                                                        </StaticText>
+                                                                    </Children>
+                                                                </DockPanel>
+                                                                <DockPanel id="pnl_armor">
+                                                                    <PreferredSize x="1" y="1"/>
+                                                                    <Visible value="false"/>
+                                                                    <Children>
+                                                                        <PictureDialog placement="left" resource="" zoomMode="fit" centerX="true" centerY="true"/>
+                                                                        <StaticText placement="center" id="txt_armor">
+                                                                            <Visible value="false"/>
+                                                                            <TextStyle value="s(1)" />
+                                                                        </StaticText>
+                                                                    </Children>
+                                                                </DockPanel>
+                                                                <DockPanel id="pnl_crew">
+                                                                    <PreferredSize x="1" y="1"/>
+                                                                    <Visible value="false"/>
+                                                                    <Children>
+                                                                        <PictureDialog placement="left" resource="" zoomMode="fit" centerX="true" centerY="true"/>
+                                                                        <StaticText placement="center" id="txt_crew">
+                                                                            <Visible value="false"/>
+                                                                            <TextStyle value="s(1)" />
+                                                                        </StaticText>
+                                                                    </Children>
+                                                                </DockPanel>
+                                                                <BackgroundPanel id="pnl_fuel" backgroundResource="/interface/scene/human_view/panel_bkg_meter">
+                                                                    <PreferredSize y="20"/>
+                                                                    <Children>
+                                                                        <DockPanel>
+                                                                            <Children>
+                                                                                <StackPanel placement="left">
+                                                                                    <Insets left="2"/>
+                                                                                    <PreferredSize x="22"/>
+                                                                                    <Children>
+                                                                                        <PictureDialog resource="/interface/scene/vehicle_view/fuel" zoomMode="fit"/>
+                                                                                    </Children>
+                                                                                </StackPanel>
+                                                                                <StackPanel placement="center">
+                                                                                    <Insets top="1" left="1" right="1" bottom="1"/>
+                                                                                    <Children>
+                                                                                        <ProgressBar id="bar_fuel" direction="horizontal" color="4f9ccd99">
+                                                                                            <Buffered value="true"/>
+                                                                                            <Alphabuffer value="true"/>
+                                                                                        </ProgressBar>
+                                                                                        <StackPanel placement="center">
+                                                                                            <Children>
+                                                                                                <PictureDialog resource="/interface/scene/vehicle_view/meters_bkg" zoomMode="fill">
+                                                                                                    <Ables mouse="false"/>
+                                                                                                </PictureDialog>
+                                                                                            </Children>
+                                                                                        </StackPanel>
+                                                                                        <FlowPanel halign="left" valign="center">
+                                                                                            <Insets left="2"/>
+                                                                                            <Children>
+                                                                                                <StaticText id="txt_fuel">
+                                                                                                    <Text textFormat="y."/>
+                                                                                                    <TextStyle value="s(12)e(shadow)" />
+                                                                                                </StaticText>
+                                                                                            </Children>
+                                                                                        </FlowPanel>
+                                                                                    </Children>
+                                                                                </StackPanel>
+                                                                            </Children>
+                                                                        </DockPanel>
+                                                                    </Children>
+                                                                </BackgroundPanel>
+                                                                <BackgroundPanel id="pnl_supply" backgroundResource="/interface/scene/human_view/panel_bkg_meter">
+                                                                    <Visible value="false"/>
+                                                                    <PreferredSize y="20"/>
+                                                                    <Children>
+                                                                        <DockPanel>
+                                                                            <Children>
+                                                                                <StackPanel placement="left">
+                                                                                    <Insets left="2"/>
+                                                                                    <PreferredSize x="22"/>
+                                                                                    <Children>
+                                                                                        <PictureDialog resource="/interface/scene/vehicle_view/supply_s" zoomMode="fit"/>
+                                                                                    </Children>
+                                                                                </StackPanel>
+                                                                                <StackPanel placement="center">
+                                                                                    <Insets top="1" left="1" right="1" bottom="1"/>
+                                                                                    <Children>
+                                                                                        <ProgressBar id="bar_supply" direction="horizontal" color="b2873999">
+                                                                                            <Buffered value="true"/>
+                                                                                            <Alphabuffer value="true"/>
+                                                                                        </ProgressBar>
+                                                                                        <StackPanel placement="center">
+                                                                                            <Children>
+                                                                                                <PictureDialog resource="/interface/scene/vehicle_view/meters_bkg" zoomMode="fill">
+                                                                                                    <Ables mouse="false"/>
+                                                                                                </PictureDialog>
+                                                                                            </Children>
+                                                                                        </StackPanel>
+                                                                                        <FlowPanel halign="left" valign="center">
+                                                                                            <Insets left="2"/>
+                                                                                            <Children>
+                                                                                                <StaticText id="txt_supply">
+                                                                                                    <Text textFormat="y."/>
+                                                                                                    <TextStyle value="s(12)e(shadow)" />
+                                                                                                </StaticText>
+                                                                                            </Children>
+                                                                                        </FlowPanel>
+                                                                                    </Children>
+                                                                                </StackPanel>
+                                                                            </Children>
+                                                                        </DockPanel>
+                                                                    </Children>
+                                                                </BackgroundPanel>
+                                                                <BackgroundPanel id="pnl_speed" backgroundResource="/interface/scene/human_view/panel_bkg_meter">
+                                                                    <PreferredSize y="20"/>
+                                                                    <Children>
+                                                                        <DockPanel>
+                                                                            <Children>
+                                                                                <StackPanel placement="left">
+                                                                                    <Insets left="2"/>
+                                                                                    <PreferredSize x="22"/>
+                                                                                    <Children>
+                                                                                        <PictureDialog resource="/interface/scene/vehicle_view/speed" zoomMode="fit"/>
+                                                                                    </Children>
+                                                                                </StackPanel>
+                                                                                <StackPanel placement="center">
+                                                                                    <Insets top="1" left="1" right="1" bottom="1"/>
+                                                                                    <Children>
+                                                                                        <ProgressBar id="bar_speed" direction="horizontal" color="67c33599">
+                                                                                            <Buffered value="true"/>
+                                                                                            <Alphabuffer value="true"/>
+                                                                                        </ProgressBar>
+                                                                                        <StackPanel placement="center">
+                                                                                            <Children>
+                                                                                                <PictureDialog resource="/interface/scene/vehicle_view/meters_bkg" zoomMode="fill">
+                                                                                                    <Ables mouse="false"/>
+                                                                                                </PictureDialog>
+                                                                                            </Children>
+                                                                                        </StackPanel>
+                                                                                        <FlowPanel halign="left" valign="center">
+                                                                                            <Insets left="2"/>
+                                                                                            <Children>
+                                                                                                <StaticText id="txt_speed">
+                                                                                                    <Text textFormat="y."/>
+                                                                                                    <TextStyle value="s(12)e(shadow)" />
+                                                                                                </StaticText>
+                                                                                            </Children>
+                                                                                        </FlowPanel>
+                                                                                    </Children>
+                                                                                </StackPanel>
+                                                                            </Children>
+                                                                        </DockPanel>
+                                                                    </Children>
+                                                                </BackgroundPanel>
+                                                            </Children>
+                                                        </FlowPanel>
+                                                    </Children>
+                                                </BackgroundPanel>
+                                            </Children>
+                                        </BackgroundPanel>
+                                        <FlowPanel placement="bottom" direction="vertical" halign="center" valign="bottom" gap="2" >
+                                            <Children>
+                                                <BackgroundPanel id="pnl_weapon1" backgroundResource="/interface/scene/human/weapon_bkg_primary" sizeMode="fromContent"/>
+                                                <BackgroundPanel id="pnl_weapon2" backgroundResource="/interface/scene/human/weapon_bkg_secondary" sizeMode="fromContent" />
+                                            </Children>
+                                        </FlowPanel>
+                                    </Children>
+                                </DockPanel>
+                            </Children>
+                        </StackPanel>
+                    </Children>
+                </PercentPanel>
+<!--                <FlowPanel direction="horizontal" valign="bottom" gap="2">-->
+<!--                </FlowPanel>-->
+            </Children>
+            </PercentPanel>
+            </Children>
+        </StackPanel>
+    </Content>
+</Layout>

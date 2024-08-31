@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Layout xmlns="http://www.digitalmindsoft.eu/xmllayout"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.digitalmindsoft.eu/xmllayout ../../../LayoutSchema.xsd"
+        version="1" skin="main_menu_dark_skin_small">
+    <Content>
+        <DockPanel enableif="left" id="team_left">
+            <Children>
+                <StackPanel placement="center">
+                    <Insets right="15" />
+                    <Children>
+                        <FlowPanel direction="vertical" halign="right">
+                            <MinSize y="42"/>
+                            <Children>
+                                <FlowPanel direction="horizontal" valign="top" id="team_avatar_container" gap="8" />
+                            </Children>
+                        </FlowPanel>
+                    </Children>
+                </StackPanel>
+                <StackPanel placement="right">
+                    <MinSize x="90" />
+                    <Children>
+                        <DockPanel hgap="4">
+                            <Children>
+                                <FlowPanel placement="center" halign="right" valign="center" direction="vertical" justify="false">
+                                    <Children>
+                                        <StaticText id="team_label">
+                                            <Text value="XXXX"/>
+                                        </StaticText>
+                                    </Children>
+                                </FlowPanel>
+                                <StackPanel placement="right">
+                                    <Children>
+                                        <PictureDialog id="team_flag" zoomMode="stretch">
+                                            <PreferredSize x="40" y="20"/>
+                                        </PictureDialog>
+                                    </Children>
+                                </StackPanel>
+                                <FlowPanel placement="bottom" direction="vertical" valign="stretch" halign="stretch">
+                                    <Insets top="5"/>
+                                    <Children>
+                                        <StackPanel>
+                                            <PreferredSize y="10" x="90"/>
+                                            <Children>
+                                                <ProgressBar direction="horizontal" color="F2C571" backgroundColor="FF000000" id="team_score_bar" type="right_to_left">
+                                                    <Value current="1.0" max="1.0" />
+                                                </ProgressBar>
+                                            </Children>
+                                        </StackPanel>
+                                        <FlowPanel direction="vertical" halign="center">
+                                            <Children>
+                                                <StaticText id="team_score_value">
+                                                    <Text value="70/100" textFormat="f(arial_hq)s(8)c(0xF2C571)"/>
+
+                                                </StaticText>
+                                            </Children>
+                                        </FlowPanel>
+                                    </Children>
+                                </FlowPanel>
+                            </Children>
+                        </DockPanel>
+                    </Children>
+                </StackPanel>
+            </Children>
+        </DockPanel>
+        <DockPanel enableif="right" id="team_right">
+            <Children>
+                <StackPanel placement="left">
+                    <MinSize x="90"/>
+                    <Children>
+                        <DockPanel hgap="4">
+                            <Children>
+                                <StackPanel placement="left">
+                                    <Children>
+                                        <PictureDialog id="team_flag" zoomMode="stretch">
+                                            <PreferredSize x="40" y="20"/>
+                                        </PictureDialog>
+                                    </Children>
+                                </StackPanel>
+                                <FlowPanel placement="center" halign="left" valign="center" direction="vertical" justify="false">
+                                    <Children>
+                                        <StaticText id="team_label">
+                                            <Text value="XXXX"/>
+                                        </StaticText>
+                                    </Children>
+                                </FlowPanel>
+                                <FlowPanel placement="bottom" id="team_score_container" direction="vertical" halign="center">
+                                    <Insets top="5"/>
+                                    <Children>
+                                        <StackPanel>
+                                            <PreferredSize y="10" x="90"/>
+                                            <Children>
+                                                <ProgressBar direction="horizontal" color="dred" backgroundColor="FF000000" id="team_score_bar" type="left_to_right">
+                                                    <Value current="1.0" max="1.0" />
+                                                </ProgressBar>
+                                            </Children>
+                                        </StackPanel>
+                                        <FlowPanel direction="vertical" halign="center">
+                                            <Children>
+                                                <StaticText id="team_score_value">
+                                                    <Text value="70/100"/>
+                                                </StaticText>
+                                            </Children>
+                                        </FlowPanel>
+                                    </Children>
+                                </FlowPanel>
+                            </Children>
+                        </DockPanel>
+                    </Children>
+                </StackPanel>
+                <StackPanel placement="center">
+                    <Insets left="15" />
+                    <Children>
+                        <FlowPanel direction="vertical" halign="left">
+                            <MinSize y="42"/>
+                            <Children>
+                                <FlowPanel direction="horizontal" valign="top" id="team_avatar_container" gap="8" />
+                            </Children>
+                        </FlowPanel>
+                    </Children>
+                </StackPanel>
+            </Children>
+        </DockPanel>
+    </Content>
+</Layout>

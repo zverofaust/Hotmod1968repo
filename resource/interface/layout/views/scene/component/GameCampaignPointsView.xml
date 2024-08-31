@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Layout xmlns="http://www.digitalmindsoft.eu/xmllayout"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.digitalmindsoft.eu/xmllayout ../../../LayoutSchema.xsd"
+        version="1"
+        skin="main_menu_dark_skin_small">
+	<Content>
+		<FlowPanel direction="vertical" gap="9">
+			<Children>
+				<BackgroundPanel backgroundResource="/interface/pages/multi/gamebar/points_dialog" sizeMode="fromContent">
+					<Alphabuffer value="true"/>
+					<Insets left="6" bottom="8" top="8" right="6"/>
+					<MinSize x="160"/>
+					<Children>
+						<FlowPanel direction="vertical" halign="center" valign="stretch" gap="6">
+							<Children>
+								<DockPanel hgap="4">
+									<Children>
+										<PictureDialog resource="/interface/pages/multi/gamebar/points_ap" placement="left">
+											<Alphabuffer value="true"/>
+										</PictureDialog>
+										<FlowPanel placement="center" valign="center">
+											<Children>
+												<StaticText id="user_points">
+													<Text value="200/3000 AP"/>
+												</StaticText>
+											</Children>
+										</FlowPanel>
+									</Children>
+								</DockPanel>
+							</Children>
+						</FlowPanel>
+					</Children>
+				</BackgroundPanel>
+<!--				<DialogRef refid="gui_spacer_horizontal"/>-->
+			</Children>
+		</FlowPanel>
+	</Content>
+</Layout>

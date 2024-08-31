@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Layout xmlns="http://www.digitalmindsoft.eu/xmllayout"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.digitalmindsoft.eu/xmllayout ../../../LayoutSchema.xsd"
+        version="1" skin="main_menu_dark_skin_small">
+    <Content>
+        <StackPanel>
+            <PreferredSize x="324" y="240"/>
+            <Children>
+                <FlowPanel placement="left" direction="vertical" valign="bottom" gap="0">
+                    <Children>
+                        <BackgroundPanel backgroundResource="">
+                            <PreferredSize x="64" y="180"/>
+                            <Children>
+                                <SceneMenuPanel gap="0"  direction="vertical" itemSize="81" >
+                                    <Insets bottom="15"/>
+                                    <Item action="gc_cp_state_inventory"/>
+                                    <Item action="gc_cp_state_objectives"/>
+                                </SceneMenuPanel>
+                            </Children>
+
+                        </BackgroundPanel>
+                    </Children>
+                </FlowPanel>
+            <PercentPanel direction="vertical">
+            <Children>
+                <PercentPanel direction="horizontal" gap="2" percent="1" placement="top">
+                    <Insets left="52" top="38"/>
+                    <Children>
+                        <FlowPanel percent="0.5" direction="horizontal" valign="center" halign="stretch">
+                            <Children>
+                                <BackgroundPanel backgroundResource="">
+                                    <Children>
+                                        <StackPanel placement="center">
+                                            <Insets left="2" bottom="45" right="2" top="2"/>
+                                            <Children>
+                                                <PictureDialog id="img_portrait" centerX="true" centerY="true" filtering="true">
+                                                    <Ables mouse="false"/>
+                                                </PictureDialog>
+                                            </Children>
+                                            <Children>
+                                            </Children>
+                                            <!--unit type-->
+                                        </StackPanel>
+                                        <FlowPanel placement="bottom" halign="stretch" valign="bottom" gap="5">
+                                            <Insets bottom="5"/>
+                                            <Children>
+                                                <BackgroundPanel backgroundResource="/interface/scene/human_view/background" placement="center" zoomMode="stretch">
+                                                    <Insets left="3" right="3"/>
+                                                    <Visible value="true"/>
+                                                    <PreferredSize y="36"/>
+                                                    <Children>
+                                                        <DockPanel>
+                                                            <Children>
+                                                                <StackPanel placement="left" >
+                                                                    <Insets left="2"/>
+                                                                    <PreferredSize x="30"/>
+                                                                    <Children>
+                                                                        <PictureDialog resource="/interface/scene/human_view/xp" zoomMode="fit" centerY="true">
+                                                                            <Ables mouse="false"/>
+                                                                        </PictureDialog>
+                                                                    </Children>
+                                                                </StackPanel>
+                                                                <StackPanel placement="center" >
+                                                                    <Insets all="2"/>
+
+                                                                    <Children>
+                                                                        <FlowPanel id="kill_counter_container" direction="vertical" placement="center"  halign="right" valign="center">
+                                                                            <Buffered value="true"/>
+                                                                            <Alphabuffer value="true"/>
+                                                                            <Ables mouse="false" />
+                                                                            <Hint key="humanbar/veterancy_hint"/>
+                                                                        </FlowPanel>
+                                                                        <StackPanel placement="center">
+                                                                            <Insets all="1"/>
+                                                                            <Children>
+                                                                                <ProgressBar id="bar_veterancy" direction="horizontal" color="FF000000">
+                                                                                    <Buffered value="true"/>
+                                                                                    <Alphabuffer value="true"/>
+                                                                                </ProgressBar>
+                                                                                <FlowPanel halign="left" valign="center">
+                                                                                    <Insets left="2"/>
+                                                                                    <Children>
+                                                                                        <StaticText id="txt_veterancy">
+                                                                                            <Text textFormat="y."/>
+                                                                                        </StaticText>
+                                                                                    </Children>
+                                                                                </FlowPanel>
+                                                                            </Children>
+                                                                        </StackPanel>
+
+                                                                    </Children>
+                                                                </StackPanel>
+                                                            </Children>
+                                                        </DockPanel>
+                                                    </Children>
+                                                </BackgroundPanel>
+                                                <FlowPanel direction="vertical" valign="bottom" halign="stretch" gap="3">
+                                                    <Children>
+                                                        <StaticText id="txt_cls">
+                                                            <Ables mouse="true"/>
+                                                            <Text value="Unit Type"/>
+                                                            <TextStyle value="x.s(11)f(anka)e(shadow)" />
+                                                            <TextClip value="true"/>
+                                                        </StaticText>
+                                                         <StaticText id="txt_name">
+                                                            <Text value="Unit Name"/>
+                                                            <TextStyle value="x.s(12)e(shadow)" />
+                                                            <TextClip value="true"/>
+                                                        </StaticText>
+                                                    </Children>
+                                                </FlowPanel>
+                                            </Children>
+                                        </FlowPanel>
+                                    </Children>
+                                </BackgroundPanel>
+                            </Children>
+                        </FlowPanel>
+                        <StackPanel percent="0.5">
+                           <Children>
+                               <DockPanel>
+                                  <Children>
+                                      <BackgroundPanel backgroundResource="" placement="center">
+                                          <Insets top="28" left="4" right="4"/>
+                                           <Children>
+                                               <BackgroundPanel backgroundResource="" placement="bottom">
+                                                   <Insets bottom="2" left="2" right="2"/>
+                                                   <Children>
+                                                       <FlowPanel direction="vertical" halign="stretch" gap="0">
+                                                           <Children>
+                                                               <BackgroundPanel backgroundResource="/interface/scene/human_view/meter_health">
+                                                                   <PreferredSize y="20"/>
+                                                                   <Children>
+                                                                       <DockPanel>
+                                                                           <Children>
+                                                                               <StackPanel placement="left">
+                                                                                   <PreferredSize x="20"/>
+                                                                                   <Insets left="2"/>
+                                                                                   <Children>
+                                                                                       <PictureDialog resource="/interface/scene/human_view/health" zoomMode="fit"/>
+                                                                                   </Children>
+                                                                               </StackPanel>
+                                                                               <StackPanel placement="center">
+                                                                                   <Insets all="2"/>
+                                                                                   <Children>
+                                                                                       <ProgressBar id="bar_health" direction="horizontal" color="d1381b99">
+                                                                                           <Visible value="true"/>
+                                                                                           <Buffered value="true"/>
+                                                                                           <Alphabuffer value="true"/>
+                                                                                       </ProgressBar>
+                                                                                       <StackPanel placement="center">
+                                                                                           <Children>
+                                                                                               <PictureDialog resource="/interface/scene/human_view/meter_health01_bkg" zoomMode="fill">
+                                                                                                   <Alphabuffer value="true"/>
+                                                                                                   <Ables mouse="false"/>
+                                                                                               </PictureDialog>
+                                                                                           </Children>
+                                                                                       </StackPanel>
+                                                                                       <FlowPanel halign="left" valign="center">
+                                                                                           <Insets left="2"/>
+                                                                                           <Children>
+                                                                                               <StaticText id="txt_health">
+                                                                                                   <Text value="100/100"/>
+                                                                                                   <TextStyle value="y." />
+                                                                                               </StaticText>
+                                                                                           </Children>
+                                                                                       </FlowPanel>
+                                                                                   </Children>
+                                                                               </StackPanel>
+                                                                           </Children>
+                                                                       </DockPanel>
+                                                                   </Children>
+                                                                   <Children>
+                                                                   </Children>
+                                                               </BackgroundPanel>
+                                                               <BackgroundPanel backgroundResource="/interface/scene/human_view/panel_bkg_meter">
+                                                                   <PreferredSize y="20"/>
+                                                                   <Children>
+                                                                       <DockPanel>
+                                                                           <Children>
+                                                                               <StackPanel placement="left">
+                                                                                   <Insets left="2"/>
+                                                                                   <PreferredSize x="20"/>
+                                                                                   <Children>
+                                                                                       <PictureDialog resource="/interface/scene/human_view/stamina" zoomMode="fit"/>
+                                                                                   </Children>
+                                                                               </StackPanel>
+                                                                               <StackPanel placement="center">
+                                                                                   <Insets all="2"/>
+                                                                                   <Children>
+                                                                                       <ProgressBar id="bar_stamina" direction="horizontal" color="96cc0099" >
+                                                                                           <Visible value="true"/>
+                                                                                           <Buffered value="true"/>
+                                                                                           <Alphabuffer value="true"/>
+                                                                                       </ProgressBar>
+                                                                                       <StackPanel placement="center">
+                                                                                           <Children>
+                                                                                               <PictureDialog resource="/interface/scene/human_view/meter_health01_bkg" zoomMode="fill">
+                                                                                                   <Ables mouse="false"/>
+                                                                                               </PictureDialog>
+                                                                                           </Children>
+                                                                                       </StackPanel>
+                                                                                       <FlowPanel halign="left" valign="center">
+                                                                                           <Insets left="2"/>
+                                                                                           <Children>
+                                                                                               <StaticText id="txt_stamina">
+                                                                                                   <Text textFormat="y."/>
+                                                                                                   <TextStyle value="e(shadow)y." />
+                                                                                               </StaticText>
+                                                                                           </Children>
+                                                                                       </FlowPanel>
+                                                                                   </Children>
+                                                                               </StackPanel>
+                                                                           </Children>
+                                                                       </DockPanel>
+                                                                   </Children>
+                                                               </BackgroundPanel>
+                                                               <BackgroundPanel id="pnl_resources" backgroundResource="/interface/scene/human_view/meter_stamina">
+                                                                   <PreferredSize y="20"/>
+                                                                   <Children>
+                                                                       <DockPanel>
+                                                                           <Children>
+                                                                               <StackPanel placement="left">
+                                                                                   <Insets left="2"/>
+                                                                                   <PreferredSize x="20"/>
+                                                                                   <Children>
+                                                                                       <PictureDialog resource="/interface/scene/human_view/resources" zoomMode="fit"/>
+                                                                                   </Children>
+                                                                               </StackPanel>
+                                                                               <StackPanel placement="center">
+                                                                                   <Insets all="2"/>
+                                                                                   <Children>
+                                                                                       <ProgressBar id="bar_resources" direction="horizontal" color="b2873999">
+                                                                                           <Visible value="true"/>
+                                                                                           <Buffered value="true"/>
+                                                                                           <Alphabuffer value="true"/>
+                                                                                           <Hint key="main_menu2/dynamic_campaign/hint_stage"/>
+                                                                                       </ProgressBar>
+                                                                                       <StackPanel placement="center">
+                                                                                           <Children>
+                                                                                               <PictureDialog resource="/interface/scene/human_view/meter_health01_bkg" zoomMode="fill">
+                                                                                                   <Ables mouse="false"/>
+                                                                                               </PictureDialog>
+                                                                                           </Children>
+                                                                                       </StackPanel>
+                                                                                       <FlowPanel halign="left" valign="center">
+                                                                                           <Insets left="2"/>
+                                                                                           <Children>
+
+                                                                                               <StaticText id="txt_resources">
+                                                                                                   <Text textFormat="y."/>
+                                                                                                   <TextStyle value="e(shadow)f(anka)" />
+                                                                                               </StaticText>
+                                                                                           </Children>
+                                                                                       </FlowPanel>
+                                                                                   </Children>
+                                                                               </StackPanel>
+                                                                           </Children>
+                                                                       </DockPanel>
+                                                                   </Children>
+                                                               </BackgroundPanel>
+                                                               <BackgroundPanel backgroundResource="/interface/scene/human_view/background">
+                                                                   <Visible value="false"/>
+                                                                   <PreferredSize y="14"/>
+                                                                   <Children>
+                                                                       <DockPanel>
+                                                                           <Children>
+                                                                               <StackPanel placement="left">
+                                                                                   <Insets left="2"/>
+                                                                                   <PreferredSize x="22"/>
+                                                                                   <Children>
+                                                                                       <PictureDialog resource="/interface/scene/human_view/moral" zoomMode="fit"/>
+                                                                                   </Children>
+                                                                               </StackPanel>
+                                                                               <StackPanel placement="center">
+                                                                                   <Insets all="2"/>
+                                                                                   <Children>
+                                                                                       <ProgressBar id="bar_moral" direction="horizontal" color="0xb28739">
+                                                                                           <Visible value="false"/>
+                                                                                           <Buffered value="true"/>
+                                                                                           <Alphabuffer value="true"/>
+                                                                                       </ProgressBar>
+                                                                                       <StackPanel placement="center">
+                                                                                           <Children>
+                                                                                               <PictureDialog resource="/interface/scene/human_view/meter_health01_bkg" zoomMode="fill"/>
+                                                                                           </Children>
+                                                                                       </StackPanel>
+                                                                                   </Children>
+                                                                               </StackPanel>
+                                                                           </Children>
+                                                                       </DockPanel>
+                                                                   </Children>
+                                                               </BackgroundPanel>
+                                                           </Children>
+                                                       </FlowPanel>
+                                                   </Children>
+                                               </BackgroundPanel>
+                                               <StackPanel placement="center">
+                                               </StackPanel>
+                                           </Children>
+                                       </BackgroundPanel>
+
+                                      <FlowPanel placement="bottom" direction="vertical" halign="center" valign="bottom" gap="0">
+                                          <Insets left="2" right="2"/>
+                                          <Children>
+                                              <BackgroundPanel id="pnl_weapon1" backgroundResource="/interface/scene/human/weapon_bkg_primary" sizeMode="fromContent"/>
+                                              <BackgroundPanel id="pnl_weapon2" backgroundResource="/interface/scene/human/weapon_bkg_secondary" sizeMode="fromContent" />
+                                          </Children>
+                                      </FlowPanel>
+                                   </Children>
+                                </DockPanel>
+                            </Children>
+                        </StackPanel>
+                    </Children>
+                </PercentPanel>
+                <FlowPanel direction="horizontal" valign="bottom" gap="2">
+                </FlowPanel>
+            </Children>
+            </PercentPanel>
+            </Children>
+        </StackPanel>
+    </Content>
+</Layout>

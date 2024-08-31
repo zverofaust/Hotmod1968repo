@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Layout xmlns="http://www.digitalmindsoft.eu/xmllayout"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.digitalmindsoft.eu/xmllayout ../../../LayoutSchema.xsd"
+        version="1"
+        skin="main_menu_dark_skin_small">
+    <Content>
+        <FlowPanel direction="vertical" gap="9">
+            <Children>
+                <BackgroundPanel backgroundResource="" sizeMode="fromContent">
+                    <Alphabuffer value="true"/>
+                    <Insets left="6" bottom="8" top="8" right="6" />
+                    <MinSize x="160" />
+                    <Children>
+                        <FlowPanel direction="vertical" halign="left" valign="stretch" gap="6">
+                            <Children>
+                                <BackgroundPanel backgroundResource="/interface/pages/multi/gamebar/points_dialog"  sizeMode="fromContent">
+                                    <Insets left="5"/>
+                                    <Children>
+                                <DockPanel hgap="4">
+                                    <Children>
+                                        <PictureDialog resource="/interface/pages/multi/gamebar/points_mp" placement="left" centerY="true" >
+                                            <Alphabuffer value="true"/>
+                                        </PictureDialog>
+
+                                        <FlowPanel placement="center" valign="center">
+                                            <Children>
+                                                <StaticText id="user_mp">
+                                                    <Text value="200/3000 MP"  textFormat="c(0x129C9C)"/>
+                                                </StaticText>
+                                            </Children>
+                                        </FlowPanel>
+                                        <FlowPanel direction="vertical" placement="right" valign="center">
+                                            <Children>
+                                                <StaticText id="user_mp_rate">
+                                                    <Text value="+9" />
+                                                    <TextStyle value="s(8)"/>
+                                                </StaticText>
+                                                <StaticText id="user_payback_rate">
+                                                    <Text value="+1.5" />
+                                                    <TextStyle value="s(8)"/>
+                                                </StaticText>
+                                            </Children>
+                                        </FlowPanel>
+                                  </Children>
+                                </DockPanel>
+                                    </Children>
+                                </BackgroundPanel>
+
+                                <BackgroundPanel backgroundResource="/interface/pages/multi/gamebar/points_dialog"  sizeMode="fromContent">
+                                    <Insets left="5"/>
+                                   <Children>
+                                <DockPanel hgap="4" id="sp_panel" enableif="game.multiplayer">
+                                    <Children>
+                                        <PictureDialog resource="/interface/pages/multi/gamebar/points_sp" placement="left" centerY="true" >
+                                            <Alphabuffer value="true"/>
+                                        </PictureDialog>
+                                        <FlowPanel placement="center" valign="center">
+                                            <Children>
+                                                <StaticText id="user_sp">
+                                                    <Text value="20/20 SP" />
+                                                </StaticText>
+                                            </Children>
+                                        </FlowPanel>
+                                    </Children>
+                                </DockPanel>
+                                   </Children>
+                                </BackgroundPanel>
+
+                            <BackgroundPanel backgroundResource="/interface/pages/multi/gamebar/points_dialog"  sizeMode="fromContent">
+                                <Insets left="5"/>
+                            <Children>
+                                <DockPanel hgap="4" enableif="game.multiplayer">
+                                    <Children>
+                                        <PictureDialog resource="/interface/pages/multi/gamebar/points_cp" placement="left" centerY="true" />
+                                        <FlowPanel placement="center" valign="center">
+                                            <Children>
+                                                <StaticText id="user_cp">
+                                                    <Text value="50/200 CP" />
+                                                </StaticText>
+                                            </Children>
+                                        </FlowPanel>
+                                    </Children>
+                                </DockPanel>
+                            </Children>
+                            </BackgroundPanel>
+                            </Children>
+                        </FlowPanel>
+                    </Children>
+                </BackgroundPanel>
+<!--                <DialogRef refid="gui_spacer_horizontal"/>-->
+            </Children>
+        </FlowPanel>
+    </Content>
+</Layout>
