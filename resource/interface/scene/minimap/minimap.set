@@ -5,9 +5,9 @@
 	{settings
 		{max_tracers		100	}
 		{tracer_length		0.9	} ; 0.9
-		{rotation_speed		2	}
-		{padding			0	}; 10
-		{margin				10	}; 10
+		{rotation_speed		1	}
+		{padding			25	}; 10
+		{margin				25	}; 10
 	}
 	{colors
 		{neutral			0xffffffff}
@@ -39,6 +39,26 @@
 	{view "atgm_vehicle"
 		("scale" s(0.8))
 		{props "atgm_vehicle"}
+	}
+	{view "plane"
+		{scale 1.5}
+		{props "Airborne_M"}
+	}
+	{view "antirad"
+		{scale 1}
+		{props  "minimap_antirad"}
+	}
+	{view "antirad"
+		{scale 0.5}
+		{props  "radar_minimap"}
+	}
+	{view "heli"
+		{scale 1.2}
+		{props "Helicopter"}
+	}
+	{view "heli"
+		{scale 1.2}
+		{props "airborne_helicopter"}
 	}
 	{view "supply"
 		("scale" s(0.70))
@@ -132,6 +152,18 @@
 		("scale" s(1))
 		{props "heavy"}
 	}
+	{view "tank_l"
+		("scale" s(1))
+		{props "light_M"}
+	}
+	{view "tank_m"
+		("scale" s(1))
+		{props "medium_M"}
+	}
+	{view "tank_h"
+		("scale" s(1))
+		{props "heavy_M"}
+	}
 	{view "vehicle"
 		("scale" s(0.7))
 		{props "vehicle"}
@@ -197,53 +229,68 @@
 		("scale" s(0.4))
 	}
 	{view "spawn_a"
+		{tags "spawn_team_a"}
 		("scale" s(0.7))
-		{props "spawn_team_a"}
-		{color 0xffff0000}
+		{color 0xffffffff}
 	}
 	{view "spawn_b"
+		{tags "spawn_team_b"}
 		("scale" s(0.7))
-		{props "spawn_team_b"}
-		{color 0xffff0000}
+		{color 0xffffffff}
 	}
 	{view "arrow_straight"
+		{tags "arrow_enemy_straight"}
 		("scale" s(0.5))
-		{props "arrow_enemy_straight"}
-		{color 0xffff0000}
+		{color 0xffffffff}
 	}
 	{view "arrow_straight"
+		{tags "arrow_friendly_straight"}
 		("scale" s(0.5))
-		{props "arrow_friendly_straight"}
-		{color 0xff00ff00}
+		{color 0xffffffff}
 	}
 	{view "quest"
+		{tags "quest"}
 		("scale" s(0.7))
-		{props "quest"}
-		{color 0xffff0000}
+		{color 0xffffffff}
+	}
+	{view "quest"
+		{props "stretcher_vehicle"}
+		("scale" s(0.7))
 	}
 	{view "crosshair"
-		{props "crosshair"}
+		{tags "crosshair"}
 		("scale" s(0.6))
-		{color 0xffff0000}
+		{color 0xffffffff}
 	}
 	{view "arrow_attack"
-		{props "arrow_enemy"}
+		{tags "arrow_enemy"}
 		("scale" s(0.4))
-		{color 0xffD9412B}
+		{color 0xffffffff}
 	}	
 	{view "arrow_attack"
-		{props "arrow_friendly"}
+		{tags "arrow_friendly"}
 		("scale" s(0.4))
-		{color 0xff54C600}
+		{color 0xffffffff}
 	}	
 	{view "artillery_warning"
-		{props "artillery_minimap_signal_heavy"}
+		{tags "artillery_minimap_signal_heavy"}
 		("scale" s(0.80))
-		;{color 0xffff0000}
+		{color 0xffffffff}
 	}
 	{view "artillery_warning"
-		{props "artillery_minimap_signal_medium"}
+		{tags "artillery_minimap_signal_medium"}
 		("scale" s(0.50))
-		;{color 0xffff0000}
+		{color 0xffffffff}
+	}
+	{view "artillery_warning"
+		{tags "artillery_minimap_signal_light"}
+		("scale" s(0.30))
+		{color 0xffffffff}
+	}
+	{view "artillery_warning"
+		{tags "conquest_spawn_indicator"}
+		("scale" s(0.30))
+		;{color 0xff00001a}
+		{color 0xffff4046}
 	}
 }
