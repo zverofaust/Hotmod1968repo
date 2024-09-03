@@ -1,4 +1,4 @@
-{game_entity		;UH-1B/C with M21 subsystem
+{game_entity		;UH-1B/C with M17 subsystem
 	(include "/properties/helicopter.ext")
 	(include "/properties/shadow/airborn.inc" scale(2.5))
 	(include "/properties/selection/airborne.inc" scale(2.00))
@@ -9,9 +9,9 @@
 	("helicopter_tier1")
 	
 	{extender "enumerator"}
-	
-	{Texmod "shark"} 
 
+	{Texmod "aircav"} 
+	
 	{boarder
 		{anm "driver"
 			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "door_left"}}
@@ -94,22 +94,37 @@
 	
 	{extender "inventory"
 		{box
-            		{item "ammo 70mm_ffar" 14}
+            {item "ammo 70mm_ffar" 38}
 			{item "ammo mgun_usa belt" 2000}
+			{item "ammo 40mm_grenade he" 300}
         }
     }
 	
-	{extender "inventory"
-		{box
-			{item "ammo 70mm_ffar" 48}
-		}
-	}
-	
 	{Weaponry
-		{place "gun"
+		{place "mgun"
 			{rotate}
-			{weapon			"70mm_ffar_24x2" filled}
-			{barrels		48}
+			{weapon			"m134_x2" filled}
+			{barrels 		2}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter"}
+			{foresight		"foresight3"}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun1"
+			{rotate}
+			{weapon			"40mm_m129" filling "ammo 40mm_grenade he" 300}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{foresight		"foresight1"}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "gun2"
+			{rotate}
+			{weapon			"70mm_ffar_19x2" filled}
+			{barrels		38}
 			{gunner			"driver"}
 			{charger		"driver"}
 			{shooter		"shooter_a"}
@@ -128,14 +143,28 @@
 		{random 0}
 	}
 
-	{Extension "uh-1b_ara.mdl"}
+	{Extension "uh-1b_m17.mdl"}
 
-	{bone "m3"					;rockets: right/left
+	{bone "m17"					;rockets: down/up
 		{speed2 24}
 		{limits -20 10}
 	}
-	{bone "foresight2"			;miniguns side-to-side
+	{bone "minigun_mount"		;miniguns: down/up
 		{speed2 24}
 		{limits -10 10}
+	}
+	{bone "foresight3"			;miniguns side-to-side
+		{speed2 24}
+		{limits -10 10}
+	}
+	{bone "foresight2"			;rockets side-to-side
+		{speed2 24}
+		{limits -10 10}
+	}
+	{bone "m5_turret"			
+		{limits -75 75}
+	}
+	{bone "m5_rot"			
+		{limits -38 22}
 	}
 }
