@@ -33,6 +33,24 @@
 	{conditions ""}{action "airstrike:reconnaissance_50"} 
 }
 
+{"cas_uh1_ara_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(uh-1b_ara_airborne) crew(sup_pilot:2) b(strategic) cw(0) cp(0))
+	("doctrine_t2" cool(300) d(era1960_csa_artillery) cost(12))
+	{conditions ""}{action "airstrike:reconnaissance_50"} 
+}
+
+{"cas_uh1_frog_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(uh-1b_frog_airborne) crew(sup_pilot:2) b(strategic) cw(0) cp(0))
+	("doctrine_t2" cool(300) d(era1960_csa_aircav) cost(14))
+	{conditions ""}{action "airstrike:reconnaissance_50"} 
+}
+
+{"cas_ach47a_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(ach-47a_airborne) crew(sup_pilot:7) b(strategic) cw(0) cp(0))
+	("doctrine_t3" cool(600) d(era1960_csa_aircav) cost(20))
+	{conditions ""}{action "airstrike:reconnaissance_50"} 
+}
+
 {"airstrike_medium_csa"
 	("strategic_doctrine" side(csa) period(era1960) vehicle(a-4e_airstrike) crew(sup_pilot:0) b(strategic) cw(0) cp(0))
 	("universal_strat" cd(300) ci(300) cost(8))
@@ -43,6 +61,12 @@
 	("strategic_doctrine" side(csa) period(era1960) vehicle(a-4e_airstrike) crew(sup_pilot:0) b(strategic) cw(0) cp(0))
 	("universal_strat" cd(300) ci(300) cost(8))
 	{conditions ""}{action "airstrike:flare_airstrike_light_napalm_csa"} 
+}
+
+{"airstrike_heavy_csa"
+	("strategic_doctrine" side(csa) period(era1960) vehicle(f-105_airstrike) crew(sup_pilot:0) b(strategic) cw(0) cp(0))
+	("doctrine_t2" cool(600) d(era1960_csa_82nd) cost(16))
+	{conditions ""}{action "airstrike:flare_airstrike_heavy_bomb_csa"} 
 }
 
 ;ARTILLERY SUPPORT
@@ -245,16 +269,8 @@
 
 ; // 25DP AH-1G
 {"doctrine_vehicle_ah1g(csa)"
-	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(ach-47a) crew(sup_pilot:7) cw(0) cp(0))
-	("doctrine_t3" cool(240) d(era1960_csa_aircav) cost(25))
-}
-
-; ======Strategic Callins======
-
-{"airstrike_heavy_csa"
-	("strategic_doctrine" side(csa) period(era1960) vehicle(f-105_airstrike) crew(sup_pilot:0) b(strategic) cw(0) cp(0))
-	("doctrine_t2" cool(600) d(era1960_csa_82nd) cost(16))
-	{conditions ""}{action "airstrike:flare_airstrike_heavy_bomb_csa"} 
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(ah-1g) crew(sup_pilot:2) cw(0) cp(0))
+	("doctrine_t3" cool(360) d(era1960_csa_aircav) cost(25))
 }
 
 ;===================================
@@ -390,6 +406,7 @@
 	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m551) crew(82nd_vehicleman:4) cw(0) cp(0))
 	("doctrine_t3" cool(240) d(era1960_csa_82nd) cost(18))
 }
+
 
 ;===================================
 ;       	DOCTRINE 3
