@@ -1,0 +1,171 @@
+{game_entity		;UH-1B/C with M17 subsystem
+	(include "/properties/airborne_helicopter.ext")
+	{props "helo" "vision_lev02_air"}
+	{PatherID "bf109"}
+	(include "/properties/shadow/airborn.inc" scale(2.2))
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+	{targetSelector "airborne_bullet"}
+
+	("helicopter_tier1")
+	
+	{extender "enumerator"}
+
+	{Texmod "aircav"} 
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse 	{end	"board_big-midcar_driver" -1} {base "doorleft" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "doorright"}}
+			{reverse 	{end	"board_big-midcar" -1} {base "doorright" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(commander) bone(commander) door(emit2) animation(commander))
+	
+	{placer
+		{place "driver"		{group "crew"}}
+		{place "commander"	{group "crew"}}
+	}
+	
+	{Sensor
+		{Visor "main"
+			{bone	 "pivot_back"}
+		}
+	}
+	
+	;volume/component, thickness
+	("glass" args "window1")
+	("glass" args "window2")
+	("glass" args "window3")
+	("glass" args "window4")
+	("glass" args "window5")
+	("glass" args "window6")
+	("glass" args "window7")
+	("glass" args "window8")
+	("glass" args "window9")
+	("glass" args "window10")
+	
+	;main body parts
+	("body" args "body1")
+	("body" args "body2")
+
+	;main rotor + blades
+	("rotor" args "rotor")
+	("rotor" args "propeller")
+	("rotor" args "propeller1")
+
+	;back rotor + blades
+	("rotor_b" args "rotor_b")
+	("rotor_b" args "propeller_b")
+	("rotor_b" args "propeller_b1")
+	
+	;engines
+	("engine" args "engine")
+
+	{Obstacle "in_air"
+        {Obb2
+            {Center 10 0}
+            {Extent 190 160}
+            {Axis -1 0}
+        }
+        {rotate}
+    }
+    {ObstacleId "helicopter" "in_air"}
+	
+	{extender "inventory"
+		{box
+            {item "ammo 70mm_ffar" 38}
+			{item "ammo mgun_usa belt" 2000}
+			{item "ammo 40mm_grenade he" 300}
+        }
+    }
+	
+	{Weaponry
+		{place "mgun"
+			{rotate}
+			{weapon			"m134_x2" filled}
+			{barrels 		2}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter"}
+			{foresight		"foresight3"}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun1"
+			{rotate}
+			{weapon			"40mm_m129" filling "ammo 40mm_grenade he" 300}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{foresight		"foresight1"}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "gun2"
+			{rotate}
+			{weapon			"70mm_ffar_19x2" filled}
+			{barrels		38}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter_a"}
+			{foresight		"foresight2"}
+			{basic}
+		}
+	}
+
+	{mass 4309}
+	
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+	{Chassis "airborne"
+		("heli_model"
+			speed(185)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(10) ;//-----Climb rate at sea level, in m/s
+			turn(800) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(400) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(1.1) ;//---Aerodynamic efficiency rating (0-3)
+			weight(5100) ;//--------Weight in kg.
+			power(1680) ;//---------Horse Power.
+			fuel(650) ;//-----------Fuel capacity in Liters.
+			range(755) ;//----------Distance can travel with full fuel tank, in km.
+			roll_rate(25) ;//-------Roll rate, in degrees per second.
+			roll_angle(60) ;//------Maximum roll angle, in degrees.
+		)
+	}
+
+	{Extender "detail"
+		{random 0}
+	}
+
+	{Extension "uh-1b_m17.mdl"}
+
+	{bone "m17"					;rockets: down/up
+		{speed2 24}
+		{limits -20 10}
+	}
+	{bone "minigun_mount"		;miniguns: down/up
+		{speed2 24}
+		{limits -10 10}
+	}
+	{bone "foresight3"			;miniguns side-to-side
+		{speed2 24}
+		{limits -10 10}
+	}
+	{bone "foresight2"			;rockets side-to-side
+		{speed2 24}
+		{limits -10 10}
+	}
+	{bone "m5_turret"
+		{speed2 40}
+		{limits -75 75}
+	}
+	{bone "m5_rot"
+		{speed2 56}
+		{limits -38 22}
+	}
+}

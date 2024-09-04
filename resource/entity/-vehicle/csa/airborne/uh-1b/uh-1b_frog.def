@@ -1,0 +1,170 @@
+{game_entity		;UH-1B/C with M17 subsystem
+	(include "/properties/helicopter.ext")
+	(include "/properties/shadow/airborn.inc" scale(2.5))
+	(include "/properties/selection/airborne.inc" scale(2.00))
+	(include "/properties/car_crew.ext")
+	{props "helo"}
+	{PatherID "helicopter"}
+
+	("helicopter_tier1")
+	
+	{extender "enumerator"}
+
+	{Texmod "aircav"} 
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "door_left"}}
+			{reverse 	{end	"board_big-midcar_driver" -1} {base "doorleft" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "door_right"}}
+			{reverse 	{end	"board_big-midcar" -1} {base "doorright" -1}}
+		}
+		{anm "passenger1"
+			{forward	{begin 	"board_body"}	{end "seat_passenger"}}
+			{reverse 	{end	"emit_tank_1_hold"} {base "doorleft1"}}
+		}
+		{anm "passenger2"
+			{forward	{begin 	"board_body"}	{end "seat_passenger"}}
+			{reverse 	{end	"emit_tank_1_hold"} {base "doorright1"}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(commander) bone(commander) door(emit2) animation(commander))
+	("crew_human" place(seat1) bone(seat01) door(emit3) door2(emit4) animation(passenger1))
+	("crew_human" place(seat2) bone(seat02) door(emit4) door2(emit3) animation(passenger2))
+	("crew_human" place(seat3) bone(seat03) door(emit3) door2(emit4) animation(passenger1))
+	("crew_human" place(seat4) bone(seat04) door(emit4) door2(emit3) animation(passenger2))
+	("crew_human" place(seat5) bone(seat05) door(emit3) door2(emit4) animation(passenger2))
+	
+	{placer
+		{place "driver"		{group "crew"}}
+		{place "commander"	{group "crew"}}
+		{place "seat1"		{group "passenger"}}
+		{place "seat2"		{group "passenger"}}
+		{place "seat3"		{group "passenger"}}
+		{place "seat4"		{group "passenger"}}
+	}
+	
+	{Sensor
+		{Visor "main"
+			{bone	 "pivot_back"}
+		}
+	}
+	
+	;volume/component, thickness
+	("glass" args "window1")
+	("glass" args "window2")
+	("glass" args "window3")
+	("glass" args "window4")
+	("glass" args "window5")
+	("glass" args "window6")
+	("glass" args "window7")
+	("glass" args "window8")
+	("glass" args "window9")
+	("glass" args "window10")
+	
+	;main body parts
+	("body" args "body1")
+	("body" args "body2")
+
+	;main rotor + blades
+	("rotor" args "rotor")
+	("rotor" args "propeller")
+	("rotor" args "propeller1")
+
+	;back rotor + blades
+	("rotor_b" args "rotor_b")
+	("rotor_b" args "propeller_b")
+	("rotor_b" args "propeller_b1")
+	
+	;engines
+	("engine" args "engine")
+
+	{Obstacle "in_air"
+        {Obb2
+            {Center 10 0}
+            {Extent 190 160}
+            {Axis -1 0}
+        }
+        {rotate}
+    }
+    {ObstacleId "helicopter" "in_air"}
+	
+	{extender "inventory"
+		{box
+            {item "ammo 70mm_ffar" 38}
+			{item "ammo mgun_usa belt" 2000}
+			{item "ammo 40mm_grenade he" 300}
+        }
+    }
+	
+	{Weaponry
+		{place "mgun"
+			{rotate}
+			{weapon			"m134_x2" filled}
+			{barrels 		2}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter"}
+			{foresight		"foresight3"}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun1"
+			{rotate}
+			{weapon			"40mm_m129" filling "ammo 40mm_grenade he" 300}
+			{gunner			"commander"}
+			{charger		"commander"}
+			{foresight		"foresight1"}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "gun2"
+			{rotate}
+			{weapon			"70mm_ffar_19x2" filled}
+			{barrels		38}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{shooter		"shooter_a"}
+			{foresight		"foresight2"}
+			{basic}
+		}
+	}
+
+	{mass 4309}
+	
+	{Chassis "helicopter"
+		{Locomotion ("locomotion_attack")}
+	}
+
+	{Extender "detail"
+		{random 0}
+	}
+
+	{Extension "uh-1b_m17.mdl"}
+
+	{bone "m17"					;rockets: down/up
+		{speed2 24}
+		{limits -20 10}
+	}
+	{bone "minigun_mount"		;miniguns: down/up
+		{speed2 24}
+		{limits -10 10}
+	}
+	{bone "foresight3"			;miniguns side-to-side
+		{speed2 24}
+		{limits -10 10}
+	}
+	{bone "foresight2"			;rockets side-to-side
+		{speed2 24}
+		{limits -10 10}
+	}
+	{bone "m5_turret"			
+		{limits -75 75}
+	}
+	{bone "m5_rot"			
+		{limits -38 22}
+	}
+}

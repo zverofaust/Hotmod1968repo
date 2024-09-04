@@ -12,7 +12,7 @@
 		
 	{extender "enumerator"}
 	
-	{boarder
+{boarder
 		{anm "driver"
 			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "doorleft"}}
 			{reverse 	{end	"board_big-midcar_driver" -1} {base "doorleft" -1}}
@@ -21,20 +21,42 @@
 			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "doorright"}}
 			{reverse 	{end	"board_big-midcar" -1} {base "doorright" -1}}
 		}
+		{anm "passenger"
+			{forward	{begin 	"board_tank"}	{end "seat_passenger"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "passenger-a"
+			{forward	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "passenger-b"
+			{forward	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
 		{anm "gunner1"
 			{forward	{begin	"board_SdKfz251-1"} {end "seat_passenger"}}
 			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "passenger-c"
+			{forward	{end "pose_flak30_gunner"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
 		}
 	}
 	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
 	("crew_human" place(commander) bone(commander) door(emit2) animation(commander))
 	("crew_human" place(gunner1)	door(emit4) bone(gunner1)    animation(gunner1)	group(crew))
 	("crew_human" place(gunner2)	door(emit3) bone(gunner2)    animation(gunner1)	group(crew))
-
-	("crew_human"		place(seat01)	bone(seat01)	door(emit3) animation(passenger)	group(passenger))
-	("crew_human"		place(seat02)	bone(seat02)	door(emit4) animation(passenger)	group(passenger))
-	("crew_human"		place(seat03)	bone(seat03)	door(emit5) animation(passenger)	group(passenger))
-	("crew_human"		place(seat04)	bone(seat04)	door(emit6) animation(passenger)	group(passenger))
+	
+	("crew_human" place(seat1) bone(seat01) door(emit3) group(passenger) animation(passenger-a))
+	("crew_human" place(seat2) bone(seat02) door(emit4) group(passenger) animation(passenger-a))
+	("crew_human" place(seat3) bone(seat03) door(emit3) group(passenger) animation(passenger-b))
+	("crew_human" place(seat4) bone(seat04) door(emit4) group(passenger) animation(passenger-b))
+	("crew_human" place(seat5) bone(seat05) door(emit3) group(passenger) animation(passenger-a))
+	("crew_human" place(seat6) bone(seat06) door(emit4) group(passenger) animation(passenger-b))
+	("crew_human" place(seat7) bone(seat07) door(emit3) group(passenger) animation(passenger))
+	("crew_human" place(seat8) bone(seat08) door(emit3) group(passenger) animation(passenger))
+	("crew_human" place(seat9) bone(seat09) door(emit4) group(passenger) animation(passenger-c))
+	("crew_human" place(seat10) bone(seat10) door(emit3) group(passenger) animation(passenger-c))
 	
 	{placer
 		{place "driver"		{group "crew"}}
