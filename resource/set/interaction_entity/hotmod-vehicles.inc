@@ -3482,6 +3482,53 @@
 	("animation_sound" args "open_right")
 }
 
+{"lars_1 car"
+	("opel_maultier_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+	
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	
+	{on spawn
+		{tags add "shield_up"}
+	}
+
+	{on ik begin "turret"
+		{if tagged "shield_up"
+			{tags add "aiming"}
+			{tags remove "moving"}
+			{ani_play "support_close"}
+			{tags add "shield_down"}
+			{tags remove "shield_up"}
+		else
+			{delay 0.1}
+		}
+	}
+
+	{on move on
+		{if tagged "shield_down"
+			{tags add "moving"}
+			{tags remove "aiming"}
+			{ani_play "support_open"}
+			{tags remove "shield_down"}
+			{tags add "shield_up"}
+		else
+			{delay 0.1}
+		}
+	}
+	
+	{on fire "gun"
+		("check_fire_lars")
+	}
+	
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
+}
+
 {"m16_frg tank"
 	("m3_halftrack_sound")
 	("animation_sound" args "open_left")

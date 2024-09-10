@@ -284,47 +284,65 @@
 	}
 )
 
-(define "check_fire"
-
+		(define "check_fire"
 			{if not effector "airborne"
-			   {if not tagged "cwsh_zpu_off"
-			   {if crew_in_place "charger"
-				{kill_delay "cwsh_disable_zpu"}
-				{if not tagged "cwsh_tempdisable_zpu"
-					{call "cwsh_disable_zpu"}
-					{tags add "cwsh_tempdisable_zpu"}
-				}
-				{delay 10 "cwsh_disable_zpu"
-					{if  tagged "cwsh_tempdisable_zpu"
-						{tags remove "cwsh_tempdisable_zpu"}
-						{call "cwsh_enable_zpu"}
+				{if not tagged "cwsh_zpu_off"
+					{if crew_in_place "charger"
+						{kill_delay "cwsh_disable_zpu"}
+						{if not tagged "cwsh_tempdisable_zpu"
+							{call "cwsh_disable_zpu"}
+							{tags add "cwsh_tempdisable_zpu"}
+						}
+						{delay 10 "cwsh_disable_zpu"
+							{if  tagged "cwsh_tempdisable_zpu"
+								{tags remove "cwsh_tempdisable_zpu"}
+								{call "cwsh_enable_zpu"}
+							}
+						}
 					}
 				}
-			   }
-			   }
 			}
-)
+		)
 
-(define "check_fire_bmd"
-
+		(define "check_fire_bmd"
 			{if not effector "airborne"
-			   {if not tagged "cwsh_zpu_off"
-			   {if crew_in_place "gunner2"
-				{kill_delay "cwsh_disable_zpu"}
-				{if not tagged "cwsh_tempdisable_zpu"
-					{call "cwsh_disable_zpu"}
-					{tags add "cwsh_tempdisable_zpu"}
-				}
-				{delay 5 "cwsh_disable_zpu"
-					{if  tagged "cwsh_tempdisable_zpu"
-						{tags remove "cwsh_tempdisable_zpu"}
-						{call "cwsh_enable_zpu"}
+				{if not tagged "cwsh_zpu_off"
+					{if crew_in_place "gunner2"
+						{kill_delay "cwsh_disable_zpu"}
+						{if not tagged "cwsh_tempdisable_zpu"
+							{call "cwsh_disable_zpu"}
+							{tags add "cwsh_tempdisable_zpu"}
+						}
+						{delay 5 "cwsh_disable_zpu"
+							{if  tagged "cwsh_tempdisable_zpu"
+								{tags remove "cwsh_tempdisable_zpu"}
+								{call "cwsh_enable_zpu"}
+							}
+						}
 					}
 				}
-			   }
-			   }
 			}
-)
+		)
+		
+		(define "check_fire_lars"
+			{if not effector "airborne"
+				{if not tagged "cwsh_zpu_off"
+					{if crew_in_place "commander"
+						{kill_delay "cwsh_disable_zpu"}
+						{if not tagged "cwsh_tempdisable_zpu"
+							{call "cwsh_disable_zpu"}
+							{tags add "cwsh_tempdisable_zpu"}
+						}
+						{delay 10 "cwsh_disable_zpu"
+							{if  tagged "cwsh_tempdisable_zpu"
+								{tags remove "cwsh_tempdisable_zpu"}
+								{call "cwsh_enable_zpu"}
+							}
+						}
+					}
+				}
+			}
+		)
 
 ;------------ordos add check attack thing-----------
 	{on bullet_hit

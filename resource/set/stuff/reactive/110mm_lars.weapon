@@ -1,0 +1,35 @@
+;_________________________________________
+; West German 'Light Artillery Rocket System' (LARS) or 'Leichte Artillerieraketensystem'
+;=========================================
+
+
+{from "pattern reactive"		;
+	{filling "ammo rocket110_dm11" 36}
+	{fireSound "reactive/katy_burst/"}
+	{calibre 122}
+
+	("rocket_artillery")
+	{spreading
+		{radiusTable
+			{0 0}
+			{170 10}
+			{340 20}
+			{510 40}
+			{680 60}
+			{850 70}
+		}
+	}
+	
+	{range 675 750} ;//15km
+	{minRange 100}
+	
+	{burst 
+		{min 9}
+		{noaiming}
+	}
+
+	("fire rate" rpm(120))
+	("velocity" mps(390))
+	("reload time" seconds(170))
+	{gravity 3}
+}
