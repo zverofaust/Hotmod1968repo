@@ -510,11 +510,9 @@
 
 
 	
-("helicopter_type" 	prop(heli_passenger_light)				tag(heli_landing))
-("helicopter_type" 	prop(heli_passenger_heavy)				tag(heli_landing))
+("helicopter_type" 	prop(heli_passenger)				tag(heli_landing))
 
-("helicopter_type" 	prop(heli_sling_light)					tag(heli_lowering))
-("helicopter_type" 	prop(heli_sling_heavy)					tag(heli_lowering))
+("helicopter_type" 	prop(heli_sling)					tag(heli_lowering))
 
 
 
