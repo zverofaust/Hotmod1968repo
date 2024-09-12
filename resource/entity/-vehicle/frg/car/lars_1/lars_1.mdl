@@ -1,5 +1,5 @@
 ;Exported by: aeste
-;Date:        Tue Sep 10 11:33:08 2024
+;Date:        Thu Sep 12 07:28:19 2024
 ;File:        E:\Cold War\ModelWIP\West Germany\LARS\Lars.max
 {Skeleton
 	{animation
@@ -510,6 +510,11 @@
 					{Position 43.1158	-11.7001	9.3777}
 					{VolumeView "detail1.ply"}
 				}
+				{bone revolute "detail3"
+					{parameters "id=body;"}
+					{Position 43.3429	9.62157	9.59314}
+					{VolumeView "detail3.ply"}
+				}
 			}
 			{bone "cab"
 				{parameters "id=body;"}
@@ -821,13 +826,13 @@
 	{Position -14.3063	-0.0128803	-0.856548}
 }
 {Volume "body3"
-	{Box 19.854 23.8876 7.64854}
-	{Bone "body"}
+	{Box 46.9016 13.7191 16.5397}
+	{Bone "bodyback"}
 	{Matrix34
 		0	1	0
 		0	0	1
 		1	0	0
-		17.4534	-12.0046	16.7574
+		29.3958	-0.000470046	3.01544
 	}
 }
 {Volume "body4"
@@ -940,14 +945,44 @@
 		-69.0416	0	10.4194
 	}
 }
+{Volume "shield1"
+	{Box 7.89779 32.5203 0.585676}
+	{Bone "shield1"}
+	{Matrix34
+		0.956305	0	-0.292372
+		0	1	0
+		0.292372	0	0.956305
+		4.04617	-0.000467777	-1.02167
+	}
+}
+{Volume "shield2"
+	{Box 14.3748 8.14388 0.765197}
+	{Bone "shield2"}
+	{Matrix34
+		0.99998	-0.000389579	-0.00637813
+		0.00637813	0.121702	0.992546
+		0.000389574	-0.992567	0.121702
+		-0.0331058	-0.580478	-4.05302
+	}
+}
+{Volume "shield3"
+	{Box 14.3748 8.14388 0.765197}
+	{Bone "shieldl"}
+	{Matrix34
+		0.999985	0.000286552	-0.0054706
+		0.00547063	-0.104385	0.994522
+		-0.000286008	-0.994537	-0.104385
+		-0.0779171	0.670306	-4.13953
+	}
+}
 {Volume "shield4"
-	{Box 46.9016 13.7191 16.5397}
-	{Bone "bodyback"}
+	{Box 19.854 23.8876 8.18394}
+	{Bone "body"}
 	{Matrix34
 		0	1	0
 		0	0	1
 		1	0	0
-		29.3958	-0.000470046	3.01544
+		17.7211	-12.0046	16.7574
 	}
 }
 {Volume "suspension"
