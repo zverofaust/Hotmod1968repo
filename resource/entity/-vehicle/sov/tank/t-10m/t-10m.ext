@@ -8,6 +8,9 @@
 	
 	;volume, component/tag
 
+	("shield" args "shield_spaced1" 20 "body") ;side stowage/spaced armor
+	("shield" args "shield_spaced2" 20 "body") ;side stowage/spaced armor
+	
 	("fuel" args "fuel1")
 	("fuel" args "fuel2")
 	("ammo" args "ammo1")
@@ -27,7 +30,7 @@
 	;5                 rear
 	;6                 bottom
 	
-	{volume "body1"			; Upper Hull
+	{volume "body1"			; Central hull
 		{thickness 80
 			{front 120}
 			{top 30}
@@ -36,7 +39,7 @@
 		}
 		{HighHardness}
 	}
-	{volume "body2"			; Lower Hull
+	{volume "body2"			; Left 'wing'
 		{thickness 60
 			{front 120}		
 			{top 0}
@@ -45,7 +48,7 @@
 		}
 		{HighHardness}
 	}
-	{volume "body3"			; Upper Hull Right
+	{volume "body3"			; Right 'wing'
 		{thickness 
 			{front 120}		
 			{top 30}
@@ -53,17 +56,6 @@
 			{bottom 80}
 			{left 0}
 			{right 120}
-		}
-		{HighHardness}
-	}
-	{volume "body4"			; Upper Hull left
-		{thickness 
-			{front 120}		
-			{top 30}
-			{rear 50}
-			{bottom 80}
-			{left 120}
-			{right 0}
 		}
 		{HighHardness}
 	}
