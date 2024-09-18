@@ -1,0 +1,83 @@
+;SDL
+
+	;notes
+	;tracks and wheels 30mm
+	;gun 30mm
+
+	("tank_heavy_tier2")
+
+	("wood_shield" args "shield1" 10 "body") ;wood log
+	
+	("shield_tear" args "shield2" 5 "body") ;fuel tank
+	("shield_tear" args "shield3" 5 "body") ;fuel tank
+	("shield_tear" args "shield4" 5 "body")	;fuel tank
+	("shield_tear" args "shield5" 5 "body") ;fuel tank
+	
+	("shield_tear" args "smokebomb1" 5 "body")	;fuel tank
+	("shield_tear" args "smokebomb2" 5 "body") ;fuel tank
+	
+	("armor" args "shield_spaced1" 15 "body") ;side stowage/spaced armor
+	("armor" args "shield_spaced2" 15 "body") ;side stowage/spaced armor
+
+	("tracks" repair(30) thickness(15))
+	("gun" repair(30) thickness(30))
+
+	("fuel" args "fuel")
+
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+
+	("transmission" args "transmission")
+
+	{volume "body1"		; Hull
+		{thickness 90
+			{front 110}
+			{rear 60}
+			{bottom 20}
+			{top 20}
+		}
+		{HighHardness}
+	}
+	
+	{volume "body2"		; Cheek
+		{thickness 90
+			{front 110}
+			{rear 60}
+			{bottom 20}
+			{top 20}
+		}
+		{HighHardness}
+	}
+	
+	{volume "body3"		; Cheek
+		{thickness 90
+			{front 110}
+			{rear 60}
+			{bottom 20}
+			{top 20}
+		}
+		{HighHardness}
+	}
+	
+	{volume "engine"
+		{thickness 50		}
+		{HighHardness}
+	}
+	{volume "turret"
+		{thickness 120
+			{front 250}
+			{rear 100}
+			{bottom 20}
+			{top 20}
+		}
+		{HighHardness}
+		{CastSteel 0.8063}
+	}
+	
+	{volume "trackright"
+		{Able{holed}}
+	}
+	
+	{volume "trackleft"
+		{Able{holed}}
+	}
