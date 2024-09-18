@@ -68,7 +68,8 @@ Purchases["conquest.frg"] = {
 				
 			--SPG
 				{priority = 0.5, type = {"Tank", "Medium", "Artillery",}, unit = "m109g"},
-				{priority = 0.5, type = {"Tank", "Medium", "Artillery",}, unit = "m110g"}
+				{priority = 0.5, type = {"Tank", "Medium", "Artillery",}, unit = "m110g"},
+				{priority = 0.5, type = {"Vehicle", "Artillery",}, unit = "lars_1"}
 			--Air Assets
 				
 		}
