@@ -1,0 +1,88 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "tank" "halftrack" "wheeled" "turret" "with_gun" "explosion_throw_crew" "vision_lev02" "tractor" "tractor_heavy" "detect_tank_mg" "open_death_fx" "shell_eject"}
+	{able "emit_passengers_on_enemy"}
+	{extension "m16_gmc.mdl"}
+	(include "m16_gmc.ext")
+	{patherId "m3halftrack"}
+	{targetclass "armoredcar"}
+	{targetSelector "cannon_zenite"}
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_big-midcar_driver"} {end "seat_kubel_driver"} {base "doorleft"}}
+			{reverse {end "board_big-midcar_driver" -1} {base "doorleft" -1}}
+		}
+		{anm "gunner"
+			{forward {begin "board_MiddleArmor"} {end "seat_m45_gunner"}}
+			{reverse {end "emit_tank_1"}}
+		}
+		{anm "charger"
+			{forward {begin "board_MiddleArmor"} {end "seat_kubel_commander"}}
+			{reverse {end "emit_tank_1"}}
+		}
+		{anm "passenger1"
+			{forward {begin "board_big-midcar"} {end "seat_kubel_commander"} {base "doorright"}}
+			{reverse {end "board_big-midcar" -1} {base "doorright" -1}}
+		}
+		{anm "passenger2"
+			{forward {begin "board_MiddleArmor"} {end "seat_kubel_commander"}}
+			{reverse {end "emit_tank_1"}}
+		}
+	}
+
+	("crew" place(driver)		bone(driver)	door(emit1)	animation(driver)	 visor(driver) off({sensor}))
+	("crew" place(gunner)		bone(gunner)	door(emit4)	animation(gunner)	 visor(main) off())
+	("crew" place(charger)		bone(charger)	door(emit6)	animation(charger)	 visor(main) off())
+
+	("crew_human" place(seat1)	bone(seat01)	door(emit2)	animation(passenger1) group(passenger))
+	("crew_human" place(seat2)	bone(seat02)	door(emit2)	animation(passenger1) group(passenger))
+	("crew_human" place(seat3)	bone(seat03)	door(emit5)	animation(passenger2) group(passenger))
+
+	{extender "inventory"
+		{Box
+			{item "ammo hmgun_usa api" 4200}		; 5000 rounds
+			;{item "ammo m1_carbine_mag" 450}		; .30cal
+			;{item "ammo thompson_mag stick 30" 420}
+		}
+	}
+
+	{Weaponry
+		{place "mgun"
+			{Barrels 4}
+			{type "main"}
+			{foresight "foresight14"}
+			{gunner "gunner"}
+			{charger "charger"}
+			{weapon "browning_m2_x4" filling "hmgun_usa api" 800}
+			("abm_mgun")
+			{Rotate}
+			{basic}
+		}
+	}
+
+	{mass 8600}
+	{Chassis "wheel"
+		("tank_trace_ex" fx("tracks_sm2") step(0.2) len(0.58) boneleft("FXtraceL3") boneright("FXtraceR3"))
+		("car_trace" fx("tracewheel03a") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility_car"
+			speed(72) ;----------------------------------Max speed.
+			speedatmaxturn(14) ;-------------------------Max speed at max turn.
+			reverse(14) ;---------------------------------Max speed in Reverse.
+			weight(8.6) ;--------------------------------Weight in Tonnes.
+			power(147) ;---------------------------------Horse Power.
+			fuel(225) ;----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(320) ;---------------------------------Range in Kilometers.
+		)
+	}
+	{bone "gun_rot"
+		{limits -5 88}
+		{speed2 60}
+	}
+	{bone "turret"
+		{speed2 60}
+	}
+}
