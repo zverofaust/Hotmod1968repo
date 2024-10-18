@@ -48,22 +48,36 @@
 		}
 	}
 	
+	{on "insertion"			;// UI button to toggle insertion
+		{chassis_work 0}
+		{able select 0}
+		{ani_play "lower" callback}
+	}
+	
 	{on animation_end "lower"
-		{delay 0.8
+		{delay 0.5
 			{with_linked_entity "attach"
 				{unlink}
 				{impulse up 0.1 com}
 			}
-			{with_linked_entity "attach2"
-				{unlink}
-				{impulse up 0.1 com}
+			{delay 0.2
+				{with_linked_entity "seat01"
+					{unlink}
+				}
+				{with_linked_entity "seat02"
+					{unlink}
+				}
+				{delay 0.4
+					{with_linked_entity "seat03"
+						{unlink}
+					}
+					{with_linked_entity "seat04"
+						{unlink}
+					}
+					{ani_play "pause" callback}
+				}
 			}
-			{with_linked_entity "attach3"
-				{unlink}
-				{impulse up 0.1 com}
-			}
-			{ani_play "pause" callback}
-		}
+		}			
 	}
 	
 	{on animation_end "pause"
@@ -492,29 +506,6 @@
 		{start_sound "vehicle/airborne/air_attack" ambient}
 	}
 }
-
-(define "helicopter_type"
-	{"helicopter %prop"
-		{on "insertion"			;// UI button to toggle insertion
-			{tags add "%tag"}
-			{able select 0}
-			{delay 5
-				{with_linked_entity "attach"
-					{unlink}
-					{impulse up 0.1 com}
-				}
-			}
-		}
-	}
-)
-
-
-	
-("helicopter_type" 	prop(heli_passenger)				tag(heli_landing))
-
-("helicopter_type" 	prop(heli_sling)					tag(heli_lowering))
-
-
 
 {"helicopter no_explosion"
 	{on ground_hit sync
