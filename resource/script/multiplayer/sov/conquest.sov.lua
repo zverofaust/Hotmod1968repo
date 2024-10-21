@@ -109,6 +109,7 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "t-62_1967"},
 				{priority = 0.3, type = {"Tank", "Heavy",}, unit = "t-64_obj432"},
 			--Tanks_heavy
+				{priority = 0.5, type = {"Tank", "Heavy",}, unit = "is-3m"},
 				{priority = 1.0, type = {"Tank", "Heavy",}, unit = "t-10m_1957"},
 				{priority = 1.0, type = {"Tank", "Heavy",}, unit = "t-10m"},
 			--SPG
