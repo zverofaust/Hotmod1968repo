@@ -1,4 +1,4 @@
-{game_entity		;M103A1
+{game_entity		;M103 base
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.2))
 	(include "/properties/selection/vehicle.inc" scale(1.2))
@@ -10,7 +10,7 @@
 	{collider "tank.heavy"}
 	
 	{extender "enumerator"
-		{digit_folder "nato"}
+		{digit_folder "usmc"}
 	}
 	
 	;Crew: Driver, Commander, gunner, 2 loaders
@@ -44,8 +44,9 @@
 	
 	{extender "inventory"
 		{box
-			{item "ammo bullet120_m58 apbc" 15} ;38 rounds
-			{item "ammo bullet120_m58 he" 23}
+			{item "ammo bullet120_m58 apbc" 10} ;38 rounds
+			{item "ammo bullet120_m58 heat" 11}
+			{item "ammo bullet120_m58 he" 17}
 			{item "ammo hmgun_usa" 900}
 			{item "ammo mgun_usa belt" 8000}
 		}
@@ -83,15 +84,15 @@
 	{Chassis
 		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
 		("mobility_tank"
-			speed(34)  ;---------Max speed when fully accelerated on road, km/h.
-			reverse(8);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
-			traverse(32) ;-------Track traverse, per second, in degrees.
-			weight(56.7) ;-------Weight in Tonnes.
-			power(810) ;---------Engine Power, in hp.
-			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			speed(37)  ;---------Max speed when fully accelerated on road, km/h.
+			reverse(9.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(58.0) ;-------Weight in Tonnes.
+			power(740) ;---------Engine Power, in hp.
+			track(4.8) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
 			fuel(710) ;----------Fuel capacity in Litres.
-			type(fuel) ;-------Fuel type. (diesel OR fuel)
-			range(130) ;---------Range in km, off-road.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(480) ;---------Range in km, off-road.
 		)
 	}
 
