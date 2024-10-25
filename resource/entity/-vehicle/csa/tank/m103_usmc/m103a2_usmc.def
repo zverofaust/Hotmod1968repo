@@ -14,8 +14,15 @@
 	}
 	
 	;Crew: Driver, Commander, gunner, 2 loaders
-	("crew_5_human_2")
-	("gunner_visible")
+	
+	;//removed so Commander is in separate group
+	;("crew_5_human_2")
+	;("gunner_visible")
+	
+	;//added so Commander is in separate group
+	("crew_4_human")
+	("gunner_open" place(commander) bone(gunner2) visorbone(mgun_rot) door(emit3) door2(emit4) anm_left(gunner2) anm_right(gunner2) group(passenger))
+	("crew_human" place(charger2)	door(emit1) door2(emit2) visor(none))
 
 	{boarder
 		{anm "driver"

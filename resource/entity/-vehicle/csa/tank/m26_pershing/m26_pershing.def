@@ -1,0 +1,135 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{props "heavy" "vision_lev05" "muzzle_85mm_93mm_sides" "detect_tank_heavy" "muzzle_hmg_m2hb"}
+	{Extension "m26_pershing.mdl"}
+	(include "m26_pershing.ext")
+	{PatherId "pershing"}
+	{targetclass "tank_heavy"}
+	{targetSelector "tank_heavy"}
+	{collider "tank.heavy"}
+
+	("crew_5_human_extended2")
+	("gunner_open" place(gunner2) bone(gunner2) visorbone(mgun_rot) door(emit4) door2(emit7) anm_left(gunner2) anm_right(gunner2) group(passenger))
+
+	("seat_human" place(seat1) bone(seat01) door(emit4)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit5)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit6)  animation(armor1))
+	("seat_human" place(seat4) bone(seat04) door(emit7)  animation(armor1))
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_m4_driver"} {end "seat_m4a276w_commander"} {base "open_driver"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_driver"}}
+		}
+		{anm "co_driver"
+			{forward {begin "board_tank_right"} {end "seat_m4a276w_commander"}{base "open_co_driver"}}
+			{reverse {end "emit_tank_1_hold"}{base "open_co_driver"}}
+		}
+		{anm "left"
+			{forward {begin "board_Kv"} {end "seat_m4a276w_commander"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_tank_right"} {end "seat_m4a276w_commander"}}
+			{reverse {end "emit_tank_2_hold"}}
+		}
+		{anm "gunner2"
+			{forward {begin "board_HighArmor"} {end "seat_m4a276w_commander"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward {begin "board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_2"}}
+		}
+	}
+
+	{extender "shield" {off}}
+
+	{extender "inventory"
+		{box
+			{item "ammo bulletusa_90x600 apcbche" 26} 	;70 rounds
+			{item "ammo bulletusa_90x600 apbc" 5}
+			{item "ammo bulletusa_90x600 he" 35}
+			{item "ammo bulletusa_90x600 hvap" 3}
+			{item "ammo hmgun_usa" 450}		;550 rounds
+			{item "ammo mgun_usa" 4500}		;5000 rounds
+			{item "satchel_charge_usa" 1}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "90mm_m3" filling "ammo bulletusa_90x600 apcbche" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic"
+				zeroing(2.5)
+				dispersion(0.25)
+			)
+		}
+		{place "mgun2"
+			{type "coaxial"}
+			{weapon "browning_m19a4" filled}
+			{foresight "foresight5"}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun1"
+			{type "hull"}
+			{weapon "browning_m19a4" filled}
+			{foresight "foresight4"}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun"
+			{type "aa"}
+			{weapon "browning_m2" filled}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 41892}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.52) len(-0.92))
+		("mobility_tank"
+			speed(40) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(5) ;---------Max speed in reverse on road, km/h.
+			traverse(25) ;-------Track traverse, per second, in degrees.
+			weight(41.89) ;------Weight in Tonnes.
+			power(450) ;---------Engine Power, in hp.
+			track(3.0) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(693) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(100) ;---------Range in km, off-road.
+		)
+	}
+
+	{bone "gun_rot"
+		{limits -10 20}
+		{speed2 4}
+	}
+	{bone "turret"
+		("turret_heavy" power_traverse(24))
+	}
+	{bone "mgun_a_rot1"
+		{limits -45 45}
+		{speed2 60}
+	}
+	{bone "mgun_a_rot2"
+		{limits -15 55}
+		{speed2 60}
+	}
+}
