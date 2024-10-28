@@ -55,6 +55,7 @@ Purchases["era1960.csa"] = {
 				{priority = 0.2, type = {"Helicopter", "Sortie", "AT", "Class3",}, unit = "uh-1b_m22_airborne"},
 				{priority = 0.2, type = {"Helicopter", "Sortie", "AT", "Class3",}, unit = "uh-1b_maxwell_airborne"},
 				{priority = 0.2, type = {"Helicopter", "Sortie", "Support", "Class3",}, unit = "uh-1b_ara_airborne"},
+				{priority = 0.2, type = {"Helicopter", "Sortie", "Support", "Class3",}, unit = "uh-1b_frog_airborne"},
 			--Offmap Supports
 				
 			
@@ -86,14 +87,14 @@ Purchases["era1960.csa"] = {
 				{priority = 1.0, type = {"Infantry", "Squad", "Class3",}, unit = "doctrine_squad_usmc_reservist_moto(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Class2",}, unit = "doctrine_squad_usmc_moto(csa)"},
 				
-				{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "doctrine_vehicle_m98_usmc(csa)"},
+				--{priority = 1.0, type = {"Cannon", "Mortar", "Class2",}, unit = "doctrine_vehicle_m98_usmc(csa)"},
 				{priority = 1.0, type = {"Cannon", "Artillery", "Class3",}, unit = "doctrine_vehicle_m101_usmc(csa)"},
 				
 				{priority = 1.0, type = {"Armored", "AA", "Class2",}, unit = "doctrine_vehicle_m42_usmc(csa)"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "doctrine_vehicle_m48a1_usmc(csa)"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "doctrine_vehicle_m48a3_usmc(csa)"},
 				{priority = 1.0, type = {"Tank", "Medium", "Support", "Class2",}, unit = "doctrine_vehicle_m67_usmc(csa)"},
-				{priority = 1.0, type = {"Tank", "Heavy", "Class2",}, unit = "doctrine_vehicle_m103_usmc(csa)"},
+				{priority = 1.0, type = {"Tank", "Heavy", "Class2",}, unit = "doctrine_vehicle_m103a2(csa)"},
 				
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Tier1",}, unit = "doctrine_squad_usmc_scout(csa)"},
 				--{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "MG", "Tier2",}, unit = "doctrine_vehicle_mk18(csa)"},
@@ -115,7 +116,7 @@ Purchases["era1960.csa"] = {
 				{priority = 1.0, type = {"Armored", "AA", "Class2",}, unit = "doctrine_vehicle_m42_armor(csa)"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "doctrine_vehicle_m48a1_armor(csa)"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class3",}, unit = "doctrine_vehicle_m48a3_armor(csa)"},
-				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "doctrine_vehicle_m60(csa)"},
+				--{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "doctrine_vehicle_m60(csa)"},
 				{priority = 1.0, type = {"Tank", "Medium", "Class2",}, unit = "doctrine_vehicle_m60a1(csa)"},
 				{priority = 1.0, type = {"Armored", "Artillery", "SPG", "Class3",}, unit = "doctrine_vehicle_m108_armor(csa)"},
 				
@@ -133,7 +134,7 @@ Purchases["era1960.csa"] = {
 				
 				{priority = 1.0, type = {"Armored", "AT", "Class2",}, unit = "doctrine_vehicle_m56_82nd(csa)"},
 				
-				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "Tier2",}, unit = "doctrine_vehicle_m114a2(csa)"},	
+				--{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "Tier2",}, unit = "doctrine_vehicle_m114a2(csa)"},	
 				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "Support", "AT", "Tier3",}, unit = "doctrine_vehicle_m551_82nd(csa)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Tier2",}, unit = "doctrine_squad_sadm(csa)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_mgr3(csa)"},

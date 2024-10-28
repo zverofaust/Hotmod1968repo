@@ -4,7 +4,21 @@
 
 	("tank_medium_tier2")
 	
-	{Volume "body1"
+	("armor" args "armor1" 40)
+	("shield_track" args "detail4" 30)
+	("shield_tear" args "detail6" 30)
+	("glass" args "irglass" 2)
+	
+	("tracks" repair(40) thickness(30))
+	("gun" repair(30) thickness(30))
+
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("transmission" args "transmission")
+	
+	{Volume "body1" ;hull main
 		{component "body"}
 		{tags "body"}
 		{thickness 76
@@ -15,7 +29,7 @@
 		}
 		{HighHardness}
 	}
-	{Volume "body2"
+	{Volume "body2" ;lower hull
 		{component "body"}
 		{tags "body"}
 		{thickness 76
@@ -25,28 +39,8 @@
 		}
 		{HighHardness}
 	}
-	{Volume "body3"
-		{component "body"}
-		{tags "body"}
-		{thickness 76
-			{front 51}		
-			{top 22}		
-			{rear 51}
-			{bottom 22}
-		}
-		{HighHardness}
-	}
-	{Volume "turret1"
-		{tags "turret"}
-		{component "turret"}
-		{thickness 76
-			{front 102}		
-			{top 25}		
-			{bottom 25}
-		}
-		{HighHardness}
-	}
-	{Volume "turret2"
+
+	{Volume "turret"
 		{tags "turret"}
 		{component "turret"}
 		{thickness 76
@@ -62,30 +56,10 @@
 		{thickness 114}
 		{HighHardness}
 	}
-	{Volume "engine"
-		{component "body"}
-		{tags "body"}
-		{thickness 76
-			{front 40}		
-			{top 22}		
-			{rear 51}
-			{bottom 22}
-		}
-		{HighHardness}
-	}
 
 	{extender "shield"
 		{on}
 	}
-	{component "shieldl1" {tags "shield"}}
-	{component "shieldl2" {tags "shield"}}
-	{component "shieldr1" {tags "shield"}}
-	{component "shieldr2" {tags "shield"}}
-
-	("shield" args "shieldl1" 8)
-	("shield" args "shieldl2" 8)
-	("shield" args "shieldr1" 8)
-	("shield" args "shieldr2" 8)
 	
 	("ammo" args "ammo1")
 	("ammo" args "ammo2")
