@@ -2,7 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc" scale(1.2))
 	(include "/properties/selection/vehicle.inc" scale(1.2))
-	{props "medium" "vision_lev05" "muzzle_85mm_93mm_sides" "detect_tank_heavy"}
+	{props "medium" "vision_lev05" "muzzle_85mm_93mm_sides" "detect_tank_heavy" "with_open_zpu"}
 	{Extension "m46_patton.mdl"}
 	(include "m46_patton.ext")
 	{targetclass "tank_heavy"}
@@ -16,25 +16,33 @@
 	("crew_5_human")
 
 	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
-	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
-	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor1))
 	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
 	{boarder
+		{anm "driver"
+			{forward {begin "board_m4_driver"} {end "seat_m4a276w_commander"} {base "open_driver"}}
+			{reverse {end "emit_tank_1_hold"} {base "open_driver"}}
+		}
+		{anm "co_driver"
+			{forward {begin "board_tank_right"} {end "seat_m4a276w_commander"}{base "open_co_driver"}}
+			{reverse {end "emit_tank_1_hold"}{base "open_co_driver"}}
+		}
 		{anm "left"
-			{forward	{begin	"board_Kv"}}
-			{reverse 	{end	"emit_tank_1_hold"}}
+			{forward {begin "board_Kv"} {end "seat_m4a276w_commander"}}
+			{reverse {end "emit_tank_1_hold"}}
 		}
 		{anm "right"
-			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
-			{reverse 	{end	"emit_tank_2_hold"}}
+			{forward {begin "board_tank_right"} {end "seat_m4a276w_commander"}}
+			{reverse {end "emit_tank_2_hold"}}
 		}
-		{anm "armor"
-			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
-			{reverse 	{end	"emit_tank_2"}}
+		{anm "gunner2"
+			{forward {begin "board_HighArmor"} {end "seat_m4a276w_commander"}}
+			{reverse {end "emit_tank_2"}}
 		}
 		{anm "armor1"
-			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
-			{reverse 	{end	"emit_body"}}
+			{forward {begin "board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_2"}}
 		}
 	}
 
@@ -119,7 +127,7 @@
 
 	{mass 41600}
 	{Chassis
-		("tank_trace" fx("tracks_big") step(0.52) len(-0.56))
+		("tank_trace" fx("tracks_big") step(0.52) len(-0.92))
 		("mobility_tank"
 			speed(49) ;----------Max speed when fully accelerated on road, km/h.
 			reverse(10) ;---------Max speed in reverse on road, km/h.
@@ -135,6 +143,11 @@
 
 	{bone "gun_rot"
 		{speed2 10}
+	}
+	
+	{bone "hullmg_turret"
+		{limits -20 20}
+		{speed2 15}
 	}
 	{bone "turret"
 		{speed2 12}
