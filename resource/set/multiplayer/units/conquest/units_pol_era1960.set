@@ -92,26 +92,77 @@
 ;|             inf1                               |
 ;|________________________________________________|
 
+;;;;;PDES und SPECJALNA;;;;;
 
-("squad_with4types_conquest" side(pol) name(squad_reservist)		period(era1960) min_stage(1) max_stage(5)	 c1(rsv_squadlead:1) c2(rsv_lmg:1) c3(rsv_atgren:1) c4(rsv_rifleman:5)	)
+("squad_with6types_conquest" side(pol) name(squad_rifle_pdes) 		period(era1960) min_stage(3) max_stage(99) c1(pdes_squadlead:1) c2(pdes_antitank:1) c3(pdes_atassist:1) c4(pdes_senior:1) c5(pdes_mg:1) c6(pdes_rifleman:4))
+
+("squad_with5types_conquest" side(pol) name(specjalna_rifle_squad)  period(era1960) min_stage(4) max_stage(99) c1(roz_squadlead:1) c2(roz_antitank:1) c3(roz_mg:1) c4(roz_antitank:1) c5(roz_rifleman:4))
+("squad_with6types_conquest" side(pol) name(specjalna_scout_squad)  period(era1960) min_stage(5) max_stage(99) c1(roz_squadlead:1) c2(roz_marksman:1) c3(roz_spotter:1) c4(roz_antitank:1) c5(roz_mg:1) c6(roz_rifleman:3))
+("squad_with7types_conquest" side(pol) name(specjalna_sniper_squad)	period(era1960) min_stage(6) max_stage(99) c1(roz_squadlead:1) c2(roz_sniper:1) c3(roz_marksman:1) c4(roz_spotter:2) c5(roz_antitank:1) c6(roz_mg:1) c7(roz_rifleman:1))
+
+{"squad_pdes_desantski(pol)"
+	("squad_vehicle7" side(pol) period(era1960) min_stage(4) max_stage(99) cw(0) cp(4) vehicle(asu-85_pol) crew1(pdes_vehicleman:4) crew2(pdes_squadlead:1) crew3(pdes_mg:1) crew4(pdes_mgassist:1) crew5(pdes_antitank:1) crew6(pdes_atassist:1) crew7(roz_rifleman:3) )
+}
+
+{"squad_pdes_desantski_mg(pol)"
+	("squad_vehicle7" side(pol) period(era1960) min_stage(5) max_stage(99) cw(0) cp(4) vehicle(asu-85_pol) crew1(pdes_vehicleman:4) crew2(pdes_squadlead:1) crew3(pdes_mg:2) crew4(pdes_mgassist:2) crew5(pdes_antitank:1) crew6(pdes_atassist:1) crew7(roz_rifleman:1) )
+}
+
+{"squad_pdes_mi4(pol)"
+	("squad_vehicle7" side(pol) period(era1960) min_stage(5) max_stage(99) cw(0) cp(4) vehicle(mil_mi4_unarmed) crew1(sup_pilot:2) crew2(pdes_squadlead:1) crew3(pdes_antitank:1) crew4(pdes_atassist:1) crew5(pdes_senior:1) crew6(pdes_mg:1) crew7(pdes_rifleman:4) )
+}
+
+{"squad_pdes_mi4_at(pol)"
+	("squad_vehicle7" side(pol) period(era1960) min_stage(6) max_stage(99) cw(0) cp(4) vehicle(mil_mi4_heavy_airborne) crew1(sup_pilot:2) crew2(pdes_squadlead:1) crew3(pdes_antitank:3) crew4(pdes_atassist:1) crew5(pdes_senior:1) crew6(pdes_mg:1) crew7(pdes_rifleman:2) )
+}
+
+
+
+
+;;;;;REGULARS;;;;;
+
+("squad_with4types_conquest" side(pol) name(squad_reservist_rifle)	period(era1960) min_stage(1) max_stage(5) c1(rsv_squadlead:1) c2(rsv_lmg:1) c3(rsv_atgren:1) c4(rsv_rifleman:5)	)
+("squad_with4types_conquest" side(pol) name(squad_reservist_mg)		period(era1960) min_stage(1) max_stage(5) c1(rsv_squadlead:1) c2(rsv_mg:1) c3(rsv_atgren:1) c4(rsv_rifleman:5)	)																		
+("squad_with4types_conquest" side(pol) name(squad_reservist_at)	    period(era1960) min_stage(1) max_stage(5) c1(rsv_squadlead:1) c2(rsv_antitank:1) c3(rsv_lmg:1) c4(rsv_rifleman:5) )
 
 ("squad_with3types_conquest" side(pol) name(squad_maneuv)			period(era1960) min_stage(1) max_stage(5) c1(reg_senior:1) c2(reg_marksman:1) c3(reg_rifleman:2)	)
 ("squad_with4types_conquest" side(pol) name(squad_fireteam)			period(era1960) min_stage(1) max_stage(5) c1(reg_lmg:1) c2(reg_antitank2:1) c3(reg_atassist2:1) c4(reg_rifleman:1)  )
-("squad_with6types_conquest" side(pol) name(squad_rifle)			period(era1960) min_stage(1) max_stage(5) c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_antitank:1) c5(reg_atassist:1) c6(reg_rifleman:3)	)
+("squad_with6types_conquest" side(pol) name(squad_rifle)			period(era1960) min_stage(1) max_stage(5) c1(reg_squadlead:1) c2(reg_mg:1) c3(reg_mgassist:1) c4(reg_antitank:1) c5(reg_atassist:1) c6(reg_rifleman:3) )
+("squad_with5types_conquest" side(pol) name(squad_border)			period(era1960) min_stage(1) max_stage(5) c1(rsv_squadlead:1) c2(rsv_lmg:1) c3(rsv_antitank:1) c4(rsv_atassist:1) c5(rsv_rifleman:2) )
+
+{"squad_border_moto(pol)"
+	("squad_vehicle6" period(era1960) min_stage(1) max_stage(99) side(pol) cw(0) cp(4) vehicle(lublin-51) crew1(sup_vehicleman:1) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_antitank:1) crew5(rsv_atassist:1) crew6(rsv_rifleman:2) )
+}
+
+{"squad_border_moto2(pol)"
+	("squad_vehicle6" period(era1960) min_stage(1) max_stage(99) side(pol) cw(0) cp(4) vehicle(ural375_pol) crew1(sup_vehicleman:1) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_antitank:1) crew5(rsv_atassist:1) crew6(rsv_rifleman:2) )
+}
+
+{"squad_border_moto3(pol)"
+	("squad_vehicle6" period(era1960) min_stage(1) max_stage(99) side(pol) cw(0) cp(4) vehicle(btr-40_pol) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_antitank:1) crew5(rsv_atassist:1) crew6(rsv_rifleman:2) )
+}
 
 {"squad_reservist_moto(pol)"
 	("squad_vehicle5" period(era1960) min_stage(1) max_stage(5) side(pol) cw(0) cp(4) vehicle(btr-152_pol) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_atgren:1) crew5(rsv_rifleman:5) )
 }
 
 {"squad_reservist_moto2(pol)"
-	("squad_vehicle5" period(era1960) min_stage(2) max_stage(99) side(pol) cw(0) cp(4) vehicle(topas) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_atgren:1) crew5(rsv_rifleman:5) )
+	("squad_vehicle5" period(era1960) min_stage(2) max_stage(99) side(pol) cw(0) cp(4) vehicle(skot-1) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_atgren:1) crew5(rsv_rifleman:5) )
+}
+
+{"squad_reservist_moto3(pol)"
+	("squad_vehicle5" period(era1960) min_stage(2) max_stage(99) side(pol) cw(0) cp(4) vehicle(skot-1a) crew1(sup_vehicleman:2) crew2(rsv_squadlead:1) crew3(rsv_lmg:1) crew4(rsv_atgren:1) crew5(rsv_rifleman:5) )
 }
 
 {"squad_rifle_moto(pol)"
-	("squad_vehicle6" period(era1960) min_stage(3) max_stage(99) side(pol) cw(0) cp(4) vehicle(skot-1a) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_atassist:1) crew6(reg_rifleman:4)  )
+	("squad_vehicle6" period(era1960) min_stage(3) max_stage(99) side(pol) cw(0) cp(4) vehicle(skot-1) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_atassist:1) crew6(reg_rifleman:4)  )
 }
 
 {"squad_rifle_moto2(pol)"
+	("squad_vehicle6" period(era1960) min_stage(6) max_stage(99) side(pol) cw(0) cp(4) vehicle(skot-1a) crew1(sup_vehicleman:3) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_atassist:1) crew6(reg_rifleman:4)  )
+}
+
+{"squad_rifle_moto3(pol)"
 	("squad_vehicle6" period(era1960) min_stage(6) max_stage(99) side(pol) cw(0) cp(4) vehicle(skot-2a) crew1(sup_vehicleman:3) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_atassist:1) crew6(reg_rifleman:4)  )
 }
 
@@ -180,7 +231,7 @@
 
 ;AUTOMATIC WEAPONRY
 ("squad_weaponteam_conquest" 	side(pol) name(deploy_sg43_con)			period(era1960) 	min_stage(1) max_stage(8)			c1(sup_guncrew_sg43:1) c2(sup_guncrew:1) cost(60)) 
-("squad_weaponteam_conquest" 	side(pol) name(deploy_pk_con)			period(era1960) 	min_stage(4) max_stage(99)			c1(sup_guncrew_pk:1) c2(sup_guncrew:1) cost(70)) 
+("squad_weaponteam_conquest" 	side(pol) name(deploy_pk_con)			period(era1960) 	min_stage(2) max_stage(99)			c1(sup_guncrew_pk:1) c2(sup_guncrew:1) cost(70)) 
 ("squad_weaponteam_conquest" 	side(pol) name(deploy_dshk_con)			period(era1960) 	min_stage(3) max_stage(99)			c1(sup_guncrew_dshk:1) c2(sup_guncrew:1) cost(100))
 
 {"zu-2_pol"
@@ -193,23 +244,27 @@
 	{cost 225}
 }
 
-;{"zu-23-2_pol" ;introduced 1972-73 in Poland
-;	("vehicle" period(era1960) min_stage(5) max_stage(99) side(pol) crew(sup_supporter:2) cw(4) cp(4))
-;	{cost 250}
-;}
+{"zu-23-2_pol" ;introduced 1972-73 in Poland
+	("vehicle" period(era1960) min_stage(5) max_stage(99) side(pol) crew(sup_supporter:2) cw(4) cp(4))
+	{cost 250}
+}
+
+{"37mm_61k_pol"
+	("vehicle" period(era1960) min_stage(3) max_stage(99) side(pol) crew(sup_supporter:3) cw(4) cp(4))
+	{cost 300}
+}
 
 {"57mm_s-60_pol"
-	("vehicle"  side(pol) period(era1960) min_stage(5) max_stage(30) cw(4) cp(4) crew(sup_supporter:4))
+	("vehicle"  side(pol) period(era1960) min_stage(6) max_stage(99) crew(sup_supporter:4) cw(4) cp(4))
 	{cost 300}
 }
 
 ; AT WEAPONRY
-("squad_weaponteam_conquest" 	side(pol) name(deploy_b10_con)			period(era1960) 	min_stage(1) max_stage(15)			c1(sup_guncrew_b10:1) c2(sup_guncrew:1) cost(180))
+
 ("squad_weaponteam_conquest" 	side(pol) name(deploy_spg9_con)			period(era1960) 	min_stage(5) max_stage(99)			c1(sup_guncrew_spg9:1) c2(sup_guncrew:1) cost(200))
-("squad_weaponteam_conquest" 	side(pol) name(deploy_9m14_con)			period(era1960) 	min_stage(5) max_stage(99)			c1(sup_guncrew_9m14:1) c2(sup_guncrew:1) cost(250))
 
 
-;ARTILLERY 
+; ARTILLERY FIELDGUNS 
 
 ("squad_weaponteam_conquest" 	side(pol) name(deploy_bm37_con)			period(era1960) 	min_stage(1) max_stage(99)			c1(sup_guncrew_bm37:1) c2(sup_guncrew:1) cost(125))
 
@@ -217,11 +272,6 @@
 	("vehicle" period(era1960) min_stage(3) max_stage(99) side(pol) crew(sup_supporter:2) cw(0) cp(4))
 	{cost 200}
 }
-
-;{"57mm_zis2_pol"
-;	("vehicle" period(era1960) min_stage(1) max_stage(5) side(pol) crew(sup_supporter:4) cw(4) cp(6))
-;	{cost 160}
-;}
 
 {"76mm_zis3_pol"
 	("vehicle" period(era1960) min_stage(1) max_stage(5) side(pol) crew(sup_supporter:4) cw(4) cp(6))
@@ -233,28 +283,50 @@
 	{cost 185}
 }
 
+{"bs3_pol"
+	("vehicle" period(era1960) min_stage(4) max_stage(25) side(pol) crew(sup_supporter:4) cw(4) cp(6))
+	{cost 185}
+}
+
 {"m30_pol"
 	("vehicle" period(era1960) min_stage(2) max_stage(15) side(pol) crew(sup_guncrew:4) cw(0) cp(10))
 	{cost 290}
 }
 
+{"152mm_ml20_pol"
+	("vehicle" side(pol) period(era1960) min_stage(3) max_stage(99) crew(sup_guncrew:4) cw(0) cp(14))
+	{cost 600}
+}
+
 {"d1_pol"
-	("vehicle" side(pol) period(era1960) min_stage(2) max_stage(15) crew(sup_guncrew:4) cw(0) cp(14))
+	("vehicle" side(pol) period(era1960) min_stage(4) max_stage(20) crew(sup_guncrew:4) cw(0) cp(14))
 	{cost 400}
 }
 
+{"d-20_pol"
+	("vehicle" side(pol) period(era1960) min_stage(5) max_stage(99) crew(sup_guncrew:5) cw(0) cp(14))
+	{cost 450}
+}
+
+; MLRS 
+
 ;{"wp-8z"
-;	("vehicle" side(prc) period(era1960) min_stage(4) max_stage(99) crew(sup_guncrew:4) cw(0) cp(8))
+;	("vehicle" side(pol) period(era1960) min_stage(4) max_stage(99) crew(sup_guncrew:4) cw(0) cp(8))
 ;	{cost 450}
 ;}
 
-{"bm-14_pol"
-	("vehicle" period(era1960) min_stage(5) max_stage(15) side(pol) crew(sup_supporter:2) cw(0) cp(12))
-	{cost 700}
-}
-
-{"bm-21_pol"
-	("vehicle" period(era1960) min_stage(8) max_stage(99) side(pol) crew(sup_supporter:2) cw(0) cp(12))
+{"bm-13_pol"
+	("vehicle" side(pol) period(era1960) min_stage(3) max_stage(15) crew(sup_supporter:2) cw(0) cp(12))
+	{cost 600} 
+}              
+               
+{"bm-14_pol"   
+	("vehicle" side(pol) period(era1960) min_stage(5) max_stage(15) crew(sup_supporter:2) cw(0) cp(12))
+	{cost 700} 
+}              
+               
+{"bm-21_pol"   
+	("vehicle" side(pol) period(era1960) min_stage(8) max_stage(99) crew(sup_supporter:2) cw(0) cp(12))
 	{cost 1100}
 }
 
@@ -313,6 +385,11 @@
 	{cost 50}
 }
 
+{"btr-40a_pol"
+	("vehicle"  period(era1960) min_stage(1) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
+	{cost 50}
+}
+
 {"btr-152_pol"
 	("vehicle"  period(era1960) min_stage(1) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
 	{cost 70}
@@ -352,26 +429,6 @@
 	("vehicle"  period(era1960) min_stage(9) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
 	{cost 185}
 }
-
-;{"skot-1"
-;	("vehicle"  period(era1960) min_stage(9) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
-;	{cost 80}
-;}
-
-;{"skot-2a"
-;	("vehicle"  period(era1960) min_stage(9) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
-;	{cost 175}
-;}
-
-;{"skot-2ap"
-;	("vehicle"  period(era1960) min_stage(9) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
-;	{cost 185}
-;}
-
-;{"skot-2am"
-;	("vehicle"  period(era1960) min_stage(9) max_stage(99) side(pol) crew(sup_vehicleman:2) cw(0) cp(2))
-;	{cost 355}
-;}
 
 ;_________________________________________________
 ;|        		 Fighting Vehicles                |
@@ -425,6 +482,11 @@
 	{cost 225}
 }
 
+{"pt-76b_pol"
+	("vehicle" period(era1960) min_stage(1) max_stage(10) side(pol) crew(sup_tankman:3) cw(0) cp(10))
+	{cost 250}
+}
+
 ;//with DSHK, for 7 Luzycka Desantowa
 {"pt-76p"
 	("vehicle" period(era1960) min_stage(5) max_stage(99) side(pol) crew(sup_tankman:3) cw(0) cp(10))
@@ -436,7 +498,23 @@
 	{cost 250}
 }
 
+{"su76_pol"
+	("vehicle" period(era1960) min_stage(3) max_stage(35) side(pol) crew(pdes_vehicleman:4) cw(0) cp(6))
+	{cost 200}
+}
+
+
 ;Medium
+
+{"su85_pol"
+	("vehicle" period(era1960) min_stage(3) max_stage(35) side(pol) crew(pdes_vehicleman:4) cw(0) cp(6))
+	{cost 300}
+}
+
+{"su100_pol"
+	("vehicle" period(era1960) min_stage(3) max_stage(35) side(pol) crew(pdes_vehicleman:4) cw(0) cp(6))
+	{cost 300}
+}
 
 {"t-34-85_pol"
 	("vehicle" period(era1960) min_stage(2) max_stage(8) side(pol) crew(sup_tankman:5) cw(0) cp(8))
@@ -463,10 +541,10 @@
 	{cost 450}
 }
 
-;{"t-54u_pol"
-;	("vehicle" period(era1960) min_stage(7) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(12))
-;	{cost 510}
-;}
+{"t-54u_pol"
+	("vehicle" period(era1960) min_stage(7) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(12))
+	{cost 510}
+}
 
 {"t-55_pol"
 	("vehicle" period(era1960) min_stage(6) max_stage(15) side(pol) crew(sup_tankman:4) cw(0) cp(15))
@@ -478,21 +556,25 @@
 	{cost 550}
 }
 
-;{"isu-152_pol"
-;	("vehicle" period(era1960) min_stage(3) max_stage(15) side(pol) crew(sup_tankman:5) cw(0) cp(10))
-;	{cost 500}
-;}
+{"isu-152_pol"
+	("vehicle" period(era1960) min_stage(3) max_stage(15) side(pol) crew(sup_tankman:5) cw(0) cp(10))
+	{cost 500}
+}
 
-;{"zsu-57-2_pol"
-;	("vehicle" period(era1960) min_stage(1) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(15))
-;	{cost 600}
-;}
+{"zsu-57-2_pol"
+	("vehicle" period(era1960) min_stage(1) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(15))
+	{cost 600}
+}
 
 {"zsu-23-4_pol"
 	("vehicle" period(era1960) min_stage(7) max_stage(99) side(pol) crew(sup_tankman:4) cw(0) cp(14))
 	{cost 650}
 }
 
+{"is2_pol"
+	("vehicle" period(era1960) min_stage(3) max_stage(16) side(prc) crew(sup_tankman:4) cw(0) cp(14))
+	{cost 375}
+}
 
 ;_________________________________________________
 ;|        		 AI ONLY for purchase             |
