@@ -1,0 +1,129 @@
+{game_entity		;M48
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc"  scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{props "medium" "mg_turret" "vision_lev04" "muzzle_85mm_93mm_sides"}
+	(include "m48a1.ext")
+	{targetclass "tank_medium"}
+	{targetSelector "tank_medium"}
+	{PatherId "t34"}
+
+	{extender "enumerator"
+		{digit_folder "usmc"}
+	}
+
+;	Crew 4: Commander, Gunner, Loader, Driver
+	("crew_4_human")
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "left"
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_Is-2"} {end "seat_commander_hatch"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward {begin "board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_body"}}
+		}
+	}
+
+	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+	
+	{sensor
+		{visor "commander"
+			{vision "tank_commander"}
+			{bone "foresight3"}
+		}
+	}
+	
+	{placer
+		{place "commander"	{visor "commander"}}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "ammo bullet90_m41 apcbche" 15} ;60 total
+			{item "ammo bullet90_m41 heat" 10}
+			{item "ammo bullet90_m41 he" 30}
+			{item "ammo bullet90_m41 sm" 5}
+			{item "ammo hmgun_usa" 1200}
+			{item "ammo mgun_usa belt" 2000}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon			"90mm_m41" filling "ammo bullet90_m41 apcbche" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("hm68_abm_nostab_range")
+		}
+		{place "mgun2"		;coax
+			{type "coaxial"}
+			{weapon			"browning_m19a4" filled}
+			{foresight		"foresight5"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun"		;aa
+			{type "aa"}
+			{weapon			"browning_m2" filled}
+			{foresight		"foresight3"}
+			{gunner			"commander"}
+			{charger		"commander"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 47200}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.4) len(0.5))
+		("mobility_tank"
+			speed(50)  ;---------Max speed when fully accelerated on road, km/h.
+			reverse(9.5);---------Max speed in reverse on road, km/h. ;//7.5 historical + 2 due to terrain modifier
+			traverse(32) ;-------Track traverse, per second, in degrees.
+			weight(46.0) ;-------Weight in Tonnes.
+			power(650) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(760) ;----------Fuel capacity in Litres.
+			type(fuel) ;-------Fuel type. (diesel OR fuel)
+			range(113) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "m48a1_usmc.mdl"}
+
+	{bone "turret"
+		{speed2 24}		;degree per second
+	}
+	{bone "gun_rot"
+		{speed2 8}		;degree per second
+		{limits -9 19}
+	}
+	{bone "turret_mg"
+		{speed2 24}		;degree per second
+	}
+	{bone "mgun_rot"
+		{speed2 34}
+	}
+}

@@ -158,6 +158,11 @@
 	{cost 8}{action "airstrike:flare_paradrop_mgr3"}
 }
 
+{"paradrop_m151_m40"
+	("offmap_support" side(csa) period(era1960) min_stage(1) max_stage(99) cw(0) cp(4) vehicle(m151_m40) crew(sup_pilot:0))
+	{cost 5}{action "airstrike:flare_paradrop_m151_m40"}
+}
+
 {"paradrop_m56"
 	("offmap_support" side(csa) period(era1960) min_stage(1) max_stage(99) cw(0) cp(4) vehicle(m56) crew(sup_pilot:0))
 	{cost 5}{action "airstrike:flare_paradrop_m56"}
@@ -217,11 +222,6 @@
 }
 
 ;// 1960s
-
-("squad_with4types_conquest" side(csa) period(era1950) min_stage(1) max_stage(10) name(squad_natguard_con)		c1(nat_squadlead:1) c2(nat_autorifle:1) c3(nat_grenadier:1) c4(nat_rifleman:7))
-{"squad_natguard_moto_con(csa)" 
-	("squad_vehicle5"		 side(csa) period(era1960) min_stage(4) max_stage(99) vehicle(m39_apc) cw(0) cp(4) 		crew1(sup_vehicleman:2)	crew2(nat_squadlead:1) crew3(nat_autorifle:1) crew4(nat_grenadier:1) crew5(nat_rifleman:7))
-}
 
 ("squad_with6types_conquest" side(csa) period(era1960)   min_stage(1) max_stage(99) name(squad_reservist_con)		c1(rsv_squadlead:1) c2(rsv_autorifle_m14:1) c3(rsv_antitank:1) c4(rsv_mg:1) c5(rsv_grenadier2:1) c6(rsv_rifleman_m14:5))
 {"squad_reservist_moto_con(csa)" 
@@ -302,17 +302,17 @@
 ; US Army Rangers
 ;//1950
 ("squad_with5types_conquest" side(csa) period(era1960) min_stage(5) max_stage(99) name(squad_ranger_lrrp_con_1950)			c1(rng_squadlead:1) c2(rng_ammo:1) c3(rng_grenadier:1) c4(rng_mg:1) c5(rng_rifleman:1))
-{"squad_lrrp_moto_con_1950(csa)" 
-	("squad_vehicle4"		 side(csa) period(era1950) min_stage(5) max_stage(99) vehicle(m151) cw(0) cp(4) 		crew1(rng_squadlead:1) crew2(rng_ammo:1) crew3(rng_antitank:1) crew4(rng_mg:1))
-}
+;{"squad_lrrp_moto_con_1950(csa)" 
+;	("squad_vehicle4"		 side(csa) period(era1950) min_stage(5) max_stage(99) vehicle(m151) cw(0) cp(4) 		crew1(rng_squadlead:1) crew2(rng_ammo:1) crew3(rng_antitank:1) crew4(rng_mg:1))
+;}
 
 ("squad_with7types_conquest" side(csa) period(era1960) min_stage(6) max_stage(99) name(squad_ranger_con_1950)					c1(rng_squadlead:1) c2(rng_ammo:1) c3(rng_grenadier:1) c4(rng_mg:1) c5(rng_antitank:1) c6(rng_rifleman:4) c7(rng_marksman:1))
 
 ;//1960
 ("squad_with5types_conquest" side(csa) period(era1960) min_stage(5) max_stage(99) name(squad_ranger_lrrp_con)				c1(rng_squadlead:1) c2(rng_ammo:1) c3(rng_grenadier:1) c4(rng_mg:1) c5(rng_rifleman:1))
-{"squad_lrrp_moto_con(csa)" 
-	("squad_vehicle4"		 side(csa) period(era1960) min_stage(5) max_stage(99) vehicle(m151) cw(0) cp(4) 		crew1(rng_squadlead:1) crew2(rng_ammo:1) crew3(rng_antitank:1) crew4(rng_mg:1))
-}
+;{"squad_lrrp_moto_con(csa)" 
+;	("squad_vehicle4"		 side(csa) period(era1960) min_stage(5) max_stage(99) vehicle(m151) cw(0) cp(4) 		crew1(rng_squadlead:1) crew2(rng_ammo:1) crew3(rng_antitank:1) crew4(rng_mg:1))
+;}
 
 ("squad_with7types_conquest" side(csa) period(era1960) min_stage(6) max_stage(99) name(squad_ranger_con)					c1(rng_squadlead:1) c2(rng_ammo:1) c3(rng_grenadier:1) c4(rng_mg:1) c5(rng_antitank:1) c6(rng_rifleman:4) c7(rng_marksman:1))
 
@@ -687,14 +687,19 @@
 	{cost 370}
 }
 
+{"m46_patton"
+	("vehicle" period(era1960) min_stage(1) max_stage(7) side(csa) crew(sup_tankman:5) cw(0) cp(10))
+	{cost 385}
+}
+
 {"m47_patton"
-	("vehicle" period(era1960) min_stage(2) max_stage(5) side(csa) crew(sup_tankman:5) cw(0) cp(10))
-	{cost 390}
+	("vehicle" period(era1960) min_stage(2) max_stage(10) side(csa) crew(sup_tankman:5) cw(0) cp(10))
+	{cost 400}
 }
 
 {"m48"
 	("vehicle" period(era1960) min_stage(3) max_stage(8) side(csa) crew(sup_tankman:4) cw(0) cp(10))
-	{cost 400}
+	{cost 410}
 }
 
 {"m48a1"
