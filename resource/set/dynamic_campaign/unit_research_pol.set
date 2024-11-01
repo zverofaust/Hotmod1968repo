@@ -25,7 +25,7 @@
 	{ tech "pol_desnatowa_1960"			requires ""							costs 5  position 6 1} 
 	{ tech "pol_pdes_1960"				requires ""							costs 5  position 9 1} 
 	{ tech "pol_artillery_1960"			requires ""							costs 3  position 3 7} 
-	{ tech "pol_tanks_1960"				requires ""							costs 5  position 6 4} 
+	{ tech "pol_tanks_1960"				requires ""							costs 5  position 1 11} 
 	{ tech "pol_afv_1960"				requires ""							costs 4  position 9 4} 
 	{ tech "pol_trucks_1960"			requires ""							costs 2  position 10 9} 
 	{ tech "pol_heli_1960"				requires ""							costs 5  position 6 7} 
@@ -104,23 +104,31 @@
 
 ;//---Armored Cars---
 	
-	
-	
 ;//---Light Tanks---	
+	{"pt-76_pol"						requires "t-34-85_pol"								costs 1  position 1 14} 	
+	{"pt-76b_pol"						requires "pt-76_pol"								costs 1  position 2 14} 	
+	{"pt-76p"							requires "pt-76b_pol"								costs 2  position 3 14} 
+	
+;//---Medium Tanks---	
+	{"t-34-85_pol"						requires "su76_pol"									costs 2  position 1 13} 	
+	{"t-54a_pol"						requires "t-34-85_pol su100_pol"					costs 1  position 1 15} 
+	{"t-54am1_pol"						requires "t-54a_pol"					            costs 2  position 1 16} 
+	{"t-54am2_pol"						requires "t-54am1_pol"					            costs 2  position 1 17} 
+	{"t-55_pol"							requires "t-54am2_pol"					            costs 3  position 1 18} 
+	{"t-55a_pol"						requires "t-55_pol"					            	costs 2  position 1 19} 
+	{"t-54u_pol"						requires "t-54am2_pol"					            costs 2  position 0 17}
 
-	
-	
-;//---Medium Tanks---
-	
-	
-	
 ;//---Heavy Tanks---
-	
-
+	{"is2_pol"							requires "pol_tanks_1960"							costs 5  position 2 12} 
 	
 ;//---Self Propelled Guns---		
-	
-	
+	{"su76_pol"							requires "pol_tanks_1960"							costs 0  position 1 12} 
+	{"isu-152_pol"						requires "is2_pol"									costs 5  position 2 13} 
+	{"su85_pol"							requires "su76_pol"									costs 3  position 0 13} 	
+	{"su100_pol"						requires "su85_pol"									costs 3  position 0 14}	
+	{"zsu-57-2_pol"						requires "t-54am2_pol"					            costs 2  position 2 17}	
+	{"zsu-23-4_pol"						requires "zsu-57-2_pol pt-76b_pol"					costs 2  position 2 15.5}
+
 ;//---Aircraft---
 	
 	
