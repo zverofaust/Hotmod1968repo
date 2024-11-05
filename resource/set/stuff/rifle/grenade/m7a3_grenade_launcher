@@ -1,7 +1,7 @@
 {from "pattern rifle_grenade"
 	{tag "at_rifle" "ap"}
 	{entity "m31_garand"}
-	{filling "ammo m31_grenade" 1}
+	{filling "ammo m7_grenade" 1}
 	{fillingVisible "grenade"}
 	{fireSound "rifle/kar98_shot"}
 	{fireSoundclose "rifle/kar98_shot/3p/"}
@@ -15,15 +15,23 @@
 		{weight 100}
 	}
 	
-	{parameters "he" ;
+	{parameters "he" ; M1A1 grenade adapter firing a standard M26 frag grenade
+		{cursor "ironsights/grenade"}
 		{cursorReloading "gun_he"}
-		{spreading 6
+		{spreading 4.5
 			{SpreadXYRatio 0.75}
 		}
-		{range 80 80}
+		{range 60 75}
 	}
 
-	{parameters "heat" ;M31 HEAT
+	{parameters "heat" ;M28 HEAT (ENERGA)
+		{cursorReloading "gun_heat"}
+		{range 50 65}
+		("penetration" args 150)
+		("armor health" damage(140))
+	}
+	
+	{parameters "heatb" ;M31 HEAT
 		{cursorReloading "gun_heat"}
 		{range 55 70}
 		("penetration" args 180)

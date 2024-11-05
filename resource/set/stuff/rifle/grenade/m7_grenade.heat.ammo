@@ -1,0 +1,20 @@
+{bullet
+	{tag "ammo smallitemin1hand dropboxed rifle_grenade_at heat_shell pierce 50to57 heat distributable"}
+	;{tag "missile"} {throw {range 60}} ;// allows AI to switch ammo but also creates error in log
+	{tag  "heat_shell size1"}	; Explosive Filling 		= 0.050 kg of TNT
+	{inventory
+		{weight 20}
+		{size 2 1}
+	}
+	{entity "m28_heat_grenade"}
+	{view "m28_heat_grenade"}
+	{mass 0.250}
+
+	{damage blastwave
+		{energy 1.0}
+		{area 0.2 3.5}
+		{ground_interaction_radius 0.1} ;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+	}
+
+	{cumulative 0.7}
+}
