@@ -1,0 +1,72 @@
+;Exported by: aeste
+;Date:        Tue Nov  5 17:40:19 2024
+;File:        E:\Cold War\ModelWIP\Smallarms\M26 Grenade\m1 adapter.max
+{Skeleton
+	{bone "grenade"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "grenade.ply"}
+		{bone "m26"
+			{Position 1.92323	-0.00646781	-0.00388861}
+			{VolumeView "m26.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 0.72875 5.16218}
+	{Bone "grenade"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		0.472956	0.0101985	-0.0010505
+	}
+}
+{Volume "select"
+	{Box 9 9 9}
+	{Bone "grenade"}
+	{Orientation
+		0	-1	0
+		0	0	1
+		-1	0	0
+	}
+}
+{Extender "preview"
+	{"stuff"
+		{camera
+			{origin 0.301162	-0.25973	9.37877}
+			{lookat 0.301164	0.0631216	0.00283814}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 0.0351724	-6.72108	8.75947}
+			}
+			{"1"
+				{type point}
+				{position 0.0351686	1.91962	1.88907}
+			}
+		}
+	}
+	{"stuff_primary"
+		{camera
+			{origin 0.301162	-0.25973	9.37877}
+			{lookat 0.301164	0.0631216	0.00283814}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 0.0351686	1.91962	1.88907}
+			}
+			{"1"
+				{type point}
+				{position 0.0351724	-6.72108	8.75947}
+			}
+		}
+	}
+}
