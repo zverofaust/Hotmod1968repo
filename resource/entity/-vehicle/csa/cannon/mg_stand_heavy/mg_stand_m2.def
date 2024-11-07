@@ -1,0 +1,71 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	{extension "m2_50cal_tripod.mdl"}
+	{props "vision_lev00_can" "no_sandbags" "muzzle_hmg_m2hb" "detect_cannon_aa" "c_mg_heavy"  "gunbagged"}
+	{targetclass "cannon_bullet"}
+	{targetSelector "cannon_zenite"}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "m2_50cal_tripod_gunner" 10}}
+		}
+		{anm "commander"
+			{forward {end "m2_30cal_tripod_loader" 10}}
+		}
+		{anm "driver1"
+			{forward {end "mgun_browning_driver_r"}}
+		}
+		{anm "driver2"
+			{forward {end "mortar_driver_l"}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+		;// "gunner" "commander"
+			{move "mgun_browning_driver_r" "mortar_driver_l"}
+			{fire "" ""} ;mg_maxim_gunner_fire
+			{aim "" ""}
+			{reload "" ""}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_usa" 500}		;600 rounds
+		}
+	}
+	
+	{Weaponry
+		{place "mgun"
+			{type "main"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{weapon "browning_m2" filled}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{Rotate}
+		}
+	}
+
+	{mass 58}
+	{Chassis
+		("mobility_cannon"
+			speed(12) ;----------------------------------Max speed.
+			weight(58) ;---------------------------------Weight in Kilograms.
+		)
+	}
+
+	{bone "basis"
+		{speed2 20}
+	}
+	{bone "gun_rot"
+		{limits -30 40}
+		{speed2 60}
+	}
+	{bone "turret"
+		{limits -13 13}
+		{speed2 60}
+	}
+}
