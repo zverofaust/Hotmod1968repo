@@ -1,23 +1,16 @@
 {game_entity
 	(include "/properties/cannon_mgun.ext")
-	(include "/properties/shadow/tank.inc" scale(0.6))
-	{extension "m63g.mdl"}
-	{props "mgun" "vision_lev00_can" "cannon_sandbag_small" "muzzle_hmg" "detect_cannon_aa" "maxim" "gunbagged" "aa"}
-	{targetclass "cannon_zenite"}
+	{extension "m2_50cal_tripod.mdl"}
+	{props "vision_lev00_can" "no_sandbags" "muzzle_hmg_m2hb" "detect_cannon_aa" "c_mg_heavy"  "gunbagged"}
+	{targetclass "cannon_bullet"}
 	{targetSelector "cannon_zenite"}
-	
-	;{extender "shield" {on}}
-	
-	;("shield" args "shield" 5)
 
-	("gun" repair(30) thickness(5))
-	
 	{boarder
 		{anm "gunner"
-			{forward {end "pose_mg_lafette_gunner" 10}}
+			{forward {end "m2_50cal_tripod_gunner" 10}}
 		}
 		{anm "commander"
-			{forward {end "pose_mg_lafette_commander" 10}}
+			{forward {end "m2_30cal_tripod_loader" 10}}
 		}
 		{anm "driver1"
 			{forward {end "mgun_browning_driver_r"}}
@@ -30,49 +23,49 @@
 	{extender "cannon"
 		{animation
 		;// "gunner" "commander"
-			{switch "close"}
-			{move "mgun_browning_driver_l" "mortar_driver_l"}
-			;{fire "mg_lafette_gunner_fire" "mg_lafette_commander_fire"}
-			{aim "mg_lafette_gunner_aim" "mg_lafette_commander_aim"}
-			{reload "mg_lafette_gunner_reload" "mg_lafette_commander_reload"}
+			{move "mgun_browning_driver_r" "mortar_driver_l"}
+			{fire "" ""} ;mg_maxim_gunner_fire
+			{aim "" ""}
+			{reload "" ""}
 		}
 	}
 
 	{extender "inventory"
 		{box
-			{item "ammo hmgun_usa" 750}
-			{item "sandbag_vehicle" 2}
+			{item "ammo hmgun_usa" 500}		;600 rounds
 		}
 	}
-
+	
 	{Weaponry
-		{place "mgun1"
+		{place "mgun"
 			{type "main"}
+			{gunner "gunner"}
 			{charger "gunner"}
 			{weapon "browning_m2" filled}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
 			("abm_mgun")
 			{Rotate}
-			{basic}
 		}
 	}
 
-	{mass 157}
+	{mass 58}
 	{Chassis
 		("mobility_cannon"
-			speed(10.2) ;--------------------------------Max speed.
-			weight(157) ;--------------------------------Weight in Kilograms.
+			speed(12) ;----------------------------------Max speed.
+			weight(58) ;---------------------------------Weight in Kilograms.
 		)
 	}
 
-	;{bone "basis"
-	;	{speed2 30}
-	;}
+	{bone "basis"
+		{speed2 20}
+	}
 	{bone "gun_rot"
-		{limits 15 -40}
-		{speed2 70}
+		{limits -30 40}
+		{speed2 60}
 	}
 	{bone "turret"
-		;{limits -20 20}
-		{speed2 50}
+		{limits -13 13}
+		{speed2 60}
 	}
 }

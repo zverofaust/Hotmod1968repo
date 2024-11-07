@@ -260,7 +260,8 @@
 ;AUTOMATIC WEAPONRY
 
 ("squad_weaponteam" side(frg) name(deploy_mg3) 	period(era1960) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_mg3:1) c2(sup_guncrew:1)	b(empl) t() cost(70))
-("squad_weaponteam" side(frg) name(deploy_m2) 	period(era1960) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_m2:1) c2(sup_guncrew:1)	b(empl) t() cost(100))
+("squad_weaponteam" side(frg) name(deploy_m2) 	period(era1960) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_m2:1) c2(sup_guncrew:1)	b(empl) t() cost(90))
+("squad_weaponteam" side(frg) name(deploy_m63) 	period(era1960) cd(0)   ci(30)  g(empl1)	c1(sup_guncrew_m63:1) c2(sup_guncrew:1)	b(empl) t() cost(105))
 
 ;{"m45g"
 ;	("vehicle" period(era1960) cd(60) ci(60) t(cannon antiair) side(frg) crew(sup_guncrew:2)  g(empl2) b(empl) cw(0) cp(6)
@@ -422,6 +423,12 @@
 }
 
 {"mg_stand_m2g_ai"
+	("vehicle" period(era1960) cd(30) ci(60) t(cannon) side(frg) crew(sup_supporter:2) cw(0) cp(4)
+	cost(110))
+	{not_for_player_sale 1}
+}
+
+{"mg_stand_m63g_ai"
 	("vehicle" period(era1960) cd(30) ci(60) t(cannon) side(frg) crew(sup_supporter:2) cw(0) cp(4)
 	cost(125))
 	{not_for_player_sale 1}
