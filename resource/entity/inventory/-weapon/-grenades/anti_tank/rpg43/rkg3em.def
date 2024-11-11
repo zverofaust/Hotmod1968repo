@@ -1,0 +1,21 @@
+{actor
+	(include "/properties/stuff_grenade.ext")
+	(include "/properties/shadow/round.inc")
+	{extension "rpg43.mdl"}
+	{extender "stuff"
+		{item "grenade rkg3em"}
+	}
+	{props "contact"}
+	{nogroupmesh 1}
+	{volume "body1"
+		{able clear {bullet} {select} {contact} {contact_ground} {touch} {blast}}
+		{thickness 1}
+		{tags "body"}
+	}
+	{volume "body2"
+		{able clear {bullet} {select} {contact} {contact_ground} {touch} {blast}}
+		{thickness 1}
+		{material "wood"}
+		{tags "body"}
+	}
+}
