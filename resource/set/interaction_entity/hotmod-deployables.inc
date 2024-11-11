@@ -38,7 +38,8 @@
 	;///SOV
 	("gunbagtype" guntype(sg43_stand_sov) 			bagtype(gunbag_sg43))
 	("gunbagtype" guntype(mg_stand_pk)   			bagtype(gunbag_pk))
-	("gunbagtype" guntype(dshk_aa_sov)   			bagtype(gunbag_dshk))
+	("gunbagtype" guntype(dshk_aa_sov)   			bagtype(gunbag_dshk_aa))
+	("gunbagtype" guntype(dshk_stan_sov)   			bagtype(gunbag_dshk))
 	("gunbagtype" guntype(82mm_bm37_sov)  			bagtype(gunbag_bm37))
 	("gunbagtype" guntype(b-10_82mm)  				bagtype(gunbag_b10))
 	("gunbagtype" guntype(spg9)  					bagtype(gunbag_spg9))
@@ -48,6 +49,7 @@
 	("gunbagtype" guntype(mg_stand_m1919) 			bagtype(gunbag_m1919))
 	("gunbagtype" guntype(mg_stand_m60)   			bagtype(gunbag_m60))
 	("gunbagtype" guntype(mg_stand_m2)   			bagtype(gunbag_m2))
+	("gunbagtype" guntype(mg_stand_m63)   			bagtype(gunbag_m2))
 	("gunbagtype" guntype(m29_mortar)  	 			bagtype(gunbag_m29))
 	("gunbagtype" guntype(m20_rcl)  	 			bagtype(gunbag_m20))
 	("gunbagtype" guntype(entac)   					bagtype(gunbag_entac))
@@ -63,6 +65,7 @@
 	;///PRC
 	("gunbagtype" guntype(sg43_stand_prc) 			bagtype(gunbag_sg43_prc))
 	("gunbagtype" guntype(dshk_aa_prc)   			bagtype(gunbag_dshk_prc))
+	("gunbagtype" guntype(dshk_stan_prc)   			bagtype(gunbag_dshk))
 	("gunbagtype" guntype(82mm_bm37_prc)  			bagtype(gunbag_bm37_prc))
 	("gunbagtype" guntype(b-10_prc)  				bagtype(gunbag_b10_prc))
 
@@ -70,6 +73,7 @@
 	("gunbagtype" guntype(sg43_stand_pol) 			bagtype(gunbag_sg43_pol))
 	("gunbagtype" guntype(mg_stand_pk_pol) 			bagtype(gunbag_pk_pol))
 	("gunbagtype" guntype(dshk_aa_pol)   			bagtype(gunbag_dshk_pol))
+	("gunbagtype" guntype(dshk_stan_pol)   			bagtype(gunbag_dshk))
 	("gunbagtype" guntype(82mm_bm37_pol)  			bagtype(gunbag_bm37_pol))
 	("gunbagtype" guntype(b-10_pol)  				bagtype(gunbag_b10_pol))
 	("gunbagtype" guntype(spg9_pol)  				bagtype(gunbag_spg9_pol))

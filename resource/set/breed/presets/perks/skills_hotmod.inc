@@ -18,7 +18,8 @@
 	{barricade
 		{"fortifications" "deploy_sg43"}
 		{"fortifications" "deploy_pk"}	
-		{"fortifications" "deploy_dshk"}	
+		{"fortifications" "deploy_dshk"}
+		{"fortifications" "deploy_dshk_aa"}			
 		{"fortifications" "deploy_bm37"}
 		{"fortifications" "deploy_b10"}
 		{"fortifications" "deploy_spg9"}
@@ -27,7 +28,8 @@
 		
 		{"fortifications" "deploy_sg43_pol"}
 		{"fortifications" "deploy_pk_pol"}
-		{"fortifications" "deploy_dshk_pol"}	
+		{"fortifications" "deploy_dshk_pol"}
+		{"fortifications" "deploy_dshk_aa_pol"}		
 		{"fortifications" "deploy_bm37_pol"}
 		{"fortifications" "deploy_b10_pol"}
 		{"fortifications" "deploy_spg9_pol"}
@@ -36,7 +38,8 @@
 		
 		{"fortifications" "deploy_m1919"}
 		{"fortifications" "deploy_m60"}	
-		{"fortifications" "deploy_m2"}	
+		{"fortifications" "deploy_m2"}
+		{"fortifications" "deploy_m2_aa"}			
 		{"fortifications" "deploy_m29"}
 		{"fortifications" "deploy_m20"}
 		{"fortifications" "deploy_entac"}
@@ -44,14 +47,15 @@
 		{"fortifications" "deploy_ammobag_usa"}
 		
 		{"fortifications" "deploy_mg3"}	
-		{"fortifications" "deploy_m2_frg"}	
+		{"fortifications" "deploy_m2_aa_frg"}	
 		{"fortifications" "deploy_krh36_frg"}
 		{"fortifications" "deploy_m20_frg"}	
 		{"fortifications" "deploy_cobra_frg"}	
 		{"fortifications" "deploy_ammobag_frg"}
 		
 		{"fortifications" "deploy_sg43_prc"}	
-		{"fortifications" "deploy_dshk_prc"}	
+		{"fortifications" "deploy_dshk_prc"}
+		{"fortifications" "deploy_dshk_aa_prc"}		
 		{"fortifications" "deploy_bm37_prc"}
 		{"fortifications" "deploy_m20_prc"}
 		{"fortifications" "deploy_b10_prc"}
