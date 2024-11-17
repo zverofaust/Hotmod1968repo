@@ -24,6 +24,7 @@
 		{"fortifications" "deploy_b10"}
 		{"fortifications" "deploy_spg9"}
 		{"fortifications" "deploy_9m14"}
+		{"fortifications" "deploy_9p132"}
 		{"fortifications" "deploy_ammobag_sov"}
 		
 		{"fortifications" "deploy_sg43_pol"}
