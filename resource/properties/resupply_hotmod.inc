@@ -35,6 +35,9 @@
 
 	{item "grenade" "rpg40"					1  {value 10}}
 	{item "grenade" "rpg43"					1  {value 10}}
+	{item "grenade" "rkg3"					1  {value 10}}
+	{item "grenade" "rkg3t"					1  {value 10}}
+	{item "grenade" "rkg3em"				1  {value 10}}
 	{item "grenade" "molotov_cocktail"		1  {value 10}}
 
 	{item "grenade" "rdg1_smoke" 			1  {value 5}}
@@ -543,10 +546,10 @@
 			("items_artillery_prc")
 		}
 		{mechanicResources {amount 10}{value 10}}
-		{radius 			8}		;// resupply radius in meter
+		{radius 			12}		;// resupply radius in meter
 		{resupplyPeriod 	2}		;// resupply period in seconds
-		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				200}	;// max number of resupplies (0 = unlimited)
+		{regenerationPeriod 3}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{limit 				400}	;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"
