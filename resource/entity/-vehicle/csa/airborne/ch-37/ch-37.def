@@ -4,7 +4,7 @@
 	(include "/properties/shadow/airborn.inc" scale(2.5))
 	(include "/properties/selection/airborne.inc" scale(2.00))
 	(include "/properties/car_crew.ext")
-	{props "helo" "insertion" "multi_board" "heli_passenger_heavy"}
+	{props "helo" "insertion" "multi_board" "heli_passenger"}
 	{PatherID "helicopter"}
 	{targetclass "helicopter"}
 	{targetSelector "helicopter"}
@@ -26,7 +26,7 @@
 			{forward	{begin 	"halftrack_pass_l_01_board"}	{end "seat_passenger"} {base "doorsfront"}}
 			{reverse 	{end	"emit_body"} {base "doorsfront"}}
 		}
-		{anm "passengef2"
+		{anm "passengerf2"
 			{forward	{begin 	"halftrack_pass_l_01_board"} 	{end "seat_passenger"} {base "doorsfront"}}
 			{reverse 	{end	"emit_body"} {base "doorsfront"}}
 		}
@@ -42,39 +42,27 @@
 	("crew_human" place(driver) 	bone(driver) 		door(emit3) animation(driver))
 	("crew_human" place(commander) 	bone(commander) 	door(emit4) animation(commander))
 	
-	("crew_human" place(passenger1) bone(passenger1) 	door(emit3) animation(passengerf1))
-	("crew_human" place(passenger2) bone(passenger2) 	door(emit3) animation(passengerf1))
-	("crew_human" place(passenger3) bone(passenger3) 	door(emit3) animation(passengerf1))
-	("crew_human" place(passenger4) bone(passenger4)	door(emit3) animation(passengerf1))
-	("crew_human" place(passenger5) bone(passenger5)	door(emit3) animation(passengerf1))
-	("crew_human" place(passenger6) bone(passenger6)	door(emit1) animation(passengerr2))
-	("crew_human" place(passenger7) bone(passenger7)	door(emit2) animation(passengerr1))
-	("crew_human" place(passenger8) bone(passenger8) 	door(emit1) animation(passengerr2))
+	("crew_human" place(seat01) bone(seat01) 	door(emit1) animation(passengerr1) group(passenger))
+	("crew_human" place(seat02) bone(seat02) 	door(emit2) animation(passengerr1) group(passenger))
+	("crew_human" place(seat03) bone(seat03) 	door(emit3) animation(passengerf1) group(passenger))
+	("crew_human" place(seat04) bone(seat04)	door(emit4) animation(passengerf1) group(passenger))
+	("crew_human" place(seat05) bone(seat05)	door(emit5) animation(passengerf1) group(passenger))
+	("crew_human" place(seat06) bone(seat06)	door(emit6) animation(passengerf2) group(passenger))
+	("crew_human" place(seat07) bone(seat07)	door(emit1) animation(passengerr1) group(passenger))
+	("crew_human" place(seat08) bone(seat08) 	door(emit2) animation(passengerr2) group(passenger))
 	
-	("crew_human" place(passenger9) bone(passenger9) 	door(emit4) animation(passengerf2))
-	("crew_human" place(passenger10) bone(passenger10)  door(emit4) animation(passengerf2))
-	("crew_human" place(passenger11) bone(passenger11)  door(emit4) animation(passengerf2))
-	("crew_human" place(passenger12) bone(passenger12)  door(emit4) animation(passengerf2))
-	("crew_human" place(passenger13) bone(passenger13)  door(emit4) animation(passengerf2))
-	("crew_human" place(passenger14) bone(passenger14)  door(emit2) animation(passengerr1))
-	("crew_human" place(passenger15) bone(passenger15)  door(emit1) animation(passengerr2))
-	("crew_human" place(passenger16) bone(passenger16)  door(emit2) animation(passengerr1))
+	("crew_human" place(seat09) bone(seat09) 	door(emit3) animation(passengerf2) group(passenger))
+	("crew_human" place(seat10) bone(seat10)  	door(emit4) animation(passengerf2) group(passenger))
+	("crew_human" place(seat11) bone(seat11)  	door(emit5) animation(passengerf2) group(passenger))
+	("crew_human" place(seat12) bone(seat12)  	door(emit6) animation(passengerf2) group(passenger))
+	("crew_human" place(seat13) bone(seat13)  	door(emit1) animation(passengerr2) group(passenger))
+	("crew_human" place(seat14) bone(seat14) 	door(emit2) animation(passengerr1) group(passenger))
+	("crew_human" place(seat15) bone(seat15)  	door(emit3) animation(passengerf2) group(passenger))
+	("crew_human" place(seat16) bone(seat16)  	door(emit4) animation(passengerf1) group(passenger))
 
 	{placer
 		{place "driver"		{group "crew"}}
 		{place "commander"	{group "crew"}}
-		{place "gunner1" {useVision} {visor "gunner1"}}
-		{place "gunner2" {useVision} {visor "gunner2"}}
-		{place "passenger1"	{group "passenger"}}
-		{place "passenger2"	{group "passenger"}}
-		{place "passenger3"	{group "passenger"}}
-		{place "passenger4"	{group "passenger"}}
-		{place "passenger5"	{group "passenger"}}
-		{place "passenger6"	{group "passenger"}}
-		{place "passenger7"	{group "passenger"}}
-		{place "passenger8"	{group "passenger"}}
-		{place "passenger9"	{group "passenger"}}
-		{place "passenger10"	{group "passenger"}}
 	}
 	
 	{Sensor

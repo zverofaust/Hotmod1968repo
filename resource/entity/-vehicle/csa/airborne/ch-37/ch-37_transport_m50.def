@@ -4,7 +4,7 @@
 	(include "/properties/shadow/airborn.inc" scale(2.5))
 	(include "/properties/selection/airborne.inc" scale(2.00))
 	(include "/properties/car_crew.ext")
-	{props "helo" "insertion" "multi_board"}
+	{props "helo" "insertion" "multi_board" "heli_sling" "heli_passenger"}
 	{PatherID "helicopter"}
 	{targetclass "helicopter"}
 	{targetSelector "helicopter"}
@@ -42,28 +42,18 @@
 	("crew_human" place(driver) 	bone(driver) 		door(emit3) animation(driver))
 	("crew_human" place(commander) 	bone(commander) 	door(emit4) animation(commander))
 	
-	("crew_human" place(passenger1) bone(passenger1) 	door(emit3) animation(passengerf1))
-	("crew_human" place(passenger2) bone(passenger2) 	door(emit3) animation(passengerf1))
-	("crew_human" place(passenger3) bone(passenger3) 	door(emit3) animation(passengerf1))
-	("crew_human" place(passenger4) bone(passenger4)	door(emit3) animation(passengerf1))
-	("crew_human" place(passenger5) bone(passenger5)	door(emit3) animation(passengerf1))
-	("crew_human" place(passenger6) bone(passenger6)	door(emit1) animation(passengerr2))
-	("crew_human" place(passenger7) bone(passenger7)	door(emit2) animation(passengerr1))
-	("crew_human" place(passenger8) bone(passenger8) 	door(emit1) animation(passengerr2))
+	("crew_human" place(seat01) bone(seat01) 	door(emit3) animation(passengerf1) group(passenger))
+	("crew_human" place(seat02) bone(seat02) 	door(emit4) animation(passengerf1) group(passenger))
+	("crew_human" place(seat03) bone(seat03) 	door(emit5) animation(passengerf1) group(passenger))
+	("crew_human" place(seat04) bone(seat04)		door(emit6) animation(passengerf1) group(passenger))
+	("crew_human" place(seat05) bone(seat05)		door(emit3) animation(passengerf1) group(passenger))
+	("crew_human" place(seat06) bone(seat06)		door(emit4) animation(passengerr2) group(passenger))
+	("crew_human" place(seat07) bone(seat07)		door(emit5) animation(passengerr1) group(passenger))
+	("crew_human" place(seat08) bone(seat08) 	door(emit6) animation(passengerr2) group(passenger))
 
 	{placer
 		{place "driver"		{group "crew"}}
 		{place "commander"	{group "crew"}}
-		{place "gunner1" {useVision} {visor "gunner1"}}
-		{place "gunner2" {useVision} {visor "gunner2"}}
-		{place "passenger1"		{group "passenger"}}
-		{place "passenger2"		{group "passenger"}}
-		{place "passenger3"		{group "passenger"}}
-		{place "passenger4"		{group "passenger"}}
-		{place "passenger5"		{group "passenger"}}
-		{place "passenger6"		{group "passenger"}}
-		{place "passenger7"		{group "passenger"}}
-		{place "passenger8"		{group "passenger"}}
 		{place "attach"
 			{Linkbone "attach"}
 			{entity "m50_airlift"}
