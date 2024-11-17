@@ -10,6 +10,7 @@
 		{sequence "doorleft1"}
 		{sequence "doorright"}
 		{sequence "doorback"}
+		{sequence "bug_out_ground" {speed 0.05}}
 	}
 	{bone revolute "basis"
 		{limits 0 0}
@@ -20,6 +21,8 @@
 			0	-1	0
 			0	0	1
 		}
+		{bone "heli_ani"
+			{Position 0	0	0}
 		{bone "body"
 			{parameters "id=body;"}
 			{Position -1.59413	0.0343208	44.4267}
@@ -468,6 +471,20 @@
 			}
 			{bone "emit5"
 				{parameters "Group=crew;"}
+				{Position -92.5476	10.4285	-44.4267}
+				{visibility 0}
+			}
+			{bone "emit6"
+				{parameters "Group=crew;"}
+				{Position -92.5476	-10.595	-44.4267}
+				{visibility 0}
+			}
+			{bone "emit_cargo"
+				{Position -92.5476	0	-44.4267}
+				{visibility 0}
+			}
+			{bone "emit5"
+				{parameters "Group=crew;"}
 				{Matrix34
 					0	-1	0
 					1	0	0
@@ -529,6 +546,7 @@
 					{VolumeView "wheell1.ply"}
 				}
 			}
+		}
 		}
 	}
 }
