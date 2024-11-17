@@ -22,13 +22,14 @@
 ;// DOCTRINE TECHS
 	
 	{ tech "sov_inf_1960"				requires ""							costs 0  position 1 3}
-	{ tech "sov_guards_1960"			requires "squad_rifle_con(sov)"		costs 3  position 2.1 5.7}
-	{ tech "sov_vdv_1960"				requires ""							costs 5  position 7.5 4.9}
-	{ tech "sov_spetsnaz_1960"			requires ""							costs 5  position 7.7 7.7}
-	{ tech "sov_artillery_1960"			requires ""							costs 3  position 2.7 7.2}
-	{ tech "sov_tanks_1960"				requires ""							costs 5  position 0 10.8}
-	{ tech "sov_afv_1960"				requires ""							costs 4  position 5.3 10.1}
-	{ tech "sov_trucks_1960"			requires ""							costs 2  position 8.2 12.9}
+	{ tech "sov_guards_1960"			requires "squad_rifle_con(sov)"		costs 3  position 1.8 5.7}
+	{ tech "sov_vdv_1960"				requires ""							costs 5  position 6.5 4.8}
+	{ tech "sov_vmf_1960"				requires ""							costs 5  position 1 12.5}
+	{ tech "sov_spetsnaz_1960"			requires ""							costs 5  position 7.7 8.7}
+	{ tech "sov_artillery_1960"			requires ""							costs 3  position 2.7 7.7}
+	{ tech "sov_tanks_1960"				requires ""							costs 5  position 0 15}
+	{ tech "sov_afv_1960"				requires ""							costs 4  position 7.5 11}
+	{ tech "sov_trucks_1960"			requires ""							costs 2  position 5 14.5}
 	;{ tech "sov_heli_1960"				requires ""							costs 5  position 6.1 5.6}
 	
 	
@@ -36,19 +37,29 @@
 
 	{ tech "sov_radio_1960"				requires ""										costs 5  position 6 19}
 	
+	;artillery supports
 	{"artillery_barrage_smoke_sov"		requires "sov_radio_1960"						costs 0  position 6.9 18.1}
 	{"artillery_barrage_light_sov"		requires "artillery_barrage_smoke_sov"			costs 2  position 7.8 18.1}
 	{"artillery_barrage_medium_sov"		requires "artillery_barrage_light_sov"			costs 4  position 8.7 18.1}
 	{"artillery_barrage_heavy_sov"		requires "artillery_barrage_medium_sov"			costs 6  position 9.6 18.1}
 	{"artillery_barrage_rocket_sov"		requires "artillery_barrage_heavy_sov"			costs 6  position 10.5 18.1}
 	
-	{"airstrike_medium_sov"				requires "sov_radio_1960"						costs 4  position 6.9 19.9}
-	{"airstrike_wp_sov"					requires "airstrike_medium_sov"					costs 3  position 7.8 19.9}
-	{"airstrike_heavy_sov"				requires "airstrike_wp_sov"						costs 4  position 8.7 19.9}
+	;helicopter close air support
+	{"cas_mi4_sov"						requires "sov_radio_1960"						costs 2  position 6.9 19}
+	{"cas_mi4av_sov"					requires "cas_mi4_sov"							costs 4  position 7.8 19}
 	
-	{"paradrop_supply_sov"				requires "sov_vdv_1960"							costs 0  position 6.6 5.8}
-	{"paradrop_rpu14"					requires "rpu-14"								costs 0  position 6.6 4}
-	{"paradrop_asu57"					requires "asu57"								costs 0  position 11.1 4}
+	;fixed-wing bomb strikes
+	{"airstrike_medium_sov"				requires "paradrop_supply_sov"					costs 2  position 7.8 19.9}
+	{"airstrike_wp_sov"					requires "airstrike_medium_sov"					costs 3  position 8.7 19.9}
+	{"airstrike_heavy_sov"				requires "airstrike_wp_sov"						costs 4  position 9.6 19.9}
+	
+	;paradrops
+	{"paradrop_supply_sov"				requires "sov_radio_1960"						costs 0  position 6.9 19.9}
+	{ tech "paradrop_luaz967"			requires "luaz-967"								costs 0  position 6.8 7.8}
+	{"paradrop_rpu14"					requires "rpu-14"								costs 3  position 7 3}
+	{"paradrop_asu57"					requires "asu57"								costs 3  position 9.2 3.9}
+	{"paradrop_asu85"					requires "asu-85"								costs 5  position 10.1 3.9}
+	{"paradrop_bmd1"					requires "bmd-1"								costs 3  position 11 3.9}
 
 ;//---TEAMS---	
 
@@ -57,12 +68,10 @@
 	{"single_at_con(sov)"				requires "single_at_1950_con(sov)"				costs 1  position 2.3 0.9}
 	
 	{"single_mg_con(sov)"				requires ""										costs 1  position 3.1 1.8}
-	{"deploy_pk_con(sov)"				requires "single_mg_con(sov)"					costs 1  position 4.0 1.8}
-	{"deploy_dshk_con(sov)"				requires "deploy_pk_con(sov)"					costs 2  position 4.9 1.8}
 	
 	{"single_flamer_con(sov)"			requires ""										costs 1  position 4.2 0.9}
 	
-	{"single_tankman_con(sov)"			requires ""										costs 1  position 1 1.8}
+	;{"single_tankman_con(sov)"			requires ""										costs 1  position 1 1.8}
 	
 	{"single_scout_con(sov)"			requires ""										costs 1  position 6.1 0.9}
 	{"single_sniper_con(sov)"			requires "single_scout_con(sov)"				costs 2  position 7 0.9}
@@ -79,83 +88,188 @@
 	
 ;//---SQUADS---
 
-	{"squad_conscript_con(sov)"				requires "sov_inf_1960"								costs 0  position 3 3}
-	{"squad_conscript_moto_con(sov)"		requires "squad_conscript_con(sov)"					costs 1  position 3.9 3}
-	{"squad_conscript_moto2_con(sov)"		requires "squad_conscript_moto_con(sov)"			costs 1  position 4.8 3}
+	{"squad_conscript_con(sov)"				requires "sov_inf_1960"								costs 0  position 2.7 3}
+	{"squad_conscript_moto_con(sov)"		requires "squad_conscript_con(sov)"					costs 1  position 3.6 3}
+	{"squad_conscript_moto2_con(sov)"		requires "squad_conscript_moto_con(sov)"			costs 1  position 4.5 3}
 	
-	{"squad_conscript_ak_con(sov)"			requires "squad_conscript_con(sov)"					costs 2  position 3 3.9}
-	{"squad_conscript_ak_moto_con(sov)"		requires "squad_conscript_ak_con(sov)"				costs 1  position 3.9 3.9}
-	{"squad_conscript_ak_moto2_con(sov)"	requires "squad_conscript_ak_moto_con(sov)"			costs 2  position 4.8 3.9}
-	{"squad_conscript_ak_moto3_con(sov)"	requires "squad_conscript_ak_moto2_con(sov)"		costs 2  position 5.7 3.9}
+	{"squad_conscript_ak_con(sov)"			requires "squad_conscript_con(sov)"					costs 2  position 2.7 3.9}
+	{"squad_conscript_ak_moto_con(sov)"		requires "squad_conscript_ak_con(sov)"				costs 1  position 3.6 3.9}
+	{"squad_conscript_ak_moto2_con(sov)"	requires "squad_conscript_ak_moto_con(sov)"			costs 2  position 4.5 3.9}
+	{"squad_conscript_ak_moto3_con(sov)"	requires "squad_conscript_ak_moto2_con(sov)"		costs 2  position 5.4 3.9}
 	
-	{"squad_internal_con(sov)"				requires "sov_inf_1960"								costs 1  position 1 4.3}
-	{"squad_internal_at_con(sov)"			requires "squad_internal_con(sov)"					costs 1  position 1 5.2}
-	{"squad_internal_mg_con(sov)"			requires "squad_internal_at_con(sov)"				costs 1  position 1 6.1}
+	{"squad_internal_con(sov)"				requires "sov_inf_1960"								costs 1  position 0.9 4.3}
+	{"squad_internal_at_con(sov)"			requires "squad_internal_con(sov)"					costs 1  position 0.9 5.2}
+	{"squad_internal_mg_con(sov)"			requires "squad_internal_at_con(sov)"				costs 1  position 0.9 6.1}
 	
 	{"squad_border_scout_con(sov)"			requires "sov_inf_1960"								costs 1  position 0 4.3}
 	{"squad_border_con(sov)"				requires "squad_border_scout_con(sov)"				costs 1  position 0 5.2}
 	{"squad_border_moto_con(sov)"			requires "squad_border_con(sov)"					costs 1  position 0 6.1}
 	
-	{"squad_rifle_con(sov)"					requires "sov_inf_1960"								costs 2  position 2.1 4.8}
-	{"squad_rifle_moto_con(sov)"			requires "squad_rifle_con(sov)"						costs 1  position 3 4.8}
-	{"squad_rifle_moto2_con(sov)"			requires "squad_rifle_moto_con(sov)"				costs 1  position 3.9 4.8}
-	{"squad_rifle_moto3_con(sov)"			requires "squad_rifle_moto2_con(sov)"				costs 2  position 4.8 4.8}
-	{"squad_rifle_moto4_con(sov)"			requires "squad_rifle_moto3_con(sov)"				costs 3  position 5.7 4.8}
+	{"squad_rifle_con(sov)"					requires "sov_inf_1960"								costs 2  position 1.8 4.8}
+	{"squad_rifle_moto_con(sov)"			requires "squad_rifle_con(sov)"						costs 1  position 2.7 4.8}
+	{"squad_rifle_moto2_con(sov)"			requires "squad_rifle_moto_con(sov)"				costs 1  position 3.6 4.8}
+	{"squad_rifle_moto3_con(sov)"			requires "squad_rifle_moto2_con(sov)"				costs 2  position 4.5 4.8}
+	{"squad_rifle_moto4_con(sov)"			requires "squad_rifle_moto3_con(sov)"				costs 3  position 5.4 4.8}
 	
-	{"squad_guards_con(sov)"				requires "sov_guards_1960"							costs 1  position 3 5.7}
-	{"squad_guards_moto_con(sov)"			requires "squad_guards_con(sov)"					costs 2  position 3.9 5.7}
-	{"squad_guards_moto2_con(sov)"			requires "squad_guards_moto_con(sov)"				costs 2  position 4.8 5.7}
-	{"squad_guards_mech_con(sov)"			requires "squad_guards_moto2_con(sov)"				costs 4  position 5.7 5.7}
+	{"squad_guards_con(sov)"				requires "sov_guards_1960"							costs 1  position 2.7 5.7}
+	{"squad_guards_moto_con(sov)"			requires "squad_guards_con(sov)"					costs 2  position 3.6 5.7}
+	{"squad_guards_moto2_con(sov)"			requires "squad_guards_moto_con(sov)"				costs 3  position 4.5 5.7}
+	{"squad_guards_mech_con(sov)"			requires "squad_guards_moto2_con(sov)"				costs 4  position 5.4 5.7}
 	
-	{"squad_vdv_con(sov)"					requires "sov_vdv_1960"								costs 1  position 9.3 4.9}
-	{"squad_vdv_rcl_con(sov)"				requires "squad_vdv_con(sov)"						costs 2  position 10.2 4.9}
+	{"squad_vdv_con(sov)"					requires "sov_vdv_1960"								costs 1  position 7.4 4.8}
+	{"squad_vdv_rcl_con(sov)"				requires "squad_vdv_con(sov)"						costs 2  position 8.3 4.8}
 	
-	{"squad_vdv_mi4_con(sov)"				requires "squad_vdv_con(sov)"						costs 3  position 9.3 5.8}
-	{"squad_vdv_rcl_mi4_con(sov)"			requires "squad_vdv_rcl_con(sov)"					costs 3  position 10.2 5.8}
+	{tech "squad_vdv_para_con(sov)"			requires "squad_vdv_con(sov)"						costs 0  position 7.4 3.9}
+	{tech "squad_vdv_rcl_para_con(sov)"		requires "squad_vdv_rcl_con(sov)"					costs 0  position 8.3 3.9}
+	
+	{"squad_vdv_mi4_con(sov)"				requires "squad_vdv_con(sov)"						costs 3  position 7.4 5.7}
+	{"squad_vdv_rcl_mi4_con(sov)"			requires "squad_vdv_rcl_con(sov)"					costs 3  position 8.3 5.7}
+	
+	{"squad_vdv_bmd1_con(sov)"				requires "bmd-1"									costs 2  position 11 6.6}
+	
+	{"squad_spz_scout_moto_con(sov)"		requires "sov_spetsnaz_1960"						costs 2  position 6.8 8.7}
+	{tech "squad_spz_scout_mortar_con(sov)"	requires "squad_spz_scout_moto_con(sov)"			costs 0  position 6.8 9.6}
+	{"squad_spz_sabo_con(sov)"				requires "sov_spetsnaz_1960"						costs 2  position 8.6 8.7}
+	{"squad_spz_con(sov)"					requires "squad_spz_sabo_con(sov)"					costs 3  position 9.5 8.7}
+	{"squad_spz_mi4_con(sov)"				requires "squad_spz_con(sov)"						costs 3  position 9.5 7.8}
+	{"squad_spz_bmd1_con(sov)"				requires "squad_spz_con(sov) bmd-1"					costs 3  position 11 8.7}
+	
 	
 ;//---MG---
-
+	
+	{"deploy_pk_con(sov)"				requires "single_mg_con(sov)"					costs 1  position 4.0 1.8}
+	{"deploy_dshk_con(sov)"				requires "deploy_pk_con(sov)"					costs 2  position 4.9 1.8}
+	{"deploy_dshk_aa_con(sov)"			requires "sov_artillery_1960"							costs 1  position 2.7 6.8}
 
 ;//---Mortars---
 
 
 ;//---AA---
 	
+	{"zu-2"								requires "deploy_dshk_aa_con(sov)"						costs 2  position 3.6 6.8}
+	{"zpu-4"							requires "zu-2"											costs 2  position 4.5 6.8}
+	{"zu-23-2"							requires "zpu-4"										costs 3  position 5.4 6.8}
+	{"57mm_s-60"						requires "zpu-4"										costs 2  position 6.3 6.8}
+	
 
 ;//---AT Guns---
 	
+	{"deploy_b10_con(sov)"					requires "sov_artillery_1960"							costs 1  position 1.8 7.7}
+	{"deploy_spg9_con(sov)"					requires "deploy_b10_con(sov)"							costs 2  position 1.8 8.6}
+	{"deploy_9m14_con(sov)"					requires "deploy_spg9_con(sov)"							costs 3  position 1.8 9.5}
+	
+	{tech "d-48"						requires "sov_artillery_1960"								costs 0  position 2.7 9.5}
+	{"t-12"								requires "d-48"												costs 3  position 2.7 10.4}
 	
 ;//---Field Guns---	
-	
+
+	{"d-44"								requires "sov_artillery_1960"								costs 1  position 2.7 8.6}
+	{"d-74"								requires "d-44"												costs 2  position 3.6 7.7}
 
 ;//---Artillery---	
 	
-	{"rpu-14"						requires "sov_vdv_1960"										costs 2  position 7.5 4}
+	{"120mm_pm38_sov"					requires "sov_artillery_1960"								costs 2  position 0.9 7.7}
+	{tech "160mm_m160"					requires "120mm_pm38_sov"									costs 0  position 0.9 8.6}
+	{tech "240mm_m240"					requires "160mm_m160"										costs 0  position 0.9 9.5}
 	
+	{"122mm_m30_sov"					requires "d-44"												costs 2  position 3.6 8.6}
+	{"122mm_d-30"						requires "122mm_m30_sov"									costs 3  position 3.6 9.5}
+	{"d1"								requires "122mm_m30_sov"									costs 3  position 4.5 8.6}
+	{"152mm_ml20_sov"					requires "d1"												costs 3  position 5.4 8.6}
+	{"d-20"								requires "d1"												costs 2  position 4.5 9.5}
+	{"203mm_b4_sov"						requires "d1"												costs 4  position 5.4 9.5}
+	
+	{"deploy_9p132_con(sov)"			requires "squad_spz_sabo_con(sov)"							costs 3  position 8.6 7.8}
+	{"rpu-14"							requires "sov_vdv_1960"										costs 2  position 6.5 3.9}
+	{"mil_mi8_rpu14"					requires "rpu-14"											costs 4  position 6 3}
+	
+	{"bm-14-16"							requires "sov_artillery_1960"								costs 3  position 0 7.7}
+	{"bm-24m"							requires "bm-14-16"											costs 3  position 0 8.6}
+	{"bm-21_grad"						requires "bm-24m"											costs 4  position 0 9.5}
+	{tech "2k6_luna"					requires "bm-21_grad"										costs 3  position 0 10.4}
+	{tech "9k52"						requires "2k6_luna"											costs 5  position 0 11.3}
 	
 ;//---Trucks---
 	
+	{ tech "luaz-967"					requires "sov_spetsnaz_1960"							costs 0  position 7.7 7.8}
+	{"gaz-51"							requires "sov_trucks_1960"								costs 1  position 5.9 14.5}
+	{"gaz-51_ammo"						requires "gaz-51"										costs 1  position 6.8 14.5}
 	
+	{"zil-157"							requires "gaz-51"										costs 1  position 5.9 15.4}
+	{"zil-157_ammo"						requires "zil-157"										costs 2  position 6.8 15.4}
+	{"zil-157_fuel"						requires "zil-157"										costs 2  position 5 15.4}
+	
+	{"ural375"							requires "zil-157"										costs 2  position 5.9 16.3}
+	{"ural375_ammo"						requires "ural375"										costs 3  position 6.8 16.3}
+	
+	{"kraz-255"							requires "ural375"										costs 3  position 5.9 17.2}
+	{"kraz-255_ammo"					requires "kraz-255"										costs 3  position 6.8 17.2}
 	
 ;//---Armored Cars---
 	
+	{"btr-40"						requires "sov_afv_1960"										costs 1  position 7.5 11.9}
+	{"btr-40a"						requires "btr-40"											costs 2  position 7.5 12.8}
+	{"btr-152"						requires "btr-40"											costs 1  position 8.4 11.9}
+	{"btr-50p"						requires "btr-152"											costs 1  position 9.3 11.9}
+	{"btr-50pk"						requires "btr-50p"											costs 1  position 10.2 11.9}
+	{tech "ur-67"					requires "btr-50pk"											costs 0  position 10.2 12.8}
+	{"btr-152a"						requires "btr-152"											costs 1  position 9.3 12.8}
+	{"btr-60p"						requires "btr-152"											costs 1  position 8.4 12.8}
+	{"btr-60pa"						requires "btr-60p"											costs 2  position 8.4 13.7}
+	{"btr-60pb"						requires "btr-60pa"											costs 3  position 9.3 13.7}
+	
+	{"brdm-1"						requires "btr-40"											costs 1  position 6.6 11.9}
+	{"2p27"							requires "brdm-1"											costs 2  position 5.7 11.9}
+	{tech "2p32"					requires "2p27"												costs 0  position 4.8 11.9}
+	{"9p110"						requires "2p27"												costs 3  position 3.9 11.9}
+	
+	{"brdm-2"						requires "brdm-1"											costs 2  position 6.6 12.8}
+	{"9p124"						requires "brdm-2"											costs 2  position 5.7 12.8}
+	{"9p122"						requires "9p124"											costs 3  position 4.8 12.8}
 	
 ;//---Light Tanks---	
 	
-	{"asu57"						requires "squad_vdv_rcl_con(sov)"							costs 1  position 11.1 4.9}
-	{"asu-85"						requires "asu57"											costs 2  position 12 4.9}
+	{"asu57"						requires "squad_vdv_rcl_con(sov)"							costs 1  position 9.2 4.8}
+	{"mil_mi8_asu57"				requires "asu57"											costs 3  position 9.2 5.7}
+	{"asu-85"						requires "asu57"											costs 2  position 10.1 4.8}
+	{"mil_mi8_asu85"				requires "asu-85"											costs 0  position 10.1 5.7}
+	{"bmd-1"						requires "asu-85"											costs 5  position 11 4.8}
+	{"mil_mi8_bmd1"					requires "bmd-1"											costs 4  position 11 5.7}
+	{"pt-76"						requires "sov_tanks_1960"									costs 1  position 0 15.9}
+	{"pt-76b"						requires "pt-76"											costs 1  position 0.9 15.9}
+	{"bmp-1"						requires "pt-76b"											costs 5  position 1.8 15.9}
 	
 ;//---Medium Tanks---
 	
+	{"t-54a"						requires "sov_tanks_1960"									costs 2  position 0 17.7}
+	{"t-54b"						requires "t-54a"											costs 2  position 0.9 17.7}
+	{"t-55"							requires "t-54b"											costs 2  position 1.8 17.7}
+	{"ot-55"						requires "t-55"												costs 1  position 1.8 16.8}
+	{"t-55a"						requires "t-55"												costs 1  position 2.7 16.8}
+	{"t-62_1960"					requires "t-55"												costs 3  position 2.7 17.7}
+	{"t-62_1967"					requires "t-62_1960"										costs 2  position 3.6 17.7}
+	{"t-64_obj432"					requires "t-62_1967"										costs 5  position 4.5 17.7}
 	
 ;//---Heavy Tanks---
 	
+	{"is-3m"						requires "sov_tanks_1960"									costs 2  position 0 19.5}
+	{"t-10m_1957"					requires "is-3m"											costs 3  position 0.9 19.5}
+	{"t-10m"						requires "t-10m_1957"										costs 3  position 1.8 19.5}
 
 ;//---Self Propelled Guns---		
 	
+	{"isu-152m"						requires "sov_tanks_1960"									costs 2  position 0 18.6}
+	{"su-122-54_1955"				requires "isu-152m"											costs 2  position 0.9 18.6}
+	{"su-122-54"					requires "su-122-54_1955"									costs 2  position 1.8 18.6}
+	{"it-1"							requires "su-122-54"										costs 4  position 2.7 18.6}
+	
+	{"zsu-57-2"						requires "sov_tanks_1960"									costs 2  position 0.9 15}
+	{"zsu-23-4b"					requires "zsu-57-2"											costs 5  position 1.8 15}
 	
 ;//---Aircraft---
 	
+	{"mil_mi4_supply"				requires "sov_vdv_1960"										costs 1  position 6.5 5.7}
+	{"mil_mi8_supply"				requires "mil_mi4_supply"									costs 3  position 7.5 6.6}
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
 ;;;;;;          1970s ERA           ;;;;;
