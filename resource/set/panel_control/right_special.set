@@ -23,6 +23,11 @@
 		{position 1 0}
 	}
 	
+	{heli_unsling
+		{position 2 0}
+		{condition "heli_sling"}
+	}
+	
 	{injection
 		{position 2 0}
 		{condition "human"}
@@ -32,6 +37,8 @@
 		{position 3 0}
 		{condition "human disabled"}
 	}	
+	
+
 
 ; second row-------------------------
 
@@ -61,6 +68,11 @@
 	
 	{gc_cp_state_supply
 		{position 2 1}
+	}
+	
+	{gc_cp_state_altitude
+		{position 2 1}
+		{condition "helicopter"}
 	}
 	
 	{switch_suspension
@@ -95,6 +107,11 @@
 	}
 	
 	; // empty {position 2 2} 
+	
+	{heli_dismount
+		{position 2 2}
+		{condition "helicopter"}
+	}
 	
 	{gc_cp_browse_back
 		{position 3 2}
