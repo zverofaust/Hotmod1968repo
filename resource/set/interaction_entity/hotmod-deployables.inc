@@ -44,6 +44,7 @@
 	("gunbagtype" guntype(b-10_82mm)  				bagtype(gunbag_b10))
 	("gunbagtype" guntype(spg9)  					bagtype(gunbag_spg9))
 	("gunbagtype" guntype(9m14)   					bagtype(gunbag_9m14))
+	("gunbagtype" guntype(9p132)   					bagtype(gunbag_9p132))
 
 	;///USA
 	("gunbagtype" guntype(mg_stand_m1919) 			bagtype(gunbag_m1919))
