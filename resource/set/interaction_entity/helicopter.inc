@@ -48,7 +48,120 @@
 		}
 	}
 	
-	{on "insertion"			;// UI button to toggle insertion
+	{on "heli_dismount"  ; heli_dismount button is pressed
+		{if not tagged "heli_unloading"
+			{if altitude 2
+			;//do nothing if altitude above 2
+			else	
+				{able select 0}
+				{drop_orders}
+				{ani_play "doorback"}
+				{ani_play "doorsback"}
+				{ani_play "doorsfront"}
+				{tags add "heli_unloading"}
+				{delay 0.5 {call "disembark_troops_forced"}}
+				{delay 8
+					{ani_play "bug_out_ground"}
+					{delay 8 {delete}}
+				}
+			}
+			
+		else
+		;//do nothing
+		}
+	}
+	
+	{on "disembark_troops_forced"
+		{delay 1
+			{with_linked_entity "seat01"
+				{unlink}
+			}
+			{with_linked_entity "seat02"
+				{unlink}
+			}
+			{with_linked_entity "seat03"
+				{unlink}
+			}
+			{with_linked_entity "seat04"
+				{unlink}
+			}
+			{delay 1
+				{with_linked_entity "seat05"
+					{unlink}
+				}
+				{with_linked_entity "seat06"
+					{unlink}
+				}
+				{with_linked_entity "seat07"
+					{unlink}
+				}
+				{with_linked_entity "seat08"
+					{unlink}
+				}
+				{delay 1
+					{with_linked_entity "seat09"
+						{unlink}
+					}
+					{with_linked_entity "seat10"
+						{unlink}
+					}
+					{with_linked_entity "seat11"
+						{unlink}
+					}
+					{with_linked_entity "seat12"
+						{unlink}
+					}
+					{call "disembark_troops_forced"}
+					{delay 1
+						{with_linked_entity "seat13"
+							{unlink}
+						}
+						{with_linked_entity "seat14"
+							{unlink}
+						}
+						{with_linked_entity "seat15"
+							{unlink}
+						}
+						{with_linked_entity "seat16"
+							{unlink}
+						}
+						{delay 1
+							{with_linked_entity "seat17"
+								{unlink}
+							}
+							{with_linked_entity "seat18"
+								{unlink}
+							}
+							{with_linked_entity "seat19"
+								{unlink}
+							}
+							{with_linked_entity "seat20"
+								{unlink}
+							}
+							{delay 1
+								{with_linked_entity "seat21"
+									{unlink}
+								}
+								{with_linked_entity "seat22"
+									{unlink}
+								}
+								{with_linked_entity "seat23"
+									{unlink}
+								}
+								{with_linked_entity "seat24"
+									{unlink}
+								}
+								{call "disembark_troops_forced"}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+		
+	
+	{on "heli_unsling"			;// heli_unsling button is pressed
 		{chassis_work 0}
 		{able select 0}
 		{ani_play "lower" callback}
@@ -60,34 +173,25 @@
 				{unlink}
 				{impulse up 0.1 com}
 			}
-			{delay 0.2
-				{with_linked_entity "seat01"
-					{unlink}
-				}
-				{with_linked_entity "seat02"
-					{unlink}
-				}
-				{delay 0.4
-					{with_linked_entity "seat03"
-						{unlink}
-					}
-					{with_linked_entity "seat04"
-						{unlink}
-					}
-					{ani_play "pause" callback}
-				}
+			{delay 1
+				{ani_play "pause" callback}
 			}
 		}			
 	}
 	
 	{on animation_end "pause"
-		{ani_play "bug_out" callback}
+		;{ani_play "bug_out" callback}
+		{ani_play "lower" -1}
+		{delay 1
+			{chassis_work 1}
+			{able select 1}
+		}
 	}
 	
 	{on animation_end "bug_out"
 		{delete}	
 	}
-	
+		
 	{on "altitude_checker" 
 		{if altitude 15                         
 			{tags remove "wheel_pullout"}                  
@@ -681,3 +785,52 @@
 		}
 	}
 }
+
+{"helicopter heli_cargo_control"
+	{on spawn
+		{tags add "heli_cargo"}
+	}
+}
+
+{"helicopter heli_passenger"
+	{on spawn
+		{tags add "heli_passenger"}
+	}
+}
+
+{"helicopter heli_sling"
+	{on spawn
+		{tags add "heli_sling"}
+	}
+}
+
+	(define "transporter"
+		{"%heli"
+			{on "heli_dismount"  ; heli_dismount button is pressed
+				{if altitude 2
+				;//do nothing
+				else
+					{if tagged "heli_cargo"
+						{able select 0}
+						{drop_orders}
+						{ani_play "doorback"}
+						{delay 2.5
+							{start_sound "vehicle/deploy/trench"}
+							{spawn "%spawntype" "emit_cargo" x dir_velocity}
+							{spawn "building_smoke" "emit_cargo"}
+							{tags remove "heli_cargo"}
+						}					
+					}
+				}	
+			}
+		}
+	)
+	
+	("transporter" heli(mil_mi4_supply) 		spawntype(ammo_pallet))
+	("transporter" heli(mil_mi8_supply) 		spawntype(ammo_pallet_large))
+	("transporter" heli(mil_mi8_zis2) 			spawntype(57mm_zis2_sov))
+	("transporter" heli(mil_mi8_asu57) 			spawntype(asu57))
+	("transporter" heli(mil_mi8_asu85)			spawntype(asu-85))
+	("transporter" heli(mil_mi8_bmd1)			spawntype(bmd-1))
+	("transporter" heli(mil_mi8_rpu14) 			spawntype(rpu-14))
+	("transporter" heli(mil_mi8_zu2) 			spawntype(zu-2))
