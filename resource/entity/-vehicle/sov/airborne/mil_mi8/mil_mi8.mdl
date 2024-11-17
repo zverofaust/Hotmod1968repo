@@ -7,6 +7,7 @@
 		{sequence "engine_work" {speed 0.6} {resume}}
 		{sequence "engine_stop" {speed 0.6}}
 		{sequence "doorback" {speed 0.6}}
+		{sequence "bug_out_ground" {speed 0.05}}
 	}
 	{bone "basis"
 		{parameters "SteerMax=25;"}
@@ -15,6 +16,8 @@
 			0	-1	0
 			0	0	1
 		}
+		{bone "heli_ani"
+			{Position 0	0	0}
 		{bone "body"
 			{parameters "ID=body;"}
 			{Matrix34
@@ -471,6 +474,16 @@
 				}
 				{visibility 0}
 			}
+			{bone "emit5"
+				{parameters "Group=commander;"}
+				{Matrix34
+					0.99863	0	0.0523361
+					0	1	0
+					-0.0523361	0	0.99863
+					-166.762	14.2482	-8.73961
+				}
+				{visibility 0}
+			}
 			{bone "emit1"
 				{parameters "Group=driver;"}
 				{Matrix34
@@ -528,6 +541,25 @@
 					0	1	0
 					-0.0523361	0	0.99863
 					-166.762	-14.252	-8.73961
+				}
+				{visibility 0}
+			}
+			{bone "emit6"
+				{parameters "Group=commander;"}
+				{Matrix34
+					0.99863	0	0.0523361
+					0	1	0
+					-0.0523361	0	0.99863
+					-166.762	-14.252	-8.73961
+				}
+				{visibility 0}
+			}
+			{bone "emit_cargo"
+				{Matrix34
+					0.99863	0	0.0523361
+					0	1	0
+					-0.0523361	0	0.99863
+					-166.762	0	-8.73961
 				}
 				{visibility 0}
 			}
@@ -665,6 +697,7 @@
 					}
 				}
 			}
+		}
 		}
 	}
 }
