@@ -35,26 +35,27 @@
 	
 ;// RADIO & OFFMAP SUPPORTS
 
-	{ tech "sov_radio_1960"				requires ""										costs 5  position 6 19}
+	{ tech "sov_radio_1960"				requires ""										costs 5  position 6 19.1}
 	
 	;artillery supports
-	{"artillery_barrage_smoke_sov"		requires "sov_radio_1960"						costs 0  position 6.9 18.1}
-	{"artillery_barrage_light_sov"		requires "artillery_barrage_smoke_sov"			costs 2  position 7.8 18.1}
-	{"artillery_barrage_medium_sov"		requires "artillery_barrage_light_sov"			costs 4  position 8.7 18.1}
-	{"artillery_barrage_heavy_sov"		requires "artillery_barrage_medium_sov"			costs 6  position 9.6 18.1}
-	{"artillery_barrage_rocket_sov"		requires "artillery_barrage_heavy_sov"			costs 6  position 10.5 18.1}
+	{"artillery_barrage_smoke_sov"		requires "sov_radio_1960"						costs 0  position 6.9 18.2}
+	{"artillery_barrage_light_sov"		requires "artillery_barrage_smoke_sov"			costs 2  position 7.8 18.2}
+	{"artillery_barrage_medium_sov"		requires "artillery_barrage_light_sov"			costs 4  position 8.7 18.2}
+	{"artillery_barrage_heavy_sov"		requires "artillery_barrage_medium_sov"			costs 6  position 9.6 18.2}
+	{"artillery_barrage_rocket_sov"		requires "artillery_barrage_heavy_sov"			costs 6  position 10.5 18.2}
 	
 	;helicopter close air support
-	{"cas_mi4_sov"						requires "sov_radio_1960"						costs 2  position 6.9 19}
-	{"cas_mi4av_sov"					requires "cas_mi4_sov"							costs 4  position 7.8 19}
+	{tech "cas_mi1_sov"					requires "sov_radio_1960"						costs 0  position 6.9 19.1}
+	{"cas_mi4_sov"						requires "cas_mi1_sov"							costs 2  position 7.8 19.1}
+	{"cas_mi4av_sov"					requires "cas_mi4_sov"							costs 4  position 8.7 19.1}
 	
 	;fixed-wing bomb strikes
-	{"airstrike_medium_sov"				requires "paradrop_supply_sov"					costs 2  position 7.8 19.9}
-	{"airstrike_wp_sov"					requires "airstrike_medium_sov"					costs 3  position 8.7 19.9}
-	{"airstrike_heavy_sov"				requires "airstrike_wp_sov"						costs 4  position 9.6 19.9}
+	{"airstrike_medium_sov"				requires "paradrop_supply_sov"					costs 2  position 7.8 20}
+	{"airstrike_wp_sov"					requires "airstrike_medium_sov"					costs 3  position 8.7 20}
+	{"airstrike_heavy_sov"				requires "airstrike_wp_sov"						costs 4  position 9.6 20}
 	
 	;paradrops
-	{"paradrop_supply_sov"				requires "sov_radio_1960"						costs 0  position 6.9 19.9}
+	{"paradrop_supply_sov"				requires "sov_radio_1960"						costs 1  position 6.9 20}
 	{ tech "paradrop_luaz967"			requires "luaz-967"								costs 0  position 6.8 7.8}
 	{"paradrop_rpu14"					requires "rpu-14"								costs 3  position 7 3}
 	{"paradrop_asu57"					requires "asu57"								costs 3  position 9.2 3.9}
@@ -207,13 +208,13 @@
 	
 ;//---Armored Cars---
 	
-	{"btr-40"						requires "sov_afv_1960"										costs 1  position 7.5 11.9}
+	{"btr-40"						requires "sov_afv_1960"										costs 0  position 7.5 11.9}
 	{"btr-40a"						requires "btr-40"											costs 2  position 7.5 12.8}
 	{"btr-152"						requires "btr-40"											costs 1  position 8.4 11.9}
 	{"btr-50p"						requires "btr-152"											costs 1  position 9.3 11.9}
 	{"btr-50pk"						requires "btr-50p"											costs 1  position 10.2 11.9}
 	{tech "ur-67"					requires "btr-50pk"											costs 0  position 10.2 12.8}
-	{"btr-152a"						requires "btr-152"											costs 1  position 9.3 12.8}
+	{"btr-152a"						requires "btr-152"											costs 2  position 9.3 12.8}
 	{"btr-60p"						requires "btr-152"											costs 1  position 8.4 12.8}
 	{"btr-60pa"						requires "btr-60p"											costs 2  position 8.4 13.7}
 	{"btr-60pb"						requires "btr-60pa"											costs 3  position 9.3 13.7}
@@ -230,13 +231,13 @@
 ;//---Light Tanks---	
 	
 	{"asu57"						requires "squad_vdv_rcl_con(sov)"							costs 1  position 9.2 4.8}
-	{"mil_mi8_asu57"				requires "asu57"											costs 3  position 9.2 5.7}
+	{"mil_mi8_asu57"				requires "asu57"											costs 2  position 9.2 5.7}
 	{"asu-85"						requires "asu57"											costs 2  position 10.1 4.8}
-	{"mil_mi8_asu85"				requires "asu-85"											costs 0  position 10.1 5.7}
+	{"mil_mi8_asu85"				requires "asu-85"											costs 3  position 10.1 5.7}
 	{"bmd-1"						requires "asu-85"											costs 5  position 11 4.8}
 	{"mil_mi8_bmd1"					requires "bmd-1"											costs 4  position 11 5.7}
-	{"pt-76"						requires "sov_tanks_1960"									costs 1  position 0 15.9}
-	{"pt-76b"						requires "pt-76"											costs 1  position 0.9 15.9}
+	;{"pt-76"						requires "sov_tanks_1960"									costs 1  position 0 15.9}
+	{"pt-76b"						requires "sov_tanks_1960"									costs 0  position 0 15.9}
 	{"bmp-1"						requires "pt-76b"											costs 5  position 1.8 15.9}
 	
 ;//---Medium Tanks---
