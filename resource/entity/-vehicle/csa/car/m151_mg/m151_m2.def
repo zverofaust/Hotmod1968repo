@@ -46,7 +46,7 @@
 	
 	("crew_human"		place(driver)		bone(driver)			door(emit1)		animation(driver) 		 	group(crew))
 	("crew_human"		place(gunner)		bone(gunner)			door(emit3)		animation(gunner)			group(crew))
-	("crew_human"		place(commander) 	bone(commander)			door(emit2)		animation(commander) 	 	group(crew))
+	("crew_human"		place(commander) 	bone(commander)			door(emit2)		animation(commander) 	 	group(passenger))
 	
 	{sensor
 		{visor "commander"
@@ -64,11 +64,11 @@
 	}
 
 	{extender "inventory"
-		{weapon "mgun2" {mask "mountable"}}
+		;{weapon "mgun2" {mask "mountable"}}
 		{box
 			{item "ammo hmgun_usa" 500}
-			{item "ammo m60_box" 1000}
-			{item "m60" filled {user "mgun2"}}
+			;{item "ammo m60_box" 1000}
+			;{item "m60" filled {user "mgun2"}}
 		}
 	}
 
@@ -83,16 +83,16 @@
 			{LinkAnimation	"off"}
 			("abm_mgun")
 		}
-		{place "mgun2"
-			{LinkBone "mgun2"}
-			{gunner "commander"}
-			{charger "commander"}
-			;{foresight "foresight5"}
-			{LinkBone		"mgun"}
-			{LinkAnimation	"off"}
-			{basic}
-			{ai_in_manual}
-		}
+		;{place "mgun2"
+		;	{LinkBone "mgun2"}
+		;	{gunner "commander"}
+		;	{charger "commander"}
+		;	;{foresight "foresight5"}
+		;	{LinkBone		"mgun"}
+		;	{LinkAnimation	"off"}
+		;	{basic}
+		;	{ai_in_manual}
+		;}
 	}  
 
 	{Chassis
@@ -110,7 +110,7 @@
 		)
 	}
 
-	{Extension "m151_hmg.mdl"}
+	{Extension "m151_mg.mdl"}
 
 	{bone "gun_rot"
 		{limits -25 10}
@@ -118,12 +118,5 @@
 	{bone "turret"
 		{limits -55 55}
 		{speed2 62}
-	}
-	{bone "mgun_rot"
-		{limits -25 20}
-	}
-	{bone "mgun_turret"
-        {limits -40 20}
-		{speed2 80}
 	}
 }
