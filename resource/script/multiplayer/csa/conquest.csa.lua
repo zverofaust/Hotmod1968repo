@@ -5,10 +5,10 @@ Purchases["conquest.csa"] = {
 			-- Infantry
 				
 				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_at_1950_con(csa)"},
-				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_at(csa)"},
+				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_at_con(csa)"},
 				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_grenadier_1950_con(csa)"},
 				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_grenadier_m7_con(csa)"},
-				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_lat(csa)"},
+				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_lat_con(csa)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_mg_1950_con(csa)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_mg_con(csa)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_grenadier_con(csa)"},
