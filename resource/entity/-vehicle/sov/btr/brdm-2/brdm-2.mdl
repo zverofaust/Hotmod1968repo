@@ -1,6 +1,6 @@
-;Exported by: misan
-;Date:        Wed Jun 19 17:17:59 2024
-;File:        D:\Cold War\ModelWIP\USSR\BRDM-2\BRDM-2.max
+;Exported by: aeste
+;Date:        Fri Nov 22 06:47:15 2024
+;File:        E:\Cold War\ModelWIP\USSR\BRDM-2\BRDM-2.max
 {Skeleton
 	{animation
 		{sequence "start" {speed 0.15}}
@@ -366,7 +366,7 @@
 {Volume "body1"
 	{Polyhedron "body1.vol"}
 	{Bone "body"}
-	{Position 44.852	0.163928	0.749752}
+	{Position 47.0335	0.127595	0.657772}
 }
 {Volume "body2"
 	{Polyhedron "body2.vol"}
@@ -374,9 +374,14 @@
 	{Position -6.04008	0.133036	14.0524}
 }
 {Volume "body3"
-	{Polyhedron "body3.vol"}
+	{Box 43.4806 12.3567 91.5945}
 	{Bone "body"}
-	{Position -10.9083	0.163939	3.15221}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-8.74824	0.127595	3.08756
+	}
 }
 {Volume "body4"
 	{Polyhedron "body4.vol"}
@@ -423,6 +428,26 @@
 		-32.9118	16.4714	-8.1793
 	}
 }
+{Volume "hole3"
+	{Cylinder 13.3858 11.4092}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		29.1629	-16.1702	-8.1793
+	}
+}
+{Volume "hole4"
+	{Cylinder 13.3829 11.4092}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		29.1629	16.4714	-8.1793
+	}
+}
 {Volume "ram"
 	{Polyhedron "ram.vol"}
 	{Bone "body"}
@@ -446,7 +471,7 @@
 {Volume "turret"
 	{Polyhedron "turret.vol"}
 	{Bone "turret"}
-	{Position 0.0272077	-0.0575435	-0.0915375}
+	{Position -0.0379	-0.0563051	-3.72345}
 }
 {Volume "wheelleft1"
 	{Cylinder 11.5198 5.77598}
