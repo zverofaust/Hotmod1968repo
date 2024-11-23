@@ -25,6 +25,30 @@
 
 ;//American
 
+{"flare_paradrop_entac"	
+	{on spawn
+		{add_view "smoke_flare_green" "smoke" "root"}
+		{view start "smoke"}
+		{impulse up 5 forward 3 rnd_dir 3 com}
+		{start_sound "vehicle/airborne/cargo_plane_flyby" ambient}
+		{delay 10 {spawn "paradrop_crate_entac"}}
+		{delay 20 {view stop "smoke"}}
+		{delay 20 {delete}}
+	}
+}
+
+{"flare_paradrop_m29"	
+	{on spawn
+		{add_view "smoke_flare_green" "smoke" "root"}
+		{view start "smoke"}
+		{impulse up 5 forward 3 rnd_dir 3 com}
+		{start_sound "vehicle/airborne/cargo_plane_flyby" ambient}
+		{delay 10 {spawn "paradrop_crate_m29"}}
+		{delay 20 {view stop "smoke"}}
+		{delay 20 {delete}}
+	}
+}
+
 {"flare_paradrop_m116"	
 	{on spawn
 		{add_view "smoke_flare_green" "smoke" "root"}
