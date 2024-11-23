@@ -140,6 +140,16 @@
 	{cost 3}{action "airstrike:flare_paradrop_ammo"}
 }
 
+{"paradrop_crate_m29"
+	("offmap_support" side(csa) period(era1960) min_stage(1) max_stage(99) cw(0) cp(4) vehicle(ammo_pallet) crew(sup_pilot:0))
+	{cost 3}{action "airstrike:flare_paradrop_m29"}
+}
+
+{"paradrop_crate_entac"
+	("offmap_support" side(csa) period(era1960) min_stage(1) max_stage(99) cw(0) cp(4) vehicle(ammo_pallet) crew(sup_pilot:0))
+	{cost 4}{action "airstrike:flare_paradrop_entac"}
+}
+
 ;{"paradrop_m116"
 ;	("offmap_support" side(csa) period(era1960) min_stage(1) max_stage(99) cw(0) cp(4) vehicle(75mm_m116) crew(sup_pilot:0))
 ;	{cost 2}{action "airstrike:flare_paradrop_m116"}
@@ -262,9 +272,6 @@
 }
 
 ;//1st Air Cavalry
-{"squad_aircav_recon_con(csa)" 
-	("squad_vehicle8"		 side(csa) period(era1960) min_stage(10) max_stage(99) vehicle(uh-1b_unarmed) cw(0) cp(0) 		crew1(sup_pilot:1) crew2(aircav_squadlead:1) crew4(aircav_grenadier:1)  crew6(aircav_teamlead:1) crew7(aircav_rifleman:2) crew8(aircav_lat:1))
-}
 
 {"squad_aircav_rifle_con(csa)" 
 	("squad_vehicle6"		 side(csa) period(era1960) min_stage(10) max_stage(99) vehicle(uh-1h) cw(0) cp(0) 		crew1(sup_pilot:4) crew2(aircav_squadlead:1) crew3(aircav_grenadier:1) crew4(aircav_teamlead:1) crew5(aircav_rifleman:5) crew6(aircav_lat:2))
@@ -294,10 +301,10 @@
 }
 
 ;//82nd Airborne
-("squad_with1types_conquest" side(csa) period(era1960)   min_stage(2) max_stage(20) name(single_guncrew_82nd_con)		c1(82nd_guncrew:4))
+("squad_with1types_conquest" side(csa) period(era1960)   min_stage(2)  max_stage(20) name(single_guncrew_82nd_con)		c1(82nd_guncrew:4))
 ("squad_with1types_conquest" side(csa) period(era1960)   min_stage(10) max_stage(99) name(single_tankman_82nd_con)		c1(82nd_vehicleman:4))
-("squad_with7types_conquest" side(csa) period(era1960)	 min_stage(2) max_stage(20) name(squad_82nd_m14_con)			c1(82nd_squadlead:1) c2(82nd_antitank:1) c3(82nd_mg:1) c4(82nd_mgassist:1) c5(82nd_teamlead:1) c6(82nd_rifleman:3) c7(82nd_lat:2))
-("squad_with7types_conquest" side(csa) period(era1960) 	 min_stage(10) max_stage(99) name(squad_82nd_con)				c1(82nd_squadlead:1) c2(82nd_antitank:1) c3(82nd_mg:1) c4(82nd_mgassist:1) c5(82nd_teamlead:1) c6(82nd_rifleman:3) c7(82nd_lat:2))
+("squad_with5types_conquest" side(csa) period(era1960) 	 min_stage(10) max_stage(99) name(squad_82nd_con)				c1(82nd_squadlead:1) c2(82nd_grenadier:2) c3(82nd_lat:2) c4(82nd_teamlead:1) c5(82nd_rifleman:4))
+("squad_with6types_conquest" side(csa) period(era1960) 	 min_stage(10) max_stage(99) name(squad_82nd_weapon_con)		c1(82nd_squadlead:1) c2(82nd_mg:2) c3(82nd_mgassist:2) c4(82nd_teamlead:1) c5(82nd_antitank:2) c6(82nd_atassist:2))
 
 ;//ELITE SQUADS
 ; US Army Rangers
@@ -306,19 +313,19 @@
 {"squad_lrrp_moto_con(csa)" 
 	("squad_vehicle4"		 side(csa) period(era1960) min_stage(6) max_stage(99) vehicle(m151) cw(0) cp(0) 		crew1(rng_squadlead:1) crew2(rng_ammo:1) crew3(rng_antitank:1) crew4(rng_mg:1))
 }
-("squad_with7types_conquest" side(csa) period(era1960) min_stage(6) max_stage(99) name(squad_ranger_con)					c1(rng_squadlead:1) c2(rng_ammo:1) c3(rng_grenadier:1) c4(rng_mg:1) c5(rng_antitank:1) c6(rng_rifleman:4) c7(rng_marksman:1))
+;("squad_with7types_conquest" side(csa) period(era1960) min_stage(6) max_stage(99) name(squad_ranger_con)					c1(rng_squadlead:1) c2(rng_ammo:1) c3(rng_grenadier:1) c4(rng_mg:1) c5(rng_antitank:1) c6(rng_rifleman:4) c7(rng_marksman:1))
 
 {"squad_lrrp_airmobile_con(csa)" 
 	("squad_vehicle6"		 side(csa) period(era1960) min_stage(6) max_stage(99) vehicle(uh-1b_unarmed) cw(0) cp(0) 		crew1(sup_pilot:1) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_grenadier:1) crew5(rng_mg:1) crew6(rng_spotter:1))
 }
 
-{"squad_ranger_airmobile_con(csa)" 
-	("squad_vehicle8"		 side(csa) period(era1960) min_stage(6) max_stage(99) vehicle(uh-1h) cw(0) cp(0) 		crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_grenadier:1) crew5(rng_mg:1) crew6(rng_antitank:1) crew7(rng_rifleman:4) crew8(rng_marksman:1))
-}
+;{"squad_ranger_airmobile_con(csa)" 
+;	("squad_vehicle8"		 side(csa) period(era1960) min_stage(6) max_stage(99) vehicle(uh-1h) cw(0) cp(0) 		crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_ammo:1) crew4(rng_grenadier:1) crew5(rng_mg:1) crew6(rng_antitank:1) crew7(rng_rifleman:4) crew8(rng_marksman:1))
+;}
 
 ;//US Special Forces
 
-("squad_with4types_conquest" side(csa) period(era1960) min_stage(8) max_stage(99) name(squad_specops_sadm_con)		c1(spec_squadlead:1) c2(spec_demo_sadm:1) c3(spec_spotter:1) c3(spec_rifleman:1))
+;("squad_with4types_conquest" side(csa) period(era1960) min_stage(8) max_stage(99) name(squad_specops_sadm_con)		c1(spec_squadlead:1) c2(spec_demo_sadm:1) c3(spec_spotter:1) c3(spec_rifleman:1))
 
 ("squad_with2types_conquest" side(csa) period(era1960) min_stage(8) max_stage(99) name(squad_seal_sniper_con)		c1(seal_sniper:1) c2(seal_spotter:2))
 ("squad_with3types_conquest" side(csa) period(era1960) min_stage(8) max_stage(99) name(squad_seal_udt_con)			c1(seal_squadlead:1) c2(seal_demo:2) c3(seal_rifleman:1))
