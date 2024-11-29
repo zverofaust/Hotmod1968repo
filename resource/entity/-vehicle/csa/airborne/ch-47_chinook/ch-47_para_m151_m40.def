@@ -1,0 +1,208 @@
+{actor		;CH-47A
+	(include "/properties/airborne_helicopter.ext")
+	{props "helo" "vision_lev02_air" "paradropper" "paradrop_m151_m40"}
+	(include "/properties/car_crew.ext")
+	{PatherID "bf109"}
+	(include "/properties/shadow/airborn.inc" scale(2.2))
+	(include "/properties/selection/airborne.inc" scale(1.5))
+	(include "/properties/car_crew.ext")
+	{targetSelector "airborne_bullet"}
+	
+	("helicopter_tier2")
+	
+	{PatherID "helicopter"}
+	
+	{extender "enumerator"
+		{digit_folder "nato"}
+	}
+	
+	;volume/component, thickness
+	("glass" args "window1")
+	("glass" args "window2")
+	("glass" args "window3")
+	("glass" args "window4")
+	("glass" args "window5")
+	("glass" args "window6")
+	("glass" args "window7")
+	("glass" args "window8")
+	("glass" args "window9")
+	("glass" args "window10")
+	("glass" args "window11")
+	("glass" args "window12")
+	("glass" args "window13")
+	("glass" args "window14")
+	("glass" args "window15")
+	("glass" args "window16")
+	("glass" args "window17")
+	("glass" args "window18")
+	("glass" args "window19")
+	
+	;main body parts
+	("body" args "body")
+	("body" args "body1")
+	("body" args "body2")
+	("body" args "body3")
+	("body" args "body4")
+	("body" args "body5")
+	
+	;main rotor + blades
+	("rotor" args "rotor")
+	("rotor" args "propeller")
+	("rotor" args "propeller1")
+	("rotor" args "propeller2")
+
+	;back rotor + blades
+	("rotor_b" args "rotor_b")
+	("rotor_b" args "propeller_b")
+	("rotor_b" args "propeller_b1")
+	("rotor_b" args "propeller_b2")
+
+	("wheel" args "wheell")
+	("wheel" args "wheelr")
+	("wheel" args "wheelf")
+	
+	;engine
+	("engine" args "engine")
+	("engine" args "engine1")
+	
+	{boarder
+		{anm "right"
+			{forward	{begin	"board_plane_left"} {end "seat_passenger"} {base "doorright"}}
+			{reverse	{end	"board_plane_left" -1} {base "doorright"}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_dodge_bodyback"} {end "seat_passenger"} {base "doorback"}}
+			{reverse	{end	"emit_body"} {base "doorback"}}
+		}
+	}
+	
+	("crew_human"		place(driver)		bone(driver)		door(emit2) animation(right)	group(crew))
+	("crew_human"		place(commander) 	bone(commander) 	door(emit2) animation(right)	group(crew))
+	("crew_human"		place(gunner1)		bone(gunner1)		door(emit2) animation(right)	group(crew))
+	("crew_human"		place(gunner2) 		bone(gunner2) 		door(emit2) animation(right)	group(crew))
+	
+	("crew_human"		place(seat01)	bone(seat01)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat02)	bone(seat02)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat03)	bone(seat03)	door(emit5) animation(passenger)	group(passenger))
+	("crew_human"		place(seat04)	bone(seat04)	door(emit6) animation(passenger)	group(passenger))
+	("crew_human"		place(seat05)	bone(seat05)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat06)	bone(seat06)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat07)	bone(seat07)	door(emit5) animation(passenger)	group(passenger))
+	("crew_human"		place(seat08)	bone(seat08)	door(emit6) animation(passenger)	group(passenger))
+	("crew_human"		place(seat09)	bone(seat09)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat10)	bone(seat10)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat11)	bone(seat11)	door(emit5) animation(passenger)	group(passenger))
+	("crew_human" 		place(seat12)	bone(seat12)	door(emit6) animation(passenger)	group(passenger))
+	("crew_human" 		place(seat13)	bone(seat13)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat14)	bone(seat14)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human" 		place(seat15)	bone(seat15)	door(emit5) animation(passenger)	group(passenger))
+	("crew_human"		place(seat16)	bone(seat16)	door(emit6) animation(passenger)	group(passenger))
+	("crew_human"		place(seat17)	bone(seat17)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat18)	bone(seat18)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat19)	bone(seat19)	door(emit5) animation(passenger)	group(passenger))
+	("crew_human"		place(seat20)	bone(seat20)	door(emit6) animation(passenger)	group(passenger))
+	("crew_human"		place(seat21)	bone(seat21)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat22)	bone(seat22)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat23)	bone(seat23)	door(emit5) animation(passenger)	group(passenger))
+	("crew_human"		place(seat24)	bone(seat24)	door(emit6) animation(passenger)	group(passenger))
+	("crew_human"		place(seat25)	bone(seat25)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat26)	bone(seat26)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat27)	bone(seat27)	door(emit5) animation(passenger)	group(passenger))
+	("crew_human" 		place(seat28)	bone(seat28)	door(emit6) animation(passenger)	group(passenger))
+	("crew_human" 		place(seat29)	bone(seat29)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat30)	bone(seat30)	door(emit4) animation(passenger)	group(passenger))
+	
+
+	{Placer
+		{place "gunner1"	{visor "mgun1"}}
+		{place "gunner2"	{visor "mgun2"}}
+	}
+
+	{Sensor
+		{Visor "mgun1"
+			{vision "vehicle_top_mgun"}
+			{bone	"visor3"}
+		}
+		{Visor "mgun2"
+			{vision "vehicle_top_mgun"}
+			{bone	"visor2"}
+		}
+	}
+	
+	{extender "inventory"
+		{Box
+			{item "ammo m60_box" 	4000}
+		}
+	}
+
+	{Weaponry
+		{place "dummy"
+			{type			"dummy"}
+			{rotate}
+			{weapon			"dummy"}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{basic}
+		}
+		{place "mgun"
+			{gunner			"gunner1"}
+			{charger		"gunner1"}
+			{LinkBone		"mgun2_link"}
+			{LinkAnimation	"off"}
+			{weapon			"m60d" filled}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun2"
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			{LinkBone		"mgun1_link"}
+			{LinkAnimation	"off"}
+			{weapon			"m60d" filled}
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 14970}
+	{Chassis "wheel"
+	}
+	
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+	{Chassis "airborne"
+		("heli_model"
+			speed(185)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(10) ;//-----Climb rate at sea level, in m/s
+			turn(800) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(400) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(1.1) ;//---Aerodynamic efficiency rating (0-3)
+			weight(5100) ;//--------Weight in kg.
+			power(1680) ;//---------Horse Power.
+			fuel(650) ;//-----------Fuel capacity in Liters.
+			range(755) ;//----------Distance can travel with full fuel tank, in km.
+			roll_rate(25) ;//-------Roll rate, in degrees per second.
+			roll_angle(60) ;//------Maximum roll angle, in degrees.
+		)
+	}
+
+	{Extension "ch-47.mdl"}
+	
+	{bone "mgun_rot_h_left"			;mgun left: right/left
+		{speed 0.05}
+		{limits -56 56}
+	}
+	{bone "mgun_rot_v_left"			;mgun left: up/down
+		{speed 0.05}
+		{limits -42.5 7.5}
+	}
+	{bone "mgun_rot_h_right"		;mgun right: right/left
+		{speed 0.05}
+		{limits -61 61}
+	}
+	{bone "mgun_rot_v_right"		;mgun right: up/down
+		{speed 0.05}
+		{limits -67.5 7.5}
+	}
+}
