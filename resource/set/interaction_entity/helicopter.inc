@@ -162,9 +162,13 @@
 		
 	
 	{on "heli_unsling"			;// heli_unsling button is pressed
-		{chassis_work 0}
-		{able select 0}
-		{ani_play "lower" callback}
+		{if tagged "heli_sling"
+			{chassis_work 0}
+			{able select 0}
+			{ani_play "lower" callback}
+		else
+		;//nothing
+		}
 	}
 	
 	{on animation_end "lower"
@@ -173,6 +177,7 @@
 				{unlink}
 				{impulse up 0.1 com}
 			}
+			{tags remove "heli_sling"}
 			{delay 1
 				{ani_play "pause" callback}
 			}
@@ -180,9 +185,8 @@
 	}
 	
 	{on animation_end "pause"
-		;{ani_play "bug_out" callback}
 		{ani_play "lower" -1}
-		{delay 1
+		{delay 1.5
 			{chassis_work 1}
 			{able select 1}
 		}
@@ -786,7 +790,7 @@
 	}
 }
 
-{"helicopter heli_cargo_control"
+{"helicopter heli_cargo"
 	{on spawn
 		{tags add "heli_cargo"}
 	}
@@ -805,7 +809,7 @@
 }
 
 	(define "transporter"
-		{"%heli"
+		{"helicopter transport_%name"
 			{on "heli_dismount"  ; heli_dismount button is pressed
 				{if altitude 2
 				;//do nothing
@@ -826,11 +830,11 @@
 		}
 	)
 	
-	("transporter" heli(mil_mi4_supply) 		spawntype(ammo_pallet))
-	("transporter" heli(mil_mi8_supply) 		spawntype(ammo_pallet_large))
-	("transporter" heli(mil_mi8_zis2) 			spawntype(57mm_zis2_sov))
-	("transporter" heli(mil_mi8_asu57) 			spawntype(asu57))
-	("transporter" heli(mil_mi8_asu85)			spawntype(asu-85))
-	("transporter" heli(mil_mi8_bmd1)			spawntype(bmd-1))
-	("transporter" heli(mil_mi8_rpu14) 			spawntype(rpu-14))
-	("transporter" heli(mil_mi8_zu2) 			spawntype(zu-2))
+	("transporter" name(supply) 		spawntype(ammo_pallet))
+	("transporter" name(heavysupply) 	spawntype(ammo_pallet_large))
+	("transporter" name(gp1958) 		spawntype(gp1958))
+	("transporter" name(asu57) 			spawntype(asu57))
+	("transporter" name(asu85)			spawntype(asu-85))
+	("transporter" name(bmd1)			spawntype(bmd-1))
+	("transporter" name(rpu14) 			spawntype(rpu-14))
+	("transporter" name(zu2) 			spawntype(zu-2))

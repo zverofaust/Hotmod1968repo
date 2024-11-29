@@ -26,7 +26,7 @@
 		{ani_stop "aim_v"}
 	}
 )
-
+ 
 ;/*=========== Cannon Begin ===========*/
 
 {"cannon"							;// master / base code for all cannons
@@ -365,6 +365,38 @@
 ;/*=========== Cannon End ===========*/
 
 ;/*=========== General Props Begin ===========*/
+
+{"cannon airsling"
+	{on spawn
+		{ani_wind "close" end}
+	}
+}
+
+{"cannon paradropped" ;// versions of vehicles made exclusively for parachute deployment
+	{on spawn
+		{ani_wind "close" end}
+		{if altitude 3
+			{tags add "im_flying"}
+			{volumes disable contact}			;// stops vehicles from "colliding" with plane when ejecting.
+			{impulse up -1 forward 5 rnd_dir 3 com}
+			{gravity 0.5}
+			;{delay 1 {volumes enable contact blast}}	
+			{delay 5 
+				{with_linked_entity "attach"
+					{unlink}
+				}
+				{gravity 1}
+			}
+		}
+	}
+	
+	{on ground_hit
+		{with_linked_entity "attach"
+			{unlink}
+		}
+		{tags add "touchdown"}
+	}
+}
 
 {"cannon no_shell"
 	{on "spawn_shell" overload

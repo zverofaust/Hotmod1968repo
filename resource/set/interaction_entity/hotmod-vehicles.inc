@@ -2707,11 +2707,6 @@
 	}
 }
 
-{"cckw353_fuel"
-	("cckw_sound")
-	("animation_sound" args "open_left")
-	("animation_sound" args "open_right")
-}
 
 {"dodge_m37"
 	("wc51_sound")
@@ -2723,6 +2718,31 @@
 
 {"dodge_m37_engi"
 	("wc51_sound")
+}
+
+{"m706"
+	("wc51_sound")	
+	{on "add_weapon_sound" overload
+		("M1919A4")
+	}
+	{on spawn
+		{add_view	"flash_gun_big"	"flashbarrel00"	"shooter00"}
+		{add_view	"flash_gun_big"	"flashbarrel01"	"shooter01"}
+	}
+	{on fire "mgun" overload
+		{play_sound "bkg_mg"}
+		{if  name "00"
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		else name "01"
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
+	}
 }
 
 {"m16_gmc tank"
