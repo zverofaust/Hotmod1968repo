@@ -48,7 +48,7 @@
 		{"fortifications" "deploy_ammobag_usa"}
 		
 		{"fortifications" "deploy_mg3"}	
-		{"fortifications" "deploy_m2_aa_frg"}	
+		{"fortifications" "deploy_m2_frg"}	
 		{"fortifications" "deploy_krh36_frg"}
 		{"fortifications" "deploy_m20_frg"}	
 		{"fortifications" "deploy_cobra_frg"}	
