@@ -1,31 +1,24 @@
 {game_entity		;UH-1B/C with M21 subsystem
-	(include "/properties/helicopter.ext")
-	(include "/properties/shadow/airborn.inc" scale(2.5))
-	(include "/properties/selection/airborne.inc" scale(2.00))
+	(include "/properties/airborne_helicopter.ext")
+	{props "helo" "vision_lev02_air" "paradropper"}
+	{PatherID "bf109"}
+	(include "/properties/shadow/airborn.inc" scale(2.2))
+	(include "/properties/selection/airborne.inc" scale(1.5))
 	(include "/properties/car_crew.ext")
-	{props "helo" "multi_board" "heli_passenger"}
-	{PatherID "helicopter"}
+	{targetSelector "airborne_bullet"}
 
 	("helicopter_tier1")
-	
-	{extender "enumerator"}
+
+	;{extender "enumerator"}
 
 	{boarder
 		{anm "driver"
-			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "door_left"}}
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "doorleft"}}
 			{reverse 	{end	"board_big-midcar_driver" -1} {base "doorleft" -1}}
 		}
 		{anm "commander"
-			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "door_right"}}
+			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "doorright"}}
 			{reverse 	{end	"board_big-midcar" -1} {base "doorright" -1}}
-		}
-		{anm "passenger1"
-			{forward	{begin 	"board_body"}	{end "seat_passenger"}}
-			{reverse 	{end	"emit_tank_1_hold"} {base "doorleft1"}}
-		}
-		{anm "passenger2"
-			{forward	{begin 	"board_body"}	{end "seat_passenger"}}
-			{reverse 	{end	"emit_tank_1_hold"} {base "doorright1"}}
 		}
 	}
 	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
@@ -41,13 +34,6 @@
 	{placer
 		{place "driver"		{group "crew"}}
 		{place "commander"	{group "crew"}}
-		{place "seat1"		{group "passenger"}}
-		{place "seat2"		{group "passenger"}}
-		{place "seat3"		{group "passenger"}}
-		{place "seat4"		{group "passenger"}}
-		{place "seat5"		{group "passenger"}}
-		{place "seat6"		{group "passenger"}}
-		{place "seat7"		{group "passenger"}}
 	}
 	
 	{Sensor
@@ -85,42 +71,35 @@
 	;engines
 	("engine" args "engine")
 
-	{Obstacle "in_air"
-        {Obb2
-            {Center 10 0}
-            {Extent 190 160}
-            {Axis -1 0}
-        }
-        {rotate}
-    }
-    {ObstacleId "helicopter" "in_air"}
-	
 	{extender "inventory"
 		{box
+            
         }
     }
 	
 	{Weaponry
-		{place "dummy"
-			{type			"dummy"}
-			{rotate}
-			{weapon			"dummy"}
-			{gunner			"driver"}
-			{charger		"driver"}
-			{basic}
-		}
 	}
 
 	{mass 4309}
 	
-	{Chassis "helicopter"
-		{Locomotion ("locomotion_transport")}
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
 	}
-
-	{Extender "detail"
-		{random 0}
+	{Chassis "airborne"
+		("heli_model"
+			speed(185)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(10) ;//-----Climb rate at sea level, in m/s
+			turn(800) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(400) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(1.1) ;//---Aerodynamic efficiency rating (0-3)
+			weight(5100) ;//--------Weight in kg.
+			power(1680) ;//---------Horse Power.
+			fuel(650) ;//-----------Fuel capacity in Liters.
+			range(755) ;//----------Distance can travel with full fuel tank, in km.
+			roll_rate(25) ;//-------Roll rate, in degrees per second.
+			roll_angle(60) ;//------Maximum roll angle, in degrees.
+		)
 	}
 
 	{Extension "uh-1b_unarmed.mdl"}
-
 }
