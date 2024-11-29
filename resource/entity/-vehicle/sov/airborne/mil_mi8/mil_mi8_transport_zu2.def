@@ -1,0 +1,199 @@
+{actor		;Mi-8T
+	(include "/properties/helicopter.ext")
+	(include "/properties/shadow/airborn.inc" scale(2.2))
+	(include "/properties/selection/airborne.inc" scale(2.00))
+	(include "/properties/car_crew.ext")
+	{props "helo" "multi_board" "heli_passenger" "heli_cargo" "transport_zu2"}
+	{targetclass "helicopter"}
+	{targetSelector "helicopter"}
+	
+	("helicopter_tier2")
+	
+	{PatherID "helicopter"}
+
+
+	{Obstacle "in_air"
+		{Obb2
+			{Center -20 0}
+			{Extent 200 160}
+			{Axis -1 0}
+		}
+		{rotate}
+	}
+	{ObstacleId "helicopter" "in_air"}
+
+	;volume/component, thickness
+	("glass" args "window1")
+	("glass" args "window2")
+	("glass" args "window3")
+	("glass" args "window4")
+	("glass" args "window5")
+	("glass" args "window6")
+	("glass" args "window7")
+	("glass" args "window8")
+	("glass" args "window9")
+	("glass" args "window10")
+	("glass" args "window11")
+	("glass" args "window12")
+	("glass" args "window13")
+	("glass" args "window14")
+	("glass" args "window15")
+	("glass" args "window16")
+	("glass" args "window17")
+	("glass" args "window18")
+	("glass" args "window19")
+	("glass" args "window20")
+	("glass" args "window21")
+	("glass" args "window22")
+	("glass" args "window23")
+	
+	;main body parts
+	("body" args "body")
+	("body" args "body1")
+	("body" args "body2")
+	("body" args "body3")
+	("body" args "body4")
+	("body" args "body5")
+	("body" args "body6")
+	("body" args "body7")
+	("body" args "body8")
+	("body" args "body9")
+	("body" args "body11")
+	("body" args "body12")
+	
+	;main rotor + blades
+	("rotor" args "rotor")
+	("rotor" args "propeller")
+	("rotor" args "propeller1")
+	("rotor" args "propeller2")
+	("rotor" args "propeller3")
+	("rotor" args "propeller4")
+
+	;back rotor + blades
+	("rotor_b" args "rotor_b")
+	("rotor_b" args "propeller_b")
+	("rotor_b" args "propeller_b1")
+	("rotor_b" args "propeller_b2")
+	
+	;engine
+	("engine" args "engine")
+	
+	("wheel" args "wheell")
+	("wheel" args "wheelr")
+	("wheel" args "wheelf")
+	
+	{Obstacle "in_air"
+        {Obb2
+            {Center 10 0}
+            {Extent 190 160}
+            {Axis -1 0}
+        }
+        {rotate}
+    }
+    {ObstacleId "helicopter" "in_air"}
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"}}
+			{reverse	{end	"board_plane_left" -1}}
+		}
+		{anm "right"
+			{forward	{begin	"board_plane_left"} {end "seat_passenger"}}
+			{reverse	{end	"board_plane_left" -1}}
+		}
+		{anm "passenger"
+			{forward	{begin	"board_dodge_bodyback"} {end "seat_passenger"} {base "doorback"}}
+			{reverse	{end	"emit_body"} {base "doorback" -1}}
+		}
+	}
+	
+	("crew_human"		place(driver)		bone(driver)		door(emit1) animation(left)		group(crew))
+	("crew_human"		place(commander) 	bone(commander) 	door(emit1) animation(right)	group(crew))
+	("crew_human"		place(gunner1)		bone(gunner1)		door(emit1) animation(left)		group(crew))
+	("crew_human"		place(gunner2) 		bone(gunner2) 		door(emit1) animation(right)	group(crew))
+	
+	("crew_human"		place(seat01)	bone(seat01)	door(emit3) animation(passenger)	group(passenger))
+	("crew_human"		place(seat02)	bone(seat02)	door(emit4) animation(passenger)	group(passenger))
+	("crew_human"		place(seat03)	bone(seat03)	door(emit5) animation(passenger)	group(passenger))
+	("crew_human"		place(seat04)	bone(seat04)	door(emit6) animation(passenger)	group(passenger))
+	
+
+	{Placer
+		;{place "gunner1"		{visor "mgun1"}}
+		;{place "gunner2"	{visor "mgun2"}}
+	}
+
+	{Sensor
+		{Visor "mgun1"
+			{vision "vehicle_top_mgun"}
+			{bone	"visor3"}
+		}
+		{Visor "mgun2"
+			{vision "vehicle_top_mgun"}
+			{bone	"visor2"}
+		}
+	}
+	
+	{extender "inventory"
+		{Box
+			{item "pk_box" 2000}
+		}
+	}
+
+	{Weaponry
+		{place "dummy"
+			{type			"dummy"}
+			{rotate}
+			{weapon			"dummy"}
+			{gunner			"driver"}
+			{charger		"driver"}
+			{basic}
+		}
+		{place "mgun1"
+			{gunner			"gunner1"}
+			{charger		"gunner1"}
+			{LinkBone		"mgun_left_link"}
+			{LinkAnimation	"off"}
+			{weapon			"pk" filled}
+			{basic}
+			{ai_in_manual}
+		}
+		{place "mgun2"
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			{LinkBone		"mgun_right_link"}
+			{LinkAnimation	"off"}
+			{weapon			"pk" filled}
+			{basic}
+			{ai_in_manual}
+		}
+	}
+	
+	{mass 7260}
+
+	{Chassis "wheel"
+	}
+	
+	{Chassis "helicopter"
+		{Locomotion ("locomotion_transport")}
+	}
+
+	{Extension "mil_mi8.mdl"}
+	
+	{bone "mgun_rot_h_left"			;mgun left: right/left
+		{speed 0.05}
+		{limits -61 61}
+	}
+	{bone "mgun_rot_v_left"			;mgun left: up/down
+		{speed 0.05}
+		{limits -67.5 7.5}
+	}
+	{bone "mgun_rot_h_right"		;mgun right: right/left
+		{speed 0.05}
+		{limits -56 56}
+	}
+	{bone "mgun_rot_v_right"		;mgun right: up/down
+		{speed 0.05}
+		{limits -42.5 7.5}
+	}
+}

@@ -1,7 +1,7 @@
 {game_entity
 	(include "/properties/cannon_mgun.ext")
 	(include "/properties/shadow/tank.inc"  scale(0.6))
-	{props "recoilless" "wheeled" "vision_lev03_can" "muzzle_75mm_76mm" "cannon_sandbag_standard" "detect_atgun_small" "carried" "shell_eject" "airsling"}
+	{props "recoilless" "wheeled" "vision_lev03_can" "muzzle_75mm_76mm" "cannon_sandbag_standard" "detect_atgun_small" "carried" "shell_eject" "paradropped"}
 	
 	{Volume "body"
 		{Tags  "body"}
@@ -24,6 +24,14 @@
 		{visor "gunner"
 			{vision "tank_main-l"}
 			{bone "foresight1"}
+		}
+	}
+	
+	{placer
+		{place "attach"
+			{Linkbone "basis"}
+			{entity "parachute_vehicle"}
+			{handlebone "basis"}
 		}
 	}
 	

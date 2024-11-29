@@ -1,26 +1,16 @@
 {actor		;Mi-8T
-	(include "/properties/helicopter.ext")
-	(include "/properties/shadow/airborn.inc" scale(2.2))
-	(include "/properties/selection/airborne.inc" scale(2.00))
+	(include "/properties/airborne_helicopter.ext")
+	{props "helo" "vision_lev02_air" "paradropper" "paradrop_gp1958"}
 	(include "/properties/car_crew.ext")
-	{props "helo" "multi_board" "heli_passenger" "heli_cargo"}
-	{targetclass "helicopter"}
-	{targetSelector "helicopter"}
+	{PatherID "bf109"}
+	(include "/properties/shadow/airborn.inc" scale(2.2))
+	(include "/properties/selection/airborne.inc" scale(1.5))
+	(include "/properties/car_crew.ext")
+	{targetSelector "airborne_bullet"}
 	
 	("helicopter_tier2")
 	
 	{PatherID "helicopter"}
-
-
-	{Obstacle "in_air"
-		{Obb2
-			{Center -20 0}
-			{Extent 200 160}
-			{Axis -1 0}
-		}
-		{rotate}
-	}
-	{ObstacleId "helicopter" "in_air"}
 
 	;volume/component, thickness
 	("glass" args "window1")
@@ -81,16 +71,6 @@
 	("wheel" args "wheell")
 	("wheel" args "wheelr")
 	("wheel" args "wheelf")
-	
-	{Obstacle "in_air"
-        {Obb2
-            {Center 10 0}
-            {Extent 190 160}
-            {Axis -1 0}
-        }
-        {rotate}
-    }
-    {ObstacleId "helicopter" "in_air"}
 	
 	{boarder
 		{anm "left"
@@ -172,10 +152,22 @@
 	{mass 7260}
 
 	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
 	}
-	
-	{Chassis "helicopter"
-		{Locomotion ("locomotion_transport")}
+	{Chassis "airborne"
+		("heli_model"
+			speed(185)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(10) ;//-----Climb rate at sea level, in m/s
+			turn(900) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(400) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(1.1) ;//---Aerodynamic efficiency rating (0-3)
+			weight(5100) ;//--------Weight in kg.
+			power(1680) ;//---------Horse Power.
+			fuel(650) ;//-----------Fuel capacity in Liters.
+			range(755) ;//----------Distance can travel with full fuel tank, in km.
+			roll_rate(50) ;//-------Roll rate, in degrees per second.
+			roll_angle(60) ;//------Maximum roll angle, in degrees.
+		)
 	}
 
 	{Extension "mil_mi8.mdl"}

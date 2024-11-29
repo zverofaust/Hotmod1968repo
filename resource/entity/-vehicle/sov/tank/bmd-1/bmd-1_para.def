@@ -1,0 +1,131 @@
+{game_entity		;BMD-1 base
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	(include "bmd-1.ext")
+	{props "ifv" "light" "turret_rotator" "vision_lev03" "amphibia" "muzzle_75mm_76mm" "diesel" "with_adjustable_suspension" "paradropped"}
+	{collider "tank.light"}
+	{targetclass "tank_light"}
+	{targetSelector "tank_light"}
+	{PatherID "t37"}
+
+	{extender "enumerator"
+		{digit_folder "cw"}
+	}
+
+	;("crew_2_human")
+	
+	{placer
+		{place "attach"
+			{Linkbone "basis"}
+			{entity "parachute_vehicle"}
+			{handlebone "basis"}
+		}
+	}
+	
+	(define "passenger"
+		{placer
+			{place "%place" {group "passenger"}}
+		}
+		{boarder
+			{door "%door"}
+			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		}
+	)
+	
+		{boarder
+			{anm "left"
+				{forward	{begin	"board_tank"}}
+				{reverse	{end	"emit_tank_2_hold"}}
+			}
+			{anm "right"
+				{forward	{begin	"board_tank"}}
+				{reverse	{end	"emit_tank_2_hold"}}
+			}
+			{anm "passenger"
+				{forward	{begin	"board_tank"} {end "seat_passenger"} {base "door_back"}}
+				{reverse	{end	"emit_tank_2_hold"} {base "door_back"}}
+			}
+		}
+		
+		("crew_human" 				place(driver)					door(emit1) door2(emit2) visor(driver))	
+		("crew_human" 				place(gunner2)   				door(emit1) door2(emit2) visor(gunner))
+		("passenger" place(seat1)  door(emit1)  animation(passenger) group(passenger))
+		("passenger" place(seat2)  door(emit2)  animation(passenger) group(passenger))
+		("passenger" place(seat3)  door(emit3)  animation(passenger) group(passenger))
+		("passenger" place(seat4)  door(emit3)  animation(passenger) group(passenger))
+		("passenger" place(seat5)  door(emit3)  animation(passenger) group(passenger))
+		;("passenger" place(seat6)  door(emit3)  animation(passenger) group(passenger))
+
+	{extender "inventory"
+		{box
+			;{item "bullet73_2a28 he" 30}
+			{item "bullet73_2a28 heat" 40}
+			{item "ammo 9m14 atgm" 3}
+			{item "pk_box" 2000}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon			"73mm_2a28" filling "ammo bullet73_2a28 heat" 1}
+			{gunner			"gunner2"}
+			{charger		"gunner2"}
+			("hm68_abm_nostab_norange")
+		}
+		{place "gun2"		;atgm
+			{weapon			"atgm_9m14" filled}
+			{shooter		"shooter"}
+			{gunner 		"gunner2"}
+			{charger		"gunner2"}
+			("hm68_abm_atgm")
+			{StationaryFiring}
+			{basic}		
+		}
+		{place "mgun"		;coax
+			{weapon			"pkt" filled}
+			{gunner 		"gunner2"}
+			{charger		"gunner2"}
+			{foresight		"foresight3"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 12600}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(65) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(11);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(12.6) ;-------Weight in Tonnes.
+			power(300) ;---------Engine Power, in hp.
+			track(4) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(462) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(600) ;---------Range in km, off-road.
+		)
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}
+
+	{Extension "bmd-1.mdl"}
+
+	{bone "turret"			;gun horizontal
+		{speed2 24}			;degree per second
+	}
+	{bone "gun_rot"			;gun vertical
+		{speed2 4}			;degree per second
+		{limits -30 4}		;min down to max up
+	}
+}

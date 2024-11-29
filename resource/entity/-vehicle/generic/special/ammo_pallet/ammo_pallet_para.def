@@ -1,0 +1,31 @@
+{game_entity
+	(include "/properties/ammo_box.ext")
+	(include "/properties/resupply_hotmod.inc")
+	{props "wood" "burning" "break_on_burn" "ammo_crate" "supply" "paradropped"}
+	{extension "ammo_pallet.mdl"}
+	
+	("supply_ammo")
+	
+	{texmod "no_markings"}
+	
+	{placer
+		{place "attach"
+			{Linkbone "body"}
+			{entity "parachute_vehicle"}
+			{handlebone "body"}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{weight 5000}
+			{size 8 6}
+		}
+	}
+	
+	{volume "body"
+		{Tags "body" "fire"}
+		{thickness 10}
+		{able {touch}}
+	}
+}

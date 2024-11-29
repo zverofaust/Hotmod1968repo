@@ -32,7 +32,14 @@
 	("crew_human_visible_anm"	place(commander) 	door(emit1) visor(around) 			anm_left(commander)   	anm_right(commander))
 	("crew_human_visible_anm"	place(gunner) 	 	door(emit2) visor(main) 	 		anm_left(gunner)    	anm_right(gunner))
 
-	 
+	{placer
+		{place "attach"
+			{Linkbone "basis"}
+			{entity "parachute_vehicle"}
+			{handlebone "basis"}
+		}
+	}
+		
 	{extender "inventory"
 		{box
 			{item "ammo bullet90_m41 apcbche" 10} ;29 total
