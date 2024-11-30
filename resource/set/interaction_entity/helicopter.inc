@@ -48,28 +48,26 @@
 		}
 	}
 	
-	{on "heli_dismount"  ; heli_dismount button is pressed
-		{if not tagged "heli_unloading"
-			{if altitude 2
-			;//do nothing if altitude above 2
-			else	
-				{able select 0}
-				{drop_orders}
-				{ani_play "doorback"}
-				{ani_play "doorsback"}
-				{ani_play "doorsfront"}
-				{tags add "heli_unloading"}
-				{delay 0.5 {call "disembark_troops_forced"}}
-				{delay 8
-					{ani_play "bug_out_ground"}
-					{delay 8 {delete}}
-				}
-			}
-			
-		else
-		;//do nothing
-		}
-	}
+;	{on "heli_dismount"  ; heli_dismount button is pressed
+;		{if not tagged "heli_unloading"
+;			{if altitude 2
+;			;//do nothing if altitude above 2
+;			else	
+;				{able select 0}
+;				{drop_orders}
+;				{ani_play "doorback"}
+;				{ani_play "doorsback"}
+;				{ani_play "doorsfront"}
+;				{tags add "heli_unloading"}
+;				{delay 1 {call "disembark_troops_forced"}}
+;				{delay 6
+;					{able select 1}
+;				}
+;			}			
+;		else
+;		;//do nothing
+;		}
+;	}
 	
 	{on "disembark_troops_forced"
 		{delay 1
@@ -111,7 +109,6 @@
 					{with_linked_entity "seat12"
 						{unlink}
 					}
-					{call "disembark_troops_forced"}
 					{delay 1
 						{with_linked_entity "seat13"
 							{unlink}
@@ -151,7 +148,6 @@
 								{with_linked_entity "seat24"
 									{unlink}
 								}
-								{call "disembark_troops_forced"}
 							}
 						}
 					}
@@ -160,6 +156,15 @@
 		}
 	}
 		
+	
+	{on "bugout" ;// Bugout button is pressed
+		{tags add "bugging_out"}
+		{drop_orders}
+		{able select 0}
+		{ani_play "bug_out_ground"}
+		{delay 8 {delete}}
+	}
+	
 	
 	{on "heli_unsling"			;// heli_unsling button is pressed
 		{if tagged "heli_sling"

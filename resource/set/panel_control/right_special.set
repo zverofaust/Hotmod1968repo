@@ -27,10 +27,21 @@
 		{position 2 0}
 		{condition "human"}
 	}
-
+	
+	{gc_cp_state_altitude
+		{position 2 0}
+		{condition "helicopter"}
+	}
+	
 	{call_ally
 		{position 3 0}
 		{condition "human disabled"}
+	}	
+	
+	
+	{bugout
+		{position 3 0}
+		{condition "helicopter"}
 	}	
 	
 
@@ -65,9 +76,9 @@
 		{position 2 1}
 	}
 	
-	{gc_cp_state_altitude
+	{heli_unsling
 		{position 2 1}
-		{condition "helicopter"}
+		{condition "heli_sling"}
 	}
 	
 	{switch_suspension
@@ -105,10 +116,15 @@
 	
 	{heli_dismount
 		{position 2 2}
-		{condition "helicopter"}
+		{condition "helicopter" "heli_cargo"}
 	}
 	
 	{gc_cp_browse_back
 		{position 3 2}
+	}
+	
+	{emit
+		{position 1 2}
+		{condition "helicopter"}
 	}
 }
