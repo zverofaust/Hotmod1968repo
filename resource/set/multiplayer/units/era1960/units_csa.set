@@ -224,15 +224,9 @@
 	("doctrine_t1" cool(30) d(era1960_csa_aircav) cost(3))
 }
 
-; // 10 DP Chinook Transport/Supply
-;{"doctrine_vehicle_chinook(csa)"
-;	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(ch-47_chinook) crew(sup_pilot:4) cw(0) cp(0))
-;	("doctrine_t2" cool(240) d(era1960_csa_aircav) cost(10))
-;}
-
 ; // 6DP Airlifted M116 Packhow
-{"doctrine_vehicle_m116(csa)"
-	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(uh-1h_airlift_m116) crew1(sup_pilot:4) crew2(aircav_guncrew:4) cw(0) cp(0))
+{"doctrine_vehicle_m40_airlift(csa)"
+	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(uh-1h_airlift_m40) crew1(sup_pilot:4) crew2(aircav_guncrew:4) cw(0) cp(0))
 	("doctrine_t1" cool(60) d(era1960_csa_aircav) cost(6))
 }
 
@@ -245,7 +239,7 @@
 ; ======Tier2======
 
 ; // 8DP Airlifted M151 with M40
-{"doctrine_vehicle_m151_m40(csa)"
+{"doctrine_vehicle_m151_m40_airlift(csa)"
 	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(uh-1h_airlift_m151_m40) crew1(sup_pilot:4) crew2(aircav_vehicleman:4) cw(0) cp(0))
 	("doctrine_t2" cool(120) d(era1960_csa_aircav) cost(8))
 }
@@ -265,6 +259,11 @@
 
 ; ======Tier3======
 
+; // 15 DP Chinook with Heavy Supplies
+{"doctrine_vehicle_chinook(csa)"
+	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(ch-47_transport_supplies) crew(sup_pilot:4) cw(0) cp(0))
+	("doctrine_t3" cool(240) d(era1960_csa_aircav) cost(15))
+}
 
 ; // 20DP Airmobile Ranger Squad in UH-1D
 {"doctrine_squad_ranger_huey(csa)"
@@ -351,11 +350,11 @@
 
 ; ======Tier1======
 
-; // 3 DP Ammo Paradrop
+
+; // 3DP Ammo Paradrop
 {"doctrine_airdrop_ammo(csa)"
-	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(f-105) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_strat" cool(30) d(era1960_csa_82nd) cost(3))
-	{action "airstrike:flare_paradrop_ammo"} 
+	("squad_vehicle_doctrine"		 side(csa) period(era1960) vehicle(ch-47_para_supplies) cw(0) cp(0) 	crew(sup_pilot:4))
+	("doctrine_t1" cool(80) d(era1960_csa_82nd) cost(3))
 }
 
 ; // 4DP Ranger LRRP
@@ -364,22 +363,10 @@
 	("doctrine_t1" cool(60) d(era1960_csa_82nd) cost(4))
 }
 
-; // 4DP Ranger LRRP Paradrop
-{"doctrine_squad_lrrp(csa)"
-	("squad_vehicle6_doctrine"		 side(csa) period(era1960) vehicle(ch-47_para) cw(0) cp(0) 		crew1(sup_pilot:4) crew2(rng_squadlead:1) crew3(rng_mg:2) crew4(rng_antitank:2) crew5(rng_spotter:1) crew6(rng_rifleman:1))
+; // 8DP Air-Dropped M151A1C
+{"doctrine_vehicle_m151_m40_para(csa)"
+	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(ch-47_para_m151_m40) crew1(sup_pilot:4) crew2(82nd_guncrew:4)  cw(2) cp(0))
 	("doctrine_t1" cool(120) d(era1960_csa_82nd) cost(8))
-}
-
-; // 8DP Air-Dropped M102 Howitzer
-{"doctrine_paradrop_m102(csa)"
-	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(ch-47_para_m102) crew1(sup_pilot:4) crew2(82nd_guncrew:4)  cw(2) cp(0))
-	("doctrine_t1" cool(120) d(era1960_csa_82nd) cost(8))
-}
-
-; // 10DP 82nd Airborne ENTAC Squad
-{"doctrine_squad_82nd_entac(csa)"
-	("squad_vehicle4_doctrine" side(csa) period(era1960) vehicle(dodge_m37) crew1(82nd_squadlead:1) crew2(82nd_teamlead:1) crew3(82nd_guncrew_entac:3) crew4(82nd_guncrew:3) cw(2) cp(0))
-	("doctrine_t1" cool(60) d(era1960_csa_82nd) cost(10))
 }
 
 ; // 10DP Paratrooper Rifle squad
@@ -390,13 +377,19 @@
 
 ; ======Tier2======
 
+; // 8DP Air-Dropped M102 Howitzer
+{"doctrine_paradrop_m102(csa)"
+	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(ch-47_para_m102) crew1(sup_pilot:4) crew2(82nd_guncrew:4)  cw(2) cp(0))
+	("doctrine_t2" cool(120) d(era1960_csa_82nd) cost(8))
+}
+
 ; // 10DP Paradropped M56 Scorpion & Crew
 {"doctrine_paradrop_m56(csa)"
 	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(ch-47_para_m56) crew1(sup_pilot:4) crew2(82nd_vehicleman:3)  cw(2) cp(0))
 	("doctrine_t2" cool(60) d(era1960_csa_82nd) cost(10))
 }
 
-; // 10DP Paratrooper squad
+; // 10DP Paratrooper Weapons squad
 {"doctrine_squad_82nd_weapon_para(csa)"
 	("squad_vehicle7_doctrine"		 side(csa) period(era1960) vehicle(ch-47_para) cw(0) cp(0) 		crew1(sup_pilot:4) crew2(82nd_squadlead:1) crew3(82nd_mg:2) crew4(82nd_mgassist:2) crew5(82nd_teamlead:1) crew6(82nd_antitank:2) crew7(82nd_atassist:2))
 	("doctrine_t2" cool(180) d(era1960_csa_82nd) cost(8))
@@ -404,17 +397,16 @@
 
 ; ======Tier3======
 
+; // 14DP MGR-3 Little John Paradrop
+{"doctrine_vehicle_mgr3(csa)"
+	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(ch-47_para_mgr-3) crew1(sup_pilot:4) crew2(82nd_guncrew:4)  cw(2) cp(0))
+	("doctrine_t3" cool(200) d(era1960_csa_82nd) cost(14))
+}
 
 ; // 15DP US Special Forces Green Light Team with Special Atomic Demolition Munition (Nuclear Mine)
 {"doctrine_squad_sadm(csa)"
-	("squad_vehicle4_doctrine"		 side(csa) period(era1960) vehicle(ch-47_para) cw(0) cp(0) 		crew1(sup_pilot:4) crew2(spec_squadlead:1) crew3(spec_rifleman:2) crew4(spec_demo_sadm:2))
-	("doctrine_t3" cool(120) d(era1960_csa_82nd) cost(10))
-}
-
-; // 16DP MGR-3 Little John Paradrop
-{"doctrine_vehicle_mgr3(csa)"
-	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(ch-47_para_mgr-3) crew1(sup_pilot:4) crew2(82nd_guncrew:4)  cw(2) cp(0))
-	("doctrine_t3" cool(200) d(era1960_csa_82nd) cost(16))
+	("squad_vehicle4_doctrine"		 side(csa) period(era1960) vehicle(ch-47_para) cw(0) cp(0) 		crew1(sup_pilot:4) crew2(spec_squadlead:1) crew3(spec_demo:1) crew4(spec_demo_sadm:1))
+	("doctrine_t3" cool(120) d(era1960_csa_82nd) cost(15))
 }
 
 ; // 18DP Paradropped M551 Sheridan
