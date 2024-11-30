@@ -2,7 +2,7 @@
 	(include "/properties/tank.ext")
 	(include "/properties/shadow/tank.inc"  scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{props "light" "diesel" "amphibia" "vision_lev04" "muzzle_150mm_155mm" "smoke" "8shot" "with_open_zpu"}
+	{props "light" "diesel" "vision_lev04" "muzzle_150mm_155mm" "smoke" "8shot" "with_open_zpu"}
 	(include "m551.ext")
 	{targetclass "tank_light"}
 	{targetSelector "tank_light"}
@@ -116,18 +116,6 @@
 			type(diesel) ;-------Fuel type. (diesel OR fuel)
 			range(180) ;---------Range in km, off-road.
 		)
-		{switch
-			{exitFromWater}
-			{terrain not "water" "deep_water"}
-		}
-	}
-	{chassis "water"
-		("chassis_defaults")
-		{ignorePatherBounds}
-		{waterline 1.4}
-		{switch
-			{terrain "water" "deep_water"}
-		}
 	}
 
 	{Extension "m551.mdl"}
