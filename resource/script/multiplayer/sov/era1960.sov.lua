@@ -39,7 +39,7 @@ Purchases["era1960.sov"] = {
 			--Tanks_heavy
 			--SPG
 			--Air Assets
-				--{priority = 0.2, type = {"Helicopter", "Sortie", "Class2",}, unit = "mil_mi4_airborne"},
+				{priority = 0.2, type = {"Helicopter", "Sortie", "Class2",}, unit = "mil_mi4_airborne"},
 				--{priority = 0.2, type = {"Helicopter", "Sortie", "Class1",}, unit = "mil_mi4_heavy_airborne"},
 			--Offmap Supports
 				
@@ -88,8 +88,6 @@ Purchases["era1960.sov"] = {
 			-- Doctrine = "VDV Air Assault Brigade"
 
 			{priority = 1.0, type = {"Class2", "Infantry", "Squad",}, unit = "doctrine_squad_vdv(sov)"},
-			{priority = 1.0, type = {"Class2", "Infantry", "AT", "Squad",}, unit = "doctrine_squad_vdv_light(sov)"},
-			{priority = 1.0, type = {"Class2", "Infantry", "AT", "Squad",}, unit = "doctrine_squad_vdv_antitank(sov)"},
 			{priority = 1.0, type = {"Class3", "Cannon", "AA",}, unit = "doctrine_vehicle_zu2(sov)"},
 			{priority = 1.0, type = {"Class3", "Cannon", "Artillery",}, unit = "doctrine_vehicle_gp1958(sov)"},
 			{priority = 1.0, type = {"Class2", "Cannon", "Artillery",}, unit = "doctrine_vehicle_rpu14(sov)"},
@@ -97,8 +95,6 @@ Purchases["era1960.sov"] = {
 			
 			{priority = 1.0, type = {"Class1", "Doctrine", "Infantry", "Tier1",}, unit = "doctrine_squad_spzteam(sov)"},
 			{priority = 1.0, type = {"Class2", "Doctrine", "Tank", "Light", "AT", "Tier2",}, unit = "doctrine_squad_vdv_desantski(sov)"},
-			{priority = 1.0, type = {"Class2", "Doctrine", "Armored", "AT", "Tier3",}, unit = "doctrine_vehicle_9p110(sov)"},
-			{priority = 1.0, type = {"Class1", "Doctrine", "Tank", "Light", "AT", "Tier3",}, unit = "doctrine_squad_spz_desantski(sov)"},
 			{priority = 0.2, type = {"Class1", "Doctrine", "Helicopter", "Sortie", "Tier3",}, unit = "mil_mi4_heavy_airborne"},
 			
 			-- Doctrine = "VMF Naval Infantry Brigade"

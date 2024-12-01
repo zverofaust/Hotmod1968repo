@@ -65,7 +65,7 @@ Purchases["conquest.sov"] = {
 				{priority = 0.3, type = {"Cannon", "Mortar",}, unit = "120mm_pm38_sov"},
 			--Infantry_Support
 				{priority = 1.0, type = {"Cannon", "AT",}, unit = "76mm_zis3_sov"},
-				--{priority = 1.0, type = {"Cannon", "Support",}, unit = "gp1958"},
+				{priority = 1.0, type = {"Cannon", "Support",}, unit = "gp1958"},
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "d-44"},
 			--Artillery
 				{priority = 1.0, type = {"Cannon", "Support",}, unit = "d-74"},
@@ -103,6 +103,7 @@ Purchases["conquest.sov"] = {
 				{priority = 0.7, type = {"Tank", "Medium",}, unit = "t-62_1967"},
 				{priority = 0.3, type = {"Tank", "Heavy",}, unit = "t-64_obj432"},
 			--Tanks_heavy
+				{priority = 0.5, type = {"Tank", "Heavy",}, unit = "is-2m"},
 				{priority = 0.5, type = {"Tank", "Heavy",}, unit = "is-3m"},
 				{priority = 1.0, type = {"Tank", "Heavy",}, unit = "t-10m_1957"},
 				{priority = 1.0, type = {"Tank", "Heavy",}, unit = "t-10m"},
