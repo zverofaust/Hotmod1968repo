@@ -2721,7 +2721,15 @@
 }
 
 {"m706"
-	("wc51_sound")	
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/m8_greyhound/start"}
+		{link_sound "engine_stop"		"vehicle/engine/m8_greyhound/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/m8_greyhound/idle"}
+		{link_sound "engine_full"		"vehicle/engine/m8_greyhound/full"}
+		{link_sound "exhaust"			"vehicle/engine/m8_greyhound/exhaust"}
+		{link_sound "move"				"vehicle/wheels/armored_car"}
+		{link_sound "rotate_turret"		"vehicle/turret/handcrank/handcrank_light"}
+	}
 	{on "add_weapon_sound" overload
 		("M1919A4")
 	}
