@@ -27,6 +27,8 @@
 
 ;AIR SUPPORT
 
+;Heli-CAS
+
 {"cas_uh1_csa"
 	("strategic_doctrine" side(csa) period(era1960) vehicle(uh-1b_airborne) crew(sup_pilot:2) b(strategic) cw(0) cp(0))
 	("universal_strat" cd(300) ci(120) cost(8))
@@ -35,7 +37,7 @@
 
 {"cas_uh1_ara_csa"
 	("strategic_doctrine" side(csa) period(era1960) vehicle(uh-1b_ara_airborne) crew(sup_pilot:2) b(strategic) cw(0) cp(0))
-	("doctrine_t2" cool(300) d(era1960_csa_artillery) cost(12))
+	("doctrine_t1" cool(200) d(era1960_csa_artillery) cost(12))
 	{conditions ""}{action "airstrike:reconnaissance_50"} 
 }
 
@@ -56,6 +58,8 @@
 	("doctrine_t3" cool(600) d(era1960_csa_aircav) cost(25))
 	{conditions ""}{action "airstrike:reconnaissance_50"} 
 }
+
+;Airstrikes
 
 {"airstrike_medium_csa"
 	("strategic_doctrine" side(csa) period(era1960) vehicle(a-4e_airstrike) crew(sup_pilot:0) b(strategic) cw(0) cp(0))
@@ -295,12 +299,6 @@
 	("squad_vehicle2_doctrine" side(csa) period(era1960) vehicle(m114a2) crew1(sup_vehicleman:2) crew2(reg_scout:2) cw(0) cp(0))
 	("doctrine_t1" cool(120) d(era1960_csa_armor) cost(10))
 }
-
-; // 15DP M60A1 Main Battle Tank
-;{"doctrine_vehicle_m60a1(csa)"
-;	("squad_vehicle_doctrine" side(csa) period(era1960) vehicle(m60a1) crew(sup_tankman:4) cw(0) cp(0))
-;	("doctrine_t1" cool(60) d(era1960_csa_armor) cost(15))
-;}
 
 ; // 15DP M109 Self-Propelled Howitzer
 {"doctrine_vehicle_m109_armor(csa)"
