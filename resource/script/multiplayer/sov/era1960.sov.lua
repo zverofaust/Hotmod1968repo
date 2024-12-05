@@ -47,7 +47,7 @@ Purchases["era1960.sov"] = {
 				
 			-- Doctrine = "Motostrelki"
 			
-			{priority = 1.0, type = {"Class1", "Infantry", "AA",}, unit = "doctrine_single_aa_motostrelki(sov)"},
+			--{priority = 1.0, type = {"Class1", "Infantry", "AA",}, unit = "doctrine_single_aa_motostrelki(sov)"},
 			{priority = 1.0, type = {"Class3", "Infantry", "Squad",}, unit = "doctrine_squad_guards_motostrelki(sov)"},
 			{priority = 1.0, type = {"Class3", "Squad", "Armored", "MG",}, unit = "doctrine_squad_conscript_moto(sov)"},
 			{priority = 1.0, type = {"Class3", "Squad", "Armored", "MG",}, unit = "doctrine_squad_rifle_moto(sov)"},

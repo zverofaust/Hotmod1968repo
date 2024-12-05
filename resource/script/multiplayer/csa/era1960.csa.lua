@@ -6,7 +6,7 @@ Purchases["era1960.csa"] = {
 				{priority = 1.0, type = {"Infantry", "Team", "Aux", "Class3",}, unit = "single_supporter(csa)"},
 				{priority = 1.0, type = {"Infantry", "Team", "AT", "Class2",}, unit = "single_at(csa)"},
 				{priority = 1.0, type = {"Infantry", "Team", "AT", "Class2",}, unit = "single_lat(csa)"},
-				{priority = 1.0, type = {"Infantry", "Team", "AA", "Class1",}, unit = "single_aa(csa)"},
+				--{priority = 1.0, type = {"Infantry", "Team", "AA", "Class1",}, unit = "single_aa(csa)"},
 				{priority = 1.0, type = {"Infantry", "Team", "Class3",}, unit = "single_mg(csa)"},
 				{priority = 1.0, type = {"Infantry", "Team", "Class2",}, unit = "single_flamer(csa)"},
 				{priority = 1.0, type = {"Infantry", "Team", "Class2",}, unit = "single_scout(csa)"},
