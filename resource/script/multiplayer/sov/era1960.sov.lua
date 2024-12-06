@@ -32,7 +32,7 @@ Purchases["era1960.sov"] = {
 				{priority = 1.0, type = {"Armored", "MG", "Class3",}, unit = "brdm-1"},
 				--{priority = 0.5, type = {"Armored", "AA", "Class2",}, unit = "btr-40a"},
 				{priority = 1.0, type = {"Armored", "AA", "Class2",}, unit = "btr-152a"},
-				{priority = 1.0, type = {"Armored", "AT", "Class2",}, unit = "2p27"},
+				--{priority = 1.0, type = {"Armored", "AT", "Class2",}, unit = "2p27"},
 			--Tanks
 				{priority = 1.0, type = {"Tank", "Light", "Class3",}, unit = "pt-76"},	
 				{priority = 1.0, type = {"Tank", "Light", "Class3",}, unit = "pt-76b"},	

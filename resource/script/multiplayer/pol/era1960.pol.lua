@@ -37,7 +37,7 @@ Purchases["era1960.pol"] = {
 				--APCs/BTRs
 				{priority = 1.0, type = {"Armored", "MG", "Class3",}, unit = "brdm-1_pol"},
 				{priority = 1.0, type = {"Armored", "MG", "Class2",}, unit = "btr-40a_pol"},
-				{priority = 1.0, type = {"Armored", "AT", "Class2",}, unit = "2p27_pol"},
+				--{priority = 1.0, type = {"Armored", "AT", "Class2",}, unit = "2p27_pol"},
 				
 				--Tanks	
 				{priority = 1.0, type = {"Tank", "Light", "Class3", "Class3",}, unit = "pt-76_pol"},
