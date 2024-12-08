@@ -3297,6 +3297,19 @@
 	("zpu_params" gunner(gunner) zpu_mgun(gun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
+{"t249 tank"
+	("m5a1_stuart_sound")
+	{on "add_weapon_sound" overload
+		("Autocannon_s2")
+	}
+	{on fire "gun"
+		{ani_play "recoil"}
+		{call "spawn_shell"}
+	}
+	{on "zenite_terrain_fx" overload} ; // overwrites and stops dust fx on ground from firing main gun
+	
+}
+
 {"m113_acav tank"
 	("m5a1_stuart_sound")
 	{on "commander_hatch_open" overload
