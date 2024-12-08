@@ -1,0 +1,86 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "spaag" "light" "vision_lev03" "muzzle_37mm_40mm_auto" "shell_eject" "amphibia" "detect_tank_light" "aa_medium"}
+	{extension "t249.mdl"}
+	(include "t249.ext")
+	{targetclass "tank_light"}
+	{targetSelector "tank_zenite"}
+	{PatherID "t37"}
+	{collider "tank.light"}
+
+	{extender "enumerator"
+		{digit_folder "nato"}
+	}
+
+	{placer
+		{place "driver"		{visor "driver"}}
+		{place "commander"	{visor "around"}}
+		{place "gunner"		{visor "main"}}
+		{place "charger"	{visor "none"}}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Is-2"} {end "seat_commander_hatch"}}
+			{reverse	{end	"board_body" -1}}
+		}
+		{anm "left"
+			{forward	{begin	"board_Is-2"} {end "seat_commander_hatch"}}
+			{reverse	{end	"board_body" -1}}
+		}
+	}
+	
+	("crew_human" place(driver) 												door(emit0) door2(emit0) anm_left(driver) anm_right(driver) 			group(crew))
+	("crew_human" place(commander) 												door(emit1) door2(emit2) anm_left(left) anm_right(right) 				group(crew))
+	("crew_human" place(gunner) 												door(emit1) door2(emit2) anm_left(left) anm_right(right) 				group(crew))
+	("crew_human" place(charger) 												door(emit1) door2(emit2) anm_left(left) anm_right(right) 				group(crew))
+
+	
+	{extender "inventory"
+		{box
+			{item "bullet37_t250 apc" 576}
+			{item "bullet37_t250 he" 768}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "37mm_t250" filling "bullet37_t250 he" 192}
+			{gunner "gunner"}
+			{charger "charger"}
+			("hm68_abm_nostab_range")
+		}
+	}
+
+	{mass 6800}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.2) len(0.76))
+		("mobility_tank"
+			speed(58) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(10) ;--------Max speed in reverse on road, km/h.
+			traverse(42) ;-------Track traverse, per second, in degrees.
+			weight(6.8) ;-------Weight in Tonnes.
+			power(160) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(235) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(443) ;---------Range in km, off-road.
+		)
+	}
+
+	{bone "gun_rot"
+		{limits -10 85}
+		{speed2 30}
+	}
+	{bone "turret"
+		{speed2 30}
+	}
+}
