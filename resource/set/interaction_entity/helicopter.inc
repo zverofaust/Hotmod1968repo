@@ -828,6 +828,7 @@
 							{spawn "%spawntype" "emit_cargo" x dir_velocity}
 							{spawn "building_smoke" "emit_cargo"}
 							{tags remove "heli_cargo"}
+							{able select 1}
 						}					
 					}
 				}	
@@ -837,9 +838,9 @@
 	
 	("transporter" name(supply) 		spawntype(ammo_pallet))
 	("transporter" name(heavysupply) 	spawntype(ammo_pallet_large))
-	("transporter" name(gp1958) 		spawntype(gp1958))
-	("transporter" name(asu57) 			spawntype(asu57))
-	("transporter" name(asu85)			spawntype(asu-85))
-	("transporter" name(bmd1)			spawntype(bmd-1))
-	("transporter" name(rpu14) 			spawntype(rpu-14))
-	("transporter" name(zu2) 			spawntype(zu-2))
+	("transporter" name(gp1958) 		spawntype(gp1958_airlift))
+	("transporter" name(asu57) 			spawntype(asu57_airlift))
+	("transporter" name(asu85)			spawntype(asu-85_airlift))
+	("transporter" name(bmd1)			spawntype(bmd-1_airlift))
+	("transporter" name(rpu14) 			spawntype(rpu-14_airlift))
+	("transporter" name(zu2) 			spawntype(zu-2_airlift))
