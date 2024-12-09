@@ -351,19 +351,15 @@
 			{volumes disable contact}			;// stops vehicles from "colliding" with plane when ejecting.
 			{impulse up -1 forward 5 rnd_dir 3 com}
 			{gravity 0.5}
-			;{delay 1 {volumes enable contact blast}}	
 			{delay 5 
 				{with_linked_entity "attach"
 					{unlink}
 				}
 				{gravity 1}
+				{delay 3
+					{volumes enable contact blast}
+				}
 			}
-		}
-	}
-	
-	{on ground_hit
-		{with_linked_entity "attach"
-			{unlink}
 		}
 	}
 }
@@ -378,15 +374,9 @@
 			{if linked "vehicle"
 				{unlink}
 			}
-			{delay 3 {delete}}
 		}
 	}
-	{on animation_end "landing"
+	{on animation_end "landing_vehicle"
 		{delay 1 {delete}}
-	}
-	{on ground_hit
-		{with_linked_entity "attach"
-			{unlink}
-		}
 	}
 }

@@ -3,7 +3,7 @@
 	(include "/properties/shadow/tank.inc" scale(1.3))
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	(include "bmd-1.ext")
-	{props "ifv" "light" "turret_rotator" "vision_lev03" "muzzle_75mm_76mm" "diesel" "with_adjustable_suspension" "paradropped"}
+	{props "ifv" "light" "turret_rotator" "vision_lev03" "muzzle_75mm_76mm" "diesel" "with_adjustable_suspension" "paradropped" "bmd-1"}
 	{collider "tank.light"}
 	{targetclass "tank_light"}
 	{targetSelector "tank_light"}
@@ -12,26 +12,25 @@
 	{extender "enumerator"
 		{digit_folder "cw"}
 	}
-
-	;("crew_2_human")
+	
+	("crew_2_human")
+	(include "/properties/hotmod_crew.ext")
 	
 	{placer
-		{place "attach"
+		{place "seat1" {group "passenger"}}
+		{place "seat2" {group "passenger"}}
+		{place "seat3" {group "passenger"}}
+		{place "seat4" {group "passenger"}}
+		{place "seat5" {group "passenger"}}
+		{place "seat6" {group "passenger"}}
+		{place "parachute"
 			{Linkbone "basis"}
 			{entity "parachute_vehicle"}
 			{handlebone "basis"}
 		}
 	}
 	
-	(define "passenger"
-		{placer
-			{place "%place" {group "passenger"}}
-		}
-		{boarder
-			{door "%door"}
-			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
-		}
-	)
+	
 	
 		{boarder
 			{anm "left"
@@ -48,14 +47,12 @@
 			}
 		}
 		
-		("crew_human" 				place(driver)					door(emit1) door2(emit2) visor(driver))	
-		("crew_human" 				place(gunner2)   				door(emit1) door2(emit2) visor(gunner))
-		("passenger" place(seat1)  door(emit1)  animation(passenger) group(passenger))
-		("passenger" place(seat2)  door(emit2)  animation(passenger) group(passenger))
-		("passenger" place(seat3)  door(emit3)  animation(passenger) group(passenger))
-		("passenger" place(seat4)  door(emit3)  animation(passenger) group(passenger))
-		("passenger" place(seat5)  door(emit3)  animation(passenger) group(passenger))
-		;("passenger" place(seat6)  door(emit3)  animation(passenger) group(passenger))
+		("passenger_invisible_back" place(seat1)  door(emit3)  animation(passenger) group(passenger))
+		("passenger_invisible_back" place(seat2)  door(emit3)  animation(passenger) group(passenger))
+		("passenger_invisible_back" place(seat3)  door(emit3)  animation(passenger) group(passenger))
+		("passenger_invisible_back" place(seat4)  door(emit3)  animation(passenger) group(passenger))
+		("passenger_invisible_back" place(seat5)  door(emit3)  animation(passenger) group(passenger))
+		;("passenger_invisible_back" place(seat6)  door(emit3)  animation(passenger) group(passenger))
 
 	{extender "inventory"
 		{box
@@ -72,23 +69,23 @@
 		{place "gun"
 			{RestoreIKAfterAim}
 			{weapon			"73mm_2a28" filling "ammo bullet73_2a28 heat" 1}
-			{gunner			"gunner2"}
-			{charger		"gunner2"}
+			{gunner			"gunner"}
+			{charger		"gunner"}
 			("hm68_abm_nostab_norange")
 		}
 		{place "gun2"		;atgm
 			{weapon			"atgm_9m14" filled}
 			{shooter		"shooter"}
-			{gunner 		"gunner2"}
-			{charger		"gunner2"}
+			{gunner 		"gunner"}
+			{charger		"gunner"}
 			("hm68_abm_atgm")
 			{StationaryFiring}
 			{basic}		
 		}
 		{place "mgun"		;coax
 			{weapon			"pkt" filled}
-			{gunner 		"gunner2"}
-			{charger		"gunner2"}
+			{gunner 		"gunner"}
+			{charger		"gunner"}
 			{foresight		"foresight3"}
 			("abm_mgun")
 			{basic}

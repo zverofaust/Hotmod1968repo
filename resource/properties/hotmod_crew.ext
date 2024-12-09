@@ -79,3 +79,18 @@
 		{link "%door3" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
 	}
 )
+
+(define "passenger_human"
+	{placer
+		{place "%place"
+			{group "passenger"}
+			{visor "%visor"}
+		}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{link "%door" "%place" {anm "left"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "right"} {forward putoff} {reverse puton}}
+	}
+)

@@ -13,18 +13,9 @@
 		{digit_folder "cw"}
 	}
 
-	;("crew_2_human")
-	
-	(define "passenger"
-		{placer
-			{place "%place" {group "passenger"}}
-		}
-		{boarder
-			{door "%door"}
-			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
-		}
-	)
-	
+	("crew_2_human")
+	(include "/properties/hotmod_crew.ext")
+		
 		{boarder
 			{anm "left"
 				{forward	{begin	"board_tank"}}
@@ -40,14 +31,12 @@
 			}
 		}
 		
-		("crew_human" 				place(driver)					door(emit1) door2(emit2) visor(driver))	
-		("crew_human" 				place(gunner2)   				door(emit1) door2(emit2) visor(gunner))
-		("passenger" place(seat1)  door(emit1)  animation(passenger) group(passenger))
-		("passenger" place(seat2)  door(emit2)  animation(passenger) group(passenger))
-		("passenger" place(seat3)  door(emit3)  animation(passenger) group(passenger))
-		("passenger" place(seat4)  door(emit3)  animation(passenger) group(passenger))
-		("passenger" place(seat5)  door(emit3)  animation(passenger) group(passenger))
-		;("passenger" place(seat6)  door(emit3)  animation(passenger) group(passenger))
+		("passenger_invisible_back" place(seat1)  door(emit3)  animation(passenger) group(passenger))
+		("passenger_invisible_back" place(seat2)  door(emit3)  animation(passenger) group(passenger))
+		("passenger_invisible_back" place(seat3)  door(emit3)  animation(passenger) group(passenger))
+		("passenger_invisible_back" place(seat4)  door(emit3)  animation(passenger) group(passenger))
+		("passenger_invisible_back" place(seat5)  door(emit3)  animation(passenger) group(passenger))
+		;("passenger_invisible_back" place(seat6)  door(emit3)  animation(passenger) group(passenger))
 
 	{extender "inventory"
 		{box
