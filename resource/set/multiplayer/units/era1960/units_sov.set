@@ -190,6 +190,20 @@
 ;            
 ;===================================
 
+; ======Tier0======
+
+; // 6DP Air-Dropped ASU-57
+{"doctrine_paradrop_asu57(sov)"
+	("squad_vehicle2_doctrine"		 side(sov) period(era1960) vehicle(mil_mi8_para_asu57) cw(0) cp(0) 	crew1(sup_pilot:4) crew2(vdv_vehicleman:3))
+	("doctrine_t0" cool(80) d(era1960_sov_vdv) cost(6))
+}
+
+; // 10DP VDV Paratrooper squad
+{"doctrine_squad_vdv_para(sov)"
+	("squad_vehicle9_doctrine"		 side(sov) period(era1960) vehicle(mil_mi8_para) cw(0) cp(0) crew1(sup_pilot:4) crew2(vdv_squadlead_jump:1) crew3(vdv_lmg_jump:1) crew4(vdv_lmg_assist_jump:1) crew5(vdv_marksman_jump:1) crew6(vdv_senior_jump:1) crew7(vdv_antitank_jump:1) crew8(vdv_atassist_jump:1) crew9(vdv_rifleman_jump:1))
+	("doctrine_t0" cool(120) d(era1960_sov_vdv) cost(8))
+}
+
 ; ======Tier1======
 
 ; // 3DP Ammo Paradrop
@@ -204,27 +218,14 @@
 	("doctrine_t1" cool(120) d(era1960_sov_vdv) cost(8))
 }
 
-; // 6DP Air-Dropped ASU-57
-{"doctrine_paradrop_asu57(sov)"
-	("squad_vehicle2_doctrine"		 side(sov) period(era1960) vehicle(mil_mi8_para_asu57) cw(0) cp(0) 	crew1(sup_pilot:4) crew2(vdv_vehicleman:3))
-	("doctrine_t1" cool(80) d(era1960_sov_vdv) cost(6))
-}
-
-; // 10DP VDV Paratrooper squad
-{"doctrine_squad_vdv_para(sov)"
-	("squad_vehicle9_doctrine"		 side(sov) period(era1960) vehicle(mil_mi8_para) cw(0) cp(0) crew1(sup_pilot:4) crew2(vdv_squadlead_jump:1) crew3(vdv_lmg_jump:1) crew4(vdv_lmg_assist_jump:1) crew5(vdv_marksman_jump:1) crew6(vdv_senior_jump:1) crew7(vdv_antitank_jump:1) crew8(vdv_atassist_jump:1) crew9(vdv_rifleman_jump:1))
-	("doctrine_t1" cool(120) d(era1960_sov_vdv) cost(10))
-}
-
-
-; ======Tier2======
-
-
 ; // 10DP Airlifted VDV AT Squad with B-10 RCLs
 {"doctrine_squad_b10_vdv(sov)"
 	("squad_vehicle5_doctrine"		 side(sov) period(era1960) vehicle(mil_mi4_unarmed) cw(0) cp(0) crew1(sup_pilot:2) crew2(vdv_squadlead:1) crew3(vdv_antitank:1) crew4(vdv_atassist:1) crew5(vdv_guncrew_b10:3) crew6(vdv_guncrew:3) )
-	("doctrine_t2" cool(120) d(era1960_sov_vdv) cost(10))
+	("doctrine_t1" cool(240) d(era1960_sov_vdv) cost(10))
 }
+
+; ======Tier2======
+
 
 ; // 10DP Air-Dropped ASU-85
 {"doctrine_paradrop_asu85(sov)"
