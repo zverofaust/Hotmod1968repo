@@ -1,0 +1,1 @@
+{unitLimits "officer=2;flamer=3;sniper=5;squad_1=5;squad_4=5;signaller=1;signaller_heavy=1;limit1=1;limit1a=1;limit1b=1;limit2=2;limit2a=2;limit3=3;limit3a=3;limit4=4;limit5=5;limit10=10;heavyaa=1;limitf1=1;limitf1a=1;limitf1b=1;miner=4;engtruck=1;builder=2;"}

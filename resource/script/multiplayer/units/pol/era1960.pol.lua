@@ -67,9 +67,9 @@ Purchases["era1960.pol"] = {
 				{priority = 1.0, type = {"Class3", "Vehicle", "AT",}, unit = "doctrine_vehicle_gaz69_b10(pol)"},
 				{priority = 1.0, type = {"Class3", "Tank", "Light", "AT",}, unit = "doctrine_vehicle_asu85_pdes(pol)"},
 				
-				{priority = 1.0, type = {"Class3", "Doctrine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_m72(pol)"},
+				--{priority = 1.0, type = {"Class3", "Doctrine", "Vehicle", "MG", "Tier1",}, unit = "doctrine_vehicle_m72(pol)"},
 				{priority = 1.0, type = {"Class2", "Doctrine", "Vehicle", "Mortar", "Tier1",}, unit = "doctrine_vehicle_gaz69_mortar(pol)"},
-				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Squad", "Light", "AT", "Tier2",}, unit = "doctrine_squad_pdes_desantski(pol)"},
+				--{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Squad", "Light", "AT", "Tier2",}, unit = "doctrine_squad_pdes_desantski(pol)"},
 				{priority = 1.0, type = {"Class1", "Doctrine", "Infantry", "Tier2",}, unit = "doctrine_squad_roz(pol)"},
 				{priority = 1.0, type = {"Class1", "Doctrine", "Armored", "AT", "Tier3",}, unit = "doctrine_vehicle_9p110(pol)"},
 			

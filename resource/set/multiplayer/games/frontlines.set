@@ -1,0 +1,48 @@
+{game
+	{teammatch}
+	{parameters "flag_time=30;flag_time_small=15;score_flag=500;score_phase=0;score_slaveFlag=150;score_defBonus=0.25;teamsize_cp_factor=1:1.0,2:1.0,3:0.9,4:0.8"}
+	; flag_time= time to neutralize main flags (frontlines flags). Capture is same time. So it takes 2x the value to decap and capture.
+	; flag_time_small= time to neutralize sub/slave flags (3 assigned to each main flag). Capture is same time. So it takes 2x the value to decap and capture.
+	; score_flag= score given to Team A (attacker) when capturing one frontline flag (slave/sub flags do not count)
+	; score_phase= score given to Team A (attacker) when capturing all frontline flags of a phase (2 phases total on a map)
+	; score_slaveFlag= score given to Team A (attacker) when capturing one slave flag (score awarded only on first capture)
+	; score_defBonus= score Team B (defender) receives every second, multiplied with the amount of frontline flags (slave/sub flags do not count)
+	; teamsize_cp_factor= For how many players per side,  CP multiplier.
+	{settings
+		{options			gameDuration enableSpectators enableHardcore preparationTime}
+		{optionsAdvanced	friendlyFire fogOfWar showPiercing showDamageReports}
+		{optionsRanked		}
+		{fogOfWar			fog_realistic}
+		{difficulty			multiplayer}
+		{gameDuration		"50 min"}	; min
+		{impregnableTimeout	10}			; sec
+		{floraRespawn		0}
+
+		; in frontlines preparationTime is the time both teams have to prepare and map boundaries separate the teams
+		{preparationTime	210}		; default value
+		{preparationTimeMin	180}		; minimum custom value (too short and attacker gets too much of an advantage)
+		{preparationTimeMax	300}		; maximum custom value (too long and defender gets too much of an advantage)
+
+		{enableBots}
+		{friendlyFire}
+		{showPiercing}
+		{showDamageReports}
+		{useUnitLevelRestrictions 0}
+	}
+	{teamSettings
+		{teamsMode normal}
+		{armySelectionMode alliance}
+		{teams
+			{"a"
+				{title "mp/settings/teama#attackers"}
+			}
+			{"b"
+				{title "mp/settings/teamb#defenders"}
+			}
+		}
+		{alliances
+			(include "presets/alliances_generic.inc")
+		}
+	}
+	(include "presets/frontlines_era1960.inc")
+}
