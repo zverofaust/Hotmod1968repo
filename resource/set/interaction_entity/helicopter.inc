@@ -844,3 +844,5 @@
 	("transporter" name(bmd1)			spawntype(bmd-1_airlift))
 	("transporter" name(rpu14) 			spawntype(rpu-14_airlift))
 	("transporter" name(zu2) 			spawntype(zu-2_airlift))
+	
+	("transporter" name(asu85_pol)			spawntype(asu-85_pol))

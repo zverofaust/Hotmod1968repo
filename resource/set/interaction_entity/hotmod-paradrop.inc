@@ -343,6 +343,8 @@
 ("vehicle_paradrop" name(asu85) 	spawntype(asu-85_para))
 ("vehicle_paradrop" name(bmd1) 		spawntype(bmd-1_para))
 
+("vehicle_paradrop" name(gaz69_b10) 		spawntype(gaz-69_b10_pol_para))
+
 
 
 {"paradropped" ;// versions of vehicles made exclusively for parachute deployment
