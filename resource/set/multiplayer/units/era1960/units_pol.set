@@ -67,42 +67,55 @@
 ;   6th Pomeranian Airborne Division
 ;===================================
 
+; ======Tier0======
+
+; // 10DP PDes Paratrooper squad
+{"doctrine_squad_pdes_para(pol)"
+	("squad_vehicle8_doctrine"		 side(pol) period(era1960) vehicle(mi8_pol_para) cw(0) cp(0) crew1(sup_pilot:4) crew2(pdes_squadlead:1) crew3(pdes_mg:1) crew4(pdes_mgassist:1) crew5(pdes_antitank:1) crew6(pdes_atassist:1) crew7(pdes_marksman:1) crew8(pdes_rifleman:2))
+	("doctrine_t0" cool(120) d(era1960_pol_pomorska) cost(10))
+}
+
+; // 6DP Air-Dropped GAZ-69 with B-10
+{"doctrine_paradrop_gaz69_b10(pol)"
+	("squad_vehicle2_doctrine"		 side(pol) period(era1960) vehicle(mi8_pol_para_gaz69_b10) cw(0) cp(0) 	crew1(sup_pilot:4) crew2(pdes_rifleman:4))
+	("doctrine_t0" cool(120) d(era1960_pol_pomorska) cost(6))
+}
+
 ; ======Tier1======
 
-; // 3 DP Ammo Paradrop
+; // 3DP Ammo Paradrop
 {"doctrine_airdrop_ammo(pol)"
-	("squad_vehicle_doctrine" side(pol) period(era1960) vehicle(f-105) crew(sup_pilot:0) cw(0) cp(0))
-	("doctrine_t1" cool(300) d(era1960_pol_pomorska) cost(3))
-	{action "airstrike:flare_paradrop_ammo"} 
+	("squad_vehicle_doctrine"		 side(pol) period(era1960) vehicle(mi8_para_supplies) cw(0) cp(0) 	crew(sup_pilot:4))
+	("doctrine_t1" cool(120) d(era1960_pol_pomorska) cost(3))
 }
 
-; // 5DP PKS Tripod Team
-{"doctrine_team_pk(pol)"
-	("squad_with2types_doctrine" side(pol) period(era1960) c1(pdes_guncrew_pk:3) c2(pdes_guncrew:3))
-	("doctrine_t1" cool(30) d(era1960_pol_pomorska) cost(2))
-}
-
-; // 8DP GAZ-69 with Wz.37 light mortar
-{"doctrine_vehicle_gaz69_mortar(pol)"
-	("squad_vehicle2_doctrine" side(pol) period(era1960) vehicle(gaz-69_mortar_pol) crew1(pdes_squadlead:1) crew2(pdes_rifleman:3) cw(2) cp(0))
-	("doctrine_t1" cool(120) d(era1960_pol_pomorska) cost(10))
+; // 8DP Rozpoznawczą Specjalna Squad
+{"doctrine_squad_roz(pol)"
+	("squad_with6types_doctrine" side(pol) period(era1960) c1(roz_squadlead:1) c2(roz_marksman:1) c3(roz_spotter:1) c4(roz_antitank:1) c5(roz_mg:1) c6(roz_rifleman:1))
+	("doctrine_t1" cool(240) d(era1960_pol_pomorska) cost(8))
 }
 
 ; ======Tier2======
 
-; // 10DP Rozpoznawczą Specjalna Squad
-{"doctrine_squad_roz(pol)"
-	("squad_with6types_doctrine" side(pol) period(era1960) c1(roz_squadlead:1) c2(roz_marksman:1) c3(roz_spotter:1) c4(roz_antitank:1) c5(roz_mg:1) c6(roz_rifleman:3))
-	("doctrine_t2" cool(240) d(era1960_pol_pomorska) cost(8))
+; // 8DP GAZ-69 with Wz.37 light mortar
+{"doctrine_vehicle_gaz69_mortar(pol)"
+	("squad_vehicle2_doctrine" side(pol) period(era1960) vehicle(gaz-69_mortar_pol) crew1(pdes_squadlead:1) crew2(pdes_rifleman:3) cw(2) cp(0))
+	("doctrine_t2" cool(120) d(era1960_pol_pomorska) cost(10))
 }
 
 ; // WP-8z Towed Rocket Launcher
 
-; // 14DP PDes squad riding ASU-85
-{"doctrine_squad_pdes_desantski(pol)"
-	("squad_vehicle8_doctrine" side(pol) period(era1960) vehicle(asu-85_pol) crew1(pdes_vehicleman:4) crew2(pdes_squadlead:1) crew3(pdes_mg:1) crew4(pdes_mgassist:1) crew5(pdes_antitank:1) crew6(pdes_atassist:1) crew7(roz_marksman:1) crew8(roz_rifleman:2) cw(0) cp(0))
-	("doctrine_t2" cool(120) d(era1960_pol_pomorska) cost(14))
+; // 10DP Airlifted ASU-85
+{"doctrine_vehicle_airlift_asu85(pol)"
+	("squad_vehicle2_doctrine"		 side(pol) period(era1960) vehicle(mi8_pol_transport_asu85) cw(0) cp(0) 	crew1(sup_pilot:4) crew2(pdes_vehicleman:4))
+	("doctrine_t1" cool(180) d(era1960_pol_pomorska) cost(10))
 }
+
+; // 14DP PDes squad riding ASU-85
+;{"doctrine_squad_pdes_desantski(pol)"
+;	("squad_vehicle8_doctrine" side(pol) period(era1960) vehicle(asu-85_pol) crew1(pdes_vehicleman:4) crew2(pdes_squadlead:1) crew3(pdes_mg:1) crew4(pdes_mgassist:1) crew5(pdes_antitank:1) crew6(pdes_atassist:1) crew7(pdes_marksman:1) crew8(pdes_rifleman:2) cw(0) cp(0))
+;	("doctrine_t2" cool(120) d(era1960_pol_pomorska) cost(14))
+;}
 
 ; ======Tier3======
 
