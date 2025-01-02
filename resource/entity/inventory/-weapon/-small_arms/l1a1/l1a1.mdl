@@ -1,108 +1,103 @@
-;Exported by: Kislov_A
-;Date:        Mon Jan 25 12:54:03 2010
-;File:        E:\Men of war red tide2\Art\Models\Weapons\Vietnam\AK47\ak47.max
+;Exported by: aeste
+;Date:        Thu Jan  2 09:53:03 2025
+;File:        E:\Cold War\ModelWIP\Smallarms\FN FAL by DJMaesen\FN FAL.max
 {Skeleton
-	{bone "ak-47"
-		{Matrix34
+	{animation
+		{sequence "recoil" {speed 0.3}}
+	}
+	{bone "fn_fal"
+		{Orientation
 			1	0	0
+			0	-1	0
 			0	0	1
-			0	1	0
-			-2   0   0
 		}
-                {position 2.8 -1.5 0.2}
 		{LODView
-			{VolumeView "l1a1.ply"}
-			
+			{VolumeView "fn_fal.ply"}
+			{VolumeView "fn_fal_lod1.ply"}
+			{VolumeView "fn_fal_lod2.ply"}
+			{VolumeView "fn_fal_lod3.ply"}
 		}
-		{bone "handle"
-			{Matrix34
-				0.144286	0.887857	-0.436911
-				-0.0833072	-0.429064	-0.899424
-				-0.986023	0.166172	0.0120573
-				-0.863926	-1.0475	0.305412
+		{bone "hand"
+			{Position 3.74951	1.76474	0}
+			{LODView
+				{VolumeView "hand.ply"}
+				{VolumeView "hand_lod1.ply"}
+				{VolumeView "hand_lod2.ply"}
+				{VolumeView "hand_lod3.ply"}
+			}
+		}
+		{bone "bolt"
+			{Position 3.2534	1.27767	0}
+			{LODView
+				{VolumeView "bolt.ply"}
+				{VolumeView "bolt_lod1.ply"}
+				{VolumeView "bolt_lod2.ply"}
+				{VolumeView "bolt_lod3.ply"}
+			}
+		}
+		{bone "magazine"
+			{Position 2.72328	0.374258	0}
+			{LODView
+				{VolumeView "magazine.ply"}
+				{VolumeView "magazine_lod1.ply"}
+				{VolumeView "magazine_lod2.ply"}
+				{VolumeView "magazine_lod3.ply"}
 			}
 		}
 		{bone "foresight12"
-			{Matrix34
-				1	-9.55111e-005	0
-				9.5509e-005	1	0
-				0	0	1
-				14.6878	0.07258	0.003084
-			}
-		}
-               {bone "fxshell"
-			{Matrix34
-				0	0.45399	0.891007
-				-1	0	0
-				0	-0.891007	0.45399
-				2.91338	1.25525	0.202325
-			}
-                      
+			{Position 14.1523	1.28979	0.0314219}
 		}
 	}
 }
 {Volume "body"
-	{Box 17.1338 4.63898 0.875037}
-	{Bone "ak-47"}
-	{Matrix34
-		1	-9.5535e-005	0
-		9.54834e-005	1	0
-		0	0	1
-		3.19345	-0.752652	0.301988
-	}
+	{Box 20.1742 3.72608 0.833809}
+	{Bone "fn_fal"}
+	{Position 4.24959	0.289652	0.00754789}
+}
+{Volume "magazine"
+	{Box 1.38092 3.02488 0.47811}
+	{Bone "magazine"}
+	{Position -0.0156894	-0.637022	-0.0146692}
 }
 {Volume "select"
-	{Box 21.3496 6.74121 3.14961}
-	{Bone "ak-47"}
-	{Matrix34
-		1	-9.5535e-005	0
-		9.54834e-005	1	0
-		0	0	1
-		3.22831	-0.879887	0.344626
-	}
+	{Box 21.0021 9.34439 1.25071}
+	{Bone "fn_fal"}
+	{Position 3.73807	0.580987	0.656779}
 }
 {Extender "preview"
-	{"Stuff"
+	{"stuff"
 		{camera
-			{origin 5.45234	-14.6122	24.5692}
-			{lookat 3.99306	-0.351958	-0.151392}
-			{fov 40}
-			{horizon -172}
+			{origin 4.0498	-2.68139	24.7023}
+			{lookat 4.0498	-1.09253	-3.72263}
+			{fov 45}
+			{horizon 180}
 		}
 		{lights
 			{"0"
 				{type point}
-				{position 4.96041	4.34481	25.9709}
+				{position 0.455237	-8.29019	5.49553}
 			}
 			{"1"
-				{type directional}
-				{direction -0.0101697	0.498574	-0.0363347}
-			}
-			{"2"
 				{type point}
-				{position 4.96041	29.9718	3.44789}
+				{position 0.455235	11.503	11.3865}
 			}
 		}
 	}
-	{"Stuff_primary"
+	{"stuff_primary"
 		{camera
-			{origin 3.30345	-4.01944	25.8519}
-			{lookat 3.44152	-1.11825	2.66133}
+			{origin 4.2906	-2.0151	25.1258}
+			{lookat 4.2906	-0.426235	-13.0675}
 			{fov 45}
-			{horizon -177.044}
+			{horizon -170.016}
 		}
 		{lights
 			{"0"
 				{type point}
-				{position 11.507	-3.72485	0.773865}
+				{position -0.478683	11.4734	14.5319}
 			}
 			{"1"
-				{type directional}
-				{direction -0.0198547	0.212095	-0.452351}
-			}
-			{"2"
 				{type point}
-				{position -5.78442	2.02938	-0.795476}
+				{position 1.24641	-8.24448	8.64097}
 			}
 		}
 	}
