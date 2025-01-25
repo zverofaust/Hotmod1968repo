@@ -109,7 +109,7 @@
 		{unitMode "era1960"}
 		{specMode "all_normal"}
 		{apply "only_roster_era1960"}
-		("standard_all"			start_a(4500) finish_a(4500) reinforcement_a(470) start_b(2800) finish_b(2800) doctrine_a(300) doctrine_b(200) cp_a(0:175,900:200,1500:225) cp_b(0:110,900:140,1500:170))
+		("standard_all"			start_a(8500) finish_a(8500) reinforcement_a(470) start_b(6800) finish_b(6800) doctrine_a(300) doctrine_b(200) cp_a(0:175,900:200,1500:225) cp_b(0:110,900:140,1500:170))
 		{ranked}
 	}
 ;------------------------------------------------------------------------------------------------------------
@@ -121,7 +121,7 @@
 ;		{unitMode "era1960"}
 ;		{specMode "cp_60"}
 ;		{apply "only_roster_era1960"}
-;		("custom_all"			start_a(4500) finish_a(4500) reinforcement_a(470) start_b(2800) finish_b(2800) doctrine_a(300) doctrine_b(200) cp_a(0:175,900:200,1500:225) cp_b(0:110,900:140,1500:170))
+;		("custom_all"			start_a(8500) finish_a(8500) reinforcement_a(470) start_b(6800) finish_b(6800) doctrine_a(300) doctrine_b(200) cp_a(0:175,900:200,1500:225) cp_b(0:110,900:140,1500:170))
 ;	}
 
 
