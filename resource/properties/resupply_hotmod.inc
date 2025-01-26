@@ -408,6 +408,7 @@
 
 	{item "rocket318_mgr3"					"ammo" 1 {value 100}}
 	{item "x279mm_m388"						"ammo" 1 {value 500}}
+        {item "rocket110_dm11"				"ammo" 1 {value 15}}
 )
 
 (define "items_heavy_prc"
