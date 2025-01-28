@@ -43,8 +43,8 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_scout_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_sniper_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_flamer_con(sov)"},
-				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_sapperap_con(sov)"},
-				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_sapperat_con(sov)"},
+				{priority = 0.2, type = {"Infantry", "Team",}, unit = "single_sapperap_con(sov)"},
+				{priority = 0.2, type = {"Infantry", "Team",}, unit = "single_sapperat_con(sov)"},
 			--Cannons
 			--HMGs
 				{priority = 1.0, type = {"Cannon", "MG",}, unit = "sg43_stand_sov_ai"},
