@@ -8,8 +8,8 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_conscript_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_conscript_ak_con(sov)"},
 				{priority = 1.0, type = {"Armored", "MG", "Infantry", "Squad",}, unit = "squad_conscript_moto_con(sov)"},
+				{priority = 1.0, type = {"Armored", "MG", "Infantry", "Squad",}, unit = "squad_conscript_ak_moto_con(sov)"},
 				{priority = 1.0, type = {"Armored", "MG", "Infantry", "Squad",}, unit = "squad_conscript_ak_moto2_con(sov)"},
-				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_conscript_mech_con(sov)"},
 				{priority = 1.0, type = {"Armored", "MG", "Infantry", "Squad",}, unit = "squad_conscript_ak_moto3_con(sov)"},
 				
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_con(sov)"},
