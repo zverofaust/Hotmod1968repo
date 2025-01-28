@@ -53,11 +53,11 @@ Purchases["conquest.csa"] = {
 				{priority = 1.0, type = {"Armored", "MG", "Infantry", "Squad",}, unit = "squad_usmc_moto_con(csa)"},
 				{priority = 0.5, type = {"Armored", "MG", "Infantry", "Squad",}, unit = "squad_usmc_m16_moto_con(csa)"},
 				
-				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_82nd_m14_con(csa)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_82nd_weapon_con(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_82nd_con(csa)"},
 				
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_ranger_lrrp_con(csa)"},
-				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_ranger_con(csa)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_lrrp_moto_con(csa)"},
 				
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_seal_sniper_con(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_seal_udt_con(csa)"},
