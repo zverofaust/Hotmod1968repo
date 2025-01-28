@@ -6,8 +6,9 @@ Purchases["conquest.prc"] = {
 				
 				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_at(prc)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_mg_early(prc)"},
+				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_medic(prc)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_scout(prc)"},
-				{priority = 0.2, type = {"Infantry", "Team",}, unit = "single_sniper(prc)"},
+				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_sniper(prc)"},
 				{priority = 0.2, type = {"Infantry", "Team",}, unit = "single_sapperap(prc)"},
 				{priority = 0.2, type = {"Infantry", "Team",}, unit = "single_sapperat(prc)"},
 				
