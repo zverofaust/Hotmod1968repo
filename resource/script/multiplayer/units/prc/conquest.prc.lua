@@ -5,13 +5,13 @@ Purchases["conquest.prc"] = {
 			-- Infantry
 				
 				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_at(prc)"},
-				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_mg(prc)"},
+				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_mg_early(prc)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_scout(prc)"},
 				{priority = 0.2, type = {"Infantry", "Team",}, unit = "single_sniper(prc)"},
 				{priority = 0.2, type = {"Infantry", "Team",}, unit = "single_sapperap(prc)"},
 				{priority = 0.2, type = {"Infantry", "Team",}, unit = "single_sapperat(prc)"},
 				
-				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_militia_patrol_con(prc)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_militia_ambush_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_militia_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_militia_assault_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_militia_support_con(prc)"},
@@ -36,12 +36,15 @@ Purchases["conquest.prc"] = {
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_full_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_assault_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_support_con(prc)"},
-				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_type63_con(prc)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_ar_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_moto_con(prc)"},
-				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_type63_moto_con(prc)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_ar_moto_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_support_moto_con(prc)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_guards_assault_moto_con(prc)"},
-				
+
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_spc_recon_con(prc)"},
+                                {priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_spc_recon_moto_con(prc)"},
+
 			-- Cannons	
 				--HMGs
 				--{priority = 1.0, type = {"Cannon", "MG",}, unit = "sg43_stand_prc_ai"},
@@ -83,7 +86,7 @@ Purchases["conquest.prc"] = {
 				{priority = 1.0, type = {"Tank", "Heavy",}, unit = "is2_prc"},
 				
 			--SPG
-				{priority = 0.5, type = {"Tank", "Heavy", "Support",}, unit = "isu152_prc"},
+				{priority = 0.5, type = {"Tank", "Heavy", "Support",}, unit = "isu-152_prc"},
 			--Air Assets
 		}
 	}
