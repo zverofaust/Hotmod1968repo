@@ -5405,7 +5405,7 @@
 		("check_fire")
 	}
 
-	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
 {"t-55_pol tank"
