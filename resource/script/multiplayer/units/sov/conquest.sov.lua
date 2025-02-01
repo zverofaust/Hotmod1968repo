@@ -38,7 +38,6 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_at_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_mg_1950_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_mg_con(sov)"},
-				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_medic_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_marksman_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_scout_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_sniper_con(sov)"},

@@ -76,6 +76,7 @@
 
 		{"fortifications" "foxhole"}
 		{"fortifications" "foxhole_big"}
+                {"fortifications" "mortar_pit"}
 		{"fortifications" "tank_cover"}
 
 		{"fortifications" "heavy_mg_mg34"}
