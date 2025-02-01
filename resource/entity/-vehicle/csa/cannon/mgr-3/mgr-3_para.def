@@ -1,26 +1,27 @@
 {game_entity
 	(include "/properties/cannon.ext")
-	{extension "105mm_m102.mdl"}
-	(include "/properties/selection/cannon.inc" scale(0.85))
-	{props "wheeled" "vision_lev05_can" "muzzle_100mm_105mm" "cannon_sandbag_standard" "trailer" "trailer_medium" "detect_artillery" "artillery_minimap_medium" "c_how_lite" "paradropped"}
-	{PatherId "cannon.medium"}
+	(include "/properties/shadow/tank.inc" scale(0.6))
+	{extension "mgr-3.mdl"}
+	(include "/properties/selection/cannon.inc" scale(0.7))
+	{props "mrl" "nebelwerfer" "wheeled" "vision_lev05_can" "cannon_sandbag_standard" "trailer" "trailer_light" "detect_artillery" "artillery_minimap_medium" "paradropped"}
+	{able "emit_on_attack"}
 	{targetclass "howitzer"}
-	{targetSelector "cannon_howitzer"}
+	{targetSelector "rocket"}
 
 	("wheel" args "wheelright")
 	("wheel" args "wheelleft")
 
-	("gun" repair(30) thickness(20))
+	("gun" repair(30) thickness(10))
 
-	("armor_medium_cannon")
+	("armor_light_cannon")
 	("crew_wheeled_cannon_4")
 
 	{boarder
 		{anm "gunner"
-			{forward {end "pose_m5_gunlayer" 10}}
+			{forward	{end "pose_nebelwerfer41_gunner" 10}}
 		}
 		{anm "charger"
-			{forward {end "pose_pdr25_charger" 10}}
+			{forward {end "pose_nebelwerfer41_loader" 10}}
 		}
 		{anm "charger2"
 			{forward {end "pose_squat_empty" 10}}
@@ -29,16 +30,16 @@
 			{forward {end "pose_squat_watch_binocular" 10}}
 		}
 		{anm "driver1"	;// gunner
-			{forward {end "cannon_pak40_pusher_left" 10}}
-		}
-		{anm "driver2"	;// charger
 			{forward {end "cannon_pak40_pusher_right" 10}}
 		}
+		{anm "driver2"	;// charger
+			{forward {end "mgun_browning_driver_r" 10}}
+		}
 		{anm "driver3"	;// charger2
-			{forward {end "mgun_browning_driver_l" 10}}
+			{forward {end "mgun_browning_driver_r" 10}}
 		}
 		{anm "driver4"	;// commander
-			{forward {end "mgun_browning_driver_r" 10}}
+			{forward {end "mgun_browning_driver_l" 10}}
 		}
 		{anm "seat1"	;// gunner
 			{forward {end "pose_seat_cannon_left" 10}}
@@ -66,10 +67,11 @@
 		{animation
 			{switch "close"}
 			;// "gunner" "charger" "charger2" "commander"
-			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right" "mgun_browning_driver_l" "mgun_browning_driver_r"}
-			{aim "cannon_m5_gunlayer" "" "" ""}
-			{fire "cannon_gunlayer_fire-alert" "cannon_pdr25_charger_fire" "" ""}
-			{reload "" "cannon_pdr25_charger" "" ""}
+			{move "cannon_pak40_pusher_right" "mgun_browning_driver_r" "mgun_browning_driver_r" "mgun_browning_driver_l"}
+			{aim "nebelwerfer41_gunner_aim" "" "" ""}
+			{fire "" "Cannon_zis3_charger_fire 0.2" "" ""}
+			{gunners "" "" "" ""}
+			{reload "" "cannon_pak40_charger" "" ""}
 		}
 		{move {workers "driver1" "driver2" "driver3" "driver4" minWorkers 2} {obstacle "close"}}			;// move state: cannon being pushed and which positions play animations
 		{attack {workers "gunner""charger" "charger2" "commander"} {obstacle "open"}}		;// fire/attack state: cannon aim, fire, and reload events
@@ -78,30 +80,28 @@
 
 	{extender "inventory"
 		{box
-			{item "ammo bullet105_m1 he" 12}		;50 rounds
-			{item "ammo bullet105_m1 heat" 6}
-			{item "ammo bullet105_m1 sm" 6}
-			{item "ammo bullet105_m1 wp" 4}
-			{item "sandbag_vehicle" 1}
+			{Size 16 5}
+			{item "ammo rocket318_mgr3" 1}		;1 reload
+			{item "sandbag_vehicle" 2}
 		}
 	}
 
 	{Weaponry
 		("restore_ik_time")
 		{place "gun"
-			{weapon "105mm_m1" filling "ammo bullet105_m1 he" 1}
-			{charger "charger charger2" minWorkers 1}
+			{weapon "weapon 318mm_mgr3" filled}
 			{RestoreIKAfterAim}
-			("hm68_abm_gun")
+			{StationaryFiring}
+			("hm68_abm_mrl")
 		}
 	}
 
-	{mass 2260}
+	{mass 1500}
 	{Chassis "track"
-		("car_trace" fx("tracewheel06") step(0.14) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
 		("mobility_cannon"
-			speed(5.7) ;----------------------------------Max speed.
-			weight(2260) ;--------------------------------Weight in Kilograms.
+			speed(7.0) ;----------------------------------Max speed.
+			weight(540) ;---------------------------------Weight in Kilograms.
 		)
 	}
 
@@ -109,10 +109,18 @@
 		{speed2 3}
 	}
 	{bone "gun_rot"
-		{limits -5 65}
-		{speed2 10}
+		{limits 10 -15}
+		{speed2 5}
 	}
-	{bone "body"
-		{speed2 10}
+	{bone "turret"
+		{limits -23 23}
+		{speed2 5}
 	}
+	(mod "mp"
+		{brain
+			{properties
+				{fire_mode hold}
+			}
+		}	
+	)
 }
