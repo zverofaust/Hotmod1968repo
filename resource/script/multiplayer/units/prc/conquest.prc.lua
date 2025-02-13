@@ -54,7 +54,7 @@ Purchases["conquest.prc"] = {
 				{priority = 0.5, type = {"Cannon", "AA",}, unit = "37mm_61k_prc"},
 				{priority = 0.5, type = {"Cannon", "AA",}, unit = "57mm_s-60_prc"},
 				--Anti Tank
-				{priority = 1.0, type = {"Cannon", "AT",}, unit = "m20_prc_ai"},
+				--{priority = 1.0, type = {"Cannon", "AT",}, unit = "m20_prc_ai"},
 				{priority = 1.0, type = {"Cannon", "AT",}, unit = "b-10_prc_ai"},
 				--Mortars
 				{priority = 0.3, type = {"Cannon", "Mortar",}, unit = "82mm_bm37_prc_ai"},
