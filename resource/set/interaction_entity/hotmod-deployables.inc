@@ -68,6 +68,7 @@
 	("gunbagtype" guntype(dshk_aa_prc)   			bagtype(gunbag_dshk_prc))
 	("gunbagtype" guntype(dshk_stan_prc)   			bagtype(gunbag_dshk))
 	("gunbagtype" guntype(82mm_bm37_prc)  			bagtype(gunbag_bm37_prc))
+	("gunbagtype" guntype(m20_prc)  				bagtype(gunbag_m20_prc))
 	("gunbagtype" guntype(b-10_prc)  				bagtype(gunbag_b10_prc))
 
 	;///POL
