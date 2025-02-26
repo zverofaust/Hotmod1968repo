@@ -1555,9 +1555,6 @@
 }
 
 {"spg9"
-	{on "spawn_shell_delay" overload
-		("shell_eject_delay" args 1)
-	}
 	{on "init_gun"
 		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
 	}
@@ -1566,7 +1563,20 @@
 		{view start "backblast"}
 		{spawn "detector" "foresight1" x}   ;ordos_debug
 		{tags add "ordos_debug_spg9_fire"}
-		{call "spawn_shell"}
+	}
+	("cannon_small")
+}
+
+
+{"spg9_ai"
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{tags add "ordos_debug_spg9_fire"}
 	}
 	("cannon_small")
 }

@@ -592,9 +592,9 @@
 	{on ground_hit
 		{call "explosion"}
 	}
-	;{on contact
-	;	{call "explosion"}
-	;}
+	{on contact
+		{call "explosion"}
+	}
 	{on "explosion"
 		{stuff_detonate}
 	}
