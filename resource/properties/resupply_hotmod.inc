@@ -403,6 +403,8 @@
 	{item "bullet105_m1"		"sm"		"ammo" 1 {value 5}}
 
 	{item "bullet155_m1"		"he"		"ammo" 1 {value 10}}
+	{item "bullet155_m1"		"sm"		"ammo" 1 {value 10}}
+	{item "bullet155_m1"		"wp"		"ammo" 1 {value 10}}
 
 	{item "bullet203_m1"		"he"		"ammo" 1 {value 20}}
 
