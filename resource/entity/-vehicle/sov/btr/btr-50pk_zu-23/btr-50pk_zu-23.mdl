@@ -3,7 +3,7 @@
 ;Date: Wed Nov 16 06:01:19 2022
 ;File: D:\Cold War\ModelWIP\USSR\BTR 50\BTR-50PK.max
 ;Model create/rebuild by: phantom
-;Last build date: Monday 23 February 2025 [21:56:03]
+;Last build date: Wednesday 18 March 2025 [23:27:05]
 {Skeleton
     {Animation
         {Sequence "start" {Speed 0.2}}
@@ -15,7 +15,6 @@
         {Sequence "fire00" {Speed 0.5}}
         {Sequence "fire01" {Speed 0.5}}
         {Sequence "recoil" {Speed 1.5}}
-        {Sequence "close" {Speed 0.2}}
         {Sequence "reload" {Speed 0.2}}
     }
     {Bone "basis"
@@ -702,7 +701,7 @@
                 0	1	0
                 -1	0	0
                 0	0	1
-                -43.39951	-52.8549	0
+                -43.3995	-52.8549	0
             }
         }
         {Bone "emit1"
@@ -718,7 +717,7 @@
                 0	-1	0
                 1	0	0
                 0	0	1
-                -44.46661	55.6214	0
+                -44.4666	55.6214	0
             }
         }
     }
@@ -808,6 +807,11 @@
         -50.7318	0	-4.41645
     }
 }
+{Volume "body_zu-23"
+    {Polyhedron "body_zu-23.vol"}
+    {Bone "body_zu-23"}
+    {Position -0.00141859	0.0410984	4.95165}
+}
 {Volume "gun1"
     {Cylinder 0.918394 52.8705}
     {Bone "gun2"}
@@ -849,12 +853,27 @@
     {Position 0.0742936	-0.112682	-0.0337639}
 }
 {Volume "turret"
-	{Polyhedron "turret.vol"}
-	{Bone "turret"}
-	{Position 1.87816	0.151471	8.24187}
+    {Polyhedron "turret.vol"}
+    {Bone "turret"}
+    {Position 1.87816	0.151471	8.24187}
 }
-{Volume "turret2"
-	{Polyhedron "turret2.vol"}
-	{Bone "body_zu-23"}
-	{Position -0.00141859	0.0410984	4.95165}
+{Volume "wheelleft"
+    {Polyhedron "wheelleft.vol"}
+    {Bone "wheelleft"}
+    {Matrix34
+        1	0	0
+        0	-1	0
+        0	0	-1
+        -0.0915279	0.0570021	1.87063
+    }
+}
+{Volume "wheelright"
+    {Polyhedron "wheelright.vol"}
+    {Bone "wheelright"}
+    {Matrix34
+        1	0	0
+        0	-1	0
+        0	0	-1
+        -0.0485764	0.0247183	1.74426
+    }
 }
