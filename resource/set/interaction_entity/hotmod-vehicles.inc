@@ -297,52 +297,6 @@
 }
 ;/*==========MGAA hatch script============*/
 ;/*=========== side fire script===========*/
-{"side_fire"
-
-	{on spawn
-		{volumes "gun_recoil" disable blast}
-		{tags add "ordos_fire_debug001"}
-	}
-
-
-	{on fire "gun"
-		{tags add "ordos_fire_debug002"}
-		{volumes "gun_recoil" enable blast}
-		{spawn "turret_dir_detector" "gun_recoil" {stuff_detonate}}
-		{delay 0.5
-			{tags add "ordos_fire_debug003"}
-			{volumes "gun_recoil" disable blast}
-		}
-	}
-
-	{on fire "gun2"
-		{tags add "ordos_fire_debug002"}
-		{volumes "gun_recoil" enable blast}
-		{spawn "turret_dir_detector" "gun_recoil" {stuff_detonate}}
-		{delay 0.5
-			{tags add "ordos_fire_debug003"}
-			{volumes "gun_recoil" disable blast}
-		}
-	}
-
-	{on blast_hit
-			{if stuff "turret_dir_detector"
-
-				{if volume "recoil_gun_front"  {ani_play "fire_front"} {ani_play "fire_front_common"}{tags add "ordos_fire_front"}
-
-				else volume "recoil_gun_left"  {ani_play "fire_left"} {ani_play "fire_left_common"} {tags add "ordos_fire_left"}
-
-				else volume "recoil_gun_right"  {ani_play "fire_right"} {ani_play "fire_right_common"} {tags add "ordos_fire_right"}
-
-				else volume "recoil_gun_back"  {ani_play "fire_back"} {ani_play "fire_back_common"}{tags add "ordos_fire_back"}
-
-				else volume "recoil_gun_central"
-
-				}
-			}
-	}
-
-}
 ;/*=========== shell eject script for T-72 series ===========*/
 {"tank shell_eject1"
 	{on fire "gun"
