@@ -432,6 +432,17 @@
 	}
 }
 
+{"flare_artillery_chem"			;// Flare that spawns shells that fall to ground. Off-map artillery
+	{on spawn
+		{add_view "smoke_flare_red" "smoke" "root"}
+		{view start "smoke"}
+		{impulse up 35 forward 3 rnd_dir 3 com}
+		{delay 20 {spawn "artillery_barrage_chem"}}
+		{delay 29 {view stop "smoke"}}
+		{delay 29 {delete}}
+	}
+}
+
 {"flare_artillery_rocket"			;// Flare that spawns shells that fall to ground. Off-map artillery
 	{on spawn
 		{add_view "smoke_flare_red" "smoke" "root"}
