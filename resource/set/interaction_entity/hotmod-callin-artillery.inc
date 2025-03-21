@@ -44,6 +44,10 @@
 	("offmap" args "artillery_single_smoke")
 }
 
+{"offmap_dummy chem"
+	("offmap" args "artillery_single_chem")
+}
+
 {"artillery_shell"			;// Settings for all shells that fall to ground
 	{on spawn
 		{add_view "pfaust_tail" "trace" "tail"}
@@ -320,6 +324,36 @@
 			(define "rnd_art_bomb"
 				{delay %delay 0.5
 					{spawn "artillery_single_smoke_dummy" random_position 700}
+				}
+			)
+			("rnd_art_bomb" delay(0.5))
+			("rnd_art_bomb" delay(1))
+			("rnd_art_bomb" delay(1.5))
+			("rnd_art_bomb" delay(2))
+			("rnd_art_bomb" delay(6.5))
+			("rnd_art_bomb" delay(7))
+			("rnd_art_bomb" delay(7.5))
+			("rnd_art_bomb" delay(8))
+			("rnd_art_bomb" delay(12.5))
+			("rnd_art_bomb" delay(13))
+			("rnd_art_bomb" delay(13.5))
+			("rnd_art_bomb" delay(14))
+			("rnd_art_bomb" delay(18.5))
+			("rnd_art_bomb" delay(19))
+			("rnd_art_bomb" delay(19.5))
+			("rnd_art_bomb" delay(20))
+			{hide 21}
+		}
+	}
+}
+
+{"artillery_barrage_chem"
+	{on spawn
+		{if not tagged "fired"
+			{tags add "fired"}
+			(define "rnd_art_bomb"
+				{delay %delay 0.5
+					{spawn "artillery_single_chem_dummy" random_position 700}
 				}
 			)
 			("rnd_art_bomb" delay(0.5))
