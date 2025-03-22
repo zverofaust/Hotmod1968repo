@@ -89,3 +89,11 @@
 		}
 	}
 }
+
+{"chemical_zone_400"
+	{on spawn
+		{delay 3
+			{delete}
+		}
+	}
+}
