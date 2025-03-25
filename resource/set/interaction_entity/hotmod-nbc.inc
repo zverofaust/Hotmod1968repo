@@ -58,7 +58,7 @@
 			{view start "escape"}
 			{play_sound "gas_hiss" 1}
 			{spawn "smoke_volume_cylinder" {delay 180 {hide 1}}}
-			{call "spawn_zone"}
+			;{call "spawn_zone"}
 		}		
 		{delay 4
 			{view start "cloud1"}
@@ -90,9 +90,17 @@
 	}
 }
 
+{"artillery_barrage_chem"
+	{on spawn
+		{delay 5
+			{spawn "chemical_zone_400"}
+		}
+	}
+}
+
 {"chemical_zone_400"
 	{on spawn
-		{delay 3
+		{delay 120
 			{delete}
 		}
 	}

@@ -1,4 +1,13 @@
 ;/*=========== Hotmod Specifics Begin  ===========*/
+
+;/*==========NBC script========*/
+
+{"vehicle nbc"
+	{on spawn	
+		{tags add "nbc_protection"}
+	}
+}
+
 {"vehicle"
 	{on spawn
 		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
@@ -15,7 +24,17 @@
 				{delay 5
 					{able "burning" 0}
 				}
+			else tagged "nbc_protection"
+				{tags add "i_am_protected"}
+				{crew_enable group "passenger" 0}
+				{if not tagged "emergency_disembark"
+					{call "emergency_disembark"}
+				}
+				{delay 5
+					{tags remove "i_am_protected"}
+				}
 			}
+			
 		}
 		{if effector "radiationzone"
 			{if not tagged "nbc_protection"
@@ -36,7 +55,114 @@
 			}
 		}
 	}
+	
+	
+	{on "emergency_disembark"
+		{tags add "emergency_disembark"}
+		{delay 0.5
+			{with_linked_entity "seat01"
+				{unlink}
+			}
+			{delay 0.5
+				{with_linked_entity "seat02"
+					{unlink}
+				}
+				{delay 0.5
+					{with_linked_entity "seat03"
+						{unlink}
+					}
+					{delay 0.5
+						{with_linked_entity "seat04"
+							{unlink}
+						}
+						{delay 0.5
+							{with_linked_entity "seat05"
+								{unlink}
+							}
+							{delay 0.5
+								{with_linked_entity "seat06"
+									{unlink}
+								}
+								{delay 0.5
+									{with_linked_entity "seat07"
+										{unlink}
+									}
+									{delay 0.5
+										{with_linked_entity "seat08"
+											{unlink}
+										}
+										{delay 0.5
+											{with_linked_entity "seat09"
+												{unlink}
+											}
+											{delay 0.5
+												{with_linked_entity "seat10"
+													{unlink}
+												}
+												{delay 0.5
+													{with_linked_entity "seat11"
+														{unlink}
+													}
+													{delay 0.5
+														{with_linked_entity "seat12"
+															{unlink}
+														}
+														{delay 0.5
+															{with_linked_entity "seat13"
+																{unlink}
+															}
+															{delay 0.5
+																{with_linked_entity "seat14"
+																	{unlink}
+																}
+																{delay 0.5
+																	{with_linked_entity "seat15"
+																		{unlink}
+																	}
+																	{delay 0.5
+																		{with_linked_entity "seat16"
+																			{unlink}
+																		}
+																		{delay 0.5
+																			{with_linked_entity "seat17"
+																				{unlink}
+																			}
+																			{delay 0.5
+																				{with_linked_entity "seat18"
+																					{unlink}
+																				}
+																				{delay 0.5
+																					{with_linked_entity "seat19"
+																						{unlink}
+																					}
+																					{delay 0.5
+																						{with_linked_entity "seat20"
+																							{unlink}
+																						}
+																						{tags remove "emergency_disembark"}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}										
+			}
+		}
+	}
 }
+
 
 ;/*==========anti fire script========*/
 
