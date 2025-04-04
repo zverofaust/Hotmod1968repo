@@ -28,7 +28,7 @@ Purchases["conquest.csa"] = {
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_natguard_con(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_natguard_mg_con(csa)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "AT",}, unit = "squad_natguard_at_con(csa)"},
-				
+				{priority = 1.0, type = {"Armored", "MG", "Infantry", "Squad",}, unit = "squad_natguard_moto_con(csa)"},
 				
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_con(csa)"},
 				{priority = 0.5, type = {"Infantry", "Squad", "AT",}, unit = "squad_weapon_con(csa)"},
