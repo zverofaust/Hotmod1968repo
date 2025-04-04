@@ -114,6 +114,10 @@
 	{item "m67"						"ammo" 1  {value 10}}
 	{item "m20_superzook"			"ammo" 1  {value 10}}
 
+	{item "recoilless" "he"			"ammo" 1  {value 10}}
+	{item "recoilless" "heat"		"ammo" 1  {value 10}}
+	{item "recoilless" "wp"			"ammo" 1  {value 10}}
+
 ;// Light weaponry -- For all man-portable (emplacement) heavy weapons
 	{item "mortarusa_81" 	"he"	"ammo" 1  {value 5}}
 	{item "mortarusa_81" 	"sm"	"ammo" 1  {value 5}}
