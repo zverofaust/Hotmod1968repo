@@ -56,12 +56,13 @@ Purchases["era1960.prc"] = {
 				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Heavy", "Support", "Tier3",}, unit = "doctrine_vehicle_isu152(prc)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Cannon", "Artillery", "Tier3",}, unit = "doctrine_vehicle_bm13(prc)"},
 				
-				-- Doctrine = "Catalogue A/Northern Army"
+				-- Doctrine = "Catalogue B/Southern Army"
 				
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "AT", "Tier1",}, unit = "doctrine_platoon_antitank(prc)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "AT", "MG", "Team", "Tier1",}, unit = "doctrine_squad_special_scout(prc)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "AT", "Tier2",}, unit = "doctrine_squad_rifle_southern(prc)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Infantry", "Tier2",}, unit = "doctrine_squad_guard_southern(prc)"},
+				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Medium", "Tier1",}, unit = "doctrine_vehicle_type58(prc)"},
 				{priority = 1.0, type = {"Class3", "Doctrine", "Tank", "Light", "Tier1",}, unit = "doctrine_vehicle_type62lt(prc)"},
 				
 				-- Doctrine = "Artillery"
