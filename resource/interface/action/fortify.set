@@ -289,3 +289,25 @@
 ("deployable_weapon"		name(deploy_m20_prc)		entity(m20_prc)				time(4)		rotation(-90.0)	spacing(0)  item(gunbag_prc_m20))
 ("deployable_weapon"		name(deploy_b10_prc)		entity(b-10_prc)			time(4)		rotation(-90.0)	spacing(0)  item(gunbag_prc_b10))
 ("deployable_ammo"			name(deploy_ammobag_prc)	entity(ammobag_prc_deployed)		time(1)		rotation(-90.0)	spacing(0)  item(ammobag_prc))
+
+; Automatic medic 
+
+(define "automedic"
+	{Action "%name"
+		{Cursor "medkit"}
+		{Button}
+		{fx "flashred"}
+		{Entity "medic_zone_vis"}
+		{AbleRotate}
+		{ScaleFromSize 10} ; <- must match medic tent extender radius to fit visuals
+		{HideLdragArrow}
+		{TerrainRestrictions %restrictions}
+		{Key "actions/%name"}
+		{Instructions
+			{install "%entity"}
+		}
+	}
+)
+
+("automedic"		name(auto_medic_place_flag) entity(medic_zone) restrictions("water") )
+

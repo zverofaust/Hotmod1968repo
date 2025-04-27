@@ -3,9 +3,9 @@
 	(define "velocity"				;// muzzle velocity in meters per second
 		{speed (* 0.70 %mps)}
 	)
-	(define "fire rate"				;// rate of fire in rounds per minute 
+	(define "fire rate"				;// rate of fire in rounds per minute
 		{recoveryTime (/ 60 (* %rpm 1.09))}
-		(mod "mp" {recoveryTime (/ 60 (* %rpm 1.14))})	
+		(mod "mp" {recoveryTime (/ 60 (* %rpm 1.14))})
 	)
 	(define "reload time"			;// reload time for magazine or shell
 		{rechargeTime %seconds}
@@ -42,6 +42,9 @@
 	)
 	(define "accuracy_rifle_auto_sniper"
 		("sniper_range" r0(0.4) r1(0.5) r2(1.0) r3(1.50) globalaccuracy(1.00))
+	)
+	(define "accuracy_battle_rifle"
+		("rifle_range"	r0(0.3) r1(0.6) r2(1.2) r3(1.80) globalaccuracy(1.00))
 	)
 	(define "accuracy_assault_rifle"
 		("rifle_range"	r0(0.2) r1(0.6) r2(1.25) r3(2.00) globalaccuracy(1.00))
@@ -171,7 +174,7 @@
 			{90		99.0000		0.00000	}
 		}
 	)
-	
+
 	(define "at_rifle_slope_multiplier"	;use for AP and for any other Projectiles not specifically defined below
 		{overmatchCalibre
 			{0		0.1			0.0637	}

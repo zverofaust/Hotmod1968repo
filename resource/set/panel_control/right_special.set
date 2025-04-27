@@ -6,9 +6,9 @@
 
 ; first row-------------------------
 
-	{gc_cp_state_reload
+	{gc_cp_state_auto_medic
 		{position 0 0}
-		{condition "human"}
+		{condition "medic"}
 	}
 	;{gc_cp_state_hatch
 	;	{position 0 0}
@@ -22,7 +22,10 @@
 	{examine
 		{position 1 0}
 	}
-	
+	{auto_medic_place_flag
+		{position 1 0}
+		{condition "medic"}
+	}
 	{injection
 		{position 2 0}
 		{condition "human"}
@@ -66,6 +69,8 @@
 		{position 2 1}
 		{condition "human"}
 	}
+	
+
 	
 	{weapon_undeploy
 		{position 2 2}
@@ -113,7 +118,11 @@
 	}
 	
 	; // empty {position 2 2} 
-
+	{gc_cp_state_reload
+		{position 2 2}
+		{condition "human"}
+	}
+	
 	{gc_cp_browse_emplacement
 		{position 2 2}
 		{condition "vehicle cev disabled"}
