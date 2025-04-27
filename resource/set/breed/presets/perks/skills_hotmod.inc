@@ -10,6 +10,8 @@
 	{barricade
 		{"fortifications" "foxhole"}
 		{"fortifications" "medic_rally"}
+		{"fortifications" "auto_medic_place_flag"}
+
 	}
 	{"resources" "10%"}
 )
