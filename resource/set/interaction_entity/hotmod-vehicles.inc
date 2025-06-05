@@ -1734,7 +1734,7 @@
 	}
 }
 
-{"is2m tank"
+{"is2-m tank"
 	("is_sound")
 	{on "add_weapon_sound" overload
 		("Cannon_105to130mm")
