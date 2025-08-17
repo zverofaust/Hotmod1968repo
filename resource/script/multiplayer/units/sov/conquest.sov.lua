@@ -30,6 +30,10 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_spz_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_spz_bmd1_con(sov)"},
 				{priority = 1.0, type = {"Vehicle", "MG", "Infantry", "Squad",}, unit = "squad_spz_scout_moto_con(sov)"},
+
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_vmf_con(sov)"},
+				{priority = 1.0, type = {"Armored", "Infantry", "Squad",}, unit = "squad_vmf_moto_con(sov)"},
+				{priority = 1.0, type = {"Armored", "Infantry", "Squad",}, unit = "squad_vmf_moto2_con(sov)"},
 				
 				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_atgren_1950_con(sov)"},
 				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_atgren_con(sov)"},
@@ -115,10 +119,13 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Tank", "Light", "AT",}, unit = "su-122-54"},
 				{priority = 1.0, type = {"Tank", "Light", "AT",}, unit = "it-1"},
 			--SPAAG
+				{priority = 0.5, type = {"Armored", "AA",}, unit = "btr-50pk_zu-23"},
 				{priority = 0.5, type = {"Tank", "Light", "AA",}, unit = "zsu-23-4b"},	
 				{priority = 1.0, type = {"Tank", "Medium", "AA",}, unit = "zsu-57-2"},
 			--SPG
 				--{priority = 1.0, type = {"Tank", "Light", "Artillery",}, unit = "2s3"},
+				{priority = 0.5, type = {"Armored", "Artillery", "AT",}, unit = "btr-50_d44"},
+			       
 			--Air Assets
 				{priority = 1.0, type = {"Helicopter", "Sortie",}, unit = "mil_mi4_unarmed_airborne"},
 				{priority = 1.0, type = {"Helicopter", "Sortie",}, unit = "mil_mi4_airborne"},
