@@ -131,10 +131,11 @@
 	{freq 0.5}
 }
 
-{talk "alert_mgun"			;// (condition) - unit sees vehicle with "mg_stan" prop
-	("human_phrases" args alert_mgun)
-	{freq 0.5}
-}
+;{talk "alert_mgun"			;// (condition) - unit sees vehicle with "mg_stan" prop
+;	("human_phrases" args alert_at_gun)
+;	;("human_phrases" args alert_mgun)
+;	{freq 0.5}
+;}
 
 {talk "idle"				;// (condition) - called when not in combat and does not detect any enemies
 	("human_phrases" args idle)
@@ -164,6 +165,11 @@
 {talk "injuring"			;// (interaction script) - called when unit receives damage to health
 	("human_phrases" args scream_of_pain)
 	{freq 0.8}
+}
+
+{talk "bleeding_out"		;// (interaction script) - called when unit is in personage (revive-able state)
+	("human_phrases" args cries_for_medic)
+	{freq 0.5}
 }
 
 ;/*================ Triggered by Interaction Scripts or Conditions End ================*/

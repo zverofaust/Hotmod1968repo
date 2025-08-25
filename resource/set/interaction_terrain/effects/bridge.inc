@@ -92,6 +92,11 @@
 			{spawn "ex_bomb_100kg_rock"}
 			{spawn "grenade_at_shellhole" texmod "ground"}
 
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
+			{spawn "shockwave_sphere"}
+			{spawn "ex_bomb_100kg_rock"}
+			{spawn "grenade_at_shellhole" texmod "ground"}
+
 		else stuff "mortar big"								; 120mm Mortar shells
 			{spawn "ex_he_size3_rock"}
 			{spawn "grenade_shellhole" texmod "ground"}
@@ -398,6 +403,10 @@
 			{spawn "shockwave_sphere"}
 			{spawn "ex_bomb_100kg"}
 
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
+			{spawn "shockwave_sphere"}
+			{spawn "ex_bomb_100kg"}
+
 		else stuff "mortar big"								; 120mm Mortar shells
 			{spawn "ex_mort_big_wood"}
 
@@ -670,6 +679,10 @@
 			{spawn "ex_bomb_50kg"}
 
 		else stuff "mortar big bomb size2"					; 170mm Mortar shells
+			{spawn "shockwave_sphere"}
+			{spawn "ex_bomb_100kg"}
+
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
 			{spawn "shockwave_sphere"}
 			{spawn "ex_bomb_100kg"}
 
@@ -950,6 +963,11 @@
 			{spawn "grenade_at_shellhole" texmod "snow"}
 
 		else stuff "mortar big bomb size2"					; 170mm Mortar shells
+			{spawn "shockwave_sphere"}
+			{spawn "ex_bomb_100kg_snow"}
+			{spawn "grenade_at_shellhole" texmod "snow"}
+
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
 			{spawn "shockwave_sphere"}
 			{spawn "ex_bomb_100kg_snow"}
 			{spawn "grenade_at_shellhole" texmod "snow"}

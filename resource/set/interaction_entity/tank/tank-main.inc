@@ -1,4 +1,5 @@
 {"tank"
+	(include "\set\interaction_terrain\effects\effects-defines.inc")
 	{on spawn
 		{set "smoke1" 0}				;// used in burn_emit call
 		{set "smoke2" 0}				;// used in burn_emit call
@@ -391,6 +392,14 @@
 				("cut_shield_part" args "shield8")
 				("cut_shield_part" args "shield9")
 
+				("cut_shield_part" args "shield10")
+				("cut_shield_part" args "shield11")
+				("cut_shield_part" args "shield12")
+
+				("cut_shield_part" args "shieldt11")
+				("cut_shield_part" args "shieldt12")
+				("cut_shield_part" args "shieldt13")
+
 				("cut_shield_part" args "flapr1")
 				("cut_shield_part" args "flapr2")
 				("cut_shield_part" args "flapr3")
@@ -423,6 +432,16 @@
 				("cut_shield_part" args "detail19")
 				("cut_shield_part" args "detail20")
 
+				("cut_shield_part" args "fenderr")
+				("cut_shield_part" args "fenderl")
+				("cut_shield_part" args "fenderr2")
+				("cut_shield_part" args "fenderl2")
+				("cut_shield_part" args "turret_armor1")
+				("cut_shield_part" args "turret_armor2")
+				("cut_shield_part" args "turret_armor3")
+				("cut_shield_part" args "turret_armor4")
+				("cut_shield_part" args "turret_armor5")
+
 				("shed_shield_part" args "shieldw1")
 				("shed_shield_part" args "shieldw2")
 				("shed_shield_part" args "shieldw3")
@@ -452,7 +471,8 @@
 	{on "hull_destroyed"
 		{if not tagged "hull_destroyed"
 			{tags add "hull_destroyed"}
-			{tags add "no_scavenge"}
+			{tags add "no_scavenge"}		;// tag for conquest so that vehicle cannot be repaired/recovered
+			{mark_for_persistence}			;// Conquest map persistence
 			{if not tagged "body_break"
 				{components "body" break}
 			}
@@ -470,7 +490,7 @@
 			}
 			{delay 20 5
 				{##/* if rand 0.5
-					{call "cookoff"}
+					{call_synced "cookoff"}
 					{view stop "smoke3"}
 					{stop_sound "flame_1"}
 				*/}
@@ -488,6 +508,7 @@
 				{ani_wind "open" end}
 				{ani_wind "open1" end}
 				{tags add "no_scavenge"}		;// tag for conquest so that vehicle cannot be repaired/recovered
+				{mark_for_persistence}			;// Conquest map persistence
 				{if not tagged "body_break"
 					{components "body" break}
 				}
@@ -671,7 +692,9 @@
 					{talk "crew_die"}
 				}
 				{delay 8
-					{crew_enable place "%0" 1}		;// re enables seat after crew death, after delay
+					{if not broken "body"
+						{crew_enable place "%0" 1}		;// re enables seat after crew death, after delay
+					}
 				}
 			}
 		}
@@ -1067,6 +1090,14 @@
 	)
 }
 
+{"tank bunker"					;// for emplacement tanks and turrets without engines
+	{on spawn {set "engine_on" 0}}
+	{on "impulse" overload}
+	{on "engine_toggle" overload}	;// disables engine toggle for cannons
+	{on "engine_on"	overload}		;// disables engine fx and sound for cannons
+	{on "engine_check" overload}	;// disables engine turned on if crewed on spawn
+}
+
 {"tank turret light"			;// light tanks with a turret
 	{on bullet_hit
 		{if component "turret"
@@ -1087,7 +1118,7 @@
 	("turret_torn" args 7 180 45 500 75 turret)
 }
 {"turret heavy"
-	("turret_torn" args 8 200 60 600 100 turret)
+	("turret_torn" args 7 200 60 600 100 turret)
 }
 
 {"tank turret multi_turret"
@@ -1204,7 +1235,7 @@
 		{if tagged "ammo_broken"
 			{blastwave c4 3 r0 2.5 r1 10}
 			{spawn "tank_die_light" "basis"}
-			{start_sound "detonation/explosion_vehicle/bkg/"}
+			("explosion_HE_s4")
 		else
 			{spawn "tank_die_peaceful_light" "basis"}
 			{stop_sound "flame"}
@@ -1361,7 +1392,7 @@
 			{blastwave c4 5 r0 2.5 r1 10 offset 0 0 75}
 			{blastwave c4 2 r0 10 r1 15 offset 0 0 75}
 			{spawn "tank_die_medium" "basis"}
-			{start_sound "detonation/explosion_vehicle/bkg/"}
+			("explosion_HE_s5")
 			{if terrain_fx "snow"
 				{spawn "tank_die_snow" "basis"}
 			else terrain_fx "ice"
@@ -1388,7 +1419,8 @@
 	{on "check_water_level" overload
 		{if water_level 1.6
 			{able "sinking" 1}
-			{tags add "no_scavenge"}
+			{tags add "no_scavenge"}		;// tag for conquest so that vehicle cannot be repaired/recovered
+			{mark_for_persistence}			;// Conquest map persistence
 		else
 			{able "sinking" 0}
 		}
@@ -1482,7 +1514,7 @@
 			{blastwave c4 5 r0 2.5 r1 10 offset 0 0 75}
 			{blastwave c4 2 r0 10 r1 20 offset 0 0 75}
 			{spawn "tank_die_heavy" "basis"}
-			{start_sound "detonation/explosion_vehicle/bkg/"}
+			("explosion_HE_s6")
 			{if terrain_fx "snow"
 				{spawn "tank_die_snow" "basis"}
 			else terrain_fx "ice"
@@ -1509,7 +1541,8 @@
 	{on "check_water_level" overload
 		{if water_level 1.8
 			{able "sinking" 1}
-			{tags add "no_scavenge"}
+			{tags add "no_scavenge"}		;// tag for conquest so that vehicle cannot be repaired/recovered
+			{mark_for_persistence}			;// Conquest map persistence
 		else
 			{able "sinking" 0}
 		}
@@ -1617,6 +1650,50 @@
 }
 
 {"mine_exploder"
+	{on blast overload			;// blast-wave hits specific volume
+		{if not volume "wheel_work"
+			{inherited}
+		else
+			{ani_play "explosion"}
+		}
+	}
+}
+
+{"mine_exploder roller"
+	{on spawn
+		{add_view	"dustrun_small"			"on_ground_slow"			"FXWheel_Work1"}
+		{add_view	"dustrun_small"			"on_ground_slow"			"FXWheel_Work2"}
+		{add_view	"tank_grit_small"		"on_grass_slow"				"FXWheel_Work1"}
+		{add_view	"tank_grit_small"		"on_grass_slow"				"FXWheel_Work2"}
+		{add_view	"dustrun_sand_small"	"on_sand_slow"				"FXWheel_Work1"}
+		{add_view	"dustrun_sand_small"	"on_sand_slow"				"FXWheel_Work2"}
+		{add_view	"dustrun_medium_grass2"	"on_snow_slow"				"FXWheel_Work1"}
+		{add_view	"dustrun_medium_grass2"	"on_snow_slow"				"FXWheel_Work2"}
+		{add_view	"dustrun_small"			"on_country_road_slow"		"FXWheel_Work1"}
+		{add_view	"dustrun_small"			"on_country_road_slow"		"FXWheel_Work2"}
+
+		{add_view	"tank_grit_small"		"on_ground"				"FXWheel_Work1"}
+		{add_view	"tank_grit_small"		"on_ground"				"FXWheel_Work2"}
+		{add_view	"tank_grit_big"			"on_ground_time_short"	"FXWheel_Work1"}
+		{add_view	"tank_grit_big"			"on_ground_time_short"	"FXWheel_Work2"}
+		{add_view	"tank_grit_small"		"on_grass"				"FXWheel_Work1"}
+		{add_view	"tank_grit_small"		"on_grass"				"FXWheel_Work2"}
+		{add_view	"tank_grit_big"			"on_grass_time_short"	"FXWheel_Work1"}
+		{add_view	"tank_grit_big"			"on_grass_time_short"	"FXWheel_Work2"}
+		{add_view	"drops_water"			"on_water"				"FXWheel_Work1"}
+		{add_view	"drops_water"			"on_water"				"FXWheel_Work2"}
+		{add_view	"tank_grit_big_mud"		"on_mud"				"FXWheel_Work1"}
+		{add_view	"tank_grit_big_mud"		"on_mud"				"FXWheel_Work2"}
+		{add_view	"tank_grit_big_snow"	"on_snow"				"FXWheel_Work1"}
+		{add_view	"tank_grit_big_snow"	"on_snow"				"FXWheel_Work2"}
+		{add_view	"drops_water_moto"		"on_puddle"				"FXWheel_Work1"}
+		{add_view	"drops_water_moto"		"on_puddle"				"FXWheel_Work2"}
+		{add_view	"tank_grit_small_w"		"on_puddle"				"FXWheel_Work1"}
+		{add_view	"tank_grit_small_w"		"on_puddle"				"FXWheel_Work2"}
+	}
+}
+
+{"mine_exploder flail"
 	{on spawn
 		{bone hide "wheel_work"}
 		{add_view "dustrun_sand_big"	"wheel_work_dust"	"FXWheel_Work1"}
@@ -1638,13 +1715,6 @@
 		{view pause "wheel_work_dust"}
 		{volumes "wheel_work" disable all}
 		{volumes "wheel" enable all}
-	}
-	{on blast overload			;// blast-wave hits specific volume
-		{if not volume "wheel_work"
-			{inherited}
-		else
-			{ani_play "explosion"}
-		}
 	}
 }
 
@@ -1786,6 +1856,13 @@
 	}
 	{on "explosion"
 		{delay 0.1 {delete}}
+	}
+	{on break						;// {on break} is for when components break
+		{if not tagged "exploded"
+			{if component "body"
+				{call "ammo_break"}
+			}
+		}
 	}
 }
 ;/*=========== General Props End ===========*/

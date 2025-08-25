@@ -62,7 +62,7 @@
 		else stuff "grenade size1"							; Anti-Personnel Grenades Size 1
 			{spawn "ex_grenade_size1_mud"}
 			{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
-			
+
 		else stuff "grenade size2"							; Anti-Personnel Grenades Size 2
 			{spawn "ex_grenade_size2_mud"}
 			{spawn "grenade_shellhole" scale 0.8 terrain_texmod}
@@ -88,6 +88,11 @@
 			{spawn "crater_small" terrain_texmod}
 
 		else stuff "mortar big bomb size2"					; 170 Mortar shell
+			{spawn "shockwave_sphere"}
+			{spawn "ex_bomb_100kg"}
+			{spawn "crater_medium" terrain_texmod}
+
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
 			{spawn "shockwave_sphere"}
 			{spawn "ex_bomb_100kg"}
 			{spawn "crater_medium" terrain_texmod}

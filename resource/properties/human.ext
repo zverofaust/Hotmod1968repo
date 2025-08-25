@@ -27,16 +27,16 @@
 		}
 	}
 	{Damage
-		{"head"		1.75}
-		{"face"		1.75}
+		{"head"		1.3}
+		{"face"		1.3}
 		{"body"		1.0}
-		{"arm1r"	0.8}
-		{"arm2r"	0.6}
-		{"arm1l"	0.8}
-		{"arm2l"	0.6}
-		{"foot1r"	0.9}
+		{"hand1r"	0.85}
+		{"hand2r"	0.7}
+		{"hand1l"	0.85}
+		{"hand2l"	0.7}
+		{"foot1r"	0.85}
 		{"foot2r"	0.7}
-		{"foot1l"	0.9}
+		{"foot1l"	0.85}
 		{"foot2l"	0.7}
 	}
 	{DamageBlast	1.00}
@@ -44,13 +44,13 @@
 		{"head"		1.75}
 		{"face"		1.75}
 		{"body"		1.0}
-		{"arm1r"	0.8}
-		{"arm2r"	0.6}
-		{"arm1l"	0.8}
-		{"arm2l"	0.6}
-		{"foot1r"	0.9}
+		{"hand1r"	0.85}
+		{"hand2r"	0.7}
+		{"hand1l"	0.85}
+		{"hand2l"	0.7}
+		{"foot1r"	0.85}
 		{"foot2r"	0.7}
-		{"foot1l"	0.9}
+		{"foot1l"	0.85}
 		{"foot2l"	0.7}
 	}
 	(mod "hardcore"
@@ -58,10 +58,10 @@
 			{"head"		3.0}
 			{"face"		3.0}
 			{"body"		2.0}
-			{"arm1r"	1.5}
-			{"arm2r"	0.8}
-			{"arm1l"	1.5}
-			{"arm2l"	0.8}
+			{"hand1r"	1.5}
+			{"hand2r"	0.8}
+			{"hand1l"	1.5}
+			{"hand2l"	0.8}
 			{"foot1r"	1.5}
 			{"foot2r"	0.8}
 			{"foot1l"	1.5}
@@ -72,10 +72,10 @@
 			{"head"		3.0}
 			{"face"		3.0}
 			{"body"		2.0}
-			{"arm1r"	1.5}
-			{"arm2r"	1.1}
-			{"arm1l"	1.5}
-			{"arm2l"	1.1}
+			{"hand1r"	1.5}
+			{"hand2r"	1.1}
+			{"hand1l"	1.5}
+			{"hand2l"	1.1}
 			{"foot1r"	1.5}
 			{"foot2r"	1.2}
 			{"foot1l"	1.5}
@@ -153,7 +153,7 @@
 	;// animation speed = movement speed / A * animation scale 
 	;// speed S (km/h) animation A (km/h) rotation R (degree/s)
 
-	{Crawl		;// S	A	R
+	{Crawl		;// S	A	R  // Slowing A down will speed up the animation
 		{Slow		3.5	6	180 }
 		{Normal		4.5	7	180 }
 		{Fast		6	9	180 }
@@ -164,13 +164,14 @@
 		{Fast		5	5	180 }
 	}
 	{Run
-		{Sneak		5	2	360 }	; x 0.85
-		{Spot		6	2	420 }	; x 0.5		// Manual TPC Zoom
-		{Walk		4	1.8 600 }	; x 0.48
-		{Slow		8	8	360 }	; x 1
-		{Normal		13	7	600 }	; x 0.55
-		{Fast		18	6.5 600 }	; x 0.33
-		{Bow		16	6.5	600 }	; x 0.55
+		{Sneak		5	2	360 }	;// mission script movement mode	
+		{Spot		6	2	420 }	;// Manual TPC Zoom
+		{Walk		4	1.8 600 }	;// single flick, walk mode
+		{Slow		8	3.2	360 }	;// double flick, walk mode	
+		{Normal		13	6.2	600 }	;// single flick, running mode	
+		{Fast		18	5.8 600 }	;// double click, running mode
+		{Bow		16	5.0	600 }	;// mission script movement mode
+		;// When soldiers run out of stamina, they will keep the animation, just play it slower.
 	}
 	{Strafe
 		;//			m  m+v  km/h  speed	animation up 					animation down					; m+v = mask + value for strafe counter
@@ -181,7 +182,7 @@
 		{Right		8  0 0	13.0  1.1	"run_spot_left-strafe_gun_up" "run_spot_left-strafe_gun_down"}
 		{Back		8  0 0	10.5  1.22	"run_back_spot_gun_up" 		  "run_back_spot_gun_down"}
 	}
-	{Injured 0.8}		;// speed multiplier when health is below 30% of maximum
+	{Injured 0.85}		;// speed multiplier when health is below 30% of maximum
 }
 
 {volume "body"	;//stomach and chest
@@ -189,30 +190,30 @@
 	{tags "fire"}
 }
 {volume "head"	;//top of head/helmet covered area
-	{thickness 1}
+	{thickness 2}
 	{able {nolook 1}}
 	{tags "no_target" "fire"}
 }
 {volume "face"	;// main head volume
-	{thickness 1}
+	{thickness 2}
 	{tags "fire"}
 }
-{volume "arm1r"	;//shoulder to elbow
+{volume "hand1r"	;//shoulder to elbow
 	{thickness 2}
 	{able {nolook 1}}
 	{tags "no_target" "fire"}
 }
-{volume "arm2r"	;//elbow to hand
+{volume "hand2r"	;//elbow to hand
 	{thickness 2}
 	{able {nolook 1}}
 	{tags "no_target" "fire"}
 }
-{volume "arm1l"	;//shoulder to elbow
+{volume "hand1l"	;//shoulder to elbow
 	{thickness 2}
 	{able {nolook 1}}
 	{tags "no_target" "fire"}
 }
-{volume "arm2l"	;//elbow to hand
+{volume "hand2l"	;//elbow to hand
 	{thickness 2}
 	{able {nolook 1}}
 	{tags "no_target" "fire"}
@@ -258,7 +259,7 @@
 	{const "bomb/detect_grenades"	5}		;// detect grenades inside 5 meter radius
 	{const "bomb/danger_zone"		7}		;// hide if danger is more than "x" meters away, otherwise run away
 	{const "fight/distance"			2} 		;// was at 1.5
-	{const "weapon/change_time"		20}		;// disable ai weapon switch for 20 seconds
+	{const "weapon/change_time"		5}		;// disable ai weapon switch for 5 seconds
 
 
 	{Properties

@@ -163,7 +163,7 @@
 
 	{on operatable on
 		{call "repaired_engine_check"} 		;// calls check to restart engine after body repair and crew re-enters vehicle
-		{call "check_water_level"}
+		{delay_ex 1 {call "check_water_level"}} ;// delay required to stop vehicles from drowning in Conquest sometimes if map coordinate 000 is underwater
 	}
 
 	{on operatable off
@@ -180,6 +180,7 @@
 				{view stop "ammo"}
 				{call "stat_break"}
 				{call "emit_crew"}
+				{call "disable_all_seats"}
 				{call "engine stop view"}
 				{call "deactivate_vehicle"}
 			}
@@ -202,6 +203,7 @@
 		{call "repaired_engine_check"}
 		{if component "body"
 			{call "activate_vehicle"}
+			{call "enable_all_seats"}
 		}
 	}
 
@@ -323,7 +325,7 @@
 				}
 			}
 		)
-		
+
 		(define "check_fire_lars"
 			{if not effector "airborne"
 				{if not tagged "cwsh_zpu_off"
@@ -408,7 +410,9 @@
 					{if tagged "hidden" 	;// mission script that hides unit
 						{set "hidden" 1}
 					else
-						{call "engine_idle"}
+						{if not cannon_state "fire" 	;// check for motorized cannons
+							{call "engine_idle"}
+						}
 						{call "play_trace_engine"} 		;// plays dust fx for aero vehicles
 						{call "update_lights"}
 					}
@@ -440,6 +444,8 @@
 				{call "update_lights"}
 				{add_view	"exhaust_dark_big_startup"	"exhaust_start"	"FXsmoke1"}
 				{add_view	"exhaust_dark_big_startup"	"exhaust_start"	"FXsmoke2"}
+				{add_view	"exhaust_dark_big_startup"	"exhaust_start"	"FXsmoke3"}
+				{add_view	"exhaust_dark_big_startup"	"exhaust_start"	"FXsmoke4"}
 				{delay 1.5 "engine_startup"
 					{view start "exhaust_start"}
 					{delay 0.5
@@ -467,9 +473,12 @@
 		{stop_sound "move"}
 		{stop_sound "engine_full"}
 		{stop_sound "engine_start"}
-		{play_sound "engine_stop"}
-		{tags add "engine_turned_off"}		;// tracks engine on/off status for mission save/load
-		{chassis_work 0}
+		{if not broken "engine"
+			{if not broken "body"
+				{play_sound "engine_stop"}
+			}
+		}
+		{call "chassis_off"}
 		{delay 1
 			{view pause "exhaust2"}
 			{ani_stop "engine_work"}
@@ -477,12 +486,19 @@
 		}
 	}
 
+	{on "chassis_off"
+		{tags add "engine_turned_off"}		;// tracks engine on/off status for mission save/load
+		{chassis_work 0}
+	}
+
 	{on "engine_idle"					;// settings for engine while idle
 		{if work "engine"
 			{if work "trackleft"
 				{if work "trackright"
 					{if not tagged "wheel_destroyed"		;// Checks if wheel has been torn off
-						{chassis_work 1}
+						{if not tagged "wheels_broken"		;// Checks if too many wheels are broken
+							{chassis_work 1}
+						}
 					}
 				}
 			}
@@ -540,8 +556,10 @@
 		{if work "mover"
 			{if not tagged "wheel_destroyed"		;// Checks if wheel has been torn off
 				{if not tagged "engine_turned_off"	;// Checks that player didn't turn off engine before repairs are made
-					{chassis_work 1}
-					{ik_enable "basis" 1}	;// allows motorized cannons to rotate when engine or track is broken
+					{if not tagged "wheels_broken"	;// Checks if too many wheels are broken
+						{chassis_work 1}
+						{ik_enable "basis" 1}	;// allows motorized cannons to rotate when engine or track is broken
+					}
 				}
 			}
 		else
@@ -629,7 +647,7 @@
 	}
 
 	{on "break_lamp"
-		{volume disable all}
+		{volumes "lamp" disable all}
 	 	{spawn "glass_break2" volume x}
 	}
 
@@ -647,6 +665,7 @@
 			{damage_report "gun" "component/empty"}
 			{damage_report "mantlet" "component/empty"}
 			{able "exploded" 1}
+			{able minimap 0}
 			{call "_explosion"}
 			{stop_sound "engine_idle"}
 		}
@@ -681,6 +700,7 @@
 			{call "impulse"}
 			{ani_play "death"}
 			{call "cut_parts"}
+			{mark_for_persistence}			;// Conquest map persistence
 		}
 		{delay 0.2
 			{restore_volume_states} ; restore volume ables from .def file
@@ -735,7 +755,7 @@
 						{call "stat_break"}
 						{tags add "no_scavenge"}
 
-
+				{mark_for_persistence}			;// Conquest map persistence
 						{delay 4 2
 							{unlink_trailer}
 							{call "check_burn_emit"}
@@ -835,7 +855,7 @@
 					{tags remove "_abandoned"}
 				}
 
-				{delay 16 1
+				{delay 16
 					{if not operatable
 						{tags add "_abandoned"}
 						{set "broken" 1}
@@ -997,6 +1017,7 @@
 					{call "fire"}
 				}
 			else
+				{play_sound  "action_recoil"}
 				{play_sound "MG_Mid"}
 				{play_sound "MG_Far"}
 				{view start "%1"}
@@ -1248,6 +1269,12 @@
 	{on "construction_sandbag_cannon_standard"
 		("cannon_sandbag" args "sandbag_cannon_standard" "basis")
 	}
+	{on "construction_sandbag_cannon_shallow_ai"			;// used by AI defense mg's in conquest. removes persistence from their sandbags
+		("cannon_sandbag" args "sandbag_cannon_shallow_ai" "basis")
+	}
+	{on "construction_sandbag_cannon_standard_ai"			;// used by AI defense mg's in conquest. removes persistence from their sandbags
+		("cannon_sandbag" args "sandbag_cannon_standard_ai" "basis")
+	}
 
 	;/*=========== Constructor End  ===========*/
 
@@ -1309,7 +1336,15 @@
 			}
 		}
 	}
+	{on "disable_all_seats"
+		{crew_enable group "crew" 0}
+		{crew_enable group "passenger" 0}
+	}
 
+	{on "enable_all_seats"
+		{crew_enable group "crew" 1}
+		{crew_enable group "passenger" 1}
+	}
 	{on animation_end "start"					;// Removes interaction check when animation is over allowing "stop" animation to play
 		{set "animated" 0}
 	}
@@ -1689,7 +1724,8 @@
 	{on "check_water_level"
 		{if water_level 1.2
 			{able "sinking" 1}
-			{tags add "no_scavenge"}
+			{tags add "no_scavenge"}		;// tag for conquest so that vehicle cannot be repaired/recovered
+			{mark_for_persistence}			;// Conquest map persistence
 		else
 			{able "sinking" 0}
 		}
@@ -1709,6 +1745,11 @@
 				{tags add "gun_brake"}
 				{talk "broken_gun"}
 			}
+			{if component "gun1"
+				{call "update_gun"}
+				{tags add "gun1_brake"}
+				{talk "broken_gun"}
+			}
 		}
 	}
 	{on repair
@@ -1716,12 +1757,21 @@
 			{call "update_gun"}
 			{tags remove "gun_brake"}
 		}
+		{if component "gun1"
+			{call "update_gun"}
+			{tags remove "gun1_brake"}
+		}
 	}
 	{on "update_gun"
 		{if work "gun"
 			{weapon_work "gun" 1}
 		else
 			{weapon_work "gun" 0}
+		}
+		{if work "gun1"
+			{weapon_work "gun1" 1}
+		else
+			{weapon_work "gun1" 0}
 		}
 	}
 	{on ik begin "gun_rot"
@@ -1908,13 +1958,19 @@
 		{add_view	"wash_tank_prop_idle"	"on_stead"	"prop"}
 		{add_view	"wash_tank_prop"		"on_move"	"propeller1"}
 		{add_view	"wash_tank_prop_idle"	"on_stead"	"propeller1"}
+		{call "spawn_in_water"}
+	}
+	{on "spawn_in_water"
+		{if tagged "water_chassis"
+			{ani_wind "water" end}
+		}
 	}
 	{on terrain_pp "deep_water" enter
-		{set "in_water" 1}
+		;{set "in_water" 1}
 		{call "update_bulbs"}
 	}
 	{on terrain_pp "water" enter
-		{set "in_water" 1}
+		;{set "in_water" 1}
 		{call "update_bulbs"}
 	}
 	{on terrain_pp "shallow_water" enter
@@ -1922,11 +1978,11 @@
 		{call "update_bulbs"}
 	}
 	{on terrain_pp "shallow_water" leave
-		{set "in_water" 0}
+		;{set "in_water" 0}
 		{call "update_bulbs"}
 	}
 	{on "update_bulbs"
-		{if "in_water"
+		{if chassis "water"
 			{if not velocity 0.001
 				{view start "on_stead"}
 				{view pause "on_move"}
@@ -1940,6 +1996,18 @@
 			{view pause "on_stead"}
 			{view pause "on_move"}
 			{ani_stop "move"}
+		}
+		{call "deep_water_check"}
+	}
+	{on "deep_water_check"
+		{if chassis "water"
+			{if not tagged "water_chassis"
+				{ani_play "water"}
+				{tags add "water_chassis"}
+			}
+		else tagged "water_chassis"
+			{ani_play "water" -1}
+			{tags remove "water_chassis"}
 		}
 	}
 	{on "check_water_level" overload}
@@ -2012,6 +2080,67 @@
 		}
 	)
 }
+{"turn_over"
+	{on "upside_down"				;// when vehicle flips over and crew is forced to emit
+		{tags add "upside_down"}
+		{area disable}
+	}
+	{on operatable on
+		{if tagged "upside_down"
+			{area enable}
+			{tags remove "upside_down"}
+		}
+	}
+	{on contact
+		{if tagged "upside_down"
+			{if not effector "human"
+				{if not effector "stuff"
+					{area enable}
+				}
+			}
+		}
+	}
+}
+{"blast_large"
+	{on "_explosion_fx" overload}
+	{on "explosion_blastwave" overload
+		{blastwave c4 10 r0 7 r1 15 offset 0 0 50}
+		{spawn "tank_die_medium" "basis"}
+		{impulse up 2.5 1.5 dir 2 1}
+	}
+}
+{"blast_medium"
+	{on "_explosion_fx" overload}
+	{on "explosion_blastwave" overload
+		{blastwave c4 10 r0 6 r1 12 offset 0 0 25}
+		{spawn "tank_die_light" "basis"}
+		{impulse up 1.5 0.5 dir 2 1}
+	}
+}
+{"blast_small"
+	{on "_explosion_fx" overload}
+	{on "explosion_blastwave" overload
+		{blastwave c4 10 r0 4 r1 10 offset 0 0 25}
+		{spawn "vehicle_die" "basis"}
+		{impulse up 1.5 0.5 dir 2 1}
+	}
+}
+
+{"support_open_ani"
+	{on spawn
+		{ani_wind "support_open" end}
+	}
+	{on move on
+		{kill_delay "move_off"}
+		{ani_play "support_open" -1.0 resume}
+	}
+	{on move off
+		{delay 1 "move_off"
+			{ani_play "support_open" 1.0 resume}
+		}
+	}
+}
+
 ;/*=========== General Props End ===========*/
 
 {"diesel"	;// alternate fuel type
@@ -2021,19 +2150,27 @@
 	{on "add_exhaustview" overload
 		{add_view	"exhaust_dark_big_diesel"		"exhaust"			   "FXsmoke1"} ;// engine exhaust
 		{add_view	"exhaust_dark_big_diesel"		"exhaust"			   "FXsmoke2"} ;// engine exhaust
+		{add_view	"exhaust_dark_big_diesel"		"exhaust"			   "FXsmoke3"} ;// engine exhaust
+		{add_view	"exhaust_dark_big_diesel"		"exhaust"			   "FXsmoke4"} ;// engine exhaust
 		;{add_view	"exhaust_dark_small2_diesel"	"exhaust2"			   "FXsmoke1"} ;// idle exhaust
 		;{add_view	"exhaust_dark_small2_diesel"	"exhaust2"			   "FXsmoke2"} ;// idle exhaust
+		;{add_view	"exhaust_dark_small2_diesel"	"exhaust2"			   "FXsmoke3"} ;// idle exhaust
+		;{add_view	"exhaust_dark_small2_diesel"	"exhaust2"			   "FXsmoke4"} ;// idle exhaust
+		{add_view	"exhaust_dark_small2"			"exhaust2"			   "FXsmoke1"} ;// idle exhaust
+		{add_view	"exhaust_dark_small2"			"exhaust2"			   "FXsmoke2"} ;// idle exhaust
+		{add_view	"exhaust_dark_small2"			"exhaust2"			   "FXsmoke3"} ;// idle exhaust
+		{add_view	"exhaust_dark_small2"			"exhaust2"			   "FXsmoke4"} ;// idle exhaust
 	}
 }
 
 {"no_scavenge"
 	{on spawn
-		{tags add "no_scavenge"}
+		{tags add "no_scavenge"}		;// tag for conquest so that vehicle cannot be repaired/recovered
 	}
 }
 {"no_recrew_logic"
 	{on spawn
-		{tags add "_no-recrew"} ;// used by AI mission scripts to not allow AI to recrew abandoned motorcycles
+		{tags add "_no-recrew"} ;// used by AI mission scripts to not allow AI to re-crew abandoned motorcycles
 	}
 }
 {"td"}						;// used for minimap icons

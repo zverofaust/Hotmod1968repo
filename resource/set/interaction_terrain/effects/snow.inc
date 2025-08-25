@@ -92,6 +92,11 @@
 			{spawn "ex_bomb_100kg_snow"}
 			{spawn "crater_medium" terrain_texmod}
 
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
+			{spawn "shockwave_sphere"}
+			{spawn "ex_bomb_100kg_snow"}
+			{spawn "crater_medium" terrain_texmod}
+
 		else stuff "mortar big"								; 120mm Mortar shells
 			{spawn "ex_he_size3_snow"}
 			{spawn "crater_small" terrain_texmod}
@@ -122,13 +127,13 @@
 			{spawn "shockwave"}
 			{spawn "ex_heat_snow"}
 			{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
-			{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
+			;{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
 
 		else stuff "rocketlauncher heat_shell size2"		; AT Rockets
 			{spawn "shockwave"}
 			{spawn "ex_heat_size2_snow"}
 			{spawn "grenade_shellhole" terrain_texmod}
-			{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
+			;{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
 
 		else stuff "heat_shell"								; All Other HEAT Shells
 			{spawn "shockwave"}
