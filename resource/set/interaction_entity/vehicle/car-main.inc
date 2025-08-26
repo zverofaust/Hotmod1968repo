@@ -83,11 +83,11 @@
 					{if work "body"
 						{call_synced "body_break"}
 					else rand %pierce_body_destroy
-						{call_synced "hull_destroyed"}
+						{call_synced "car_destroyed"}
 					}
 				else rand %pierce_body_destroy
 					{if not work "body"
-						{call_synced "hull_destroyed"}
+						{call_synced "car_destroyed"}
 					}
 				}
 			else component "engine"
@@ -121,28 +121,28 @@
 					{kill_delay "crew_shock_time"}		;// resets shock time
 					{call "crew_stunned"}
 					{delay 5 1 "crew_shock_time"
-						{call "crew_revive"}
+						{call_synced "crew_revive"}
 					}
 					{delay 4 1 "crew_shock_time"
-						{call "driver_revive"}
+						{call_synced "driver_revive"}
 					}
 				else stuff "auto"
 					{kill_delay "crew_shock_time"}		;// resets shock time
 					{call "crew_stunned"}
 					{delay 5 1 "crew_shock_time"
-						{call "crew_revive"}
+						{call_synced "crew_revive"}
 					}
 					{delay 4 1 "crew_shock_time"
-						{call "driver_revive"}
+						{call_synced "driver_revive"}
 					}
 				else stuff "shell"
 					{kill_delay "crew_shock_time"}		;// resets shock time
 					{call "crew_stunned"}
 					{delay 7 1 "crew_shock_time"
-						{call "crew_revive"}
+						{call_synced "crew_revive"}
 					}
 					{delay 5 1 "crew_shock_time"
-						{call "driver_revive"}
+						{call_synced "driver_revive"}
 					}
 				}
 			}
@@ -246,7 +246,9 @@
 				{if not tagged "engine_brake"
 					{if "engine_on"
 						{if not tagged "wheel_destroyed"
-							{chassis_work 1}
+							{if not tagged "wheels_broken"	;// Checks if too many wheels are broken
+								{chassis_work 1}
+							}
 						}
 					}
 				}
@@ -258,12 +260,6 @@
 
 	{on contact sync
 		{call "contact_vehicle"}
-		{if effector "grenade"	;// Adds special tag to vehicle for check on "at_grenade_blast"
-			{tags add "grenade"}
-			{delay 0.05
-				{tags remove "grenade"}
-			}
-		}
 	}
 
 	{on "contact_vehicle"
@@ -272,11 +268,11 @@
 				;// do nothing
 			else effector "tank"
 				{if effector_velocity 6
-					{call "crush"}
+					{call_synced "crush"}
 				}
 			else effector "railway"
 				{if effector_velocity 6
-					{call "crush"}
+					{call_synced "crush"}
 				}
 			}
 		}
@@ -920,6 +916,11 @@
 				{chassis_work 1}
 				{movement_limit fast}
 			}
+			{if broken "wheel" 4
+				{tags add "wheels_broken"}
+			else
+				{tags remove "wheels_broken"}
+			}
 		}
 	}
 
@@ -1279,7 +1280,8 @@
 		{if tagged "wheel_teared"			;// 2nd ski torn
 			{call "engine_off"}
 			{tags add "wheel_destroyed"}
-			{tags add "no_scavenge"}
+			{tags add "no_scavenge"}		;// tag for conquest so that vehicle cannot be repaired/recovered
+			{mark_for_persistence}			;// Conquest map persistence
 		else
 			{tags add "wheel_teared"}		;// 1st ski torn
 			{movement_limit slow}
@@ -1313,6 +1315,11 @@
 				{chassis_work 1}
 				{movement_limit fast}
 			}
+			{if broken "wheel" 3
+				{tags add "wheels_broken"}
+			else
+				{tags remove "wheels_broken"}
+			}
 		}
 	}
 }
@@ -1324,6 +1331,20 @@
 		{link_sound "bkg_rocket" "weapon/shot/bkg/rocket/"}
 	}
 	{on fire "gun" overload
+		{if terrain_fx "snow"
+			{view start "snow"}
+			{delay 0.3 {view pause "snow"}}
+		else terrain_fx "ice"
+			{view start "snow"}
+			{delay 0.3 {view pause "snow"}}
+		else terrain_fx "shallow_water"
+			;nothing
+		else
+			{view start "dust"}
+			{delay 0.3 {view pause "dust"}}
+		}
+		{play_sound "bkg_rocket"}
+
 		(define "bm13_fire"
 			{if terrain_fx "snow"
 				{view start "snow"}
@@ -1338,8 +1359,8 @@
 				{delay 0.3 {view pause "dust"}}
 			}
 		)
-		{play_sound "bkg_rocket"}
-		{if name "00"
+
+		{##if name "00"
 			("bm13_fire")
 		else name "01"
 			("bm13_fire")
@@ -1370,6 +1391,70 @@
 		else name "14"
 			("bm13_fire")
 		else name "15"
+			("bm13_fire")
+		else name "16"
+			("bm13_fire")
+		else name "17"
+			("bm13_fire")
+		else name "18"
+			("bm13_fire")
+		else name "19"
+			("bm13_fire")
+		else name "20"
+			("bm13_fire")
+		else name "21"
+			("bm13_fire")
+		else name "22"
+			("bm13_fire")
+		else name "23"
+			("bm13_fire")
+		else name "24"
+			("bm13_fire")
+		else name "25"
+			("bm13_fire")
+		else name "26"
+			("bm13_fire")
+		else name "27"
+			("bm13_fire")
+		else name "28"
+			("bm13_fire")
+		else name "29"
+			("bm13_fire")
+		else name "30"
+			("bm13_fire")
+		else name "31"
+			("bm13_fire")
+		else name "32"
+			("bm13_fire")
+		else name "33"
+			("bm13_fire")
+		else name "34"
+			("bm13_fire")
+		else name "35"
+			("bm13_fire")
+		else name "36"
+			("bm13_fire")
+		else name "37"
+			("bm13_fire")
+		else name "38"
+			("bm13_fire")
+		else name "39"
+			("bm13_fire")
+		else name "40"
+			("bm13_fire")
+		else name "41"
+			("bm13_fire")
+		else name "42"
+			("bm13_fire")
+		else name "43"
+			("bm13_fire")
+		else name "44"
+			("bm13_fire")
+		else name "45"
+			("bm13_fire")
+		else name "46"
+			("bm13_fire")
+		else name "47"
 			("bm13_fire")
 		}
 		{ik_enable "turret" 0}
@@ -1413,19 +1498,19 @@
 	{on pierce sync
 		{if component "bodyback"
 			{if not work "bodyback"
-				{if stuff "bullet"
+				{if stuff "ptr"						;// at rifles goes first then bullet
 					{delay 5 5
-						{call "fueltank_fire"}
-					}
-					{burn fx "fire_fueltank_pierce" time 15 fake}
-				else stuff "ptr"
-					{delay 5 5
-						{call "fueltank_fire"}
+						{call_synced "fueltank_fire"}
 					}
 					{burn fx "fire_fueltank_pierce_medium" time 15 fake}
+				else stuff "bullet"
+					{delay 5 5
+						{call_synced "fueltank_fire"}
+					}
+					{burn fx "fire_fueltank_pierce" time 15 fake}
 				else stuff "auto"
 					{delay 5 5
-						{call "fueltank_fire"}
+						{call_synced "fueltank_fire"}
 					}
 					{burn fx "fire_fueltank_pierce_medium" time 15 fake}
 				else stuff "shell"
@@ -1562,6 +1647,9 @@
 }
 {"gaz_aaa_72k"
 	("zis5_sound")
+	{on "add_weapon_sound" overload
+		("Autocannon_s1")
+	}
 	("animation_sound" args "open_left")
 	("animation_sound" args "open_right")
 
@@ -1623,7 +1711,6 @@
 	("zis5_sound")
 	{on "add_weapon_sound" overload
 		("DShK38")
-		{link_sound "action_recoil_HMG"		"weapon/action/recoil/closed_bolt_HMG/"}
 	}
 	("animation_sound" args "open_left")
 	("animation_sound" args "open_right")
@@ -1646,6 +1733,17 @@
 			{view pause "ejectsmoke"}
 		}
 	}
+}
+
+{"zis6_bm8_48 car"
+	("zis5_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+{"zis6_bm13_16 car"
+	("zis5_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
 }
 {"bm13_studebaker car"
 	("studebaker_sound")
@@ -1671,7 +1769,9 @@
 {"kubelwagen_dak car"
 	("kubel_sound")
 }
-
+{"schwimmwagen car"
+	("kubel_sound")
+}
 {"kfz15 car"
 	("kubel_sound")
 }
@@ -1693,6 +1793,9 @@
 }
 
 {"blitz3_6_flak30"
+	{on "add_weapon_sound" overload
+		("Autocannon_s1")
+	}
 	("opel_sound")
 	("animation_sound" args "open_left")
 	("animation_sound" args "open_right")
@@ -1743,6 +1846,12 @@
 	("animation_sound" args "open_right")
 }
 
+{"kfz70"
+	("Kfz70_sound")
+	("animation_sound" args "open_rear")
+	("animation_sound" args "close_rear")
+}
+
 {"opel_maultier"
 	("opel_maultier_sound")
 	("animation_sound" args "open_left")
@@ -1757,6 +1866,9 @@
 
 {"sdkfz10_4"
 	("hanomag_sound")
+	{on "add_weapon_sound" overload
+		("Autocannon_s1")
+	}
 	{on fire "gun"
 		{ani_play "recoil"}
 		{view start "flashbarrel1"}
@@ -1791,6 +1903,9 @@
 
 {"ford_3ton_breda car"
 	("opel_sound")
+	{on "add_weapon_sound" overload
+		("Autocannon_s1")
+	}
 	("animation_sound" args "open_left")
 	("animation_sound" args "open_right")
 	("animation_sound" args "open_rear")
@@ -1840,55 +1955,168 @@
 	("animation_sound" args "open_right")
 }
 
+{"latil_m2tl6 car"
+	("opel_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
+{"volvo_127d car"
+	("opel_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+}
+
+{"volvo_127d_itk40"
+	{on "add_weapon_sound" overload
+		("Autocannon_s1")
+	}
+	("opel_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+	("animation_sound" args "open_rear")
+	("animation_sound" args "close_rear")
+
+	{on fire "gun"
+		{ani_play "recoil"}
+		{view start "flashbarrel1"}
+		{view start "flashbarrel1smoke"}
+		{call "spawn_shell"}
+	}
+
+	{on "cut_parts" overload
+		("cut_part" args "part3" 1)
+		("cut_part" args "part4" 1)
+		{inherited}
+	}
+}
+
 {"universal"
 	("s60_sound")
 }
 
-{"humvee_tow"
+{"cckw"
+	("cckw_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+	("animation_sound" args "open_rear")
+	("animation_sound" args "close_rear")
+}
 
-	{on fire "gun"
-		{tags add "humvee fire!"}
-		{spawn "proj_probe" "foresight" x}
+{"cckw_engineer"
+	("cckw_sound")
+
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+	("animation_sound" args "open_rear")
+	("animation_sound" args "close_rear")
+}
+
+{"cckw_engineer_late"
+	("cckw_sound")
+	{on "add_weapon_sound" overload
+		("M2HB")
 	}
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+	("animation_sound" args "open_rear")
+	("animation_sound" args "close_rear")
 
-	{on "crush" overload
-		{component destroy}
-		{set "crush" 1}
-		;{call "explosion"}
+	{on "commander_hatch_open" overload
+		{ani_wind "cabin_cover" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_wind "cabin_cover" begin}
 	}
 }
 
-{"humvee_m2hb"
+{"cckw_art_ammo"
+	("cckw_sound")
 
+	("animation_sound" args "open_rear")
+	("animation_sound" args "close_rear")
+}
 
-	{on "crush" overload
-		{component destroy}
-		{set "crush" 1}
-		;{call "explosion"}
+{"cckw_redball"
+	("cckw_sound")
+	{on "add_weapon_sound" overload
+		("M2HB")
+	}
+	("animation_sound" args "open_rear")
+	("animation_sound" args "close_rear")
+
+	{on "commander_hatch_open" overload
+		{ani_wind "cabin_cover" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_wind "cabin_cover" begin}
+	}
+	{on spawn
+		("rand_cut_else" args "redball1" "redball2")
 	}
 }
 
-{"humvee_m240"
+{"cckw_fuel"
+	("cckw_sound")
 
+	("animation_sound" args "open_rear")
+	("animation_sound" args "close_rear")
+}
 
-	{on "crush" overload
-		{component destroy}
-		{set "crush" 1}
-		;{call "explosion"}
+{"willys_mb"
+	("willys_mb_sound")
+}
+
+{"willys_mb_30cal"
+	("willys_mb_sound")
+	{on "add_weapon_sound" overload
+		("M1919A4")
 	}
 }
-{"humvee_mk19"
 
-	{on fire "gun"
-		{view start "flashbarrel1"}
-		{view start "flashbarrel1smoke"}
+{"willys_mb_50cal"
+	("willys_mb_sound")
+	{on "add_weapon_sound" overload
+		("M2HB")
 	}
+}
 
-	{on "crush" overload
-		{component destroy}
-		{set "crush" 1}
-		;{call "explosion"}
+{"ford_gpa"
+	("willys_mb_sound")
+	{on "add_weapon_sound" overload
+		("M1919A4")
 	}
+}
+
+{"wc51"
+	("wc51_sound")
+}
+
+{"wc52_50cal"
+	("wc51_sound")
+	{on "add_weapon_sound" overload
+		("M2HB")
+	}
+}
+
+{"citroen_7"
+	("willys_mb_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+
+	{on "cut_parts" overload
+		("cut_part" args "doorleft1" 0.5)
+		("cut_part" args "doorright2" 0.5)
+		{inherited}
+	}
+}
+
+{"renault_agr_civ"
+	("cckw_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+	("animation_sound" args "open_rear")
+	("animation_sound" args "close_rear")
 }
 
 ;/*=========== Car Specifics End  ===========*/

@@ -105,6 +105,7 @@
 ;// rifle
 	{item "m1_garand"				"ammo" 8 {value 1}}
 	{item "springfield"				"ammo" 5 {value 1}}
+	{item "m40rifle"				"ammo" 5 {value 1}}
 	{item "m14"						"ammo" 20 {value 1}}
 	{item "m2_carbine"				"ammo" 15 {value 1}}
 	{item "m16"						"ammo" 20 {value 1}}

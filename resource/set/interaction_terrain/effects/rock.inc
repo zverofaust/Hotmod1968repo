@@ -98,6 +98,11 @@
 			{spawn "ex_bomb_100kg_rock"}
 			{spawn "crater_medium" terrain_texmod}
 
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
+			{spawn "shockwave_sphere"}
+			{spawn "ex_bomb_100kg_rock"}
+			{spawn "crater_medium" terrain_texmod}
+
 		else stuff "mortar big"								; 120mm Mortar shells
 			{spawn "ex_he_size3_rock"}
 			{spawn "crater_small" terrain_texmod}

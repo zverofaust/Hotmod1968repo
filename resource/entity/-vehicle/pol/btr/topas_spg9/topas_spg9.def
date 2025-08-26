@@ -1,0 +1,184 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "apc" "light" "multi_board" "vision_lev04" "muzzle_37mm_47mm" "amphibia" "diesel" "tractor" "tractor_medium" "with_open_zpu"}
+	{Extension "topas_spg9.mdl"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "tank_zenite"}
+	
+	;(include "/properties/resupply_hotmod.inc")
+	;("apc_ammo")
+	
+	;(include "crew.ext")
+	
+	{patherId "amphibia"}
+	
+	{extender "enumerator"
+		{digit_folder "pol"}
+	}
+	
+	{volume "body1"			; Hull Bottom
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+	}
+	{volume "body2"			; Hull Nose
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+	}
+	{volume "body3"			; Hull Superstructure
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+	}
+	{volume "body4"			; Hull Engine deck
+		{thickness 10		 
+			{front 13}	 
+			{rear 7}
+		}
+	}
+	("fuel" args "fuel")
+	("ammo" args "ammo")
+	("transmission" args "transmission")
+	("tracks" repair(30) thickness(15))
+	("gun" repair(30) thickness(30))
+	{volume "engine" {thickness 10}}
+	
+	
+	(include "/properties/hotmod_crew.ext")
+	
+	{placer
+		{place "driver"		{visor "driver"}	{group "crew"}}
+		{place "commander"	{visor "around"}	{group "crew"}}
+		{place "gunner"		{visor "main"}		{group "crew"}}
+		{place "charger"	{visor "around"}	{group "crew"}}
+	}
+	
+	{boarder
+	{anm "right"
+		{forward	{begin	"board_body"} {end "seat_driver_car"} {base "open_driver"}}
+		{reverse	{end	"board_body" -1} {base "open_driver"}}
+	}
+	{anm "left"
+		{forward	{begin	"board_body"} {end "seat_driver_car"} {base "open_commander"}}
+		{reverse	{end	"board_body" -1} {base "open_commander"}}
+	}
+	{anm "passenger_l"
+		{forward	{begin	"board_body"} {end "seat_passenger"} {base "open_left"}}
+		{reverse	{end	"board_body" -1} {base "open_left"}}
+	}
+	{anm "passenger_r"
+		{forward	{begin	"board_body"} {end "seat_passenger"} {base "open_right"}}
+		{reverse	{end	"board_body" -1} {base "open_right"}}
+	}
+	{anm "gunner_r"
+		{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "open_right"}}
+		{reverse	{end	"board_body" -1} {base "open_right"}}
+	}
+	{anm "gunner_l"
+		{forward	{begin	"board_body"} {end "seat_gunner_stand"} {base "open_left"}}
+		{reverse	{end	"board_body" -1} {base "open_left"}}
+	}
+	{anm "gunner"
+			{forward	{begin "board_Is-2"} {end "cannon_small_gunner"} {base "open_left"}}
+			{reverse	{end	"emit_tank_2_hold"} {base "open_left"}}
+		}
+	{anm "charger"
+			{forward	{begin "board_Is-2"} {end "cannon_small_charger"} {base "open_right"}}
+			{reverse	{end	"emit_tank_2_hold"} {base "open_right"}}
+	}
+}
+
+(define "passenger_invis"
+	{placer
+		{place "%place" {group "passenger"}}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{link "%door" "%place" {anm "passenger_l"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "passenger_r"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human"		place(driver)	bone()	door(emit1) door2(emit2)	visor(driver)	off({sensor}))
+("crew_human"		place(commander)	bone()	door(emit1) door2(emit2)	visor(driver)	off({sensor}))
+("crew_human_visible_anm"	place(gunner) 		door(emit5) door2(emit5) visor(main)   	anm_left(gunner)   		anm_right(gunner))			
+("crew_human_visible_anm"	place(charger) 	 	door(emit6) door2(emit6) visor(around)		anm_left(charger)  		anm_right(charger))	
+
+("passenger_invis"		place(passenger1)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger2)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger3)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger4)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger5)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger6)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger7)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger8)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger9)	door(emit3) door2(emit4)			)
+("passenger_invis"		place(passenger10)	door(emit3) door2(emit4)			)
+	
+	{extender "inventory"
+		{box
+			{item "satchel_charge_rus" 1}
+			{item "bullet73_2a28 heat" 35}
+		}
+	}
+		{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon	"73mm_spg9" filling "ammo bullet73_2a28 heat" 1}
+			{gunner			"gunner"}
+			{charger		"charger"}
+			{foresight		"foresight1"}
+			{Rotate}
+			{basic}
+			("hm68_abm_atgm")
+		}
+	}
+	
+	{mass 14500}	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(50) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(32) ;-------Track traverse, per second, in degrees.
+			weight(14.5) ;-------Weight in Tonnes.
+			power(240) ;---------Engine Power, in hp.
+			track(3.2) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(400) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(400) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline 1.4}
+		{switch
+			{terrain "water" "deep_water"}
+		}
+	}
+	
+
+    	{bone "turret"
+		{limits -15 15}
+		{speed2 20}
+	}
+        {bone "gun"
+		{limits -5 15}
+		{speed2 20}
+	}
+}
+
+

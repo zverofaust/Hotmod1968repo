@@ -112,7 +112,7 @@
 				{spawn "ex_grenade_size1"}
 				{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
 			}
-			
+
 		else stuff "grenade size2"							; Anti-Personnel Grenades Size 2
 			{if rain
 				{spawn "ex_grenade_size2_mud"}
@@ -124,7 +124,7 @@
 				{spawn "ex_grenade_size2"}
 				{spawn "grenade_shellhole" scale 0.8 terrain_texmod}
 			}
-			
+
 		else stuff "grenade size3"							; Anti-Tank Grenades
 			{if rain
 				{spawn "ex_grenade_size3_mud"}
@@ -136,7 +136,7 @@
 				{spawn "ex_grenade_size3"}
 				{spawn "grenade_shellhole" terrain_texmod}
 			}
-			
+
 		else stuff "grenade size4"							; Dynamite/Satchel Charges
 			{spawn "shockwave_sphere"}
 			{if rain
@@ -162,6 +162,11 @@
 			{spawn "crater_small" terrain_texmod}
 
 		else stuff "mortar big bomb size2"					; 170 Mortar shell
+			{spawn "shockwave_sphere"}
+			{spawn "ex_bomb_100kg"}
+			{spawn "crater_medium" terrain_texmod}
+
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
 			{spawn "shockwave_sphere"}
 			{spawn "ex_bomb_100kg"}
 			{spawn "crater_medium" terrain_texmod}

@@ -92,6 +92,11 @@
 			{spawn "ex_bomb_100kg_snow"}
 			{spawn "grenade_at_shellhole" texmod "snow"}
 
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
+			{spawn "shockwave_sphere"}
+			{spawn "ex_bomb_100kg_snow"}
+			{spawn "grenade_at_shellhole" texmod "snow"}
+
 		else stuff "mortar big"								; 120mm Mortar shells
 			{spawn "ex_he_size3_snow"}
 			{spawn "grenade_shellhole" texmod "snow"}

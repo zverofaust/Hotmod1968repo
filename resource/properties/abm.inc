@@ -75,7 +75,13 @@
 		disorder_time(%dispersion) order_time(%zeroing)
 	)
 )
-
+(define "abm_dymamic_gun_poor" ;for AT guns and cannons, have the benefit that they can traverse much more without losing aim.
+	("accuracy_by_motion"
+		max_linear(1) accuracy_by_linear(0.25)
+		max_angular(1) accuracy_by_angular(0.25)
+		disorder_time(%dispersion) order_time(%zeroing)
+	)
+)
 (define "abm_dymamic_mortar"	;for Mortar cannons
 	("accuracy_by_motion"
 		max_linear(5) accuracy_by_linear(0.5)
@@ -91,7 +97,13 @@
 		disorder_time(%dispersion) order_time(%zeroing)
 	)
 )
-
+(define "abm_dymamic_gun_boat"
+	("accuracy_by_motion"
+		max_linear(30) accuracy_by_linear(0.5)
+		max_angular(15) accuracy_by_angular(0.5)
+		disorder_time(%dispersion) order_time(%zeroing)
+	)
+)
 
 ;-----------------------------------------Small--------------------------------
 
@@ -102,11 +114,18 @@
 		disorder_time(0.6) order_time(2)
 	)
 )
+(define "abm_mgun_boat"
+	("accuracy_by_motion"
+		max_linear(30) accuracy_by_linear(0.4)
+		max_angular(30) accuracy_by_angular(0.5)
+		disorder_time(0.6) order_time(2)
+	)
+)
 (define "abm_human"
 	("accuracy_by_motion"
-		max_linear(15) accuracy_by_linear(0.5)				;// aim accuracy on actor movement
-		max_angular(15) accuracy_by_angular(0.4)				;// aim accuracy on aim movement
-		disorder_time(0.5) order_time(2.0)
+		max_linear(15) accuracy_by_linear(0.4)				;// aim accuracy on actor movement
+		max_angular(25) accuracy_by_angular(0.4)			;// aim accuracy on aim movement
+		disorder_time(0.5) order_time(1.0)
 	)
 )
 

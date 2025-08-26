@@ -166,6 +166,11 @@
 			{spawn "ex_bomb_100kg"}
 			{spawn "crater_medium" terrain_texmod}
 
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
+			{spawn "shockwave_sphere"}
+			{spawn "ex_bomb_100kg"}
+			{spawn "crater_medium" terrain_texmod}
+
 		else stuff "mortar big"								; 120mm Mortar shells
 			{if rain
 				{spawn "ex_he_size3_mud"}
@@ -267,15 +272,15 @@
 			}
 
 		else stuff "heat_shell"								; All Other HEAT Shells
-			{spawn "shockwave"}
-			{spawn "ex_heat"}
-			{if rain
-				{spawn "grenade_shellhole" scale 0.6 texmod "mud"}
-			else season "winter"
-				{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
-			else
-				{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
-			}
+;			{spawn "shockwave"}
+;			{spawn "ex_heat"}
+;			{if rain
+;				{spawn "grenade_shellhole" scale 0.6 texmod "mud"}
+;			else season "winter"
+;				{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
+;			else
+;				{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
+;			}
 
 		else stuff "auto 15mm he"							; 15mm Autocannon HE shells
 			{if rain

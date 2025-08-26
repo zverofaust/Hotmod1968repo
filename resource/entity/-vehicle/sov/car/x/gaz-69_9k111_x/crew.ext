@@ -1,0 +1,30 @@
+{boarder
+	{anm "driver"
+		{forward	{begin	"board_kubel_leftpassenger"} {end "seat_driver_car"} {base "open_left1"}}
+		{reverse 	{end	"board_kubel_leftpassenger" -1} {base "open_left1"}}
+	}
+	{anm "commander"
+		{forward	{begin	"board_Kubel_rightpassenger"} {end "seat_passenger"} {base "open_right1"}}
+		{reverse 	{end	"board_Kubel_rightpassenger" -1} {base "open_right1"}}
+	}
+	{anm "gunner"
+		{forward	{begin	"board_body"} {end "cannon_small_gunner"} {base "open_back"}}
+		{reverse 	{end	"board_body" -1} {base "open_back"}}
+	}
+	{anm "charger"
+		{forward	{begin	"board_body"} {end "cannon_small_charger"} {base "open_back"}}
+		{reverse 	{end	"board_body" -1} {base "open_back"}}
+	}
+}
+
+{placer
+	{place "driver"		{group "crew"} {visor "driver"}}
+	{place "commander"	{group "crew"} {visor "commander"}}
+	{place "gunner"		{group "crew"} {visor "gunner"}}
+	{place "charger"	{group "crew"} {visor "passenger"}}
+}
+	
+("crew_human"		place(driver)	bone(driver)				door(emit1)		animation(driver) 		group(crew))
+("crew_human"		place(commander) 	bone(commander)			door(emit2)		animation(commander) 	group(crew))
+("crew_human"		place(gunner)	bone(gunner)				door(emit3)		animation(gunner)		group(crew))
+("crew_human"		place(charger)	bone(charger)				door(emit4)		animation(charger)		group(crew))

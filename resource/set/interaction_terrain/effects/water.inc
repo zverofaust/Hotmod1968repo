@@ -33,6 +33,9 @@
 	else stuff "mortar big bomb size2"					; 170 Mortar shell
 		{spawn "ex_size4_water"}
 
+	else stuff "mortar big bomb size3"					; 300 Mortar shell
+		{spawn "ex_size4_water"}
+
 	else stuff "mortar big"								; 120mm Mortar shells
 		{spawn "ex_size3_water"}
 
@@ -56,12 +59,12 @@
 	else stuff "rocketlauncher heat_shell size1"		; 60mm AT Rockets
 		{spawn "shockwave"}
 		{spawn "ex_size1_water"}
-		{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
+		;{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
 
 	else stuff "rocketlauncher heat_shell size2"		; AT Rockets
 		{spawn "shockwave"}
 		{spawn "ex_size2_water"}
-		{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
+		;{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
 
 	else stuff "heat_shell"								; All Other HEAT Shells
 		{spawn "shockwave"}
@@ -255,7 +258,7 @@
 		{if effector "ice"
 			{if effector_velocity 2
 				{spawn "spherewater_big"}
-			else 
+			else
 				{spawn "spherewater_small"}
 			}
 		else
@@ -355,6 +358,12 @@
 			{spawn "ex_size4_water"}
 
 		else stuff "mortar big bomb size2"					; 170 Mortar shell
+			{spawn "shockwave_sphere"}
+			{spawn "ex_grenade_size3_mud"}
+			{spawn "crater_medium" texmod "mud"}
+			{spawn "ex_size4_water"}
+
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
 			{spawn "shockwave_sphere"}
 			{spawn "ex_grenade_size3_mud"}
 			{spawn "crater_medium" texmod "mud"}
@@ -591,7 +600,7 @@
 		(include "killzones.inc")
 		(include "hotmod_ground.inc")
 		("water_detonate")
-		("water_bullets")	;// (temp) fixes missing fx from bullets hitting water with depth between shallow_water 
+		("water_bullets")	;// (temp) fixes missing fx from bullets hitting water with depth between shallow_water
 							;// and normal water, but causes duplicate water fx. Bugged either way.
 	}
 }
@@ -659,7 +668,7 @@
 		else stuff "grenade size1"							; Anti-Personnel Grenades Size 1
 			{spawn "ex_grenade_size1_mud"}
 			{spawn "grenade_shellhole" scale 0.6 texmod "mud"}
-			
+
 		else stuff "grenade size2"							; Anti-Personnel Grenades Size 2
 			{spawn "ex_grenade_size2_mud"}
 			{spawn "grenade_shellhole" scale 0.8 texmod "mud"}
@@ -685,6 +694,11 @@
 			{spawn "crater_small" texmod "mud"}
 
 		else stuff "mortar big bomb size2"					; 170 Mortar shell
+			{spawn "shockwave_sphere"}
+			{spawn "ex_bomb_100kg"}
+			{spawn "crater_medium" texmod "mud"}
+
+		else stuff "mortar big bomb size3"					; 300 Mortar shell
 			{spawn "shockwave_sphere"}
 			{spawn "ex_bomb_100kg"}
 			{spawn "crater_medium" texmod "mud"}
