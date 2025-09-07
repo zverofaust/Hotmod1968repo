@@ -1,0 +1,111 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "apc" "light" "multi_board" "mrl_vehicle" "with_gun" "katusha" "vision_lev04" "amphibia" "diesel" "detect_spg" "artillery_minimap_medium"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "rocket"}
+	
+
+	;{extender "enumerator"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	14}
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	14}
+		}
+	}
+	("fuel" args "fuel")
+	("ammo" args "ammo")
+	("transmission" args "transmission")
+	("gun" repair(30) thickness(2))
+	("tracks" repair(30) thickness(15))
+	{volume "engine" {thickness 15}}
+	
+	(include "/properties/hotmod_crew.ext")
+
+	{placer
+		{place "driver"		{visor "driver"}	{group "crew"}}
+		{place "commander"	{visor "around"}	{group "crew"}}
+	}
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "cover_driver"}}
+			{reverse {end "emit_tank_1_hold"} {base "cover_driver"}}
+		}
+		{anm "commander"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "cover_driver"}}
+			{reverse {end "emit_tank_1_hold"} {base "cover_driver"}}
+		}
+		
+	}
+	("seat_human" 	place(driver)  		bone()		door(emit1)  animation(driver) 		group(crew))
+	("seat_human" 	place(commander)  	bone()		door(emit1)  animation(commander) 		group(crew))
+
+	{extender "inventory"
+		{box
+			{item "ammo rocket140_bm14" 32}	
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+	{Weaponry
+		{place "gun"
+			{weapon "weapon 140mm_bm14" filled}
+			{Barrels 16}
+			{charger "commander"}
+			{gunner "commander"}
+			{StationaryFiring}
+			("hm68_abm_mrl")
+		}
+	}
+	
+	{mass 12200}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(60) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(12);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(10.0) ;-------Weight in Tonnes.
+			power(212) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(250) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(480) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+
+	{Extension "yw531_mrl.mdl"}
+	
+	
+	{bone "gun_rot"
+		{limits -0 40}
+		{speed2 10}
+	}
+	{bone "turret"
+		{limits -90 90}
+		{speed2 15}
+	}
+	(mod "mp"
+		{brain
+			{properties
+				{fire_mode hold}
+			}
+		}
+	)
+}
