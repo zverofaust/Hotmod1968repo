@@ -6162,7 +6162,7 @@
 	}
 	{on fire "gun"
 		{ani_play "recoil"}
-		;{ani_play "recoil_body"}
+		{ani_play "recoil_body"}
 		;{ani_play "shell_eject"}
 		{call "spawn_shell"}
 	}
@@ -7467,5 +7467,6 @@
 	}
 }
 ;/*=========== Hotmod Specifics End  ===========*/
+
 
 
