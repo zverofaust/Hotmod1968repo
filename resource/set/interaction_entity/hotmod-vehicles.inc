@@ -6155,6 +6155,27 @@
 	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
+{"yw531_sph"
+	("bt_sound")
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm_LV")
+	}
+	{on fire "gun"
+		{ani_play "recoil"}
+		;{ani_play "recoil_body"}
+		;{ani_play "shell_eject"}
+		{call "spawn_shell"}
+	}
+	
+}
+
+{"yw531_mrl tank"
+	("bt_sound")
+	{on fire "gun"
+		{ani_play "recoil"}
+	}
+}
+
 {"su76_prc tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t70/start"}
@@ -7446,4 +7467,5 @@
 	}
 }
 ;/*=========== Hotmod Specifics End  ===========*/
+
 
