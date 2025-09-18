@@ -73,6 +73,7 @@ Purchases["conquest.prc"] = {
 				{priority = 0.2, type = {"Cannon", "Artillery",}, unit = "type63_mrl"},	
 				{priority = 0.2, type = {"Vehicle", "Artillery",}, unit = "bm-13-17m_prc"},
 				{priority = 0.2, type = {"Vehicle", "Artillery",}, unit = "bm-31m_prc"},
+				{priority = 0.2, type = {"Armored", "Artillery",}, unit = "yw531_mrl"},	
 	
 			--APCs/BTRs
 				{priority = 0.5, type = {"Vehicle", "MG",}, unit = "cj-750"},
@@ -91,6 +92,7 @@ Purchases["conquest.prc"] = {
 				{priority = 1.0, type = {"Tank", "Heavy",}, unit = "is2_prc"},
 				
 			--SPG
+				{priority = 0.5, type = {"Armored", "Artillery",}, unit = "yw531_sph"},
 				{priority = 0.5, type = {"Tank", "Heavy", "Support",}, unit = "isu-152_prc"},
 			--Air Assets
 		}
