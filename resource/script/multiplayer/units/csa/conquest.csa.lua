@@ -96,6 +96,8 @@ Purchases["conquest.csa"] = {
 				{priority = 1.0, type = {"Vehicle", "AT",}, unit = "m151_m40"},
 				--{priority = 1.0, type = {"Vehicle", "AA",}, unit = "m35_guntruck"},
 				{priority = 1.0,type =  {"Armored", "AT",}, unit = "m113_m40"},
+				{priority = 1.0, type = {"Armored", "MG",}, unit = "m113_acav_mk18"},
+				{priority = 1.0, type = {"Armored", "AA",}, unit = "m113_acav_m2"},
 				{priority = 1.0, type = {"Armored", "AT",}, unit = "m113_acav_m40"},
 				
 				{priority = 0.5, type = {"Armored", "MG",}, unit = "m706"},

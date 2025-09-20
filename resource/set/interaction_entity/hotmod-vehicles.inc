@@ -3591,7 +3591,8 @@
 		("M2HB")
 	}
 	{on fire "mgun" overload
-		{play_sound "bkg_mg"}
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
 		{if  name "00"
 			{view start "flashbarrel00"}
 			{delay 0.2
@@ -3934,50 +3935,58 @@
 }
 
 {"m113_acav_m134 tank"
-	("m5a1_stuart_sound")
-	
-	{on "add_weapon_sound" overload
-		("M1919A4")
-		("MG42")
-	}
-	{on fire "mgun" overload
-	    {ani_play "recoil"}
-	    }
-	
-	{on "commander_hatch_open" overload
-		{ani_play "open_turret" resume}
-	}
-	{on "commander_hatch_close" overload
-		{ani_play "open_turret" -1.0 resume}
-	}
-	{on "gunner3_hatch_open" overload
-		{ani_play "open_top" resume}
-	}
-	{on "gunner3_hatch_close" overload
-		{ani_play "open_top" -1.0 resume}
-	}
-	{on "gunner4_hatch_open" overload
-		{if crew_in_place "gunner3"
-			{ani_play "open_top" resume}
-		else
-			{ani_play "open_top" resume}
-		}
-	}
-	{on "gunner4_hatch_close" overload
-		{if crew_in_place "gunner3"
-			;nothing
-		else
-			{ani_play "open_top" -1.0 resume}
-		}
-	}
-
-
-
-	("triplezpu_params"
-		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
-		secgunner(gunner3) seczpu_mgun(mgun2) secanim(hm_hatch_cover_sit_nooffset) secpose(seat_gunner_stand)
-		triplegunner(gunner4) tripzpu_mgun(mgun3) tripleanim(hm_hatch_cover_sit_nooffset) trippose(seat_gunner_stand)
-	)
+    ("m5a1_stuart_sound")
+    {on spawn
+        {add_view    "flash_gun_big"    "flashbarrel00"    "foresight3"}
+        {add_view    "shell_mgun"    "mgun_eject1"    "fxshell"}
+    }
+    {on "add_weapon_sound" overload
+        ("M1919A4")
+        ("MG42")
+    }
+    {on fire "mgun" overload
+        {play_sound "MG_Mid"}
+        {play_sound "MG_Far"}
+        {ani_play "recoil"}
+ 	{view start "flashbarrel00"}
+        {view start "mgun_eject1"}
+        {delay 0.2
+            {view pause "flashbarrel00"}
+            {view pause "mgun_eject1"}
+        }
+    }
+    
+    {on "commander_hatch_open" overload
+        {ani_play "open_turret" resume}
+    }
+    {on "commander_hatch_close" overload
+        {ani_play "open_turret" -1.0 resume}
+    }
+    {on "gunner3_hatch_open" overload
+        {ani_play "open_top" resume}
+    }
+    {on "gunner3_hatch_close" overload
+        {ani_play "open_top" -1.0 resume}
+    }
+    {on "gunner4_hatch_open" overload
+        {if crew_in_place "gunner3"
+            {ani_play "open_top" resume}
+        else
+            {ani_play "open_top" resume}
+        }
+    }
+    {on "gunner4_hatch_close" overload
+        {if crew_in_place "gunner3"
+            ;nothing
+        else
+            {ani_play "open_top" -1.0 resume}
+        }
+    }
+    ("triplezpu_params"
+        gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
+        secgunner(gunner3) seczpu_mgun(mgun2) secanim(hm_hatch_cover_sit_nooffset) secpose(seat_gunner_stand)
+        triplegunner(gunner4) tripzpu_mgun(mgun3) tripleanim(hm_hatch_cover_sit_nooffset) trippose(seat_gunner_stand)
+    )
 }
 
 {"m113_acav_mk18 tank"
@@ -4099,7 +4108,8 @@
 		{add_view	"flash_gun_big"	"flashbarrel01"	"shooter01"}
 	}
 	{on fire "mgun" overload
-		{play_sound "bkg_mg"}
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
 		{if  name "00"
 			{view start "flashbarrel00"}
 			{delay 0.2
