@@ -3103,6 +3103,16 @@
 	("willys_mb_sound")
 }
 
+{"m151_lrrp"
+	("willys_mb_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "mgun" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "mgun" -1.0 resume}
+	}
+}
+
 {"m151_m2"
 	("willys_mb_sound")
 	{on "add_weapon_sound" overload
