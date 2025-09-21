@@ -1,0 +1,122 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "spg" "apc" "light" "multi_board" "vision_lev04" "shell_eject" "muzzle_122mm_128mm" "amphibia" "diesel"  "detect_spg"}
+	{able "emit_passengers_on_enemy"}
+	{targetclass "armoredcar"}
+	{targetSelector "cannon_howitzer"}
+	
+
+	;{extender "enumerator"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	14}
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	14}
+		}
+	}
+	("fuel" args "fuel")
+	("ammo" args "ammo")
+	("transmission" args "transmission")
+	("gun" repair(30) thickness(30))
+	("tracks" repair(30) thickness(15))
+	{volume "engine" {thickness 15}}
+	
+	(include "/properties/hotmod_crew.ext")
+
+	{placer
+		{place "driver"		{visor "driver"}	{group "crew"}}
+		{place "commander"	{visor "around"}	{group "crew"}}
+	}
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "cover_driver"}}
+			{reverse {end "emit_tank_1_hold"} {base "cover_driver"}}
+		}
+		{anm "commander"
+			{forward {begin "board_Is-2"} {end "seat_gunner_stand"} {base "cover_driver"}}
+			{reverse {end "emit_tank_1_hold"} {base "cover_driver"}}
+		}
+		{anm "gunner"
+			{forward {begin "board_Is-2"} {end "pose_m5_gunlayer"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+		{anm "charger"
+			{forward {begin "board_Is-2"} {end "pose_m42_charger"}}
+			{reverse {end "emit_tank_1_hold"}}
+		}
+	}
+	("seat_human" 	place(driver)  		bone()		door(emit1)  animation(driver) 		group(crew))
+	("seat_human" 	place(commander)  	bone()		door(emit2)  animation(commander) 		group(crew))
+	("seat_human" 	place(gunner)  		bone(gunner)	door(emit4)  animation(gunner) 		group(crew))
+	("seat_human" 	place(charger)  	bone(charger)	door(emit5)  animation(charger) 		group(crew))
+	
+
+	{sensor
+		{visor "main"
+			{bone "mgun_rot_turret"}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bulletrus_122_l22 he" 28}		;28 rounds
+			{item "bulletrus_122_l22 heat" 15}
+			{item "sandbag_vehicle" 1}
+			{item "satchel_charge_rus" 1}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "122mm_m30" filling "bulletrus_122_l22 he" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("hm68_abm_spg")
+		}
+	}
+	
+	{mass 12200}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(60) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(12);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(10.0) ;-------Weight in Tonnes.
+			power(212) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(250) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(480) ;---------Range in km, off-road.
+		)
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+
+	{Extension "yw531_sph.mdl"}
+	
+	{bone "turret_m30"
+		{limits -15 15}
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{limits -3 63.5}
+		{speed2 5}
+	}
+	
+}

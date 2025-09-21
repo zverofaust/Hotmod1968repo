@@ -13,7 +13,7 @@
 								{ignore_captured_by_user 0}
 								{tag base}
 							}
-							{distance 100}
+							{distance 500}
 						}
 					}
 				}

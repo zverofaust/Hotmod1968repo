@@ -3103,6 +3103,16 @@
 	("willys_mb_sound")
 }
 
+{"m151_lrrp"
+	("willys_mb_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "mgun" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "mgun" -1.0 resume}
+	}
+}
+
 {"m151_m2"
 	("willys_mb_sound")
 	{on "add_weapon_sound" overload
@@ -3591,7 +3601,8 @@
 		("M2HB")
 	}
 	{on fire "mgun" overload
-		{play_sound "bkg_mg"}
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
 		{if  name "00"
 			{view start "flashbarrel00"}
 			{delay 0.2
@@ -3902,6 +3913,232 @@
 	}
 	{on "commander_hatch_close" overload
 		{ani_play "open_turret" -1.0 resume}
+	}
+	{on "gunner3_hatch_open" overload
+		{ani_play "open_top" resume}
+	}
+	{on "gunner3_hatch_close" overload
+		{ani_play "open_top" -1.0 resume}
+	}
+	{on "gunner4_hatch_open" overload
+		{if crew_in_place "gunner3"
+			{ani_play "open_top" resume}
+		else
+			{ani_play "open_top" resume}
+		}
+	}
+	{on "gunner4_hatch_close" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+		}
+	}
+
+
+
+	("triplezpu_params"
+		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
+		secgunner(gunner3) seczpu_mgun(mgun2) secanim(hm_hatch_cover_sit_nooffset) secpose(seat_gunner_stand)
+		triplegunner(gunner4) tripzpu_mgun(mgun3) tripleanim(hm_hatch_cover_sit_nooffset) trippose(seat_gunner_stand)
+	)
+}
+
+{"m113_acav_m134 tank"
+    ("m5a1_stuart_sound")
+    {on spawn
+        {add_view    "flash_gun_big"    "flashbarrel00"    "foresight3"}
+        {add_view    "shell_mgun"    "mgun_eject1"    "fxshell"}
+    }
+    {on "add_weapon_sound" overload
+        ("M1919A4")
+        ("MG42")
+    }
+    {on fire "mgun" overload
+        {play_sound "MG_Mid"}
+        {play_sound "MG_Far"}
+        {ani_play "recoil"}
+ 	{view start "flashbarrel00"}
+        {view start "mgun_eject1"}
+        {delay 0.2
+            {view pause "flashbarrel00"}
+            {view pause "mgun_eject1"}
+        }
+    }
+    
+    {on "commander_hatch_open" overload
+        {ani_play "open_turret" resume}
+    }
+    {on "commander_hatch_close" overload
+        {ani_play "open_turret" -1.0 resume}
+    }
+    {on "gunner3_hatch_open" overload
+        {ani_play "open_top" resume}
+    }
+    {on "gunner3_hatch_close" overload
+        {ani_play "open_top" -1.0 resume}
+    }
+    {on "gunner4_hatch_open" overload
+        {if crew_in_place "gunner3"
+            {ani_play "open_top" resume}
+        else
+            {ani_play "open_top" resume}
+        }
+    }
+    {on "gunner4_hatch_close" overload
+        {if crew_in_place "gunner3"
+            ;nothing
+        else
+            {ani_play "open_top" -1.0 resume}
+        }
+    }
+    ("triplezpu_params"
+        gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
+        secgunner(gunner3) seczpu_mgun(mgun2) secanim(hm_hatch_cover_sit_nooffset) secpose(seat_gunner_stand)
+        triplegunner(gunner4) tripzpu_mgun(mgun3) tripleanim(hm_hatch_cover_sit_nooffset) trippose(seat_gunner_stand)
+    )
+}
+
+{"m113_acav_mk18 tank"
+	("m5a1_stuart_sound")
+	{on "add_weapon_sound" overload
+		("M1919A4")
+	}
+	{on spawn
+		{add_view "flash_gun_hmg_m2hb"			"grenflash"	"foresight1"}
+		{tags add "ammo_count_12"}
+	}
+	{on fire "mgun" overload
+		{view start "grenflash"}
+		{delay 0.2
+			{view pause "grenflash"}
+		}
+		{if tagged "ammo_count_12"
+			{ani_play "recoil1"}
+			{tags remove "ammo_count_12"}
+			{tags add "ammo_count_11"}
+		else tagged "ammo_count_11"
+			{ani_play "recoil2"}
+			{tags remove "ammo_count_11"}
+			{tags add "ammo_count_10"}
+		else tagged "ammo_count_10"
+			{ani_play "recoil3"}
+			{tags remove "ammo_count_10"}
+			{tags add "ammo_count_9"}
+		else tagged "ammo_count_9"
+			{ani_play "recoil4"}
+			{tags remove "ammo_count_9"}
+			{tags add "ammo_count_8"}
+		else tagged "ammo_count_8"
+			{ani_play "recoil5"}
+			{tags remove "ammo_count_8"}
+			{tags add "ammo_count_7"}
+		else tagged "ammo_count_7"
+			{ani_play "recoil6"}
+			{tags remove "ammo_count_7"}
+			{tags add "ammo_count_6"}
+		else tagged "ammo_count_6"
+			{ani_play "recoil7"}
+			{tags remove "ammo_count_6"}
+			{tags add "ammo_count_5"}
+		else tagged "ammo_count_5"
+			{ani_play "recoil8"}
+			{tags remove "ammo_count_5"}
+			{tags add "ammo_count_4"}
+		else tagged "ammo_count_4"
+			{ani_play "recoil9"}
+			{tags remove "ammo_count_4"}
+			{tags add "ammo_count_3"}
+		else tagged "ammo_count_3"
+			{ani_play "recoil10"}
+			{tags remove "ammo_count_3"}
+			{tags add "ammo_count_2"}
+		else tagged "ammo_count_2"
+			{ani_play "recoil11"}
+			{tags remove "ammo_count_2"}
+			{tags add "ammo_count_1"}
+		else tagged "ammo_count_1"
+			{ani_play "recoil12"}
+			{tags remove "ammo_count_2"}
+			{tags add "ammo_count_0"}
+		}
+	}
+	{on "reload"
+		{ani_play "reload"}
+		{delay 3
+			{tags remove "ammo_count_0"}
+			{tags add "ammo_count_12"}
+			{ani_play "recoil1" -1}
+		}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "open_turret" resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open_turret" -1.0 resume}
+	}
+	{on "gunner3_hatch_open" overload
+		{ani_play "open_top" resume}
+	}
+	{on "gunner3_hatch_close" overload
+		{ani_play "open_top" -1.0 resume}
+	}
+	{on "gunner4_hatch_open" overload
+		{if crew_in_place "gunner3"
+			{ani_play "open_top" resume}
+		else
+			{ani_play "open_top" resume}
+		}
+	}
+	{on "gunner4_hatch_close" overload
+		{if crew_in_place "gunner3"
+			;nothing
+		else
+			{ani_play "open_top" -1.0 resume}
+		}
+	}
+
+
+
+	("triplezpu_params"
+		gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand)
+		secgunner(gunner3) seczpu_mgun(mgun2) secanim(hm_hatch_cover_sit_nooffset) secpose(seat_gunner_stand)
+		triplegunner(gunner4) tripzpu_mgun(mgun3) tripleanim(hm_hatch_cover_sit_nooffset) trippose(seat_gunner_stand)
+	)
+}
+
+{"m113_acav_m2 tank"
+	("m5a1_stuart_sound")
+	{on "add_weapon_sound" overload
+		("M1919A4")
+		("M2HB")
+	}
+	{on spawn
+		{add_view	"flash_gun_big"	"flashbarrel00"	"shooter00"}
+		{add_view	"flash_gun_big"	"flashbarrel01"	"shooter01"}
+	}
+	{on fire "mgun" overload
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
+		{if  name "00"
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		else name "01"
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "open_turret" resume}
+		{ani_play "aamg" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open_turret" -1.0 resume}
+		{ani_play "aamg" -1.0 resume}
 	}
 	{on "gunner3_hatch_open" overload
 		{ani_play "open_top" resume}
@@ -6155,6 +6392,27 @@
 	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
+{"yw531_sph"
+	("bt_sound")
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm_LV")
+	}
+	{on fire "gun"
+		{ani_play "recoil"}
+		{ani_play "recoil_body"}
+		;{ani_play "shell_eject"}
+		{call "spawn_shell"}
+	}
+	
+}
+
+{"yw531_mrl tank"
+	("bt_sound")
+	{on fire "gun"
+		{ani_play "recoil"}
+	}
+}
+
 {"su76_prc tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t70/start"}
@@ -7446,4 +7704,6 @@
 	}
 }
 ;/*=========== Hotmod Specifics End  ===========*/
+
+
 

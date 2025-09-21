@@ -119,6 +119,7 @@ Purchases["conquest.sov"] = {
 				{priority = 1.0, type = {"Tank", "Light", "AT",}, unit = "su-122-54"},
 				{priority = 1.0, type = {"Tank", "Light", "AT",}, unit = "it-1"},
 			--SPAAG
+				{priority = 0.5, type = {"Vehicle", "AA",}, unit = "ural375_zu-23"},
 				{priority = 0.5, type = {"Armored", "AA",}, unit = "btr-50pk_zu-23"},
 				{priority = 0.5, type = {"Tank", "Light", "AA",}, unit = "zsu-23-4b"},	
 				{priority = 1.0, type = {"Tank", "Medium", "AA",}, unit = "zsu-57-2"},

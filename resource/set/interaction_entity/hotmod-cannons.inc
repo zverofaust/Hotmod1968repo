@@ -580,21 +580,31 @@
 {"mortar"			;// code unique to mortar class cannons
 	{on spawn
 		{add_view "flash_cannon_small" "flashbarrel1" "foresight"}
-		{link_sound "whistle" "weapon/shot/mortar/whistle"}
-		{link_sound "bkg_mortar" "weapon/shot/bkg/mortar/"}
 	}
 	{on fire "gun" overload
 		{ani_play "recoil"}
 		{view start "flashbarrel1"}
 		{call "minimum_terrain_fx"}
-		{play_sound "bkg_mortar"}
-		{delay 1.5
-			{play_sound "whistle"}
-		}
+		{play_sound "Recoil"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
 		{delay 2
 			{view pause "flashbarrel1"}
 		}
+		{call "crew_fire_ani"}
 	}
+	{on contact
+		{if not impregnable
+			{if effector "truck"
+				{call "crush_damage"}
+			else effector "car"
+				{call "crush_damage"}
+			}
+		}
+	}
+}
+
+{"mortar cannon"
 	{on "cut_parts" overload			;// Forces Mortars to cut all parts instead of using random chance.
 		("cut_part" args "part1" 1)		;// Looks odd when legs cut but barrel floats in air.
 		("cut_part" args "part2" 1)
@@ -604,18 +614,21 @@
 	}
 
 	{on "construction_sandbag_cannon_standard" overload
-		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
+		("cannon_sandbag" args "sandbag_curved_heap" "sandbag")
+	}
+
+	{on "self_destruct" overload
+		{spawn "ex_air_small" "basis"}
 	}
 }
 
 {"flak"				;// base code for multi-barrel cannons and vehicles. To customize, add unique code to specific cannon name prop
 	("handle_ik")
 	{on "init_gun"
-		{add_view "light_flash_zenit"	"flashbarrel"	"foresight1"}
-		{add_view "flash_zenit"			"flashbarrel00"	"shooter00"}
-		{add_view "flash_zenit"			"flashbarrel01"	"shooter01"}
-		{add_view "flash_zenit"			"flashbarrel02"	"shooter02"}
-		{add_view "flash_zenit"			"flashbarrel03"	"shooter03"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel02"	"shooter02"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel03"	"shooter03"}
 		{add_view "smoke_zenit"			"smoke00"		"shooter00"}
 		{add_view "smoke_zenit"			"smoke01"		"shooter01"}
 		{add_view "smoke_zenit"			"smoke02"		"shooter02"}
@@ -631,6 +644,9 @@
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
 	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+        {play_sound "Cannon_Mid"}
+        {play_sound "Cannon_Far"}
 		(define "fire_barrel"
 			name "%0"
 				{call "fire_barrel%0"}
@@ -652,19 +668,45 @@
 			{call "fire_gun_common"}
 		}
 		{ani_play "recoil"}
-		{view start "flashbarrel1"}
-		{delay 0.15
-			{view pause "flashbarrel1"}
-		}
 		{call "spawn_shell"}
 	}
 	{on "fire_gun_common"
 		{view start "flashbarrel"}
-		{ani_play "recoil"}
+		;{ani_play "recoil"}
 		{kill_delay "shell_off"}
 		{view start "shell"}
 		{delay 0.12 "shell_off"
 			{view pause "shell"}
+		}
+	}
+}
+
+
+{"recoilless"
+	{on spawn
+		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
+		{add_view	"recoilless_shot_forward"	"flashbarrel1"		"foresight1"}
+		{add_view	"dust_recoilless"			"dust"				"turret"}
+		{add_view	"dust_recoilless_snow"		"snow"				"turret"}
+	}
+	{on fire "gun"
+		{view start "flashbarrelsmall"}
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		;{spawn "tank_canon_fire_50_57"	"fxshot" x}
+		;{spawn "bazooka_shot"	"foresight1" x}
+		{if terrain_fx "snow"
+			{view start "snow"}
+			{delay 0.3 {view pause "snow"}}
+		else terrain_fx "ice"
+			{view start "snow"}
+			{delay 0.3 {view pause "snow"}}
+		else terrain_fx "shallow_water"
+			;nothing
+		else
+			{view start "dust"}
+			{delay 0.3 {view pause "dust"}}
 		}
 	}
 }
@@ -862,29 +904,52 @@
 
 {"dshk_aa"
 	{on "init_gun" overload
-		{link_sound "bkg_hmgun" "weapon/shot/bkg/gun/hmg/"}
-		{add_view "gun_gilz" "shell" "fxshell"}
+		("DShK38")
+		{add_view "shell_hmgun" "shell" "fxshell"}
 		{add_view "ejectsmoke_big" "ejectsmoke" "FXshell"}
 	}
 
 	{on fire "mgun1"
-		{play_sound "bkg_hmgun"}
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
+		{play_sound "action_recoil_HMG"}
+		{view start "shell"}
+		{view start "ejectsmoke"}
+		{delay 0.12
+			{view pause "shell"}
+			{view pause "ejectsmoke"}
+		}
+	}
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_straight_heap" "sandbag")
 	}
 }
 
 {"dshk_stan"
 	{on "init_gun" overload
-		{link_sound "bkg_hmgun" "weapon/shot/bkg/gun/hmg/"}
-		{add_view "gun_gilz" "shell" "fxshell"}
+		("DShK38")
+		{add_view "shell_hmgun" "shell" "fxshell"}
 		{add_view "ejectsmoke_big" "ejectsmoke" "FXshell"}
 	}
 
 	{on fire "mgun1"
-		{play_sound "bkg_hmgun"}
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
+		{play_sound "action_recoil_HMG"}
+		{view start "shell"}
+		{view start "ejectsmoke"}
+		{delay 0.12
+			{view pause "shell"}
+			{view pause "ejectsmoke"}
+		}
 	}
 }
 
 {"25mm_72k"
+    {on "add_weapon_sound" overload
+		("Autocannon_s1")
+		{link_sound "action_recoil_Cannon"	"weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
+	}
 	{on "construction_sandbag_cannon_standard" overload
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
 	}
@@ -905,6 +970,10 @@
 }
 
 {"37mm_61k"
+    {on "add_weapon_sound" overload
+		("Autocannon_s1")
+		{link_sound "action_recoil_Cannon"	"weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
+	}
 	{on "construction_sandbag_cannon_standard" overload
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
 	}
@@ -925,6 +994,10 @@
 }
 
 {"45mm_m37"
+    {on "add_weapon_sound" overload
+		("Cannon_45to47mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 0.4 0.3)
 	}
@@ -939,6 +1012,10 @@
 }
 
 {"45mm_m42"
+    {on "add_weapon_sound" overload
+		("Cannon_45to47mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 0.4 0.3)
 	}
@@ -953,6 +1030,10 @@
 }
 
 {"57mm_zis2"
+    {on "add_weapon_sound" overload
+		("Cannon_50to57mm_HV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 0.4 0.3)
 	}
@@ -967,6 +1048,10 @@
 }
 
 {"76mm_m1902"
+    {on "add_weapon_sound" overload
+		("Cannon_50to57mm_HV")
+		("Cannon_Breech")
+	} 
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -980,6 +1065,10 @@
 }
 
 {"76mm_m43"
+    {on "add_weapon_sound" overload
+		("Cannon_75to76mm_LV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -988,6 +1077,10 @@
 }
 
 {"76mm_f22"
+    {on "add_weapon_sound" overload
+		("Cannon_75to76mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 0.4 0.3)
 	}
@@ -1004,6 +1097,10 @@
 }
 
 {"76mm_zis3"
+    {on "add_weapon_sound" overload
+		("Cannon_75to76mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 0.4 0.3)
 	}
@@ -1017,6 +1114,10 @@
 }
 
 {"85mm_52k"
+    {on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
 	{on "construction_sandbag_cannon_standard" overload
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
 	}
@@ -1042,6 +1143,10 @@
 }
 
 {"100mm_bs3"
+    {on "add_weapon_sound" overload
+		("Cannon_85to100mm_HV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.9 0.15)
 	}
@@ -1060,6 +1165,10 @@
 }
 
 {"122mm_m30"
+    {on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1069,17 +1178,13 @@
 	("cannon_big")
 }
 
-{"122mm_d-30"
-	{on "spawn_shell_delay" overload
-		("shell_eject_delay" args 2 0.3)
-	}
-	{on "reload_delay" overload
-		("reload_delay" args 14 1.5 14)
-	}
-	("cannon_big")
-}
+
 
 {"122mm_a19"
+    {on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.5 0.3)
 	}
@@ -1099,6 +1204,10 @@
 }
 
 {"152mm_ml20"
+    {on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.5 0.3)
 	}
@@ -1118,6 +1227,10 @@
 }
 
 {"203mm_b4"
+    {on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("no_shell_eject_delay" args 4 0.3)
 	}
@@ -1140,10 +1253,17 @@
 ;/*=========== Germans Begin ===========*/
 
 {"flak38"
+    {on "add_weapon_sound" overload
+		("Autocannon_s1")
+	}
 	("cannon_small")
 }
 
 {"20mm_flak30"
+	{on "add_weapon_sound" overload
+		("Autocannon_s1")
+		{link_sound "action_recoil_Cannon"	"weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
+	}
 	("magazine" cut(0.4) show(1.8) override(overload) impulse({impulse up 0.3 forward 0.9 0.1}))
 
 	("cannon_small")
@@ -1151,10 +1271,12 @@
 
 
 {"37mm_flak37"
+    {on "add_weapon_sound" overload
+		("Autocannon_s2")
+	}
 	{on "construction_sandbag_cannon_standard" overload
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
 	}
-
 	{on "cut_parts" overload
 		("cut_part" args "part1" 1)
 		("cut_part" args "part2" 1)
@@ -1168,6 +1290,12 @@
 }
 
 {"37mm_pak36"
+    {on "add_weapon_sound" overload
+		("Autocannon_s2")
+	}
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 0.4 0.05)
 	}
@@ -1181,6 +1309,10 @@
 }
 
 {"47mm_pakt"
+    {on "add_weapon_sound" overload
+		("Cannon_45to47mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 0.30 0.25)
 	}
@@ -1193,6 +1325,10 @@
 }
 
 {"50mm_pak38"
+    {on "add_weapon_sound" overload
+		("Cannon_50to57mm_HV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.75 0.3)
 	}
@@ -1212,6 +1348,10 @@
 }
 
 {"75mm_leig18"
+    {on "add_weapon_sound" overload
+		("Cannon_75to76mm_LV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.5 0.3)
 	}
@@ -1224,6 +1364,10 @@
 }
 
 {"75mm_legebig18"
+    {on "add_weapon_sound" overload
+		("Cannon_75to76mm_LV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.5 0.3)
 	}
@@ -1242,6 +1386,10 @@
 }
 
 {"75mm_legebig18_snow"
+    {on "add_weapon_sound" overload
+		("Cannon_75to76mm_LV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.5 0.3)
 	}
@@ -1263,45 +1411,72 @@
 
 
 {"75mm_pak9738"
-	("cannon_small")
-}
-
-{"75mm_pak40"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
-		("shell_eject_delay" args 0.30 0.25)
+		("shell_eject_delay" args 1.5 0.25)
 	}
 
 	{on "reload_delay" overload
-		("reload_delay" args 4 1.4 5)
-	}
-
-	{on "cut_parts" overload
-		("cut_part" args "part1" 1)
-		("cut_part" args "part3" 1)
-		{inherited}
+		("reload_time" args 3.5)
 	}
 
 	("cannon_small")
 }
 
 {"88mm_flak18"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 0.6 0.22)
 	}
 	{on "reload_delay" overload
-		("reload_delay" args 5.0 0.5 4.0)
+		("reload_time" args 6)
 	}
 
 	("cannon_big")
+
+	{on "cut_parts" overload
+		("cut_part" args "part1" 1)
+		("cut_part" args "part2" 1)
+		("cut_part" args "part3" 1)
+		("cut_part" args "part4" 1)
+		("cut_part" args "part5" 1)
+		("cut_part" args "part8" 1)
+		{inherited}
+	}
 }
 
 {"88mm_flak36"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 0.6 0.22)
+	}
+	{on "reload_delay" overload
+		("reload_time" args 6)
+	}
+
 	("cannon_big")
+
+	{on "cut_parts" overload
+		("cut_part" args "part4" 1)
+		("cut_part" args "part6" 1)
+		{inherited}
+	}
 }
 
-
-
 {"105mm_lefh18"
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm_LV")
+		("Cannon_Breech")
+	}
 	{on "construction_sandbag_cannon_standard" overload
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
 	}
@@ -1310,7 +1485,7 @@
 		("shell_eject_delay" args 2.0 0.3)
 	}
 	{on "reload_delay" overload
-		("reload_delay" args 10 1.5 10)
+		("reload_time" args 15)
 	}
 	{on "cut_parts" overload
 		("cut_part" args "part1" 0.8)
@@ -1324,7 +1499,12 @@
 	("cannon_big")
 }
 
+
 {"150mm_sig33"
+	{on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "construction_sandbag_cannon_standard" overload
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
 	}
@@ -1334,7 +1514,7 @@
 	}
 
 	{on "cut_parts" overload
-		("cut_part" args "wheelR" 1)
+		("cut_part" args "wheelr" 1)
 		{inherited}
 	}
 
@@ -1342,11 +1522,15 @@
 }
 
 {"150mm_sfh18"
+	{on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.5 0.3)
 	}
 	{on "reload_delay" overload
-		("reload_delay" args 23 1.5 23)
+		("reload_time" args 30)
 	}
 	{on "cut_parts" overload
 		("cut_part" args "part1" 1)
@@ -1357,7 +1541,6 @@
 
 	("cannon_big")
 }
-
 {"150mm_nebelwerfer41"
 	{on "construction_sandbag_cannon_standard" overload
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
@@ -1374,6 +1557,10 @@
 }
 
 {"210mm_morser18"
+    {on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("no_shell_eject_delay" args 4 0.3)
 	}
@@ -1409,7 +1596,32 @@
 
 ;/*=========== SOVIET Cannons  ===========*/
 
+
+{"82mm_bm37_sov"
+	{on "add_weapon_sound" overload
+		("Mortar_8cm")
+	}
+}
+
+
+{"82mm_bm37_sov_ai"
+	{on "add_weapon_sound" overload
+		("Mortar_8cm")
+	}
+}
+
+{"120mm_pm38_sov"
+	{on "add_weapon_sound" overload
+		("Mortar_12cm")
+	}
+}
+
+
+
 {"37mm_61k_sov"
+    {on "add_weapon_sound" overload
+		("Autocannon_s2")
+	}
 	{on "construction_sandbag_cannon_standard" overload
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
 	}
@@ -1430,107 +1642,80 @@
 }
 
 {"zu-2"
-	{on "init_gun" overload
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
-		{add_view "zenit_gilz"			"shell"			"FXshell1"}
-		{add_view "zenit_gilz"			"shell"			"FXshell2"}
-		{call "update_gun"}
-	}
-	{on fire "mgun" overload
-		{play_sound "bkg_mg"}
-		{if  name "00"
-			{ani_wind "fire00" end}
-			{view start "flashbarrel00"}
-			{delay 0.2
-				{view pause "flashbarrel00"}
-			}
-		}
-		{if name "01"
-			{ani_wind "fire01" end}
-			{view start "flashbarrel01"}
-			{delay 0.2
-				{view pause "flashbarrel01"}
-			}
-		}
-	}
-	("cannon_small")
+    ("handle_ik")
+    {on "add_weapon_sound" overload
+        ("M2HB_M33_Mount")
+    }
+    ("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
+
+    ("cannon_small")
+}
+
+
+{"zu-2_airlift"
+    ("handle_ik")
+    {on "add_weapon_sound" overload
+        ("M2HB_M33_Mount")
+    }
+    ("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
+
+    ("cannon_small")
+}
+
+{"zu-2_para"
+    {on "add_weapon_sound" overload
+        ("M2HB_M33_Mount")
+    }
+    ("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
+
+    ("cannon_small")
 }
 
 {"zpu-4"
-	{on "init_gun" overload
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel02"	"shooter02"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel03"	"shooter03"}
-		{add_view "zenit_gilz"			"shell"			"FXshell00"}
-		{add_view "zenit_gilz"			"shell"			"FXshell01"}
-		{add_view "zenit_gilz"			"shell"			"FXshell02"}
-		{add_view "zenit_gilz"			"shell"			"FXshell03"}
-		{call "update_gun"}
-	}
-	{on fire "mgun" overload
-		{play_sound "bkg_mg"}
-		{if  name "00"
-			{view start "flashbarrel00"}
-			{delay 0.2
-				{view pause "flashbarrel00"}
-			}
-		}
-		{if  name "01"
-			{view start "flashbarrel01"}
-			{delay 0.2
-				{view pause "flashbarrel01"}
-			}
-		}
-		{if  name "02"
-			{view start "flashbarrel02"}
-			{delay 0.2
-				{view pause "flashbarrel02"}
-			}
-		}
-		{if  name "03"
-			{view start "flashbarrel03"}
-			{delay 0.2
-				{view pause "flashbarrel03"}
-			}
-		}
-	}
-	("cannon_small")
+    {on "add_weapon_sound" overload
+        ("M2HB_M33_Mount")
+    }
+    ("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
+
+    ("cannon_small")
 }
 
 {"zu-23-2"
-	{on "init_gun" overload
-		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
-		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
-		{add_view "zenit_gilz"			"shell"			"FXshell1"}
-		{add_view "zenit_gilz"			"shell"			"FXshell2"}
-		{call "update_gun"}
-	}
-	{on fire "mgun" overload
-		{play_sound "bkg_mg"}
-		{if  name "00"
-			{ani_wind "recoil" end}
-			{view start "flashbarrel00"}
-			{delay 0.2
-				{view pause "flashbarrel00"}
-			}
-		}
-		{if name "01"
-			{view start "flashbarrel01"}
-			{delay 0.2
-				{view pause "flashbarrel01"}
-			}
-		}
-	}
+    {on "add_weapon_sound" overload
+        ("Autocannon_s1")
+		{link_sound "action_recoil_Cannon"	"weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
+    }
+   
+    ("cannon_small")
+}
+
+{"zu-23-2_airlift"
+    {on "add_weapon_sound" overload
+        ("Autocannon_s1")
+        {link_sound "action_recoil_Cannon"    "weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
+    }
+	
 	("cannon_small")
 }
+
+{"zu-23-2_para"
+    {on "add_weapon_sound" overload
+        ("Autocannon_s1")
+        {link_sound "action_recoil_Cannon"    "weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
+    }
+	
+	("cannon_small")
+}
+
 
 {"57mm_s-60"
 	{on "construction_sandbag_cannon_standard" overload
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
 	}
-
+	{on "add_weapon_sound" overload
+		("Cannon_50to57mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay_auto" overload
 		("shell_eject_delay_auto" args 0.25) ;// delay cannot be longer than rate of fire else shell ejection is skipped and only played on last shell.
 	}
@@ -1539,26 +1724,76 @@
 }
 
 {"b-10_82mm"
-	{on "spawn_shell_delay" overload
-		("shell_eject_delay" args 1)
-	}
 	{on "init_gun"
 		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
 	}
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
 	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
 		{ani_play "recoil"}
 		{spawn "detector" "foresight1" x}   ;ordos_debug
 		{view start "backblast"}
-		{call "spawn_shell"}
+	}
+	("cannon_small")
+}
+
+
+{"b-10_82mm_ai"
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{view start "backblast"}
 	}
 	("cannon_small")
 }
 
 {"spg9"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
 	{on "init_gun"
 		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
 	}
 	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{tags add "ordos_debug_spg9_fire"}
+	}
+	("cannon_small")
+}
+
+{"spg9_ai"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
 		{ani_play "recoil"}
 		{view start "backblast"}
 		{spawn "detector" "foresight1" x}   ;ordos_debug
@@ -1568,20 +1803,28 @@
 }
 
 
-{"spg9_ai"
-	{on "init_gun"
-		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+{"gp1958"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm")
+		("Cannon_Breech")
 	}
-	{on fire "gun" overload
-		{ani_play "recoil"}
-		{view start "backblast"}
-		{spawn "detector" "foresight1" x}   ;ordos_debug
-		{tags add "ordos_debug_spg9_fire"}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 0.4 0.3)
 	}
+
+	{on "cut_parts" overload
+		("cut_part" args "part2" 1)
+		{inherited}
+	}
+
 	("cannon_small")
 }
 
 {"76mm_zis3_sov"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 0.4 0.3)
 	}
@@ -1595,6 +1838,10 @@
 }
 
 {"d1"
+    {on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1605,6 +1852,26 @@
 }
 
 {"122mm_m30_sov"
+    {on "add_weapon_sound" overload
+		("Cannon_105to130mm_LV")
+		("Cannon_Breech")
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 14 1.5 14)
+	}
+	("cannon_big")
+}
+
+
+
+{"122mm_d-30"
+    {on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1615,6 +1882,10 @@
 }
 
 {"d-44"
+    {on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1624,7 +1895,26 @@
 	("cannon_big")
 }
 
+{"t-12"
+    {on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_delay" args 6 1.5 14)
+	}
+	("cannon_big")
+}
+
+
 {"d-74"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1635,6 +1925,10 @@
 }
 
 {"d-20"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1645,6 +1939,10 @@
 }
 
 {"152mm_ml20_sov"
+	{on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 1.5 0.3)
 	}
@@ -1664,6 +1962,10 @@
 }
 
 {"203mm_b4_sov"
+	{on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("no_shell_eject_delay" args 4 0.3)
 	}
@@ -1683,7 +1985,35 @@
 
 ;/*=========== AMERICAN Cannons  ===========*/
 
+{"m2_50cal_tripod"
+	{on "add_weapon_sound"
+		("M2HB")
+	}
+}
 
+{"mg_stand_m2"
+	{on "add_weapon_sound"
+		("M2HB")
+	}
+}
+
+{"mg_stand_m2_ai"
+	{on "add_weapon_sound"
+		("M2HB")
+	}
+}
+
+{"mg_stand_m63"
+	{on "add_weapon_sound"
+		("M2HB")
+	}
+}
+
+{"mg_stand_m63_ai"
+	{on "add_weapon_sound"
+		("M2HB")
+	}
+}
 
 {"m45_maxson"
 	("handle_ik")
@@ -1703,7 +2033,44 @@
 	("cannon_small")
 }
 
+
+{"m29_mortar"
+	{on "add_weapon_sound" overload
+		("Mortar_8cm")
+	}
+}
+
+
+{"m29_mortar_ai"
+	{on "add_weapon_sound" overload
+		("Mortar_8cm")
+	}
+}
+
+{"m30_mortar"
+	{on "add_weapon_sound" overload
+		("Mortar_12cm")
+	}
+}
+
+{"m30_airlift"
+	{on "add_weapon_sound" overload
+		("Mortar_12cm")
+	}
+}
+
+{"m98_howtar"
+	{on "add_weapon_sound" overload
+		("Mortar_12cm")
+	}
+}
+
+
 {"m20_rcl"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm_LV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -1711,6 +2078,9 @@
 		{add_view "tank_canon_fire_75_76"			"backblast"	"fxshot"}
 	}
 	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
 		{ani_play "recoil"}
 		{view start "backblast"}
 		{spawn "detector" "foresight1" x}   ;ordos_debug
@@ -1723,7 +2093,39 @@
 	
 }
 
+{"m20_rcl_ai"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm_LV")
+		("Cannon_Breech")
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2)
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_75_76"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{call "spawn_shell"}
+	}
+	{on "add_movement_sound"
+		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+	}
+	
+}
+
+
 {"m40"
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm_LV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -1731,6 +2133,66 @@
 		{add_view "tank_canon_fire_100_105"			"backblast"	"fxshot"}
 	}
 	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{tags add "ordos_debug_cannon_fire"}
+		{call "spawn_shell"}
+	}
+	{on "add_movement_sound"
+		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+	}
+	
+}
+
+
+{"m40_airlift"
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm_LV")
+		("Cannon_Breech")
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2)
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_100_105"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{tags add "ordos_debug_cannon_fire"}
+		{call "spawn_shell"}
+	}
+	{on "add_movement_sound"
+		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+	}
+	
+}
+
+{"m40_para"
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm_LV")
+		("Cannon_Breech")
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 2)
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_100_105"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
 		{ani_play "recoil"}
 		{view start "backblast"}
 		{spawn "detector" "foresight1" x}   ;ordos_debug
@@ -1745,6 +2207,10 @@
 }
 
 {"m-28"
+	{on "add_weapon_sound" overload
+		;("Cannon_75to76mm_LV")
+		("Cannon_Breech")
+	}
 	{on spawn
 		{add_view	"flash_cannon_big"		"flashbarrel1"	"shooter"}
 		{add_view	"dust_nebelfire"		"dust"			"turret"}
@@ -1891,11 +2357,56 @@
 
 ;/*=========== PRC Cannons  ===========*/
 
-{"57mm_s-60_prc"
+{"82mm_bm37_prc"
+	{on "add_weapon_sound" overload
+		("Mortar_8cm")
+	}
+}
+
+
+{"82mm_bm37_prc_ai"
+	{on "add_weapon_sound" overload
+		("Mortar_8cm")
+	}
+}
+
+{"120mm_pm38_prc"
+	{on "add_weapon_sound" overload
+		("Mortar_12cm")
+	}
+}
+
+{"37mm_61k_prc"
+    {on "add_weapon_sound" overload
+		("Autocannon_s2")
+	}
 	{on "construction_sandbag_cannon_standard" overload
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
 	}
 
+	{on "spawn_shell_delay_auto" overload
+		("shell_eject_delay_auto" args 0.35) ;// delay cannot be longer than rate of fire else shell ejection is skipped and only played on last shell.
+	}
+
+	{on "cut_parts" overload
+		("cut_part" args "part1" 1)
+		("cut_part" args "part3" 1)
+		("cut_part" args "part4" 1)
+		("cut_part" args "part6" 1)
+		{inherited}
+	}
+
+	("cannon_small")
+}
+
+{"57mm_s-60_prc"
+	;{on "construction_sandbag_cannon_standard" overload
+	;	("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
+	;}
+	{on "add_weapon_sound" overload
+		("Cannon_50to57mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay_auto" overload
 		("shell_eject_delay_auto" args 0.25) ;// delay cannot be longer than rate of fire else shell ejection is skipped and only played on last shell.
 	}
@@ -1903,24 +2414,128 @@
 	("cannon_small")
 }
 
-{"b-10_prc"
-	{on "spawn_shell_delay" overload
-		("shell_eject_delay" args 1)
+{"m20_prc"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm_LV")
+		("Cannon_Breech")
 	}
+	;{on "spawn_shell_delay" overload
+	;	("shell_eject_delay" args 2)
+	;}
 	{on "init_gun"
-		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+		{add_view "tank_canon_fire_100_105"			"backblast"	"fxshot"}
 	}
 	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
 		{ani_play "recoil"}
 		{view start "backblast"}
 		{spawn "detector" "foresight1" x}   ;ordos_debug
 		{tags add "ordos_debug_cannon_fire"}
 		{call "spawn_shell"}
 	}
+	{on "add_movement_sound"
+		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+	}
+	
+}
+
+{"m20_prc_ai"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm_LV")
+		("Cannon_Breech")
+	}
+	;{on "spawn_shell_delay" overload
+	;	("shell_eject_delay" args 2)
+	;}
+	{on "init_gun"
+		{add_view "tank_canon_fire_100_105"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{tags add "ordos_debug_cannon_fire"}
+		{call "spawn_shell"}
+	}
+	{on "add_movement_sound"
+		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
+		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
+	}
+	
+}
+
+{"b-10_prc"
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{view start "backblast"}
+	}
 	("cannon_small")
 }
 
+
+{"b-10_prc_ai"
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{view start "backblast"}
+	}
+	("cannon_small")
+}
+
+{"bs3_prc"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm_HV")
+		("Cannon_Breech")
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 1.9 0.15)
+	}
+
+	{on "reload_delay" overload
+		("reload_time" args 6.1)
+	}
+
+	{on "cut_parts" overload
+		("cut_part" args "part1" 1)
+		("cut_part" args "part2" 1)
+		{inherited}
+	}
+
+	("cannon_big")
+}
+
 {"d1_prc"
+	{on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1931,6 +2546,10 @@
 }
 
 {"m30_prc"
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm_LV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1941,6 +2560,10 @@
 }
 
 {"d-44_prc"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1951,6 +2574,10 @@
 }
 
 {"d-74_prc"
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1961,6 +2588,10 @@
 }
 
 {"d-20_prc"
+	{on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1970,46 +2601,14 @@
 	("cannon_big")
 }
 
-{"zpu-4"
-	{on "init_gun" overload
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel02"	"shooter02"}
-		{add_view "flash_gun_hmg_m2hb"			"flashbarrel03"	"shooter03"}
-		{add_view "zenit_gilz"			"shell"			"FXshell00"}
-		{add_view "zenit_gilz"			"shell"			"FXshell01"}
-		{add_view "zenit_gilz"			"shell"			"FXshell02"}
-		{add_view "zenit_gilz"			"shell"			"FXshell03"}
-		{call "update_gun"}
-	}
-	{on fire "mgun" overload
-		{play_sound "bkg_mg"}
-		{if  name "00"
-			{view start "flashbarrel00"}
-			{delay 0.2
-				{view pause "flashbarrel00"}
-			}
-		}
-		{if  name "01"
-			{view start "flashbarrel01"}
-			{delay 0.2
-				{view pause "flashbarrel01"}
-			}
-		}
-		{if  name "02"
-			{view start "flashbarrel02"}
-			{delay 0.2
-				{view pause "flashbarrel02"}
-			}
-		}
-		{if  name "03"
-			{view start "flashbarrel03"}
-			{delay 0.2
-				{view pause "flashbarrel03"}
-			}
-		}
-	}
-	("cannon_small")
+{"zpu-4_prc"
+    
+    {on "add_weapon_sound" overload
+        ("M2HB_M33_Mount")
+    }
+    ("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
+
+    ("cannon_small")
 }
 
 ;/*=========== FRG Cannons  ===========*/
@@ -2025,6 +2624,9 @@
 		{add_view "zenit_gilz"			"shell"			"FXshell3"}
 		{add_view "zenit_gilz"			"shell"			"FXshell4"}
 		{call "update_gun"}
+	}
+	{on "add_weapon_sound" overload
+		("M2HB_M45_Mount")
 	}
 	{on "add_movement_sound"
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
@@ -2051,10 +2653,54 @@
 }
 
 {"fk20-2"
+	{on "add_weapon_sound" overload
+		("Autocannon_s1")
+	
+	}
 	("cannon_small")
 }
 
+{"40mm_bofors_l70_frg"
+	{on "add_weapon_sound" overload
+		("Autocannon_s2")
+	}
+	{on "cut_parts" overload
+		("cut_part" args "part2" 1)
+		("cut_part" args "part1" 1)
+		("cut_part" args "part3" 1)
+		("cut_part" args "part4" 1)
+		("cut_part" args "part8" 1)
+		{inherited}
+	}
+
+	("cannon_small")
+}
+
+{"82mm_krh36_frg"
+	{on "add_weapon_sound" overload
+		("Mortar_8cm")
+	}
+}
+
+
+{"82mm_krh36_frg_ai"
+	{on "add_weapon_sound" overload
+		("Mortar_8cm")
+	}
+}
+
+{"120mm_krh40_frg"
+	{on "add_weapon_sound" overload
+		("Mortar_12cm")
+	}
+}
+
+
 {"m20g_rcl"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm_LV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -2062,9 +2708,13 @@
 		{add_view "tank_canon_fire_75_76"			"backblast"	"fxshot"}
 	}
 	{on fire "gun" overload
+	
 		{ani_play "recoil"}
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
 		{view start "backblast"}
-		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{spawn "proj_probe" "foresight1" x}   ;ordos_debug
 		{call "spawn_shell"}
 	}
 	{on "add_movement_sound"
@@ -2074,6 +2724,10 @@
 }
 
 {"m20g_rcl_ai"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm_LV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -2081,9 +2735,12 @@
 		{add_view "tank_canon_fire_75_76"			"backblast"	"fxshot"}
 	}
 	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
 		{ani_play "recoil"}
 		{view start "backblast"}
-		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{spawn "proj_probe" "foresight1" x}   ;ordos_debug
 		{call "spawn_shell"}
 	}
 	{on "add_movement_sound"
@@ -2093,6 +2750,10 @@
 }
 
 {"m40g"
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm_LV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2)
 	}
@@ -2100,8 +2761,11 @@
 		{add_view "tank_canon_fire_100_105"			"backblast"	"fxshot"}
 	}
 	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
 		{ani_play "recoil"}
-		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{spawn "proj_probe" "foresight1" x}   ;ordos_debug
 		{view start "backblast"}
 		{call "spawn_shell"}
 	}
@@ -2114,9 +2778,161 @@
 
 ;/*=========== POL Cannons  ===========*/
 
+{"82mm_bm37_pol"
+	{on "add_weapon_sound" overload
+		("Mortar_8cm")
+	}
+}
+
+
+{"82mm_bm37_pol_ai"
+	{on "add_weapon_sound" overload
+		("Mortar_8cm")
+	}
+}
+
+{"120mm_pm38_pol"
+	{on "add_weapon_sound" overload
+		("Mortar_12cm")
+	}
+}
+
+{"b-10_pol"
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{view start "backblast"}
+	}
+	("cannon_small")
+}
+
+{"b-10_pol_ai"
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{view start "backblast"}
+	}
+	("cannon_small")
+}
+
+{"spg9_pol"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{tags add "ordos_debug_spg9_fire"}
+	}
+	("cannon_small")
+}
+
+{"spg9_ai_pol"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
+	{on "init_gun"
+		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+		{play_sound "Cannon_Mid"}
+		{play_sound "Cannon_Far"}
+		{ani_play "recoil"}
+		{view start "backblast"}
+		{spawn "detector" "foresight1" x}   ;ordos_debug
+		{tags add "ordos_debug_spg9_fire"}
+	}
+	("cannon_small")
+}
+
+{"37mm_61k_pol"
+    {on "add_weapon_sound" overload
+		("Autocannon_s2")
+	}
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
+	}
+
+	{on "spawn_shell_delay_auto" overload
+		("shell_eject_delay_auto" args 0.35) ;// delay cannot be longer than rate of fire else shell ejection is skipped and only played on last shell.
+	}
+
+	{on "cut_parts" overload
+		("cut_part" args "part1" 1)
+		("cut_part" args "part3" 1)
+		("cut_part" args "part4" 1)
+		("cut_part" args "part6" 1)
+		{inherited}
+	}
+
+	("cannon_small")
+}
+
+{"zu-2_pol"
+   
+    {on "add_weapon_sound" overload
+        ("DShK38")
+    }
+    ("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
+
+    ("cannon_small")
+}
+
+{"zpu-4_pol"
+    
+    {on "add_weapon_sound" overload
+        ("DShK38")
+    }
+    ("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
+
+    ("cannon_small")
+}
+
+{"zu-23-2_pol"
+    {on "add_weapon_sound" overload
+        ("Autocannon_s1")
+        {link_sound "action_recoil_Cannon"    "weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
+    }
+}
+
+
 {"57mm_s-60_pol"
 	{on "construction_sandbag_cannon_standard" overload
 		("cannon_sandbag" args "sandbag_structured_curved_big" "sandbag")
+	}
+	{on "add_weapon_sound" overload
+		("Cannon_50to57mm")
+		("Cannon_Breech")
 	}
 
 	{on "spawn_shell_delay_auto" overload
@@ -2126,24 +2942,35 @@
 	("cannon_small")
 }
 
-{"b-10_pol"
+
+
+{"bs3_pol"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm_HV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
-		("shell_eject_delay" args 1)
+		("shell_eject_delay" args 1.9 0.15)
 	}
-	{on "init_gun"
-		{add_view "tank_canon_fire_50_57"			"backblast"	"fxshot"}
+
+	{on "reload_delay" overload
+		("reload_time" args 6.1)
 	}
-	{on fire "gun" overload
-		{ani_play "recoil"}
-		{view start "backblast"}
-		{spawn "detector" "foresight1" x}   ;ordos_debug
-		{tags add "ordos_debug_cannon_fire"}
-		{call "spawn_shell"}
+
+	{on "cut_parts" overload
+		("cut_part" args "part1" 1)
+		("cut_part" args "part2" 1)
+		{inherited}
 	}
-	("cannon_small")
+
+	("cannon_big")
 }
 
 {"d1_pol"
+	{on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -2154,6 +2981,10 @@
 }
 
 {"m30_pol"
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm_LV")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -2164,6 +2995,10 @@
 }
 
 {"d-44_pol"
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -2174,6 +3009,10 @@
 }
 
 {"d-20_pol"
+	{on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
