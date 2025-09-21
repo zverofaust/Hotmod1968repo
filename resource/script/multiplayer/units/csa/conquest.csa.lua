@@ -42,6 +42,7 @@ Purchases["conquest.csa"] = {
 				{priority = 1.0, type = {"Armored", "MG", "Infantry", "Squad",}, unit = "squad_weapon_m16_moto_con(csa)"},
 				
 				{priority = 1.0, type = {"Vehicle", "MG", "Infantry", "Squad",}, unit = "squad_lrrp_moto_con(csa)"},
+				{priority = 1.0, type = {"Vehicle", "MG", "Infantry", "Squad",}, unit = "squad_lrrp_moto_con2(csa)"},
 				{priority = 1.0, type = {"Armored", "MG", "Infantry", "Squad",}, unit = "squad_acav_moto_con(csa)"},
 				{priority = 1.0, type = {"Armored", "MG", "Infantry", "Squad", "AT",}, unit = "squad_acav_weapon_moto_con(csa)"},
 				{priority = 1.0, type = {"Armored", "MG", "Infantry", "Squad",}, unit = "squad_acav_m16_moto_con(csa)"},
