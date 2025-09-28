@@ -26,7 +26,7 @@
 		{ani_stop "aim_v"}
 	}
 )
- 
+
 ;/*=========== Cannon Begin ===========*/
 
 {"cannon"							;// master / base code for all cannons
@@ -380,8 +380,8 @@
 			{volumes disable contact}			;// stops vehicles from "colliding" with plane when ejecting.
 			{impulse up -1 forward 5 rnd_dir 3 com}
 			{gravity 0.5}
-			;{delay 1 {volumes enable contact blast}}	
-			{delay 5 
+			;{delay 1 {volumes enable contact blast}}
+			{delay 5
 				{with_linked_entity "attach"
 					{unlink}
 				}
@@ -389,7 +389,7 @@
 			}
 		}
 	}
-	
+
 	{on ground_hit
 		{with_linked_entity "attach"
 			{unlink}
@@ -405,6 +405,7 @@
 		(define "no_shell_eject_delay"
 			{delay_ex %0
 				{ani_play "shell_eject" 1.0}
+				{play_sound "breech_open"}
 				{delay_ex %1
 					{add_view "smoke_breach" "smoke_shell" "fx_invers"}
 					{view start "smoke_shell"}
@@ -1051,7 +1052,7 @@
     {on "add_weapon_sound" overload
 		("Cannon_50to57mm_HV")
 		("Cannon_Breech")
-	} 
+	}
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1685,7 +1686,7 @@
         ("Autocannon_s1")
 		{link_sound "action_recoil_Cannon"	"weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
     }
-   
+
     ("cannon_small")
 }
 
@@ -1694,7 +1695,7 @@
         ("Autocannon_s1")
         {link_sound "action_recoil_Cannon"    "weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
     }
-	
+
 	("cannon_small")
 }
 
@@ -1703,7 +1704,7 @@
         ("Autocannon_s1")
         {link_sound "action_recoil_Cannon"    "weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
     }
-	
+
 	("cannon_small")
 }
 
@@ -2090,7 +2091,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-	
+
 }
 
 {"m20_rcl_ai"
@@ -2117,7 +2118,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-	
+
 }
 
 
@@ -2146,7 +2147,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-	
+
 }
 
 
@@ -2175,7 +2176,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-	
+
 }
 
 {"m40_para"
@@ -2203,7 +2204,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-	
+
 }
 
 {"m-28"
@@ -2236,12 +2237,12 @@
 			{delay 0.3 {view pause "dust"}}
 		}
 	}
-	
+
 	{on "add_movement_sound"
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-	
+
 
 }
 
@@ -2439,7 +2440,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-	
+
 }
 
 {"m20_prc_ai"
@@ -2467,7 +2468,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-	
+
 }
 
 {"b-10_prc"
@@ -2529,6 +2530,23 @@
 	}
 
 	("cannon_big")
+}
+
+{"76mm_zis3_prc"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm")
+		("Cannon_Breech")
+	}
+	{on "spawn_shell_delay" overload
+		("shell_eject_delay" args 0.4 0.3)
+	}
+
+	{on "cut_parts" overload
+		("cut_part" args "part2" 1)
+		{inherited}
+	}
+
+	("cannon_small")
 }
 
 {"d1_prc"
@@ -2602,7 +2620,7 @@
 }
 
 {"zpu-4_prc"
-    
+
     {on "add_weapon_sound" overload
         ("M2HB_M33_Mount")
     }
@@ -2655,7 +2673,7 @@
 {"fk20-2"
 	{on "add_weapon_sound" overload
 		("Autocannon_s1")
-	
+
 	}
 	("cannon_small")
 }
@@ -2708,7 +2726,7 @@
 		{add_view "tank_canon_fire_75_76"			"backblast"	"fxshot"}
 	}
 	{on fire "gun" overload
-	
+
 		{ani_play "recoil"}
 		{play_sound "action_recoil_Cannon"}
 		{play_sound "Cannon_Mid"}
@@ -2899,7 +2917,7 @@
 }
 
 {"zu-2_pol"
-   
+
     {on "add_weapon_sound" overload
         ("DShK38")
     }
@@ -2909,7 +2927,7 @@
 }
 
 {"zpu-4_pol"
-    
+
     {on "add_weapon_sound" overload
         ("DShK38")
     }
