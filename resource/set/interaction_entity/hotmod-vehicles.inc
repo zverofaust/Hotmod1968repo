@@ -6584,7 +6584,35 @@
 	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_isu152_gunner2))
 }
 
-{"isu152_prc tank"
+{"isu-122_prc tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/is/start"}
+		{link_sound "engine_stop"		"vehicle/engine/is/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/is/idle"}
+		{link_sound "engine_full"		"vehicle/engine/is/full"}
+		{link_sound "exhaust"			"vehicle/engine/is/exhaust"}
+		{link_sound "move"				"vehicle/tracks/is/"}
+		{link_sound "rotate_turret"		"vehicle/turret/gun/gun_horizontal"}
+	}
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("DShK38")
+	}
+	{on "commander_hatch_open" overload
+		{ani_wind "open_right" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open_right" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+	("zpu_params" gunner(commander) zpu_mgun(mgun) com_optic(mgun1) anim(hm_hatch_cover) pose(seat_isu152_gunner2))
+}
+
+{"isu-152_prc tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/is/start"}
 		{link_sound "engine_stop"		"vehicle/engine/is/stop"}
@@ -7704,6 +7732,7 @@
 	}
 }
 ;/*=========== Hotmod Specifics End  ===========*/
+
 
 
 
