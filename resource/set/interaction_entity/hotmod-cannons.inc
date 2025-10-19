@@ -26,7 +26,7 @@
 		{ani_stop "aim_v"}
 	}
 )
-
+ 
 ;/*=========== Cannon Begin ===========*/
 
 {"cannon"							;// master / base code for all cannons
@@ -380,8 +380,8 @@
 			{volumes disable contact}			;// stops vehicles from "colliding" with plane when ejecting.
 			{impulse up -1 forward 5 rnd_dir 3 com}
 			{gravity 0.5}
-			;{delay 1 {volumes enable contact blast}}
-			{delay 5
+			;{delay 1 {volumes enable contact blast}}	
+			{delay 5 
 				{with_linked_entity "attach"
 					{unlink}
 				}
@@ -389,7 +389,7 @@
 			}
 		}
 	}
-
+	
 	{on ground_hit
 		{with_linked_entity "attach"
 			{unlink}
@@ -1052,7 +1052,7 @@
     {on "add_weapon_sound" overload
 		("Cannon_50to57mm_HV")
 		("Cannon_Breech")
-	}
+	} 
 	{on "spawn_shell_delay" overload
 		("shell_eject_delay" args 2 0.3)
 	}
@@ -1598,6 +1598,108 @@
 ;/*=========== SOVIET Cannons  ===========*/
 
 
+{"sg43_stand_sov"
+	{on "add_weapon_sound" overload
+		("SG43")
+		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
+	}
+}
+
+{"sg43_stand_sov_ai"
+	{on "add_weapon_sound" overload
+		("SG43")
+		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
+	}
+}
+
+
+{"dshk_aa_sov"
+	{on "init_gun" overload
+		("DShK38")
+		{add_view "shell_hmgun" "shell" "fxshell"}
+		{add_view "ejectsmoke_big" "ejectsmoke" "FXshell"}
+	}
+
+	{on fire "mgun1"
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
+		{play_sound "action_recoil_HMG"}
+		{view start "shell"}
+		{view start "ejectsmoke"}
+		{delay 0.12
+			{view pause "shell"}
+			{view pause "ejectsmoke"}
+		}
+	}
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_straight_heap" "sandbag")
+	}
+}
+
+{"dshk_aa_sov_ai"
+	{on "init_gun" overload
+		("DShK38")
+		{add_view "shell_hmgun" "shell" "fxshell"}
+		{add_view "ejectsmoke_big" "ejectsmoke" "FXshell"}
+	}
+
+	{on fire "mgun1"
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
+		{play_sound "action_recoil_HMG"}
+		{view start "shell"}
+		{view start "ejectsmoke"}
+		{delay 0.12
+			{view pause "shell"}
+			{view pause "ejectsmoke"}
+		}
+	}
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_straight_heap" "sandbag")
+	}
+}
+
+{"dshk_stan_sov"
+	{on "init_gun" overload
+		("DShK38")
+		{add_view "shell_hmgun" "shell" "fxshell"}
+		{add_view "ejectsmoke_big" "ejectsmoke" "FXshell"}
+	}
+
+	{on fire "mgun1"
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
+		{play_sound "action_recoil_HMG"}
+		{view start "shell"}
+		{view start "ejectsmoke"}
+		{delay 0.12
+			{view pause "shell"}
+			{view pause "ejectsmoke"}
+		}
+	}
+}
+
+
+{"dshk_stan_sov_ai"
+	{on "init_gun" overload
+		("DShK38")
+		{add_view "shell_hmgun" "shell" "fxshell"}
+		{add_view "ejectsmoke_big" "ejectsmoke" "FXshell"}
+	}
+
+	{on fire "mgun1"
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
+		{play_sound "action_recoil_HMG"}
+		{view start "shell"}
+		{view start "ejectsmoke"}
+		{delay 0.12
+			{view pause "shell"}
+			{view pause "ejectsmoke"}
+		}
+	}
+}
+
 {"82mm_bm37_sov"
 	{on "add_weapon_sound" overload
 		("Mortar_8cm")
@@ -1617,7 +1719,70 @@
 	}
 }
 
+{"240mm_m240"
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm_LV")
+	}
 
+	{on animation_event "close"		;// event called on frame 0 of "close" animation
+		{if cannon_state "fire"
+			{if not tagged "gun_fired"
+				{call "raise_gun"}
+			}
+		else
+			{call "lower_gun"}
+		}
+	}
+
+	{on "lower_gun"
+		{if not tagged "gun_fired"
+			{ani_play "shell_eject" 1.0}
+		}
+	}
+
+	{on "cannon_reloaded" overload
+		{if cannon_state "move"
+			;// do nothing
+		else cannon_state "trailing"
+			;// do nothing
+		else
+			{call "raise_gun"}
+		}
+		{play_sound "breech_close"}
+		{delay 0.5
+			{talk "reloaded"}
+		}
+	}
+
+	{on "raise_gun"
+		{ani_play "shell_eject" -1.0}
+	}
+
+	{on "cut_parts" overload
+		("cut_part" args "wheelL" 0.6)
+		("cut_part" args "wheelR" 0.6)
+		("cut_part" args "part1" 1)
+		("cut_part" args "part2" 1)
+		("cut_part" args "part3" 1)
+		("cut_part" args "part4" 1)
+		{inherited}
+	}
+
+	{on "spawn_shell_delay" overload}
+
+	{on "no_spawn_shell_delay" overload
+		("no_shell_eject_delay" args 3.75 0.3)
+	}
+	{on "reload_delay" overload
+		("reload_time" args 55)
+	}
+
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_curved_heap" "sandbag")
+	}
+
+	("cannon_big")
+}
 
 {"37mm_61k_sov"
     {on "add_weapon_sound" overload
@@ -1674,7 +1839,7 @@
 
 {"zpu-4"
     {on "add_weapon_sound" overload
-        ("M2HB_M33_Mount")
+        ("M2HB_M45_Mount")
     }
     ("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
 
@@ -1686,7 +1851,7 @@
         ("Autocannon_s1")
 		{link_sound "action_recoil_Cannon"	"weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
     }
-
+   
     ("cannon_small")
 }
 
@@ -1695,7 +1860,7 @@
         ("Autocannon_s1")
         {link_sound "action_recoil_Cannon"    "weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
     }
-
+	
 	("cannon_small")
 }
 
@@ -1704,7 +1869,7 @@
         ("Autocannon_s1")
         {link_sound "action_recoil_Cannon"    "weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
     }
-
+	
 	("cannon_small")
 }
 
@@ -2091,7 +2256,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-
+	
 }
 
 {"m20_rcl_ai"
@@ -2118,7 +2283,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-
+	
 }
 
 
@@ -2147,7 +2312,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-
+	
 }
 
 
@@ -2176,7 +2341,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-
+	
 }
 
 {"m40_para"
@@ -2204,8 +2369,81 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-
+	
 }
+
+{"75mm_m116"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm")
+		("Cannon_Breech")
+	}
+	("cannon_small")
+}
+
+
+{"m116_airlift"
+	{on "add_weapon_sound" overload
+		("Cannon_75to76mm")
+		("Cannon_Breech")
+	}
+	("cannon_small")
+}
+
+{"105mm_m101a1"
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("Cannon_Breech")
+	}
+	("cannon_small")
+}
+
+
+{"105mm_m102"
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("Cannon_Breech")
+	}
+	("cannon_small")
+}
+
+
+{"155mm_m114"
+    {on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("Cannon_Breech")
+	}
+	("cannon_big")
+}
+
+
+{"155mm_m114"
+    {on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("Cannon_Breech")
+	}
+	("cannon_big")
+}
+
+
+
+{"155mm_m59_longtom"
+    {on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("Cannon_Breech")
+	}
+	("cannon_big")
+}
+
+
+
+{"203mm_m115"
+    {on "add_weapon_sound" overload
+		("Cannon_150to210mm")
+		("Cannon_Breech")
+	}
+	("cannon_big")
+}
+
 
 {"m-28"
 	{on "add_weapon_sound" overload
@@ -2237,12 +2475,12 @@
 			{delay 0.3 {view pause "dust"}}
 		}
 	}
-
+	
 	{on "add_movement_sound"
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-
+	
 
 }
 
@@ -2358,6 +2596,70 @@
 
 ;/*=========== PRC Cannons  ===========*/
 
+
+
+{"sg43_stand_prc"
+	{on "add_weapon_sound" overload
+		("SG43")
+		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
+	}
+}
+
+{"sg43_stand_prc_ai"
+	{on "add_weapon_sound" overload
+		("SG43")
+		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
+	}
+}
+
+
+{"dshk_aa_prc"
+	{on "init_gun" overload
+		("DShK38")
+		{add_view "shell_hmgun" "shell" "fxshell"}
+		{add_view "ejectsmoke_big" "ejectsmoke" "FXshell"}
+	}
+
+	{on fire "mgun1"
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
+		{play_sound "action_recoil_HMG"}
+		{view start "shell"}
+		{view start "ejectsmoke"}
+		{delay 0.12
+			{view pause "shell"}
+			{view pause "ejectsmoke"}
+		}
+	}
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_straight_heap" "sandbag")
+	}
+}
+
+
+{"dshk_aa_prc_ai"
+	{on "init_gun" overload
+		("DShK38")
+		{add_view "shell_hmgun" "shell" "fxshell"}
+		{add_view "ejectsmoke_big" "ejectsmoke" "FXshell"}
+	}
+
+	{on fire "mgun1"
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
+		{play_sound "action_recoil_HMG"}
+		{view start "shell"}
+		{view start "ejectsmoke"}
+		{delay 0.12
+			{view pause "shell"}
+			{view pause "ejectsmoke"}
+		}
+	}
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_straight_heap" "sandbag")
+	}
+}
+
 {"82mm_bm37_prc"
 	{on "add_weapon_sound" overload
 		("Mortar_8cm")
@@ -2386,7 +2688,7 @@
 	}
 
 	{on "spawn_shell_delay_auto" overload
-		("shell_eject_delay_auto" args 0.35) ;// delay cannot be longer than rate of fire else shell ejection is skipped and only played on last shell.
+		("shell_eject_delay_auto" args 0.35) ;// delay cannot be er than rate of fire else shell ejection is skipped and only played on last shell.
 	}
 
 	{on "cut_parts" overload
@@ -2440,7 +2742,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-
+	
 }
 
 {"m20_prc_ai"
@@ -2468,7 +2770,7 @@
 		{link_sound "rotate_turret" "vehicle/turret/gun/gun_horizontal"}
 		{link_sound "rotate_gun" "vehicle/turret/gun/gun_vertical"}
 	}
-
+	
 }
 
 {"b-10_prc"
@@ -2531,6 +2833,7 @@
 
 	("cannon_big")
 }
+
 
 {"76mm_zis3_prc"
 	{on "add_weapon_sound" overload
@@ -2620,9 +2923,9 @@
 }
 
 {"zpu-4_prc"
-
+    
     {on "add_weapon_sound" overload
-        ("M2HB_M33_Mount")
+        ("M2HB_M45_Mount")
     }
     ("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
 
@@ -2673,7 +2976,7 @@
 {"fk20-2"
 	{on "add_weapon_sound" overload
 		("Autocannon_s1")
-
+	
 	}
 	("cannon_small")
 }
@@ -2726,7 +3029,7 @@
 		{add_view "tank_canon_fire_75_76"			"backblast"	"fxshot"}
 	}
 	{on fire "gun" overload
-
+	
 		{ani_play "recoil"}
 		{play_sound "action_recoil_Cannon"}
 		{play_sound "Cannon_Mid"}
@@ -2795,6 +3098,69 @@
 
 
 ;/*=========== POL Cannons  ===========*/
+
+
+{"sg43_stand_pol"
+	{on "add_weapon_sound" overload
+		("SG43")
+		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
+	}
+}
+
+{"sg43_stand_pol_ai"
+	{on "add_weapon_sound" overload
+		("SG43")
+		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
+	}
+}
+
+
+{"dshk_aa_pol"
+	{on "init_gun" overload
+		("DShK38")
+		{add_view "shell_hmgun" "shell" "fxshell"}
+		{add_view "ejectsmoke_big" "ejectsmoke" "FXshell"}
+	}
+
+	{on fire "mgun1"
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
+		{play_sound "action_recoil_HMG"}
+		{view start "shell"}
+		{view start "ejectsmoke"}
+		{delay 0.12
+			{view pause "shell"}
+			{view pause "ejectsmoke"}
+		}
+	}
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_straight_heap" "sandbag")
+	}
+}
+
+
+{"dshk_aa_pol_ai"
+	{on "init_gun" overload
+		("DShK38")
+		{add_view "shell_hmgun" "shell" "fxshell"}
+		{add_view "ejectsmoke_big" "ejectsmoke" "FXshell"}
+	}
+
+	{on fire "mgun1"
+		{play_sound "HMG_Mid"}
+		{play_sound "HMG_Far"}
+		{play_sound "action_recoil_HMG"}
+		{view start "shell"}
+		{view start "ejectsmoke"}
+		{delay 0.12
+			{view pause "shell"}
+			{view pause "ejectsmoke"}
+		}
+	}
+	{on "construction_sandbag_cannon_standard" overload
+		("cannon_sandbag" args "sandbag_straight_heap" "sandbag")
+	}
+}
 
 {"82mm_bm37_pol"
 	{on "add_weapon_sound" overload
@@ -2917,7 +3283,7 @@
 }
 
 {"zu-2_pol"
-
+   
     {on "add_weapon_sound" overload
         ("DShK38")
     }
@@ -2927,9 +3293,9 @@
 }
 
 {"zpu-4_pol"
-
+    
     {on "add_weapon_sound" overload
-        ("DShK38")
+        ("M2HB_M45_Mount")
     }
     ("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
 

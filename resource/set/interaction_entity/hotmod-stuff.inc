@@ -22,32 +22,7 @@
 	}
 }
 
-{"stuff weapon kpv"				;// props added to Browning M1919A4 .30 Cal
-	{on spawn
-		{link_sound        "action_recoil"    "weapon/action/recoil/closed_bolt_HMG/"}
-		{link_sound        "mid"        "weapon/shot/smallarms/s4/d2/RUS/DShK38/"}
-		{link_sound        "far"        "weapon/shot/smallarms/s4/d3/RUS/DShK38/"}
-	}
-}
-
 {"stuff weapon kpvt"				;// props added to Browning M1919A4 .30 Cal
-	{on spawn
-		{link_sound        "action_recoil"    "weapon/action/recoil/closed_bolt_HMG/"}
-		{link_sound        "mid"        "weapon/shot/smallarms/s4/d2/RUS/DShK38/"}
-		{link_sound        "far"        "weapon/shot/smallarms/s4/d3/RUS/DShK38/"}
-	}
-}
-
-
-{"stuff weapon kpv_x2"				;// props added to Browning M1919A4 .30 Cal
-	{on spawn
-		{link_sound        "action_recoil"    "weapon/action/recoil/closed_bolt_HMG/"}
-		{link_sound        "mid"        "weapon/shot/smallarms/s4/d2/RUS/DShK38/"}
-		{link_sound        "far"        "weapon/shot/smallarms/s4/d3/RUS/DShK38/"}
-	}
-}
-
-{"stuff weapon kpv_x4"				;// props added to Browning M1919A4 .30 Cal
 	{on spawn
 		{link_sound        "action_recoil"    "weapon/action/recoil/closed_bolt_HMG/"}
 		{link_sound        "mid"        "weapon/shot/smallarms/s4/d2/RUS/DShK38/"}
@@ -60,15 +35,6 @@
 		{link_sound        "action_recoil"    "weapon/action/recoil/closed_bolt_HMG/"}
 		{link_sound        "mid"        "weapon/shot/smallarms/s4/d2/RUS/DShK38/"}
 		{link_sound        "far"        "weapon/shot/smallarms/s4/d3/RUS/DShK38/"}
-	}
-	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
-}
-
-{"stuff weapon m2hb"						;// props added to StG 44 and MKb 42(H)
-	{on spawn
-		{link_sound		"action_recoil"		"weapon/action/recoil/closed_bolt_HMG/"}
-		{link_sound		"mid"		"weapon/shot/smallarms/s4/d2/USA/M2HB/"}
-		{link_sound		"far"		"weapon/shot/smallarms/s4/d3/RUS/DShK38/"}
 	}
 	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
 }
@@ -88,41 +54,6 @@
 		{link_sound		"action_recoil"		"weapon/action/recoil/closed_bolt_HMG/"}
 		{link_sound		"mid"		"weapon/shot/smallarms/s4/d2/USA/M2HB/"}
 		{link_sound		"far"		"weapon/shot/smallarms/s4/d3/RUS/DShK38/"}
-	}
-	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
-}
-
-{"stuff weapon browning_m2d"						;// props added to StG 44 and MKb 42(H)
-	{on spawn
-		{link_sound		"action_recoil"		"weapon/action/recoil/closed_bolt_HMG/"}
-		{link_sound		"mid"			"weapon/shot/smallarms/s4/d2/USA/M2HB/"}
-		{link_sound		"far"			"weapon/shot/smallarms/s4/d3/RUS/DShK38/"}
-	}
-	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
-}
-
-{"stuff weapon browning_m2x2"						;// props added to StG 44 and MKb 42(H)
-	{on spawn
-		{link_sound		"action_recoil" 	"weapon/shot/smallarms/s4/recoil/USA/M2HB/"}
-		{link_sound		"head_loop_close" 	"weapon/shot/smallarms/s4/d1/USA/M2HB/Gun_Mounts/M33_DualMount_Head_Loop/"}
-		{link_sound		"tail_close" 	"weapon/shot/smallarms/s4/d1/USA/M2HB/Gun_Mounts/Tail/"}
-		{link_sound		"head_loop_mid"	"weapon/shot/smallarms/s4/d2/USA/M2HB/Gun_Mounts/M33_DualMount_Head_Loop/"}
-		{link_sound		"tail_mid"		"weapon/shot/smallarms/s4/d2/USA/M2HB/Gun_Mounts/Tail/"}
-		{link_sound		"head_loop_far"	"weapon/shot/smallarms/s4/d3/USA/M2HB/Gun_Mounts/M33_DualMount_Head_Loop/"}
-		{link_sound		"tail_far"		"weapon/shot/smallarms/s4/d3/USA/M2HB/Gun_Mounts/Tail/"}
-	}
-	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
-}
-
-{"stuff weapon browning_m2x4"						;// props added to StG 44 and MKb 42(H)
-	{on spawn
-		{link_sound		"action_recoil" 	"weapon/shot/smallarms/s4/recoil/USA/M2HB/"}
-		{link_sound		"head_loop_close" 	"weapon/shot/smallarms/s4/d1/USA/M2HB/Gun_Mounts/M45_QuadMount_Head_Loop/"}
-		{link_sound		"tail_close" 		"weapon/shot/smallarms/s4/d1/USA/M2HB/Gun_Mounts/Tail/"}
-		{link_sound		"head_loop_mid"		"weapon/shot/smallarms/s4/d2/USA/M2HB/Gun_Mounts/M45_QuadMount_Head_Loop/"}
-		{link_sound		"tail_mid"			"weapon/shot/smallarms/s4/d2/USA/M2HB/Gun_Mounts/Tail/"}
-		{link_sound		"head_loop_far"		"weapon/shot/smallarms/s4/d3/USA/M2HB/Gun_Mounts/M45_QuadMount_Head_Loop/"}
-		{link_sound		"tail_far"			"weapon/shot/smallarms/s4/d3/USA/M2HB/Gun_Mounts/Tail/"}
 	}
 	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
 }
@@ -147,16 +78,6 @@
 	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
 }
 
-
-{"stuff weapon sgmt"						;// props added to StG 44 and MKb 42(H)
-	{on spawn
-		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
-		{link_sound		"mid"		"weapon/shot/smallarms/s3/d2/RUS/SG43/"}
-	    {link_sound		"far"		"weapon/shot/smallarms/s3/d3/RUS/SG43/"}
-	}
-	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
-}
-
 {"stuff weapon pk"						;// props added to StG 44 and MKb 42(H)
 	{on spawn
 		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
@@ -166,7 +87,7 @@
 	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
 }
 
-{"stuff weapon pks"						;// props added to StG 44 and MKb 42(H)
+{"stuff weapon pk_mounted"						;// props added to StG 44 and MKb 42(H)
 	{on spawn
 		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
 		{link_sound		"mid"		"weapon/shot/smallarms/s3/d2/RUS/SG43/"}
@@ -174,16 +95,6 @@
 	}
 	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
 }
-
-{"stuff weapon pkmt"						;// props added to StG 44 and MKb 42(H)
-	{on spawn
-		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
-		{link_sound		"mid"		"weapon/shot/smallarms/s3/d2/RUS/SG43/"}
-	    {link_sound		"far"		"weapon/shot/smallarms/s3/d3/RUS/SG43/"}
-	}
-	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
-}
-
 
 {"stuff weapon pkt"						;// props added to StG 44 and MKb 42(H)
 	{on spawn
@@ -294,42 +205,23 @@
 	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
 }
 
-{"stuff weapon mg1_belt"					;// props added to MG 42
+{"stuff weapon m240b"					;// props added to MG 42 w/ Gurttrommel 34
 	{on spawn
-		{link_sound "action_recoil"	"weapon/shot/smallarms/s3/recoil/GER/MG42/"}
-		{link_sound "mid"		"weapon/shot/smallarms/s3/d2/GER/MG42/"}
-		{link_sound "far"		"weapon/shot/smallarms/s3/d3/GER/MG42/"}
-	}
-}
-
-{"stuff weapon mg1_drum"					;// props added to MG 42 w/ Gurttrommel 34
-	{on spawn
-		{link_sound "action_recoil"	"weapon/shot/smallarms/s3/recoil/GER/MG42/"}
-		{link_sound "mid"		"weapon/shot/smallarms/s3/d2/GER/MG42/"}
-		{link_sound "far"		"weapon/shot/smallarms/s3/d3/GER/MG42/"}
+		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
+		{link_sound "mid"			"weapon/shot/smallarms/s3/d2/USA/M1919A4/"}
+		{link_sound "far"			"weapon/shot/smallarms/s3/d3/USA/M1919A4/"}
 	}
 	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
 }
 
-
-{"stuff weapon mg1_tank"					;// props added to MG 42 w/ Gurttrommel 34
+{"stuff weapon fn_mag"					;// props added to MG 42 w/ Gurttrommel 34
 	{on spawn
-		{link_sound "action_recoil"	"weapon/shot/smallarms/s3/recoil/GER/MG42/"}
-		{link_sound "mid"		"weapon/shot/smallarms/s3/d2/GER/MG42/"}
-		{link_sound "far"		"weapon/shot/smallarms/s3/d3/GER/MG42/"}
+		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
+		{link_sound "mid"			"weapon/shot/smallarms/s3/d2/USA/M1919A4/"}
+		{link_sound "far"			"weapon/shot/smallarms/s3/d3/USA/M1919A4/"}
 	}
 	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
 }
-
-{"stuff weapon mg1_x4"					;// props added to MG 42 w/ Gurttrommel 34
-	{on spawn
-		{link_sound "action_recoil"	"weapon/shot/smallarms/s3/recoil/GER/MG42/"}
-		{link_sound "mid"		"weapon/shot/smallarms/s3/d2/GER/MG42/"}
-		{link_sound "far"		"weapon/shot/smallarms/s3/d3/GER/MG42/"}
-	}
-	("magazine" cut(1) show(1.95) override(overload) impulse({impulse up 0.3 forward 0.9 0.1 cy 1.5 0.25}))
-}
-
 
 {"stuff weapon mg3_drum"					;// props added to MG 42 w/ Gurttrommel 34
 	{on spawn
@@ -386,14 +278,6 @@
 }
 
 {"stuff weapon m1919a6"				;// props added to Browning M1919A4 .30 Cal
-	{on spawn
-		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
-		{link_sound "mid"			"weapon/shot/smallarms/s3/d2/USA/M1919A4/"}
-		{link_sound "far"			"weapon/shot/smallarms/s3/d3/USA/M1919A4/"}
-	}
-}
-
-{"stuff weapon browning_m19a4_x2"				;// props added to Browning M1919A4 .30 Cal
 	{on spawn
 		{link_sound "action_recoil"	"weapon/action/recoil/open_bolt_MG/"}
 		{link_sound "mid"			"weapon/shot/smallarms/s3/d2/USA/M1919A4/"}
@@ -470,6 +354,25 @@
 		{link_sound "action_recoil"	 "weapon/action/recoil/closed_bolt/StG44/"}
 		{link_sound "mid"		"weapon/shot/smallarms/s3/d2/Shared/Surpressed_Rifle/"}
 	}
+}
+
+{"stuff weapon aks74"						;// props added to StG 44 and MKb 42(H)
+	{on spawn
+		{link_sound "action_recoil"	"weapon/action/recoil/closed_bolt/StG44/"}
+		{link_sound "mid"		"weapon/shot/smallarms/s2/d2/GER/StG44/"}
+		{link_sound "far"		"weapon/shot/smallarms/s2/d3/GER/StG44/"}
+	}
+	("magazine" cut(1.20) show(1.95) override(overload) impulse({impulse up -0.01}))
+}
+
+
+{"stuff weapon aks74u"						;// props added to StG 44 and MKb 42(H)
+	{on spawn
+		{link_sound "action_recoil"	"weapon/action/recoil/closed_bolt/StG44/"}
+		{link_sound "mid"		"weapon/shot/smallarms/s2/d2/GER/StG44/"}
+		{link_sound "far"		"weapon/shot/smallarms/s2/d3/GER/StG44/"}
+	}
+	("magazine" cut(1.20) show(1.95) override(overload) impulse({impulse up -0.01}))
 }
 
 {"stuff weapon type63_rifle"						;// props added to StG 44 and MKb 42(H)
@@ -887,6 +790,14 @@
 		{link_sound "far"			"weapon/shot/reactive/d3/Shared/Rocket_Launcher/"}
 	}
 }
+
+{"stuff weapon rpg29"
+	{on spawn
+		{link_sound "mid"			"weapon/shot/reactive/d2/Shared/Rocket_Launcher/"}
+		{link_sound "far"			"weapon/shot/reactive/d3/Shared/Rocket_Launcher/"}
+	}
+}
+
 
 {"stuff weapon m2gustaf"
 	{on spawn
