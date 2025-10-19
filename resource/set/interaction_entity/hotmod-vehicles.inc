@@ -3390,13 +3390,36 @@
 }
 
 {"m706"
-	("m8_greyhound_sound")
-	{on "add_weapon_sound" overload
-		("M2HB_M33_Mount")
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/m8_greyhound/start"}
+		{link_sound "engine_stop"		"vehicle/engine/m8_greyhound/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/m8_greyhound/idle"}
+		{link_sound "engine_full"		"vehicle/engine/m8_greyhound/full"}
+		{link_sound "exhaust"			"vehicle/engine/m8_greyhound/exhaust"}
+		{link_sound "move"				"vehicle/wheels/armored_car"}
+		{link_sound "rotate_turret"		"vehicle/turret/handcrank/handcrank_light"}
 	}
-
-	("multi_barrel_loop" flash(flash_gun_big) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
-
+	{on "add_weapon_sound" overload
+		("M1919A4")
+	}
+	{on spawn
+		{add_view	"flash_gun_big"	"flashbarrel00"	"shooter00"}
+		{add_view	"flash_gun_big"	"flashbarrel01"	"shooter01"}
+	}
+	{on fire "mgun" overload
+		{play_sound "bkg_mg"}
+		{if  name "00"
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		else name "01"
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
+	}
 }
 
 {"m16_gmc tank"
