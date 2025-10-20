@@ -77,7 +77,7 @@
 		{add_view	"tank_grit_small_w"		"on_puddle"			"FXtraceR1"}
 		{add_view	"tank_grit_small_w"		"on_puddle"			"FXtraceL1"}
 	}
-	
+
 	(define "fx_base"
 		{view %action "%fx%number"}
 	)
@@ -712,7 +712,7 @@
 			{kill_delay "engine_decel"}
 			("stop_trace_engine" number(1))
 			("stop_trace_engine" number(2))
-			{if not tagged "destroyed"
+			{if not tagged "exploded"
 				{ani_play "engine_stop"}
 				{ani_play "engine2_stop"}
 			}
@@ -725,18 +725,34 @@
 		}
 	}
 
-	{on "engine stop view" overload
-		;{call "engine_off"}
-	}
+	{on "engine stop view" overload}
 
 	;/*=========== Plane Damage Begin  ===========*/
+
+	(define "cut_part"
+		{if rand %1
+			{delay_ex 0
+				{tear "piece_big_airborne_wing" bone %0
+					{impulse up 2 1 dir 2 1}
+				}
+			}
+		}
+	)
+
+	(define "cut_part_delete"
+		{delay_ex 0
+			{tear "piece_big_airborne_wing" bone %0
+				{delete}
+			}
+		}
+	)
 
 	{on pierce sync
 		{vehicle_health_damage_pierce}
 	}
 
 	{on break overload							;// component breaks
-		{if not tagged "destroyed"
+		{if not tagged "exploded"
 			{call "update_moveable"}
 		}
 		{if chassis "airborne"
@@ -756,7 +772,25 @@
 			else component "wingright"
 				{burn fx "smoke_aero_small" fake}
 
+			else component "wingright2"
+				{burn fx "smoke_aero_small" fake}
+
+			else component "wingright_top"
+				{burn fx "smoke_aero_small" fake}
+
+			else component "wingright2_top"
+				{burn fx "smoke_aero_small" fake}
+
 			else component "wingleft"
+				{burn fx "smoke_aero_small" fake}
+
+			else component "wingleft2"
+				{burn fx "smoke_aero_small" fake}
+
+			else component "wingleft_top"
+				{burn fx "smoke_aero_small" fake}
+
+			else component "wingleft2_top"
 				{burn fx "smoke_aero_small" fake}
 
 			else component "wheel"
@@ -769,7 +803,7 @@
 	}
 
 	{on destroy overload				;// component destroyed
-		{if not tagged "destroyed"
+		{if not tagged "exploded"
 			{if chassis "airborne"
 				{if component "body"
 					{call "stat_break"}
@@ -778,8 +812,10 @@
 					{if chassis "airborne"
 						{call "fall"}
 						{view start "heavy_body_smoke"}
+						{fire radius 6 time 8 heating 0.35 follow}
 					else
 						{call "emit_crew"}						;// generic crew emit from vehicle.inc
+						{call "disable_all_seats"}
 					}
 
 				else component "engine1"
@@ -788,6 +824,7 @@
 					{if tagged "engine_count_1"
 						{if chassis "airborne"
 							{call "fall"}
+							(mod not "mp" {fire radius 6 time 8 heating 0.40 follow})
 						else
 							{call "engine_off"}
 						}
@@ -816,7 +853,25 @@
 				else component "wingright"
 					{call "tear_part"}
 
+				else component "wingright2"
+					{call "tear_part"}
+
+				else component "wingright_top"
+					{call "tear_part"}
+
+				else component "wingright2_top"
+					{call "tear_part"}
+
 				else component "wingleft"
+					{call "tear_part"}
+
+				else component "wingleft2"
+					{call "tear_part"}
+
+				else component "wingleft_top"
+					{call "tear_part"}
+
+				else component "wingleft2_top"
 					{call "tear_part"}
 
 				else component "wheel"
@@ -851,15 +906,16 @@
 				{set "fall" 1}
 				{drop_orders}
 				(mod "mp"
+					{call "bail_out"}
 					{impulse up 0.01 forward 0.001}
 					{explosive 1}
 					{call "fall_sound"}
 				)
 				(mod not "mp"
-					{delay 1
+					{delay 1.25
 						{call "bail_out"}
 					}
-					{delay 4 3
+					{delay 4 3 "fall_impulse"
 						{impulse up 0.01 forward 0.001}
 						{explosive 1}
 						{call "fall_sound"}
@@ -902,18 +958,69 @@
 
 	{on ground_hit sync
 		{if chassis "airborne"
+			{component destroy}
 			{if not tagged "grounded"					;// stops from being called multiple times on crash with ground.
 				{tags add "grounded"}
-				{call "collide"}
+				;{call "collide"}
 				{start_sound "detonation/explosion_fiery/"}
 				{start_sound "detonation/50kg_bomb/bkg/"}
-				{delay 0.01
+				;{component destroy}
+				{delay 0.2 "ground_explosion"
 					{call "crash_explosion"}
 					{call "engine_not_run"}
 					{stop_sound "fall"}
 					{kill_crew}
 				}
 			}
+			{if volume "wingl1"
+				{delay 0.02
+					{tags add "grounded"}
+					{call "crash_explosion"}
+					{call "engine_not_run"}
+					{stop_sound "fall"}
+					{kill_crew}
+					{kill_delay "ground_explosion"}
+				}
+			}
+			{if volume "wingr1"
+				{delay 0.02
+					{tags add "grounded"}
+					{call "crash_explosion"}
+					{call "engine_not_run"}
+					{stop_sound "fall"}
+					{kill_crew}
+					{kill_delay "ground_explosion"}
+				}
+			}
+			{if volume "body"
+				{tags add "grounded"}
+				{call "crash_explosion"}
+				{call "engine_not_run"}
+				{stop_sound "fall"}
+				{kill_crew}
+				{kill_delay "ground_explosion"}
+			}
+			{if volume "spin1"
+				{set "engine1_start" 0}
+				{components "propeller1" destroy}
+				{call "engine1_broken"}
+				("prop_destroy" number(1))
+				{tags add "ground_hit_spin1"}
+			}
+			{if volume "spin2"
+				{set "engine2_start" 0}
+				{components "propeller2" destroy}
+				{call "engine2_broken"}
+				("prop_destroy" number(2))
+				{tags add "ground_hit_spin2"}
+			}
+			{if volume "wheell"
+				("cut_part" args "gear_l" 1)
+			}
+			{if volume "wheelr"
+				("cut_part" args "gear_r" 1)
+			}
+
 		else
 			{if volume "part"
 				{call "tear_part"}
@@ -952,6 +1059,7 @@
 			("prop_still" number(1))
 		}
 	}
+
 	{on "engine2_broken"
 		{components "engine2" break}
 		{ani_stop "engine2_start"}
@@ -1025,7 +1133,7 @@
 	}
 
 	{on "crash_explosion"
-		{if not tagged "destroyed"
+		{if not tagged "exploded"
 			{if chassis "airborne"
 				{call "_explosion"}
 			}
@@ -1050,8 +1158,7 @@
 	}
 
 	{on "tear_part"
-		{if not tagged "destroyed"
-			;{spawn "spheredust_big_short"}
+		{if not tagged "exploded"
 			{if rand 0.3
 				{spawn "aero_die_particle"}
 			}
@@ -1089,8 +1196,26 @@
 				{call "crash"}
 			else volume "wingl2"
 				{call "crash"}
+				("cut_part_delete" args "wireL_ail")
+
 			else volume "wingr2"
 				{call "crash"}
+				("cut_part_delete" args "wireR_ail")
+
+			else volume "winglt1"
+				{call "crash"}
+				("cut_part_delete" args "wireL_ail")
+
+			else volume "winglt2"
+				{call "crash"}
+				("cut_part_delete" args "wireL_ail")
+
+			else volume "wingrt1"
+				{call "crash"}
+				("cut_part_delete" args "wireR_ail")
+			else volume "wingrt2"
+				{call "crash"}
+				("cut_part_delete" args "wireR_ail")
 			}
 		}
 	}
@@ -1102,7 +1227,7 @@
 	}
 
 	{on "crash"
-		{if not tagged "destroyed"
+		{if not tagged "exploded"
 			{call "stat_break"}
 			{if chassis "airborne"
 				{stop_sound "bounds"}
@@ -1115,6 +1240,7 @@
 				{delay 2
 					{chassis_work 0}
 					{crew_emit}
+					{call "emit_crew"}						;// generic crew emit from vehicle.inc
 				}
 			}
 			{delay 0.5
@@ -1147,6 +1273,7 @@
 	("burn_part" args 4)
 
 	{on "die"
+		{kill_delay "fall_impulse"}
 		{chassis_work 0}
 		{drop_orders}
 		{explosive 0}
@@ -1155,16 +1282,9 @@
 		{burn stop}
 	}
 
-	(define "cut_part"
-		{if rand %1
-			{tear "piece_big_airborne_wing" bone %0
-				{impulse up 2 1 dir 2 1}
-			}
-		}
-	)
-
 	{on "_explosion" overload
 		{tags add "destroyed"}
+		{tags add "exploded"}
 		{tags remove "air"}
 		{able "exploded" 1}
 		{stop_sound "fall"}
@@ -1199,10 +1319,20 @@
 
 		{impulse up 0.1 com}
 		{delay 0.1
-			;("cut_part" args "wingr1"		0)
-			;("cut_part" args "wingl1"		0)
+			("cut_part_delete" args "wireL_ail")
+			("cut_part_delete" args "wireL_bottom")
+			("cut_part_delete" args "wireL_top")
+			("cut_part_delete" args "wireR_ail")
+			("cut_part_delete" args "wireR_top")
+			("cut_part_delete" args "wireR_bottom")
+			("cut_part_delete" args "wire_rud")
+			("cut_part_delete" args "wireL_elev")
+			("cut_part_delete" args "wireR_elev")
+
 			("cut_part" args "wingr2"		1)
 			("cut_part" args "wingl2"		1)
+			("cut_part" args "wingrt2"		0.75)
+			("cut_part" args "winglt2"		0.75)
 			("cut_part" args "body_back"	1)
 			("cut_part" args "rudder"		0.5)
 			("cut_part" args "rudder1"		0.5)
@@ -1256,6 +1386,10 @@
 		{add_view "flash_gun_small"	"flashbarrel_mg01"	"barrel_mg01"}
 		{add_view "flash_gun_small"	"flashbarrel_mg02"	"barrel_mg02"}
 		{add_view "flash_gun_small"	"flashbarrel_mg03"	"barrel_mg03"}
+		{add_view "flash_gun_small"	"flashbarrel_mg04"	"barrel_mg04"}
+		{add_view "flash_gun_small"	"flashbarrel_mg05"	"barrel_mg05"}
+		{add_view "flash_gun_small"	"flashbarrel_mg06"	"barrel_mg06"}
+		{add_view "flash_gun_small"	"flashbarrel_mg07"	"barrel_mg07"}
 		{add_view "flash_gun_small"	"flashbarrel_rear" "foresight6"}
 		{add_view "flash_gun_small"	"flashbarrel_main" "foresight1"}
 	}
@@ -1275,6 +1409,8 @@
 		  else ("fire_barrel" args 03)
 		  else ("fire_barrel" args 04)
 		  else ("fire_barrel" args 05)
+		  else ("fire_barrel" args 06)
+		  else ("fire_barrel" args 07)
 		}
 	}
 
@@ -1286,12 +1422,17 @@
 					{view pause "flashbarrel_mg%0"}
 				}
 		)
-		{play_sound "bkg_mgun"}
+		{play_sound "MG_Mid"}
+		{play_sound "MG_Far"}
 
 		{if    ("fire_barrel_mg" args 00)
 		  else ("fire_barrel_mg" args 01)
 		  else ("fire_barrel_mg" args 02)
 		  else ("fire_barrel_mg" args 03)
+		  else ("fire_barrel_mg" args 04)
+		  else ("fire_barrel_mg" args 05)
+		  else ("fire_barrel_mg" args 06)
+		  else ("fire_barrel_mg" args 07)
 
 		}
 	}
@@ -1316,7 +1457,8 @@
 
 	{on fire "mgun4"
 		{view start "flashbarrel_rear"}
-		{play_sound "bkg_mgun"}
+		{play_sound "MG_Mid"}
+		{play_sound "MG_Far"}
 		{delay 0.42
 			{view pause "flashbarrel_rear"}
 		}
@@ -1334,7 +1476,10 @@
 
 	{on "bail_out"
 		{delay 0.4 0.15
-			(mod not "mp" {crew_emit})
+			;(mod not "mp"
+				{crew_emit}
+				{call "emit_crew"}		;// generic crew emit from vehicle.inc
+			;)
 		}
 	}
 
@@ -1364,9 +1509,11 @@
 		{if water_level 5
 			{if tagged "splash" {delete}}
 			{able "sinking" 1}
+			{tags add "no_scavenge"}		;// tag for conquest so that vehicle cannot be repaired/recovered
 
 		else water_level -0.75
 			{able "sinking" 1}
+			{tags add "no_scavenge"}		;// tag for conquest so that vehicle cannot be repaired/recovered
 			{reset_manual_control}
 			{call "engine_not_run"}
 			{call "splash_fx"}
@@ -1379,6 +1526,64 @@
 			{able "sinking" 0}
 		}
 	}
+}
+
+{"biplane"
+	{on "tear_part" overload
+		{if not tagged "exploded"
+			{if rand 0.3
+				{spawn "aero_die_particle"}
+			}
+			{if tagged "mid_air_collision"
+				{call "bail_out"}
+				{tags remove "mid_air_collision"}
+			}
+			{volume disable contact contact_ground}
+			{call "wing_tear"}
+			{if volume "nothing"
+				; do nothing
+			else
+				{delay_ex 0
+					{tear "piece_big_airborne_wing" bone from_volume
+						{impulse up 2 1 forward 5 dir 2 1}
+					}
+				}
+			}
+
+			{if volume "gear_r"
+				{call "wrecked_gear"}
+				{call "crash"}
+			else volume "gear_l"
+				{call "wrecked_gear"}
+				{call "crash"}
+
+			else volume "wingl2"
+				{call "crash"}
+				("cut_part_delete" args "wireL_ail")
+
+			else volume "wingr2"
+				{call "crash"}
+				("cut_part_delete" args "wireR_ail")
+
+			else volume "winglt1"
+				{call "crash"}
+				("cut_part_delete" args "wireL_ail")
+
+			else volume "winglt2"
+				{call "crash"}
+				("cut_part_delete" args "wireL_ail")
+
+			else volume "wingrt1"
+				{call "crash"}
+				("cut_part_delete" args "wireR_ail")
+			else volume "wingrt2"
+				{call "crash"}
+				("cut_part_delete" args "wireR_ail")
+			}
+
+		}
+	}
+
 }
 
 ;/*=========== Airborne End  ===========*/
@@ -1453,20 +1658,22 @@
 		{link_sound "engine_decelerate"		"vehicle/airborne/il2/il2_decelerate"}
 		{link_sound "engine_stop"			"vehicle/airborne/il2/il2_engine_stop"}
 		{link_sound "gear_work"				"vehicle/airborne/bf109/109_landing_gear"}
+		{link_sound "bkg_plane"				"vehicle/airborne/bkg/bkg_plane_01"}
 	}
 )
 
-;(define "yak1_sound"
-;{on "add_movement_sound" overload		;// temp until il2 gets it's own sounds
-;	{link_sound "engine1_start"			"vehicle/airborne/yak1/yak1_engine_start"}
-;	{link_sound "engine1_idle"			"vehicle/airborne/yak1/yak1_engine_idle"}
-;	{link_sound "engine1_full"			"vehicle/airborne/yak1/yak1_engine_full"}
-;	{link_sound "engine_accelerate"		"vehicle/airborne/yak1/yak1_accelerate"}
-;	{link_sound "engine_decelerate"		"vehicle/airborne/yak1/yak1_decelerate"}
-;	{link_sound "engine_stop"			"vehicle/airborne/yak1/yak1_engine_stop"}
-;	{link_sound "gear_work"				"vehicle/airborne/bf109/109_landing_gear"}
-;}
-;)
+(define "yak1_sound"
+	{on "add_movement_sound" overload		;// temp until il2 gets it's own sounds
+		{link_sound "engine1_start"			"vehicle/engine/nkl/start"}
+		{link_sound "engine1_idle"			"vehicle/engine/nkl/idle"}
+		{link_sound "engine1_full"			"vehicle/engine/nkl/full"}
+		{link_sound "engine_accelerate"		"vehicle/engine/nkl/accelerate"}
+		{link_sound "engine_decelerate"		"vehicle/engine/nkl/decelerate"}
+		{link_sound "engine_stop"			"vehicle/engine/nkl/stop"}
+		{link_sound "gear_work"				"vehicle/airborne/bf109/109_landing_gear"}
+		{link_sound "bkg_plane"				"vehicle/airborne/bkg/bkg_plane_01"}
+	}
+)
 
 (define "bf109_sound"
 	{on "add_movement_sound" overload
@@ -1477,6 +1684,7 @@
 		{link_sound "engine_decelerate"		"vehicle/airborne/bf109/109_decelerate"}
 		{link_sound "engine_stop"			"vehicle/airborne/bf109/109_engine_stop"}
 		{link_sound "gear_work"				"vehicle/airborne/bf109/109_landing_gear"}
+		{link_sound "bkg_plane"				"vehicle/airborne/bkg/bkg_plane_01"}
 	}
 )
 
@@ -1492,6 +1700,58 @@
 		{link_sound "engine_decelerate"		"vehicle/airborne/bf109/109_decelerate"}
 		{link_sound "engine_stop"			"vehicle/airborne/bf109/109_engine_stop"}
 		{link_sound "gear_work"				"vehicle/airborne/bf109/109_landing_gear"}
+		{link_sound "bkg_plane"				"vehicle/airborne/bkg/bkg_plane_01"}
+	}
+)
+(define "c47_sound"
+	{on "add_movement_sound" overload
+		{link_sound "engine1_start"			"vehicle/airborne/C47/vehicle_airborne_C47_start_01"}
+		{link_sound "engine1_idle"			"vehicle/airborne/C47/vehicle_airborne_C47_idle_01"}
+		{link_sound "engine1_full"			"vehicle/airborne/C47/vehicle_airborne_C47_full_01"}
+		{link_sound "engine2_idle"			"vehicle/airborne/C47/vehicle_airborne_C47_idle_02"}
+		{link_sound "engine2_start"			"vehicle/airborne/C47/vehicle_airborne_C47_start_02"}
+		{link_sound "engine2_full"			"vehicle/airborne/C47/vehicle_airborne_C47_full_02"}
+		{link_sound "engine_accelerate"			"vehicle/airborne/C47/vehicle_airborne_C47_accelerate"}
+		{link_sound "engine_decelerate"			"vehicle/airborne/C47/vehicle_airborne_C47_decelerate"}
+		{link_sound "engine_stop"			"vehicle/airborne/C47/vehicle_airborne_C47_stop"}
+		{link_sound "gear_work"				"vehicle/airborne/bf109/109_landing_gear"}
+		{link_sound "bkg_plane"				"vehicle/airborne/bkg/C47_bkg"}
+	}
+)
+(define "fi156_sound"
+	{on "add_movement_sound" overload
+		{link_sound "engine1_start"			"vehicle/engine/nkl/start"}
+		{link_sound "engine1_idle"			"vehicle/engine/nkl/idle"}
+		{link_sound "engine1_full"			"vehicle/engine/nkl/full"}
+		{link_sound "engine_accelerate"		"vehicle/engine/nkl/accelerate"}
+		{link_sound "engine_decelerate"		"vehicle/engine/nkl/decelerate"}
+		{link_sound "engine_stop"			"vehicle/engine/nkl/stop"}
+		{link_sound "bkg_plane"				""}
+	}
+)
+
+(define "po2_sound"
+	{on "add_movement_sound" overload
+		{link_sound "engine1_start"			"vehicle/engine/nkl/start"}
+		{link_sound "engine1_idle"			"vehicle/engine/nkl/idle"}
+		{link_sound "engine1_full"			"vehicle/engine/nkl/full"}
+		{link_sound "engine_accelerate"		"vehicle/engine/nkl/accelerate"}
+		{link_sound "engine_decelerate"		"vehicle/engine/nkl/decelerate"}
+		{link_sound "engine_stop"			"vehicle/engine/nkl/stop"}
+		{link_sound "bkg_plane"				""}
+	}
+)
+
+(define "p47_sound"
+	{on "add_movement_sound" overload		;// temp until p47 gets it's own sounds
+		{link_sound "engine1_start"			"vehicle/airborne/P47/vehicle_airborne_P47_start"}
+		{link_sound "engine1_idle"			"vehicle/airborne/P47/vehicle_airborne_P47_idle"}
+		{link_sound "engine1_full"			"vehicle/airborne/P47/vehicle_airborne_P47_full"}
+		{link_sound "engine_accelerate"		"vehicle/airborne/P47/vehicle_airborne_P47_accelerate"}
+		{link_sound "engine_decelerate"		"vehicle/airborne/P47/vehicle_airborne_P47_decelerate"}
+		{link_sound "engine_stop"			"vehicle/airborne/P47/vehicle_airborne_P47_stop"}
+		{link_sound "gear_work"				"vehicle/airborne/bf109/109_landing_gear"}
+		{link_sound "bkg_plane"				"vehicle/airborne/bkg/P47_bkg"}
 	}
 )
 
@@ -1501,6 +1761,7 @@
 	("il2_sound")
 
 	{on spawn
+		("SG43")
 		{link_sound "bkg_rocket" "weapon/shot/bkg/rocket/"}
 	}
 	{on fire "gun" overload
@@ -1549,18 +1810,10 @@
 }
 
 {"yak1_ser69"
-	;("yak1_sound")
-
-	{on "add_movement_sound" overload ;// Temporary
-		{link_sound "engine1_start"			"vehicle/engine/nkl/start"}
-		{link_sound "engine1_idle"			"vehicle/engine/nkl/idle"}
-		{link_sound "engine1_full"			"vehicle/engine/nkl/full"}
-		{link_sound "engine_accelerate"		"vehicle/engine/nkl/accelerate"}
-		{link_sound "engine_decelerate"		"vehicle/engine/nkl/decelerate"}
-		{link_sound "engine_stop"			"vehicle/engine/nkl/stop"}
-		{link_sound "gear_work"				"vehicle/airborne/bf109/109_landing_gear"}
+	("yak1_sound")
+	{on "add_weapon_sound" overload
+		("SG43")
 	}
-
 	{on fire "gun" overload
 		{view start "flashbarrel_main"}
 		{delay 0.42
@@ -1571,7 +1824,9 @@
 
 {"bf109_f4"
 	("bf109_sound")
-
+	{on "add_weapon_sound" overload
+		("MG13")
+	}
 	{on fire "gun" overload
 		{view start "flashbarrel_main"}
 		{delay 0.42
@@ -1582,7 +1837,9 @@
 
 {"bf109_g6"
 	("bf109_sound")
-
+	{on "add_weapon_sound" overload
+		("MG13")
+	}
 	{on fire "gun" overload
 		{view start "flashbarrel_main"}
 		{delay 0.42
@@ -1593,7 +1850,9 @@
 
 {"bf110_e2"
 	("bf110_sound")
-
+	{on "add_weapon_sound" overload
+		("MG13")
+	}
 	{on fire "gun" overload
 		(define "fire_barrel"
 			name "%0"
@@ -1616,7 +1875,7 @@
 		{inherited}
 		{if work "engine1"
 			{delay 4.5 0.5
-				{call "engine2_start_sequence"}
+				{call_synced "engine2_start_sequence"}
 			}
 		else
 			{call "engine2_start_sequence"}
@@ -1650,6 +1909,201 @@
 		else volume "wingl2"
 			{bone hide "bomb00"}
 			{bone hide "bomb01"}
+		}
+	}
+}
+
+{"fi156"
+	("fi156_sound")
+	{on "add_weapon_sound" overload
+		("MG13")
+	}
+
+}
+
+{"po2"
+	("po2_sound")
+	{on "wing_tear" overload
+		{if volume "wingl1"
+			{call "crash"}
+			{delay_ex 0
+				("cut_part_delete" args "wireL_ail")
+				{tear "piece_big_airborne_wing" bone "wingl2"
+					{impulse up 2 1 forward 5 dir 2 1}
+				}
+			}
+			{delay_ex 0
+				{tear "piece_big_airborne_wing" bone "wingl1"
+					{impulse up 2 1 forward 5 dir 2 1}
+				}
+			}
+		else volume "wingr1"
+			{call "crash"}
+			{delay_ex 0
+				("cut_part_delete" args "wireR_ail")
+				{tear "piece_big_airborne_wing" bone "wingr2"
+					{impulse up 2 1 forward 5 dir 2 1}
+				}
+			}
+			{delay_ex 0
+				{tear "piece_big_airborne_wing" bone "wingr1"
+					{impulse up 2 1 forward 5 dir 2 1}
+				}
+			}
+		}
+	}
+	{on "tear_part"
+		{if volume "elevator1"
+			("cut_part_delete" args "wireL_elev")
+		}
+		{if volume "elevator2"
+			("cut_part_delete" args "wireR_elev")
+		}
+		{if volume "rudder1"
+			("cut_part_delete" args "wire_rud")
+		}
+
+		;//Left Wings
+		{if volume "aileron1"
+			("cut_part_delete" args "wireL_top")
+			("cut_part_delete" args "wireL_ail")
+		}
+		{if volume "aileron3"
+			("cut_part_delete" args "wireL_bottom")
+			("cut_part_delete" args "wireL_ail")
+		}
+
+		;//Right Wings
+		{if volume "aileron2"
+			("cut_part_delete" args "wireR_top")
+			("cut_part_delete" args "wireR_ail")
+		}
+		{if volume "aileron4"
+			("cut_part_delete" args "wireR_bottom")
+			("cut_part_delete" args "wireR_ail")
+		}
+	}
+}
+
+{"blenheim_mk1"
+	("bf110_sound")
+	{on "add_weapon_sound" overload
+		{link_sound 		"MG_Mid"		"weapon/shot/smallarms/s3/d2/USA/M1919A4/"}
+		{link_sound 		"MG_Far"		"weapon/shot/smallarms/s3/d3/USA/M1919A4/"}
+		{link_sound	 	"MG_Mid_1"		"weapon/shot/smallarms/s3/d2/Shared/Maxim_Gun/"}
+		{link_sound	 	"MG_Far_1"		"weapon/shot/smallarms/s3/d3/Shared/Maxim_Gun/"}
+
+	}
+	{on fire "mgun" overload
+		{view start "flashbarrel_main"}
+		{play_sound "MG_Mid"}
+		{play_sound "MG_Far"}
+		{delay 0.42
+			{view pause "flashbarrel_main"}
+		}
+	}
+	{on fire "mgun1"
+		{play_sound "MG_Mid_1"}
+		{play_sound "MG_Far_1"}
+	}
+
+	{on fire "bomb1"
+		{ani_wind "bomb_open" end}
+		{delay 3
+			{ani_play "bomb_open" -1}
+		}
+	}
+
+	{on "air_attack"
+		{ani_play "bomb_open" 1}
+	}
+
+	{on "engine_count" overload
+		{tags add "engine_count_2"}
+	}
+
+	{on "engine_start_sequence" overload
+		{inherited}
+		{if work "engine1"
+			{delay 4.5 0.5
+				{call_synced "engine2_start_sequence"}
+			}
+		else
+			{call "engine2_start_sequence"}
+		}
+	}
+
+	{on "engine1_stop_sequence" overload
+		{inherited}
+		{if not "engine_on"
+			{call "engine2_stop_sequence"}
+		}
+	}
+
+	{on "die"
+		{bone hide "bomb_00"}
+		{bone hide "bomb_01"}
+	}
+
+	{on "tear_part"
+		{if volume "body"
+			{bone hide "bomb_00"}
+			{bone hide "bomb_01"}
+		}
+	}
+}
+
+{"p47_d22"
+	("p47_sound")
+	{on "add_weapon_sound" overload
+		("M2HB_M45_Mount")
+	}
+
+	("multi_barrel_loop" flash(flash_gun_hmg_m2hb) smoke(ejectsmoke_big) shell(shell_hmgun) weapon(mgun) head(0.070))
+
+	{on "tear_part"
+		{if volume "wingr2"
+			{bone hide "bomb_01"}
+		else volume "wingl2"
+			{bone hide "bomb_00"}
+		}
+	}
+	{on "die"
+		{bone hide "bomb_00"}
+		{bone hide "bomb_01"}
+		{bone hide "bomb_02"}
+	}
+
+}
+{"c47_d"
+	("c47_sound")
+	{on "add_weapon_sound" overload
+		{link_sound 		"MG_Mid"		"weapon/shot/smallarms/s3/d2/USA/M1919A4/"}
+		{link_sound 		"MG_Far"		"weapon/shot/smallarms/s3/d3/USA/M1919A4/"}
+		{link_sound	 	"MG_Mid_1"		"weapon/shot/smallarms/s3/d2/Shared/Maxim_Gun/"}
+		{link_sound	 	"MG_Far_1"		"weapon/shot/smallarms/s3/d3/Shared/Maxim_Gun/"}
+
+	}
+
+	{on "engine_count" overload
+		{tags add "engine_count_2"}
+	}
+
+	{on "engine_start_sequence" overload
+		{inherited}
+		{if work "engine1"
+			{delay 4.5 0.5
+				{call_synced "engine2_start_sequence"}
+			}
+		else
+			{call "engine2_start_sequence"}
+		}
+	}
+
+	{on "engine1_stop_sequence" overload
+		{inherited}
+		{if not "engine_on"
+			{call "engine2_stop_sequence"}
 		}
 	}
 }
@@ -1695,16 +2149,6 @@
 	}
 }
 
-{"fi156"
-	{on "add_movement_sound" overload
-		{link_sound "engine1_start"			"vehicle/airborne/ju87_engine_start"}
-		{link_sound "engine1_idle"			"vehicle/airborne/ju87_engine_idle"}
-		{link_sound "engine1_full"			"vehicle/airborne/ju87_engine_full"}
-		{link_sound "engine_accelerate"		"vehicle/airborne/ju87_accelerate"}
-		{link_sound "engine_decelerate"		"vehicle/airborne/ju87_decelerate"}
-		{link_sound "engine_stop"			"vehicle/airborne/ju87_engine_stop"}
-	}
-}
 
 {"ju-52"
 	{on "add_movement_sound" overload
@@ -1830,8 +2274,8 @@
 		{link_sound "engine3_start"			"vehicle/airborne/uh1h_start"}
 		{link_sound "engine3_idle"			"vehicle/airborne/uh1h_work"}
 		{link_sound "engine3_full"			"vehicle/airborne/uh1h_move"}
-		{link_sound "fly"					"vehicle/airborne/uh1h_move"}	
-		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}	
+		{link_sound "fly"					"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_stop"			"vehicle/airborne/uh1h_stop"}
@@ -1859,8 +2303,8 @@
 		{link_sound "engine3_start"			"vehicle/airborne/uh1h_start"}
 		{link_sound "engine3_idle"			"vehicle/airborne/uh1h_work"}
 		{link_sound "engine3_full"			"vehicle/airborne/uh1h_move"}
-		{link_sound "fly"					"vehicle/airborne/uh1h_move"}	
-		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}	
+		{link_sound "fly"					"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_stop"			"vehicle/airborne/uh1h_stop"}
@@ -1888,8 +2332,8 @@
 		{link_sound "engine3_start"			"vehicle/airborne/uh1h_start"}
 		{link_sound "engine3_idle"			"vehicle/airborne/uh1h_work"}
 		{link_sound "engine3_full"			"vehicle/airborne/uh1h_move"}
-		{link_sound "fly"					"vehicle/airborne/uh1h_move"}	
-		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}	
+		{link_sound "fly"					"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_stop"			"vehicle/airborne/uh1h_stop"}
@@ -1917,8 +2361,8 @@
 		{link_sound "engine3_start"			"vehicle/airborne/uh1h_start"}
 		{link_sound "engine3_idle"			"vehicle/airborne/uh1h_work"}
 		{link_sound "engine3_full"			"vehicle/airborne/uh1h_move"}
-		{link_sound "fly"					"vehicle/airborne/uh1h_move"}	
-		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}	
+		{link_sound "fly"					"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_stop"			"vehicle/airborne/uh1h_stop"}
@@ -1946,8 +2390,8 @@
 		{link_sound "engine3_start"			"vehicle/airborne/uh1h_start"}
 		{link_sound "engine3_idle"			"vehicle/airborne/uh1h_work"}
 		{link_sound "engine3_full"			"vehicle/airborne/uh1h_move"}
-		{link_sound "fly"					"vehicle/airborne/uh1h_move"}	
-		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}	
+		{link_sound "fly"					"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_stop"			"vehicle/airborne/uh1h_stop"}
@@ -1975,8 +2419,8 @@
 		{link_sound "engine3_start"			"vehicle/airborne/uh1h_start"}
 		{link_sound "engine3_idle"			"vehicle/airborne/uh1h_work"}
 		{link_sound "engine3_full"			"vehicle/airborne/uh1h_move"}
-		{link_sound "fly"					"vehicle/airborne/uh1h_move"}	
-		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}	
+		{link_sound "fly"					"vehicle/airborne/uh1h_move"}
+		{link_sound "engine_work"			"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_accelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_decelerate"		"vehicle/airborne/uh1h_move"}
 		{link_sound "engine_stop"			"vehicle/airborne/uh1h_stop"}
