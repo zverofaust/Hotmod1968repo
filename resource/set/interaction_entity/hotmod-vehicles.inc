@@ -338,7 +338,7 @@
 
 	{on "spawn_shell_delay"
 		;("shell_eject_delay" args 0.5 0)
-		("shell_eject_delay" args 1.8 0)
+		("shell_eject_delay" args 1.2 0)
 	}
 
 	{on "reload"
