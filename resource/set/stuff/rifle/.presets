@@ -201,26 +201,76 @@
 )
 
 (define "k98_rate"
-	{FiringTimeout 3.5 0.5}
-	("fire rate" rpm(40))
+	{FiringTimeout 3.5 0.5}		;// 3.5 0.5
+	{FiringTimeoutDistanceFactor
+		{0.2 0.5}	;24m, 1.75s
+		{0.4 0.8}	;48m, 2.8s
+		{0.6 0.9}	;72m, 3.15s
+		{0.8 1.0}	;96m, 3.5s
+	}
+	("fire rate" rpm(50))
 )
 
 (define "finnish_rate"
-	{FiringTimeout 3.5 0.5}
-	("fire rate" rpm(60))
+	{FiringTimeout 3.5 0.5}		;// 3.5 0.5
+	{FiringTimeoutDistanceFactor
+		{0.2 0.5}	;24m, 1.75s
+		{0.4 0.8}	;48m, 2.8s
+		{0.6 0.9}	;72m, 3.15s
+		{0.8 1.0}	;96m, 3.5s
+	}
+	("fire rate" rpm(50))
+
 )
 
 (define "mosin_rate"
 	{FiringTimeout 4 0.5}
-	("fire rate" rpm(30))
+		{FiringTimeoutDistanceFactor
+		{0.2 0.5}	;24m, 2.0s
+		{0.4 0.8}	;48m, 3.2s
+		{0.6 0.9}	;72m, 3.6s
+		{0.8 1.0}	;96m, 4.0s
+	}
+	("fire rate" rpm(40))
+)
+
+(define "enfield_no1_rate"
+	{FiringTimeout 3.1 0.5}
+	{FiringTimeoutDistanceFactor
+		{0.2 0.5}	;24m, 1.55s
+		{0.4 0.8}	;48m, 2.48s
+		{0.6 0.9}	;72m, 2.79s
+		{0.8 1.0}	;96m, 3.1s
+	}
+	("fire rate" rpm(50))
+	("reload time" seconds(10))
+)
+
+(define "enfield_no4_rate"
+	{FiringTimeout 2.9 0.5}
+	{FiringTimeoutDistanceFactor
+		{0.2 0.5}	;24m, 1.45s
+		{0.4 0.8}	;48m, 2.32s
+		{0.6 0.9}	;72m, 2.61s
+		{0.8 1.0}	;96m, 2.9s
+	}
+	("fire rate" rpm(60))
+	("reload time" seconds(10))
 )
 
 (define "type53_rate"
 	{FiringTimeout 3.5 0.5}
+		{FiringTimeoutDistanceFactor
+		{0.2 0.5}	;24m, 2.0s
+		{0.4 0.8}	;48m, 3.2s
+		{0.6 0.9}	;72m, 3.6s
+		{0.8 1.0}	;96m, 4.0s
+	}
 	("fire rate" rpm(40))
 )
 
 (define "bolt_action"
+	{Automatic}
 	{tag "bolt_action rifle_shell"}
 	("marksman")
 	{states
@@ -230,6 +280,15 @@
 		{aim 		"aim"	}
 		{can_aim	"can-aim-bolt"}
 	}
+	{burst
+		{short 1}		; burst shots on long distance, rand (+-)shots
+		{long 1}			; burst shots on short distance, rand (+-)shots
+		{rangeKoef 1}	; rangeKoef * aimRange = max long burst distance
+	}
+	("recoil_rifle_bolt")
+	("ap_7_62_slope_multiplier")
+	{AccuracyByMotionK 1.2}
+	("zeroing_boost")
 )
 
 (define "zeroing_boost"

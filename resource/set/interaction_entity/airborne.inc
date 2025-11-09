@@ -169,6 +169,8 @@
 			{view start "dust%number"}
 		else terrain_fx "road"
 			{view start "dust%number"}
+		else terrain_fx "rock"
+			{view start "dust%number"}
 		else terrain_fx "water"
 			("fx_dust" action(stop))
 			("fx_sand" action(stop))

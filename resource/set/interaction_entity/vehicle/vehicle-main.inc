@@ -183,6 +183,7 @@
 				{call "disable_all_seats"}
 				{call "engine stop view"}
 				{call "deactivate_vehicle"}
+				{call "friendly_fire_check"}
 			}
 			{if component "engine"
 				{call "engine stop view"}
@@ -247,6 +248,9 @@
 			{burn fx "smoke_molot_vehicle" time 20 fake}
 			{start_sound "detonation/small/molotov_break"}
 			{talk "burning"}
+			{with_effector
+				{call "contact_detonate"}
+			}
 		}
 		{if effector "burn_piece"		;// ic shell
 			{burn fx "smoke_molot_vehicle" time 20 fake}
@@ -1314,6 +1318,38 @@
 		{tags add "deactivated"}
 	}
 
+	(define "friendly_destroy"
+		(mod "gametype:%0"
+			{components "body" destroy}
+		)
+	)
+
+	{on "friendly_fire_check" ;// added to stop MP users from breaking body component of their own vehicles to exploit CP limits
+		{if friendly_fire
+			{delay 0
+				(mod "gametype:cooperative")				;// stops from running in CooP campaign missions
+				(mod "gametype:campaign_capture_the_flag")	;// stops from running in Conquest
+				("friendly_destroy" args "ammunition")
+				("friendly_destroy" args "battle_zones")	;// Domination
+				("friendly_destroy" args "evacuation")		;// Last Stand
+				("friendly_destroy" args "frontlines")
+			}
+		}
+	}
+
+	{on "set_static"							;// map/mission helper for static neutral vehicles
+		{able select 0}
+		{able ammo_out_indicator 0}
+		{able ally_crew 0}
+		{able repaired 0}
+		{able talk 0}
+		{able unmask 0}
+		{able emit_passangers_on_enemy 0}
+		{able minimap 0}
+		{able neutral 1}
+		{clear_inventory}
+	}
+
 	{on "emit_crew"
 		{delay 4
 			{if not tagged "_abandoned"
@@ -1410,7 +1446,27 @@
 		}
 	)
 
+	(define "weapon_shoot_event"	;// used for missions/cut-scenes
+		{on "fire_%0_event"
+			{call fire "%0"}
+		}
+	)
 
+	("weapon_shoot_event" args gun)
+	("weapon_shoot_event" args gun1)
+	("weapon_shoot_event" args gun2)
+	("weapon_shoot_event" args gun3)
+	("weapon_shoot_event" args mgun)
+	("weapon_shoot_event" args mgun1)
+	("weapon_shoot_event" args mgun2)
+	("weapon_shoot_event" args mgun3)
+	("weapon_shoot_event" args mgun4)
+	("weapon_shoot_event" args mgun5)
+	("weapon_shoot_event" args flamer1)
+
+	{on "disable_obstacle"			;// used for missions/cut-scenes
+		{volumes disable obstacle}
+	}
 
 ;/*=========== special defines for hatch begin add by ordos ===========*/
 (define "commonzpu_params"
@@ -1846,6 +1902,13 @@
 	}
 }
 
+{"with_gun vehicle no_cook"
+	{on "pre_cookoff" 		;//prevents open top vehicles from cooking off while they dont have animation
+		{tags add "ammo_broken"}
+		{call "explosion"}
+	}
+}
+
 {"vehicle multi_board"	;// used for vehicles like transport trucks where multiple crew/passengers use 1 door to board
 	{on spawn
 		{if tagged "door_open"
@@ -2065,6 +2128,37 @@
 			}
 		}
 	)
+	(define "flame_weapon_1x_shot"		;// removed double shot, and increased ROF in weapon stat so that fuel burn rate is 2x for same amount of burn particles
+		{on fire "%0" overload
+			{spawn "fx_piece_flame_%1" "foresight%2" x
+				{impulse forward %3 rnd_dir 0.01 com}
+				{gravity 0.65}
+				{linear_damping 0}
+			}
+			{view start "%0"}
+			{delay 0.025
+				{view pause "%0"}
+			}
+			{if tagged "firing"
+				{if tagged "looping"
+					{play_sound "loop" 1}
+					{tags remove "looping"}
+				}
+			else
+				{play_sound "start"}
+				{tags add "looping"}
+			}
+			{tags add "firing"}
+			{delay 0.0525
+				{tags remove "firing"}
+				{tags remove "looping"}
+				{play_sound "end"}
+				{delay 0.05
+					{stop_sound "loop"}
+				}
+			}
+		}
+	)
 }
 {"rocket vehicle"	;// disables rocket weaponry from working/firing while vehicle is moving
 	(define "rocket_weapon"
@@ -2173,8 +2267,16 @@
 		{tags add "_no-recrew"} ;// used by AI mission scripts to not allow AI to re-crew abandoned motorcycles
 	}
 }
-{"td"}						;// used for minimap icons
-{"spg"}						;// used for minimap icons
+{"td"						;// used for minimap icons
+	{on spawn
+		{tags add "+mobilegun"} ;// tag used for AI mission scripts
+	}
+}
+{"spg"						;// used for minimap icons
+	{on spawn
+		{tags add "+mobilegun"} ;// tag used for AI mission scripts
+	}
+}
 {"sandbag_tank_near"}		;// used for constructor
 {"sandbag_tank_far"}		;// used for constructor
 {"cannon_sandbag_small"}	;// used for constructor

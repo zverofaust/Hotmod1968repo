@@ -63,19 +63,19 @@
 
 (define "penetration_long"
 	{parameters "%shell" ;// for units with higher range than 205, polynomial curve to simulate closer range engagements
-		{projectileDamageTable {10 (+ %a (+ 1.3 (/ (- %a %b) 4.4)))} {30 %a} {100 %b} {155 %c} {205 %d} {%range (+ (* (/ (- 250 %range) (- 250 200)) (- %d %e)) %e)} {(+ %range 20) 0} }
+		{projectileDamageTable {10 (+ %a (+ 1.3 (/ (- %a %b) 4.4)))} {30 %a} {100 %b} {155 %c} {205 %d} {%range (+ (* (/ (- 250 %range) (- 250 200)) (- %d %e)) %e)} {(+ %range 15) 0} }
 		{range %range %range}
 	}
 )
 (define "penetration_medium"
 	{parameters "%shell" ;// for units with higher range than 155 and lower 205, polynomial curve to simulate closer range engagements
-		{projectileDamageTable {10 (+ %a (+ 1.3 (/ (- %a %b) 4.4)))} {30 %a} {100 %b} {155 %c} {%range (+ (* (/ (- 205 %range) (- 205 155)) (- %c %d)) %d)} {(+ %range 20) 0} }
+		{projectileDamageTable {10 (+ %a (+ 1.3 (/ (- %a %b) 4.4)))} {30 %a} {100 %b} {155 %c} {%range (+ (* (/ (- 205 %range) (- 205 155)) (- %c %d)) %d)} {(+ %range 15) 0} }
 		{range %range %range}
 	}
 )
 (define "penetration_short"
 	{parameters "%shell" ;// for units with higher range than 100 and lower than 155, polynomial curve to simulate closer range engagements
-		{projectileDamageTable {10 (+ %a (+ 1.3 (/ (- %a %b) 4.4)))} {30 %a} {100 %b} {%range (+ (* (/ (- 155 %range) (- 155 100)) (- %b %c)) %c)} {(+ %range 20) 0} }
+		{projectileDamageTable {10 (+ %a (+ 1.3 (/ (- %a %b) 4.4)))} {30 %a} {100 %b} {%range (+ (* (/ (- 155 %range) (- 155 100)) (- %b %c)) %c)} {(+ %range 15) 0} }
 		{range %range %range}
 	}
 )
@@ -112,8 +112,8 @@
 
 ; // Damage logic for AP-type shells with HE filler. Implemented a cubic equation to interpolate. Avoid touching the numbers (very sensitive!).
 (define "armor health custom" ;
-	{parameters "%shell" 	
-		{minimumDamageModifier (- (+ 29 (+ %damage (+ (* 0.35 %filler ) (* 0.0000000075 (* %filler (* %filler %filler))))))  (* 0.00009 (* %filler %filler)))} ; //Filler defined in grams of TNT
+	{parameters "%shell"
+		{minimumDamageModifier (+ (* %damage (/ %velocity 2100)) (* 0.72 (- (+ 29 (+ %damage (+ (* 0.35 %filler ) (* 0.0000000075 (* %filler (* %filler %filler))))))  (* 0.00009 (* %filler %filler)))))} ; //Filler defined in grams of TNT
 	}
 )
 (define "human health"		;// Damage to human health
@@ -143,6 +143,12 @@
 
 (define "curve_indirect"
 	{parameters "ap"
+		("standard_firing_arc")
+		{spreading
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r01))} {100 (* %ap100 (* %r1 %r01))} {140 (* %ap140 (* %r1 %r01))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r01))} {(+ %range_ap 10) 10}}
+		}
+	}
+	{parameters "ap2"
 		("standard_firing_arc")
 		{spreading
 			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r01))} {100 (* %ap100 (* %r1 %r01))} {140 (* %ap140 (* %r1 %r01))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r01))} {(+ %range_ap 10) 10}}
@@ -209,6 +215,12 @@
 		}
 	}
 	{parameters "apcr"
+		("standard_firing_arc")
+		{spreading
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r01))} {100 (* %ap100 (* %r1 %r01))} {140 (* %ap140 (* %r1 %r01))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r01))} {(+ %range_ap 10) 10}}
+		}
+	}
+	{parameters "apcr2"
 		("standard_firing_arc")
 		{spreading
 			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r01))} {100 (* %ap100 (* %r1 %r01))} {140 (* %ap140 (* %r1 %r01))} { %range_ap (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r01))} {(+ %range_ap 10) 10}}
@@ -379,6 +391,11 @@
 			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 50) 10}}
 		}
 	}
+	{parameters "ap2"
+		{spreading
+			{radiusTable {0 0} {50 (* %ap50 (* %r1 %r0))} {100 (* %ap100 (* %r1 %r0))} {140 (* %ap140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %ap200 %ap140)) %ap140) (* %r1 %r0))} {(+ %range_ap 50) 10}}
+		}
+	}
 	{parameters "apc"
 		{spreading
 			{radiusTable {0 0} {50 (* %apc50 (* %r1 %r0))} {100 (* %apc100 (* %r1 %r0))} {140 (* %apc140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apc200 %apc140)) %apc140) (* %r1 %r0))} {(+ %range_ap 50) 10}}
@@ -430,6 +447,11 @@
 		}
 	}
 	{parameters "apcr"
+		{spreading
+			{radiusTable {0 0} {50 (* %apcr50 (* %r1 %r0))} {100 (* %apcr100 (* %r1 %r0))} {140 (* %apcr140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apcr200 %apcr140)) %apcr140) (* %r1 %r0))} {(+ %range_ap 50) 10}}
+		}
+	}
+	{parameters "apcr2"
 		{spreading
 			{radiusTable {0 0} {50 (* %apcr50 (* %r1 %r0))} {100 (* %apcr100 (* %r1 %r0))} {140 (* %apcr140 (* %r1 %r0))} { (- %range_ap 0.01) (* (+ (* (/ (- %range_ap 140) (- 200 140)) (- %apcr200 %apcr140)) %apcr140) (* %r1 %r0))} {(+ %range_ap 50) 10}}
 		}
@@ -557,11 +579,15 @@
 	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
 	{spreading {SpreadXYRatio 0.4}}
 	{parameters "he" {spreading {SpreadXYRatio 1.5}}}
+	{parameters "he2" {spreading {SpreadXYRatio 1.5}}}
+	{parameters "apds" {spreading {SpreadXYRatio 1}}}
 )
 (define "indirect_settings"
 	{SpreadTolerance 0.75}		;// Zeroing up to 75% needed before fire
 	{ZeroingAccuracy 0.8 0.65 0.55 0.5 0.45}
-	{spreading {SpreadXYRatio 3}}
+	{spreading {SpreadXYRatio 1}}
+	{parameters "he" {spreading {SpreadXYRatio 3}}}
+	{parameters "he2" {spreading {SpreadXYRatio 3}}}
 )
 
 ;/*============================== RANGES AND SPECIFICS ==============================*/
@@ -1628,6 +1654,23 @@
 		{90		99.0000		0.00000	}
 	}
 )
+(define "ap_94_eng_slope_multiplier" ;use for 94mm AP British
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.013		0.025	}
+		{20		1.072		0.186	}
+		{30		1.15		0.346	}
+		{40		1.331		0.163	}
+		{50		1.688		-0.236	}
+		{60		2.021		-0.232	}
+		{65		2.355		-0.149	};
+		{70		3.049		-0.011	};
+		{75		4.324		0.154	};
+		{80		6.903		0.155	};
+		{85		15.381		0.155	};
+		{90		99.0000		0.00000	}
+	}
+)
 (define "ap_100_slope_multiplier" ;use for 100mm AP Projectiles
 	{overmatchCalibre
 		{0		1.0			0.00	}
@@ -2597,6 +2640,14 @@
 		("heat_slope_multiplier")
 	}
 )
+(define "94_eng_slope_multipliers"
+	{parameters "ap"
+		("ap_94_eng_slope_multiplier")
+	}
+	{parameters "aphe"
+		("ap_90_slope_multiplier")
+	}
+)
 (define "105_slope_multipliers"
 	{parameters "ap"
 		("ap_105_slope_multiplier")
@@ -2657,6 +2708,12 @@
 	{parameters "aphe"
 		("ap_40_slope_multiplier")
 	}
+	{parameters "apbc"
+		("ap_40_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_57_slope_multiplier")
+	}
 	{parameters "aphebc"
 		("apbc_45_slope_multiplier")
 	}
@@ -2691,6 +2748,9 @@
 	{parameters "apbc"
 		("apbc_76_slope_multiplier")
 	}
+	{parameters "apcbc"
+		("apc_75_ger_slope_multiplier")
+	}
 	{parameters "aphebc"
 		("apbc_76_slope_multiplier")
 	}
@@ -2701,6 +2761,15 @@
 		("apcr_75_slope_multiplier")
 	}
 	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
 		("heat_slope_multiplier")
 	}
 )

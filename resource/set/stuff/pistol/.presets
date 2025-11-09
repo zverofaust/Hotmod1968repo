@@ -7,3 +7,36 @@
 (define "armor health"
 	{minimumDamageModifier (* 1.0 %damage)}
 )
+(define "flare_pistol"
+	{tag "flare_gun flaregun"}
+
+	{fireSound "pistol/flare"}
+	{fireSoundclose "pistol/flare/3p/"}
+	{range 65 70}
+	{gravity 0.3}
+	{calibre 1}
+	{AimingTolerance 3}
+	{mass 0.5}
+
+	{spreading 10.5
+		{SpreadXYRatio	2}
+		{radiusFunction
+			0.0		0
+			1.0		1.0
+			1.2		2.5
+			2.5		5.0
+		}
+	}
+
+	{reloadAnimBonus 117}
+	{reloadSound "flare"}
+	("reload time" seconds(120))
+
+	("human health" damage(60))
+
+	("penetration" args 0.5 0.5)
+	("armor health" damage(5))
+
+	{DisableRicochet}
+	{speed 15}
+)

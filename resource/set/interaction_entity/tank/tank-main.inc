@@ -988,8 +988,14 @@
 {"smoke 4in"					;// Bomb Thrower 4in - British smoke launcher
 	{on "smoke_screen"
 		("smoke_shot" args "no8_smoke" smoke_shot1 -17 0.5 0 20)
-		("smoke_shot" args "no8_smoke" smoke_shot2 -17 0.5 0.5 20)
-		{##if tagged "smoke_launch1"
+	}
+}
+
+{"smoke 4in_2x"					;// Double Bomb Thrower 4in - British smoke launcher
+	{on "smoke_screen"
+		;("smoke_shot" args "no8_smoke" smoke_shot1 -17 0.5 0 20)
+		;("smoke_shot" args "no8_smoke" smoke_shot2 -17 0.5 0.5 20)
+		{if tagged "smoke_launch1"
 			("smoke_shot" args "no8_smoke" smoke_shot1 -17 0.05 0)
 			{tags remove "smoke_launch1"}
 			{tags add "smoke_launch2"}
@@ -1143,42 +1149,21 @@
 		}
 	}
 	{on "update_multi_turret"
-		{if work "aux_turret1"
-			{if work "body"
-				{ik_enable "aux_turret1" 1}
-			 else
-				{ik_enable "aux_turret1" 0}
+		(define "multi_turret_work"
+			{if work "%0"
+				{if work "body"
+					{ik_enable "%0" 1}
+				 else
+					{ik_enable "%0" 0}
+				}
+			else
+				{ik_enable "%0" 0}
 			}
-		else
-			{ik_enable "aux_turret1" 0}
-		}
-		{if work "aux_turret2"
-			{if work "body"
-				{ik_enable "aux_turret2" 1}
-			 else
-				{ik_enable "aux_turret2" 0}
-			}
-		else
-			{ik_enable "aux_turret2" 0}
-		}
-		{if work "aux_turret3"
-			{if work "body"
-				{ik_enable "aux_turret3" 1}
-			 else
-				{ik_enable "aux_turret3" 0}
-			}
-		else
-			{ik_enable "aux_turret3" 0}
-		}
-		{if work "aux_turret4"
-			{if work "body"
-				{ik_enable "aux_turret4" 1}
-			 else
-				{ik_enable "aux_turret4" 0}
-			}
-		else
-			{ik_enable "aux_turret4" 0}
-		}
+		)
+		("multi_turret_work" args aux_turret1)
+		("multi_turret_work" args aux_turret2)
+		("multi_turret_work" args aux_turret3)
+		("multi_turret_work" args aux_turret4)
 	}
 	{on repair
 		{if component "aux_turret1"
@@ -1228,6 +1213,202 @@
 	)
 	("multi_gun_rotate" args gun1)
 	("multi_gun_rotate" args gun2)
+}
+{"btr_large_ammo"	;// halftrack/armored car open top type vehicles with "big caliber" ammunition, +37mm
+	{on spawn
+		{add_view	"cooking_high_open"				"cooking_high_open"			"body"}
+		{view hide  "cooking_high_open"}	;// fx has a glow that will show unless hidden until later called
+		{add_view	"cooking_high_open_2"			"cooking_high_open_2"		"body"}
+		{view hide  "cooking_high_open_2"}	;// fx has a glow that will show unless hidden until later called
+	}
+	{on "pre_cookoff" overload
+		{call "pre_cookoff_open_top"}
+	}
+	{on "light_tear_turret"
+		{if not "turret_teared"
+			{set "turret_teared" 1}
+			{clear_inventory}
+			{components "turret" break}
+			{components "gun" break}
+			{delay_ex 0
+				{tear "piece_large_steel" bone "turret" id "turret"
+					{impulse up 7 2 cx 2 1 cy 2 1 cz 2 1 rnd_dir 3 1 com}
+					{add_view "fire_dead_turret_light" "fire" "basis"}
+					{add_view "smoke_dead_turret" "smoke" "basis"}
+					{view start "fire"}
+					{delay 25 5
+						{view stop "fire"}
+						{view start "smoke"}
+					}
+					{delay_effect 90 15 "pause"}				;// calls {on "pause"} in dummy.inc
+					{delay 0.1
+						{volumes "gun" disable obstacle}
+					}
+				}
+			}
+		}
+	}
+	{on "ammo_break" overload
+		{call "stat_break"}
+		{if rand 0.75
+			{call_synced "ammo_break2"}
+		else
+			{call_synced "ammo_explosion_small"}
+		}
+	}
+	{on "ammo_break2"
+		{call "pre_cookoff"}
+		{delay 10 10
+			{call_synced "ammo_explosion_small"}
+		}
+	}
+	{on "ammo_explosion_small"
+		{if not able "exploded"
+			{if tagged "one_ammo_broken"
+				{call "ammo_explosion"}
+			else
+				{tags add "one_ammo_broken"}
+				{if rand 0.5
+					{call_synced "ammo_explosion_small_2"}
+				else
+					{call_synced "ammo_explosion"}
+				}
+			}
+		}
+	}
+	{on "ammo_explosion_small_2"
+		{tags add "death_counter_final"}
+		{call "death_counter_check"}
+		;{view pause "fire_vehicle_death"}
+		{kill_crew}
+		{spawn "vehicle_die" "body"}
+		{components "gun" break}
+		{components "body" break}
+		{call_synced "light_tear_turret"}
+		{delay 15 15
+			{if not broken "ammo1"
+				{call_synced "ammo_break"}
+			else not broken "ammo2"
+				{call_synced "ammo_break"}
+			}
+		}
+	}
+	{on "cut_parts"
+		{if rand 1
+			{call_synced "light_tear_turret"}
+		}
+	}
+	{on "ammo_explosion" overload
+		{if not tagged "ammo_cooked2"
+			{tags add "ammo_broken"}
+			{call "explosion"}
+		}
+	}
+}
+{"ammo_open_top"		;// tanks with open top hulls
+	{on spawn
+		{add_view	"cooking_high_open"				"cooking_high_open"			"FXfire5"}
+		{view hide  "cooking_high_open"}	;// fx has a glow that will show unless hidden until later called
+		{add_view	"cooking_high_open_2"			"cooking_high_open_2"		"FXfire5"}
+		{view hide  "cooking_high_open_2"}	;// fx has a glow that will show unless hidden until later called
+	}
+	{on "pre_cookoff" overload
+		{call "pre_cookoff_open_top"}
+	}
+	{on "ammo_break" overload
+		{call "stat_break"}
+		{if rand 0.75
+			{call_synced "ammo_break2"}
+		else
+			{call_synced "ammo_explosion_small"}
+		}
+	}
+	{on "ammo_break2"
+		{call "pre_cookoff"}
+		{delay 10 10
+			{if rand 0.5
+				{call_synced "ammo_explosion_small"}
+			}
+		}
+	}
+	{on "ammo_explosion_small"
+		{if not able "exploded"
+			{if tagged "one_ammo_broken"
+				{call "ammo_explosion"}
+			else
+				{tags add "one_ammo_broken"}
+				{if rand 0.75
+					{call_synced "ammo_explosion_small_2"}
+				else
+					{call_synced "ammo_explosion"}
+				}
+			}
+		}
+	}
+	{on "ammo_explosion_small_2"
+		{tags add "death_counter_final"}
+		{call "death_counter_check"}
+		;{view pause "fire_vehicle_death"}
+		{kill_crew}
+		{spawn "vehicle_die" "FXfire5"}
+		{components "body" break}
+		{delay 15 15
+			{call_synced "ammo_break"}
+		}
+	}
+}
+{"ammo_open_top_turret"		;// tanks with open top turrets
+	{on spawn
+		{add_view	"cooking_high_open"				"cooking_high_open"			"turret"}
+		{view hide  "cooking_high_open"}	;// fx has a glow that will show unless hidden until later called
+		{add_view	"cooking_high_open_2"			"cooking_high_open_2"		"turret"}
+		{view hide  "cooking_high_open_2"}	;// fx has a glow that will show unless hidden until later called
+	}
+	{on "pre_cookoff" overload
+		{call "pre_cookoff_open_top"}
+	}
+	{on "ammo_break" overload
+		{call "stat_break"}
+		{if rand 0.75
+			{call_synced "ammo_break2"}
+		else
+			{call_synced "ammo_explosion_small"}
+		}
+	}
+	{on "ammo_break2"
+		{call "pre_cookoff"}
+		{delay 10 10
+			{if rand 0.5
+				{call_synced "ammo_explosion_small"}
+			}
+		}
+	}
+	{on "ammo_explosion_small"
+		{if not able "exploded"
+			{if tagged "one_ammo_broken"
+				{call "ammo_explosion"}
+			else
+				{tags add "one_ammo_broken"}
+				{if rand 0.75
+					{call_synced "ammo_explosion_small_2"}
+				else
+					{call_synced "ammo_explosion"}
+				}
+			}
+		}
+	}
+	{on "ammo_explosion_small_2"
+		{tags add "death_counter_final"}
+		{call "death_counter_check"}
+		;{view pause "fire_vehicle_death"}
+		{kill_crew}
+		{spawn "vehicle_die" "turret"}
+		{components "turret" break}
+		{components "body" break}
+		{delay 15 15
+			{call_synced "ammo_break"}
+		}
+	}
 }
 {"armored_car"
 	{on "explosion_blastwave" overload
@@ -1694,27 +1875,177 @@
 }
 
 {"mine_exploder flail"
+	(define "terrain_fx_flail"
+		{on terrain_fx %0 enter
+			{if work "body"
+				{if work "engine"
+					{if not tagged "engine_turned_off"
+						{if operatable
+							{if "flail_running"
+								{call "flail_fx_stop"}
+								{view start "%1"}
+							}
+						}
+					}
+				}
+			}
+		}
+	)
+	("terrain_fx_flail" args "ground"			flail_ground)
+	("terrain_fx_flail" args "sand"				flail_sand)
+	("terrain_fx_flail" args "grass" 			flail_grass)
+	("terrain_fx_flail" args "deep_water" 		flail_water)
+	("terrain_fx_flail" args "water" 			flail_water)
+	("terrain_fx_flail" args "shallow_water"	flail_water)
+	("terrain_fx_flail" args "puddle"			flail_mud)
+	("terrain_fx_flail" args "mud"				flail_mud)
+	("terrain_fx_flail" args "swamp"			flail_mud)
+	("terrain_fx_flail" args "country_road"		flail_ground)
+	("terrain_fx_flail" args "snow"				flail_snow)
+	("terrain_fx_flail" args "ice"				flail_snow)
+	("terrain_fx_flail" args "road"				flail_rock)
+	("terrain_fx_flail" args "rock"				flail_rock)
+	("terrain_fx_flail" args "bridge"			flail_rock)
+	("terrain_fx_flail" args "bridge_wood"		flail_rock)
+
+	(define "flail_fx"
+		{if terrain_fx "%0"
+			{view start "flail_%1"}
+		}
+	)
+	{on "flail_fx"
+		("flail_fx" args ground ground)
+		("flail_fx" args sand sand)
+		("flail_fx" args grass grass)
+		("flail_fx" args deep_water water)
+		("flail_fx" args water water)
+		("flail_fx" args shallow_water water)
+		("flail_fx" args puddle mud)
+		("flail_fx" args mud mud)
+		("flail_fx" args swamp mud)
+		("flail_fx" args country_road ground)
+		("flail_fx" args snow snow)
+		("flail_fx" args ice snow)
+		("flail_fx" args road rock)
+		("flail_fx" args bridge rock)
+		("flail_fx" args bridge_wood rock)
+	}
+	{on "flail_fx_stop"
+		{view pause "flail_ground"}
+		{view pause "flail_sand"}
+		{view pause "flail_grass"}
+		{view pause "flail_water"}
+		{view pause "flail_snow"}
+		{view pause "flail_mud"}
+		{view pause "flail_rock"}
+	}
 	{on spawn
-		{bone hide "wheel_work"}
-		{add_view "dustrun_sand_big"	"wheel_work_dust"	"FXWheel_Work1"}
-		{add_view "dustrun_sand_big"	"wheel_work_dust"	"FXWheel_Work2"}
-		{volumes "wheel_work" disable all}
-		{ani_play "wheel_stop"}
+		{add_view "flail_ground"	"flail_ground"	"FXWheel_Work1"}
+		{add_view "flail_ground"	"flail_ground"	"FXWheel_Work2"}
+		{add_view "flail_sand"		"flail_sand"	"FXWheel_Work1"}
+		{add_view "flail_sand"		"flail_sand"	"FXWheel_Work2"}
+		{add_view "flail_grass"		"flail_grass"	"FXWheel_Work1"}
+		{add_view "flail_grass"		"flail_grass"	"FXWheel_Work2"}
+		{add_view "flail_water"		"flail_water"	"FXWheel_Work1"}
+		{add_view "flail_water"		"flail_water"	"FXWheel_Work2"}
+		{add_view "flail_snow"		"flail_snow"	"FXWheel_Work1"}
+		{add_view "flail_snow"		"flail_snow"	"FXWheel_Work2"}
+		{add_view "flail_mud"		"flail_mud"		"FXWheel_Work1"}
+		{add_view "flail_mud"		"flail_mud"		"FXWheel_Work2"}
+		{add_view "flail_rock"		"flail_rock"	"FXWheel_Work1"}
+		{add_view "flail_rock"		"flail_rock"	"FXWheel_Work2"}
+		{link_sound "flail"				"vehicle/tracks/overlay/track_overlay_mud_snow"}
+		{volumes "roller1" disable all}
+		{volumes "roller5" disable all}
+		{set "flail_running" 0}
+		{tags remove "flail_starting"}
 	}
-	{on move on
-		{bone hide "wheel"}
-		{bone show "wheel_work"}
-		{view start "wheel_work_dust"}
-		{volumes "wheel_work" enable all}
-		{volumes "wheel" disable all}
+	{on "engine_on"
+		{if work "body"
+			{if work "engine"
+				{delay 2 "flail1"
+					{call "flail_start"}
+				}
+			}
+		}
 	}
-	{on move off
-		{bone hide "wheel_work"}
-		{bone show "wheel"}
-		{ani_play "wheel_stop"}
-		{view pause "wheel_work_dust"}
-		{volumes "wheel_work" disable all}
-		{volumes "wheel" enable all}
+	{on "engine_off"
+		{call "flail_stop"}
+	}
+	{on "flail_stop"
+		{kill_delay "flail1"}		;// stops flail startup sequence
+		{kill_delay "flail2"}		;// stops flail startup sequence
+		{kill_delay "flail_stop"}	;// stops flail stop timer
+		{if tagged "flail_starting"
+			{tags remove "flail_starting"}
+			{ani_stop "flail_start"}
+			{ani_play "flail_stop"}
+		}
+		{if "flail_running"
+			{set "flail_running" 0}
+			{ani_stop "flail_work"}
+			{ani_play "flail_stop"}
+			{call "flail_fx_stop"}
+			{stop_sound "flail"}
+			{volumes "roller1" disable all}
+			{volumes "roller5" disable all}
+		}
+	}
+	{on "flail_start"
+		{if not tagged "flail_starting"
+			{tags add "flail_starting"}
+			{kill_delay "flail_stop"}	;// stops flail stop timer
+			{ani_stop "flail_stop"}
+			{ani_play "flail_start"}
+			{delay 2 "flail2"
+				{tags remove "flail_starting"}
+				{call "flail_running"}
+			}
+		}
+	}
+	{on "flail_running"
+		{if not "flail_running"
+			{set "flail_running" 1}
+			{ani_play "flail_work" loop}
+			{call "flail_fx"}
+			{play_sound "flail" 1}
+			{volumes "roller1" enable contact}
+			{volumes "roller5" enable contact}
+		}
+	}
+	{on break
+		{if component "engine"
+			{call "flail_stop"}
+		else component "body"
+			{call "flail_stop"}
+		}
+	}
+	{on engine off
+		{delay 15 "flail_stop"
+			{if "flail_running"
+				{call "flail_stop"}
+			}
+		}
+	}
+	{on engine on
+		{kill_delay "flail_stop"}	;// stops flail stop timer
+	}
+	{on "check_speed"
+		{if "flail_running"
+			{if velocity 10
+				{call "flail_stop"}
+			}
+		else
+			{if not velocity 10
+				{if work "body"
+					{if work "engine"
+						{if not tagged "engine_turned_off"
+							{call "flail_start"}
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -1773,6 +2104,7 @@
 		{call "spawn_shell_delay"}
 		(define "shell_eject_delay"
 			{delay_ex %0
+				{play_sound "breech_open"}
 				{ani_play "shell_eject" 1}			;// door/hatch animation for tank to open and shell is thrown out
 				{ani_play "shell_hatch" 1}
 				{delay_ex %1
@@ -1786,10 +2118,10 @@
 						{add_view "smoke_empty_shell" "smoke_shell" "fx_shellsmoke"}
 						{view start "smoke_shell"}
 						{delay_effect 3 1 "stop"}
-						{##delay 3 0.5
-							{hide 3}
-						}
 					}
+				}
+				{delay 1
+					{ani_play "shell_hatch" -1.0}
 				}
 			}
 		)
@@ -1812,6 +2144,8 @@
 				{delay 0.75
 					{ani_play "shell_eject" 1.0}
 					{talk "reload"}
+					{play_sound "breech_open"}
+
 				}
 				{delay (- %0 0.5)
 					{call "tank_reloaded"}

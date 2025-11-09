@@ -423,12 +423,21 @@
 		)
 	}
 
-	{on blast							;// blastwave hits specific volume
-		{if component "body"
-			{if min_energy 8
+	{on "blast_destruction"
+		{if min_energy 3.4				;// >= 75mm HE
+			{component destroy}
+			{call "explosion"}
+		else min_energy 1.2				;// >= 37mm HE
+			{if broken "body"
 				{component destroy}
 				{call "explosion"}
 			}
+		}
+	}
+
+	{on blast							;// blastwave hits specific volume
+		{if component "body"
+			{call "blast_destruction"}
 		}
 		{if volume "fuel1"
 			{tags add "fuel1_hit"}
@@ -504,13 +513,16 @@
 
 	{on "_explosion"
 		{if not "crush"
-			{spawn "vehicle_die" "basis"}
-			;{spawn "tank_die_particle"}
-			{impulse up 2.5 1.5 dir 2 1}
+			{call "_explosion_fx"}
 		else
 			{spawn "tank_die_peaceful_light" "basis"}
 			{impulse up 1.5 1.0 dir 1 0.5}
 		}
+	}
+	{on "_explosion_fx"
+		{spawn "vehicle_die" "basis"}
+		;{spawn "tank_die_particle"}
+		{impulse up 2.5 1.5 dir 2 1}
 	}
 
 	{on "spawn_shellhole"
@@ -576,6 +588,7 @@
 	}
 
 	{on "crush"
+		{unlink_trailer}
 		{component destroy}
 		{set "crush" 1}
 		{call "explosion"}
@@ -584,7 +597,8 @@
 	{on "car_destroyed"
 		{if not tagged "car_destroyed"
 			{tags add "car_destroyed"}
-			{tags add "no_scavenge"}
+			{tags add "no_scavenge"}		;// tag for conquest so that vehicle cannot be repaired/recovered
+			{mark_for_persistence}			;// Conquest map persistence
 			{if not tagged "body_break"
 				{components "body" break}
 			}
@@ -640,6 +654,30 @@
 			{component break}
 		else effector_velocity 6
 			{component break}
+		}
+	}
+
+	{on "blast_destruction" overload
+		{if min_energy 7.1				;// >= 105mm HE
+			{component destroy}
+			{call "explosion"}
+		}
+		{if broken "body"
+			{if min_energy 1.2			;// >= 50mm HE
+				{if tagged "death_counter_3"
+					{tags remove "death_counter_3"}
+					{component destroy}
+					{call "explosion"}
+				else tagged "death_counter_1"
+					{tags add "death_counter_2"}
+					{tags remove "death_counter_1"}
+				else tagged "death_counter_2"
+					{tags add "death_counter_3"}
+					{tags remove "death_counter_2"}
+				else
+					{tags add "death_counter_1"}
+				}
+			}
 		}
 	}
 }
@@ -1088,6 +1126,8 @@
 			{view start "dust"}
 		else terrain_fx "road"
 			{view start "dust"}
+		else terrain_fx "rock"
+			{view start "dust"}
 		}
 	}
 
@@ -1482,16 +1522,7 @@
 			{spawn "shellhole_big_dead" "basis"}
 		}
 	}
-	{on engine on
-		{weapon_work "gun" 0}
-	}
-	{on engine off
-		{if not tagged "gun_brake"
-			{if work "gun"
-				{weapon_work "gun" 1}
-			}
-		}
-	}
+	("rocket_weapon" args gun)		;// defines weapon place that is disabled while vehicle is on move
 }
 
 {"fuel_tank"
