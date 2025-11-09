@@ -5,6 +5,7 @@
 	}
 }
 
+
 {"vehicle"
 	{on spawn
 		{add_view   "recoilless_shot"			"flashbarrelsmall"	"fxshot"}
@@ -1428,14 +1429,6 @@
 	("zis5_sound")
 }
 
-{"zil-157_zpu-4 car"
-	("zis5_sound")
-	{on "add_weapon_sound" overload
-		("DShK38")
-	}
-}
-
-
 {"zil-157 car"
 	("zis5_sound")
 	{on "add_weapon_sound" overload
@@ -1530,9 +1523,6 @@
 	}
 }
 	
-
-
-
 
 {"kraz-255 car"
 	("opel_maultier_sound")
@@ -1873,6 +1863,90 @@
 	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
+
+{"t-55_dozer tank"
+
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on spawn
+		{link_sound "dozer" "vehicle/misc/dozer"}
+	}
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm_HV")
+		("SG43")
+	}
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"t-55a_dozer tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on spawn
+		{link_sound "dozer" "vehicle/misc/dozer"}
+	}
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm_HV")
+		("SG43")
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+}
+
+{"t-55a_1971_dozer tank"
+	{on "add_movement_sound" overload
+		{link_sound "engine_start"		"vehicle/engine/t34/start"}
+		{link_sound "engine_stop"		"vehicle/engine/t34/stop"}
+		{link_sound "engine_idle"		"vehicle/engine/t34/idle"}
+		{link_sound "engine_full"		"vehicle/engine/t34/full"}
+		{link_sound "exhaust"			"vehicle/engine/t34/exhaust"}
+		{link_sound "move"				"vehicle/tracks/t34"}
+		{link_sound "rotate_turret"		"vehicle/turret/electric/electric_light"}
+	}
+	{on spawn
+		{link_sound "dozer" "vehicle/misc/dozer"}
+	}
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm_HV")
+		("SG43")
+		("DShK38")
+	}
+	{on "commander_hatch_open" overload
+		{ani_play "open" 1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+		("check_fire")
+	}
+
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
+}
+
 {"t-55k tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
@@ -1927,6 +2001,28 @@
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
 	}
+}
+
+{"is2_sov tank"
+	("is_sound")
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+		{ani_play "mgun_aa" +1.0 resume}
+	}
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("DT")
+		("DShK38")
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+		{ani_play "mgun_aa" -1.0 resume}
+	}
+
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+	}
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_isu152_gunner2))
 }
 
 {"is-2m tank"
@@ -2234,7 +2330,7 @@
 	;}
 	{on fire "gun"
 		{spawn "detector" "foresight1" x}
-		{delay 1.2
+		{delay 1.8
 			{ani_play "eject"}
 		}
 	}
@@ -2263,92 +2359,6 @@
 
 }
 
-
-{"t-72_ural2 tank"
-	("kv_sound")
-	{on "add_weapon_sound" overload
-		("Cannon_105to130mm")
-		("DT")
-		("DShK38")
-	}
-	
-
-	;{on "spawn_shell_delay" overload
-	;	("shell_eject_delay" args 1.2)
-	;}
-	{on fire "gun"
-		{spawn "detector" "foresight1" x}
-		{delay 1.2
-			{ani_play "eject"}
-		}
-	}
-	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
-	}
-	{on "commander_hatch_close" overload
-		{ani_play "open" -1.0 resume}
-	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
-	{on "update_cw_panorama" overload
-		{if operatable
-			{if tagged "cwsh_zpu_off"
-				{if not tagged "human_in_use"
-					{if not tagged "contusion"
-						{if crew_in_place "commander"
-							{if not tagged "no_power"
-								{call "cw_panorama_work"}
-							else {call "cw_panorama_off"}}
-						else {call "cw_panorama_off"}}
-					else {call "cw_panorama_off"}}
-				else {call "cw_panorama_instant_off"}}
-			else {call "cw_panorama_instant_off"}}
-		else {call "cw_panorama_instant_off"}}
-	}
-
-}
-
-
-{"t-72_ural3 tank"
-	("kv_sound")
-	{on "add_weapon_sound" overload
-		("Cannon_105to130mm")
-		("DT")
-		("DShK38")
-	}
-
-	;{on "spawn_shell_delay" overload
-	;	("shell_eject_delay" args 1.2)
-	;}
-	{on fire "gun"
-		{spawn "detector" "foresight1" x}
-		{delay 1.2
-			{ani_play "eject"}
-		}
-	}
-	{on "commander_hatch_open" overload
-		{ani_wind "open" end}
-	}
-	{on "commander_hatch_close" overload
-		{ani_play "open" -1.0 resume}
-	}
-	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
-	{on "update_cw_panorama" overload
-		{if operatable
-			{if tagged "cwsh_zpu_off"
-				{if not tagged "human_in_use"
-					{if not tagged "contusion"
-						{if crew_in_place "commander"
-							{if not tagged "no_power"
-								{call "cw_panorama_work"}
-							else {call "cw_panorama_off"}}
-						else {call "cw_panorama_off"}}
-					else {call "cw_panorama_off"}}
-				else {call "cw_panorama_instant_off"}}
-			else {call "cw_panorama_instant_off"}}
-		else {call "cw_panorama_instant_off"}}
-	}
-
-}
 
 {"2s3 tank"
 	("t70_sound")
@@ -3377,6 +3387,68 @@
 }
 
 
+{"m35_mgr-3"
+	("cckw_sound")
+	{on spawn
+		{add_view	"flash_cannon_big"		"flashbarrel1"	"shooter"}
+		{add_view	"dust_nebelfire"		"dust"			"turret"}
+		{add_view	"dust_nebelfire_snow"	"snow"			"turret"}
+	}
+
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{view start "flashbarrel1"}
+		{delay 2
+			{view pause "flashbarrel1"}
+		}
+		{if terrain_fx "snow"
+			{view start "snow"}
+			{delay 0.3 {view pause "snow"}}
+		else terrain_fx "ice"
+			{view start "snow"}
+			{delay 0.3 {view pause "snow"}}
+		else terrain_fx "shallow_water"
+			;nothing
+		else
+			{view start "dust"}
+			{delay 0.3 {view pause "dust"}}
+		}
+	}
+}
+
+
+{"m35_mgr-3_mg"
+	("cckw_sound")
+	{on "add_weapon_sound" overload
+		("M2HB_M45_Mount")
+	}
+	{on spawn
+		{add_view	"flash_cannon_big"		"flashbarrel1"	"shooter"}
+		{add_view	"dust_nebelfire"		"dust"			"turret"}
+		{add_view	"dust_nebelfire_snow"	"snow"			"turret"}
+	}
+
+	{on fire "gun" overload
+		{ani_play "recoil"}
+		{view start "flashbarrel1"}
+		{delay 2
+			{view pause "flashbarrel1"}
+		}
+		{if terrain_fx "snow"
+			{view start "snow"}
+			{delay 0.3 {view pause "snow"}}
+		else terrain_fx "ice"
+			{view start "snow"}
+			{delay 0.3 {view pause "snow"}}
+		else terrain_fx "shallow_water"
+			;nothing
+		else
+			{view start "dust"}
+			{delay 0.3 {view pause "dust"}}
+		}
+	}
+}
+
 {"dodge_m37"
 	("wc51_sound")
 }
@@ -3407,7 +3479,8 @@
 		{add_view	"flash_gun_big"	"flashbarrel01"	"shooter01"}
 	}
 	{on fire "mgun" overload
-		{play_sound "bkg_mg"}
+		{play_sound "MG_Mid"}
+        {play_sound "MG_Far"}
 		{if  name "00"
 			{view start "flashbarrel00"}
 			{delay 0.2
@@ -4913,6 +4986,23 @@
 	("animation_sound" args "open_right")
 }
 
+
+{"unimog404s_fk20 car"
+	("studebaker_sound")
+	("animation_sound" args "open_left")
+	("animation_sound" args "open_right")
+	{on "add_weapon_sound" overload
+		("Autocannon_s1")
+		{link_sound "action_recoil_Cannon"	"weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
+	}
+	{on fire "gun"
+		{ani_play "recoil"}
+		;{ani_play "recoil_body"}
+		{call "spawn_shell"}
+	}
+	
+}
+
 {"man630 car"
 	("opel_maultier_sound")
 	("animation_sound" args "open_left")
@@ -5616,8 +5706,23 @@
 	("animation_sound" args "open_right")
 }
 
+{"gaz-66 car"
+	("studebaker_sound")
+}
+
 {"w50la_2m3 car"
 	("studebaker_sound")
+	{on "init_gun" overload
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
+		{add_view "zenit_gilz"			"shell"			"FXshell1"}
+		{add_view "zenit_gilz"			"shell"			"FXshell2"}
+		{call "update_gun"}
+	}
+	{on "add_weapon_sound" overload
+		("Autocannon_s1")
+		{link_sound "action_recoil_Cannon"	"weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
+	}
 
 }
 
@@ -6152,6 +6257,51 @@
 	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover) pose(seat_commander_hatch))
 }
 
+{"t-72_gdr tank"
+	("kv_sound")
+	{on "add_weapon_sound" overload
+		("Cannon_105to130mm")
+		("DT")
+		("DShK38")
+	}
+	{on operatable on
+		{ani_play "flaps"}
+	}
+
+	;{on "spawn_shell_delay" overload
+	;	("shell_eject_delay" args 1.2)
+	;}
+	{on fire "gun"
+		{spawn "detector" "foresight1" x}
+		{delay 1.2
+			{ani_play "eject"}
+		}
+	}
+	{on "commander_hatch_open" overload
+		{ani_wind "open" end}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "open" -1.0 resume}
+	}
+	("zpu_params" gunner(commander) zpu_mgun(mgun) anim(hm_hatch_cover_sit_nooffset) pose(seat_gunner_stand))
+	{on "update_cw_panorama" overload
+		{if operatable
+			{if tagged "cwsh_zpu_off"
+				{if not tagged "human_in_use"
+					{if not tagged "contusion"
+						{if crew_in_place "commander"
+							{if not tagged "no_power"
+								{call "cw_panorama_work"}
+							else {call "cw_panorama_off"}}
+						else {call "cw_panorama_off"}}
+					else {call "cw_panorama_off"}}
+				else {call "cw_panorama_instant_off"}}
+			else {call "cw_panorama_instant_off"}}
+		else {call "cw_panorama_instant_off"}}
+	}
+
+}
+
 {"zsu-57-2_gdr tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
@@ -6450,6 +6600,17 @@
 	("gaz_sound")
 }
 
+{"gaz67_ammo_prc"
+	("gaz_sound")
+	{on "commander_hatch_open" overload
+		{ani_play "mgun" +1.0 resume}
+	}
+	{on "commander_hatch_close" overload
+		{ani_play "mgun" -1.0 resume}
+	}
+}
+
+
 {"nj-130 car"
 	("studebaker_sound")
 	("animation_sound" args "open_left")
@@ -6483,86 +6644,8 @@
 }
 
 
-{"ca-30_zpu-4 car"
-	("zis5_sound")
-	{on "add_weapon_sound" overload
-		("DShK38")
-	}
-}
-
-
-{"ca-30_72k car"
-	("zis5_sound")
-	{on "add_weapon_sound" overload
-		("Autocannon_s1")
-		{link_sound "action_recoil_Cannon"	"weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
-	}
-}
 
 {"bm-13-17m_prc car"
-	("zis5_sound")
-	{on spawn
-		{tags add "shield_up"}
-	}
-
-	{on ik begin "turret"
-		{if tagged "shield_up"
-			{tags add "aiming"}
-			{tags remove "moving"}
-			{ani_play "support_close"}
-			{tags add "shield_down"}
-			{tags remove "shield_up"}
-		else
-			{delay 0.1}
-		}
-	}
-
-	{on move on
-		{if tagged "shield_down"
-			{tags add "moving"}
-			{tags remove "aiming"}
-			{ani_play "support_open"}
-			{tags remove "shield_down"}
-			{tags add "shield_up"}
-		else
-			{delay 0.1}
-		}
-	}
-}
-
-{"bm-14-16_prc car"
-	("zis5_sound")
-	{on spawn
-		{tags add "shield_up"}
-	}
-
-	{on ik begin "turret"
-		{if tagged "shield_up"
-			{tags add "aiming"}
-			{tags remove "moving"}
-			{ani_play "support_close"}
-			{tags add "shield_down"}
-			{tags remove "shield_up"}
-		else
-			{delay 0.1}
-		}
-	}
-
-	{on move on
-		{if tagged "shield_down"
-			{tags add "moving"}
-			{tags remove "aiming"}
-			{ani_play "support_open"}
-			{tags remove "shield_down"}
-			{tags add "shield_up"}
-		else
-			{delay 0.1}
-		}
-	}
-}
-
-
-{"bm-24m_prc car"
 	("zis5_sound")
 	{on spawn
 		{tags add "shield_up"}
@@ -6631,6 +6714,7 @@
 	}
 }
 
+
 {"btr-40_type55"
 	("sdkfz222_sound")
 	{on "add_weapon_sound" overload
@@ -6669,6 +6753,56 @@
 		}
 		{call "spawn_shell"}
 	}
+}
+
+{"btr-152_type56"
+	("zis5_sound")
+	{on "add_weapon_sound" overload
+		("SG43")
+	}
+	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover_sit) pose(seat_isu152_gunner2))
+}
+
+
+{"btr-152b_type56"
+	("zis5_sound")
+	{on "add_weapon_sound" overload
+		("DShK38")
+	}
+	("zpu_params" gunner(gunner2) zpu_mgun(mgun)  anim(hm_hatch_cover_sit) pose(seat_isu152_gunner2))
+}
+
+{"btr-152a_type56"
+	("zis5_sound")
+	{on "add_weapon_sound" overload
+		("DShK38")
+	}
+	{on "init_gun"
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel00"	"shooter00"}
+		{add_view "flash_gun_hmg_m2hb"			"flashbarrel01"	"shooter01"}
+		{add_view "zenit_gilz"			"shell"			"FXshell00"}
+		{add_view "zenit_gilz"			"shell"			"FXshell01"}
+		{call "update_gun"}
+	}
+	{on fire "mgun1" overload
+		{play_sound "action_recoil_HMG"}
+        {play_sound "HMG_Mid"}
+        {play_sound "HMG_Far"}
+		(define "fire_barrel"
+			name "%0"
+				{call "fire_barrel%0"}
+				{view start "flashbarrel%0"}
+				{ani_play "fire%0"}
+				{delay 0.2
+					{view pause "flashbarrel%0"}
+				}
+		)
+		{if	("fire_barrel" args 00)
+		else ("fire_barrel" args 01)
+		}
+		{call "spawn_shell"}
+	}
+	
 }
 
 {"yw531 tank"
@@ -6729,44 +6863,6 @@
 	}
 }
 
-{"type65_61k tank"
-    ("t34_sound")
-    {on "add_weapon_sound" overload
-        ("Autocannon_s2")
-        ("DT")
-        ("Cannon_Breech")
-    }
-    {on "init_gun"
-        {add_view "tank_canon_fire_37_40_auto"            "flashbarrel00"    "shooter00"}
-        {add_view "tank_canon_fire_37_40_auto"            "flashbarrel01"    "shooter01"}
-        {call "update_gun"}
-    }
-    {on fire "gun" overload
-        (define "fire_barrel"
-            name "%0"
-                {call "fire_barrel%0"}
-                {view start "flashbarrel%0"}
-                {ani_play "fire%0"}
-                {delay 0.2
-                    {view pause "flashbarrel%0"}
-                }
-        )
-        {if    ("fire_barrel" args 00)
-        else ("fire_barrel" args 01)
-        }
-        {call "spawn_shell"}
-    }
-}
-
-{"type65_s60 tank"
-    ("t34_sound")
-    {on "add_weapon_sound" overload
-        ("Cannon_50to57mm_HV")
-        ("DT")
-        ("Cannon_Breech")
-    }
-}
-
 {"t-34-85_prc tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t34/start"}
@@ -6785,6 +6881,28 @@
 		{spawn "detector"  "foresight1" x}
 
 	}
+}
+
+{"type63 tank"
+	("t70_sound")
+	
+	{on "add_weapon_sound" overload
+		("Cannon_85to100mm_HV")
+		("SG43")
+		("DShK38")
+	}
+	{on "charger_hatch_open" overload
+		{ani_play "open2" 1.0 resume}
+	}
+	{on "charger_hatch_close" overload
+		{ani_play "open2" -1.0 resume}
+	}
+	{on fire "gun"
+		{spawn "detector"  "foresight1" x}
+		("check_fire")
+
+	}
+	("zpu_params" gunner(charger) zpu_mgun(mgun) anim(hm_hatch_cover_nooffset) pose(seat_gunner_stand))
 }
 
 {"type62_lt tank"
@@ -7068,6 +7186,81 @@
 
 {"ural375_pol_ammo car"
 	("zis5_sound")
+}
+
+
+{"kraz-255_pol car"
+	("opel_maultier_sound")
+}
+
+{"kraz-255_ammo_pol car"
+	("opel_maultier_sound")
+}
+
+{"bm-21_pol car"
+	("zis5_sound")
+}
+
+{"bm-14_pol car"
+	("zis5_sound")
+	{on spawn
+		{tags add "shield_up"}
+	}
+
+	{on ik begin "turret"
+		{if tagged "shield_up"
+			{tags add "aiming"}
+			{tags remove "moving"}
+			{ani_play "support_close"}
+			{tags add "shield_down"}
+			{tags remove "shield_up"}
+		else
+			{delay 0.1}
+		}
+	}
+
+	{on move on
+		{if tagged "shield_down"
+			{tags add "moving"}
+			{tags remove "aiming"}
+			{ani_play "support_open"}
+			{tags remove "shield_down"}
+			{tags add "shield_up"}
+		else
+			{delay 0.1}
+		}
+	}
+}
+
+{"bm-13_pol car"
+	("zis5_sound")
+	{on spawn
+		{tags add "shield_up"}
+	}
+
+	{on ik begin "turret"
+		{if tagged "shield_up"
+			{tags add "aiming"}
+			{tags remove "moving"}
+			{ani_play "support_close"}
+			{tags add "shield_down"}
+			{tags remove "shield_up"}
+		else
+			{delay 0.1}
+		}
+	}
+
+	{on move on
+		{if tagged "shield_down"
+			{tags add "moving"}
+			{tags remove "aiming"}
+			{ani_play "support_open"}
+			{tags remove "shield_down"}
+			{tags add "shield_up"}
+		else
+			{delay 0.1}
+		}
+	}
 }
 
 {"btr-40_pol"
