@@ -6841,6 +6841,40 @@
 	}
 }
 
+{"yw531_zu-23 tank"
+	("bt_sound")
+	
+	{on "init_gun" overload
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel00"	"shooter00"}
+		{add_view "tank_canon_fire_20_25_auto"			"flashbarrel01"	"shooter01"}
+		{add_view "zenit_gilz"			"shell"			"FXshell1"}
+		{add_view "zenit_gilz"			"shell"			"FXshell2"}
+		{call "update_gun"}
+	}
+	{on "add_weapon_sound" overload
+		("Autocannon_s1")
+		{link_sound "action_recoil_Cannon"	"weapon/shot/cannon/s1/recoil/Shared/Autocannon_20to30mm/"}
+	}
+	{on fire "gun" overload
+		{play_sound "action_recoil_Cannon"}
+        {play_sound "Cannon_Mid"}
+        {play_sound "Cannon_Far"}
+		{if  name "00"
+			{ani_wind "recoil" end}
+			{view start "flashbarrel00"}
+			{delay 0.2
+				{view pause "flashbarrel00"}
+			}
+		}
+		{if name "01"
+			{view start "flashbarrel01"}
+			{delay 0.2
+				{view pause "flashbarrel01"}
+			}
+		}
+	}
+}
+
 {"su76_prc tank"
 	{on "add_movement_sound" overload
 		{link_sound "engine_start"		"vehicle/engine/t70/start"}
