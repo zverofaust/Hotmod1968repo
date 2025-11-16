@@ -124,7 +124,7 @@ Purchases["conquest.sov"] = {
 				{priority = 0.5, type = {"Tank", "Light", "AA",}, unit = "zsu-23-4b"},	
 				{priority = 1.0, type = {"Tank", "Medium", "AA",}, unit = "zsu-57-2"},
 			--SPG
-				--{priority = 1.0, type = {"Tank", "Light", "Artillery",}, unit = "2s3"},
+				{priority = 0.2, type = {"Tank", "Light", "Artillery",}, unit = "2s3"},
 				{priority = 0.5, type = {"Armored", "Artillery", "AT",}, unit = "btr-50_d44"},
 			       
 			--Air Assets
