@@ -82,7 +82,9 @@
 	{item "mortarrus_120" "he"		"ammo" 1  {value 10}}
 	{item "mortarrus_120" "sm"		"ammo" 1  {value 10}}
 	{item "mortarrus_120" "ic"		"ammo" 1  {value 10}}
-	{item "bullet73_2a28"  "heat"	"ammo" 1  {value 12}}
+	{item "mortar240" "he"			"ammo" 1  {value 10}}
+	{item "mortar240" "ic"			"ammo" 1  {value 10}}
+	{item "bullet73_2a28"  "heat"		"ammo" 1  {value 12}}
 	{item "bullet73_2a28"  "he"		"ammo" 1  {value 8}}
 	{item "9m14"			"atgm"		"ammo" 1 {value 15}}
 	{item "gunbag_sov_9m14"				1 {value 10}}
