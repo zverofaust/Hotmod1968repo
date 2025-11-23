@@ -241,6 +241,13 @@
 	("spotting" r(0.85))
 }
 
+{"tank_back"							; // Tank with rear turret machine gun
+	{uncover 20}
+	{h_fov 50}
+	{v_fov 50}
+	("spotting" r(0.85))
+}
+
 {"tank_rear-mg"							; // Tank with rear turret machine gun
 	{uncover 20}
 	{h_fov 50}
