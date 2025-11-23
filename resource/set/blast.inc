@@ -13,12 +13,12 @@
 	{damage blastwave
 		{energy (+ (/ %weight 2.5) (+ 0.9 %filler))}
 		{area (* 0.5 (+ (/ %weight 10) (* 5 (+ %filler 0.25))))		(+ (/ %weight 10) (* 5 (+ %filler 0.25)))}
-		{ground_interaction_radius 0.25}
+		{ground_interaction_radius 0.5}
 	}
 	{damage add blastwave
 		{energy (+ 1.1 (* 0.75 %filler))}
 		{area (+ (* %weight 0.25) (+ 1 (* 5 %filler))) 			(+ (* %weight 0.5) (+ 4.5 (* 5 %filler))) }
-		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to determine is blast is close enough to ground to trigger terrain fx
 	}
 )
 
@@ -32,7 +32,7 @@
 	{damage add blastwave
 		{energy (+ 0.55 (- 1 (/ %filler %weight)))}
 		{area (+ (* %weight 0.25) (+ 2 (* 3 %filler)))			(+ (* %weight 0.5) (+ 3.5 (* 3 %filler)))}
-		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to determine is blast is close enough to ground to trigger terrain fx
 	}
 )
 
@@ -46,12 +46,12 @@
 	{damage add blastwave
 		{energy (+ 2 (+ (/ %weight 20) (* 1 (- 1 (/ %filler %weight)))))}
 		{area (+ (* %weight 0.1) (+ 0 (* 0.1 %filler)))			(+ (* %weight 0.2) (+ 0 (* 0.1 %filler)))}
-		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to determine is blast is close enough to ground to trigger terrain fx
 	}
 	{damage add blastwave
 		{energy (+ 0.55 (- 1 (/ %filler %weight)))}
 		{area (+ (* %weight 0.1) (+ 5.5 (* 0.75 %filler)))			(+ (* %weight 0.11) (+ 9 (* 1 %filler)))}
-		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to determine is blast is close enough to ground to trigger terrain fx
 	}
 )
 
@@ -65,12 +65,12 @@
 	{damage add blastwave
 		{energy (+ 2 (+ (/ %weight 20) (* 2 (- 1 (/ %filler %weight)))))}
 		{area (+ (* %weight 0.05) (+ 0 (* 0.5 %filler)))			(+ (* %weight 0.1) (+ 0 (* 0.75 %filler)))}
-		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to determine is blast is close enough to ground to trigger terrain fx
 	}
 	{damage add blastwave
 		{energy (+ 0.6 (- 1 (/ %filler %weight)))}
 		{area (+ (* %weight 0.1) (+ 5 (* 0.5 %filler)))			(+ (* %weight 0.15) (+ 6 (* 1.2 %filler)))}
-		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to determine is blast is close enough to ground to trigger terrain fx
 	}
 )
 
@@ -139,14 +139,14 @@
 		{ground_interaction_radius 0.8}
 	}
 	{damage add blastwave
-		{energy (+ (* %weight 0.005) (+ 5 (* 0.02 %filler)))}
-		{area (+ (* %weight 0.004) (+ 5 (* 0.008 %filler)))			(+ (* %weight 0.005) (+ 2 (* 0.054 %filler)))}
-		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+		{energy (+ (* %weight 0.005) (+ 5 (* 0.04 %filler)))}
+		{area (+ (* %weight 0.004) (+ 5 (* 0.025 %filler)))			(+ (* %weight 0.005) (+ 7 (* 0.054 %filler)))}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to determine is blast is close enough to ground to trigger terrain fx
 	}
 	{damage add blastwave
 		{energy (+ 0.55 (- 1 (/ %filler %weight)))}
-		{area (+ (* %weight 0.005) (+ 0 (* 0.075 %filler)))		(+ (* %weight 0.005) (+ 15 (* 0.055 %filler)))}
-		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to deterimine is blast is close enough to ground to trigger terrain fx
+		{area (+ (* %weight 0.005) (+ 3 (* 0.075 %filler)))		(+ (* %weight 0.005) (+ 17 (* 0.06 %filler)))}
+		{ground_interaction_radius 0}		;// value is multiplied by 2nd value of area to determine is blast is close enough to ground to trigger terrain fx
 	}
 )
 
@@ -176,7 +176,7 @@
 ;/*----------------------*/
 
 ;// Rocket mass > 5kg and Fill mass < 1kg
-(define "rocket_level_2" 
+(define "rocket_level_2"
 	{damage blastwave
 		{energy (+ (/ %weight 5) (* 3 (+ %filler 0.25)))}
 		{area 0.5 1.0}
