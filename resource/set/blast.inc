@@ -30,6 +30,25 @@
 		{ground_interaction_radius 0.5}
 	}
 	{damage add blastwave
+		{energy (+ 1 (* 1.25 %filler))}
+		{area (+ (* 0.07 %weight) (+ 0.6 (* 0.1 %filler)))		(+ (* 0.1 %weight) (+ 1.2 (* 0.1 %filler)))}
+		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to determine is blast is close enough to ground to trigger terrain fx
+	}
+	{damage add blastwave
+		{energy (+ 0.55 (- 1 (/ %filler %weight)))}
+		{area (+ (* %weight 0.25) (+ 2 (* 3 %filler)))			(+ (* %weight 0.5) (+ 3.5 (* 3 %filler)))}
+		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to determine is blast is close enough to ground to trigger terrain fx
+	}
+)
+
+;// Shell mass > 5kg and Fill mass < 1kg
+(define "he_level_2_offmap" ;// copy of he_level_2. custom ground interaction radius for off-map entity
+	{damage blastwave
+		{energy (+ (/ %weight 5) (* 3 (+ %filler 0.25)))}
+		{area 0.4 0.5}
+		{ground_interaction_radius 2.5}
+	}
+	{damage add blastwave
 		{energy (+ 0.55 (- 1 (/ %filler %weight)))}
 		{area (+ (* %weight 0.25) (+ 2 (* 3 %filler)))			(+ (* %weight 0.5) (+ 3.5 (* 3 %filler)))}
 		{ground_interaction_radius 0} 		;// value is multiplied by 2nd value of area to determine is blast is close enough to ground to trigger terrain fx
