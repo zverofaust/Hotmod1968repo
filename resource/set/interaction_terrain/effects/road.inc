@@ -314,6 +314,42 @@
 			{spawn "flare_artillery_240"}
 			{spawn "ex_bul_puff"}
 
+		else stuff "flare_eng mortar_81"					; Flare for off-map 81mm mortar
+			{spawn "flare_mortar_81"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng mortar_107"					; Flare for off-map 107 mortar
+			{spawn "flare_mortar_107"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_88"					; Flare for off-map 88mm
+			{spawn "flare_artillery_88"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_114"				; Flare for off-map 114mm
+			{spawn "flare_artillery_114"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_127"				; Flare for off-map 127mm
+			{spawn "flare_artillery_127"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_140"				; Flare for off-map 140mm
+			{spawn "flare_artillery_140"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_152"				; Flare for off-map 152mm
+			{spawn "flare_artillery_155"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_183"				; Flare for off-map 183mm
+			{spawn "flare_artillery_180"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_203"				; Flare for off-map 203mm
+			{spawn "flare_artillery_203"}
+			{spawn "ex_bul_puff"}
+
 		else stuff "glass ic"								; Ampulomet glass ball
 			{spawn "ex_glass_ic_ground"}
 			{spawn "burn_piece" dir_velocity}
@@ -896,6 +932,42 @@
 
 		else stuff "flare_usa artillery_240"				; Flare for off-map 240mm VT airburst
 			{spawn "flare_artillery_240"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng mortar_81"					; Flare for off-map 81mm mortar
+			{spawn "flare_mortar_81"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng mortar_107"					; Flare for off-map 107 mortar
+			{spawn "flare_mortar_107"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_88"					; Flare for off-map 88mm
+			{spawn "flare_artillery_88"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_114"				; Flare for off-map 114mm
+			{spawn "flare_artillery_114"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_127"				; Flare for off-map 127mm
+			{spawn "flare_artillery_127"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_140"				; Flare for off-map 140mm
+			{spawn "flare_artillery_140"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_152"				; Flare for off-map 152mm
+			{spawn "flare_artillery_155"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_183"				; Flare for off-map 183mm
+			{spawn "flare_artillery_180"}
+			{spawn "ex_bul_puff"}
+
+		else stuff "flare_eng artillery_203"				; Flare for off-map 203mm
+			{spawn "flare_artillery_203"}
 			{spawn "ex_bul_puff"}
 
 		else stuff "glass ic"								; Ampulomet glass ball

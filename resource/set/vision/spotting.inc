@@ -5,17 +5,20 @@
 ;/*=============== Presets Begin ===============*/
 
 ; // Distances are in meters. Units are spotted when one the following conditions are met.
-; // These preset values are multiplied by radius values in generic defines section to calculate in-game settings. 
+; // These preset values are multiplied by radius values in generic defines section to calculate in-game settings.
 ; // Additionally, there is a global radius modifier on vision.set for a global vision reduction or augmentation. At the moment the radius modifier is 1.
 
-(define "firing"				;// Shooting specific weapons. These weappons/terms must be defined in vision/settings.set before use here. 
+(define "firing"				;// Shooting specific weapons. These weappons/terms must be defined in vision/settings.set before use here.
 	{firing_welrod 0}
 	{firing_delisle 0}
 	{firing_silencer_m 0}
 	{firing_silencer_n 0}
+	{firing_hdm 0}
 	{firing_k98_scope 100}
 	{firing_mosin_scope 100}
 	{firing_g43_scope 100}
+	{firing_mosin_m27_scope 100}
+	{firing_m1903a4 100}
 	{thrower 0}
 	{firing_binocular 0}
 	{firing_searchlight 300}
@@ -29,7 +32,7 @@
 
 	{visible (* 100 %r)}				;// once human is spotted, the distance the human will remain spotted until Line Of Sight is broken. When placed outside of a specific stance block, it becomes a master value for all stances.
 
-	{cover (* 100 %r)					;// default value incase condition isn't defined below. Important that {cover} block comes before non-cover {stand}, {squat}, and {crawl} blocks, else cover values will be overwritten. 
+	{cover (* 100 %r)					;// default value incase condition isn't defined below. Important that {cover} block comes before non-cover {stand}, {squat}, and {crawl} blocks, else cover values will be overwritten.
 		{stand (* 100 %r)				;// "stand" stance - in cover
 			{stealth (* 50 %r)}		;// "stand" stance - in cover and human has stealth skill
 		}
@@ -176,6 +179,12 @@
 	{plane_01 1000				;// distance at which it will be spotted when moving
 		{firing (/ 1000 %r)}	;// When this unit fires its weapon, it will be spotted up to this distance. Then, it will become fogged again after remaining visible for the period of time defined in set/detect.set
 		{visible 1000}			;// once spotted, the distance the unit will remain spotted until Line Of Sight is broken.
+		{still 100}				;// unit still / not moving
+	}
+	;// fighter/bomber aircraft
+	{plane_02 700				;// distance at which it will be spotted when moving
+		{firing (/ 700 %r)}	;// When this unit fires its weapon, it will be spotted up to this distance. Then, it will become fogged again after remaining visible for the period of time defined in set/detect.set
+		{visible 700}			;// once spotted, the distance the unit will remain spotted until Line Of Sight is broken.
 		{still 100}				;// unit still / not moving
 	}
 )

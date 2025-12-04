@@ -4,10 +4,10 @@
 ;/*=============== Presets Begin ===============*/
 
 ; // Distances are in meters. Units are spotted when one the following conditions are met.
-; // These preset values are multiplied by radius values in generic defines section to calculate in-game settings. 
+; // These preset values are multiplied by radius values in generic defines section to calculate in-game settings.
 ; // Additionally, there is a global radius modifier on vision.set for a global vision reduction or augmentation. At the moment the radius modifier is 1.
 
-(define "hear_firing"			;// Shooting specific weapons. These weappons/terms must be defined in vision/settings.set before use here. 
+(define "hear_firing"			;// Shooting specific weapons. These weappons/terms must be defined in vision/settings.set before use here.
 	{firing_welrod 0}
 	{firing_delisle 0}
 	{firing_silencer_m 0}
@@ -15,6 +15,8 @@
 	{firing_k98_scope 100}
 	{firing_mosin_scope 100}
 	{firing_g43_scope 100}
+	{firing_m1903a4 100}
+	{firing_mosin_m27_scope 100}
 	{thrower 0}
 	{firing_binocular 0}
 )
@@ -23,7 +25,7 @@
 
 	{visible 5}
 
-	{cover 5					;// default value incase condition isn't defined below. Important that {cover} block comes before non-cover {stand}, {squat}, and {crawl} blocks, else cover values will be overwritten. 
+	{cover 5					;// default value incase condition isn't defined below. Important that {cover} block comes before non-cover {stand}, {squat}, and {crawl} blocks, else cover values will be overwritten.
 		{stand 5				;// "stand" stance - in cover
 			{stealth 5}			;// "stand" stance - in cover and human has stealth skill
 		}
@@ -110,7 +112,7 @@
 		{visible 5}					;// once spotted, the distance the unit will remain spotted until Line Of Sight is broken.
 		{still 5}					;// unit still / not moving
 	}
-	
+
 	;// moto, jeep
 	{vehicle_01 (+ 100 (/ 50 %r))	;// distance at which it will be spotted when moving, 50m past visor range.
 		{firing (/ 140 %r)}			;// When this unit fires its weapon, it will be spotted up to this distance. Then, it will become fogged again after remaining visible for the period of time defined in set/detect.set
@@ -148,13 +150,19 @@
 
 	;// SPG or tanks with a really large gun that make a lot of noise, alike artillery (105+mm)
 	{vehicle_06 (+ 100 (/ 50 %r))	;// distance at which it will be spotted when moving, 50m past visor range.
-		{firing (/ 220 %r)}			;// When this unit fires its weapon, it will be spotted up to this distance. Then, it will become fogged again after remaining visible for the period of time defined in set/detect.set
+		{firing (/ 550 %r)}			;// When this unit fires its weapon, it will be spotted up to this distance. Then, it will become fogged again after remaining visible for the period of time defined in set/detect.set
 		{visible 5}					;// once spotted, the distance the unit will remain spotted until Line Of Sight is broken.
 		{still 5}					;// unit still / not moving
 	}
 
 	;// aircraft
 	{plane_01 1000					;// distance at which it will be spotted when moving
+		{firing (/ 1000 %r)}		;// When this unit fires its weapon, it will be spotted up to this distance. Then, it will become fogged again after remaining visible for the period of time defined in set/detect.set
+		{visible 1000}				;// once spotted, the distance the unit will remain spotted until Line Of Sight is broken.
+		{still 5}					;// unit still / not moving
+	}
+	;// fighter/bomber aircraft
+	{plane_02 1000					;// distance at which it will be spotted when moving
 		{firing (/ 1000 %r)}		;// When this unit fires its weapon, it will be spotted up to this distance. Then, it will become fogged again after remaining visible for the period of time defined in set/detect.set
 		{visible 1000}				;// once spotted, the distance the unit will remain spotted until Line Of Sight is broken.
 		{still 5}					;// unit still / not moving

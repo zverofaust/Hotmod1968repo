@@ -4,8 +4,7 @@
 		{speed (* 0.70 %mps)}
 	)
 	(define "fire rate"				;// rate of fire in rounds per minute
-		{recoveryTime (/ 60 (* %rpm 1.09))}
-		(mod "mp" {recoveryTime (/ 60 (* %rpm 1.14))})
+		{recoveryTime (/ 60 (* %rpm 1.07))}
 	)
 	(define "reload time"			;// reload time for magazine or shell
 		{rechargeTime %seconds}
