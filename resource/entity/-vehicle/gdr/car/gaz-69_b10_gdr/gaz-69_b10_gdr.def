@@ -1,0 +1,142 @@
+{game_entity
+	(include "/properties/car.ext")
+	(include "/properties/shadow/tank.inc" scale(0.9))
+	(include "/properties/selection/vehicle.inc" scale(0.8))
+	{props "moto" "vision_lev01" "tractor" "tractor_light" "muzzle_37mm_47mm" "hatch"}
+	{able "emit_on_attack"}
+	{PatherId "kubel"}
+	{targetSelector "car_bullet"}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+
+	("fuel" args "fuel")
+	("transmission" args "transmission")
+	{volume "engine" {thickness 10}}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_kubel_leftpassenger"} {end "seat_driver_car"} {base "open_left1"}}
+			{reverse 	{end	"board_kubel_leftpassenger" -1} {base "open_left1"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_Kubel_rightpassenger"} {end "seat_passenger"} {base "open_right1"}}
+			{reverse 	{end	"board_Kubel_rightpassenger" -1} {base "open_right1"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_body"} {end "cannon_small_gunner"} {base "open_back"}}
+			{reverse 	{end	"board_body" -1} {base "open_back"}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_body"} {end "cannon_small_charger"} {base "open_back"}}
+			{reverse 	{end	"board_body" -1} {base "open_back"}}
+		}
+	}
+
+	{placer
+		{place "driver"		{group "crew"} {visor "driver"}}
+		{place "commander"	{group "crew"} {visor "commander"}}
+		{place "gunner"		{group "crew"} {visor "gunner"}}
+		{place "charger"	{group "crew"} {visor "passenger"}}
+	}
+	
+	("crew_human"		place(driver)	bone(driver)				door(emit1)		animation(driver) 		group(crew))
+	("crew_human"		place(commander) 	bone(commander)			door(emit2)		animation(commander) 	group(crew))
+	("crew_human"		place(gunner)	bone(gunner)				door(emit3)		animation(gunner)		group(crew))
+	("crew_human"		place(charger)	bone(charger)				door(emit4)		animation(charger)		group(crew))
+	
+	{placer
+		{place "driver"		{group "crew"} {visor "driver"}}
+		{place "commander"	{group "crew"} {visor "commander"}}
+		{place "gunner"		{group "crew"} {visor "gunner"}}
+		{place "charger"	{group "crew"} {visor "passenger"}}
+	}
+
+	{sensor
+		{visor "gunner"
+			{vision "human"}
+			{bone "turret"}
+		}
+	}
+	
+	{extender "inventory"
+		{weapon "mgun" {mask "mountable"}}
+		{box	
+			{item "bullet82_b10 heat" 5}
+			{item "bullet82_b10 he" 5}
+			{item "rpd_drum ammo" 525}
+			{item "rpd" filled {user "mgun"}}
+		}
+	}
+	
+	{Weaponry
+		{place "gun"
+			{weapon	"82mm_b10" filling "ammo bullet82_b10 heat" 1}
+			{gunner "gunner"}
+            {charger "charger"}
+			{RestoreIKAfterAim}
+			{Rotate}
+			{basic}
+			("hm68_abm_gun")
+		}
+		{place "mgun"
+			{LinkBone "mgun_help"}
+			{gunner "commander"}
+			{charger "commander"}
+			{LinkBone		"mgun_help"}
+			{LinkAnimation	"off"}
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{Chassis
+		("car_trace" fx("tracewheel03") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.08) wheell("wlr") wheelr("wrr") bonel("FXtraceL2") boner("FXtraceR2"))
+		("mobility_car"
+			speed(80) ;----------------------------------Max speed.
+			speedatmaxturn(12) ;-------------------------Max speed at max turn.
+			reverse(18) ;--------------------------------Max speed in Reverse.
+			weight(1.32) ;-------------------------------Weight in Tonnes.
+			power(54) ;----------------------------------Horse Power.
+			fuel(60) ;-----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(170) ;---------------------------------Range in Kilometers.
+		)
+	}
+	
+	("glass" args "glassl" 1)
+	("glass" args "glassr" 1)
+	
+	{Volume "body1"
+		{thickness 4}
+	}
+	{Volume "body2"
+		{thickness 4}
+		{able{holed}}
+	}
+	{Volume "engine"
+		{thickness 4}
+	}
+	
+	{Extension "gaz-69_b10_gdr.mdl"}
+
+	{bone "gun_rot"
+		{limits 5 -30}
+	}
+	{bone "turret"
+		;{limits -45 45}
+		{speed2 38}
+	}
+	
+	{bone "mgun_rot"
+		{limits 20 -5}
+		{speed2 38}
+	}
+	{bone "mgun_turret"
+		{limits -15 15}
+		{speed2 38}
+	}
+}
