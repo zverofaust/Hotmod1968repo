@@ -1,0 +1,324 @@
+;SDL
+
+;////////////////// INSTRUCTIONS //////////////////
+;Buttons go as follows, displayed in-game in this order:
+
+; inf1       - infantry squads
+; inf2       - infantry single units
+; empl       - Emplacements, AA, AT, Mortars, Howitzers
+; vehicles   - vehicles, armoured cars, supplies
+; tanks      - main battle tanks, TDs, SPGs
+; doctrine   - specific doctrine setups
+
+; TEMP: Note all levels have been brought down to 1 to remove unit locks.
+; Squads currently have an MP cost of 0 - their cost is currently calculated as the sum of their soldiers cost, see inf_ger.set
+; Check ../settings.set for syntax instructions!!
+; unit limits per game are not defined here but in gamemode presets
+
+;user defined set tags that should be featured on units:
+;all artillery heavyart cannon mediumcan heavycan light medium heavy infantry supply
+;these tags allow player to disable certain sets for custom setups like "no heavy artillery" 
+;//////////////////////////////////////////////////
+
+
+;_________________________________________________
+;|        	Default Strategic Abilities           |
+;|________________________________________________|
+
+;//Artillery Strike dummies
+
+;//Artillery Supports
+
+
+
+;// Helicopter CAS Runs
+
+
+
+;// Airstrikes
+
+
+
+;// OTHER OFFMAP Supports (Paradrops)
+
+;_________________________________________________
+;|             inf singles/teams                  |
+;|________________________________________________|							
+
+
+
+;_________________________________________________
+;|             inf squads                         |
+;|________________________________________________|
+
+;;;era1960 Period
+
+;;; Conscripts & Tier 0 Troops
+
+;;; Regular Troops
+
+
+{"squad_rifle_mech_con(gdr)" 
+	("squad_vehicle8"		 side(gdr) period(era1960) min_stage(0) max_stage(10) vehicle(btr-152_gdr) cw(0) cp(0) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_marksman:1) crew6(reg_lmgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2))
+}
+{"squad_rifle_mech2_con(gdr)" 
+	("squad_vehicle8"		 side(gdr) period(era1960) min_stage(2) max_stage(15) vehicle(btr-50p_gdr) cw(0) cp(0) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_marksman:1) crew6(reg_lmgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2))
+}
+{"squad_rifle_mech3_con(gdr)" 
+	("squad_vehicle8"		 side(gdr) period(era1960) min_stage(3) max_stage(100) vehicle(btr-60pa_gdr) cw(0) cp(0) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_marksman:1) crew6(reg_lmgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2))
+}
+{"squad_rifle_mech4_con(gdr)" 
+	("squad_vehicle8"		 side(gdr) period(era1960) min_stage(4) max_stage(100) vehicle(btr-60pb_gdr) cw(0) cp(0) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_marksman:1) crew6(reg_lmgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2))
+}
+
+{"squad_rifle_mech5_con(gdr)" 
+	("squad_vehicle8"		 side(gdr) period(era1960) min_stage(6) max_stage(100) vehicle(bmp-1_gdr) cw(0) cp(0) crew1(sup_vehicleman:2) crew2(reg_squadlead:1) crew3(reg_lmg:1) crew4(reg_antitank:1) crew5(reg_marksman:1) crew6(reg_lmgassist:1) crew7(reg_atassist:1) crew8(reg_rifleman:2))
+}
+
+;;; Guards
+
+{"squad_guards_mech_con(gdr)" 
+	("squad_vehicle8"		 side(gdr) period(era1960) min_stage(2) max_stage(15) vehicle(btr-152_gdr) cw(0) cp(0) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_marksman:1) crew6(grd_mgassist:1) crew7(grd_atassist:1) crew8(grd_rifleman:2))
+}
+{"squad_guards_mech2_con(gdr)" 
+	("squad_vehicle8"		 side(gdr) period(era1960) min_stage(3) max_stage(25) vehicle(btr-50p_gdr) cw(0) cp(0) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_marksman:1) crew6(grd_mgassist:1) crew7(grd_atassist:1) crew8(grd_rifleman:2))
+}
+{"squad_guards_mech3_con(gdr)" 
+	("squad_vehicle8"		 side(gdr) period(era1960) min_stage(3) max_stage(99) vehicle(btr-60pa_gdr) cw(0) cp(0) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_marksman:1) crew6(grd_mgassist:1) crew7(grd_atassist:1) crew8(grd_rifleman:2))
+}
+{"squad_guards_mech4_con(gdr)" 
+	("squad_vehicle8"		 side(gdr) period(era1960) min_stage(4) max_stage(99) vehicle(btr-60pb_gdr) cw(0) cp(0) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_marksman:1) crew6(grd_mgassist:1) crew7(grd_atassist:1) crew8(grd_rifleman:2))
+}
+{"squad_guards_mech5_con(gdr)" 
+	("squad_vehicle8"		 side(gdr) period(era1960) min_stage(5) max_stage(99) vehicle(bmp-1_gdr) cw(0) cp(0) crew1(grd_vehicleman:2) crew2(grd_squadlead:1) crew3(grd_mg:1) crew4(grd_antitank:1) crew5(grd_marksman:1) crew6(grd_mgassist:1) crew7(grd_atassist:1) crew8(grd_rifleman:2))
+}
+
+;;; Other Squads
+
+;_________________________________________________
+;|                  Emplacements                  |
+;|________________________________________________|
+
+
+; AI DEFENSIVE EMPLACEMENTS
+
+
+;AUTOMATIC WEAPONRY
+
+
+{"57mm_s-60_gdr"
+	("vehicle"  side(gdr) period(era1960) min_stage(4) max_stage(30) cw(4) cp(2) crew(sup_guncrew:4))
+	{cost 300}
+}
+
+
+; AT WEAPONRY
+{"b-10_gdr"
+	("vehicle" side(gdr) period(era1960) min_stage(6) max_stage(99) crew(sup_guncrew:4) cw(0) cp(4))
+	{cost 500}
+}
+;ARTILLERY 
+
+
+{"bs3_gdr"
+	("vehicle" side(gdr) period(era1960) min_stage(6) max_stage(99) crew(sup_guncrew:4) cw(0) cp(4))
+	{cost 500}
+}
+
+{"122mm_m30_gdr"
+	("vehicle" period(era1960) min_stage(10) max_stage(99) side(gdr) crew(sup_guncrew:4) cw(0) cp(4))
+	{cost 350}
+}
+
+{"d1_gdr"
+	("vehicle" side(gdr) period(era1960) min_stage(6) max_stage(99) crew(sup_guncrew:4) cw(0) cp(4))
+	{cost 500}
+}
+
+{"d-44_gdr"
+	("vehicle" side(gdr) period(era1960) min_stage(6) max_stage(99) crew(sup_guncrew:4) cw(0) cp(4))
+	{cost 500}
+}
+
+
+;_________________________________________________
+;|               Support vehicles                 |
+;|________________________________________________|
+
+{"gaz-61_gdr"
+	("vehicle"  period(era1960) min_stage(1) max_stage(99) side(gdr) crew(sup_supporter:1) cw(0) cp(0))
+	{cost 75}
+}
+
+{"gaz-61_eng_gdr"
+	("vehicle"  period(era1960) min_stage(1) max_stage(10) side(gdr) crew(reg_engineer:2) cw(0) cp(2))
+	{cost 150}
+}
+
+{"gaz-61_ammo_gdr"
+	("vehicle"  period(era1960) min_stage(1) max_stage(10) side(gdr) crew(sup_supporter:1) cw(0) cp(2))
+	{cost 150}
+}
+
+
+{"ural375_gdr"
+	("vehicle"  period(era1960) min_stage(4) max_stage(99) side(gdr) crew(sup_supporter:1) cw(0) cp(0))
+	{cost 60}
+}
+
+{"ural375_ammo_gdr"
+	("vehicle"  period(era1960) min_stage(4) max_stage(99) side(gdr) crew(sup_supporter:1) cw(0) cp(4))
+	{cost 250}
+}
+
+
+{"w50la_2m3"
+	("vehicle"  period(era1960) min_stage(4) max_stage(99) side(gdr) crew(sup_supporter:3) cw(0) cp(4))
+	{cost 150}
+}
+
+
+;_________________________________________________
+;|        		 Fighting Vehicles                |
+;|________________________________________________|
+
+;LIGHT
+
+{"btr-40_gdr"
+	("vehicle" period(era1960) min_stage(0) max_stage(5) side(gdr) crew(sup_vehicleman:2) cw(0) cp(2))
+	{cost 90}
+}
+
+{"btr-40a_gdr"
+	("vehicle" period(era1960) min_stage(1) max_stage(15) side(gdr) crew(sup_vehicleman:4) cw(0) cp(4))
+	{cost 150}
+}
+
+{"btr-152_gdr"
+	("vehicle"  period(era1960) min_stage(2) max_stage(15) side(gdr) crew(sup_vehicleman:2) cw(0) cp(2))
+	{cost 90}
+}
+
+{"btr-50p_gdr"
+	("vehicle"  period(era1960) min_stage(0) max_stage(25) side(gdr) crew(sup_vehicleman:2) cw(0) cp(2))
+	{cost 90}
+}
+
+{"btr-50pk_gdr"
+	("vehicle"  period(era1960) min_stage(0) max_stage(25) side(gdr) crew(sup_vehicleman:2) cw(0) cp(2))
+	{cost 110}
+}
+
+
+{"btr-60pa_gdr"
+	("vehicle"  period(era1960) min_stage(6) max_stage(25) side(gdr) crew(sup_vehicleman:2) cw(0) cp(2))
+	{cost 100}
+}
+
+{"btr-60pb_gdr"
+	("vehicle"  period(era1960) min_stage(8) max_stage(99) side(gdr) crew(grd_vehicleman:2) cw(0) cp(4))
+	{cost 175}
+}
+
+{"brdm-1_gdr"
+	("vehicle" period(era1960) min_stage(1) max_stage(20) side(gdr) crew(sup_vehicleman:3) cw(0) cp(2))
+	{cost 95}
+}
+
+{"brdm-2_gdr"
+	("vehicle" period(era1960) min_stage(6) max_stage(99) side(gdr) crew(sup_vehicleman:3) cw(0) cp(3))
+	{cost 125}
+}
+
+
+{"2p27_gdr"
+	("vehicle" period(era1960) min_stage(3) max_stage(10) side(gdr) crew(sup_vehicleman:2) cw(0) cp(4))
+	{cost 375}
+}
+
+{"9p110_gdr"
+	("vehicle" period(era1960) min_stage(6) max_stage(20) side(gdr) crew(sup_vehicleman:2) cw(0) cp(6))
+	{cost 455}
+}
+
+
+
+{"pt-76_gdr"
+	("vehicle" period(era1960) min_stage(1) max_stage(5) side(gdr) crew(sup_tankman:3) cw(0) cp(4))
+	{cost 200}
+}
+
+
+;Medium
+
+{"t-34-85_gdr"
+	("vehicle" period(era1960) min_stage(2) max_stage(6) side(gdr) crew(sup_tankman:5) cw(0) cp(6))
+	{cost 400}
+}
+
+
+{"t-54a_gdr"
+	("vehicle" period(era1960) min_stage(3) max_stage(10) side(gdr) crew(sup_tankman:4) cw(0) cp(6))
+	{cost 400}
+}
+
+{"t-54am_gdr"
+	("vehicle" period(era1960) min_stage(4) max_stage(11) side(gdr) crew(sup_tankman:4) cw(0) cp(6))
+	{cost 450}
+}
+
+{"t-55_gdr"
+	("vehicle" period(era1960) min_stage(4) max_stage(15) side(gdr) crew(sup_tankman:4) cw(0) cp(6))
+	{cost 475}
+}
+
+{"t-55a_gdr"
+	("vehicle" period(era1960) min_stage(5) max_stage(99) side(gdr) crew(sup_tankman:4) cw(0) cp(8))
+	{cost 500}
+}
+
+{"t-72_gdr"
+	("vehicle" period(era1960) min_stage(13) max_stage(99) side(gdr) crew(sup_tankman:3) cw(0) cp(16))
+	{cost 1600}
+}
+
+{"su76_gdr"
+	("vehicle" period(era1960) min_stage(3) max_stage(15) side(gdr) crew(sup_tankman:4) cw(0) cp(0))
+	{cost 200}
+}
+
+
+{"su100_gdr"
+	("vehicle" period(era1960) min_stage(3) max_stage(15) side(gdr) crew(sup_tankman:4) cw(0) cp(0))
+	{cost 450}
+}
+
+
+{"is2_gdr"
+	("vehicle" period(era1960) min_stage(2) max_stage(4) side(gdr) crew(sup_tankman:4) cw(0) cp(6))
+	{cost 460}
+}
+
+{"zsu-23-4_gdr"
+	("vehicle" period(era1960) min_stage(8) max_stage(99) side(gdr) crew(sup_tankman:4) cw(0) cp(6))
+	{cost 400}
+}
+
+{"zsu-23-4m_gdr"
+	("vehicle" period(era1960) min_stage(12) max_stage(99) side(gdr) crew(sup_tankman:4) cw(0) cp(6))
+	{cost 400}
+}
+
+;Helicopters
+
+;_________________________________________________
+;|        		 AI ONLY for purchase     |
+;|________________________________________________|
+
+
+
+{"conquest_blank"
+	("vehicle" 	side(gdr) period(era1960) min_stage(1) max_stage(99) crew(tankman:0) cw(0) cp(0))
+	{cost 0} {not_for_player_sale 1}
+}
+
