@@ -2997,14 +2997,14 @@
 	("cannon_small")
 }
 
-{"82mm_krh36_frg"
+{"81mm_krh36_frg"
 	{on "add_weapon_sound" overload
 		("Mortar_8cm")
 	}
 }
 
 
-{"82mm_krh36_frg_ai"
+{"81mm_krh36_frg_ai"
 	{on "add_weapon_sound" overload
 		("Mortar_8cm")
 	}
