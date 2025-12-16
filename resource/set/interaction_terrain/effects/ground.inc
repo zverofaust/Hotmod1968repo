@@ -255,11 +255,11 @@
 			else
 				{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
 			}
-			{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
+			;{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
 
 		else stuff "rocketlauncher heat_shell size2"		; AT Rockets
 			{spawn "shockwave"}
-			{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
+			;{blastwave c4 2.5 r0 2 r1 3.5 position}		; needs blast because ammo is pierce
 			{if rain
 				{spawn "ex_heat_size2_mud"}
 				{spawn "grenade_shellhole" texmod "mud"}
@@ -272,15 +272,15 @@
 			}
 
 		else stuff "heat_shell"								; All Other HEAT Shells
-;			{spawn "shockwave"}
-;			{spawn "ex_heat"}
-;			{if rain
-;				{spawn "grenade_shellhole" scale 0.6 texmod "mud"}
-;			else season "winter"
-;				{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
-;			else
-;				{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
-;			}
+			{spawn "shockwave"}
+			{spawn "ex_heat"}
+			{if rain
+				{spawn "grenade_shellhole" scale 0.6 texmod "mud"}
+			else season "winter"
+				{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
+			else
+				{spawn "grenade_shellhole" scale 0.6 terrain_texmod}
+			}
 
 		else stuff "auto 15mm he"							; 15mm Autocannon HE shells
 			{if rain
